@@ -27,6 +27,7 @@
     "@aws-sdk/client-sso": "*",
     "@aws-sdk/property-provider": "*",
     "@aws-sdk/shared-ini-file-loader": "*",
+    "@aws-sdk/token-providers": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.3.1"
   },

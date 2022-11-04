@@ -16,7 +16,7 @@ export interface SSOToken {
  * @internal
  */
 export interface SsoProfile extends Profile {
-  sso_start_url?: string;
+  sso_start_url: string;
   sso_session?: string;
   sso_account_id: string;
   sso_region: string;

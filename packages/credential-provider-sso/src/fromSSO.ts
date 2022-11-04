@@ -1,6 +1,11 @@
 import { SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
+import {
+  getProfileName,
+  loadSsoSessionData,
+  parseKnownFiles,
+  SourceProfileInit,
+} from "@aws-sdk/shared-ini-file-loader";
 import { CredentialProvider } from "@aws-sdk/types";
 
 import { isSsoProfile } from "./isSsoProfile";
@@ -72,15 +77,26 @@ export const fromSSO =
   (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): CredentialProvider =>
   async () => {
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
+    const profileName = getProfileName(init);
+
     if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
       // Load the SSO config from shared AWS config file.
       const profiles = await parseKnownFiles(init);
-      const profileName = getProfileName(init);
       const profile = profiles[profileName];
 
-      // TODO(sso): merge [sso-session X] data into the profile if sso_session exists in it.
-      // TODO(sso): if the sso profile and the sso-session both have region and start URL,
-      // TODO(sso):    they must match or an error shall be thrown.
+      if (profile.sso_session) {
+        const ssoSessions = await loadSsoSessionData(init);
+        const session = ssoSessions[profile.sso_session];
+        const conflictMsg = ` configurations in profile ${profileName} and sso-session ${profile.sso_session}`;
+        if (ssoRegion && ssoRegion !== session.sso_region) {
+          throw new Error(`Conflicting SSO region` + conflictMsg);
+        }
+        if (ssoStartUrl && ssoStartUrl !== session.sso_start_url) {
+          throw new Error(`Conflicting SSO start url` + conflictMsg);
+        }
+        profile.sso_region = session.sso_region;
+        profile.sso_start_url = session.sso_start_url;
+      }
 
       if (!isSsoProfile(profile)) {
         throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
@@ -94,13 +110,22 @@ export const fromSSO =
         ssoRegion: sso_region,
         ssoRoleName: sso_role_name,
         ssoClient: ssoClient,
+        profile: profileName,
       });
-    } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName || !ssoSession) {
+    } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
       throw new CredentialsProviderError(
-        'Incomplete configuration. The fromSSO() argument hash must include "ssoAccountId",' +
-          ' "ssoRegion", "ssoRoleName", and one of "ssoStartUrl" or "ssoSession".'
+        "Incomplete configuration. The fromSSO() argument hash must include " +
+          '"ssoStartUrl", "ssoAccountId", "ssoRegion", "ssoRoleName"'
       );
     } else {
-      return resolveSSOCredentials({ ssoStartUrl, ssoSession, ssoAccountId, ssoRegion, ssoRoleName, ssoClient });
+      return resolveSSOCredentials({
+        ssoStartUrl,
+        ssoSession,
+        ssoAccountId,
+        ssoRegion,
+        ssoRoleName,
+        ssoClient,
+        profile: profileName,
+      });
     }
   };

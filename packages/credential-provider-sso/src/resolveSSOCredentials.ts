@@ -1,6 +1,7 @@
 import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@aws-sdk/shared-ini-file-loader";
+import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { Credentials } from "@aws-sdk/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
@@ -15,6 +16,9 @@ const EXPIRE_WINDOW_MS = 15 * 60 * 1000;
 
 const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
+/**
+ * @private
+ */
 export const resolveSSOCredentials = async ({
   ssoStartUrl,
   ssoSession,
@@ -22,20 +26,33 @@ export const resolveSSOCredentials = async ({
   ssoRegion,
   ssoRoleName,
   ssoClient,
+  profile,
 }: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
   let token: SSOToken;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
-  try {
-    // TODO(sso): if (ssoSession)
-    // TODO(sso): { use SSOTokenProvider }
 
-    // TODO(sso): else
-    token = await getSSOTokenFromFile(ssoStartUrl);
-  } catch (e) {
-    throw new CredentialsProviderError(
-      `The SSO session associated with this profile is invalid. ${refreshMessage}`,
-      SHOULD_FAIL_CREDENTIAL_CHAIN
-    );
+  if (ssoSession) {
+    try {
+      const _token = await getSsoTokenProvider({ profile })();
+      token = {
+        accessToken: _token.token,
+        expiresAt: new Date(_token.expiration!).toISOString(),
+      };
+    } catch (e) {
+      throw new CredentialsProviderError(
+        `The SSO session ${ssoSession} for this profile is invalid. ${refreshMessage}\n` + String(e),
+        SHOULD_FAIL_CREDENTIAL_CHAIN
+      );
+    }
+  } else {
+    try {
+      token = await getSSOTokenFromFile(ssoStartUrl);
+    } catch (e) {
+      throw new CredentialsProviderError(
+        `The SSO session associated with this profile is invalid. ${refreshMessage}`,
+        SHOULD_FAIL_CREDENTIAL_CHAIN
+      );
+    }
   }
 
   if (new Date(token.expiresAt).getTime() - Date.now() <= EXPIRE_WINDOW_MS) {

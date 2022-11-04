@@ -68,7 +68,7 @@ export const fromSso =
 
     let ssoToken: SSOToken;
     try {
-      ssoToken = await getSSOTokenFromFile(ssoSessionName);
+      ssoToken = await getSSOTokenFromFile(ssoStartUrl);
     } catch (e) {
       throw new TokenProviderError(
         `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}`,
