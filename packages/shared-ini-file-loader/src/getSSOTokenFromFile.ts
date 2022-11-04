@@ -53,10 +53,11 @@ export interface SSOToken {
 }
 
 /**
+ * @param id - can be either a start URL or the SSO session name.
  * Returns the SSO token from the file system.
  */
-export const getSSOTokenFromFile = async (ssoStartUrl: string) => {
-  const ssoTokenFilepath = getSSOTokenFilepath(ssoStartUrl);
+export const getSSOTokenFromFile = async (id: string) => {
+  const ssoTokenFilepath = getSSOTokenFilepath(id);
   const ssoTokenText = await readFile(ssoTokenFilepath, "utf8");
   return JSON.parse(ssoTokenText) as SSOToken;
 };

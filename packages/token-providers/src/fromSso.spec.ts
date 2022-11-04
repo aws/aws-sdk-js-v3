@@ -123,7 +123,7 @@ describe(fromSso.name, () => {
     const mockError = new Error("mockError");
     (getSSOTokenFromFile as jest.Mock).mockRejectedValue(mockError);
     const expectedError = new TokenProviderError(
-      `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}`,
+      `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}\n${mockError}`,
       false
     );
     await expect(fromSso(mockInit)()).rejects.toStrictEqual(expectedError);
@@ -214,7 +214,8 @@ describe(fromSso.name, () => {
       expect(validateTokenKey).toHaveBeenNthCalledWith(
         (validateTokenKey as jest.Mock).mock.calls.length,
         key,
-        mockSsoToken[key]
+        mockSsoToken[key],
+        true
       );
     }
   );

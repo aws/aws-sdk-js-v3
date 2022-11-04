@@ -10,7 +10,7 @@ import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
  * The time window (15 mins) that SDK will treat the SSO token expires in before the defined expiration date in token.
  * This is needed because server side may have invalidated the token before the defined expiration date.
  *
- * @internal
+ * @private
  */
 const EXPIRE_WINDOW_MS = 15 * 60 * 1000;
 
