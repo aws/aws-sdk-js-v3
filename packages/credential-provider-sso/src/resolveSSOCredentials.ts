@@ -17,6 +17,7 @@ const SHOULD_FAIL_CREDENTIAL_CHAIN = false;
 
 export const resolveSSOCredentials = async ({
   ssoStartUrl,
+  ssoSession,
   ssoAccountId,
   ssoRegion,
   ssoRoleName,
@@ -25,6 +26,10 @@ export const resolveSSOCredentials = async ({
   let token: SSOToken;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
   try {
+    // TODO(sso): if (ssoSession)
+    // TODO(sso): { use SSOTokenProvider }
+
+    // TODO(sso): else
     token = await getSSOTokenFromFile(ssoStartUrl);
   } catch (e) {
     throw new CredentialsProviderError(

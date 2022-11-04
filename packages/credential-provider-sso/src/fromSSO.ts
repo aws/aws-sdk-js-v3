@@ -14,6 +14,12 @@ export interface SsoCredentialsParameters {
   ssoStartUrl: string;
 
   /**
+   * SSO session identifier.
+   * Presence implies usage of the SSOTokenProvider.
+   */
+  ssoSession?: string;
+
+  /**
    * The ID of the AWS account to use for temporary credentials.
    */
   ssoAccountId: string;
@@ -36,35 +42,65 @@ export interface FromSSOInit extends SourceProfileInit {
 /**
  * Creates a credential provider that will read from a credential_process specified
  * in ini files.
+ *
+ * The SSO credential provider must support both
+ *
+ * 1. the legacy profile format,
+ * @example
+ * ```
+ * [profile sample-profile]
+ * sso_account_id = 012345678901
+ * sso_region = us-east-1
+ * sso_role_name = SampleRole
+ * sso_start_url = https://www.....com/start
+ * ```
+ *
+ * 2. and the profile format for SSO Token Providers.
+ * @example
+ * ```
+ * [profile sso-profile]
+ * sso_session = dev
+ * sso_account_id = 012345678901
+ * sso_role_name = SampleRole
+ *
+ * [sso-session dev]
+ * sso_region = us-east-1
+ * sso_start_url = https://www.....com/start
+ * ```
  */
 export const fromSSO =
   (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): CredentialProvider =>
   async () => {
-    const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient } = init;
-    if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName) {
+    const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
+    if (!ssoStartUrl && !ssoAccountId && !ssoRegion && !ssoRoleName && !ssoSession) {
       // Load the SSO config from shared AWS config file.
       const profiles = await parseKnownFiles(init);
       const profileName = getProfileName(init);
       const profile = profiles[profileName];
 
+      // TODO(sso): merge [sso-session X] data into the profile if sso_session exists in it.
+      // TODO(sso): if the sso profile and the sso-session both have region and start URL,
+      // TODO(sso):    they must match or an error shall be thrown.
+
       if (!isSsoProfile(profile)) {
         throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
       }
 
-      const { sso_start_url, sso_account_id, sso_region, sso_role_name } = validateSsoProfile(profile);
+      const { sso_start_url, sso_account_id, sso_region, sso_role_name, sso_session } = validateSsoProfile(profile);
       return resolveSSOCredentials({
         ssoStartUrl: sso_start_url,
+        ssoSession: sso_session,
         ssoAccountId: sso_account_id,
         ssoRegion: sso_region,
         ssoRoleName: sso_role_name,
         ssoClient: ssoClient,
       });
-    } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName) {
+    } else if (!ssoStartUrl || !ssoAccountId || !ssoRegion || !ssoRoleName || !ssoSession) {
       throw new CredentialsProviderError(
-        'Incomplete configuration. The fromSSO() argument hash must include "ssoStartUrl",' +
-          ' "ssoAccountId", "ssoRegion", "ssoRoleName"'
+        'Incomplete configuration. The fromSSO() argument hash must include "ssoAccountId",' +
+          ' "ssoRegion", "ssoRoleName", and one of "ssoStartUrl" or "ssoSession".'
       );
     } else {
-      return resolveSSOCredentials({ ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient });
+      return resolveSSOCredentials({ ssoStartUrl, ssoSession, ssoAccountId, ssoRegion, ssoRoleName, ssoClient });
     }
   };
