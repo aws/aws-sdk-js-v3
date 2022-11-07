@@ -935,6 +935,11 @@ export interface CreateWorkspaceImageResult {
   OwnerAccountId?: string;
 }
 
+export enum Protocol {
+  PCOIP = "PCOIP",
+  WSP = "WSP",
+}
+
 export enum RunningMode {
   ALWAYS_ON = "ALWAYS_ON",
   AUTO_STOP = "AUTO_STOP",
@@ -981,6 +986,27 @@ export interface WorkspaceProperties {
    *          Bundles</a>.</p>
    */
   ComputeTypeName?: Compute | string;
+
+  /**
+   * <p>The protocol. For more information, see
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html">
+   *             Protocols for Amazon WorkSpaces</a>.</p>
+   *          <note>
+   *             <ul>
+   *                <li>
+   *                   <p>Only available for WorkSpaces created with PCoIP bundles.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles
+   *                (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>
+   *                </li>
+   *             </ul>
+   *          </note>
+   */
+  Protocols?: (Protocol | string)[];
 }
 
 /**

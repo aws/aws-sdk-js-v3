@@ -337,6 +337,7 @@ import {
   OperatingSystem,
   OperationInProgressException,
   OperationNotSupportedException,
+  Protocol,
   RebootRequest,
   RebootWorkspacesRequest,
   RebootWorkspacesResult,
@@ -5138,6 +5139,14 @@ const serializeAws_json1_1ModifyWorkspaceStateRequest = (
   };
 };
 
+const serializeAws_json1_1ProtocolList = (input: (Protocol | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1RebootRequest = (input: RebootRequest, context: __SerdeContext): any => {
   return {
     ...(input.WorkspaceId != null && { WorkspaceId: input.WorkspaceId }),
@@ -5462,6 +5471,7 @@ const serializeAws_json1_1WorkspaceImageIdList = (input: string[], context: __Se
 const serializeAws_json1_1WorkspaceProperties = (input: WorkspaceProperties, context: __SerdeContext): any => {
   return {
     ...(input.ComputeTypeName != null && { ComputeTypeName: input.ComputeTypeName }),
+    ...(input.Protocols != null && { Protocols: serializeAws_json1_1ProtocolList(input.Protocols, context) }),
     ...(input.RootVolumeSizeGib != null && { RootVolumeSizeGib: input.RootVolumeSizeGib }),
     ...(input.RunningMode != null && { RunningMode: input.RunningMode }),
     ...(input.RunningModeAutoStopTimeoutInMinutes != null && {
@@ -6476,6 +6486,18 @@ const deserializeAws_json1_1OperationNotSupportedException = (
   } as any;
 };
 
+const deserializeAws_json1_1ProtocolList = (output: any, context: __SerdeContext): (Protocol | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1RebootWorkspacesResult = (output: any, context: __SerdeContext): RebootWorkspacesResult => {
   return {
     FailedRequests:
@@ -6919,6 +6941,7 @@ const deserializeAws_json1_1WorkspaceList = (output: any, context: __SerdeContex
 const deserializeAws_json1_1WorkspaceProperties = (output: any, context: __SerdeContext): WorkspaceProperties => {
   return {
     ComputeTypeName: __expectString(output.ComputeTypeName),
+    Protocols: output.Protocols != null ? deserializeAws_json1_1ProtocolList(output.Protocols, context) : undefined,
     RootVolumeSizeGib: __expectInt32(output.RootVolumeSizeGib),
     RunningMode: __expectString(output.RunningMode),
     RunningModeAutoStopTimeoutInMinutes: __expectInt32(output.RunningModeAutoStopTimeoutInMinutes),
