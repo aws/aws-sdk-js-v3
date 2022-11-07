@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.205.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.204.0...v3.205.0) (2022-11-07)
+
+
+### Features
+
+* **client-lex-models-v2:** Amazon Lex now supports new APIs for viewing and editing Custom Vocabulary in bots. ([aa323d6](https://github.com/aws/aws-sdk-js-v3/commit/aa323d657242f2fa3e095d56e3ea57b60dddcc1a))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 

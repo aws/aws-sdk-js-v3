@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.205.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.204.0...v3.205.0) (2022-11-07)
+
+
+### Features
+
+* **client-ssm:** This release includes support for applying a CloudWatch alarm to multi account multi region Systems Manager Automation ([2ced1dc](https://github.com/aws/aws-sdk-js-v3/commit/2ced1dc2cbe887cb98313623bba6447927486cf6))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 
