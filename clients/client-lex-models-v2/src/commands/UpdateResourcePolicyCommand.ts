@@ -19,7 +19,7 @@ import {
   UpdateResourcePolicyRequestFilterSensitiveLog,
   UpdateResourcePolicyResponse,
   UpdateResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateResourcePolicyCommand,
   serializeAws_restJson1UpdateResourcePolicyCommand,

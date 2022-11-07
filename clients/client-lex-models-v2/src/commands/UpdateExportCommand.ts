@@ -19,7 +19,7 @@ import {
   UpdateExportRequestFilterSensitiveLog,
   UpdateExportResponse,
   UpdateExportResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UpdateExportCommand,
   serializeAws_restJson1UpdateExportCommand,

@@ -15,39 +15,42 @@ import {
 
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
 import {
-  UpdateSlotTypeRequest,
-  UpdateSlotTypeRequestFilterSensitiveLog,
-  UpdateSlotTypeResponse,
-  UpdateSlotTypeResponseFilterSensitiveLog,
-} from "../models/models_1";
+  BatchCreateCustomVocabularyItemRequest,
+  BatchCreateCustomVocabularyItemRequestFilterSensitiveLog,
+  BatchCreateCustomVocabularyItemResponse,
+  BatchCreateCustomVocabularyItemResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateSlotTypeCommand,
-  serializeAws_restJson1UpdateSlotTypeCommand,
+  deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
+  serializeAws_restJson1BatchCreateCustomVocabularyItemCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdateSlotTypeCommandInput extends UpdateSlotTypeRequest {}
-export interface UpdateSlotTypeCommandOutput extends UpdateSlotTypeResponse, __MetadataBearer {}
+export interface BatchCreateCustomVocabularyItemCommandInput extends BatchCreateCustomVocabularyItemRequest {}
+export interface BatchCreateCustomVocabularyItemCommandOutput
+  extends BatchCreateCustomVocabularyItemResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Updates the configuration of an existing slot type.</p>
+ * <p>Batch create custom vocabulary item for the specified locale in the
+ *          specified bot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, UpdateSlotTypeCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, UpdateSlotTypeCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, BatchCreateCustomVocabularyItemCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const command = new UpdateSlotTypeCommand(input);
+ * const command = new BatchCreateCustomVocabularyItemCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateSlotTypeCommandInput} for command's `input` shape.
- * @see {@link UpdateSlotTypeCommandOutput} for command's `response` shape.
+ * @see {@link BatchCreateCustomVocabularyItemCommandInput} for command's `input` shape.
+ * @see {@link BatchCreateCustomVocabularyItemCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  */
-export class UpdateSlotTypeCommand extends $Command<
-  UpdateSlotTypeCommandInput,
-  UpdateSlotTypeCommandOutput,
+export class BatchCreateCustomVocabularyItemCommand extends $Command<
+  BatchCreateCustomVocabularyItemCommandInput,
+  BatchCreateCustomVocabularyItemCommandOutput,
   LexModelsV2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class UpdateSlotTypeCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateSlotTypeCommandInput) {
+  constructor(readonly input: BatchCreateCustomVocabularyItemCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +78,23 @@ export class UpdateSlotTypeCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LexModelsV2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateSlotTypeCommandInput, UpdateSlotTypeCommandOutput> {
+  ): Handler<BatchCreateCustomVocabularyItemCommandInput, BatchCreateCustomVocabularyItemCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateSlotTypeCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, BatchCreateCustomVocabularyItemCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LexModelsV2Client";
-    const commandName = "UpdateSlotTypeCommand";
+    const commandName = "BatchCreateCustomVocabularyItemCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateSlotTypeRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateSlotTypeResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: BatchCreateCustomVocabularyItemRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: BatchCreateCustomVocabularyItemResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +104,18 @@ export class UpdateSlotTypeCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateSlotTypeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateSlotTypeCommand(input, context);
+  private serialize(
+    input: BatchCreateCustomVocabularyItemCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1BatchCreateCustomVocabularyItemCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateSlotTypeCommandOutput> {
-    return deserializeAws_restJson1UpdateSlotTypeCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<BatchCreateCustomVocabularyItemCommandOutput> {
+    return deserializeAws_restJson1BatchCreateCustomVocabularyItemCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -30,7 +30,8 @@ export interface ListRecommendedIntentsCommandOutput extends ListRecommendedInte
 
 /**
  * <p>Gets a list of recommended intents provided by the bot
- *          recommendation that you can use in your bot.</p>
+ *          recommendation that you can use in your bot. Intents in the
+ *          response are ordered by relevance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

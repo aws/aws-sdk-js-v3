@@ -8,6 +8,7 @@ export * from "./ListBotVersionsPaginator";
 export * from "./ListBotsPaginator";
 export * from "./ListBuiltInIntentsPaginator";
 export * from "./ListBuiltInSlotTypesPaginator";
+export * from "./ListCustomVocabularyItemsPaginator";
 export * from "./ListExportsPaginator";
 export * from "./ListImportsPaginator";
 export * from "./ListIntentsPaginator";

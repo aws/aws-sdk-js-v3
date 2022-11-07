@@ -47,6 +47,18 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import {
+  BatchCreateCustomVocabularyItemCommandInput,
+  BatchCreateCustomVocabularyItemCommandOutput,
+} from "./commands/BatchCreateCustomVocabularyItemCommand";
+import {
+  BatchDeleteCustomVocabularyItemCommandInput,
+  BatchDeleteCustomVocabularyItemCommandOutput,
+} from "./commands/BatchDeleteCustomVocabularyItemCommand";
+import {
+  BatchUpdateCustomVocabularyItemCommandInput,
+  BatchUpdateCustomVocabularyItemCommandOutput,
+} from "./commands/BatchUpdateCustomVocabularyItemCommand";
 import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "./commands/BuildBotLocaleCommand";
 import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "./commands/CreateBotAliasCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
@@ -125,6 +137,10 @@ import {
   ListBuiltInSlotTypesCommandInput,
   ListBuiltInSlotTypesCommandOutput,
 } from "./commands/ListBuiltInSlotTypesCommand";
+import {
+  ListCustomVocabularyItemsCommandInput,
+  ListCustomVocabularyItemsCommandOutput,
+} from "./commands/ListCustomVocabularyItemsCommand";
 import { ListExportsCommandInput, ListExportsCommandOutput } from "./commands/ListExportsCommand";
 import { ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import { ListIntentsCommandInput, ListIntentsCommandOutput } from "./commands/ListIntentsCommand";
@@ -177,6 +193,9 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | BatchCreateCustomVocabularyItemCommandInput
+  | BatchDeleteCustomVocabularyItemCommandInput
+  | BatchUpdateCustomVocabularyItemCommandInput
   | BuildBotLocaleCommandInput
   | CreateBotAliasCommandInput
   | CreateBotCommandInput
@@ -222,6 +241,7 @@ export type ServiceInputTypes =
   | ListBotsCommandInput
   | ListBuiltInIntentsCommandInput
   | ListBuiltInSlotTypesCommandInput
+  | ListCustomVocabularyItemsCommandInput
   | ListExportsCommandInput
   | ListImportsCommandInput
   | ListIntentsCommandInput
@@ -246,6 +266,9 @@ export type ServiceInputTypes =
   | UpdateSlotTypeCommandInput;
 
 export type ServiceOutputTypes =
+  | BatchCreateCustomVocabularyItemCommandOutput
+  | BatchDeleteCustomVocabularyItemCommandOutput
+  | BatchUpdateCustomVocabularyItemCommandOutput
   | BuildBotLocaleCommandOutput
   | CreateBotAliasCommandOutput
   | CreateBotCommandOutput
@@ -291,6 +314,7 @@ export type ServiceOutputTypes =
   | ListBotsCommandOutput
   | ListBuiltInIntentsCommandOutput
   | ListBuiltInSlotTypesCommandOutput
+  | ListCustomVocabularyItemsCommandOutput
   | ListExportsCommandOutput
   | ListImportsCommandOutput
   | ListIntentsCommandOutput
