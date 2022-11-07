@@ -27,6 +27,14 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+export enum CheckStatus {
+  ERROR = "ERROR",
+  FETCH_FAILED = "FETCH_FAILED",
+  NOT_AVAILABLE = "NOT_AVAILABLE",
+  OKAY = "OKAY",
+  WARNING = "WARNING",
+}
+
 /**
  * <p>The choice content.</p>
  */
@@ -509,6 +517,149 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export enum CheckProvider {
+  TRUSTED_ADVISOR = "TRUSTED_ADVISOR",
+}
+
+export enum CheckFailureReason {
+  ACCESS_DENIED = "ACCESS_DENIED",
+  ASSUME_ROLE_ERROR = "ASSUME_ROLE_ERROR",
+  PREMIUM_SUPPORT_REQUIRED = "PREMIUM_SUPPORT_REQUIRED",
+  UNKNOWN_ERROR = "UNKNOWN_ERROR",
+}
+
+/**
+ * <p>Account details for a Well-Architected best practice in relation to Trusted Advisor checks.</p>
+ */
+export interface CheckDetail {
+  /**
+   * <p>Trusted Advisor check ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Trusted Advisor check name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Trusted Advisor check description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Provider of the check related to the best practice.</p>
+   */
+  Provider?: CheckProvider | string;
+
+  /**
+   * <p>Well-Architected Lens ARN associated to the check.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   */
+  PillarId?: string;
+
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>Status associated to the check.</p>
+   */
+  Status?: CheckStatus | string;
+
+  /**
+   * <p>An Amazon Web Services account ID.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>Count of flagged resources associated to the check.</p>
+   */
+  FlaggedResources?: number;
+
+  /**
+   * <p>Reason associated to the check.</p>
+   */
+  Reason?: CheckFailureReason | string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+}
+
+/**
+ * <p>Trusted Advisor check summary.</p>
+ */
+export interface CheckSummary {
+  /**
+   * <p>Trusted Advisor check ID.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>Trusted Advisor check name.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>Provider of the check related to the best practice.</p>
+   */
+  Provider?: CheckProvider | string;
+
+  /**
+   * <p>Trusted Advisor check description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The date and time recorded.</p>
+   */
+  UpdatedAt?: Date;
+
+  /**
+   * <p>Well-Architected Lens ARN associated to the check.</p>
+   */
+  LensArn?: string;
+
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   */
+  PillarId?: string;
+
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId?: string;
+
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId?: string;
+
+  /**
+   * <p>Status associated to the check.</p>
+   */
+  Status?: CheckStatus | string;
+
+  /**
+   * <p>Account summary associated to the check.</p>
+   */
+  AccountSummary?: Record<string, number>;
+}
+
 /**
  * <p>The choice level improvement plan.</p>
  */
@@ -561,7 +712,7 @@ export interface CreateLensShareInput {
   LensAlias: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith: string | undefined;
 
@@ -726,6 +877,21 @@ export interface CreateMilestoneOutput {
    *         <p>A workload can have a maximum of 100 milestones.</p>
    */
   MilestoneNumber?: number;
+}
+
+export enum TrustedAdvisorIntegrationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Discovery configuration associated to the workload.</p>
+ */
+export interface WorkloadDiscoveryConfig {
+  /**
+   * <p>Discovery integration status in respect to Trusted Advisor for the workload.</p>
+   */
+  TrustedAdvisorIntegrationStatus?: TrustedAdvisorIntegrationStatus | string;
 }
 
 export enum WorkloadEnvironment {
@@ -963,6 +1129,16 @@ export interface CreateWorkloadInput {
    * <p>The tags to be associated with the workload.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>Well-Architected discovery configuration settings associated to the workload.</p>
+   */
+  DiscoveryConfig?: WorkloadDiscoveryConfig;
+
+  /**
+   * <p>List of AppRegistry application ARNs associated to the workload.</p>
+   */
+  Applications?: string[];
 }
 
 /**
@@ -995,7 +1171,7 @@ export interface CreateWorkloadShareInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith: string | undefined;
 
@@ -1938,6 +2114,16 @@ export interface Workload {
    * <p>The tags associated with the workload.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>Discovery configuration associated to the workload.</p>
+   */
+  DiscoveryConfig?: WorkloadDiscoveryConfig;
+
+  /**
+   * <p>List of AppRegistry application ARNs associated to the workload.</p>
+   */
+  Applications?: string[];
 }
 
 /**
@@ -2157,7 +2343,7 @@ export interface LensShareSummary {
   ShareId?: string;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -2359,6 +2545,106 @@ export interface ListAnswersOutput {
   NextToken?: string;
 }
 
+export interface ListCheckDetailsInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Well-Architected Lens ARN.</p>
+   */
+  LensArn: string | undefined;
+
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   */
+  PillarId: string | undefined;
+
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId: string | undefined;
+
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId: string | undefined;
+}
+
+export interface ListCheckDetailsOutput {
+  /**
+   * <p>The details about the Trusted Advisor checks related to the Well-Architected best practice.</p>
+   */
+  CheckDetails?: CheckDetail[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCheckSummariesInput {
+  /**
+   * <p>The ID assigned to the workload. This ID is unique within an Amazon Web Services Region.</p>
+   */
+  WorkloadId: string | undefined;
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return for this request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Well-Architected Lens ARN.</p>
+   */
+  LensArn: string | undefined;
+
+  /**
+   * <p>The ID used to identify a pillar, for example, <code>security</code>.</p>
+   *         <p>A pillar is identified by its <a>PillarReviewSummary$PillarId</a>.</p>
+   */
+  PillarId: string | undefined;
+
+  /**
+   * <p>The ID of the question.</p>
+   */
+  QuestionId: string | undefined;
+
+  /**
+   * <p>The ID of a choice.</p>
+   */
+  ChoiceId: string | undefined;
+}
+
+export interface ListCheckSummariesOutput {
+  /**
+   * <p>List of Trusted Advisor summaries related to the Well-Architected best practice.</p>
+   */
+  CheckSummaries?: CheckSummary[];
+
+  /**
+   * <p>The token to use to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
 /**
  * <p>Input to list lenses.</p>
  */
@@ -2548,7 +2834,7 @@ export interface ListLensSharesInput {
   LensAlias: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the lens is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the lens is shared.</p>
    */
   SharedWithPrefix?: string;
 
@@ -2794,7 +3080,7 @@ export interface ShareInvitationSummary {
   SharedBy?: string;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -2906,7 +3192,7 @@ export interface ListWorkloadSharesInput {
   WorkloadId: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWithPrefix?: string;
 
@@ -2936,7 +3222,7 @@ export interface WorkloadShareSummary {
   ShareId?: string;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -3197,7 +3483,7 @@ export interface UpdateShareInvitationInput {
 
 export interface UpdateShareInvitationOutput {
   /**
-   * <p>The updated workload share invitation.</p>
+   * <p>The updated workload or custom lens share invitation.</p>
    */
   ShareInvitation?: ShareInvitation;
 }
@@ -3427,6 +3713,16 @@ export interface UpdateWorkloadInput {
    * <p>The improvement status for a workload.</p>
    */
   ImprovementStatus?: WorkloadImprovementStatus | string;
+
+  /**
+   * <p>Well-Architected discovery configuration settings to associate to the workload.</p>
+   */
+  DiscoveryConfig?: WorkloadDiscoveryConfig;
+
+  /**
+   * <p>List of AppRegistry application ARNs to associate to the workload.</p>
+   */
+  Applications?: string[];
 }
 
 /**
@@ -3474,7 +3770,7 @@ export interface WorkloadShare {
   SharedBy?: string;
 
   /**
-   * <p>The Amazon Web Services account ID or IAM role with which the workload is shared.</p>
+   * <p>The Amazon Web Services account ID, IAM role, organization ID, or organizational unit (OU) ID with which the workload is shared.</p>
    */
   SharedWith?: string;
 
@@ -3618,6 +3914,20 @@ export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExcept
 /**
  * @internal
  */
+export const CheckDetailFilterSensitiveLog = (obj: CheckDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CheckSummaryFilterSensitiveLog = (obj: CheckSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ChoiceImprovementPlanFilterSensitiveLog = (obj: ChoiceImprovementPlan): any => ({
   ...obj,
 });
@@ -3668,6 +3978,13 @@ export const CreateMilestoneInputFilterSensitiveLog = (obj: CreateMilestoneInput
  * @internal
  */
 export const CreateMilestoneOutputFilterSensitiveLog = (obj: CreateMilestoneOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WorkloadDiscoveryConfigFilterSensitiveLog = (obj: WorkloadDiscoveryConfig): any => ({
   ...obj,
 });
 
@@ -3969,6 +4286,34 @@ export const ListAnswersInputFilterSensitiveLog = (obj: ListAnswersInput): any =
  * @internal
  */
 export const ListAnswersOutputFilterSensitiveLog = (obj: ListAnswersOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCheckDetailsInputFilterSensitiveLog = (obj: ListCheckDetailsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCheckDetailsOutputFilterSensitiveLog = (obj: ListCheckDetailsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCheckSummariesInputFilterSensitiveLog = (obj: ListCheckSummariesInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListCheckSummariesOutputFilterSensitiveLog = (obj: ListCheckSummariesOutput): any => ({
   ...obj,
 });
 

@@ -30,7 +30,8 @@ export interface CreateWorkloadCommandOutput extends CreateWorkloadOutput, __Met
 
 /**
  * <p>Create a new workload.</p>
- *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts and IAM users
+ *         <p>The owner of a workload can share the workload with other Amazon Web Services accounts, IAM users,
+ *             an organization, and organizational units (OUs)
  *             in the same Amazon Web Services Region. Only the owner of a workload can delete it.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/wellarchitected/latest/userguide/define-workload.html">Defining a Workload</a> in the
  *                 <i>Well-Architected Tool User Guide</i>.</p>

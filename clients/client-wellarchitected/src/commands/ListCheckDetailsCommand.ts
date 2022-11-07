@@ -14,43 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateShareInvitationInput,
-  UpdateShareInvitationInputFilterSensitiveLog,
-  UpdateShareInvitationOutput,
-  UpdateShareInvitationOutputFilterSensitiveLog,
+  ListCheckDetailsInput,
+  ListCheckDetailsInputFilterSensitiveLog,
+  ListCheckDetailsOutput,
+  ListCheckDetailsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdateShareInvitationCommand,
-  serializeAws_restJson1UpdateShareInvitationCommand,
+  deserializeAws_restJson1ListCheckDetailsCommand,
+  serializeAws_restJson1ListCheckDetailsCommand,
 } from "../protocols/Aws_restJson1";
 import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedConfig } from "../WellArchitectedClient";
 
-export interface UpdateShareInvitationCommandInput extends UpdateShareInvitationInput {}
-export interface UpdateShareInvitationCommandOutput extends UpdateShareInvitationOutput, __MetadataBearer {}
+export interface ListCheckDetailsCommandInput extends ListCheckDetailsInput {}
+export interface ListCheckDetailsCommandOutput extends ListCheckDetailsOutput, __MetadataBearer {}
 
 /**
- * <p>Update a workload or custom lens share invitation.</p>
- *         <note>
- *             <p>This API operation can be called independently of any resource. Previous documentation implied that a workload ARN must be specified.</p>
- *          </note>
+ * <p>List of Trusted Advisor check details by account related to the workload.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { WellArchitectedClient, UpdateShareInvitationCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
- * // const { WellArchitectedClient, UpdateShareInvitationCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
+ * import { WellArchitectedClient, ListCheckDetailsCommand } from "@aws-sdk/client-wellarchitected"; // ES Modules import
+ * // const { WellArchitectedClient, ListCheckDetailsCommand } = require("@aws-sdk/client-wellarchitected"); // CommonJS import
  * const client = new WellArchitectedClient(config);
- * const command = new UpdateShareInvitationCommand(input);
+ * const command = new ListCheckDetailsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateShareInvitationCommandInput} for command's `input` shape.
- * @see {@link UpdateShareInvitationCommandOutput} for command's `response` shape.
+ * @see {@link ListCheckDetailsCommandInput} for command's `input` shape.
+ * @see {@link ListCheckDetailsCommandOutput} for command's `response` shape.
  * @see {@link WellArchitectedClientResolvedConfig | config} for WellArchitectedClient's `config` shape.
  *
  */
-export class UpdateShareInvitationCommand extends $Command<
-  UpdateShareInvitationCommandInput,
-  UpdateShareInvitationCommandOutput,
+export class ListCheckDetailsCommand extends $Command<
+  ListCheckDetailsCommandInput,
+  ListCheckDetailsCommandOutput,
   WellArchitectedClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +62,7 @@ export class UpdateShareInvitationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateShareInvitationCommandInput) {
+  constructor(readonly input: ListCheckDetailsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +75,23 @@ export class UpdateShareInvitationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: WellArchitectedClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateShareInvitationCommandInput, UpdateShareInvitationCommandOutput> {
+  ): Handler<ListCheckDetailsCommandInput, ListCheckDetailsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateShareInvitationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListCheckDetailsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "WellArchitectedClient";
-    const commandName = "UpdateShareInvitationCommand";
+    const commandName = "ListCheckDetailsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateShareInvitationInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateShareInvitationOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListCheckDetailsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCheckDetailsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +101,12 @@ export class UpdateShareInvitationCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateShareInvitationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdateShareInvitationCommand(input, context);
+  private serialize(input: ListCheckDetailsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListCheckDetailsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateShareInvitationCommandOutput> {
-    return deserializeAws_restJson1UpdateShareInvitationCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListCheckDetailsCommandOutput> {
+    return deserializeAws_restJson1ListCheckDetailsCommand(output, context);
   }
 
   // Start section: command_body_extra
