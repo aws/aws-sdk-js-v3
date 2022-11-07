@@ -50,26 +50,32 @@
       }
     },
     "com.amazonaws.autoscaling#AcceleratorManufacturer": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "nvidia",
-            "name": "NVIDIA"
-          },
-          {
-            "value": "amd",
-            "name": "AMD"
-          },
-          {
-            "value": "amazon-web-services",
-            "name": "AMAZON_WEB_SERVICES"
-          },
-          {
-            "value": "xilinx",
-            "name": "XILINX"
+      "type": "enum",
+      "members": {
+        "NVIDIA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nvidia"
           }
-        ]
+        },
+        "AMD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amd"
+          }
+        },
+        "AMAZON_WEB_SERVICES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amazon-web-services"
+          }
+        },
+        "XILINX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "xilinx"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#AcceleratorManufacturers": {
@@ -79,38 +85,50 @@
       }
     },
     "com.amazonaws.autoscaling#AcceleratorName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "a100",
-            "name": "A100"
-          },
-          {
-            "value": "v100",
-            "name": "V100"
-          },
-          {
-            "value": "k80",
-            "name": "K80"
-          },
-          {
-            "value": "t4",
-            "name": "T4"
-          },
-          {
-            "value": "m60",
-            "name": "M60"
-          },
-          {
-            "value": "radeon-pro-v520",
-            "name": "RADEON_PRO_V520"
-          },
-          {
-            "value": "vu9p",
-            "name": "VU9P"
+      "type": "enum",
+      "members": {
+        "A100": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "a100"
           }
-        ]
+        },
+        "V100": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "v100"
+          }
+        },
+        "K80": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "k80"
+          }
+        },
+        "T4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "t4"
+          }
+        },
+        "M60": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "m60"
+          }
+        },
+        "RADEON_PRO_V520": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "radeon-pro-v520"
+          }
+        },
+        "VU9P": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "vu9p"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#AcceleratorNames": {
@@ -140,22 +158,26 @@
       }
     },
     "com.amazonaws.autoscaling#AcceleratorType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "gpu",
-            "name": "GPU"
-          },
-          {
-            "value": "fpga",
-            "name": "FPGA"
-          },
-          {
-            "value": "inference",
-            "name": "INFERENCE"
+      "type": "enum",
+      "members": {
+        "GPU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "gpu"
           }
-        ]
+        },
+        "FPGA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fpga"
+          }
+        },
+        "INFERENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "inference"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#AcceleratorTypes": {
@@ -352,6 +374,28 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.autoscaling#Alarm"
+      }
+    },
+    "com.amazonaws.autoscaling#AllowedInstanceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 30
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9\\.\\*]+$"
+      }
+    },
+    "com.amazonaws.autoscaling#AllowedInstanceTypes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.autoscaling#AllowedInstanceType"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 400
+        }
       }
     },
     "com.amazonaws.autoscaling#AlreadyExistsFault": {
@@ -1463,9 +1507,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1476,9 +1520,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1489,9 +1533,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1502,9 +1546,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1515,9 +1559,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1528,9 +1572,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1541,9 +1585,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1554,9 +1598,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1567,9 +1611,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1580,9 +1624,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1593,9 +1637,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1606,9 +1650,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1619,9 +1663,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1632,9 +1676,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1645,9 +1689,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1658,9 +1702,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-south-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1671,9 +1715,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1684,9 +1728,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1697,9 +1741,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1710,9 +1754,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1723,9 +1767,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1736,9 +1780,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1749,9 +1793,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1762,9 +1806,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1775,9 +1819,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1788,9 +1832,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1801,9 +1845,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1814,9 +1858,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1827,9 +1871,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1840,9 +1884,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1853,9 +1897,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1866,9 +1910,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1877,9 +1921,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1890,9 +1934,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1901,9 +1945,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1914,9 +1958,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1927,9 +1971,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1940,9 +1984,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -1953,9 +1997,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -1966,9 +2010,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -1979,9 +2023,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -1992,9 +2036,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2005,9 +2049,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2018,9 +2062,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2031,9 +2075,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2044,9 +2088,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2057,9 +2101,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2070,9 +2114,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2083,9 +2127,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2096,9 +2140,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2109,9 +2153,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2122,9 +2166,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2135,9 +2179,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2148,9 +2192,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2161,9 +2205,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2174,9 +2218,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2187,9 +2231,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2200,9 +2244,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2213,9 +2257,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2226,9 +2270,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2239,9 +2283,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2252,9 +2296,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2265,9 +2309,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2278,9 +2322,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2291,9 +2335,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2304,9 +2348,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2317,9 +2361,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2330,9 +2374,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2343,9 +2387,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2356,9 +2400,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2369,9 +2413,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2382,9 +2426,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2395,9 +2439,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2408,9 +2452,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2421,9 +2465,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2434,9 +2478,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2447,9 +2491,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2460,9 +2504,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2473,9 +2517,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2486,9 +2530,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2499,9 +2543,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2512,9 +2556,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2525,9 +2569,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2538,9 +2582,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2551,9 +2595,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2564,9 +2608,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2577,9 +2621,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2590,9 +2634,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2603,9 +2647,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2616,9 +2660,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2629,9 +2673,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2642,9 +2686,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2655,9 +2699,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2668,9 +2712,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2681,9 +2725,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2694,9 +2738,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2707,9 +2751,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2720,9 +2764,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2733,9 +2777,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2746,9 +2790,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2759,9 +2803,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2772,9 +2816,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2785,9 +2829,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2798,9 +2842,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2811,9 +2855,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2824,9 +2868,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2837,9 +2881,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2850,9 +2894,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2861,9 +2905,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2874,9 +2918,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2885,9 +2929,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2898,9 +2942,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-iso-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2911,9 +2955,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2924,9 +2968,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2937,9 +2981,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2950,9 +2994,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2963,9 +3007,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2976,9 +3020,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2989,9 +3033,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-4",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3002,9 +3046,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-4",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3015,9 +3059,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3028,9 +3072,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3041,9 +3085,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3054,9 +3098,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3067,9 +3111,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3080,9 +3124,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3093,9 +3137,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3106,9 +3150,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3119,9 +3163,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3132,9 +3176,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3145,9 +3189,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3158,9 +3202,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3169,9 +3213,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3182,9 +3226,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3193,9 +3237,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3206,9 +3250,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-isob-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3219,9 +3263,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3231,9 +3275,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3243,9 +3287,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3261,22 +3305,26 @@
       }
     },
     "com.amazonaws.autoscaling#BareMetal": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "included",
-            "name": "INCLUDED"
-          },
-          {
-            "value": "excluded",
-            "name": "EXCLUDED"
-          },
-          {
-            "value": "required",
-            "name": "REQUIRED"
+      "type": "enum",
+      "members": {
+        "INCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "included"
           }
-        ]
+        },
+        "EXCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "excluded"
+          }
+        },
+        "REQUIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "required"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#BaselineEbsBandwidthMbpsRequest": {
@@ -3481,22 +3529,26 @@
       }
     },
     "com.amazonaws.autoscaling#BurstablePerformance": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "included",
-            "name": "INCLUDED"
-          },
-          {
-            "value": "excluded",
-            "name": "EXCLUDED"
-          },
-          {
-            "value": "required",
-            "name": "REQUIRED"
+      "type": "enum",
+      "members": {
+        "INCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "included"
           }
-        ]
+        },
+        "EXCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "excluded"
+          }
+        },
+        "REQUIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "required"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#CancelInstanceRefresh": {
@@ -3657,22 +3709,26 @@
       "type": "integer"
     },
     "com.amazonaws.autoscaling#CpuManufacturer": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "intel",
-            "name": "INTEL"
-          },
-          {
-            "value": "amd",
-            "name": "AMD"
-          },
-          {
-            "value": "amazon-web-services",
-            "name": "AMAZON_WEB_SERVICES"
+      "type": "enum",
+      "members": {
+        "INTEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "intel"
           }
-        ]
+        },
+        "AMD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amd"
+          }
+        },
+        "AMAZON_WEB_SERVICES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amazon-web-services"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#CpuManufacturers": {
@@ -3732,7 +3788,7 @@
         "MixedInstancesPolicy": {
           "target": "com.amazonaws.autoscaling#MixedInstancesPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>An embedded object that specifies a mixed instances policy.</p>\n        \n        \n        \n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
           }
         },
         "InstanceId": {
@@ -3891,7 +3947,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a launch configuration.</p>\n        <p>If you exceed your maximum limit of launch configurations, the call fails. To query\n            this limit, call the <a>DescribeAccountLimits</a> API. For information about\n            updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for\n                Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch\n                configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Creates a launch configuration.</p>\n        <p>If you exceed your maximum limit of launch configurations, the call fails. To query\n            this limit, call the <a>DescribeAccountLimits</a> API. For information about\n            updating this limit, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html\">Quotas for\n                Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html\">Launch\n                configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n        <note>\n            <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a\n                launch template or a launch configuration. We strongly recommend that you do not use\n                launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2.\n                For information about using launch templates, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/launch-templates.html\">Launch templates</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>\n         </note>"
       }
     },
     "com.amazonaws.autoscaling#CreateLaunchConfigurationType": {
@@ -3925,13 +3981,13 @@
         "ClassicLinkVPCId": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>\n            <i>EC2-Classic retires on August 15, 2022. This property is not supported after\n                that date.</i>\n        </p>\n        <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to. For more\n            information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\">ClassicLink</a> in the\n                <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
+            "smithy.api#documentation": "<p>Available for backward compatibility.</p>"
           }
         },
         "ClassicLinkVPCSecurityGroups": {
           "target": "com.amazonaws.autoscaling#ClassicLinkVPCSecurityGroups",
           "traits": {
-            "smithy.api#documentation": "<p>\n            <i>EC2-Classic retires on August 15, 2022. This property is not supported after\n                that date.</i>\n        </p>\n        <p>The IDs of one or more security groups for the specified ClassicLink-enabled\n            VPC.</p>\n        <p>If you specify the <code>ClassicLinkVPCId</code> property, you must specify\n                <code>ClassicLinkVPCSecurityGroups</code>.</p>"
+            "smithy.api#documentation": "<p>Available for backward compatibility.</p>"
           }
         },
         "UserData": {
@@ -4116,7 +4172,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified Auto Scaling group.</p>\n        <p>If the group has instances or scaling activities in progress, you must specify the\n            option to force the deletion in order for it to succeed.</p>\n        <p>If the group has policies, deleting the group deletes the policies, the underlying\n            alarm actions, and any alarm that no longer has an associated action.</p>\n        <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to\n            decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement\n            instances.</p>\n        <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity\n            of the Auto Scaling group to zero.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified Auto Scaling group.</p>\n        <p>If the group has instances or scaling activities in progress, you must specify the\n            option to force the deletion in order for it to succeed. The force delete operation will\n            also terminate the EC2 instances. If the group has a warm pool, the force delete option\n            also deletes the warm pool.</p>\n        <p>To remove instances from the Auto Scaling group before deleting it, call the <a>DetachInstances</a> API with the list of instances and the option to\n            decrement the desired capacity. This ensures that Amazon EC2 Auto Scaling does not launch replacement\n            instances.</p>\n        <p>To terminate all instances before deleting the Auto Scaling group, call the <a>UpdateAutoScalingGroup</a> API and set the minimum size and desired capacity\n            of the Auto Scaling group to\n            zero.</p>\n        <p>If the group has scaling policies, deleting the group deletes the policies, the\n            underlying alarm actions, and any alarm that no longer has an associated action.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-process-shutdown.html\">Delete your Auto Scaling\n                infrastructure</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
       }
     },
     "com.amazonaws.autoscaling#DeleteAutoScalingGroupType": {
@@ -6094,18 +6150,20 @@
       }
     },
     "com.amazonaws.autoscaling#InstanceGeneration": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "current",
-            "name": "CURRENT"
-          },
-          {
-            "value": "previous",
-            "name": "PREVIOUS"
+      "type": "enum",
+      "members": {
+        "CURRENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "current"
           }
-        ]
+        },
+        "PREVIOUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "previous"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#InstanceGenerations": {
@@ -6121,18 +6179,20 @@
       }
     },
     "com.amazonaws.autoscaling#InstanceMetadataEndpointState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "disabled",
-            "name": "Disabled"
-          },
-          {
-            "value": "enabled",
-            "name": "Enabled"
+      "type": "enum",
+      "members": {
+        "Disabled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "disabled"
           }
-        ]
+        },
+        "Enabled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "enabled"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#InstanceMetadataHttpPutResponseHopLimit": {
@@ -6145,18 +6205,20 @@
       }
     },
     "com.amazonaws.autoscaling#InstanceMetadataHttpTokensState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "optional",
-            "name": "Optional"
-          },
-          {
-            "value": "required",
-            "name": "Required"
+      "type": "enum",
+      "members": {
+        "Optional": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "optional"
           }
-        ]
+        },
+        "Required": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "required"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#InstanceMetadataOptions": {
@@ -6337,34 +6399,44 @@
       }
     },
     "com.amazonaws.autoscaling#InstanceRefreshStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Pending",
-            "name": "Pending"
-          },
-          {
-            "value": "InProgress",
-            "name": "InProgress"
-          },
-          {
-            "value": "Successful",
-            "name": "Successful"
-          },
-          {
-            "value": "Failed",
-            "name": "Failed"
-          },
-          {
-            "value": "Cancelling",
-            "name": "Cancelling"
-          },
-          {
-            "value": "Cancelled",
-            "name": "Cancelled"
+      "type": "enum",
+      "members": {
+        "Pending": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Pending"
           }
-        ]
+        },
+        "InProgress": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "Successful": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Successful"
+          }
+        },
+        "Failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "Cancelling": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelling"
+          }
+        },
+        "Cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelled"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#InstanceRefreshWarmPoolProgress": {
@@ -6419,13 +6491,13 @@
         "MemoryGiBPerVCpu": {
           "target": "com.amazonaws.autoscaling#MemoryGiBPerVCpuRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum amount of memory per vCPU for an instance type, in GiB.</p>\n        <p>Default: No minimum or maximum limits</p>"
           }
         },
         "ExcludedInstanceTypes": {
           "target": "com.amazonaws.autoscaling#ExcludedInstanceTypes",
           "traits": {
-            "smithy.api#documentation": "<p>Lists which instance types to exclude. You can use strings with one or more wild\n            cards, represented by an asterisk (<code>*</code>). The following are examples:\n                <code>c5*</code>, <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p>\n        <p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance\n            family, which includes all C5a and C5n instance types. If you specify\n            <code>m5a.*</code>, you are excluding all the M5a instance types, but not the M5n\n            instance types.</p>\n        <p>Default: No excluded instance types</p>"
+            "smithy.api#documentation": "<p>The instance types to exclude. You can use strings with one or more wild cards,\n            represented by an asterisk (<code>*</code>), to exclude an instance family, type, size,\n            or generation. The following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>,\n                <code>m5a.*</code>, <code>r*</code>, <code>*3*</code>. </p>\n        <p>For example, if you specify <code>c5*</code>, you are excluding the entire C5 instance\n            family, which includes all C5a and C5n instance types. If you specify\n            <code>m5a.*</code>, Amazon EC2 Auto Scaling will exclude all the M5a instance types, but not the M5n\n            instance types.</p>\n        <note>\n            <p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify\n                    <code>AllowedInstanceTypes</code>.</p>\n        </note>\n        <p>Default: No excluded instance types</p>"
           }
         },
         "InstanceGenerations": {
@@ -6455,7 +6527,7 @@
         "BurstablePerformance": {
           "target": "com.amazonaws.autoscaling#BurstablePerformance",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether burstable performance instance types are included, excluded, or\n            required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                performance instances</a> in the <i>Amazon EC2 User Guide for Linux\n                Instances</i>.</p>\n        <p>Default: <code>excluded</code>\n         </p>"
+            "smithy.api#documentation": "<p>Indicates whether burstable performance instance types are included, excluded, or\n            required. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\">Burstable\n                performance instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        <p>Default: <code>excluded</code>\n         </p>"
           }
         },
         "RequireHibernateSupport": {
@@ -6467,7 +6539,7 @@
         "NetworkInterfaceCount": {
           "target": "com.amazonaws.autoscaling#NetworkInterfaceCountRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum number of network interfaces for an instance type.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum number of network interfaces for an instance type.</p>\n        <p>Default: No minimum or maximum limits</p>"
           }
         },
         "LocalStorage": {
@@ -6485,13 +6557,13 @@
         "TotalLocalStorageGB": {
           "target": "com.amazonaws.autoscaling#TotalLocalStorageGBRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum total local storage size for an instance type, in GB.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum total local storage size for an instance type, in GB.</p>\n        <p>Default: No minimum or maximum limits</p>"
           }
         },
         "BaselineEbsBandwidthMbps": {
           "target": "com.amazonaws.autoscaling#BaselineEbsBandwidthMbpsRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.\n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS–optimized instances</a>\n            in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum baseline bandwidth performance for an instance type, in Mbps.\n            For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html\">Amazon EBS–optimized instances</a>\n            in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        <p>Default: No minimum or maximum limits</p>"
           }
         },
         "AcceleratorTypes": {
@@ -6503,7 +6575,7 @@
         "AcceleratorCount": {
           "target": "com.amazonaws.autoscaling#AcceleratorCountRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia\n            chips) for an instance type.</p>\n        <p>To exclude accelerator-enabled instance types, set <code>Max</code> to\n            <code>0</code>.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia\n            chips) for an instance type.</p>\n        <p>To exclude accelerator-enabled instance types, set <code>Max</code> to\n            <code>0</code>.</p>\n        <p>Default: No minimum or maximum limits</p>"
           }
         },
         "AcceleratorManufacturers": {
@@ -6521,12 +6593,24 @@
         "AcceleratorTotalMemoryMiB": {
           "target": "com.amazonaws.autoscaling#AcceleratorTotalMemoryMiBRequest",
           "traits": {
-            "smithy.api#documentation": "<p>The minimum and maximum total memory size for the accelerators on an instance type, in\n            MiB.</p>\n        <p>Default: No minimum or maximum</p>"
+            "smithy.api#documentation": "<p>The minimum and maximum total memory size for the accelerators on an instance type, in\n            MiB.</p>\n        <p>Default: No minimum or maximum limits</p>"
+          }
+        },
+        "NetworkBandwidthGbps": {
+          "target": "com.amazonaws.autoscaling#NetworkBandwidthGbpsRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum and maximum amount of network bandwidth, in gigabits per second\n            (Gbps).</p>\n        <p>Default: No minimum or maximum limits</p>"
+          }
+        },
+        "AllowedInstanceTypes": {
+          "target": "com.amazonaws.autoscaling#AllowedInstanceTypes",
+          "traits": {
+            "smithy.api#documentation": "<p>The instance types to apply your specified attributes against. All other instance\n            types are ignored, even if they match your specified attributes.</p>\n        <p>You can use strings with one or more wild cards, represented by an asterisk\n                (<code>*</code>), to allow an instance type, size, or generation. The following are\n            examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,\n                <code>r*</code>, <code>*3*</code>.</p>\n        <p>For example, if you specify <code>c5*</code>, Amazon EC2 Auto Scaling will allow the entire C5\n            instance family, which includes all C5a and C5n instance types. If you specify\n                <code>m5a.*</code>, Amazon EC2 Auto Scaling will allow all the M5a instance types, but not the M5n\n            instance types.</p>\n        <note>\n            <p>If you specify <code>AllowedInstanceTypes</code>, you can't specify\n                    <code>ExcludedInstanceTypes</code>.</p>\n        </note>\n        <p>Default: All instance types</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>When you specify multiple parameters, you get instance types that satisfy all of the\n            specified parameters. If you specify multiple values for a parameter, you get instance\n            types that satisfy any of the specified values.</p>\n        \n        \n        <p>Represents requirements for the types of instances that can be launched. You\n            must specify <code>VCpuCount</code> and <code>MemoryMiB</code>, but all other parameters\n            are optional. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating\n                an Auto Scaling group using attribute-based instance type selection</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>The attributes for the instance types for a mixed instances policy. Amazon EC2 Auto Scaling uses your\n            specified requirements to identify instance types. Then, it uses your On-Demand and Spot\n            allocation strategies to launch instances from these instance types.</p>\n        <p>When you specify multiple attributes, you get instance types that satisfy all of the\n            specified attributes. If you specify multiple values for an attribute, you get instance\n            types that satisfy any of the specified values.</p>\n        <p>To limit the list of instance types from which Amazon EC2 Auto Scaling can identify matching instance\n            types, you can use one of the following parameters, but not both in the same\n            request:</p>\n        <ul>\n            <li>\n                <p>\n                  <code>AllowedInstanceTypes</code> - The instance types to include in the list.\n                    All other instance types are ignored, even if they match your specified\n                    attributes.</p>\n            </li>\n            <li>\n                <p>\n                  <code>ExcludedInstanceTypes</code> - The instance types to exclude from the\n                    list, even if they match your specified attributes.</p>\n            </li>\n         </ul>\n        <note>\n            <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other\n                attributes are optional. Any unspecified optional attribute is set to its\n                default.</p>\n        </note>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/create-asg-instance-type-requirements.html\">Creating\n                an Auto Scaling group using attribute-based instance type selection</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>. For help determining which instance types match\n            your attributes before you apply them to your Auto Scaling group, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-get-instance-types-from-instance-requirements\">Preview instance types with specified attributes</a> in the\n                <i>Amazon EC2 User Guide for Linux Instances</i>.</p>"
       }
     },
     "com.amazonaws.autoscaling#InstanceReusePolicy": {
@@ -6585,12 +6669,12 @@
         "SpotMaxPrice": {
           "target": "com.amazonaws.autoscaling#MixedInstanceSpotPrice",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If\n            you keep the value at its default (unspecified), Amazon EC2 Auto Scaling uses the On-Demand price as\n            the maximum Spot price. To remove a value that you previously set, include the property\n            but specify an empty string (\"\") for the value.</p>\n        <important>\n            <p>If your maximum price is lower than the Spot price for the instance types that you\n                selected, your Spot Instances are not launched.</p>\n        </important>\n        <p>Valid Range: Minimum value of 0.001</p>"
+            "smithy.api#documentation": "<p>The maximum price per unit hour that you are willing to pay for a Spot Instance. If\n            your maximum price is lower than the Spot price for the instance types that you\n            selected, your Spot Instances are not launched. We do not recommend specifying a maximum\n            price because it can lead to increased interruptions. When Spot Instances launch, you\n            pay the current Spot price. To remove a maximum price that you previously set, include\n            the property but specify an empty string (\"\") for the value.</p>\n        <important>\n            <p>If you specify a maximum price, your instances will be interrupted more frequently\n                than if you do not specify one.</p>\n        </important>\n        <p>Valid Range: Minimum value of 0.001</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes an instances distribution for an Auto Scaling group.</p>"
+        "smithy.api#documentation": "<p>Use this structure to specify the distribution of On-Demand Instances and Spot\n            Instances and the allocation strategies used to fulfill On-Demand and Spot capacities\n            for a mixed instances policy.</p>"
       }
     },
     "com.amazonaws.autoscaling#InstancesToUpdate": {
@@ -6668,13 +6752,13 @@
         "ClassicLinkVPCId": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>\n            <i>EC2-Classic retires on August 15, 2022. This property is not supported after\n                that date.</i>\n        </p>\n        <p>The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.</p>"
+            "smithy.api#documentation": "<p>Available for backward compatibility.</p>"
           }
         },
         "ClassicLinkVPCSecurityGroups": {
           "target": "com.amazonaws.autoscaling#ClassicLinkVPCSecurityGroups",
           "traits": {
-            "smithy.api#documentation": "<p>\n            <i>EC2-Classic retires on August 15, 2022. This property is not supported after\n                that date.</i>\n        </p>\n        <p>The IDs of one or more security groups for the VPC specified in\n                <code>ClassicLinkVPCId</code>.</p>"
+            "smithy.api#documentation": "<p>Available for backward compatibility.</p>"
           }
         },
         "UserData": {
@@ -6833,18 +6917,18 @@
         "LaunchTemplateSpecification": {
           "target": "com.amazonaws.autoscaling#LaunchTemplateSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>The launch template to use.</p>"
+            "smithy.api#documentation": "<p>The launch template.</p>"
           }
         },
         "Overrides": {
           "target": "com.amazonaws.autoscaling#Overrides",
           "traits": {
-            "smithy.api#documentation": "<p>Any properties that you specify override the same properties in the launch template.\n            If not provided, Amazon EC2 Auto Scaling uses the instance type or instance type requirements specified\n            in the launch template when it launches an instance.</p>\n        <p>The overrides can include either one or more instance types or a set of instance\n            requirements, but not both.</p>"
+            "smithy.api#documentation": "<p>Any properties that you specify override the same properties in the launch\n            template.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a launch template and overrides. You specify these properties as part of a\n            mixed instances policy. </p>"
+        "smithy.api#documentation": "<p>Use this structure to specify the launch templates and instance types (overrides) for\n            a mixed instances policy.</p>"
       }
     },
     "com.amazonaws.autoscaling#LaunchTemplateName": {
@@ -6863,30 +6947,30 @@
         "InstanceType": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen255",
           "traits": {
-            "smithy.api#documentation": "<p>The instance type, such as <code>m3.xlarge</code>. You must use an instance type that\n            is supported in your requested Region and Availability Zones. For more information, see\n                <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon Elastic Compute Cloud User\n                Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The instance type, such as <code>m3.xlarge</code>. You must specify an instance type\n            that is supported in your requested Region and Availability Zones. For more information,\n            see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\">Instance types</a> in the <i>Amazon Elastic Compute Cloud User\n                Guide</i>.</p>\n        <p>You can specify up to 40 instance types per Auto Scaling group.</p>"
           }
         },
         "WeightedCapacity": {
           "target": "com.amazonaws.autoscaling#XmlStringMaxLen32",
           "traits": {
-            "smithy.api#documentation": "<p>The number of capacity units provided by the instance type specified in\n                <code>InstanceType</code> in terms of virtual CPUs, memory, storage, throughput, or\n            other relative performance characteristic. When a Spot or On-Demand Instance is\n            launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling launches\n            instances until the desired capacity is totally fulfilled, even if this results in an\n            overage. For example, if there are two units remaining to fulfill capacity, and Amazon EC2 Auto Scaling\n            can only launch an instance with a <code>WeightedCapacity</code> of five units, the\n            instance is launched, and the desired capacity is exceeded by three units. For more\n            information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html\">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>"
+            "smithy.api#documentation": "<p>If you provide a list of instance types to use, you can specify the number of capacity\n            units provided by each instance type in terms of virtual CPUs, memory, storage,\n            throughput, or other relative performance characteristic. When a Spot or On-Demand\n            Instance is launched, the capacity units count toward the desired capacity. Amazon EC2 Auto Scaling\n            launches instances until the desired capacity is totally fulfilled, even if this results\n            in an overage. For example, if there are two units remaining to fulfill capacity, and\n            Amazon EC2 Auto Scaling can only launch an instance with a <code>WeightedCapacity</code> of five units,\n            the instance is launched, and the desired capacity is exceeded by three units. For more\n            information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-instance-weighting.html\">Configuring instance weighting for Amazon EC2 Auto Scaling</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>. Value must be in the range of 1–999.</p>\n        <p>If you specify a value for <code>WeightedCapacity</code> for one instance type, you\n            must specify a value for <code>WeightedCapacity</code> for all of them.</p>\n        <important>\n            <p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>,\n                    <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes\n                based on a specific number of instances. However, if you configure a mixed instances\n                policy that defines weights for the instance types, you must specify these sizes\n                with the same units that you use for weighting instances. </p>\n        </important>"
           }
         },
         "LaunchTemplateSpecification": {
           "target": "com.amazonaws.autoscaling#LaunchTemplateSpecification",
           "traits": {
-            "smithy.api#documentation": "<p>Provides a launch template for the specified instance type or instance requirements.\n            For example, some instance types might require a launch template with a different AMI.\n            If not provided, Amazon EC2 Auto Scaling uses the launch template that's defined for your mixed\n            instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html\">Specifying a different launch template for an instance type</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
+            "smithy.api#documentation": "<p>Provides a launch template for the specified instance type or set of instance\n            requirements. For example, some instance types might require a launch template with a\n            different AMI. If not provided, Amazon EC2 Auto Scaling uses the launch template that's specified in\n            the <code>LaunchTemplate</code> definition. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups-launch-template-overrides.html\">Specifying a different launch template for an instance type</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>. </p>\n        <p>You can specify up to 20 launch templates per Auto Scaling group. The launch templates\n            specified in the overrides and in the <code>LaunchTemplate</code> definition count\n            towards this limit.</p>"
           }
         },
         "InstanceRequirements": {
           "target": "com.amazonaws.autoscaling#InstanceRequirements",
           "traits": {
-            "smithy.api#documentation": "<p>The instance requirements. When you specify instance requirements, Amazon EC2 Auto Scaling finds\n            instance types that satisfy your requirements, and then uses your On-Demand and Spot\n            allocation strategies to launch instances from these instance types, in the same way as\n            when you specify a list of specific instance types. </p>"
+            "smithy.api#documentation": "<p>The instance requirements. Amazon EC2 Auto Scaling uses your specified requirements to identify\n            instance types. Then, it uses your On-Demand and Spot allocation strategies to launch\n            instances from these instance types.</p>\n        <p>You can specify up to four separate sets of instance requirements per Auto Scaling group. This\n            is useful for provisioning instances from different Amazon Machine Images (AMIs) in the\n            same Auto Scaling group. To do this, create the AMIs and create a new launch template for each\n            AMI. Then, create a compatible set of instance requirements for each launch template.\n            </p>\n        <note>\n            <p>If you specify <code>InstanceRequirements</code>, you can't specify\n                    <code>InstanceType</code>.</p>\n        </note>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes an override for a launch template. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-configuring-overrides.html\">Configuring overrides</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. </p>"
+        "smithy.api#documentation": "<p>Use this structure to let Amazon EC2 Auto Scaling do the following when the Auto Scaling group has a mixed\n            instances policy:</p>\n        <ul>\n            <li>\n                <p>Override the instance type that is specified in the launch template.</p>\n            </li>\n            <li>\n                <p>Use multiple instance types.</p>\n            </li>\n         </ul>\n        <p>Specify the instance types that you want, or define your instance requirements instead\n            and let Amazon EC2 Auto Scaling provision the available instance types that meet your requirements.\n            This can provide Amazon EC2 Auto Scaling with a larger selection of instance types to choose from when\n            fulfilling Spot and On-Demand capacities. You can view which instance types are matched\n            before you apply the instance requirements to your Auto Scaling group.</p>\n        <p>After you define your instance requirements, you don't have to keep updating these\n            settings to get new EC2 instance types automatically. Amazon EC2 Auto Scaling uses the instance\n            requirements of the Auto Scaling group to determine whether a new EC2 instance type can be\n            used.</p>"
       }
     },
     "com.amazonaws.autoscaling#LaunchTemplateSpecification": {
@@ -7066,102 +7150,146 @@
       }
     },
     "com.amazonaws.autoscaling#LifecycleState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Pending",
-            "name": "PENDING"
-          },
-          {
-            "value": "Pending:Wait",
-            "name": "PENDING_WAIT"
-          },
-          {
-            "value": "Pending:Proceed",
-            "name": "PENDING_PROCEED"
-          },
-          {
-            "value": "Quarantined",
-            "name": "QUARANTINED"
-          },
-          {
-            "value": "InService",
-            "name": "IN_SERVICE"
-          },
-          {
-            "value": "Terminating",
-            "name": "TERMINATING"
-          },
-          {
-            "value": "Terminating:Wait",
-            "name": "TERMINATING_WAIT"
-          },
-          {
-            "value": "Terminating:Proceed",
-            "name": "TERMINATING_PROCEED"
-          },
-          {
-            "value": "Terminated",
-            "name": "TERMINATED"
-          },
-          {
-            "value": "Detaching",
-            "name": "DETACHING"
-          },
-          {
-            "value": "Detached",
-            "name": "DETACHED"
-          },
-          {
-            "value": "EnteringStandby",
-            "name": "ENTERING_STANDBY"
-          },
-          {
-            "value": "Standby",
-            "name": "STANDBY"
-          },
-          {
-            "value": "Warmed:Pending",
-            "name": "WARMED_PENDING"
-          },
-          {
-            "value": "Warmed:Pending:Wait",
-            "name": "WARMED_PENDING_WAIT"
-          },
-          {
-            "value": "Warmed:Pending:Proceed",
-            "name": "WARMED_PENDING_PROCEED"
-          },
-          {
-            "value": "Warmed:Terminating",
-            "name": "WARMED_TERMINATING"
-          },
-          {
-            "value": "Warmed:Terminating:Wait",
-            "name": "WARMED_TERMINATING_WAIT"
-          },
-          {
-            "value": "Warmed:Terminating:Proceed",
-            "name": "WARMED_TERMINATING_PROCEED"
-          },
-          {
-            "value": "Warmed:Terminated",
-            "name": "WARMED_TERMINATED"
-          },
-          {
-            "value": "Warmed:Stopped",
-            "name": "WARMED_STOPPED"
-          },
-          {
-            "value": "Warmed:Running",
-            "name": "WARMED_RUNNING"
-          },
-          {
-            "value": "Warmed:Hibernated",
-            "name": "WARMED_HIBERNATED"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Pending"
           }
-        ]
+        },
+        "PENDING_WAIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Pending:Wait"
+          }
+        },
+        "PENDING_PROCEED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Pending:Proceed"
+          }
+        },
+        "QUARANTINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Quarantined"
+          }
+        },
+        "IN_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InService"
+          }
+        },
+        "TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terminating"
+          }
+        },
+        "TERMINATING_WAIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terminating:Wait"
+          }
+        },
+        "TERMINATING_PROCEED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terminating:Proceed"
+          }
+        },
+        "TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Terminated"
+          }
+        },
+        "DETACHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Detaching"
+          }
+        },
+        "DETACHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Detached"
+          }
+        },
+        "ENTERING_STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EnteringStandby"
+          }
+        },
+        "STANDBY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standby"
+          }
+        },
+        "WARMED_PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Pending"
+          }
+        },
+        "WARMED_PENDING_WAIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Pending:Wait"
+          }
+        },
+        "WARMED_PENDING_PROCEED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Pending:Proceed"
+          }
+        },
+        "WARMED_TERMINATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Terminating"
+          }
+        },
+        "WARMED_TERMINATING_WAIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Terminating:Wait"
+          }
+        },
+        "WARMED_TERMINATING_PROCEED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Terminating:Proceed"
+          }
+        },
+        "WARMED_TERMINATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Terminated"
+          }
+        },
+        "WARMED_STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Stopped"
+          }
+        },
+        "WARMED_RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Running"
+          }
+        },
+        "WARMED_HIBERNATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Warmed:Hibernated"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#LifecycleTransition": {
@@ -7281,37 +7409,43 @@
       }
     },
     "com.amazonaws.autoscaling#LocalStorage": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "included",
-            "name": "INCLUDED"
-          },
-          {
-            "value": "excluded",
-            "name": "EXCLUDED"
-          },
-          {
-            "value": "required",
-            "name": "REQUIRED"
+      "type": "enum",
+      "members": {
+        "INCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "included"
           }
-        ]
+        },
+        "EXCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "excluded"
+          }
+        },
+        "REQUIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "required"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#LocalStorageType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "hdd",
-            "name": "HDD"
-          },
-          {
-            "value": "ssd",
-            "name": "SSD"
+      "type": "enum",
+      "members": {
+        "HDD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "hdd"
           }
-        ]
+        },
+        "SSD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ssd"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#LocalStorageTypes": {
@@ -7566,53 +7700,67 @@
       }
     },
     "com.amazonaws.autoscaling#MetricStatistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Average",
-            "name": "Average"
-          },
-          {
-            "value": "Minimum",
-            "name": "Minimum"
-          },
-          {
-            "value": "Maximum",
-            "name": "Maximum"
-          },
-          {
-            "value": "SampleCount",
-            "name": "SampleCount"
-          },
-          {
-            "value": "Sum",
-            "name": "Sum"
+      "type": "enum",
+      "members": {
+        "Average": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Average"
           }
-        ]
+        },
+        "Minimum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Minimum"
+          }
+        },
+        "Maximum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Maximum"
+          }
+        },
+        "SampleCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SampleCount"
+          }
+        },
+        "Sum": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Sum"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#MetricType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASGAverageCPUUtilization",
-            "name": "ASGAverageCPUUtilization"
-          },
-          {
-            "value": "ASGAverageNetworkIn",
-            "name": "ASGAverageNetworkIn"
-          },
-          {
-            "value": "ASGAverageNetworkOut",
-            "name": "ASGAverageNetworkOut"
-          },
-          {
-            "value": "ALBRequestCountPerTarget",
-            "name": "ALBRequestCountPerTarget"
+      "type": "enum",
+      "members": {
+        "ASGAverageCPUUtilization": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageCPUUtilization"
           }
-        ]
+        },
+        "ASGAverageNetworkIn": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageNetworkIn"
+          }
+        },
+        "ASGAverageNetworkOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageNetworkOut"
+          }
+        },
+        "ALBRequestCountPerTarget": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALBRequestCountPerTarget"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#MetricUnit": {
@@ -7659,11 +7807,31 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes a mixed instances policy. A mixed instances policy contains the instance\n            types that Amazon EC2 Auto Scaling can launch and other information that Amazon EC2 Auto Scaling can use to launch\n            instances and help optimize your costs. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Use this structure to launch multiple instance types and On-Demand Instances and Spot\n            Instances within a single Auto Scaling group.</p>\n        <p>A mixed instances policy contains information that Amazon EC2 Auto Scaling can use to launch\n            instances and help optimize your costs. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
       }
     },
     "com.amazonaws.autoscaling#MonitoringEnabled": {
       "type": "boolean"
+    },
+    "com.amazonaws.autoscaling#NetworkBandwidthGbpsRequest": {
+      "type": "structure",
+      "members": {
+        "Min": {
+          "target": "com.amazonaws.autoscaling#NullablePositiveDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum amount of network bandwidth, in gigabits per second (Gbps).</p>"
+          }
+        },
+        "Max": {
+          "target": "com.amazonaws.autoscaling#NullablePositiveDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum amount of network bandwidth, in gigabits per second (Gbps).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the minimum and maximum for the <code>NetworkBandwidthGbps</code> object\n            when you specify <a>InstanceRequirements</a> for an Auto Scaling group.</p>\n        <note>\n            <p>Setting the minimum bandwidth does not guarantee that your instance will achieve\n                the minimum bandwidth. Amazon EC2 will identify instance types that support the specified\n                minimum bandwidth, but the actual bandwidth of your instance might go below the\n                specified minimum at times. For more information, see <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth\">Available instance bandwidth</a> in the\n                <i>Amazon EC2 User Guide for Linux Instances</i>.</p>\n        </note>"
+      }
     },
     "com.amazonaws.autoscaling#NetworkInterfaceCountRequest": {
       "type": "structure",
@@ -7829,49 +7997,61 @@
       }
     },
     "com.amazonaws.autoscaling#PredefinedLoadMetricType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASGTotalCPUUtilization",
-            "name": "ASGTotalCPUUtilization"
-          },
-          {
-            "value": "ASGTotalNetworkIn",
-            "name": "ASGTotalNetworkIn"
-          },
-          {
-            "value": "ASGTotalNetworkOut",
-            "name": "ASGTotalNetworkOut"
-          },
-          {
-            "value": "ALBTargetGroupRequestCount",
-            "name": "ALBTargetGroupRequestCount"
+      "type": "enum",
+      "members": {
+        "ASGTotalCPUUtilization": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGTotalCPUUtilization"
           }
-        ]
+        },
+        "ASGTotalNetworkIn": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGTotalNetworkIn"
+          }
+        },
+        "ASGTotalNetworkOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGTotalNetworkOut"
+          }
+        },
+        "ALBTargetGroupRequestCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALBTargetGroupRequestCount"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#PredefinedMetricPairType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASGCPUUtilization",
-            "name": "ASGCPUUtilization"
-          },
-          {
-            "value": "ASGNetworkIn",
-            "name": "ASGNetworkIn"
-          },
-          {
-            "value": "ASGNetworkOut",
-            "name": "ASGNetworkOut"
-          },
-          {
-            "value": "ALBRequestCount",
-            "name": "ALBRequestCount"
+      "type": "enum",
+      "members": {
+        "ASGCPUUtilization": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGCPUUtilization"
           }
-        ]
+        },
+        "ASGNetworkIn": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGNetworkIn"
+          }
+        },
+        "ASGNetworkOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGNetworkOut"
+          }
+        },
+        "ALBRequestCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALBRequestCount"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#PredefinedMetricSpecification": {
@@ -7896,26 +8076,32 @@
       }
     },
     "com.amazonaws.autoscaling#PredefinedScalingMetricType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASGAverageCPUUtilization",
-            "name": "ASGAverageCPUUtilization"
-          },
-          {
-            "value": "ASGAverageNetworkIn",
-            "name": "ASGAverageNetworkIn"
-          },
-          {
-            "value": "ASGAverageNetworkOut",
-            "name": "ASGAverageNetworkOut"
-          },
-          {
-            "value": "ALBRequestCountPerTarget",
-            "name": "ALBRequestCountPerTarget"
+      "type": "enum",
+      "members": {
+        "ASGAverageCPUUtilization": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageCPUUtilization"
           }
-        ]
+        },
+        "ASGAverageNetworkIn": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageNetworkIn"
+          }
+        },
+        "ASGAverageNetworkOut": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASGAverageNetworkOut"
+          }
+        },
+        "ALBRequestCountPerTarget": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALBRequestCountPerTarget"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#PredictiveScalingConfiguration": {
@@ -8015,18 +8201,20 @@
       }
     },
     "com.amazonaws.autoscaling#PredictiveScalingMaxCapacityBreachBehavior": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "HonorMaxCapacity",
-            "name": "HonorMaxCapacity"
-          },
-          {
-            "value": "IncreaseMaxCapacity",
-            "name": "IncreaseMaxCapacity"
+      "type": "enum",
+      "members": {
+        "HonorMaxCapacity": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HonorMaxCapacity"
           }
-        ]
+        },
+        "IncreaseMaxCapacity": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IncreaseMaxCapacity"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#PredictiveScalingMaxCapacityBuffer": {
@@ -8096,18 +8284,20 @@
       }
     },
     "com.amazonaws.autoscaling#PredictiveScalingMode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ForecastAndScale",
-            "name": "ForecastAndScale"
-          },
-          {
-            "value": "ForecastOnly",
-            "name": "ForecastOnly"
+      "type": "enum",
+      "members": {
+        "ForecastAndScale": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ForecastAndScale"
           }
-        ]
+        },
+        "ForecastOnly": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ForecastOnly"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#PredictiveScalingPredefinedLoadMetric": {
@@ -8722,14 +8912,14 @@
       }
     },
     "com.amazonaws.autoscaling#RefreshStrategy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Rolling",
-            "name": "Rolling"
+      "type": "enum",
+      "members": {
+        "Rolling": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Rolling"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.autoscaling#ResourceContentionFault": {
@@ -8829,58 +9019,80 @@
       }
     },
     "com.amazonaws.autoscaling#ScalingActivityStatusCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PendingSpotBidPlacement",
-            "name": "PendingSpotBidPlacement"
-          },
-          {
-            "value": "WaitingForSpotInstanceRequestId",
-            "name": "WaitingForSpotInstanceRequestId"
-          },
-          {
-            "value": "WaitingForSpotInstanceId",
-            "name": "WaitingForSpotInstanceId"
-          },
-          {
-            "value": "WaitingForInstanceId",
-            "name": "WaitingForInstanceId"
-          },
-          {
-            "value": "PreInService",
-            "name": "PreInService"
-          },
-          {
-            "value": "InProgress",
-            "name": "InProgress"
-          },
-          {
-            "value": "WaitingForELBConnectionDraining",
-            "name": "WaitingForELBConnectionDraining"
-          },
-          {
-            "value": "MidLifecycleAction",
-            "name": "MidLifecycleAction"
-          },
-          {
-            "value": "WaitingForInstanceWarmup",
-            "name": "WaitingForInstanceWarmup"
-          },
-          {
-            "value": "Successful",
-            "name": "Successful"
-          },
-          {
-            "value": "Failed",
-            "name": "Failed"
-          },
-          {
-            "value": "Cancelled",
-            "name": "Cancelled"
+      "type": "enum",
+      "members": {
+        "PendingSpotBidPlacement": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PendingSpotBidPlacement"
           }
-        ]
+        },
+        "WaitingForSpotInstanceRequestId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitingForSpotInstanceRequestId"
+          }
+        },
+        "WaitingForSpotInstanceId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitingForSpotInstanceId"
+          }
+        },
+        "WaitingForInstanceId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitingForInstanceId"
+          }
+        },
+        "PreInService": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PreInService"
+          }
+        },
+        "InProgress": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "WaitingForELBConnectionDraining": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitingForELBConnectionDraining"
+          }
+        },
+        "MidLifecycleAction": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MidLifecycleAction"
+          }
+        },
+        "WaitingForInstanceWarmup": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WaitingForInstanceWarmup"
+          }
+        },
+        "Successful": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Successful"
+          }
+        },
+        "Failed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        },
+        "Cancelled": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cancelled"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#ScalingPolicies": {
@@ -9785,7 +9997,7 @@
         "MixedInstancesPolicy": {
           "target": "com.amazonaws.autoscaling#MixedInstancesPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>An embedded object that specifies a mixed instances policy. For more information, see\n                <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The mixed instances policy. For more information, see <a href=\"https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html\">Auto Scaling\n                groups with multiple instance types and purchase options</a> in the\n                <i>Amazon EC2 Auto Scaling User Guide</i>.</p>"
           }
         },
         "MinSize": {
@@ -9969,33 +10181,37 @@
       "type": "integer"
     },
     "com.amazonaws.autoscaling#WarmPoolState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Stopped",
-            "name": "Stopped"
-          },
-          {
-            "value": "Running",
-            "name": "Running"
-          },
-          {
-            "value": "Hibernated",
-            "name": "Hibernated"
+      "type": "enum",
+      "members": {
+        "Stopped": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Stopped"
           }
-        ]
+        },
+        "Running": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Running"
+          }
+        },
+        "Hibernated": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Hibernated"
+          }
+        }
       }
     },
     "com.amazonaws.autoscaling#WarmPoolStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PendingDelete",
-            "name": "PendingDelete"
+      "type": "enum",
+      "members": {
+        "PendingDelete": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PendingDelete"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.autoscaling#XmlString": {

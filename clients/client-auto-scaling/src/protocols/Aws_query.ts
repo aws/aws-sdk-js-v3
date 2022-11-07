@@ -337,6 +337,7 @@ import {
   MetricGranularityType,
   MetricStat,
   MixedInstancesPolicy,
+  NetworkBandwidthGbpsRequest,
   NetworkInterfaceCountRequest,
   NotificationConfiguration,
   PoliciesType,
@@ -4179,6 +4180,19 @@ const serializeAws_queryActivityIds = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_queryAllowedInstanceTypes = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_queryAttachInstancesQuery = (input: AttachInstancesQuery, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.InstanceIds != null) {
@@ -5591,6 +5605,23 @@ const serializeAws_queryInstanceRequirements = (input: InstanceRequirements, con
       entries[loc] = value;
     });
   }
+  if (input.NetworkBandwidthGbps != null) {
+    const memberEntries = serializeAws_queryNetworkBandwidthGbpsRequest(input.NetworkBandwidthGbps, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkBandwidthGbps.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AllowedInstanceTypes != null) {
+    const memberEntries = serializeAws_queryAllowedInstanceTypes(input.AllowedInstanceTypes, context);
+    if (input.AllowedInstanceTypes?.length === 0) {
+      entries.AllowedInstanceTypes = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllowedInstanceTypes.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -5980,6 +6011,20 @@ const serializeAws_queryMixedInstancesPolicy = (input: MixedInstancesPolicy, con
       const loc = `InstancesDistribution.${key}`;
       entries[loc] = value;
     });
+  }
+  return entries;
+};
+
+const serializeAws_queryNetworkBandwidthGbpsRequest = (
+  input: NetworkBandwidthGbpsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min != null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max != null) {
+    entries["Max"] = __serializeFloat(input.Max);
   }
   return entries;
 };
@@ -7146,6 +7191,14 @@ const deserializeAws_queryAlarms = (output: any, context: __SerdeContext): Alarm
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_queryAlarm(entry, context);
+    });
+};
+
+const deserializeAws_queryAllowedInstanceTypes = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 
@@ -8374,6 +8427,8 @@ const deserializeAws_queryInstanceRequirements = (output: any, context: __SerdeC
     AcceleratorManufacturers: undefined,
     AcceleratorNames: undefined,
     AcceleratorTotalMemoryMiB: undefined,
+    NetworkBandwidthGbps: undefined,
+    AllowedInstanceTypes: undefined,
   };
   if (output["VCpuCount"] !== undefined) {
     contents.VCpuCount = deserializeAws_queryVCpuCountRequest(output["VCpuCount"], context);
@@ -8489,6 +8544,20 @@ const deserializeAws_queryInstanceRequirements = (output: any, context: __SerdeC
   if (output["AcceleratorTotalMemoryMiB"] !== undefined) {
     contents.AcceleratorTotalMemoryMiB = deserializeAws_queryAcceleratorTotalMemoryMiBRequest(
       output["AcceleratorTotalMemoryMiB"],
+      context
+    );
+  }
+  if (output["NetworkBandwidthGbps"] !== undefined) {
+    contents.NetworkBandwidthGbps = deserializeAws_queryNetworkBandwidthGbpsRequest(
+      output["NetworkBandwidthGbps"],
+      context
+    );
+  }
+  if (output.AllowedInstanceTypes === "") {
+    contents.AllowedInstanceTypes = [];
+  } else if (output["AllowedInstanceTypes"] !== undefined && output["AllowedInstanceTypes"]["member"] !== undefined) {
+    contents.AllowedInstanceTypes = deserializeAws_queryAllowedInstanceTypes(
+      __getArrayIfSingleItem(output["AllowedInstanceTypes"]["member"]),
       context
     );
   }
@@ -9093,6 +9162,23 @@ const deserializeAws_queryMixedInstancesPolicy = (output: any, context: __SerdeC
       output["InstancesDistribution"],
       context
     );
+  }
+  return contents;
+};
+
+const deserializeAws_queryNetworkBandwidthGbpsRequest = (
+  output: any,
+  context: __SerdeContext
+): NetworkBandwidthGbpsRequest => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["Min"] !== undefined) {
+    contents.Min = __strictParseFloat(output["Min"]) as number;
+  }
+  if (output["Max"] !== undefined) {
+    contents.Max = __strictParseFloat(output["Max"]) as number;
   }
   return contents;
 };
