@@ -14012,6 +14012,12 @@ const serializeAws_json1_1TargetLocation = (input: TargetLocation, context: __Se
     ...(input.Accounts != null && { Accounts: serializeAws_json1_1Accounts(input.Accounts, context) }),
     ...(input.ExecutionRoleName != null && { ExecutionRoleName: input.ExecutionRoleName }),
     ...(input.Regions != null && { Regions: serializeAws_json1_1Regions(input.Regions, context) }),
+    ...(input.TargetLocationAlarmConfiguration != null && {
+      TargetLocationAlarmConfiguration: serializeAws_json1_1AlarmConfiguration(
+        input.TargetLocationAlarmConfiguration,
+        context
+      ),
+    }),
     ...(input.TargetLocationMaxConcurrency != null && {
       TargetLocationMaxConcurrency: input.TargetLocationMaxConcurrency,
     }),
@@ -19934,6 +19940,10 @@ const deserializeAws_json1_1StepExecution = (output: any, context: __SerdeContex
       output.TargetLocation != null ? deserializeAws_json1_1TargetLocation(output.TargetLocation, context) : undefined,
     Targets: output.Targets != null ? deserializeAws_json1_1Targets(output.Targets, context) : undefined,
     TimeoutSeconds: __expectLong(output.TimeoutSeconds),
+    TriggeredAlarms:
+      output.TriggeredAlarms != null
+        ? deserializeAws_json1_1AlarmStateInformationList(output.TriggeredAlarms, context)
+        : undefined,
     ValidNextSteps:
       output.ValidNextSteps != null
         ? deserializeAws_json1_1ValidNextStepList(output.ValidNextSteps, context)
@@ -20006,6 +20016,10 @@ const deserializeAws_json1_1TargetLocation = (output: any, context: __SerdeConte
     Accounts: output.Accounts != null ? deserializeAws_json1_1Accounts(output.Accounts, context) : undefined,
     ExecutionRoleName: __expectString(output.ExecutionRoleName),
     Regions: output.Regions != null ? deserializeAws_json1_1Regions(output.Regions, context) : undefined,
+    TargetLocationAlarmConfiguration:
+      output.TargetLocationAlarmConfiguration != null
+        ? deserializeAws_json1_1AlarmConfiguration(output.TargetLocationAlarmConfiguration, context)
+        : undefined,
     TargetLocationMaxConcurrency: __expectString(output.TargetLocationMaxConcurrency),
     TargetLocationMaxErrors: __expectString(output.TargetLocationMaxErrors),
   } as any;

@@ -845,6 +845,11 @@ export interface TargetLocation {
    *    the default value is <code>AWS-SystemsManager-AutomationExecutionRole</code>.</p>
    */
   ExecutionRoleName?: string;
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  TargetLocationAlarmConfiguration?: AlarmConfiguration;
 }
 
 /**
@@ -5034,6 +5039,11 @@ export interface StepExecution {
    *    execution.</p>
    */
   TargetLocation?: TargetLocation;
+
+  /**
+   * <p>The CloudWatch alarms that were invoked by the automation.</p>
+   */
+  TriggeredAlarms?: AlarmStateInformation[];
 }
 
 export interface DescribeAutomationStepExecutionsResult {
