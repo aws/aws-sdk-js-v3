@@ -261,7 +261,7 @@ export enum Ac3MetadataControl {
  */
 export interface Ac3Settings {
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values.  Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 64000. Maximum: 128000. Valid bitrates for coding mode 1/1: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 128000. Maximum: 384000. Valid bitrates for coding mode 3/2 with FLE: Default: 384000. Minimum: 384000. Maximum: 640000.
    */
   Bitrate?: number;
 
@@ -596,7 +596,7 @@ export interface Eac3Settings {
   AttenuationControl?: Eac3AttenuationControl | string;
 
   /**
-   * Specify the average bitrate in bits per second. Valid bitrates depend on the coding mode.
+   * Specify the average bitrate in bits per second. The bitrate that you specify must be a multiple of 8000 within the allowed minimum and maximum values.  Leave blank to use the default bitrate for the coding mode you select according ETSI TS 102 366. Valid bitrates for coding mode 1/0: Default: 96000. Minimum: 32000. Maximum: 3024000. Valid bitrates for coding mode 2/0: Default: 192000. Minimum: 96000. Maximum: 3024000. Valid bitrates for coding mode 3/2: Default: 384000. Minimum: 192000. Maximum: 3024000.
    */
   Bitrate?: number;
 
@@ -2555,6 +2555,11 @@ export interface ImageInserter {
    * Specify the images that you want to overlay on your video. The images must be PNG or TGA files.
    */
   InsertableImages?: InsertableImage[];
+
+  /**
+   * Specify the reference white level, in nits, for all of your image inserter images. Use to correct brightness levels within HDR10 outputs. For 1,000 nit peak brightness displays, we recommend that you set SDR reference white level to 203 (according to ITU-R BT.2408). Leave blank to use the default value of 100, or specify an integer from 100 to 1000.
+   */
+  SdrReferenceWhiteLevel?: number;
 }
 
 /**
@@ -2607,6 +2612,8 @@ export enum ColorSpace {
   FOLLOW = "FOLLOW",
   HDR10 = "HDR10",
   HLG_2020 = "HLG_2020",
+  P3D65_SDR = "P3D65_SDR",
+  P3DCI = "P3DCI",
   REC_601 = "REC_601",
   REC_709 = "REC_709",
 }
@@ -2715,7 +2722,10 @@ export interface VideoSelector {
   AlphaBehavior?: AlphaBehavior | string;
 
   /**
-   * If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value Follow (FOLLOW). The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate, choose Force HDR 10 (FORCE_HDR10) here and specify correct values in the input HDR 10 metadata (Hdr10Metadata) settings. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr.
+   * If your input video has accurate color space metadata, or if you don't know about color space, leave this set to the default value Follow. The service will automatically detect your input color space. If your input video has metadata indicating the wrong color space, specify the accurate color space here. If your input video is HDR 10 and the SMPTE ST 2086 Mastering Display Color Volume static metadata isn't present in your video stream, or if that metadata is present but not accurate, choose Force HDR 10 here and specify correct values in the input HDR 10 metadata settings. For more information about MediaConvert HDR jobs, see https://docs.aws.amazon.com/console/mediaconvert/hdr. Select P3D65 (SDR) to set the input color space metadata to the following:
+   *  * Color primaries: Display P3
+   *  * Transfer characteristics: SMPTE 428M
+   *  * Matrix coefficients: BT.709
    */
   ColorSpace?: ColorSpace | string;
 

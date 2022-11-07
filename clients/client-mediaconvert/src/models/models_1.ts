@@ -2936,6 +2936,8 @@ export enum ColorSpaceConversion {
   FORCE_709 = "FORCE_709",
   FORCE_HDR10 = "FORCE_HDR10",
   FORCE_HLG_2020 = "FORCE_HLG_2020",
+  FORCE_P3D65_SDR = "FORCE_P3D65_SDR",
+  FORCE_P3DCI = "FORCE_P3DCI",
   NONE = "NONE",
 }
 
@@ -2954,7 +2956,7 @@ export interface ColorCorrector {
   Brightness?: number;
 
   /**
-   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR.
+   * Specify the color space you want for this output. The service supports conversion between HDR formats, between SDR formats, from SDR to HDR, and from HDR to SDR. SDR to HDR conversion doesn't upgrade the dynamic range. The converted video has an HDR format, but visually appears the same as an unconverted output. HDR to SDR conversion uses Elemental tone mapping technology to approximate the outcome of manually regrading from HDR to SDR. Select Force P3D65 (SDR) to set the output color space metadata to the following: * Color primaries: Display P3 * Transfer characteristics: SMPTE 428M * Matrix coefficients: BT.709
    */
   ColorSpaceConversion?: ColorSpaceConversion | string;
 
@@ -2982,6 +2984,11 @@ export interface ColorCorrector {
    * Saturation level.
    */
   Saturation?: number;
+
+  /**
+   * Specify the reference white level, in nits, for all of your SDR inputs. Use to correct brightness levels within HDR10 outputs. The following color metadata must be present in your SDR input: color primaries, transfer characteristics, and matrix coefficients. If your SDR input has missing color metadata, or if you want to correct input color metadata, manually specify a color space in the input video selector. For 1,000 nit peak brightness displays, we recommend that you set SDR reference white level to 203 (according to ITU-R BT.2408). Leave blank to use the default value of 100, or specify an integer from 100 to 1000.
+   */
+  SdrReferenceWhiteLevel?: number;
 }
 
 export enum DeinterlaceAlgorithm {

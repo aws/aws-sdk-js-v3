@@ -3525,6 +3525,7 @@ const serializeAws_restJson1ColorCorrector = (input: ColorCorrector, context: __
     ...(input.Hue != null && { hue: input.Hue }),
     ...(input.SampleRangeConversion != null && { sampleRangeConversion: input.SampleRangeConversion }),
     ...(input.Saturation != null && { saturation: input.Saturation }),
+    ...(input.SdrReferenceWhiteLevel != null && { sdrReferenceWhiteLevel: input.SdrReferenceWhiteLevel }),
   };
 };
 
@@ -4222,6 +4223,7 @@ const serializeAws_restJson1ImageInserter = (input: ImageInserter, context: __Se
     ...(input.InsertableImages != null && {
       insertableImages: serializeAws_restJson1__listOfInsertableImage(input.InsertableImages, context),
     }),
+    ...(input.SdrReferenceWhiteLevel != null && { sdrReferenceWhiteLevel: input.SdrReferenceWhiteLevel }),
   };
 };
 
@@ -6580,6 +6582,7 @@ const deserializeAws_restJson1ColorCorrector = (output: any, context: __SerdeCon
     Hue: __expectInt32(output.hue),
     SampleRangeConversion: __expectString(output.sampleRangeConversion),
     Saturation: __expectInt32(output.saturation),
+    SdrReferenceWhiteLevel: __expectInt32(output.sdrReferenceWhiteLevel),
   } as any;
 };
 
@@ -7227,6 +7230,7 @@ const deserializeAws_restJson1ImageInserter = (output: any, context: __SerdeCont
       output.insertableImages != null
         ? deserializeAws_restJson1__listOfInsertableImage(output.insertableImages, context)
         : undefined,
+    SdrReferenceWhiteLevel: __expectInt32(output.sdrReferenceWhiteLevel),
   } as any;
 };
 
