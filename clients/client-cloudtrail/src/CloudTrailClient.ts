@@ -59,6 +59,10 @@ import {
   DeleteEventDataStoreCommandOutput,
 } from "./commands/DeleteEventDataStoreCommand";
 import { DeleteTrailCommandInput, DeleteTrailCommandOutput } from "./commands/DeleteTrailCommand";
+import {
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/DeregisterOrganizationDelegatedAdminCommand";
 import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "./commands/DescribeQueryCommand";
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "./commands/DescribeTrailsCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "./commands/GetChannelCommand";
@@ -89,6 +93,10 @@ import {
   PutInsightSelectorsCommandInput,
   PutInsightSelectorsCommandOutput,
 } from "./commands/PutInsightSelectorsCommand";
+import {
+  RegisterOrganizationDelegatedAdminCommandInput,
+  RegisterOrganizationDelegatedAdminCommandOutput,
+} from "./commands/RegisterOrganizationDelegatedAdminCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
   RestoreEventDataStoreCommandInput,
@@ -119,6 +127,7 @@ export type ServiceInputTypes =
   | CreateTrailCommandInput
   | DeleteEventDataStoreCommandInput
   | DeleteTrailCommandInput
+  | DeregisterOrganizationDelegatedAdminCommandInput
   | DescribeQueryCommandInput
   | DescribeTrailsCommandInput
   | GetChannelCommandInput
@@ -140,6 +149,7 @@ export type ServiceInputTypes =
   | LookupEventsCommandInput
   | PutEventSelectorsCommandInput
   | PutInsightSelectorsCommandInput
+  | RegisterOrganizationDelegatedAdminCommandInput
   | RemoveTagsCommandInput
   | RestoreEventDataStoreCommandInput
   | StartImportCommandInput
@@ -157,6 +167,7 @@ export type ServiceOutputTypes =
   | CreateTrailCommandOutput
   | DeleteEventDataStoreCommandOutput
   | DeleteTrailCommandOutput
+  | DeregisterOrganizationDelegatedAdminCommandOutput
   | DescribeQueryCommandOutput
   | DescribeTrailsCommandOutput
   | GetChannelCommandOutput
@@ -178,6 +189,7 @@ export type ServiceOutputTypes =
   | LookupEventsCommandOutput
   | PutEventSelectorsCommandOutput
   | PutInsightSelectorsCommandOutput
+  | RegisterOrganizationDelegatedAdminCommandOutput
   | RemoveTagsCommandOutput
   | RestoreEventDataStoreCommandOutput
   | StartImportCommandOutput

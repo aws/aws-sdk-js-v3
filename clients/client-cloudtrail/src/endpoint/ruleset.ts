@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: true,
+      required: false,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },

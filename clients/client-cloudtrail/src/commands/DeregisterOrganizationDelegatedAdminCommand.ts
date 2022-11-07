@@ -15,42 +15,41 @@ import {
 
 import { CloudTrailClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudTrailClient";
 import {
-  GetChannelRequest,
-  GetChannelRequestFilterSensitiveLog,
-  GetChannelResponse,
-  GetChannelResponseFilterSensitiveLog,
+  DeregisterOrganizationDelegatedAdminRequest,
+  DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
+  DeregisterOrganizationDelegatedAdminResponse,
+  DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetChannelCommand,
-  serializeAws_json1_1GetChannelCommand,
+  deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand,
+  serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetChannelCommandInput extends GetChannelRequest {}
-export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataBearer {}
+export interface DeregisterOrganizationDelegatedAdminCommandInput extends DeregisterOrganizationDelegatedAdminRequest {}
+export interface DeregisterOrganizationDelegatedAdminCommandOutput
+  extends DeregisterOrganizationDelegatedAdminResponse,
+    __MetadataBearer {}
 
 /**
- * <p>
- *          Returns information about a specific channel. Amazon Web Services services create service-linked channels to get information about CloudTrail events on your behalf. For more information about
- *          service-linked channels, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/viewing-service-linked-channels.html">Viewing service-linked channels for CloudTrail by using the CLI</a>.
- *       </p>
+ * <p>Removes CloudTrail delegated administrator permissions from a member account in an organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudTrailClient, GetChannelCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
- * // const { CloudTrailClient, GetChannelCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
+ * import { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } from "@aws-sdk/client-cloudtrail"; // ES Modules import
+ * // const { CloudTrailClient, DeregisterOrganizationDelegatedAdminCommand } = require("@aws-sdk/client-cloudtrail"); // CommonJS import
  * const client = new CloudTrailClient(config);
- * const command = new GetChannelCommand(input);
+ * const command = new DeregisterOrganizationDelegatedAdminCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetChannelCommandInput} for command's `input` shape.
- * @see {@link GetChannelCommandOutput} for command's `response` shape.
+ * @see {@link DeregisterOrganizationDelegatedAdminCommandInput} for command's `input` shape.
+ * @see {@link DeregisterOrganizationDelegatedAdminCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
  */
-export class GetChannelCommand extends $Command<
-  GetChannelCommandInput,
-  GetChannelCommandOutput,
+export class DeregisterOrganizationDelegatedAdminCommand extends $Command<
+  DeregisterOrganizationDelegatedAdminCommandInput,
+  DeregisterOrganizationDelegatedAdminCommandOutput,
   CloudTrailClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +64,7 @@ export class GetChannelCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetChannelCommandInput) {
+  constructor(readonly input: DeregisterOrganizationDelegatedAdminCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,21 +77,23 @@ export class GetChannelCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudTrailClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetChannelCommandInput, GetChannelCommandOutput> {
+  ): Handler<DeregisterOrganizationDelegatedAdminCommandInput, DeregisterOrganizationDelegatedAdminCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetChannelCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DeregisterOrganizationDelegatedAdminCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudTrailClient";
-    const commandName = "GetChannelCommand";
+    const commandName = "DeregisterOrganizationDelegatedAdminCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetChannelRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetChannelResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeregisterOrganizationDelegatedAdminRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeregisterOrganizationDelegatedAdminResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +103,18 @@ export class GetChannelCommand extends $Command<
     );
   }
 
-  private serialize(input: GetChannelCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetChannelCommand(input, context);
+  private serialize(
+    input: DeregisterOrganizationDelegatedAdminCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetChannelCommandOutput> {
-    return deserializeAws_json1_1GetChannelCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeregisterOrganizationDelegatedAdminCommandOutput> {
+    return deserializeAws_json1_1DeregisterOrganizationDelegatedAdminCommand(output, context);
   }
 
   // Start section: command_body_extra
