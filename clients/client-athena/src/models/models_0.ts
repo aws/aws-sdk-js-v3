@@ -378,10 +378,45 @@ export interface ResultConfiguration {
   AclConfiguration?: AclConfiguration;
 }
 
+/**
+ * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+ */
+export interface ResultReuseByAgeConfiguration {
+  /**
+   * <p>True if previous query results can be reused when the query is run; otherwise, false. The default is false.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>Specifies, in minutes, the maximum age of a previous query result that Athena should consider for reuse. The default is 60.</p>
+   */
+  MaxAgeInMinutes?: number;
+}
+
+/**
+ * <p>Specifies the query result reuse behavior for the query.</p>
+ */
+export interface ResultReuseConfiguration {
+  /**
+   * <p>Specifies whether previous query results are reused, and if so, their maximum age.</p>
+   */
+  ResultReuseByAgeConfiguration?: ResultReuseByAgeConfiguration;
+}
+
 export enum StatementType {
   DDL = "DDL",
   DML = "DML",
   UTILITY = "UTILITY",
+}
+
+/**
+ * <p>Contains information about whether the result of a previous query was reused.</p>
+ */
+export interface ResultReuseInformation {
+  /**
+   * <p>True if a previous query result was reused; false if the result was generated from a new run of the query.</p>
+   */
+  ReusedPreviousResult: boolean | undefined;
 }
 
 /**
@@ -435,6 +470,11 @@ export interface QueryExecutionStatistics {
    *             query results after the query engine finished running the query.</p>
    */
   ServiceProcessingTimeInMillis?: number;
+
+  /**
+   * <p>Contains information about whether previous query results were reused for the query.</p>
+   */
+  ResultReuseInformation?: ResultReuseInformation;
 }
 
 /**
@@ -557,6 +597,11 @@ export interface QueryExecution {
    *             workgroup.</p>
    */
   ResultConfiguration?: ResultConfiguration;
+
+  /**
+   * <p>Specifies the query result reuse behavior that was used for the query.</p>
+   */
+  ResultReuseConfiguration?: ResultReuseConfiguration;
 
   /**
    * <p>The database in which the query execution occurred.</p>
@@ -1360,6 +1405,37 @@ export interface GetQueryResultsOutput {
   NextToken?: string;
 }
 
+export enum ThrottleReason {
+  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
+}
+
+/**
+ * <p>Indicates that the request was throttled.</p>
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
+   *             limit.</p>
+   */
+  Reason?: ThrottleReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
+}
+
 export interface GetQueryRuntimeStatisticsInput {
   /**
    * <p>The unique ID of the query execution.</p>
@@ -1980,6 +2056,11 @@ export interface StartQueryExecutionInput {
    * <p>A list of values for the parameters in a query. The values are applied sequentially to the parameters in the query in the order in which the parameters occur.</p>
    */
   ExecutionParameters?: string[];
+
+  /**
+   * <p>Specifies the query result reuse behavior for the query.</p>
+   */
+  ResultReuseConfiguration?: ResultReuseConfiguration;
 }
 
 export interface StartQueryExecutionOutput {
@@ -1987,37 +2068,6 @@ export interface StartQueryExecutionOutput {
    * <p>The unique ID of the query that ran as a result of this request.</p>
    */
   QueryExecutionId?: string;
-}
-
-export enum ThrottleReason {
-  CONCURRENT_QUERY_LIMIT_EXCEEDED = "CONCURRENT_QUERY_LIMIT_EXCEEDED",
-}
-
-/**
- * <p>Indicates that the request was throttled.</p>
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * <p>The reason for the query throttling, for example, when it exceeds the concurrent query
-   *             limit.</p>
-   */
-  Reason?: ThrottleReason | string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-    this.Reason = opts.Reason;
-  }
 }
 
 export interface StopQueryExecutionInput {
@@ -2545,6 +2595,27 @@ export const EncryptionConfigurationFilterSensitiveLog = (obj: EncryptionConfigu
  * @internal
  */
 export const ResultConfigurationFilterSensitiveLog = (obj: ResultConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultReuseByAgeConfigurationFilterSensitiveLog = (obj: ResultReuseByAgeConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultReuseConfigurationFilterSensitiveLog = (obj: ResultReuseConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResultReuseInformationFilterSensitiveLog = (obj: ResultReuseInformation): any => ({
   ...obj,
 });
 

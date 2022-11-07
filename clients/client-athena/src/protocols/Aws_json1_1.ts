@@ -177,6 +177,9 @@ import {
   ResourceNotFoundException,
   ResultConfiguration,
   ResultConfigurationUpdates,
+  ResultReuseByAgeConfiguration,
+  ResultReuseConfiguration,
+  ResultReuseInformation,
   ResultSet,
   ResultSetMetadata,
   Row,
@@ -1435,6 +1438,9 @@ const deserializeAws_json1_1GetQueryResultsCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.athena#InvalidRequestException":
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "TooManyRequestsException":
+    case "com.amazonaws.athena#TooManyRequestsException":
+      throw await deserializeAws_json1_1TooManyRequestsExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2771,6 +2777,30 @@ const serializeAws_json1_1ResultConfigurationUpdates = (
   };
 };
 
+const serializeAws_json1_1ResultReuseByAgeConfiguration = (
+  input: ResultReuseByAgeConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Enabled != null && { Enabled: input.Enabled }),
+    ...(input.MaxAgeInMinutes != null && { MaxAgeInMinutes: input.MaxAgeInMinutes }),
+  };
+};
+
+const serializeAws_json1_1ResultReuseConfiguration = (
+  input: ResultReuseConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ResultReuseByAgeConfiguration != null && {
+      ResultReuseByAgeConfiguration: serializeAws_json1_1ResultReuseByAgeConfiguration(
+        input.ResultReuseByAgeConfiguration,
+        context
+      ),
+    }),
+  };
+};
+
 const serializeAws_json1_1StartQueryExecutionInput = (
   input: StartQueryExecutionInput,
   context: __SerdeContext
@@ -2786,6 +2816,9 @@ const serializeAws_json1_1StartQueryExecutionInput = (
     ...(input.QueryString != null && { QueryString: input.QueryString }),
     ...(input.ResultConfiguration != null && {
       ResultConfiguration: serializeAws_json1_1ResultConfiguration(input.ResultConfiguration, context),
+    }),
+    ...(input.ResultReuseConfiguration != null && {
+      ResultReuseConfiguration: serializeAws_json1_1ResultReuseConfiguration(input.ResultReuseConfiguration, context),
     }),
     ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
   };
@@ -3499,6 +3532,10 @@ const deserializeAws_json1_1QueryExecution = (output: any, context: __SerdeConte
       output.ResultConfiguration != null
         ? deserializeAws_json1_1ResultConfiguration(output.ResultConfiguration, context)
         : undefined,
+    ResultReuseConfiguration:
+      output.ResultReuseConfiguration != null
+        ? deserializeAws_json1_1ResultReuseConfiguration(output.ResultReuseConfiguration, context)
+        : undefined,
     StatementType: __expectString(output.StatementType),
     Statistics:
       output.Statistics != null
@@ -3550,6 +3587,10 @@ const deserializeAws_json1_1QueryExecutionStatistics = (
     EngineExecutionTimeInMillis: __expectLong(output.EngineExecutionTimeInMillis),
     QueryPlanningTimeInMillis: __expectLong(output.QueryPlanningTimeInMillis),
     QueryQueueTimeInMillis: __expectLong(output.QueryQueueTimeInMillis),
+    ResultReuseInformation:
+      output.ResultReuseInformation != null
+        ? deserializeAws_json1_1ResultReuseInformation(output.ResultReuseInformation, context)
+        : undefined,
     ServiceProcessingTimeInMillis: __expectLong(output.ServiceProcessingTimeInMillis),
     TotalExecutionTimeInMillis: __expectLong(output.TotalExecutionTimeInMillis),
   } as any;
@@ -3681,6 +3722,34 @@ const deserializeAws_json1_1ResultConfiguration = (output: any, context: __Serde
         : undefined,
     ExpectedBucketOwner: __expectString(output.ExpectedBucketOwner),
     OutputLocation: __expectString(output.OutputLocation),
+  } as any;
+};
+
+const deserializeAws_json1_1ResultReuseByAgeConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ResultReuseByAgeConfiguration => {
+  return {
+    Enabled: __expectBoolean(output.Enabled),
+    MaxAgeInMinutes: __expectInt32(output.MaxAgeInMinutes),
+  } as any;
+};
+
+const deserializeAws_json1_1ResultReuseConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ResultReuseConfiguration => {
+  return {
+    ResultReuseByAgeConfiguration:
+      output.ResultReuseByAgeConfiguration != null
+        ? deserializeAws_json1_1ResultReuseByAgeConfiguration(output.ResultReuseByAgeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResultReuseInformation = (output: any, context: __SerdeContext): ResultReuseInformation => {
+  return {
+    ReusedPreviousResult: __expectBoolean(output.ReusedPreviousResult),
   } as any;
 };
 
