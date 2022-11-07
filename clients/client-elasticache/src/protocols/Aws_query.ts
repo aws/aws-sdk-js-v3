@@ -382,6 +382,7 @@ import {
   ModifyReplicationGroupShardConfigurationResult,
   ModifyUserGroupMessage,
   ModifyUserMessage,
+  NetworkType,
   NodeGroup,
   NodeGroupConfiguration,
   NodeGroupMember,
@@ -6323,6 +6324,12 @@ const serializeAws_queryCreateCacheClusterMessage = (
   if (input.TransitEncryptionEnabled != null) {
     entries["TransitEncryptionEnabled"] = input.TransitEncryptionEnabled;
   }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
   return entries;
 };
 
@@ -6593,6 +6600,12 @@ const serializeAws_queryCreateReplicationGroupMessage = (
   }
   if (input.DataTieringEnabled != null) {
     entries["DataTieringEnabled"] = input.DataTieringEnabled;
+  }
+  if (input.NetworkType != null) {
+    entries["NetworkType"] = input.NetworkType;
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -7691,6 +7704,9 @@ const serializeAws_queryModifyCacheClusterMessage = (
       entries[loc] = value;
     });
   }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
+  }
   return entries;
 };
 
@@ -7885,6 +7901,9 @@ const serializeAws_queryModifyReplicationGroupMessage = (
       const loc = `LogDeliveryConfigurations.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input.IpDiscovery != null) {
+    entries["IpDiscovery"] = input.IpDiscovery;
   }
   return entries;
 };
@@ -8718,6 +8737,8 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
     ARN: undefined,
     ReplicationGroupLogDeliveryEnabled: undefined,
     LogDeliveryConfigurations: undefined,
+    NetworkType: undefined,
+    IpDiscovery: undefined,
   };
   if (output["CacheClusterId"] !== undefined) {
     contents.CacheClusterId = __expectString(output["CacheClusterId"]);
@@ -8843,6 +8864,12 @@ const deserializeAws_queryCacheCluster = (output: any, context: __SerdeContext):
       __getArrayIfSingleItem(output["LogDeliveryConfigurations"]["LogDeliveryConfiguration"]),
       context
     );
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
   }
   return contents;
 };
@@ -9471,6 +9498,7 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
     VpcId: undefined,
     Subnets: undefined,
     ARN: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["CacheSubnetGroupName"] !== undefined) {
     contents.CacheSubnetGroupName = __expectString(output["CacheSubnetGroupName"]);
@@ -9488,6 +9516,14 @@ const deserializeAws_queryCacheSubnetGroup = (output: any, context: __SerdeConte
   }
   if (output["ARN"] !== undefined) {
     contents.ARN = __expectString(output["ARN"]);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryNetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -10638,6 +10674,14 @@ const deserializeAws_queryModifyReplicationGroupShardConfigurationResult = (
   return contents;
 };
 
+const deserializeAws_queryNetworkTypeList = (output: any, context: __SerdeContext): (NetworkType | string)[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
 const deserializeAws_queryNodeGroup = (output: any, context: __SerdeContext): NodeGroup => {
   const contents: any = {
     NodeGroupId: undefined,
@@ -11252,6 +11296,8 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
     ReplicationGroupCreateTime: undefined,
     DataTiering: undefined,
     AutoMinorVersionUpgrade: undefined,
+    NetworkType: undefined,
+    IpDiscovery: undefined,
   };
   if (output["ReplicationGroupId"] !== undefined) {
     contents.ReplicationGroupId = __expectString(output["ReplicationGroupId"]);
@@ -11370,6 +11416,12 @@ const deserializeAws_queryReplicationGroup = (output: any, context: __SerdeConte
   }
   if (output["AutoMinorVersionUpgrade"] !== undefined) {
     contents.AutoMinorVersionUpgrade = __parseBoolean(output["AutoMinorVersionUpgrade"]);
+  }
+  if (output["NetworkType"] !== undefined) {
+    contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["IpDiscovery"] !== undefined) {
+    contents.IpDiscovery = __expectString(output["IpDiscovery"]);
   }
   return contents;
 };
@@ -12097,6 +12149,7 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
     SubnetIdentifier: undefined,
     SubnetAvailabilityZone: undefined,
     SubnetOutpost: undefined,
+    SupportedNetworkTypes: undefined,
   };
   if (output["SubnetIdentifier"] !== undefined) {
     contents.SubnetIdentifier = __expectString(output["SubnetIdentifier"]);
@@ -12106,6 +12159,14 @@ const deserializeAws_querySubnet = (output: any, context: __SerdeContext): Subne
   }
   if (output["SubnetOutpost"] !== undefined) {
     contents.SubnetOutpost = deserializeAws_querySubnetOutpost(output["SubnetOutpost"], context);
+  }
+  if (output.SupportedNetworkTypes === "") {
+    contents.SupportedNetworkTypes = [];
+  } else if (output["SupportedNetworkTypes"] !== undefined && output["SupportedNetworkTypes"]["member"] !== undefined) {
+    contents.SupportedNetworkTypes = deserializeAws_queryNetworkTypeList(
+      __getArrayIfSingleItem(output["SupportedNetworkTypes"]["member"]),
+      context
+    );
   }
   return contents;
 };

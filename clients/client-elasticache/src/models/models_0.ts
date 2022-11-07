@@ -674,6 +674,11 @@ export interface GlobalReplicationGroupInfo {
   GlobalReplicationGroupMemberRole?: string;
 }
 
+export enum IpDiscovery {
+  IPV4 = "ipv4",
+  IPV6 = "ipv6",
+}
+
 /**
  * <p>The configuration details of the CloudWatch Logs destination.</p>
  */
@@ -773,6 +778,12 @@ export enum MultiAZStatus {
   ENABLED = "enabled",
 }
 
+export enum NetworkType {
+  DUAL_STACK = "dual_stack",
+  IPV4 = "ipv4",
+  IPV6 = "ipv6",
+}
+
 /**
  * <p>Represents a single node within a node group (shard).</p>
  */
@@ -851,7 +862,10 @@ export interface NodeGroup {
   NodeGroupMembers?: NodeGroupMember[];
 }
 
-export type AuthTokenUpdateStatus = "ROTATING" | "SETTING";
+export enum AuthTokenUpdateStatus {
+  ROTATING = "ROTATING",
+  SETTING = "SETTING",
+}
 
 export enum PendingAutomaticFailoverStatus {
   DISABLED = "disabled",
@@ -1139,10 +1153,22 @@ export interface ReplicationGroup {
   DataTiering?: DataTieringStatus | string;
 
   /**
-   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
+   * <p> If you are running Redis engine version 6.0 or later, set this parameter to yes if you want to opt-in to the next auto minor version upgrade campaign. This parameter is disabled for previous versions.
    *         </p>
    */
   AutoMinorVersionUpgrade?: boolean;
+
+  /**
+   * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  NetworkType?: NetworkType | string;
+
+  /**
+   * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 export interface CompleteMigrationResponse {
@@ -1341,21 +1367,17 @@ export interface Snapshot {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
+   *
    * 		       <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
    * 					                <p>
-   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
-   *
-   *
-   *
-   * 					                <p>
-   *                         <code>cache.m6g.large</code>,
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -1363,8 +1385,9 @@ export interface Snapshot {
    * 							<code>cache.m6g.12xlarge</code>,
    * 							<code>cache.m6g.16xlarge</code>
    *
-   * 					                </p>
    *
+   *
+   * 						               </p>
    *
    * 						               <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
@@ -1395,15 +1418,11 @@ export interface Snapshot {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):</p>
-   *
-   *
-   * 					                <p>
-   * 					                   <code>cache.t4g.micro</code>,
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
+   * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
    * 					                </p>
-   *
    *
    *
    * 					                <p>
@@ -1465,76 +1484,34 @@ export interface Snapshot {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
-   *
-   *
-   * 		            <ul>
+   * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
    *
    *
    *
    *
-   * 		                    <p>
+   * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
    *
-   * 		                    <p>
-   * 		                        <code>cache.r6g.large</code>,
-   * 		                        <code>cache.r6g.xlarge</code>,
-   * 		                        <code>cache.r6g.2xlarge</code>,
-   * 		                        <code>cache.r6g.4xlarge</code>,
-   * 		                        <code>cache.r6g.8xlarge</code>,
-   * 		                        <code>cache.r6g.12xlarge</code>,
-   * 		                        <code>cache.r6g.16xlarge</code>
+   * 						               <p>
+   * 							                 <code>cache.r6g.large</code>,
+   * 							<code>cache.r6g.xlarge</code>,
+   * 							<code>cache.r6g.2xlarge</code>,
+   * 							<code>cache.r6g.4xlarge</code>,
+   * 							<code>cache.r6g.8xlarge</code>,
+   * 							<code>cache.r6g.12xlarge</code>,
+   * 							<code>cache.r6g.16xlarge</code>
    *
    *
    *
    *
    *
    *
-   * 		                    </p>
-   * 		                    <note>
-   *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
-   *                         </p>
-   *                      </note>
-   *
-   *
-   *
-   *
-   *
+   * 						               </p>
    * 						               <note>
    *                         <p>For region availability, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/CacheNodes.SupportedTypes.html#CacheNodes.SupportedTypesByRegion">Supported Node Types</a>
    *                         </p>
@@ -1592,6 +1569,8 @@ export interface Snapshot {
    *                </ul>
    *             </li>
    *          </ul>
+   *
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -1995,16 +1974,12 @@ export interface CreateCacheClusterMessage {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   * 	        <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
    * 					                <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
    *
@@ -2390,15 +2365,24 @@ export interface CreateCacheClusterMessage {
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
 
   /**
-   * <p>A flag that enables in-transit encryption when set to true.
+   * <p>A flag that enables in-transit encryption when set to true. You cannot modify the value of TransitEncryptionEnabled after the cluster is created.
+   *             To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster.</p>
    *
-   *             You cannot modify the value of <code>TransitEncryptionEnabled</code> after the cluster is created. To enable in-transit encryption on a cluster you must set <code>TransitEncryptionEnabled</code> to true when you create a cluster. </p>
-   *
-   *         <p>
-   *             <b>Required:</b>
-   *             Only available when creating a cache cluster in an Amazon VPC using Memcached version <code>1.6.12</code> or later.</p>
+   *           <p> Only available when creating a cache cluster in an Amazon VPC using Memcached version 1.6.12 or later.</p>
    */
   TransitEncryptionEnabled?: boolean;
+
+  /**
+   * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>. </p>
+   */
+  NetworkType?: NetworkType | string;
+
+  /**
+   * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 /**
@@ -2409,19 +2393,16 @@ export interface CreateCacheClusterMessage {
  *         <p>The following node types are supported by ElastiCache.
  * 				Generally speaking, the current generation types provide more memory and computational power
  * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
- * 		       <ul>
+ * 	        <ul>
  *             <li>
  *                <p>General purpose:</p>
  * 				           <ul>
  *                   <li>
  *                      <p>Current generation: </p>
- *
- *
- *
- *
- *
  * 					                <p>
- *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
+ *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+ *
+ * 					 	<code>cache.m6g.large</code>,
  * 							<code>cache.m6g.xlarge</code>,
  * 							<code>cache.m6g.2xlarge</code>,
  * 							<code>cache.m6g.4xlarge</code>,
@@ -2462,11 +2443,12 @@ export interface CreateCacheClusterMessage {
  *                      </p>
  *
  * 					                <p>
- *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+ *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
  * 					        <code>cache.t4g.micro</code>,
  * 					        <code>cache.t4g.small</code>,
  * 					        <code>cache.t4g.medium</code>
  * 					                </p>
+ *
  *
  * 					                <p>
  *                         <b>T3 node types:</b>
@@ -2527,37 +2509,6 @@ export interface CreateCacheClusterMessage {
  *                </ul>
  *             </li>
  *             <li>
- *                <p>Memory optimized with data tiering:</p>
- * 		             <ul>
- *                   <li>
- *                      <p>Current generation: </p>
- *
- * 		                   <p>
- *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
- *
- *
- *
- *
- * 		                   <p>
- *
- * 		                      <code>cache.r6gd.xlarge</code>,
- * 		                    <code>cache.r6gd.2xlarge</code>,
- * 		                    <code>cache.r6gd.4xlarge</code>,
- * 		                    <code>cache.r6gd.8xlarge</code>,
- * 		                    <code>cache.r6gd.12xlarge</code>,
- * 		                    <code>cache.r6gd.16xlarge</code>
- *
- *
- *
- *
- *
- *
- * 		                   </p>
- *
- * 		                </li>
- *                </ul>
- *             </li>
- *             <li>
  *                <p>Memory optimized:</p>
  * 				           <ul>
  *                   <li>
@@ -2565,9 +2516,9 @@ export interface CreateCacheClusterMessage {
  *
  *
  *
- * 					                <p>
- *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
  *
+ * 											          <p>
+ *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
  *
  *
  *
@@ -2643,6 +2594,8 @@ export interface CreateCacheClusterMessage {
  *                </ul>
  *             </li>
  *          </ul>
+ *
+ *
  *
  * 		       <p>
  *             <b>Additional node type info</b>
@@ -2844,19 +2797,16 @@ export interface CacheCluster {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   * 	        <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
-   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -2896,13 +2846,13 @@ export interface CacheCluster {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *
-   *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
    * 					                </p>
+   *
    *
    * 					                <p>
    *                         <b>T3 node types:</b>
@@ -2963,37 +2913,6 @@ export interface CacheCluster {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -3001,10 +2920,9 @@ export interface CacheCluster {
    *
    *
    *
-   * 					                <p>
+   *
+   * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
    *
    *
    *
@@ -3080,6 +2998,8 @@ export interface CacheCluster {
    *                </ul>
    *             </li>
    *          </ul>
+   *
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -3321,6 +3241,18 @@ export interface CacheCluster {
    * <p>Returns the destination, format and type of the logs.</p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfiguration[];
+
+  /**
+   * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  NetworkType?: NetworkType | string;
+
+  /**
+   * <p>The network type associated with the cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 export interface CreateCacheClusterResult {
@@ -3757,6 +3689,12 @@ export interface Subnet {
    * <p>The outpost ARN of the subnet.</p>
    */
   SubnetOutpost?: SubnetOutpost;
+
+  /**
+   * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  SupportedNetworkTypes?: (NetworkType | string)[];
 }
 
 /**
@@ -3799,6 +3737,12 @@ export interface CacheSubnetGroup {
    * <p>The ARN (Amazon Resource Name) of the cache subnet group.</p>
    */
   ARN?: string;
+
+  /**
+   * <p>Either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  SupportedNetworkTypes?: (NetworkType | string)[];
 }
 
 export interface CreateCacheSubnetGroupResult {
@@ -4185,20 +4129,16 @@ export interface CreateReplicationGroupMessage {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   *         <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
    *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   * 						<code>cache.m6g.large</code>,
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -4238,13 +4178,14 @@ export interface CreateReplicationGroupMessage {
    *     						<code>cache.m4.10xlarge</code>
    *                      </p>
    *
-   *
    * 					                <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
    * 					                </p>
+   *
+   *
    * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
@@ -4304,37 +4245,6 @@ export interface CreateReplicationGroupMessage {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -4343,9 +4253,8 @@ export interface CreateReplicationGroupMessage {
    *
    *
    *
-   * 					                <p>
+   * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
    *
    *
    *
@@ -4421,6 +4330,7 @@ export interface CreateReplicationGroupMessage {
    *                </ul>
    *             </li>
    *          </ul>
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -4702,6 +4612,18 @@ export interface CreateReplicationGroupMessage {
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/data-tiering.html">Data tiering</a>.</p>
    */
   DataTieringEnabled?: boolean;
+
+  /**
+   * <p>Must be either <code>ipv4</code> | <code>ipv6</code> | <code>dual_stack</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  NetworkType?: NetworkType | string;
+
+  /**
+   * <p>The network type you choose when creating a replication group, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 export interface CreateReplicationGroupResult {
@@ -5814,7 +5736,10 @@ export interface CacheNodeTypeSpecificValue {
   Value?: string;
 }
 
-export type ChangeType = "immediate" | "requires-reboot";
+export enum ChangeType {
+  immediate = "immediate",
+  requires_reboot = "requires-reboot",
+}
 
 /**
  * <p>A parameter that has a different value for each cache node type it is applied to. For
@@ -6151,14 +6076,15 @@ export interface DescribeEngineDefaultParametersResult {
   EngineDefaults?: EngineDefaults;
 }
 
-export type SourceType =
-  | "cache-cluster"
-  | "cache-parameter-group"
-  | "cache-security-group"
-  | "cache-subnet-group"
-  | "replication-group"
-  | "user"
-  | "user-group";
+export enum SourceType {
+  cache_cluster = "cache-cluster",
+  cache_parameter_group = "cache-parameter-group",
+  cache_security_group = "cache-security-group",
+  cache_subnet_group = "cache-subnet-group",
+  replication_group = "replication-group",
+  user = "user",
+  user_group = "user-group",
+}
 
 /**
  * <p>Represents the input of a <code>DescribeEvents</code> operation.</p>
@@ -6357,21 +6283,17 @@ export interface DescribeReservedCacheNodesMessage {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   *
+   *         <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
-   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
-   * 					        <code>cache.m6g.large</code>,
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -6412,7 +6334,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -6478,37 +6400,6 @@ export interface DescribeReservedCacheNodesMessage {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -6516,9 +6407,9 @@ export interface DescribeReservedCacheNodesMessage {
    *
    *
    *
-   * 					                <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
    *
@@ -6594,6 +6485,7 @@ export interface DescribeReservedCacheNodesMessage {
    *                </ul>
    *             </li>
    *          </ul>
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -6698,13 +6590,10 @@ export interface ReservedCacheNode {
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
-   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):	<code>cache.m6g.large</code>,
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -6750,7 +6639,9 @@ export interface ReservedCacheNode {
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
    * 					                </p>
-   *     					            <p>
+   *
+   *
+   * 					                <p>
    *                         <b>T3 node types:</b>
    * 					                   <code>cache.t3.micro</code>,
    *     						<code>cache.t3.small</code>,
@@ -6809,37 +6700,6 @@ export interface ReservedCacheNode {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -6847,9 +6707,9 @@ export interface ReservedCacheNode {
    *
    *
    *
-   * 					                <p>
-   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
+   * 											          <p>
+   *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
    *
    *
    *
@@ -6925,6 +6785,8 @@ export interface ReservedCacheNode {
    *                </ul>
    *             </li>
    *          </ul>
+   *
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -7034,20 +6896,16 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   * 	        <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
-   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward)	<code>cache.m6g.large</code>,
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -7088,7 +6946,7 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                      </p>
    *
    * 					                <p>
-   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
    * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
@@ -7154,37 +7012,6 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -7193,10 +7020,8 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *
    *
    *
-   * 					                <p>
+   * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
    *
    *
    *
@@ -7272,6 +7097,8 @@ export interface DescribeReservedCacheNodesOfferingsMessage {
    *                </ul>
    *             </li>
    *          </ul>
+   *
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -7349,20 +7176,17 @@ export interface ReservedCacheNodesOffering {
    *         <p>The following node types are supported by ElastiCache.
    * 				Generally speaking, the current generation types provide more memory and computational power
    * 			at lower cost when compared to their equivalent previous generation counterparts.</p>
-   * 		       <ul>
+   *
+   *         <ul>
    *             <li>
    *                <p>General purpose:</p>
    * 				           <ul>
    *                   <li>
    *                      <p>Current generation: </p>
-   *
-   *
-   *
-   *
-   *
-   *
    * 					                <p>
-   *                         <b>M6g node types:</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward): 	<code>cache.m6g.large</code>,
+   *                         <b>M6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward):
+   *
+   * 					 	<code>cache.m6g.large</code>,
    * 							<code>cache.m6g.xlarge</code>,
    * 							<code>cache.m6g.2xlarge</code>,
    * 							<code>cache.m6g.4xlarge</code>,
@@ -7404,10 +7228,11 @@ export interface ReservedCacheNodesOffering {
    *
    * 					                <p>
    *                         <b>T4g node types</b> (available only for Redis engine version 5.0.6 onward and Memcached engine version 1.5.16 onward):
-   * 					     <code>cache.t4g.micro</code>,
+   * 					        <code>cache.t4g.micro</code>,
    * 					        <code>cache.t4g.small</code>,
    * 					        <code>cache.t4g.medium</code>
    * 					                </p>
+   *
    *
    * 					                <p>
    *                         <b>T3 node types:</b>
@@ -7468,37 +7293,6 @@ export interface ReservedCacheNodesOffering {
    *                </ul>
    *             </li>
    *             <li>
-   *                <p>Memory optimized with data tiering:</p>
-   * 		             <ul>
-   *                   <li>
-   *                      <p>Current generation: </p>
-   *
-   * 		                   <p>
-   *                         <b>R6gd node types</b> (available only for Redis engine version 6.2 onward).</p>
-   *
-   *
-   *
-   *
-   * 		                   <p>
-   *
-   * 		                      <code>cache.r6gd.xlarge</code>,
-   * 		                    <code>cache.r6gd.2xlarge</code>,
-   * 		                    <code>cache.r6gd.4xlarge</code>,
-   * 		                    <code>cache.r6gd.8xlarge</code>,
-   * 		                    <code>cache.r6gd.12xlarge</code>,
-   * 		                    <code>cache.r6gd.16xlarge</code>
-   *
-   *
-   *
-   *
-   *
-   *
-   * 		                   </p>
-   *
-   * 		                </li>
-   *                </ul>
-   *             </li>
-   *             <li>
    *                <p>Memory optimized:</p>
    * 				           <ul>
    *                   <li>
@@ -7507,10 +7301,8 @@ export interface ReservedCacheNodesOffering {
    *
    *
    *
-   * 					                <p>
+   * 											          <p>
    *                         <b>R6g node types</b> (available only for Redis engine version 5.0.6 onward and for Memcached engine version 1.5.16 onward).</p>
-   *
-   *
    *
    *
    *
@@ -7586,6 +7378,7 @@ export interface ReservedCacheNodesOffering {
    *                </ul>
    *             </li>
    *          </ul>
+   *
    *
    * 		       <p>
    *             <b>Additional node type info</b>
@@ -8491,7 +8284,11 @@ export interface ListTagsForResourceMessage {
   ResourceName: string | undefined;
 }
 
-export type AuthTokenUpdateStrategyType = "DELETE" | "ROTATE" | "SET";
+export enum AuthTokenUpdateStrategyType {
+  DELETE = "DELETE",
+  ROTATE = "ROTATE",
+  SET = "SET",
+}
 
 /**
  * <p>Represents the input of a <code>ModifyCacheCluster</code> operation.</p>
@@ -8849,6 +8646,12 @@ export interface ModifyCacheClusterMessage {
    * <p>Specifies the destination, format and type of the logs.</p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
+
+  /**
+   * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 export interface ModifyCacheClusterResult {
@@ -9267,6 +9070,12 @@ export interface ModifyReplicationGroupMessage {
    * <p>Specifies the destination, format and type of the logs.</p>
    */
   LogDeliveryConfigurations?: LogDeliveryConfigurationRequest[];
+
+  /**
+   * <p>The network type you choose when modifying a cluster, either <code>ipv4</code> | <code>ipv6</code>. IPv6 is supported for workloads using Redis engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the
+   *             <a href="https://aws.amazon.com/ec2/nitro/">Nitro system</a>.</p>
+   */
+  IpDiscovery?: IpDiscovery | string;
 }
 
 export interface ModifyReplicationGroupResult {
