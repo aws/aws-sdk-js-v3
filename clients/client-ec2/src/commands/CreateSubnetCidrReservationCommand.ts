@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   CreateSubnetCidrReservationRequest,
   CreateSubnetCidrReservationRequestFilterSensitiveLog,
+} from "../models/models_1";
+import {
   CreateSubnetCidrReservationResult,
   CreateSubnetCidrReservationResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSubnetCidrReservationCommand,
   serializeAws_ec2CreateSubnetCidrReservationCommand,

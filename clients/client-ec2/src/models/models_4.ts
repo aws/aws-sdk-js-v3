@@ -22,7 +22,6 @@ import {
   SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
-  TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
@@ -45,6 +44,7 @@ import {
   InstanceRequirements,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  LaunchTemplate,
   LaunchTemplateVersion,
   LocalGatewayRouteTable,
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
@@ -111,6 +111,75 @@ import {
   PermissionGroup,
   ProductCode,
 } from "./models_3";
+
+export interface DescribeLaunchTemplatesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more launch template IDs.</p>
+   */
+  LaunchTemplateIds?: string[];
+
+  /**
+   * <p>One or more launch template names.</p>
+   */
+  LaunchTemplateNames?: string[];
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>create-time</code> - The time the launch template was created.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>launch-template-name</code> - The name of the launch template.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token to request the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return in a single call. To retrieve the remaining
+   *             results, make another call with the returned <code>NextToken</code> value. This value
+   *             can be between 1 and 200.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface DescribeLaunchTemplatesResult {
+  /**
+   * <p>Information about the launch templates.</p>
+   */
+  LaunchTemplates?: LaunchTemplate[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
+   *             when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
 
 export interface DescribeLaunchTemplateVersionsRequest {
   /**
@@ -4231,7 +4300,7 @@ export interface DescribeSpotDatafeedSubscriptionRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -4969,7 +5038,7 @@ export interface SpotFleetRequestConfigData {
   /**
    * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
    *             pools specified by the Spot Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Allocation
-   *                 strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>
    *             <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool
    *             that has available capacity. If the cheapest pool doesn't have available capacity, the
@@ -5041,7 +5110,7 @@ export interface SpotFleetRequestConfigData {
    * <p>The Amazon Resource Name (ARN) of an Identity and Access Management (IAM) role that
    *             grants the Spot Fleet the permission to request, launch, terminate, and tag instances on
    *             your behalf. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites">Spot
-   *                 Fleet prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet
+   *                 Fleet prerequisites</a> in the <i>Amazon EC2 User Guide</i>. Spot Fleet
    *             can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set
    *                 <code>TerminateInstancesWithExpiration</code>.</p>
@@ -5769,16 +5838,16 @@ export interface DescribeSpotPriceHistoryRequest {
    *             <li>
    *                 <p>
    *                     <code>instance-type</code> - The type of instance (for example,
-   *                         <code>m3.medium</code>).</p>
+   *                     <code>m3.medium</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
    *                     <code>product-description</code> - The product description for the Spot price
-   *                         (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
-   *                         <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
+   *                     (<code>Linux/UNIX</code> | <code>Red Hat Enterprise Linux</code> |
+   *                     <code>SUSE Linux</code> | <code>Windows</code> | <code>Linux/UNIX (Amazon
    *                         VPC)</code> | <code>Red Hat Enterprise Linux (Amazon VPC)</code> |
-   *                         <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
-   *                     VPC)</code>).</p>
+   *                     <code>SUSE Linux (Amazon VPC)</code> | <code>Windows (Amazon
+   *                         VPC)</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -5789,7 +5858,7 @@ export interface DescribeSpotPriceHistoryRequest {
    *                 <p>
    *                     <code>timestamp</code> - The time stamp of the Spot price history, in UTC format
    *                     (for example,
-   *                         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
+   *                     <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
    *                     You can use wildcards (* and ?). Greater than or less than comparison is not
    *                     supported.</p>
    *             </li>
@@ -5806,14 +5875,14 @@ export interface DescribeSpotPriceHistoryRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
   /**
    * <p>The date and time, up to the current date, from which to stop retrieving the price
    *             history data, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   EndTime?: Date;
 
@@ -5842,7 +5911,7 @@ export interface DescribeSpotPriceHistoryRequest {
   /**
    * <p>The date and time, up to the past 90 days, from which to start retrieving the price
    *             history data, in UTC format (for example,
-   *                 <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
+   *             <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).</p>
    */
   StartTime?: Date;
 }
@@ -9932,33 +10001,19 @@ export interface DisassociateTransitGatewayRouteTableRequest {
   DryRun?: boolean;
 }
 
-export interface DisassociateTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the association.</p>
-   */
-  Association?: TransitGatewayAssociation;
-}
+/**
+ * @internal
+ */
+export const DescribeLaunchTemplatesRequestFilterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
+  ...obj,
+});
 
-export interface DisassociateTrunkInterfaceRequest {
-  /**
-   * <p>The ID of the association</p>
-   */
-  AssociationId: string | undefined;
-
-  /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
-   *                 Idempotency</a>.</p>
-   */
-  ClientToken?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeLaunchTemplatesResultFilterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -12094,21 +12149,5 @@ export const DisassociateTransitGatewayPolicyTableResultFilterSensitiveLog = (
 export const DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog = (
   obj: DisassociateTransitGatewayRouteTableRequest
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayRouteTableResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayRouteTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTrunkInterfaceRequestFilterSensitiveLog = (obj: DisassociateTrunkInterfaceRequest): any => ({
   ...obj,
 });

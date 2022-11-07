@@ -62,7 +62,6 @@ import {
   IpamPool,
   IpamScope,
   KeyType,
-  LaunchTemplate,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   NetworkInterfaceStatus,
@@ -74,11 +73,51 @@ import {
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
-import {
-  FleetStateCode,
-  InstanceTagNotificationAttribute,
-  TransitGatewayMulticastDeregisteredGroupMembers,
-} from "./models_2";
+import { FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+
+export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The IDs of the group members' network interfaces.</p>
+   */
+  NetworkInterfaceIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes the deregistered  transit gateway multicast group members.</p>
+ */
+export interface TransitGatewayMulticastDeregisteredGroupMembers {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The network interface IDs of the deregistered members.</p>
+   */
+  DeregisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   */
+  GroupIpAddress?: string;
+}
 
 export interface DeregisterTransitGatewayMulticastGroupMembersResult {
   /**
@@ -9387,74 +9426,23 @@ export interface DescribeKeyPairsResult {
   KeyPairs?: KeyPairInfo[];
 }
 
-export interface DescribeLaunchTemplatesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog = (
+  obj: DeregisterTransitGatewayMulticastGroupMembersRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>One or more launch template IDs.</p>
-   */
-  LaunchTemplateIds?: string[];
-
-  /**
-   * <p>One or more launch template names.</p>
-   */
-  LaunchTemplateNames?: string[];
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>create-time</code> - The time the launch template was created.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>launch-template-name</code> - The name of the launch template.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token to request the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in a single call. To retrieve the remaining
-   *             results, make another call with the returned <code>NextToken</code> value. This value
-   *             can be between 1 and 200.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface DescribeLaunchTemplatesResult {
-  /**
-   * <p>Information about the launch templates.</p>
-   */
-  LaunchTemplates?: LaunchTemplate[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code>
-   *             when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const TransitGatewayMulticastDeregisteredGroupMembersFilterSensitiveLog = (
+  obj: TransitGatewayMulticastDeregisteredGroupMembers
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11203,19 +11191,5 @@ export const KeyPairInfoFilterSensitiveLog = (obj: KeyPairInfo): any => ({
  * @internal
  */
 export const DescribeKeyPairsResultFilterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplatesRequestFilterSensitiveLog = (obj: DescribeLaunchTemplatesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeLaunchTemplatesResultFilterSensitiveLog = (obj: DescribeLaunchTemplatesResult): any => ({
   ...obj,
 });

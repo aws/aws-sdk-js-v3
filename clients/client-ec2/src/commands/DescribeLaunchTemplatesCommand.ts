@@ -19,7 +19,7 @@ import {
   DescribeLaunchTemplatesRequestFilterSensitiveLog,
   DescribeLaunchTemplatesResult,
   DescribeLaunchTemplatesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeLaunchTemplatesCommand,
   serializeAws_ec2DescribeLaunchTemplatesCommand,

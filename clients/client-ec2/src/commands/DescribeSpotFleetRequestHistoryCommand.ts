@@ -37,7 +37,7 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  *             ensures that you can query by the last evaluated time and not miss a recorded event.
  *             Spot Fleet events are available for 48 hours.</p>
  *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon
- *                 EventBridge</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *                 EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -79,7 +79,57 @@ import {
   SpotInstanceRequest,
   SpotPlacement,
 } from "./models_4";
-import { CapacityReservationSpecification, PeeringConnectionOptions, Purchase } from "./models_5";
+import { CapacityReservationSpecification, PeeringConnectionOptionsRequest, Purchase } from "./models_5";
+
+export interface ModifyVpcPeeringConnectionOptionsRequest {
+  /**
+   * <p>The VPC peering connection options for the accepter VPC.</p>
+   */
+  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The VPC peering connection options for the requester VPC.</p>
+   */
+  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+/**
+ * <note>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          </note>
+ *          <p>Describes the VPC peering connection options.</p>
+ */
+export interface PeeringConnectionOptions {
+  /**
+   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
+   *             IP addresses when queried from instances in the peer VPC.</p>
+   */
+  AllowDnsResolutionFromRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
+   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
+   */
+  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
+
+  /**
+   * <p>If true, enables outbound communication from instances in a local VPC to an
+   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
+   */
+  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
+}
 
 export interface ModifyVpcPeeringConnectionOptionsResult {
   /**
@@ -1983,7 +2033,7 @@ export interface RequestSpotInstancesRequest {
 
   /**
    * <p>The key-value pair for tagging the Spot Instance request on creation. The value for
-   *                 <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
+   *             <code>ResourceType</code> must be <code>spot-instances-request</code>, otherwise the
    *             Spot Instance request fails. To tag the Spot Instance request after it has been created,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
    */
@@ -4263,6 +4313,22 @@ export interface WithdrawByoipCidrResult {
    */
   ByoipCidr?: ByoipCidr;
 }
+
+/**
+ * @internal
+ */
+export const ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog = (
+  obj: ModifyVpcPeeringConnectionOptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PeeringConnectionOptionsFilterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
+  ...obj,
+});
 
 /**
  * @internal

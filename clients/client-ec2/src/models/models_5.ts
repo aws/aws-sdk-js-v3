@@ -29,6 +29,7 @@ import {
   Tag,
   TagSpecification,
   TargetConfigurationRequest,
+  TransitGatewayAssociation,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayPolicyTableAssociation,
@@ -59,7 +60,6 @@ import {
   RequestIpamResourceTag,
   ResponseLaunchTemplateData,
   ShutdownBehavior,
-  SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
   TargetCapacityUnitType,
   VolumeType,
@@ -72,6 +72,7 @@ import {
   IpAddressType,
   IpamPoolCidr,
   PayerResponsibility,
+  SubnetCidrReservation,
   TrafficDirection,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -125,6 +126,34 @@ import {
   TransitGatewayPropagationState,
   VolumeModification,
 } from "./models_4";
+
+export interface DisassociateTransitGatewayRouteTableResult {
+  /**
+   * <p>Information about the association.</p>
+   */
+  Association?: TransitGatewayAssociation;
+}
+
+export interface DisassociateTrunkInterfaceRequest {
+  /**
+   * <p>The ID of the association</p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure
+   *                 Idempotency</a>.</p>
+   */
+  ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 export interface DisassociateTrunkInterfaceResult {
   /**
@@ -5193,7 +5222,7 @@ export interface ModifyInstanceEventStartTimeRequest {
 
 export interface ModifyInstanceEventStartTimeResult {
   /**
-   * <p>Describes a scheduled event for an instance.</p>
+   * <p>Information about the event.</p>
    */
   Event?: InstanceStatusEvent;
 }
@@ -6993,55 +7022,21 @@ export interface PeeringConnectionOptionsRequest {
   AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
 }
 
-export interface ModifyVpcPeeringConnectionOptionsRequest {
-  /**
-   * <p>The VPC peering connection options for the accepter VPC.</p>
-   */
-  AccepterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The VPC peering connection options for the requester VPC.</p>
-   */
-  RequesterPeeringConnectionOptions?: PeeringConnectionOptionsRequest;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
+/**
+ * @internal
+ */
+export const DisassociateTransitGatewayRouteTableResultFilterSensitiveLog = (
+  obj: DisassociateTransitGatewayRouteTableResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <note>
- *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          </note>
- *          <p>Describes the VPC peering connection options.</p>
+ * @internal
  */
-export interface PeeringConnectionOptions {
-  /**
-   * <p>If true, the public DNS hostnames of instances in the specified VPC resolve to private
-   *             IP addresses when queried from instances in the peer VPC.</p>
-   */
-  AllowDnsResolutionFromRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from an EC2-Classic instance that's linked to
-   *             a local VPC using ClassicLink to instances in a peer VPC.</p>
-   */
-  AllowEgressFromLocalClassicLinkToRemoteVpc?: boolean;
-
-  /**
-   * <p>If true, enables outbound communication from instances in a local VPC to an
-   *             EC2-Classic instance that's linked to a peer VPC using ClassicLink.</p>
-   */
-  AllowEgressFromLocalVpcToRemoteClassicLink?: boolean;
-}
+export const DisassociateTrunkInterfaceRequestFilterSensitiveLog = (obj: DisassociateTrunkInterfaceRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9226,21 +9221,5 @@ export const ModifyVpcEndpointServicePermissionsResultFilterSensitiveLog = (
  * @internal
  */
 export const PeeringConnectionOptionsRequestFilterSensitiveLog = (obj: PeeringConnectionOptionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ModifyVpcPeeringConnectionOptionsRequestFilterSensitiveLog = (
-  obj: ModifyVpcPeeringConnectionOptionsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PeeringConnectionOptionsFilterSensitiveLog = (obj: PeeringConnectionOptions): any => ({
   ...obj,
 });

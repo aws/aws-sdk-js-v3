@@ -533,6 +533,30 @@ export interface MemoryMiBRequest {
 }
 
 /**
+ * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+ *          <note>
+ *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
+ *             minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum
+ *             bandwidth, but the actual bandwidth of your instance might go below the specified minimum
+ *             at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
+ *          </note>
+ */
+export interface NetworkBandwidthGbpsRequest {
+  /**
+   * <p>The minimum amount of network bandwidth, in Gbps. To specify no minimum limit, omit this
+   *          parameter.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this
+   *          parameter.</p>
+   */
+  Max?: number;
+}
+
+/**
  * <p>The minimum and maximum number of network interfaces.</p>
  */
 export interface NetworkInterfaceCountRequest {
@@ -583,16 +607,30 @@ export interface VCpuCountRangeRequest {
 
 /**
  * <p>The attributes for the instance types. When you specify instance attributes, Amazon EC2 will
- *       identify instance types with these attributes.</p>
+ *          identify instance types with these attributes.</p>
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
  *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
+ *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
+ *          you can use one of the following parameters, but not both in the same request:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
+ *                other instance types are ignored, even if they match your specified attributes.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
+ *                even if they match your specified attributes.</p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
  *             are optional. Any unspecified optional attribute is set to its default.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface InstanceRequirementsRequest {
   /**
@@ -643,6 +681,9 @@ export interface InstanceRequirementsRequest {
    *       family, which includes all C5a and C5n instance types. If you specify
    *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
    *       instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</p>
+   *          </note>
    *          <p>Default: No excluded instance types</p>
    */
   ExcludedInstanceTypes?: string[];
@@ -884,6 +925,30 @@ export interface InstanceRequirementsRequest {
    *          <p>Default: No minimum or maximum limits</p>
    */
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiBRequest;
+
+  /**
+   * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkBandwidthGbps?: NetworkBandwidthGbpsRequest;
+
+  /**
+   * <p>The instance types to apply your specified attributes against. All other instance types
+   *          are ignored, even if they match your specified attributes.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to allow an instance type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *          <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
+   *          family, which includes all C5a and C5n instance types. If you specify
+   *          <code>m5a.*</code>, Amazon EC2 will allow all the M5a instance types, but not the M5n
+   *          instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</p>
+   *          </note>
+   *          <p>Default: All instance types</p>
+   */
+  AllowedInstanceTypes?: string[];
 }
 
 /**
@@ -1472,7 +1537,7 @@ export interface CreateFleetRequest {
  *             a Spot Fleet to configure Amazon EC2 instances. You must specify either the ID or name of the launch template in the request, but not both.</p>
  *             <p>For information about launch templates,
  *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a launch template</a> in the
- *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *                 <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface FleetLaunchTemplateSpecification {
   /**
@@ -1553,6 +1618,30 @@ export interface MemoryMiB {
 }
 
 /**
+ * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+ *          <note>
+ *             <p>Setting the minimum bandwidth does not guarantee that your instance will achieve the
+ *             minimum bandwidth. Amazon EC2 will identify instance types that support the specified minimum
+ *             bandwidth, but the actual bandwidth of your instance might go below the specified minimum
+ *             at times. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html#available-instance-bandwidth">Available instance bandwidth</a> in the
+ *             <i>Amazon EC2 User Guide</i>.</p>
+ *          </note>
+ */
+export interface NetworkBandwidthGbps {
+  /**
+   * <p>The minimum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no minimum
+   *          limit.</p>
+   */
+  Min?: number;
+
+  /**
+   * <p>The maximum amount of network bandwidth, in Gbps. If this parameter is not specified, there is no
+   *          maximum limit.</p>
+   */
+  Max?: number;
+}
+
+/**
  * <p>The minimum and maximum number of network interfaces.</p>
  */
 export interface NetworkInterfaceCount {
@@ -1609,12 +1698,26 @@ export interface VCpuCountRange {
  *          <p>When you specify multiple attributes, you get instance types that satisfy all of the
  *          specified attributes. If you specify multiple values for an attribute, you get instance
  *          types that satisfy any of the specified values.</p>
+ *          <p>To limit the list of instance types from which Amazon EC2 can identify matching instance types,
+ *          you can use one of the following parameters, but not both in the same request:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>AllowedInstanceTypes</code> - The instance types to include in the list. All
+ *                other instance types are ignored, even if they match your specified attributes.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ExcludedInstanceTypes</code> - The instance types to exclude from the list,
+ *                even if they match your specified attributes.</p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>You must specify <code>VCpuCount</code> and <code>MemoryMiB</code>. All other attributes
  *             are optional. Any unspecified optional attribute is set to its default.</p>
  *          </note>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for EC2 Fleet</a>, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html">Attribute-based instance type selection for Spot Fleet</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot
- *             placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *                placement score</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 export interface InstanceRequirements {
   /**
@@ -1665,6 +1768,9 @@ export interface InstanceRequirements {
    *       family, which includes all C5a and C5n instance types. If you specify
    *       <code>m5a.*</code>, Amazon EC2 will exclude all the M5a instance types, but not the M5n
    *       instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>ExcludedInstanceTypes</code>, you can't specify <code>AllowedInstanceTypes</code>.</p>
+   *          </note>
    *          <p>Default: No excluded instance types</p>
    */
   ExcludedInstanceTypes?: string[];
@@ -1907,6 +2013,30 @@ export interface InstanceRequirements {
    *          <p>Default: No minimum or maximum limits</p>
    */
   AcceleratorTotalMemoryMiB?: AcceleratorTotalMemoryMiB;
+
+  /**
+   * <p>The minimum and maximum amount of network bandwidth, in gigabits per second (Gbps).</p>
+   *          <p>Default: No minimum or maximum limits</p>
+   */
+  NetworkBandwidthGbps?: NetworkBandwidthGbps;
+
+  /**
+   * <p>The instance types to apply your specified attributes against. All other instance types
+   *          are ignored, even if they match your specified attributes.</p>
+   *          <p>You can use strings with one or more wild cards, represented by
+   *          an asterisk (<code>*</code>), to allow an instance type, size, or generation. The
+   *          following are examples: <code>m5.8xlarge</code>, <code>c5*.*</code>, <code>m5a.*</code>,
+   *          <code>r*</code>, <code>*3*</code>.</p>
+   *          <p>For example, if you specify <code>c5*</code>,Amazon EC2 will allow the entire C5 instance
+   *          family, which includes all C5a and C5n instance types. If you specify
+   *          <code>m5a.*</code>, Amazon EC2 will allow all the M5a instance types, but not the M5n
+   *          instance types.</p>
+   *          <note>
+   *             <p>If you specify <code>AllowedInstanceTypes</code>, you can't specify <code>ExcludedInstanceTypes</code>.</p>
+   *          </note>
+   *          <p>Default: All instance types</p>
+   */
+  AllowedInstanceTypes?: string[];
 }
 
 /**
@@ -7341,7 +7471,7 @@ export interface PlacementGroup {
 
 export interface CreatePlacementGroupResult {
   /**
-   * <p>Describes a placement group.</p>
+   * <p>Information about the placement group.</p>
    */
   PlacementGroup?: PlacementGroup;
 }
@@ -8326,7 +8456,7 @@ export interface CreateSpotDatafeedSubscriptionRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 
@@ -8580,56 +8710,6 @@ export interface CreateSubnetCidrReservationRequest {
 }
 
 /**
- * <p>Describes a subnet CIDR reservation.</p>
- */
-export interface SubnetCidrReservation {
-  /**
-   * <p>The ID of the subnet CIDR reservation.</p>
-   */
-  SubnetCidrReservationId?: string;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-
-  /**
-   * <p>The CIDR that has been reserved.</p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>The type of reservation. </p>
-   */
-  ReservationType?: SubnetCidrReservationType | string;
-
-  /**
-   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The
-   *             description
-   *             assigned to the subnet CIDR
-   *             reservation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The tags assigned to the subnet CIDR reservation.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface CreateSubnetCidrReservationResult {
-  /**
-   * <p>Information about the created subnet CIDR reservation.</p>
-   */
-  SubnetCidrReservation?: SubnetCidrReservation;
-}
-
-/**
  * @internal
  */
 export const SubnetFilterSensitiveLog = (obj: Subnet): any => ({
@@ -8771,6 +8851,13 @@ export const MemoryMiBRequestFilterSensitiveLog = (obj: MemoryMiBRequest): any =
 /**
  * @internal
  */
+export const NetworkBandwidthGbpsRequestFilterSensitiveLog = (obj: NetworkBandwidthGbpsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const NetworkInterfaceCountRequestFilterSensitiveLog = (obj: NetworkInterfaceCountRequest): any => ({
   ...obj,
 });
@@ -8895,6 +8982,13 @@ export const MemoryGiBPerVCpuFilterSensitiveLog = (obj: MemoryGiBPerVCpu): any =
  * @internal
  */
 export const MemoryMiBFilterSensitiveLog = (obj: MemoryMiB): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const NetworkBandwidthGbpsFilterSensitiveLog = (obj: NetworkBandwidthGbps): any => ({
   ...obj,
 });
 
@@ -10320,19 +10414,5 @@ export const CreateSubnetResultFilterSensitiveLog = (obj: CreateSubnetResult): a
  * @internal
  */
 export const CreateSubnetCidrReservationRequestFilterSensitiveLog = (obj: CreateSubnetCidrReservationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SubnetCidrReservationFilterSensitiveLog = (obj: SubnetCidrReservation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetCidrReservationResultFilterSensitiveLog = (obj: CreateSubnetCidrReservationResult): any => ({
   ...obj,
 });

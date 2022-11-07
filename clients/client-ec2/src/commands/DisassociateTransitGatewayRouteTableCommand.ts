@@ -17,9 +17,11 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisassociateTransitGatewayRouteTableRequest,
   DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog,
+} from "../models/models_4";
+import {
   DisassociateTransitGatewayRouteTableResult,
   DisassociateTransitGatewayRouteTableResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTransitGatewayRouteTableCommand,
   serializeAws_ec2DisassociateTransitGatewayRouteTableCommand,

@@ -6448,9 +6448,9 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
-   * 				You can create one data feed per Amazon Web Services account. For more information, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
-   *         in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             You can create one data feed per Amazon Web Services account. For more information, see
+   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
+   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public createSpotDatafeedSubscription(
     args: CreateSpotDatafeedSubscriptionCommandInput,
@@ -13469,7 +13469,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
-   *                 Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    */
   public describeSpotDatafeedSubscription(
     args: DescribeSpotDatafeedSubscriptionCommandInput,
@@ -13539,7 +13539,7 @@ export class EC2 extends EC2Client {
    *             ensures that you can query by the last evaluated time and not miss a recorded event.
    *             Spot Fleet events are available for 48 hours.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/fleet-monitor.html">Monitor fleet events using Amazon
-   *                 EventBridge</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 EventBridge</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeSpotFleetRequestHistory(
     args: DescribeSpotFleetRequestHistoryCommandInput,
@@ -21333,14 +21333,14 @@ export class EC2 extends EC2Client {
    *                 <code>spot-fleet-request</code> and <code>instance</code> resource types are
    *             supported.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot Fleet requests</a>
-   *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    *
    *         <important>
    *             <p>We strongly discourage using the RequestSpotFleet API because it is a legacy
    *                 API with no planned investment. For options for requesting Spot Instances, see
    *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use">Which
    *                     is the best Spot request method to use?</a> in the
-   *                 <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *         </important>
    */
   public requestSpotFleet(
@@ -21384,6 +21384,7 @@ export class EC2 extends EC2Client {
    *                     is the best Spot request method to use?</a> in the
    *                     <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         </important>
+   *
    *         <note>
    *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
    *         </note>

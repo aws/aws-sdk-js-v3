@@ -33,11 +33,61 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  SubnetCidrReservation,
+  SubnetCidrReservationType,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Describes a subnet CIDR reservation.</p>
+ */
+export interface SubnetCidrReservation {
+  /**
+   * <p>The ID of the subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservationId?: string;
+
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>The CIDR that has been reserved.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The type of reservation. </p>
+   */
+  ReservationType?: SubnetCidrReservationType | string;
+
+  /**
+   * <p>The ID of the account that owns the subnet CIDR reservation. </p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The
+   *             description
+   *             assigned to the subnet CIDR
+   *             reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The tags assigned to the subnet CIDR reservation.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateSubnetCidrReservationResult {
+  /**
+   * <p>Information about the created subnet CIDR reservation.</p>
+   */
+  SubnetCidrReservation?: SubnetCidrReservation;
+}
 
 export interface CreateTagsRequest {
   /**
@@ -4862,7 +4912,7 @@ export interface DeleteSpotDatafeedSubscriptionRequest {
    * <p>Checks whether you have the required permissions for the action, without actually
    *             making the request, and provides an error response. If you have the required
    *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
+   *             <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
 }
@@ -5627,49 +5677,19 @@ export interface DeregisterInstanceEventNotificationAttributesResult {
   InstanceTagAttribute?: InstanceTagNotificationAttribute;
 }
 
-export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The IDs of the group members' network interfaces.</p>
-   */
-  NetworkInterfaceIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const SubnetCidrReservationFilterSensitiveLog = (obj: SubnetCidrReservation): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the deregistered  transit gateway multicast group members.</p>
+ * @internal
  */
-export interface TransitGatewayMulticastDeregisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The network interface IDs of the deregistered members.</p>
-   */
-  DeregisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   */
-  GroupIpAddress?: string;
-}
+export const CreateSubnetCidrReservationResultFilterSensitiveLog = (obj: CreateSubnetCidrReservationResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7598,24 +7618,6 @@ export const InstanceTagNotificationAttributeFilterSensitiveLog = (obj: Instance
  */
 export const DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog = (
   obj: DeregisterInstanceEventNotificationAttributesResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterTransitGatewayMulticastGroupMembersRequestFilterSensitiveLog = (
-  obj: DeregisterTransitGatewayMulticastGroupMembersRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TransitGatewayMulticastDeregisteredGroupMembersFilterSensitiveLog = (
-  obj: TransitGatewayMulticastDeregisteredGroupMembers
 ): any => ({
   ...obj,
 });

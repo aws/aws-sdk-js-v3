@@ -2180,7 +2180,6 @@ import {
   CreateStoreImageTaskRequest,
   CreateStoreImageTaskResult,
   CreateSubnetCidrReservationRequest,
-  CreateSubnetCidrReservationResult,
   CreateSubnetRequest,
   CreateSubnetResult,
   CreditSpecification,
@@ -2279,6 +2278,8 @@ import {
   NetworkAcl,
   NetworkAclAssociation,
   NetworkAclEntry,
+  NetworkBandwidthGbps,
+  NetworkBandwidthGbpsRequest,
   NetworkInsightsAccessScope,
   NetworkInsightsAccessScopeContent,
   NetworkInsightsPath,
@@ -2316,7 +2317,6 @@ import {
   StateReason,
   StorageLocation,
   Subnet,
-  SubnetCidrReservation,
   TargetCapacitySpecificationRequest,
   TotalLocalStorageGB,
   TotalLocalStorageGBRequest,
@@ -2330,6 +2330,7 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateSubnetCidrReservationResult,
   CreateTagsRequest,
   CreateTrafficMirrorFilterRequest,
   CreateTrafficMirrorFilterResult,
@@ -2513,7 +2514,6 @@ import {
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
   DeregisterInstanceTagAttributeRequest,
-  DeregisterTransitGatewayMulticastGroupMembersRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2543,6 +2543,7 @@ import {
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SubnetCidrReservation,
   SuccessfulQueuedPurchaseDeletion,
   TrafficMirrorFilter,
   TrafficMirrorFilterRule,
@@ -2558,7 +2559,6 @@ import {
   TransitGatewayConnectPeer,
   TransitGatewayConnectPeerConfiguration,
   TransitGatewayConnectRequestBgpOptions,
-  TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDomain,
   TransitGatewayMulticastDomainOptions,
   TransitGatewayOptions,
@@ -2608,6 +2608,7 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeregisterTransitGatewayMulticastGroupMembersRequest,
   DeregisterTransitGatewayMulticastGroupMembersResult,
   DeregisterTransitGatewayMulticastGroupSourcesRequest,
   DeregisterTransitGatewayMulticastGroupSourcesResult,
@@ -2727,8 +2728,6 @@ import {
   DescribeIpv6PoolsResult,
   DescribeKeyPairsRequest,
   DescribeKeyPairsResult,
-  DescribeLaunchTemplatesRequest,
-  DescribeLaunchTemplatesResult,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
@@ -2827,6 +2826,7 @@ import {
   SpotOptions,
   TargetCapacitySpecification,
   TargetNetwork,
+  TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
   UsageClassType,
   UserBucketDetails,
@@ -2838,6 +2838,8 @@ import {
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeLaunchTemplatesRequest,
+  DescribeLaunchTemplatesResult,
   DescribeLaunchTemplateVersionsRequest,
   DescribeLaunchTemplateVersionsResult,
   DescribeLocalGatewayRouteTablesRequest,
@@ -3042,8 +3044,6 @@ import {
   DisassociateTransitGatewayPolicyTableRequest,
   DisassociateTransitGatewayPolicyTableResult,
   DisassociateTransitGatewayRouteTableRequest,
-  DisassociateTransitGatewayRouteTableResult,
-  DisassociateTrunkInterfaceRequest,
   HistoryRecord,
   InstanceEventWindowDisassociationRequest,
   InstanceNetworkInterfaceSpecification,
@@ -3122,6 +3122,8 @@ import {
   ClientData,
   CoipAddressUsage,
   CreateVolumePermissionModifications,
+  DisassociateTransitGatewayRouteTableResult,
+  DisassociateTrunkInterfaceRequest,
   DisassociateTrunkInterfaceResult,
   DisassociateVpcCidrBlockRequest,
   DisassociateVpcCidrBlockResult,
@@ -3366,9 +3368,7 @@ import {
   ModifyVpcEndpointServicePayerResponsibilityResult,
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
-  ModifyVpcPeeringConnectionOptionsRequest,
   NetworkInterfaceAttachmentChanges,
-  PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrefixListAssociation,
   PrefixListEntry,
@@ -3415,6 +3415,7 @@ import {
   IpamCidrAuthorizationContext,
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
+  ModifyVpcPeeringConnectionOptionsRequest,
   ModifyVpcPeeringConnectionOptionsResult,
   ModifyVpcTenancyRequest,
   ModifyVpcTenancyResult,
@@ -3433,6 +3434,7 @@ import {
   MoveAddressToVpcResult,
   MoveByoipCidrToIpamRequest,
   MoveByoipCidrToIpamResult,
+  PeeringConnectionOptions,
   PrivateDnsNameOptionsRequest,
   ProvisionByoipCidrRequest,
   ProvisionByoipCidrResult,
@@ -31800,6 +31802,19 @@ const serializeAws_ec2AllocationIds = (input: string[], context: __SerdeContext)
   return entries;
 };
 
+const serializeAws_ec2AllowedInstanceTypeSet = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ApplySecurityGroupsToClientVpnTargetNetworkRequest = (
   input: ApplySecurityGroupsToClientVpnTargetNetworkRequest,
   context: __SerdeContext
@@ -45520,6 +45535,23 @@ const serializeAws_ec2InstanceRequirements = (input: InstanceRequirements, conte
       entries[loc] = value;
     });
   }
+  if (input.NetworkBandwidthGbps != null) {
+    const memberEntries = serializeAws_ec2NetworkBandwidthGbps(input.NetworkBandwidthGbps, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkBandwidthGbps.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AllowedInstanceTypes != null) {
+    const memberEntries = serializeAws_ec2AllowedInstanceTypeSet(input.AllowedInstanceTypes, context);
+    if (input.AllowedInstanceTypes?.length === 0) {
+      entries.AllowedInstanceTypeSet = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllowedInstanceTypeSet.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -45669,6 +45701,23 @@ const serializeAws_ec2InstanceRequirementsRequest = (
     const memberEntries = serializeAws_ec2AcceleratorTotalMemoryMiBRequest(input.AcceleratorTotalMemoryMiB, context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `AcceleratorTotalMemoryMiB.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NetworkBandwidthGbps != null) {
+    const memberEntries = serializeAws_ec2NetworkBandwidthGbpsRequest(input.NetworkBandwidthGbps, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkBandwidthGbps.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AllowedInstanceTypes != null) {
+    const memberEntries = serializeAws_ec2AllowedInstanceTypeSet(input.AllowedInstanceTypes, context);
+    if (input.AllowedInstanceTypes?.length === 0) {
+      entries.AllowedInstanceType = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AllowedInstanceType.${key.substring(key.indexOf(".") + 1)}`;
       entries[loc] = value;
     });
   }
@@ -49261,6 +49310,31 @@ const serializeAws_ec2NetworkAclIdStringList = (input: string[], context: __Serd
     }
     entries[`Item.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2NetworkBandwidthGbps = (input: NetworkBandwidthGbps, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Min != null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max != null) {
+    entries["Max"] = __serializeFloat(input.Max);
+  }
+  return entries;
+};
+
+const serializeAws_ec2NetworkBandwidthGbpsRequest = (
+  input: NetworkBandwidthGbpsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Min != null) {
+    entries["Min"] = __serializeFloat(input.Min);
+  }
+  if (input.Max != null) {
+    entries["Max"] = __serializeFloat(input.Max);
   }
   return entries;
 };
@@ -55382,6 +55456,14 @@ const deserializeAws_ec2AllocateIpamPoolCidrResult = (
     contents.IpamPoolAllocation = deserializeAws_ec2IpamPoolAllocation(output["ipamPoolAllocation"], context);
   }
   return contents;
+};
+
+const deserializeAws_ec2AllowedInstanceTypeSet = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_ec2AllowedPrincipal = (output: any, context: __SerdeContext): AllowedPrincipal => {
@@ -69135,6 +69217,8 @@ const deserializeAws_ec2InstanceRequirements = (output: any, context: __SerdeCon
     AcceleratorManufacturers: undefined,
     AcceleratorNames: undefined,
     AcceleratorTotalMemoryMiB: undefined,
+    NetworkBandwidthGbps: undefined,
+    AllowedInstanceTypes: undefined,
   };
   if (output["vCpuCount"] !== undefined) {
     contents.VCpuCount = deserializeAws_ec2VCpuCountRange(output["vCpuCount"], context);
@@ -69247,6 +69331,17 @@ const deserializeAws_ec2InstanceRequirements = (output: any, context: __SerdeCon
   if (output["acceleratorTotalMemoryMiB"] !== undefined) {
     contents.AcceleratorTotalMemoryMiB = deserializeAws_ec2AcceleratorTotalMemoryMiB(
       output["acceleratorTotalMemoryMiB"],
+      context
+    );
+  }
+  if (output["networkBandwidthGbps"] !== undefined) {
+    contents.NetworkBandwidthGbps = deserializeAws_ec2NetworkBandwidthGbps(output["networkBandwidthGbps"], context);
+  }
+  if (output.allowedInstanceTypeSet === "") {
+    contents.AllowedInstanceTypes = [];
+  } else if (output["allowedInstanceTypeSet"] !== undefined && output["allowedInstanceTypeSet"]["item"] !== undefined) {
+    contents.AllowedInstanceTypes = deserializeAws_ec2AllowedInstanceTypeSet(
+      __getArrayIfSingleItem(output["allowedInstanceTypeSet"]["item"]),
       context
     );
   }
@@ -73042,6 +73137,20 @@ const deserializeAws_ec2NetworkAclList = (output: any, context: __SerdeContext):
     .map((entry: any) => {
       return deserializeAws_ec2NetworkAcl(entry, context);
     });
+};
+
+const deserializeAws_ec2NetworkBandwidthGbps = (output: any, context: __SerdeContext): NetworkBandwidthGbps => {
+  const contents: any = {
+    Min: undefined,
+    Max: undefined,
+  };
+  if (output["min"] !== undefined) {
+    contents.Min = __strictParseFloat(output["min"]) as number;
+  }
+  if (output["max"] !== undefined) {
+    contents.Max = __strictParseFloat(output["max"]) as number;
+  }
+  return contents;
 };
 
 const deserializeAws_ec2NetworkCardInfo = (output: any, context: __SerdeContext): NetworkCardInfo => {
