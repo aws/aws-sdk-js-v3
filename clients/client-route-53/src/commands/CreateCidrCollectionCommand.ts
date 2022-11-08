@@ -29,9 +29,7 @@ export interface CreateCidrCollectionCommandInput extends CreateCidrCollectionRe
 export interface CreateCidrCollectionCommandOutput extends CreateCidrCollectionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a CIDR collection in the
- * 			current
- * 				Amazon Web Services account.</p>
+ * <p>Creates a CIDR collection in the current Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

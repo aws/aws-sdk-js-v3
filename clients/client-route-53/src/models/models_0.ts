@@ -3,12 +3,13 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { Route53ServiceException as __BaseException } from "./Route53ServiceException";
 
-export type AccountLimitType =
-  | "MAX_HEALTH_CHECKS_BY_OWNER"
-  | "MAX_HOSTED_ZONES_BY_OWNER"
-  | "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER"
-  | "MAX_TRAFFIC_POLICIES_BY_OWNER"
-  | "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER";
+export enum AccountLimitType {
+  MAX_HEALTH_CHECKS_BY_OWNER = "MAX_HEALTH_CHECKS_BY_OWNER",
+  MAX_HOSTED_ZONES_BY_OWNER = "MAX_HOSTED_ZONES_BY_OWNER",
+  MAX_REUSABLE_DELEGATION_SETS_BY_OWNER = "MAX_REUSABLE_DELEGATION_SETS_BY_OWNER",
+  MAX_TRAFFIC_POLICIES_BY_OWNER = "MAX_TRAFFIC_POLICIES_BY_OWNER",
+  MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER = "MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER",
+}
 
 /**
  * <p>A complex type that contains the type of limit that you specified in the request and
@@ -70,7 +71,10 @@ export interface ActivateKeySigningKeyRequest {
   Name: string | undefined;
 }
 
-export type ChangeStatus = "INSYNC" | "PENDING";
+export enum ChangeStatus {
+  INSYNC = "INSYNC",
+  PENDING = "PENDING",
+}
 
 /**
  * <p>A complex type that describes change information about changes made to your hosted
@@ -228,37 +232,39 @@ export class NoSuchKeySigningKey extends __BaseException {
   }
 }
 
-export type CloudWatchRegion =
-  | "af-south-1"
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ap-southeast-3"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "cn-northwest-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-south-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-central-1"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-gov-east-1"
-  | "us-gov-west-1"
-  | "us-iso-east-1"
-  | "us-iso-west-1"
-  | "us-isob-east-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum CloudWatchRegion {
+  af_south_1 = "af-south-1",
+  ap_east_1 = "ap-east-1",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_northeast_2 = "ap-northeast-2",
+  ap_northeast_3 = "ap-northeast-3",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  ap_southeast_3 = "ap-southeast-3",
+  ca_central_1 = "ca-central-1",
+  cn_north_1 = "cn-north-1",
+  cn_northwest_1 = "cn-northwest-1",
+  eu_central_1 = "eu-central-1",
+  eu_central_2 = "eu-central-2",
+  eu_north_1 = "eu-north-1",
+  eu_south_1 = "eu-south-1",
+  eu_west_1 = "eu-west-1",
+  eu_west_2 = "eu-west-2",
+  eu_west_3 = "eu-west-3",
+  me_central_1 = "me-central-1",
+  me_south_1 = "me-south-1",
+  sa_east_1 = "sa-east-1",
+  us_east_1 = "us-east-1",
+  us_east_2 = "us-east-2",
+  us_gov_east_1 = "us-gov-east-1",
+  us_gov_west_1 = "us-gov-west-1",
+  us_iso_east_1 = "us-iso-east-1",
+  us_iso_west_1 = "us-iso-west-1",
+  us_isob_east_1 = "us-isob-east-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>A complex type that identifies the CloudWatch alarm that you want Amazon Route 53
@@ -722,36 +728,38 @@ export interface AliasTarget {
   EvaluateTargetHealth: boolean | undefined;
 }
 
-export type VPCRegion =
-  | "af-south-1"
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ap-southeast-3"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-south-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-central-1"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-gov-east-1"
-  | "us-gov-west-1"
-  | "us-iso-east-1"
-  | "us-iso-west-1"
-  | "us-isob-east-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum VPCRegion {
+  af_south_1 = "af-south-1",
+  ap_east_1 = "ap-east-1",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_northeast_2 = "ap-northeast-2",
+  ap_northeast_3 = "ap-northeast-3",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  ap_southeast_3 = "ap-southeast-3",
+  ca_central_1 = "ca-central-1",
+  cn_north_1 = "cn-north-1",
+  eu_central_1 = "eu-central-1",
+  eu_central_2 = "eu-central-2",
+  eu_north_1 = "eu-north-1",
+  eu_south_1 = "eu-south-1",
+  eu_west_1 = "eu-west-1",
+  eu_west_2 = "eu-west-2",
+  eu_west_3 = "eu-west-3",
+  me_central_1 = "me-central-1",
+  me_south_1 = "me-south-1",
+  sa_east_1 = "sa-east-1",
+  us_east_1 = "us-east-1",
+  us_east_2 = "us-east-2",
+  us_gov_east_1 = "us-gov-east-1",
+  us_gov_west_1 = "us-gov-west-1",
+  us_iso_east_1 = "us-iso-east-1",
+  us_iso_west_1 = "us-iso-west-1",
+  us_isob_east_1 = "us-isob-east-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>(Private hosted zones only) A complex type that contains information about an Amazon VPC.</p>
@@ -1109,7 +1117,11 @@ export class NoSuchCidrCollectionException extends __BaseException {
   }
 }
 
-export type ChangeAction = "CREATE" | "DELETE" | "UPSERT";
+export enum ChangeAction {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPSERT = "UPSERT",
+}
 
 /**
  * <p>The object that is specified in resource record set object when you are linking a
@@ -1129,7 +1141,10 @@ export interface CidrRoutingConfig {
   LocationName: string | undefined;
 }
 
-export type ResourceRecordSetFailover = "PRIMARY" | "SECONDARY";
+export enum ResourceRecordSetFailover {
+  PRIMARY = "PRIMARY",
+  SECONDARY = "SECONDARY",
+}
 
 /**
  * <p>A complex type that contains information about a geographic location.</p>
@@ -1191,31 +1206,34 @@ export interface GeoLocation {
   SubdivisionCode?: string;
 }
 
-export type ResourceRecordSetRegion =
-  | "af-south-1"
-  | "ap-east-1"
-  | "ap-northeast-1"
-  | "ap-northeast-2"
-  | "ap-northeast-3"
-  | "ap-south-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "ap-southeast-3"
-  | "ca-central-1"
-  | "cn-north-1"
-  | "cn-northwest-1"
-  | "eu-central-1"
-  | "eu-north-1"
-  | "eu-south-1"
-  | "eu-west-1"
-  | "eu-west-2"
-  | "eu-west-3"
-  | "me-south-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-east-2"
-  | "us-west-1"
-  | "us-west-2";
+export enum ResourceRecordSetRegion {
+  af_south_1 = "af-south-1",
+  ap_east_1 = "ap-east-1",
+  ap_northeast_1 = "ap-northeast-1",
+  ap_northeast_2 = "ap-northeast-2",
+  ap_northeast_3 = "ap-northeast-3",
+  ap_south_1 = "ap-south-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  ap_southeast_3 = "ap-southeast-3",
+  ca_central_1 = "ca-central-1",
+  cn_north_1 = "cn-north-1",
+  cn_northwest_1 = "cn-northwest-1",
+  eu_central_1 = "eu-central-1",
+  eu_central_2 = "eu-central-2",
+  eu_north_1 = "eu-north-1",
+  eu_south_1 = "eu-south-1",
+  eu_west_1 = "eu-west-1",
+  eu_west_2 = "eu-west-2",
+  eu_west_3 = "eu-west-3",
+  me_central_1 = "me-central-1",
+  me_south_1 = "me-south-1",
+  sa_east_1 = "sa-east-1",
+  us_east_1 = "us-east-1",
+  us_east_2 = "us-east-2",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 /**
  * <p>Information specific to the resource record.</p>
@@ -1241,20 +1259,21 @@ export interface ResourceRecord {
   Value: string | undefined;
 }
 
-export type RRType =
-  | "A"
-  | "AAAA"
-  | "CAA"
-  | "CNAME"
-  | "DS"
-  | "MX"
-  | "NAPTR"
-  | "NS"
-  | "PTR"
-  | "SOA"
-  | "SPF"
-  | "SRV"
-  | "TXT";
+export enum RRType {
+  A = "A",
+  AAAA = "AAAA",
+  CAA = "CAA",
+  CNAME = "CNAME",
+  DS = "DS",
+  MX = "MX",
+  NAPTR = "NAPTR",
+  NS = "NS",
+  PTR = "PTR",
+  SOA = "SOA",
+  SPF = "SPF",
+  SRV = "SRV",
+  TXT = "TXT",
+}
 
 /**
  * <p>Information about the resource record set to create or delete.</p>
@@ -1458,10 +1477,7 @@ export interface ResourceRecordSet {
    * 			typically is an Amazon Web Services resource, such as an EC2 instance or an ELB load
    * 			balancer, and is referred to by an IP address or a DNS domain name, depending on the
    * 			record type.</p>
-   * 		       <note>
-   * 			         <p>Although creating latency and latency alias resource record sets in a private
-   * 				hosted zone is allowed, it's not supported.</p>
-   * 		       </note>
+   *
    * 		       <p>When Amazon Route 53 receives a DNS query for a domain name and type for which you
    * 			have created latency resource record sets, Route 53 selects the latency resource record
    * 			set that has the lowest latency between the end user and the associated Amazon EC2
@@ -2052,7 +2068,10 @@ export interface Tag {
   Value?: string;
 }
 
-export type TagResourceType = "healthcheck" | "hostedzone";
+export enum TagResourceType {
+  healthcheck = "healthcheck",
+  hostedzone = "hostedzone",
+}
 
 /**
  * <p>A complex type that contains information about the tags that you want to add, edit, or
@@ -2194,17 +2213,22 @@ export interface CreateCidrCollectionResponse {
   Location?: string;
 }
 
-export type InsufficientDataHealthStatus = "Healthy" | "LastKnownStatus" | "Unhealthy";
+export enum InsufficientDataHealthStatus {
+  Healthy = "Healthy",
+  LastKnownStatus = "LastKnownStatus",
+  Unhealthy = "Unhealthy",
+}
 
-export type HealthCheckRegion =
-  | "ap-northeast-1"
-  | "ap-southeast-1"
-  | "ap-southeast-2"
-  | "eu-west-1"
-  | "sa-east-1"
-  | "us-east-1"
-  | "us-west-1"
-  | "us-west-2";
+export enum HealthCheckRegion {
+  ap_northeast_1 = "ap-northeast-1",
+  ap_southeast_1 = "ap-southeast-1",
+  ap_southeast_2 = "ap-southeast-2",
+  eu_west_1 = "eu-west-1",
+  sa_east_1 = "sa-east-1",
+  us_east_1 = "us-east-1",
+  us_west_1 = "us-west-1",
+  us_west_2 = "us-west-2",
+}
 
 export enum HealthCheckType {
   CALCULATED = "CALCULATED",
@@ -2671,11 +2695,12 @@ export interface CreateHealthCheckRequest {
   HealthCheckConfig: HealthCheckConfig | undefined;
 }
 
-export type ComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "LessThanOrEqualToThreshold"
-  | "LessThanThreshold";
+export enum ComparisonOperator {
+  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold = "GreaterThanThreshold",
+  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
+  LessThanThreshold = "LessThanThreshold",
+}
 
 /**
  * <p>For the metric that the CloudWatch alarm is associated with, a complex type that
@@ -2695,7 +2720,13 @@ export interface Dimension {
   Value: string | undefined;
 }
 
-export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
+export enum Statistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum",
+}
 
 /**
  * <p>A complex type that contains information about the CloudWatch alarm that Amazon Route
@@ -3614,6 +3645,11 @@ export interface CreateQueryLoggingConfigResponse {
  * 				           <p>The Key management service (KMS) key you specified doesn’t exist or it can’t
  * 					be used with the log group associated with query log. Update or provide a
  * 					resource policy to grant permissions for the KMS key.</p>
+ * 			         </li>
+ *             <li>
+ *                <p>The Key management service (KMS) key you specified is marked as
+ * 				disabled for the log group associated with query log. Update or provide
+ * 				a resource policy to grant permissions for the KMS key.</p>
  * 			         </li>
  *          </ul>
  */
@@ -5284,7 +5320,10 @@ export interface GetHostedZoneCountResponse {
   HostedZoneCount: number | undefined;
 }
 
-export type HostedZoneLimitType = "MAX_RRSETS_BY_ZONE" | "MAX_VPCS_ASSOCIATED_BY_ZONE";
+export enum HostedZoneLimitType {
+  MAX_RRSETS_BY_ZONE = "MAX_RRSETS_BY_ZONE",
+  MAX_VPCS_ASSOCIATED_BY_ZONE = "MAX_VPCS_ASSOCIATED_BY_ZONE",
+}
 
 /**
  * <p>A complex type that contains information about the request to create a hosted
@@ -5422,7 +5461,9 @@ export interface GetReusableDelegationSetResponse {
   DelegationSet: DelegationSet | undefined;
 }
 
-export type ReusableDelegationSetLimitType = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET";
+export enum ReusableDelegationSetLimitType {
+  MAX_ZONES_BY_REUSABLE_DELEGATION_SET = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET",
+}
 
 /**
  * <p>A complex type that contains information about the request to create a hosted
@@ -5702,8 +5743,8 @@ export interface LocationSummary {
 
 export interface ListCidrLocationsResponse {
   /**
-   * <p>An opaque
-   * 			pagination token to indicate where the service is to begin enumerating results.</p>
+   * <p>An opaque pagination token to indicate where the service is to begin enumerating
+   * 			results.</p>
    * 		       <p>If no value is provided, the listing of results starts from the beginning.</p>
    */
   NextToken?: string;
@@ -7191,7 +7232,12 @@ export class HealthCheckVersionMismatch extends __BaseException {
   }
 }
 
-export type ResettableElementName = "ChildHealthChecks" | "FullyQualifiedDomainName" | "Regions" | "ResourcePath";
+export enum ResettableElementName {
+  ChildHealthChecks = "ChildHealthChecks",
+  FullyQualifiedDomainName = "FullyQualifiedDomainName",
+  Regions = "Regions",
+  ResourcePath = "ResourcePath",
+}
 
 /**
  * <p>A complex type that contains information about a request to update a health
