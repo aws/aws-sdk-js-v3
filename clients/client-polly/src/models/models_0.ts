@@ -155,6 +155,7 @@ export enum VoiceId {
   Cristiano = "Cristiano",
   Daniel = "Daniel",
   Dora = "Dora",
+  Elin = "Elin",
   Emma = "Emma",
   Enrique = "Enrique",
   Ewa = "Ewa",
@@ -166,6 +167,7 @@ export enum VoiceId {
   Hannah = "Hannah",
   Hans = "Hans",
   Hiujin = "Hiujin",
+  Ida = "Ida",
   Ines = "Ines",
   Ivy = "Ivy",
   Jacek = "Jacek",
@@ -178,6 +180,7 @@ export enum VoiceId {
   Kendra = "Kendra",
   Kevin = "Kevin",
   Kimberly = "Kimberly",
+  Laura = "Laura",
   Lea = "Lea",
   Liam = "Liam",
   Liv = "Liv",
@@ -204,6 +207,7 @@ export enum VoiceId {
   Russell = "Russell",
   Salli = "Salli",
   Seoyeon = "Seoyeon",
+  Suvi = "Suvi",
   Takumi = "Takumi",
   Tatyana = "Tatyana",
   Vicki = "Vicki",
@@ -1164,7 +1168,7 @@ export interface SynthesizeSpeechOutput {
   /**
    * <p> Stream containing the synthesized speech. </p>
    */
-  AudioStream: Readable | ReadableStream | Blob | undefined;
+  AudioStream?: Readable | ReadableStream | Blob;
 
   /**
    * <p> Specifies the type audio stream. This should reflect the
