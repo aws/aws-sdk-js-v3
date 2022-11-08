@@ -7489,10 +7489,8 @@ const deserializeAws_json1_0MapAttributeValue = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_0AttributeValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_json1_0AttributeValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
