@@ -55,6 +55,14 @@ import {
   AssociateThirdPartyFirewallCommandInput,
   AssociateThirdPartyFirewallCommandOutput,
 } from "./commands/AssociateThirdPartyFirewallCommand";
+import {
+  BatchAssociateResourceCommandInput,
+  BatchAssociateResourceCommandOutput,
+} from "./commands/BatchAssociateResourceCommand";
+import {
+  BatchDisassociateResourceCommandInput,
+  BatchDisassociateResourceCommandOutput,
+} from "./commands/BatchDisassociateResourceCommand";
 import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "./commands/DeleteAppsListCommand";
 import {
   DeleteNotificationChannelCommandInput,
@@ -65,6 +73,7 @@ import {
   DeleteProtocolsListCommandInput,
   DeleteProtocolsListCommandOutput,
 } from "./commands/DeleteProtocolsListCommand";
+import { DeleteResourceSetCommandInput, DeleteResourceSetCommandOutput } from "./commands/DeleteResourceSetCommand";
 import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
@@ -89,6 +98,7 @@ import {
   GetProtectionStatusCommandOutput,
 } from "./commands/GetProtectionStatusCommand";
 import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "./commands/GetProtocolsListCommand";
+import { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "./commands/GetResourceSetCommand";
 import {
   GetThirdPartyFirewallAssociationStatusCommandInput,
   GetThirdPartyFirewallAssociationStatusCommandOutput,
@@ -102,9 +112,18 @@ import {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
 } from "./commands/ListComplianceStatusCommand";
+import {
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput,
+} from "./commands/ListDiscoveredResourcesCommand";
 import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "./commands/ListMemberAccountsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "./commands/ListPoliciesCommand";
 import { ListProtocolsListsCommandInput, ListProtocolsListsCommandOutput } from "./commands/ListProtocolsListsCommand";
+import {
+  ListResourceSetResourcesCommandInput,
+  ListResourceSetResourcesCommandOutput,
+} from "./commands/ListResourceSetResourcesCommand";
+import { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "./commands/ListResourceSetsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -120,6 +139,7 @@ import {
 } from "./commands/PutNotificationChannelCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
 import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "./commands/PutProtocolsListCommand";
+import { PutResourceSetCommandInput, PutResourceSetCommandOutput } from "./commands/PutResourceSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -133,10 +153,13 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 export type ServiceInputTypes =
   | AssociateAdminAccountCommandInput
   | AssociateThirdPartyFirewallCommandInput
+  | BatchAssociateResourceCommandInput
+  | BatchDisassociateResourceCommandInput
   | DeleteAppsListCommandInput
   | DeleteNotificationChannelCommandInput
   | DeletePolicyCommandInput
   | DeleteProtocolsListCommandInput
+  | DeleteResourceSetCommandInput
   | DisassociateAdminAccountCommandInput
   | DisassociateThirdPartyFirewallCommandInput
   | GetAdminAccountCommandInput
@@ -146,29 +169,37 @@ export type ServiceInputTypes =
   | GetPolicyCommandInput
   | GetProtectionStatusCommandInput
   | GetProtocolsListCommandInput
+  | GetResourceSetCommandInput
   | GetThirdPartyFirewallAssociationStatusCommandInput
   | GetViolationDetailsCommandInput
   | ListAppsListsCommandInput
   | ListComplianceStatusCommandInput
+  | ListDiscoveredResourcesCommandInput
   | ListMemberAccountsCommandInput
   | ListPoliciesCommandInput
   | ListProtocolsListsCommandInput
+  | ListResourceSetResourcesCommandInput
+  | ListResourceSetsCommandInput
   | ListTagsForResourceCommandInput
   | ListThirdPartyFirewallFirewallPoliciesCommandInput
   | PutAppsListCommandInput
   | PutNotificationChannelCommandInput
   | PutPolicyCommandInput
   | PutProtocolsListCommandInput
+  | PutResourceSetCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateAdminAccountCommandOutput
   | AssociateThirdPartyFirewallCommandOutput
+  | BatchAssociateResourceCommandOutput
+  | BatchDisassociateResourceCommandOutput
   | DeleteAppsListCommandOutput
   | DeleteNotificationChannelCommandOutput
   | DeletePolicyCommandOutput
   | DeleteProtocolsListCommandOutput
+  | DeleteResourceSetCommandOutput
   | DisassociateAdminAccountCommandOutput
   | DisassociateThirdPartyFirewallCommandOutput
   | GetAdminAccountCommandOutput
@@ -178,19 +209,24 @@ export type ServiceOutputTypes =
   | GetPolicyCommandOutput
   | GetProtectionStatusCommandOutput
   | GetProtocolsListCommandOutput
+  | GetResourceSetCommandOutput
   | GetThirdPartyFirewallAssociationStatusCommandOutput
   | GetViolationDetailsCommandOutput
   | ListAppsListsCommandOutput
   | ListComplianceStatusCommandOutput
+  | ListDiscoveredResourcesCommandOutput
   | ListMemberAccountsCommandOutput
   | ListPoliciesCommandOutput
   | ListProtocolsListsCommandOutput
+  | ListResourceSetResourcesCommandOutput
+  | ListResourceSetsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListThirdPartyFirewallFirewallPoliciesCommandOutput
   | PutAppsListCommandOutput
   | PutNotificationChannelCommandOutput
   | PutPolicyCommandOutput
   | PutProtocolsListCommandOutput
+  | PutResourceSetCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;
 

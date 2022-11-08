@@ -26,6 +26,14 @@ import {
   AssociateThirdPartyFirewallCommandInput,
   AssociateThirdPartyFirewallCommandOutput,
 } from "../commands/AssociateThirdPartyFirewallCommand";
+import {
+  BatchAssociateResourceCommandInput,
+  BatchAssociateResourceCommandOutput,
+} from "../commands/BatchAssociateResourceCommand";
+import {
+  BatchDisassociateResourceCommandInput,
+  BatchDisassociateResourceCommandOutput,
+} from "../commands/BatchDisassociateResourceCommand";
 import { DeleteAppsListCommandInput, DeleteAppsListCommandOutput } from "../commands/DeleteAppsListCommand";
 import {
   DeleteNotificationChannelCommandInput,
@@ -36,6 +44,7 @@ import {
   DeleteProtocolsListCommandInput,
   DeleteProtocolsListCommandOutput,
 } from "../commands/DeleteProtocolsListCommand";
+import { DeleteResourceSetCommandInput, DeleteResourceSetCommandOutput } from "../commands/DeleteResourceSetCommand";
 import {
   DisassociateAdminAccountCommandInput,
   DisassociateAdminAccountCommandOutput,
@@ -60,6 +69,7 @@ import {
   GetProtectionStatusCommandOutput,
 } from "../commands/GetProtectionStatusCommand";
 import { GetProtocolsListCommandInput, GetProtocolsListCommandOutput } from "../commands/GetProtocolsListCommand";
+import { GetResourceSetCommandInput, GetResourceSetCommandOutput } from "../commands/GetResourceSetCommand";
 import {
   GetThirdPartyFirewallAssociationStatusCommandInput,
   GetThirdPartyFirewallAssociationStatusCommandOutput,
@@ -73,9 +83,18 @@ import {
   ListComplianceStatusCommandInput,
   ListComplianceStatusCommandOutput,
 } from "../commands/ListComplianceStatusCommand";
+import {
+  ListDiscoveredResourcesCommandInput,
+  ListDiscoveredResourcesCommandOutput,
+} from "../commands/ListDiscoveredResourcesCommand";
 import { ListMemberAccountsCommandInput, ListMemberAccountsCommandOutput } from "../commands/ListMemberAccountsCommand";
 import { ListPoliciesCommandInput, ListPoliciesCommandOutput } from "../commands/ListPoliciesCommand";
 import { ListProtocolsListsCommandInput, ListProtocolsListsCommandOutput } from "../commands/ListProtocolsListsCommand";
+import {
+  ListResourceSetResourcesCommandInput,
+  ListResourceSetResourcesCommandOutput,
+} from "../commands/ListResourceSetResourcesCommand";
+import { ListResourceSetsCommandInput, ListResourceSetsCommandOutput } from "../commands/ListResourceSetsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -91,6 +110,7 @@ import {
 } from "../commands/PutNotificationChannelCommand";
 import { PutPolicyCommandInput, PutPolicyCommandOutput } from "../commands/PutPolicyCommand";
 import { PutProtocolsListCommandInput, PutProtocolsListCommandOutput } from "../commands/PutProtocolsListCommand";
+import { PutResourceSetCommandInput, PutResourceSetCommandOutput } from "../commands/PutResourceSetCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { FMSServiceException as __BaseException } from "../models/FMSServiceException";
@@ -105,16 +125,22 @@ import {
   AwsEc2InstanceViolation,
   AwsEc2NetworkInterfaceViolation,
   AwsVPCSecurityGroupViolation,
+  BatchAssociateResourceRequest,
+  BatchAssociateResourceResponse,
+  BatchDisassociateResourceRequest,
+  BatchDisassociateResourceResponse,
   ComplianceViolator,
   CustomerPolicyScopeIdType,
   DeleteAppsListRequest,
   DeleteNotificationChannelRequest,
   DeletePolicyRequest,
   DeleteProtocolsListRequest,
+  DeleteResourceSetRequest,
   DependentServiceName,
   DisassociateAdminAccountRequest,
   DisassociateThirdPartyFirewallRequest,
   DisassociateThirdPartyFirewallResponse,
+  DiscoveredResource,
   DnsDuplicateRuleGroupViolation,
   DnsRuleGroupLimitExceededViolation,
   DnsRuleGroupPriorityConflictViolation,
@@ -127,6 +153,7 @@ import {
   EC2ReplaceRouteTableAssociationAction,
   EvaluationResult,
   ExpectedRoute,
+  FailedItem,
   FirewallSubnetIsOutOfScopeViolation,
   FirewallSubnetMissingVPCEndpointViolation,
   FMSPolicyUpdateFirewallCreationConfigAction,
@@ -144,6 +171,8 @@ import {
   GetProtectionStatusResponse,
   GetProtocolsListRequest,
   GetProtocolsListResponse,
+  GetResourceSetRequest,
+  GetResourceSetResponse,
   GetThirdPartyFirewallAssociationStatusRequest,
   GetThirdPartyFirewallAssociationStatusResponse,
   GetViolationDetailsRequest,
@@ -157,12 +186,18 @@ import {
   ListAppsListsResponse,
   ListComplianceStatusRequest,
   ListComplianceStatusResponse,
+  ListDiscoveredResourcesRequest,
+  ListDiscoveredResourcesResponse,
   ListMemberAccountsRequest,
   ListMemberAccountsResponse,
   ListPoliciesRequest,
   ListPoliciesResponse,
   ListProtocolsListsRequest,
   ListProtocolsListsResponse,
+  ListResourceSetResourcesRequest,
+  ListResourceSetResourcesResponse,
+  ListResourceSetsRequest,
+  ListResourceSetsResponse,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   ListThirdPartyFirewallFirewallPoliciesRequest,
@@ -197,9 +232,14 @@ import {
   PutPolicyResponse,
   PutProtocolsListRequest,
   PutProtocolsListResponse,
+  PutResourceSetRequest,
+  PutResourceSetResponse,
   RemediationAction,
   RemediationActionWithOrder,
+  Resource,
   ResourceNotFoundException,
+  ResourceSet,
+  ResourceSetSummary,
   ResourceTag,
   ResourceViolation,
   Route,
@@ -246,6 +286,32 @@ export const serializeAws_json1_1AssociateThirdPartyFirewallCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AssociateThirdPartyFirewallRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchAssociateResourceCommand = async (
+  input: BatchAssociateResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.BatchAssociateResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchAssociateResourceRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1BatchDisassociateResourceCommand = async (
+  input: BatchDisassociateResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.BatchDisassociateResource",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1BatchDisassociateResourceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -298,6 +364,19 @@ export const serializeAws_json1_1DeleteProtocolsListCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteProtocolsListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteResourceSetCommand = async (
+  input: DeleteResourceSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.DeleteResourceSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -418,6 +497,19 @@ export const serializeAws_json1_1GetProtocolsListCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetResourceSetCommand = async (
+  input: GetResourceSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.GetResourceSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourceSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
   input: GetThirdPartyFirewallAssociationStatusCommandInput,
   context: __SerdeContext
@@ -470,6 +562,19 @@ export const serializeAws_json1_1ListComplianceStatusCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListDiscoveredResourcesCommand = async (
+  input: ListDiscoveredResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.ListDiscoveredResources",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListDiscoveredResourcesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListMemberAccountsCommand = async (
   input: ListMemberAccountsCommandInput,
   context: __SerdeContext
@@ -506,6 +611,32 @@ export const serializeAws_json1_1ListProtocolsListsCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListProtocolsListsRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListResourceSetResourcesCommand = async (
+  input: ListResourceSetResourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.ListResourceSetResources",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListResourceSetResourcesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListResourceSetsCommand = async (
+  input: ListResourceSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.ListResourceSets",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListResourceSetsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -584,6 +715,19 @@ export const serializeAws_json1_1PutProtocolsListCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutProtocolsListRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutResourceSetCommand = async (
+  input: PutResourceSetCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSFMS_20180101.PutResourceSet",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourceSetRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -684,6 +828,109 @@ const deserializeAws_json1_1AssociateThirdPartyFirewallCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AssociateThirdPartyFirewallCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1BatchAssociateResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchAssociateResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchAssociateResourceResponse(data, context);
+  const response: BatchAssociateResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchAssociateResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateResourceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1BatchDisassociateResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1BatchDisassociateResourceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1BatchDisassociateResourceResponse(data, context);
+  const response: BatchDisassociateResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1BatchDisassociateResourceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateResourceCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -878,6 +1125,53 @@ const deserializeAws_json1_1DeleteProtocolsListCommandError = async (
     case "InternalErrorException":
     case "com.amazonaws.fms#InternalErrorException":
       throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteResourceSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourceSetCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: DeleteResourceSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourceSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourceSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
     case "InvalidOperationException":
     case "com.amazonaws.fms#InvalidOperationException":
       throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
@@ -1324,6 +1618,56 @@ const deserializeAws_json1_1GetProtocolsListCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetResourceSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourceSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourceSetResponse(data, context);
+  const response: GetResourceSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourceSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourceSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1GetThirdPartyFirewallAssociationStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1515,6 +1859,53 @@ const deserializeAws_json1_1ListComplianceStatusCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListDiscoveredResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveredResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListDiscoveredResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListDiscoveredResourcesResponse(data, context);
+  const response: ListDiscoveredResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListDiscoveredResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDiscoveredResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListMemberAccountsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1645,6 +2036,103 @@ const deserializeAws_json1_1ListProtocolsListsCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.fms#ResourceNotFoundException":
       throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListResourceSetResourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceSetResourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListResourceSetResourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListResourceSetResourcesResponse(data, context);
+  const response: ListResourceSetResourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListResourceSetResourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceSetResourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.fms#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListResourceSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceSetsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListResourceSetsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListResourceSetsResponse(data, context);
+  const response: ListResourceSetsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListResourceSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourceSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1962,6 +2450,56 @@ const deserializeAws_json1_1PutProtocolsListCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PutResourceSetCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourceSetCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourceSetCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourceSetResponse(data, context);
+  const response: PutResourceSetCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourceSetCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourceSetCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalErrorException":
+    case "com.amazonaws.fms#InternalErrorException":
+      throw await deserializeAws_json1_1InternalErrorExceptionResponse(parsedOutput, context);
+    case "InvalidInputException":
+    case "com.amazonaws.fms#InvalidInputException":
+      throw await deserializeAws_json1_1InvalidInputExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.fms#InvalidOperationException":
+      throw await deserializeAws_json1_1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.fms#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1TagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2191,6 +2729,34 @@ const serializeAws_json1_1AssociateThirdPartyFirewallRequest = (
   };
 };
 
+const serializeAws_json1_1AWSAccountIdList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1BatchAssociateResourceRequest = (
+  input: BatchAssociateResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Items != null && { Items: serializeAws_json1_1IdentifierList(input.Items, context) }),
+    ...(input.ResourceSetIdentifier != null && { ResourceSetIdentifier: input.ResourceSetIdentifier }),
+  };
+};
+
+const serializeAws_json1_1BatchDisassociateResourceRequest = (
+  input: BatchDisassociateResourceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Items != null && { Items: serializeAws_json1_1IdentifierList(input.Items, context) }),
+    ...(input.ResourceSetIdentifier != null && { ResourceSetIdentifier: input.ResourceSetIdentifier }),
+  };
+};
+
 const serializeAws_json1_1CustomerPolicyScopeIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -2240,6 +2806,15 @@ const serializeAws_json1_1DeleteProtocolsListRequest = (
 ): any => {
   return {
     ...(input.ListId != null && { ListId: input.ListId }),
+  };
+};
+
+const serializeAws_json1_1DeleteResourceSetRequest = (
+  input: DeleteResourceSetRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
   };
 };
 
@@ -2314,6 +2889,12 @@ const serializeAws_json1_1GetProtocolsListRequest = (input: GetProtocolsListRequ
   };
 };
 
+const serializeAws_json1_1GetResourceSetRequest = (input: GetResourceSetRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+  };
+};
+
 const serializeAws_json1_1GetThirdPartyFirewallAssociationStatusRequest = (
   input: GetThirdPartyFirewallAssociationStatusRequest,
   context: __SerdeContext
@@ -2335,6 +2916,14 @@ const serializeAws_json1_1GetViolationDetailsRequest = (
   };
 };
 
+const serializeAws_json1_1IdentifierList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ListAppsListsRequest = (input: ListAppsListsRequest, context: __SerdeContext): any => {
   return {
     ...(input.DefaultLists != null && { DefaultLists: input.DefaultLists }),
@@ -2351,6 +2940,20 @@ const serializeAws_json1_1ListComplianceStatusRequest = (
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+  };
+};
+
+const serializeAws_json1_1ListDiscoveredResourcesRequest = (
+  input: ListDiscoveredResourcesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.MemberAccountIds != null && {
+      MemberAccountIds: serializeAws_json1_1AWSAccountIdList(input.MemberAccountIds, context),
+    }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
   };
 };
 
@@ -2377,6 +2980,24 @@ const serializeAws_json1_1ListProtocolsListsRequest = (
 ): any => {
   return {
     ...(input.DefaultLists != null && { DefaultLists: input.DefaultLists }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListResourceSetResourcesRequest = (
+  input: ListResourceSetResourcesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Identifier != null && { Identifier: input.Identifier }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListResourceSetsRequest = (input: ListResourceSetsRequest, context: __SerdeContext): any => {
+  return {
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -2420,10 +3041,14 @@ const serializeAws_json1_1Policy = (input: Policy, context: __SerdeContext): any
     ...(input.IncludeMap != null && {
       IncludeMap: serializeAws_json1_1CustomerPolicyScopeMap(input.IncludeMap, context),
     }),
+    ...(input.PolicyDescription != null && { PolicyDescription: input.PolicyDescription }),
     ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
     ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
     ...(input.PolicyUpdateToken != null && { PolicyUpdateToken: input.PolicyUpdateToken }),
     ...(input.RemediationEnabled != null && { RemediationEnabled: input.RemediationEnabled }),
+    ...(input.ResourceSetIds != null && {
+      ResourceSetIds: serializeAws_json1_1ResourceSetIds(input.ResourceSetIds, context),
+    }),
     ...(input.ResourceTags != null && { ResourceTags: serializeAws_json1_1ResourceTags(input.ResourceTags, context) }),
     ...(input.ResourceType != null && { ResourceType: input.ResourceType }),
     ...(input.ResourceTypeList != null && {
@@ -2528,6 +3153,34 @@ const serializeAws_json1_1PutProtocolsListRequest = (input: PutProtocolsListRequ
     }),
     ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
   };
+};
+
+const serializeAws_json1_1PutResourceSetRequest = (input: PutResourceSetRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.ResourceSet != null && { ResourceSet: serializeAws_json1_1ResourceSet(input.ResourceSet, context) }),
+    ...(input.TagList != null && { TagList: serializeAws_json1_1TagList(input.TagList, context) }),
+  };
+};
+
+const serializeAws_json1_1ResourceSet = (input: ResourceSet, context: __SerdeContext): any => {
+  return {
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.Id != null && { Id: input.Id }),
+    ...(input.LastUpdateTime != null && { LastUpdateTime: Math.round(input.LastUpdateTime.getTime() / 1000) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.ResourceTypeList != null && {
+      ResourceTypeList: serializeAws_json1_1ResourceTypeList(input.ResourceTypeList, context),
+    }),
+    ...(input.UpdateToken != null && { UpdateToken: input.UpdateToken }),
+  };
+};
+
+const serializeAws_json1_1ResourceSetIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1ResourceTag = (input: ResourceTag, context: __SerdeContext): any => {
@@ -2743,6 +3396,28 @@ const deserializeAws_json1_1AwsVPCSecurityGroupViolation = (
   } as any;
 };
 
+const deserializeAws_json1_1BatchAssociateResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchAssociateResourceResponse => {
+  return {
+    FailedItems:
+      output.FailedItems != null ? deserializeAws_json1_1FailedItemList(output.FailedItems, context) : undefined,
+    ResourceSetIdentifier: __expectString(output.ResourceSetIdentifier),
+  } as any;
+};
+
+const deserializeAws_json1_1BatchDisassociateResourceResponse = (
+  output: any,
+  context: __SerdeContext
+): BatchDisassociateResourceResponse => {
+  return {
+    FailedItems:
+      output.FailedItems != null ? deserializeAws_json1_1FailedItemList(output.FailedItems, context) : undefined,
+    ResourceSetIdentifier: __expectString(output.ResourceSetIdentifier),
+  } as any;
+};
+
 const deserializeAws_json1_1ComplianceViolator = (output: any, context: __SerdeContext): ComplianceViolator => {
   return {
     Metadata:
@@ -2817,6 +3492,27 @@ const deserializeAws_json1_1DisassociateThirdPartyFirewallResponse = (
   return {
     ThirdPartyFirewallStatus: __expectString(output.ThirdPartyFirewallStatus),
   } as any;
+};
+
+const deserializeAws_json1_1DiscoveredResource = (output: any, context: __SerdeContext): DiscoveredResource => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+    URI: __expectString(output.URI),
+  } as any;
+};
+
+const deserializeAws_json1_1DiscoveredResourceList = (output: any, context: __SerdeContext): DiscoveredResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DiscoveredResource(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1DnsDuplicateRuleGroupViolation = (
@@ -3002,6 +3698,25 @@ const deserializeAws_json1_1ExpectedRoutes = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1FailedItem = (output: any, context: __SerdeContext): FailedItem => {
+  return {
+    Reason: __expectString(output.Reason),
+    URI: __expectString(output.URI),
+  } as any;
+};
+
+const deserializeAws_json1_1FailedItemList = (output: any, context: __SerdeContext): FailedItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1FailedItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1FirewallSubnetIsOutOfScopeViolation = (
   output: any,
   context: __SerdeContext
@@ -3103,6 +3818,14 @@ const deserializeAws_json1_1GetProtocolsListResponse = (
     ProtocolsList:
       output.ProtocolsList != null ? deserializeAws_json1_1ProtocolsListData(output.ProtocolsList, context) : undefined,
     ProtocolsListArn: __expectString(output.ProtocolsListArn),
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourceSetResponse = (output: any, context: __SerdeContext): GetResourceSetResponse => {
+  return {
+    ResourceSet:
+      output.ResourceSet != null ? deserializeAws_json1_1ResourceSet(output.ResourceSet, context) : undefined,
+    ResourceSetArn: __expectString(output.ResourceSetArn),
   } as any;
 };
 
@@ -3208,6 +3931,16 @@ const deserializeAws_json1_1ListComplianceStatusResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListDiscoveredResourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListDiscoveredResourcesResponse => {
+  return {
+    Items: output.Items != null ? deserializeAws_json1_1DiscoveredResourceList(output.Items, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListMemberAccountsResponse = (
   output: any,
   context: __SerdeContext
@@ -3236,6 +3969,29 @@ const deserializeAws_json1_1ListProtocolsListsResponse = (
     ProtocolsLists:
       output.ProtocolsLists != null
         ? deserializeAws_json1_1ProtocolsListsData(output.ProtocolsLists, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ListResourceSetResourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): ListResourceSetResourcesResponse => {
+  return {
+    Items: output.Items != null ? deserializeAws_json1_1ResourceList(output.Items, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListResourceSetsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListResourceSetsResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    ResourceSets:
+      output.ResourceSets != null
+        ? deserializeAws_json1_1ResourceSetSummaryList(output.ResourceSets, context)
         : undefined,
   } as any;
 };
@@ -3564,10 +4320,13 @@ const deserializeAws_json1_1Policy = (output: any, context: __SerdeContext): Pol
     ExcludeResourceTags: __expectBoolean(output.ExcludeResourceTags),
     IncludeMap:
       output.IncludeMap != null ? deserializeAws_json1_1CustomerPolicyScopeMap(output.IncludeMap, context) : undefined,
+    PolicyDescription: __expectString(output.PolicyDescription),
     PolicyId: __expectString(output.PolicyId),
     PolicyName: __expectString(output.PolicyName),
     PolicyUpdateToken: __expectString(output.PolicyUpdateToken),
     RemediationEnabled: __expectBoolean(output.RemediationEnabled),
+    ResourceSetIds:
+      output.ResourceSetIds != null ? deserializeAws_json1_1ResourceSetIds(output.ResourceSetIds, context) : undefined,
     ResourceTags:
       output.ResourceTags != null ? deserializeAws_json1_1ResourceTags(output.ResourceTags, context) : undefined,
     ResourceType: __expectString(output.ResourceType),
@@ -3817,6 +4576,14 @@ const deserializeAws_json1_1PutProtocolsListResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1PutResourceSetResponse = (output: any, context: __SerdeContext): PutResourceSetResponse => {
+  return {
+    ResourceSet:
+      output.ResourceSet != null ? deserializeAws_json1_1ResourceSet(output.ResourceSet, context) : undefined,
+    ResourceSetArn: __expectString(output.ResourceSetArn),
+  } as any;
+};
+
 const deserializeAws_json1_1RemediationAction = (output: any, context: __SerdeContext): RemediationAction => {
   return {
     Description: __expectString(output.Description),
@@ -3874,6 +4641,13 @@ const deserializeAws_json1_1RemediationActionWithOrder = (
   } as any;
 };
 
+const deserializeAws_json1_1Resource = (output: any, context: __SerdeContext): Resource => {
+  return {
+    AccountId: __expectString(output.AccountId),
+    URI: __expectString(output.URI),
+  } as any;
+};
+
 const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -3886,6 +4660,18 @@ const deserializeAws_json1_1ResourceIdList = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1ResourceList = (output: any, context: __SerdeContext): Resource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Resource(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ResourceNotFoundException = (
   output: any,
   context: __SerdeContext
@@ -3893,6 +4679,59 @@ const deserializeAws_json1_1ResourceNotFoundException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1ResourceSet = (output: any, context: __SerdeContext): ResourceSet => {
+  return {
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LastUpdateTime:
+      output.LastUpdateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    ResourceTypeList:
+      output.ResourceTypeList != null
+        ? deserializeAws_json1_1ResourceTypeList(output.ResourceTypeList, context)
+        : undefined,
+    UpdateToken: __expectString(output.UpdateToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceSetIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ResourceSetSummary = (output: any, context: __SerdeContext): ResourceSetSummary => {
+  return {
+    Description: __expectString(output.Description),
+    Id: __expectString(output.Id),
+    LastUpdateTime:
+      output.LastUpdateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourceSetSummaryList = (output: any, context: __SerdeContext): ResourceSetSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ResourceSetSummary(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResourceTag = (output: any, context: __SerdeContext): ResourceTag => {
