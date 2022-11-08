@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.206.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.205.0...v3.206.0) (2022-11-08)
+
+
+### Features
+
+* **client-billingconductor:** This release adds the Recurring Custom Line Item feature along with a new API ListCustomLineItemVersions. ([49a8b23](https://github.com/aws/aws-sdk-js-v3/commit/49a8b23c0231c8dddc33812a8db39e4233e54ee7))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 

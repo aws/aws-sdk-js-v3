@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.206.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.205.0...v3.206.0) (2022-11-08)
+
+
+### Features
+
+* **client-fms:** AWS Firewall Manager now supports importing existing AWS Network Firewall firewalls into Firewall Manager policies. ([d06e460](https://github.com/aws/aws-sdk-js-v3/commit/d06e4604419f408faae3b53b4dc532cfd4fcc690))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 

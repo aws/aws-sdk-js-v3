@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.206.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.205.0...v3.206.0) (2022-11-08)
+
+
+### Bug Fixes
+
+* **codegen:** pin smithy-cli version to 1.26.1 ([#4149](https://github.com/aws/aws-sdk-js-v3/issues/4149)) ([03a5b9d](https://github.com/aws/aws-sdk-js-v3/commit/03a5b9d9fc3ba695b3245ef13ff02dbca54fba22))
+
+
+### Features
+
+* **client-acm:** Support added for requesting elliptic curve certificate key algorithm types P-256 (EC_prime256v1) and P-384 (EC_secp384r1). ([f49d52b](https://github.com/aws/aws-sdk-js-v3/commit/f49d52b24b0e989e90339bc1dc66890976484431))
+* **client-billingconductor:** This release adds the Recurring Custom Line Item feature along with a new API ListCustomLineItemVersions. ([49a8b23](https://github.com/aws/aws-sdk-js-v3/commit/49a8b23c0231c8dddc33812a8db39e4233e54ee7))
+* **client-ec2:** This release enables sharing of EC2 Placement Groups across accounts and within AWS Organizations using Resource Access Manager ([66a8faf](https://github.com/aws/aws-sdk-js-v3/commit/66a8faff173adb0ccfb654b99d5e7a3cfd9622d8))
+* **client-fms:** AWS Firewall Manager now supports importing existing AWS Network Firewall firewalls into Firewall Manager policies. ([d06e460](https://github.com/aws/aws-sdk-js-v3/commit/d06e4604419f408faae3b53b4dc532cfd4fcc690))
+* **client-lightsail:** This release adds support for Amazon Lightsail to automate the delegation of domains registered through Amazon Route 53 to Lightsail DNS management and to automate record creation for DNS validation of Lightsail SSL/TLS certificates. ([b4d36fc](https://github.com/aws/aws-sdk-js-v3/commit/b4d36fc18afe9fe0c477f73f814086e93f46652b))
+* **client-opensearch:** Amazon OpenSearch Service now offers managed VPC endpoints to connect to your Amazon OpenSearch Service VPC-enabled domain in a Virtual Private Cloud (VPC). This feature allows you to privately access OpenSearch Service domain without using public IPs or requiring traffic to traverse the Internet. ([ca5e4e1](https://github.com/aws/aws-sdk-js-v3/commit/ca5e4e19856a21f1dd7eb02cfeb5d2baf8b4e3b3))
+* **client-polly:** Amazon Polly adds new voices: Elin (sv-SE), Ida (nb-NO), Laura (nl-NL) and Suvi (fi-FI). They are available as neural voices only. ([93e3cec](https://github.com/aws/aws-sdk-js-v3/commit/93e3cec58f9bd2130512c7aebb24ec143186301c))
+* **client-resource-explorer-2:** This is the initial SDK release for AWS Resource Explorer. AWS Resource Explorer lets your users search for and discover your AWS resources across the AWS Regions in your account. ([87b4b80](https://github.com/aws/aws-sdk-js-v3/commit/87b4b80099f9a52e80a024c6236b8d95142b412d))
+* **client-route-53:** Amazon Route 53 now supports the Europe (Zurich) Region (eu-central-2) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([63c33f6](https://github.com/aws/aws-sdk-js-v3/commit/63c33f6da9f75b7bef99f25f9241e934d0c13184))
+* **clients:** update client endpoints as of 2022-11-08 ([c0daec7](https://github.com/aws/aws-sdk-js-v3/commit/c0daec7ef894c6d722cf261f4b365e4b3fd4cdd8))
+
+
+
+
+
 # [3.205.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.204.0...v3.205.0) (2022-11-07)
 
 
