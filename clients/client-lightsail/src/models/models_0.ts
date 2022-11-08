@@ -49,13 +49,14 @@ export interface AccessKeyLastUsed {
   lastUsedDate?: Date;
 
   /**
-   * <p>The AWS Region where this access key was most recently used.</p>
+   * <p>The Amazon Web Services Region where this access key was most recently used.</p>
    *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
    */
   region?: string;
 
   /**
-   * <p>The name of the AWS service with which this access key was most recently used.</p>
+   * <p>The name of the Amazon Web Services service with which this access key was most recently
+   *       used.</p>
    *          <p>This value is <code>N/A</code> if the access key has not been used.</p>
    */
   serviceName?: string;
@@ -490,7 +491,7 @@ export interface ResourceLocation {
   availabilityZone?: string;
 
   /**
-   * <p>The AWS Region name.</p>
+   * <p>The Amazon Web Services Region name.</p>
    */
   regionName?: RegionName | string;
 }
@@ -2064,6 +2065,55 @@ export interface CacheSettings {
   forwardedQueryStrings?: QueryStringObject;
 }
 
+export enum DnsRecordCreationStateCode {
+  Failed = "FAILED",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the creation state of the canonical name (CNAME) records that are automatically
+ *       added by Amazon Lightsail to the DNS of a domain to validate domain ownership for
+ *       an SSL/TLS certificate.</p>
+ *
+ *          <p>When you create an SSL/TLS certificate for a Lightsail resource, you must
+ *       add a set of CNAME records to the DNS of the domains for the certificate to validate that you
+ *       own the domains. Lightsail can automatically add the CNAME records to the DNS
+ *       of the domain if the DNS zone for the domain exists within your Lightsail
+ *       account. If automatic record addition fails, or if you manage the DNS of your domain using a
+ *       third-party service, then you must manually add the CNAME records to the DNS of your domain.
+ *       For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/verify-tls-ssl-certificate-using-dns-cname-https">Verify an SSL/TLS certificate in Amazon Lightsail</a> in the
+ *           <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface DnsRecordCreationState {
+  /**
+   * <p>The status code for the automated DNS record creation.</p>
+   *
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The validation records were successfully added to the
+   *           domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic DNS record creation has started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The validation records failed to be added to the domain.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: DnsRecordCreationStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
 /**
  * <p>Describes the domain name system (DNS) records to add to your domain's DNS to validate it
  *       for an Amazon Lightsail certificate.</p>
@@ -2085,8 +2135,15 @@ export interface ResourceRecord {
   value?: string;
 }
 
+export enum CertificateDomainValidationStatus {
+  Failed = "FAILED",
+  PendingValidation = "PENDING_VALIDATION",
+  Success = "SUCCESS",
+}
+
 /**
- * <p>Describes the domain validation records of an Amazon Lightsail SSL/TLS certificate.</p>
+ * <p>Describes the domain name system (DNS) records that you must add to the DNS of your
+ *       registered domain to validate ownership for an Amazon Lightsail SSL/TLS certificate.</p>
  */
 export interface DomainValidationRecord {
   /**
@@ -2100,6 +2157,18 @@ export interface DomainValidationRecord {
    *       the certificate.</p>
    */
   resourceRecord?: ResourceRecord;
+
+  /**
+   * <p>An object that describes the state of the canonical name (CNAME) records that are
+   *       automatically added by Lightsail to the DNS of the domain to validate domain
+   *       ownership.</p>
+   */
+  dnsRecordCreationState?: DnsRecordCreationState;
+
+  /**
+   * <p>The validation status of the record.</p>
+   */
+  validationStatus?: CertificateDomainValidationStatus | string;
 }
 
 export enum RenewalStatus {
@@ -2245,8 +2314,8 @@ export interface Certificate {
    *                   </b> -
    *           Lightsail requires additional information to process this certificate request. This can
    *           happen as a fraud-protection measure, such as when the domain ranks within the Alexa top
-   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a> to contact
-   *           AWS Support.</p>
+   *           1000 websites. To provide the required information, use the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support
+   *             Center</a> to contact Amazon Web Services Support.</p>
    *                <note>
    *                   <p>You cannot request a certificate for Amazon-owned domain names such as those ending
    *             in amazonaws.com, cloudfront.net, or elasticbeanstalk.com.</p>
@@ -2266,8 +2335,8 @@ export interface Certificate {
    *           cannot remove your domain from a block list itself. After you correct the problem and the
    *           VirusTotal registry has been updated, request a new certificate.</p>
    *                <p>If you see this error and your domain is not included in the VirusTotal list, visit
-   *           the <a href="https://console.aws.amazon.com/support/home">AWS Support Center</a>
-   *           and create a case.</p>
+   *           the <a href="https://console.aws.amazon.com/support/home">Amazon Web Services Support
+   *             Center</a> and create a case.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -3797,8 +3866,8 @@ export interface CreateContainerServiceRequest {
    *       domain. The default domain of a container service is typically
    *         <code>https://<ServiceName>.<RandomGUID>.<AWSRegion>.cs.amazonlightsail.com</code>.
    *       If the name of your container service is <code>container-service-1</code>, and it's located in
-   *       the US East (Ohio) AWS region (<code>us-east-2</code>), then the domain for your container
-   *       service will be like the following example:
+   *       the US East (Ohio) Amazon Web Services Region (<code>us-east-2</code>), then the domain for
+   *       your container service will be like the following example:
    *         <code>https://container-service-1.ur4EXAMPLE2uq.us-east-2.cs.amazonlightsail.com</code>
    *          </p>
    *
@@ -5160,7 +5229,7 @@ export interface CreateRelationalDatabaseRequest {
    *       automated backups are enabled.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
    *       AWS Region. For more information about the preferred backup window time blocks for each
-   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service (Amazon RDS) documentation.</p>
+   *       region, see the <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.BackupWindow">Working With Backups</a> guide in the Amazon Relational Database Service documentation.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -6182,6 +6251,140 @@ export enum DistributionMetricName {
   TotalErrorRate = "TotalErrorRate",
 }
 
+export enum NameServersUpdateStateCode {
+  Failed = "FAILED",
+  Pending = "PENDING",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the state of the name server records update made by Amazon Lightsail
+ *       to an Amazon Route 53 registered domain.</p>
+ *
+ *          <p>For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/understanding-dns-in-amazon-lightsail">DNS in Amazon Lightsail</a> in the <i>Amazon Lightsail
+ *         Developer Guide</i>.</p>
+ */
+export interface NameServersUpdateState {
+  /**
+   * <p>The status code for the name servers update.</p>
+   *
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The name server records were successfully updated.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The name server record update is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The name server record update failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic name server record update started.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: NameServersUpdateStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
+export enum R53HostedZoneDeletionStateCode {
+  Failed = "FAILED",
+  Pending = "PENDING",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
+ *       being automatically delegated to an Amazon Lightsail DNS zone.</p>
+ */
+export interface R53HostedZoneDeletionState {
+  /**
+   * <p>The status code for the deletion state.</p>
+   *
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The hosted zone was successfully deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> - The hosted zone deletion is in progress.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The hosted zone deletion failed.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The hosted zone deletion started.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: R53HostedZoneDeletionStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
+/**
+ * <p>Describes the delegation state of an Amazon Route 53 registered domain to Amazon Lightsail.</p>
+ *
+ *          <p>When you delegate an Amazon Route 53 registered domain to Lightsail,
+ *       you can manage the DNS of the domain using a Lightsail DNS zone. You no longer
+ *       use the Route 53 hosted zone to manage the DNS of the domain. To delegate the
+ *       domain, Lightsail automatically updates the domain's name servers in Route 53 to the name servers of the Lightsail DNS zone. Then, Lightsail automatically deletes the Route 53 hosted zone for the
+ *       domain.</p>
+ *
+ *          <p>All of the following conditions must be true for automatic domain delegation to be
+ *       successful:</p>
+ *
+ *          <ul>
+ *             <li>
+ *                <p>The registered domain must be in the same Amazon Web Services account as the Lightsail account making the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>The user or entity making the request must have permission to manage domains in
+ *             Route 53.</p>
+ *             </li>
+ *             <li>
+ *                <p>The Route 53 hosted zone for the domain must be empty. It cannot contain DNS
+ *           records other than start of authority (SOA) and name server records.</p>
+ *             </li>
+ *          </ul>
+ *
+ *          <p>If automatic domain delegation fails, or if you manage the DNS of your domain using a
+ *       service other than Route 53, then you must manually add the Lightsail
+ *       DNS zone name servers to your domain in order to delegate management of its DNS to Lightsail. For more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-dns-entry">Creating a DNS zone to manage your domain’s records in Amazon Lightsail</a>
+ *       in the <i>Amazon Lightsail Developer Guide</i>.</p>
+ */
+export interface RegisteredDomainDelegationInfo {
+  /**
+   * <p>An object that describes the state of the name server records that are automatically added
+   *       to the Route 53 domain by Lightsail.</p>
+   */
+  nameServersUpdateState?: NameServersUpdateState;
+
+  /**
+   * <p>Describes the deletion state of an Amazon Route 53 hosted zone for a domain that is
+   *       being automatically delegated to an Amazon Lightsail DNS zone.</p>
+   */
+  r53HostedZoneDeletionState?: R53HostedZoneDeletionState;
+}
+
 /**
  * <p>Describes a domain where you are storing recordsets.</p>
  */
@@ -6229,6 +6432,12 @@ export interface Domain {
    * <p>An array of key-value pairs containing information about the domain entries.</p>
    */
   domainEntries?: DomainEntry[];
+
+  /**
+   * <p>An object that describes the state of the Route 53 domain delegation to a
+   *         Lightsail DNS zone.</p>
+   */
+  registeredDomainDelegationInfo?: RegisteredDomainDelegationInfo;
 }
 
 export interface DownloadDefaultKeyPairRequest {}
@@ -7255,263 +7464,6 @@ export interface GetDistributionLatestCacheResetResult {
   createTime?: Date;
 }
 
-export interface GetDistributionMetricDataRequest {
-  /**
-   * <p>The name of the distribution for which to get metric data.</p>
-   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
-   *       can specify.</p>
-   */
-  distributionName: string | undefined;
-
-  /**
-   * <p>The metric for which you want to return information.</p>
-   *          <p>Valid distribution metric names are listed below, along with the most useful
-   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
-   *       value.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>Requests</code>
-   *                   </b> - The total number of viewer
-   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
-   *           HTTP and HTTPS requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>BytesDownloaded</code>
-   *                   </b> - The number of bytes
-   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>BytesUploaded </code>
-   *                   </b> - The number of bytes
-   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
-   *           requests.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>TotalErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>4xxErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
-   *           client or client viewer may have made an error. For example, a status code of 404 (Not
-   *           Found) means that the client requested an object that could not be found.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>5xxErrorRate</code>
-   *                   </b> - The percentage of all
-   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
-   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
-   *           Unavailable) means that the origin server is currently unavailable.</p>
-   *                <p>
-   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
-   *                <p>
-   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
-   *             </li>
-   *          </ul>
-   */
-  metricName: DistributionMetricName | string | undefined;
-
-  /**
-   * <p>The start of the time interval for which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
-   *             <code>1538424000</code> as the start time.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-   */
-  startTime: Date | undefined;
-
-  /**
-   * <p>The end of the time interval for which to get metric data.</p>
-   *          <p>Constraints:</p>
-   *          <ul>
-   *             <li>
-   *                <p>Specified in Coordinated Universal Time (UTC).</p>
-   *             </li>
-   *             <li>
-   *                <p>Specified in the Unix time format.</p>
-   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
-   *             <code>1538427600</code> as the end time.</p>
-   *             </li>
-   *          </ul>
-   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
-   */
-  endTime: Date | undefined;
-
-  /**
-   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
-   */
-  period: number | undefined;
-
-  /**
-   * <p>The unit for the metric data request.</p>
-   *          <p>Valid units depend on the metric data being requested. For the valid units with each
-   *       available metric, see the <code>metricName</code> parameter.</p>
-   */
-  unit: MetricUnit | string | undefined;
-
-  /**
-   * <p>The statistic for the metric.</p>
-   *          <p>The following statistics are available:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
-   *           value to determine low volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
-   *           this value to determine high volumes of activity for your application.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
-   *           can use this statistic to determine the total volume of a metric.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
-   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
-   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
-   *           comparison helps you to know when to increase or decrease your resources.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SampleCount</code> - The count, or number, of data points used for the
-   *           statistical calculation.</p>
-   *             </li>
-   *          </ul>
-   */
-  statistics: (MetricStatistic | string)[] | undefined;
-}
-
-export interface GetDistributionMetricDataResult {
-  /**
-   * <p>The name of the metric returned.</p>
-   */
-  metricName?: DistributionMetricName | string;
-
-  /**
-   * <p>An array of objects that describe the metric data returned.</p>
-   */
-  metricData?: MetricDatapoint[];
-}
-
-export interface GetDistributionsRequest {
-  /**
-   * <p>The name of the distribution for which to return information.</p>
-   *
-   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
-   *       Region where the request is made.</p>
-   */
-  distributionName?: string;
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
-   *       results are paginated, the response will return a next page token that you can specify as the
-   *       page token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDistributionsResult {
-  /**
-   * <p>An array of objects that describe your distributions.</p>
-   */
-  distributions?: LightsailDistribution[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
-export interface GetDomainRequest {
-  /**
-   * <p>The domain name for which your want to return information about.</p>
-   */
-  domainName: string | undefined;
-}
-
-export interface GetDomainResult {
-  /**
-   * <p>An array of key-value pairs containing information about your get domain request.</p>
-   */
-  domain?: Domain;
-}
-
-export interface GetDomainsRequest {
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
-   *       are paginated, the response will return a next page token that you can specify as the page
-   *       token in a subsequent request.</p>
-   */
-  pageToken?: string;
-}
-
-export interface GetDomainsResult {
-  /**
-   * <p>An array of key-value pairs containing information about each of the domain entries in the
-   *       user's account.</p>
-   */
-  domains?: Domain[];
-
-  /**
-   * <p>The token to advance to the next page of results from your request.</p>
-   *          <p>A next page token is not returned if there are no more results to display.</p>
-   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
-   *       specify the next page token using the <code>pageToken</code> parameter.</p>
-   */
-  nextPageToken?: string;
-}
-
 /**
  * @internal
  */
@@ -7809,6 +7761,13 @@ export const QueryStringObjectFilterSensitiveLog = (obj: QueryStringObject): any
  * @internal
  */
 export const CacheSettingsFilterSensitiveLog = (obj: CacheSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DnsRecordCreationStateFilterSensitiveLog = (obj: DnsRecordCreationState): any => ({
   ...obj,
 });
 
@@ -8837,6 +8796,27 @@ export const DistributionBundleFilterSensitiveLog = (obj: DistributionBundle): a
 /**
  * @internal
  */
+export const NameServersUpdateStateFilterSensitiveLog = (obj: NameServersUpdateState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const R53HostedZoneDeletionStateFilterSensitiveLog = (obj: R53HostedZoneDeletionState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegisteredDomainDelegationInfoFilterSensitiveLog = (obj: RegisteredDomainDelegationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DomainFilterSensitiveLog = (obj: Domain): any => ({
   ...obj,
 });
@@ -9268,61 +9248,5 @@ export const GetDistributionLatestCacheResetRequestFilterSensitiveLog = (
 export const GetDistributionLatestCacheResetResultFilterSensitiveLog = (
   obj: GetDistributionLatestCacheResetResult
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
   ...obj,
 });

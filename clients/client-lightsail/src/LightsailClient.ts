@@ -913,8 +913,8 @@ export interface LightsailClientResolvedConfig extends LightsailClientResolvedCo
  *       price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
- *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
- *       and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
+ *         Command Line Interface (CLI), or SDKs. For more information about Lightsail
+ *       concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported

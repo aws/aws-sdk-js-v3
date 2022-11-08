@@ -19,11 +19,14 @@ import {
   ContainerService,
   ContainerServicePowerName,
   Disk,
+  DistributionMetricName,
+  Domain,
   DomainEntry,
   ExportSnapshotRecord,
   InputOrigin,
   IpAddressType,
   KeyPair,
+  LightsailDistribution,
   MetricDatapoint,
   MetricName,
   MetricStatistic,
@@ -38,6 +41,263 @@ import {
   Tag,
   TreatMissingData,
 } from "./models_0";
+
+export interface GetDistributionMetricDataRequest {
+  /**
+   * <p>The name of the distribution for which to get metric data.</p>
+   *          <p>Use the <code>GetDistributions</code> action to get a list of distribution names that you
+   *       can specify.</p>
+   */
+  distributionName: string | undefined;
+
+  /**
+   * <p>The metric for which you want to return information.</p>
+   *          <p>Valid distribution metric names are listed below, along with the most useful
+   *         <code>statistics</code> to include in your request, and the published <code>unit</code>
+   *       value.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>Requests</code>
+   *                   </b> - The total number of viewer
+   *           requests received by your Lightsail distribution, for all HTTP methods, and for both
+   *           HTTP and HTTPS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesDownloaded</code>
+   *                   </b> - The number of bytes
+   *           downloaded by viewers for GET, HEAD, and OPTIONS requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>BytesUploaded </code>
+   *                   </b> - The number of bytes
+   *           uploaded to your origin by your Lightsail distribution, using POST and PUT
+   *           requests.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Sum</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>None</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>TotalErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 4xx or 5xx.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>4xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status cod was 4xx. In these cases, the
+   *           client or client viewer may have made an error. For example, a status code of 404 (Not
+   *           Found) means that the client requested an object that could not be found.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>
+   *                      <code>5xxErrorRate</code>
+   *                   </b> - The percentage of all
+   *           viewer requests for which the response's HTTP status code was 5xx. In these cases, the
+   *           origin server did not satisfy the requests. For example, a status code of 503 (Service
+   *           Unavailable) means that the origin server is currently unavailable.</p>
+   *                <p>
+   *                   <code>Statistics</code>: The most useful statistic is <code>Average</code>.</p>
+   *                <p>
+   *                   <code>Unit</code>: The published unit is <code>Percent</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  metricName: DistributionMetricName | string | undefined;
+
+  /**
+   * <p>The start of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use a start time of October 1, 2018, at 8 PM UTC, specify
+   *             <code>1538424000</code> as the start time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end of the time interval for which to get metric data.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Specified in Coordinated Universal Time (UTC).</p>
+   *             </li>
+   *             <li>
+   *                <p>Specified in the Unix time format.</p>
+   *                <p>For example, if you wish to use an end time of October 1, 2018, at 9 PM UTC, specify
+   *             <code>1538427600</code> as the end time.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can convert a human-friendly time to Unix time format using a converter like <a href="https://www.epochconverter.com/">Epoch converter</a>.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The granularity, in seconds, for the metric data points that will be returned.</p>
+   */
+  period: number | undefined;
+
+  /**
+   * <p>The unit for the metric data request.</p>
+   *          <p>Valid units depend on the metric data being requested. For the valid units with each
+   *       available metric, see the <code>metricName</code> parameter.</p>
+   */
+  unit: MetricUnit | string | undefined;
+
+  /**
+   * <p>The statistic for the metric.</p>
+   *          <p>The following statistics are available:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Minimum</code> - The lowest value observed during the specified period. Use this
+   *           value to determine low volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Maximum</code> - The highest value observed during the specified period. Use
+   *           this value to determine high volumes of activity for your application.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Sum</code> - All values submitted for the matching metric added together. You
+   *           can use this statistic to determine the total volume of a metric.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Average</code> - The value of Sum / SampleCount during the specified period. By
+   *           comparing this statistic with the Minimum and Maximum values, you can determine the full
+   *           scope of a metric and how close the average use is to the Minimum and Maximum values. This
+   *           comparison helps you to know when to increase or decrease your resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SampleCount</code> - The count, or number, of data points used for the
+   *           statistical calculation.</p>
+   *             </li>
+   *          </ul>
+   */
+  statistics: (MetricStatistic | string)[] | undefined;
+}
+
+export interface GetDistributionMetricDataResult {
+  /**
+   * <p>The name of the metric returned.</p>
+   */
+  metricName?: DistributionMetricName | string;
+
+  /**
+   * <p>An array of objects that describe the metric data returned.</p>
+   */
+  metricData?: MetricDatapoint[];
+}
+
+export interface GetDistributionsRequest {
+  /**
+   * <p>The name of the distribution for which to return information.</p>
+   *
+   *          <p>When omitted, the response includes all of your distributions in the Amazon Web Services
+   *       Region where the request is made.</p>
+   */
+  distributionName?: string;
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDistributions</code> request. If your
+   *       results are paginated, the response will return a next page token that you can specify as the
+   *       page token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDistributionsResult {
+  /**
+   * <p>An array of objects that describe your distributions.</p>
+   */
+  distributions?: LightsailDistribution[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDistributions</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
+
+export interface GetDomainRequest {
+  /**
+   * <p>The domain name for which your want to return information about.</p>
+   */
+  domainName: string | undefined;
+}
+
+export interface GetDomainResult {
+  /**
+   * <p>An array of key-value pairs containing information about your get domain request.</p>
+   */
+  domain?: Domain;
+}
+
+export interface GetDomainsRequest {
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>To get a page token, perform an initial <code>GetDomains</code> request. If your results
+   *       are paginated, the response will return a next page token that you can specify as the page
+   *       token in a subsequent request.</p>
+   */
+  pageToken?: string;
+}
+
+export interface GetDomainsResult {
+  /**
+   * <p>An array of key-value pairs containing information about each of the domain entries in the
+   *       user's account.</p>
+   */
+  domains?: Domain[];
+
+  /**
+   * <p>The token to advance to the next page of results from your request.</p>
+   *          <p>A next page token is not returned if there are no more results to display.</p>
+   *          <p>To get the next page of results, perform another <code>GetDomains</code> request and
+   *       specify the next page token using the <code>pageToken</code> parameter.</p>
+   */
+  nextPageToken?: string;
+}
 
 export interface GetExportSnapshotRecordsRequest {
   /**
@@ -1943,6 +2203,45 @@ export interface GetLoadBalancerTlsCertificatesRequest {
   loadBalancerName: string | undefined;
 }
 
+export enum LoadBalancerTlsCertificateDnsRecordCreationStateCode {
+  Failed = "FAILED",
+  Started = "STARTED",
+  Succeeded = "SUCCEEDED",
+}
+
+/**
+ * <p>An object that describes the state of the canonical name (CNAME) records that are
+ *       automatically added by Lightsail to the DNS of the domain to validate domain
+ *       ownership.</p>
+ */
+export interface LoadBalancerTlsCertificateDnsRecordCreationState {
+  /**
+   * <p>The status code for the automated DNS record creation.</p>
+   *
+   *          <p>Following are the possible values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code> - The validation records were successfully added.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STARTED</code> - The automatic DNS record creation has started.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> - The validation record addition failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  code?: LoadBalancerTlsCertificateDnsRecordCreationStateCode | string;
+
+  /**
+   * <p>The message that describes the reason for the status code.</p>
+   */
+  message?: string;
+}
+
 export enum LoadBalancerTlsCertificateDomainStatus {
   Failed = "FAILED",
   PendingValidation = "PENDING_VALIDATION",
@@ -1979,6 +2278,13 @@ export interface LoadBalancerTlsCertificateDomainValidationRecord {
    * <p>The domain name against which your SSL/TLS certificate was validated.</p>
    */
   domainName?: string;
+
+  /**
+   * <p>An object that describes the state of the canonical name (CNAME) records that are
+   *       automatically added by Lightsail to the DNS of a domain to validate domain
+   *       ownership.</p>
+   */
+  dnsRecordCreationState?: LoadBalancerTlsCertificateDnsRecordCreationState;
 }
 
 export enum LoadBalancerTlsCertificateFailureReason {
@@ -2159,7 +2465,8 @@ export interface LoadBalancerTlsCertificate {
   createdAt?: Date;
 
   /**
-   * <p>The AWS Region and Availability Zone where you created your certificate.</p>
+   * <p>The Amazon Web Services Region and Availability Zone where you created your
+   *       certificate.</p>
    */
   location?: ResourceLocation;
 
@@ -2576,7 +2883,7 @@ export interface GetRegionsRequest {
 }
 
 /**
- * <p>Describes the AWS Region.</p>
+ * <p>Describes the Amazon Web Services Region.</p>
  */
 export interface Region {
   /**
@@ -2585,8 +2892,8 @@ export interface Region {
   continentCode?: string;
 
   /**
-   * <p>The description of the AWS Region (e.g., <code>This region is recommended to serve users
-   *         in the eastern United States and eastern Canada</code>).</p>
+   * <p>The description of the Amazon Web Services Region (e.g., <code>This region is recommended
+   *         to serve users in the eastern United States and eastern Canada</code>).</p>
    */
   description?: string;
 
@@ -4805,7 +5112,7 @@ export interface UpdateRelationalDatabaseRequest {
   /**
    * <p>The weekly time range during which system maintenance can occur on your database.</p>
    *          <p>The default is a 30-minute window selected at random from an 8-hour block of time for each
-   *       AWS Region, occurring on a random day of the week.</p>
+   *         Amazon Web Services Region, occurring on a random day of the week.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
@@ -4894,6 +5201,62 @@ export interface UpdateRelationalDatabaseParametersResult {
    */
   operations?: Operation[];
 }
+
+/**
+ * @internal
+ */
+export const GetDistributionMetricDataRequestFilterSensitiveLog = (obj: GetDistributionMetricDataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionMetricDataResultFilterSensitiveLog = (obj: GetDistributionMetricDataResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsRequestFilterSensitiveLog = (obj: GetDistributionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDistributionsResultFilterSensitiveLog = (obj: GetDistributionsResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainRequestFilterSensitiveLog = (obj: GetDomainRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainResultFilterSensitiveLog = (obj: GetDomainResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsRequestFilterSensitiveLog = (obj: GetDomainsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetDomainsResultFilterSensitiveLog = (obj: GetDomainsResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -5201,6 +5564,15 @@ export const GetLoadBalancersResultFilterSensitiveLog = (obj: GetLoadBalancersRe
  */
 export const GetLoadBalancerTlsCertificatesRequestFilterSensitiveLog = (
   obj: GetLoadBalancerTlsCertificatesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoadBalancerTlsCertificateDnsRecordCreationStateFilterSensitiveLog = (
+  obj: LoadBalancerTlsCertificateDnsRecordCreationState
 ): any => ({
   ...obj,
 });

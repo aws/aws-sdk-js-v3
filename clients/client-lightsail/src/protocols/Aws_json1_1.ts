@@ -576,6 +576,7 @@ import {
   DiskSnapshot,
   DiskSnapshotInfo,
   DistributionBundle,
+  DnsRecordCreationState,
   Domain,
   DomainEntry,
   DomainValidationRecord,
@@ -637,14 +638,6 @@ import {
   GetDistributionBundlesResult,
   GetDistributionLatestCacheResetRequest,
   GetDistributionLatestCacheResetResult,
-  GetDistributionMetricDataRequest,
-  GetDistributionMetricDataResult,
-  GetDistributionsRequest,
-  GetDistributionsResult,
-  GetDomainRequest,
-  GetDomainResult,
-  GetDomainsRequest,
-  GetDomainsResult,
   HeaderEnum,
   HeaderObject,
   InputOrigin,
@@ -657,6 +650,7 @@ import {
   MetricDatapoint,
   MetricStatistic,
   MonitoredResourceInfo,
+  NameServersUpdateState,
   NotFoundException,
   Operation,
   OperationFailureException,
@@ -665,6 +659,8 @@ import {
   PrivateRegistryAccess,
   PrivateRegistryAccessRequest,
   QueryStringObject,
+  R53HostedZoneDeletionState,
+  RegisteredDomainDelegationInfo,
   RenewalSummary,
   ResourceLocation,
   ResourceReceivingAccess,
@@ -674,6 +670,14 @@ import {
   UnauthenticatedException,
 } from "../models/models_0";
 import {
+  GetDistributionMetricDataRequest,
+  GetDistributionMetricDataResult,
+  GetDistributionsRequest,
+  GetDistributionsResult,
+  GetDomainRequest,
+  GetDomainResult,
+  GetDomainsRequest,
+  GetDomainsResult,
   GetExportSnapshotRecordsRequest,
   GetExportSnapshotRecordsResult,
   GetInstanceAccessDetailsRequest,
@@ -760,6 +764,7 @@ import {
   LoadBalancer,
   LoadBalancerAttributeName,
   LoadBalancerTlsCertificate,
+  LoadBalancerTlsCertificateDnsRecordCreationState,
   LoadBalancerTlsCertificateDomainValidationOption,
   LoadBalancerTlsCertificateDomainValidationRecord,
   LoadBalancerTlsCertificateRenewalSummary,
@@ -15321,6 +15326,13 @@ const deserializeAws_json1_1DistributionList = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_json1_1DnsRecordCreationState = (output: any, context: __SerdeContext): DnsRecordCreationState => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Domain => {
   return {
     arn: __expectString(output.arn),
@@ -15330,6 +15342,10 @@ const deserializeAws_json1_1Domain = (output: any, context: __SerdeContext): Dom
       output.domainEntries != null ? deserializeAws_json1_1DomainEntryList(output.domainEntries, context) : undefined,
     location: output.location != null ? deserializeAws_json1_1ResourceLocation(output.location, context) : undefined,
     name: __expectString(output.name),
+    registeredDomainDelegationInfo:
+      output.registeredDomainDelegationInfo != null
+        ? deserializeAws_json1_1RegisteredDomainDelegationInfo(output.registeredDomainDelegationInfo, context)
+        : undefined,
     resourceType: __expectString(output.resourceType),
     supportCode: __expectString(output.supportCode),
     tags: output.tags != null ? deserializeAws_json1_1TagList(output.tags, context) : undefined,
@@ -15385,9 +15401,14 @@ const deserializeAws_json1_1DomainList = (output: any, context: __SerdeContext):
 
 const deserializeAws_json1_1DomainValidationRecord = (output: any, context: __SerdeContext): DomainValidationRecord => {
   return {
+    dnsRecordCreationState:
+      output.dnsRecordCreationState != null
+        ? deserializeAws_json1_1DnsRecordCreationState(output.dnsRecordCreationState, context)
+        : undefined,
     domainName: __expectString(output.domainName),
     resourceRecord:
       output.resourceRecord != null ? deserializeAws_json1_1ResourceRecord(output.resourceRecord, context) : undefined,
+    validationStatus: __expectString(output.validationStatus),
   } as any;
 };
 
@@ -16599,6 +16620,16 @@ const deserializeAws_json1_1LoadBalancerTlsCertificate = (
   } as any;
 };
 
+const deserializeAws_json1_1LoadBalancerTlsCertificateDnsRecordCreationState = (
+  output: any,
+  context: __SerdeContext
+): LoadBalancerTlsCertificateDnsRecordCreationState => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationOption = (
   output: any,
   context: __SerdeContext
@@ -16629,6 +16660,10 @@ const deserializeAws_json1_1LoadBalancerTlsCertificateDomainValidationRecord = (
   context: __SerdeContext
 ): LoadBalancerTlsCertificateDomainValidationRecord => {
   return {
+    dnsRecordCreationState:
+      output.dnsRecordCreationState != null
+        ? deserializeAws_json1_1LoadBalancerTlsCertificateDnsRecordCreationState(output.dnsRecordCreationState, context)
+        : undefined,
     domainName: __expectString(output.domainName),
     name: __expectString(output.name),
     type: __expectString(output.type),
@@ -16789,6 +16824,13 @@ const deserializeAws_json1_1MonitoredResourceInfo = (output: any, context: __Ser
 const deserializeAws_json1_1MonthlyTransfer = (output: any, context: __SerdeContext): MonthlyTransfer => {
   return {
     gbPerMonthAllocated: __expectInt32(output.gbPerMonthAllocated),
+  } as any;
+};
+
+const deserializeAws_json1_1NameServersUpdateState = (output: any, context: __SerdeContext): NameServersUpdateState => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -17008,6 +17050,16 @@ const deserializeAws_json1_1QueryStringObject = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_json1_1R53HostedZoneDeletionState = (
+  output: any,
+  context: __SerdeContext
+): R53HostedZoneDeletionState => {
+  return {
+    code: __expectString(output.code),
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1RebootInstanceResult = (output: any, context: __SerdeContext): RebootInstanceResult => {
   return {
     operations: output.operations != null ? deserializeAws_json1_1OperationList(output.operations, context) : undefined,
@@ -17059,6 +17111,22 @@ const deserializeAws_json1_1RegisterContainerImageResult = (
   return {
     containerImage:
       output.containerImage != null ? deserializeAws_json1_1ContainerImage(output.containerImage, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RegisteredDomainDelegationInfo = (
+  output: any,
+  context: __SerdeContext
+): RegisteredDomainDelegationInfo => {
+  return {
+    nameServersUpdateState:
+      output.nameServersUpdateState != null
+        ? deserializeAws_json1_1NameServersUpdateState(output.nameServersUpdateState, context)
+        : undefined,
+    r53HostedZoneDeletionState:
+      output.r53HostedZoneDeletionState != null
+        ? deserializeAws_json1_1R53HostedZoneDeletionState(output.r53HostedZoneDeletionState, context)
+        : undefined,
   } as any;
 };
 

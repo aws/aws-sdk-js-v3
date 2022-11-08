@@ -691,8 +691,8 @@ import { LightsailClient } from "./LightsailClient";
  *       price.</p>
  *
  *          <p>You can manage your Lightsail resources using the Lightsail console, Lightsail API,
- *       AWS Command Line Interface (AWS CLI), or SDKs. For more information about Lightsail concepts
- *       and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
+ *         Command Line Interface (CLI), or SDKs. For more information about Lightsail
+ *       concepts and tasks, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-set-up-access-keys-to-use-sdk-api-cli">Amazon Lightsail Developer Guide</a>.</p>
  *
  *          <p>This API Reference provides detailed information about the actions, data types,
  *       parameters, and errors of the Lightsail service. For more information about the supported
@@ -3384,7 +3384,8 @@ export class Lightsail extends LightsailClient {
    *          <note>
    *             <p>Container logs are retained for a certain amount of time. For more information, see
    *           <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
-   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *           endpoints and quotas</a> in the <i>Amazon Web Services General
+   *           Reference</i>.</p>
    *          </note>
    */
   public getContainerLog(
@@ -3428,7 +3429,8 @@ export class Lightsail extends LightsailClient {
    *          <note>
    *             <p>A set number of deployments are kept before the oldest one is replaced with the newest
    *         one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
-   *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+   *           endpoints and quotas</a> in the <i>Amazon Web Services General
+   *           Reference</i>.</p>
    *          </note>
    */
   public getContainerServiceDeployments(
@@ -5769,8 +5771,8 @@ export class Lightsail extends LightsailClient {
    * <p>Updates the bundle, or storage plan, of an existing Amazon Lightsail bucket.</p>
    *
    *          <p>A bucket bundle specifies the monthly cost, storage space, and data transfer quota for a
-   *       bucket. You can update a bucket's bundle only one time within a monthly AWS billing cycle. To
-   *       determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
+   *       bucket. You can update a bucket's bundle only one time within a monthly Amazon Web Services
+   *       billing cycle. To determine if you can update a bucket's bundle, use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetBuckets.html">GetBuckets</a> action. The
    *         <code>ableToUpdateBundle</code> parameter in the response will indicate whether you can
    *       currently update a bucket's bundle.</p>
    *
@@ -5884,8 +5886,7 @@ export class Lightsail extends LightsailClient {
    *       your distribution.</p>
    *          <p>Update your distribution's bundle if your distribution is going over its monthly network
    *       transfer quota and is incurring an overage fee.</p>
-   *          <p>You can update your distribution's bundle only one time within your monthly AWS billing
-   *       cycle. To determine if you can update your distribution's bundle, use the
+   *          <p>You can update your distribution's bundle only one time within your monthly Amazon Web Services billing cycle. To determine if you can update your distribution's bundle, use the
    *         <code>GetDistributions</code> action. The <code>ableToUpdateBundle</code> parameter in the
    *       result will indicate whether you can currently update your distribution's bundle.</p>
    */

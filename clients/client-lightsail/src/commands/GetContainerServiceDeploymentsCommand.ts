@@ -42,7 +42,8 @@ export interface GetContainerServiceDeploymentsCommandOutput
  *          <note>
  *             <p>A set number of deployments are kept before the oldest one is replaced with the newest
  *         one. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/lightsail.html">Amazon Lightsail
- *           endpoints and quotas</a> in the <i>AWS General Reference</i>.</p>
+ *           endpoints and quotas</a> in the <i>Amazon Web Services General
+ *           Reference</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
