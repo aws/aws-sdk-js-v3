@@ -29,10 +29,7 @@ export interface CreateDomainCommandInput extends CreateDomainRequest {}
 export interface CreateDomainCommandOutput extends CreateDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon OpenSearch Service domain. For more information,
- *       see <a href="http://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html" target="_blank">Creating and managing Amazon OpenSearch Service domains
- *       </a> in the <i>Amazon OpenSearch Service Developer Guide</i>.
- *     </p>
+ * <p>Creates an Amazon OpenSearch Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html">Creating and managing Amazon OpenSearch Service domains</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,6 +28,24 @@ import {
 export interface ListInstanceTypeDetailsCommandInput extends ListInstanceTypeDetailsRequest {}
 export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDetailsResponse, __MetadataBearer {}
 
+/**
+ * <p>Lists all instance types and available features for a given OpenSearch or Elasticsearch
+ *    version.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { OpenSearchClient, ListInstanceTypeDetailsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, ListInstanceTypeDetailsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * const client = new OpenSearchClient(config);
+ * const command = new ListInstanceTypeDetailsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ListInstanceTypeDetailsCommandInput} for command's `input` shape.
+ * @see {@link ListInstanceTypeDetailsCommandOutput} for command's `response` shape.
+ * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
+ *
+ */
 export class ListInstanceTypeDetailsCommand extends $Command<
   ListInstanceTypeDetailsCommandInput,
   ListInstanceTypeDetailsCommandOutput,

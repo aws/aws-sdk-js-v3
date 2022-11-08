@@ -29,9 +29,9 @@ export interface DescribeDomainAutoTunesCommandInput extends DescribeDomainAutoT
 export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAutoTunesResponse, __MetadataBearer {}
 
 /**
- * <p>Provides scheduled Auto-Tune action details for the domain, such as Auto-Tune action type,
- *       description, severity, and scheduled date.
- *     </p>
+ * <p>Returns the list of optimizations that Auto-Tune has made to an Amazon OpenSearch Service
+ *    domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/auto-tune.html">Auto-Tune for Amazon OpenSearch
+ *     Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

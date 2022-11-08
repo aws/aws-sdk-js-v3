@@ -29,9 +29,7 @@ export interface UpdateDomainConfigCommandInput extends UpdateDomainConfigReques
 export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies the cluster configuration of the specified domain, such as setting the instance type
- *       and the number of instances.
- *     </p>
+ * <p>Modifies the cluster configuration of the specified Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

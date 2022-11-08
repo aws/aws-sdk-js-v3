@@ -29,9 +29,7 @@ export interface DescribeDomainConfigCommandInput extends DescribeDomainConfigRe
 export interface DescribeDomainConfigCommandOutput extends DescribeDomainConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Provides cluster configuration information about the specified domain, such as the state, creation
- *       date, update version, and update date for cluster options.
- *     </p>
+ * <p>Returns the configuration of an Amazon OpenSearch Service domain.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

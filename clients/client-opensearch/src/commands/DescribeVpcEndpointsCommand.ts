@@ -14,44 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeOutboundConnectionsRequest,
-  DescribeOutboundConnectionsRequestFilterSensitiveLog,
-  DescribeOutboundConnectionsResponse,
-  DescribeOutboundConnectionsResponseFilterSensitiveLog,
+  DescribeVpcEndpointsRequest,
+  DescribeVpcEndpointsRequestFilterSensitiveLog,
+  DescribeVpcEndpointsResponse,
+  DescribeVpcEndpointsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import {
-  deserializeAws_restJson1DescribeOutboundConnectionsCommand,
-  serializeAws_restJson1DescribeOutboundConnectionsCommand,
+  deserializeAws_restJson1DescribeVpcEndpointsCommand,
+  serializeAws_restJson1DescribeVpcEndpointsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DescribeOutboundConnectionsCommandInput extends DescribeOutboundConnectionsRequest {}
-export interface DescribeOutboundConnectionsCommandOutput
-  extends DescribeOutboundConnectionsResponse,
-    __MetadataBearer {}
+export interface DescribeVpcEndpointsCommandInput extends DescribeVpcEndpointsRequest {}
+export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the outbound cross-cluster connections for a local (source) Amazon OpenSearch
- *    Service domain. For more information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/cross-cluster-search.html">Cross-cluster search
- *     for Amazon OpenSearch Service</a>.</p>
+ * <p>Describes one or more Amazon OpenSearch Service-managed VPC endpoints.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { OpenSearchClient, DescribeOutboundConnectionsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
- * // const { OpenSearchClient, DescribeOutboundConnectionsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
+ * import { OpenSearchClient, DescribeVpcEndpointsCommand } from "@aws-sdk/client-opensearch"; // ES Modules import
+ * // const { OpenSearchClient, DescribeVpcEndpointsCommand } = require("@aws-sdk/client-opensearch"); // CommonJS import
  * const client = new OpenSearchClient(config);
- * const command = new DescribeOutboundConnectionsCommand(input);
+ * const command = new DescribeVpcEndpointsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeOutboundConnectionsCommandInput} for command's `input` shape.
- * @see {@link DescribeOutboundConnectionsCommandOutput} for command's `response` shape.
+ * @see {@link DescribeVpcEndpointsCommandInput} for command's `input` shape.
+ * @see {@link DescribeVpcEndpointsCommandOutput} for command's `response` shape.
  * @see {@link OpenSearchClientResolvedConfig | config} for OpenSearchClient's `config` shape.
  *
  */
-export class DescribeOutboundConnectionsCommand extends $Command<
-  DescribeOutboundConnectionsCommandInput,
-  DescribeOutboundConnectionsCommandOutput,
+export class DescribeVpcEndpointsCommand extends $Command<
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
   OpenSearchClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +62,7 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeOutboundConnectionsCommandInput) {
+  constructor(readonly input: DescribeVpcEndpointsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +75,23 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: OpenSearchClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeOutboundConnectionsCommandInput, DescribeOutboundConnectionsCommandOutput> {
+  ): Handler<DescribeVpcEndpointsCommandInput, DescribeVpcEndpointsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeOutboundConnectionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeVpcEndpointsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "OpenSearchClient";
-    const commandName = "DescribeOutboundConnectionsCommand";
+    const commandName = "DescribeVpcEndpointsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeOutboundConnectionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeOutboundConnectionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeVpcEndpointsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeVpcEndpointsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,15 +101,12 @@ export class DescribeOutboundConnectionsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeOutboundConnectionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeOutboundConnectionsCommand(input, context);
+  private serialize(input: DescribeVpcEndpointsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeVpcEndpointsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeOutboundConnectionsCommandOutput> {
-    return deserializeAws_restJson1DescribeOutboundConnectionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeVpcEndpointsCommandOutput> {
+    return deserializeAws_restJson1DescribeVpcEndpointsCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -29,7 +29,8 @@ export interface ListDomainNamesCommandInput extends ListDomainNamesRequest {}
 export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the names of all domains owned by the current user's account.</p>
+ * <p>Returns the names of all Amazon OpenSearch Service domains owned by the current user in the
+ *    active Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

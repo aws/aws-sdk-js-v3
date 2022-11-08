@@ -29,7 +29,8 @@ export interface ListVersionsCommandInput extends ListVersionsRequest {}
 export interface ListVersionsCommandOutput extends ListVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>List all supported versions of OpenSearch and Elasticsearch.</p>
+ * <p>Lists all versions of OpenSearch and Elasticsearch that Amazon OpenSearch Service
+ *    supports.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

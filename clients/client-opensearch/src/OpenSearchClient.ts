@@ -54,6 +54,10 @@ import {
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
 import {
+  AuthorizeVpcEndpointAccessCommandInput,
+  AuthorizeVpcEndpointAccessCommandOutput,
+} from "./commands/AuthorizeVpcEndpointAccessCommand";
+import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
@@ -63,6 +67,7 @@ import {
   CreateOutboundConnectionCommandOutput,
 } from "./commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
+import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -73,6 +78,7 @@ import {
   DeleteOutboundConnectionCommandOutput,
 } from "./commands/DeleteOutboundConnectionCommand";
 import { DeletePackageCommandInput, DeletePackageCommandOutput } from "./commands/DeletePackageCommand";
+import { DeleteVpcEndpointCommandInput, DeleteVpcEndpointCommandOutput } from "./commands/DeleteVpcEndpointCommand";
 import {
   DescribeDomainAutoTunesCommandInput,
   DescribeDomainAutoTunesCommandOutput,
@@ -108,6 +114,10 @@ import {
   DescribeReservedInstancesCommandInput,
   DescribeReservedInstancesCommandOutput,
 } from "./commands/DescribeReservedInstancesCommand";
+import {
+  DescribeVpcEndpointsCommandInput,
+  DescribeVpcEndpointsCommandOutput,
+} from "./commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
 import {
   GetCompatibleVersionsCommandInput,
@@ -135,6 +145,15 @@ import {
 import { ListTagsCommandInput, ListTagsCommandOutput } from "./commands/ListTagsCommand";
 import { ListVersionsCommandInput, ListVersionsCommandOutput } from "./commands/ListVersionsCommand";
 import {
+  ListVpcEndpointAccessCommandInput,
+  ListVpcEndpointAccessCommandOutput,
+} from "./commands/ListVpcEndpointAccessCommand";
+import { ListVpcEndpointsCommandInput, ListVpcEndpointsCommandOutput } from "./commands/ListVpcEndpointsCommand";
+import {
+  ListVpcEndpointsForDomainCommandInput,
+  ListVpcEndpointsForDomainCommandOutput,
+} from "./commands/ListVpcEndpointsForDomainCommand";
+import {
   PurchaseReservedInstanceOfferingCommandInput,
   PurchaseReservedInstanceOfferingCommandOutput,
 } from "./commands/PurchaseReservedInstanceOfferingCommand";
@@ -144,11 +163,16 @@ import {
 } from "./commands/RejectInboundConnectionCommand";
 import { RemoveTagsCommandInput, RemoveTagsCommandOutput } from "./commands/RemoveTagsCommand";
 import {
+  RevokeVpcEndpointAccessCommandInput,
+  RevokeVpcEndpointAccessCommandOutput,
+} from "./commands/RevokeVpcEndpointAccessCommand";
+import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import { UpdateVpcEndpointCommandInput, UpdateVpcEndpointCommandOutput } from "./commands/UpdateVpcEndpointCommand";
 import { UpgradeDomainCommandInput, UpgradeDomainCommandOutput } from "./commands/UpgradeDomainCommand";
 import {
   ClientInputEndpointParameters,
@@ -162,14 +186,17 @@ export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
+  | AuthorizeVpcEndpointAccessCommandInput
   | CancelServiceSoftwareUpdateCommandInput
   | CreateDomainCommandInput
   | CreateOutboundConnectionCommandInput
   | CreatePackageCommandInput
+  | CreateVpcEndpointCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
   | DeleteOutboundConnectionCommandInput
   | DeletePackageCommandInput
+  | DeleteVpcEndpointCommandInput
   | DescribeDomainAutoTunesCommandInput
   | DescribeDomainChangeProgressCommandInput
   | DescribeDomainCommandInput
@@ -181,6 +208,7 @@ export type ServiceInputTypes =
   | DescribePackagesCommandInput
   | DescribeReservedInstanceOfferingsCommandInput
   | DescribeReservedInstancesCommandInput
+  | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
   | GetCompatibleVersionsCommandInput
   | GetPackageVersionHistoryCommandInput
@@ -192,26 +220,34 @@ export type ServiceInputTypes =
   | ListPackagesForDomainCommandInput
   | ListTagsCommandInput
   | ListVersionsCommandInput
+  | ListVpcEndpointAccessCommandInput
+  | ListVpcEndpointsCommandInput
+  | ListVpcEndpointsForDomainCommandInput
   | PurchaseReservedInstanceOfferingCommandInput
   | RejectInboundConnectionCommandInput
   | RemoveTagsCommandInput
+  | RevokeVpcEndpointAccessCommandInput
   | StartServiceSoftwareUpdateCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
+  | UpdateVpcEndpointCommandInput
   | UpgradeDomainCommandInput;
 
 export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
+  | AuthorizeVpcEndpointAccessCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
   | CreateDomainCommandOutput
   | CreateOutboundConnectionCommandOutput
   | CreatePackageCommandOutput
+  | CreateVpcEndpointCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
   | DeleteOutboundConnectionCommandOutput
   | DeletePackageCommandOutput
+  | DeleteVpcEndpointCommandOutput
   | DescribeDomainAutoTunesCommandOutput
   | DescribeDomainChangeProgressCommandOutput
   | DescribeDomainCommandOutput
@@ -223,6 +259,7 @@ export type ServiceOutputTypes =
   | DescribePackagesCommandOutput
   | DescribeReservedInstanceOfferingsCommandOutput
   | DescribeReservedInstancesCommandOutput
+  | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
   | GetCompatibleVersionsCommandOutput
   | GetPackageVersionHistoryCommandOutput
@@ -234,12 +271,17 @@ export type ServiceOutputTypes =
   | ListPackagesForDomainCommandOutput
   | ListTagsCommandOutput
   | ListVersionsCommandOutput
+  | ListVpcEndpointAccessCommandOutput
+  | ListVpcEndpointsCommandOutput
+  | ListVpcEndpointsForDomainCommandOutput
   | PurchaseReservedInstanceOfferingCommandOutput
   | RejectInboundConnectionCommandOutput
   | RemoveTagsCommandOutput
+  | RevokeVpcEndpointAccessCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
+  | UpdateVpcEndpointCommandOutput
   | UpgradeDomainCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
@@ -392,18 +434,16 @@ type OpenSearchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface OpenSearchClientResolvedConfig extends OpenSearchClientResolvedConfigType {}
 
 /**
- * <fullname>Amazon OpenSearch Configuration Service</fullname>
- *     <p>Use the Amazon OpenSearch configuration API to create, configure, and manage Amazon OpenSearch Service domains.</p>
- *     <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
- *       Amazon OpenSearch Service Developer Guide</a>.
- *       The guide also contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">
- *         sample
- *         code for sending signed HTTP requests to the OpenSearch APIs</a>.
- *     </p>
- *     <p>The endpoint for configuration service requests is region-specific: es.<i>region</i>.amazonaws.com.
- *       For example, es.us-east-1.amazonaws.com. For a current list of supported regions and endpoints,
- *       see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions" target="_blank">Regions and Endpoints</a>.
- *     </p>
+ * <p>Use the Amazon OpenSearch Service configuration API to create, configure, and manage
+ *    OpenSearch Service domains.</p>
+ *          <p>For sample code that uses the configuration API, see the <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/opensearch-configuration-samples.html">
+ *                <i>Amazon OpenSearch Service Developer Guide</i>
+ *             </a>. The guide also
+ *    contains <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/request-signing.html">sample code</a> for
+ *    sending signed HTTP requests to the OpenSearch APIs. The endpoint for configuration service
+ *    requests is Region specific: es.<i>region</i>.amazonaws.com. For example,
+ *    es.us-east-1.amazonaws.com. For a current list of supported Regions and endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#service-regions">Amazon Web Services
+ *     service endpoints</a>.</p>
  */
 export class OpenSearchClient extends __Client<
   __HttpHandlerOptions,

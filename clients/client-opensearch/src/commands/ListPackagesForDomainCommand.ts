@@ -29,7 +29,9 @@ export interface ListPackagesForDomainCommandInput extends ListPackagesForDomain
 export interface ListPackagesForDomainCommandOutput extends ListPackagesForDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all packages associated with the Amazon OpenSearch Service domain.</p>
+ * <p>Lists all packages associated with an Amazon OpenSearch Service domain. For more
+ *    information, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/custom-packages.html">Custom packages for Amazon
+ *     OpenSearch Service</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

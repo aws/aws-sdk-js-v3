@@ -29,9 +29,8 @@ export interface DescribeDomainCommandInput extends DescribeDomainRequest {}
 export interface DescribeDomainCommandOutput extends DescribeDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Returns domain configuration information about the specified domain, including the domain ID,
- *       domain endpoint, and domain ARN.
- *     </p>
+ * <p>Describes the domain configuration for the specified Amazon OpenSearch Service domain,
+ *    including the domain ID, domain service endpoint, and domain ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
