@@ -15,44 +15,39 @@ import {
 
 import { BillingconductorClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BillingconductorClient";
 import {
-  ListPricingPlansAssociatedWithPricingRuleInput,
-  ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog,
-  ListPricingPlansAssociatedWithPricingRuleOutput,
-  ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog,
+  ListCustomLineItemVersionsInput,
+  ListCustomLineItemVersionsInputFilterSensitiveLog,
+  ListCustomLineItemVersionsOutput,
+  ListCustomLineItemVersionsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
-  serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand,
+  deserializeAws_restJson1ListCustomLineItemVersionsCommand,
+  serializeAws_restJson1ListCustomLineItemVersionsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListPricingPlansAssociatedWithPricingRuleCommandInput
-  extends ListPricingPlansAssociatedWithPricingRuleInput {}
-export interface ListPricingPlansAssociatedWithPricingRuleCommandOutput
-  extends ListPricingPlansAssociatedWithPricingRuleOutput,
-    __MetadataBearer {}
+export interface ListCustomLineItemVersionsCommandInput extends ListCustomLineItemVersionsInput {}
+export interface ListCustomLineItemVersionsCommandOutput extends ListCustomLineItemVersionsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *       A list of the pricing plans that are associated with a pricing rule.
- *     </p>
+ * <p>A paginated call to get a list of all custom line item versions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
- * // const { BillingconductorClient, ListPricingPlansAssociatedWithPricingRuleCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
+ * import { BillingconductorClient, ListCustomLineItemVersionsCommand } from "@aws-sdk/client-billingconductor"; // ES Modules import
+ * // const { BillingconductorClient, ListCustomLineItemVersionsCommand } = require("@aws-sdk/client-billingconductor"); // CommonJS import
  * const client = new BillingconductorClient(config);
- * const command = new ListPricingPlansAssociatedWithPricingRuleCommand(input);
+ * const command = new ListCustomLineItemVersionsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandInput} for command's `input` shape.
- * @see {@link ListPricingPlansAssociatedWithPricingRuleCommandOutput} for command's `response` shape.
+ * @see {@link ListCustomLineItemVersionsCommandInput} for command's `input` shape.
+ * @see {@link ListCustomLineItemVersionsCommandOutput} for command's `response` shape.
  * @see {@link BillingconductorClientResolvedConfig | config} for BillingconductorClient's `config` shape.
  *
  */
-export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
-  ListPricingPlansAssociatedWithPricingRuleCommandInput,
-  ListPricingPlansAssociatedWithPricingRuleCommandOutput,
+export class ListCustomLineItemVersionsCommand extends $Command<
+  ListCustomLineItemVersionsCommandInput,
+  ListCustomLineItemVersionsCommandOutput,
   BillingconductorClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +62,7 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListPricingPlansAssociatedWithPricingRuleCommandInput) {
+  constructor(readonly input: ListCustomLineItemVersionsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,29 +75,23 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BillingconductorClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<
-    ListPricingPlansAssociatedWithPricingRuleCommandInput,
-    ListPricingPlansAssociatedWithPricingRuleCommandOutput
-  > {
+  ): Handler<ListCustomLineItemVersionsCommandInput, ListCustomLineItemVersionsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(
-        configuration,
-        ListPricingPlansAssociatedWithPricingRuleCommand.getEndpointParameterInstructions()
-      )
+      getEndpointPlugin(configuration, ListCustomLineItemVersionsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BillingconductorClient";
-    const commandName = "ListPricingPlansAssociatedWithPricingRuleCommand";
+    const commandName = "ListCustomLineItemVersionsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListPricingPlansAssociatedWithPricingRuleInputFilterSensitiveLog,
-      outputFilterSensitiveLog: ListPricingPlansAssociatedWithPricingRuleOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListCustomLineItemVersionsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListCustomLineItemVersionsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,18 +101,15 @@ export class ListPricingPlansAssociatedWithPricingRuleCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListPricingPlansAssociatedWithPricingRuleCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(input, context);
+  private serialize(input: ListCustomLineItemVersionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListCustomLineItemVersionsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListPricingPlansAssociatedWithPricingRuleCommandOutput> {
-    return deserializeAws_restJson1ListPricingPlansAssociatedWithPricingRuleCommand(output, context);
+  ): Promise<ListCustomLineItemVersionsCommandOutput> {
+    return deserializeAws_restJson1ListCustomLineItemVersionsCommand(output, context);
   }
 
   // Start section: command_body_extra

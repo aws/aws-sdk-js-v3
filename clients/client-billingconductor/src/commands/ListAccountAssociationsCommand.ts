@@ -29,14 +29,9 @@ export interface ListAccountAssociationsCommandInput extends ListAccountAssociat
 export interface ListAccountAssociationsCommandOutput extends ListAccountAssociationsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *             <i>
- *                <b>Amazon Web Services Billing Conductor is in beta release and is subject to change. Your use of Amazon Web Services Billing Conductor is subject to the Beta Service Participation terms of the <a href="https://aws.amazon.com/service-terms/">Amazon Web Services Service Terms</a> (Section 1.10).</b>
- *             </i>
- *          </p>
- *          <p> This is a paginated call to list linked accounts that are linked to the payer account for
+ * <p> This is a paginated call to list linked accounts that are linked to the payer account for
  *       the specified time period. If no information is provided, the current billing period is used.
- *       The response will optionally include the billing group associated with the linked
+ *       The response will optionally include the billing group that's associated with the linked
  *       account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
