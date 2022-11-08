@@ -689,6 +689,26 @@ export interface CertificateDetail {
   Options?: CertificateOptions;
 }
 
+/**
+ * <p>You are trying to update a resource or configuration that is already being created or
+ *       updated. Wait for the previous operation to finish and try again.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
 export interface DeleteCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate to be deleted. This must be of the
@@ -1144,6 +1164,25 @@ export interface ListCertificatesResponse {
   CertificateSummaryList?: CertificateSummary[];
 }
 
+/**
+ * <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+  }
+}
+
 export interface ListTagsForCertificateRequest {
   /**
    * <p>String that contains the ARN of the ACM certificate for which you want to list the tags.
@@ -1163,26 +1202,6 @@ export interface ListTagsForCertificateResponse {
   Tags?: Tag[];
 }
 
-/**
- * <p>You are trying to update a resource or configuration that is already being created or
- *       updated. Wait for the previous operation to finish and try again.</p>
- */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
-}
-
 export interface PutAccountConfigurationRequest {
   /**
    * <p>Specifies expiration events associated with an account.</p>
@@ -1197,25 +1216,6 @@ export interface PutAccountConfigurationRequest {
    *       idempotency token for each call, ACM treats each call as a new request.</p>
    */
   IdempotencyToken: string | undefined;
-}
-
-/**
- * <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-  }
 }
 
 export interface RemoveTagsFromCertificateRequest {
@@ -1384,7 +1384,7 @@ export interface RequestCertificateRequest {
    * <p>The Amazon Resource Name (ARN) of the private certificate authority (CA) that will be used
    *       to issue the certificate. If you do not provide an ARN and you are trying to request a private
    *       certificate, ACM will attempt to issue a public certificate. For more information about
-   *       private CAs, see the <a href="https://docs.aws.amazon.com/acm-pca/latest/userguide/PcaWelcome.html">Certificate Manager Private Certificate Authority</a> user guide. The ARN must have the following form: </p>
+   *       private CAs, see the <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaWelcome.html">Amazon Web Services Private Certificate Authority</a> user guide. The ARN must have the following form: </p>
    *          <p>
    *             <code>arn:aws:acm-pca:region:account:certificate-authority/12345678-1234-1234-1234-123456789012</code>
    *          </p>
@@ -1395,6 +1395,18 @@ export interface RequestCertificateRequest {
    * <p>One or more resource tags to associate with the certificate.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies the algorithm of the public and private key pair that your certificate uses to
+   *       encrypt data. RSA is the default key algorithm for ACM certificates. Elliptic Curve Digital
+   *       Signature Algorithm (ECDSA) keys are smaller, offering security comparable to RSA keys but
+   *       with greater computing efficiency. However, ECDSA is not supported by all network clients.
+   *       Some AWS services may require RSA keys, or only support ECDSA keys of a particular size, while
+   *       others allow the use of either RSA and ECDSA keys to ensure that compatibility is not broken.
+   *       Check the requirements for the AWS service where you plan to deploy your certificate.</p>
+   *          <p>Default: RSA_2048</p>
+   */
+  KeyAlgorithm?: KeyAlgorithm | string;
 }
 
 export interface RequestCertificateResponse {
