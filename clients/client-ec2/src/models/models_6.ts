@@ -783,8 +783,8 @@ export interface PurchaseHostReservationRequest {
   ClientToken?: string;
 
   /**
-   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>,
-   *             and <code>totalHourlyPrice</code> amounts are specified. At this time, the only
+   * <p>The currency in which the <code>totalUpfrontPrice</code>, <code>LimitPrice</code>, and
+   *                 <code>totalHourlyPrice</code> amounts are specified. At this time, the only
    *             supported currency is <code>USD</code>.</p>
    */
   CurrencyCode?: CurrencyCodeValues | string;
@@ -2679,10 +2679,12 @@ export interface HibernationOptionsRequest {
  */
 export interface SpotMarketOptions {
   /**
-   * <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   * <p>The maximum hourly price that you're willing to pay for a Spot Instance. We do not
+   *             recommend using this parameter because it can lead to increased interruptions. If you do
+   *             not specify this parameter, you will pay the current Spot price.</p>
    *         <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
+   *                 frequently than if you do not specify this parameter.</p>
    *         </important>
    */
   MaxPrice?: string;
@@ -2746,22 +2748,25 @@ export interface InstanceMarketOptionsRequest {
 export interface LaunchTemplateSpecification {
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>You must specify the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *         <p>You must specify the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *         <p>You must specify the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
   /**
-   * <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>.</p>
+   * <p>The launch template version number, <code>$Latest</code>, or
+   *             <code>$Default</code>.</p>
    *         <p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch
    *             template.</p>
-   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch
-   *             template.</p>
+   *         <p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the
+   *             launch template.</p>
    *         <p>Default: The default version of the launch template.</p>
    */
   Version?: string;
@@ -2998,8 +3003,10 @@ export interface RunInstancesRequest {
   SubnetId?: string;
 
   /**
-   * <p>The user data script to make available to the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands
-   *                 on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your Windows instance at launch</a>. If you are using a command line tool,
+   * <p>The user data script to make available to the instance. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run
+   *                 commands on your Linux instance at launch</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html">Run commands on your
+   *                 Windows instance at launch</a>. If you are using a command line tool,
    *             base64-encoding is performed for you, and you can load the text from a file. Otherwise,
    *             you must provide base64-encoded text. User data is limited to 16 KB.</p>
    */
@@ -3125,7 +3132,7 @@ export interface RunInstancesRequest {
 
   /**
    * <p>The launch template to use to launch the instances. Any parameters that you specify in
-   *             <a>RunInstances</a> override the same parameters in the launch template.
+   *                 <a>RunInstances</a> override the same parameters in the launch template.
    *             You can specify either the name or ID of a launch template, but not both.</p>
    */
   LaunchTemplate?: LaunchTemplateSpecification;
@@ -3143,7 +3150,7 @@ export interface RunInstancesRequest {
    *             are <code>standard</code> and <code>unlimited</code>. To change this attribute after
    *             launch, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyInstanceCreditSpecification.html">
    *                 ModifyInstanceCreditSpecification</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable
-   *                     performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *                 performance instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>Default: <code>standard</code> (T2 instances) or <code>unlimited</code> (T3/T3a/T4g
    *             instances)</p>
    *         <p>For T3 instances with <code>host</code> tenancy, only <code>standard</code> is
@@ -3166,7 +3173,7 @@ export interface RunInstancesRequest {
 
   /**
    * <p>Indicates whether an instance is enabled for hibernation. For more information, see
-   *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate
    *                 your instance</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         <p>You can't enable hibernation and Amazon Web Services Nitro Enclaves on the same
    *             instance.</p>
@@ -3187,7 +3194,7 @@ export interface RunInstancesRequest {
    * <p>Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves. For
    *             more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is Amazon Web Services Nitro
    *                 Enclaves?</a> in the <i>Amazon Web Services Nitro Enclaves User
-   *                     Guide</i>.</p>
+   *                 Guide</i>.</p>
    *         <p>You can't enable Amazon Web Services Nitro Enclaves and hibernation on the same
    *             instance.</p>
    */
@@ -3207,8 +3214,7 @@ export interface RunInstancesRequest {
   /**
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
-   *                 protection</a>.
-   *         </p>
+   *                 protection</a>. </p>
    */
   DisableApiStop?: boolean;
 }

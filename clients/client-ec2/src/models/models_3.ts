@@ -4452,8 +4452,8 @@ export interface DescribeHostReservationOfferingsRequest {
   MaxResults?: number;
 
   /**
-   * <p>This is the minimum duration of the reservation you'd like to purchase, specified
-   *             in seconds. Reservations are available in one-year and three-year terms. The number of
+   * <p>This is the minimum duration of the reservation you'd like to purchase, specified in
+   *             seconds. Reservations are available in one-year and three-year terms. The number of
    *             seconds specified must be the number of seconds in a year (365x24x60x60) times one of
    *             the supported durations (1 or 3). For example, specify 31536000 for one year.</p>
    */
@@ -4511,8 +4511,7 @@ export interface HostOffering {
   PaymentOption?: PaymentOption | string;
 
   /**
-   * <p>The upfront price of the offering. Does not apply to No Upfront
-   *             offerings.</p>
+   * <p>The upfront price of the offering. Does not apply to No Upfront offerings.</p>
    */
   UpfrontPrice?: string;
 }
@@ -4550,14 +4549,14 @@ export interface DescribeHostReservationsRequest {
    *                     <code>retired</code>).</p>
    *             </li>
    *             <li>
-   *         		     <p>
+   *                <p>
    *                   <code>tag:<key></code> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
+   *             </li>
    *             <li>
-   *         		     <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
+   *             </li>
    *          </ul>
    */
   Filter?: Filter[];
@@ -4586,8 +4585,7 @@ export enum ReservationState {
 }
 
 /**
- * <p>Details about the Dedicated Host Reservation and associated Dedicated
- *             Hosts.</p>
+ * <p>Details about the Dedicated Host Reservation and associated Dedicated Hosts.</p>
  */
 export interface HostReservation {
   /**
@@ -4603,8 +4601,8 @@ export interface HostReservation {
   CurrencyCode?: CurrencyCodeValues | string;
 
   /**
-   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000
-   *                 (1 year)</code> | <code>94608000 (3 years)</code>.</p>
+   * <p>The length of the reservation's term, specified in seconds. Can be <code>31536000 (1
+   *                 year)</code> | <code>94608000 (3 years)</code>.</p>
    */
   Duration?: number;
 
@@ -4630,14 +4628,13 @@ export interface HostReservation {
 
   /**
    * <p>The instance family of the Dedicated Host Reservation. The instance family on the
-   *             Dedicated Host must be the same in order for it to benefit from the
-   *             reservation.</p>
+   *             Dedicated Host must be the same in order for it to benefit from the reservation.</p>
    */
   InstanceFamily?: string;
 
   /**
-   * <p>The ID of the reservation. This remains the same regardless of which Dedicated
-   *             Hosts are associated with it.</p>
+   * <p>The ID of the reservation. This remains the same regardless of which Dedicated Hosts
+   *             are associated with it.</p>
    */
   OfferingId?: string;
 
@@ -4690,8 +4687,7 @@ export interface DescribeHostsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>availability-zone</code> - The Availability Zone of the
-   *                     host.</p>
+   *                   <code>availability-zone</code> - The Availability Zone of the host.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4700,13 +4696,13 @@ export interface DescribeHostsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to
-   *                     this host.</p>
+   *                   <code>host-reservation-id</code> - The ID of the reservation assigned to this
+   *                     host.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                   <code>instance-type</code> - The instance type size that the Dedicated Host
-   *                     is configured to support.</p>
+   *                   <code>instance-type</code> - The instance type size that the Dedicated Host is
+   *                     configured to support.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -4716,9 +4712,9 @@ export interface DescribeHostsRequest {
    *                         <code>released-permanent-failure</code>).</p>
    *             </li>
    *             <li>
-   *         		     <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
+   *             </li>
    *          </ul>
    */
   Filter?: Filter[];
@@ -4731,7 +4727,8 @@ export interface DescribeHostsRequest {
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   *          <p>You cannot specify this parameter and the host IDs parameter in the same request.</p>
+   *         <p>You cannot specify this parameter and the host IDs parameter in the same
+   *             request.</p>
    */
   MaxResults?: number;
 
@@ -4743,12 +4740,12 @@ export interface DescribeHostsRequest {
 
 /**
  * <p>Information about the number of instances that can be launched onto the Dedicated
- *     		Host.</p>
+ *             Host.</p>
  */
 export interface InstanceCapacity {
   /**
    * <p>The number of instances that can be launched onto the Dedicated Host based on the
-   *     		host's available capacity.</p>
+   *             host's available capacity.</p>
    */
   AvailableCapacity?: number;
 
@@ -4759,20 +4756,21 @@ export interface InstanceCapacity {
 
   /**
    * <p>The total number of instances that can be launched onto the Dedicated Host if there
-   *     		are no instances running on it.</p>
+   *             are no instances running on it.</p>
    */
   TotalCapacity?: number;
 }
 
 /**
- * <p>The capacity information for instances that can be launched onto the Dedicated Host. </p>
+ * <p>The capacity information for instances that can be launched onto the Dedicated Host.
+ *         </p>
  */
 export interface AvailableCapacity {
   /**
-   * <p>The number of instances that can be launched onto the Dedicated Host depending on
-   *     		the host's available capacity. For Dedicated Hosts that support multiple instance types,
-   *     		this parameter represents the number of instances for each instance size that is
-   *     		supported on the host.</p>
+   * <p>The number of instances that can be launched onto the Dedicated Host depending on the
+   *             host's available capacity. For Dedicated Hosts that support multiple instance types,
+   *             this parameter represents the number of instances for each instance size that is
+   *             supported on the host.</p>
    */
   AvailableInstanceCapacity?: InstanceCapacity[];
 
@@ -4793,13 +4791,13 @@ export interface HostProperties {
 
   /**
    * <p>The instance type supported by the Dedicated Host. For example, <code>m5.large</code>.
-   *         	If the host supports multiple instance types, no <b>instanceType</b>
-   *         	is returned.</p>
+   *             If the host supports multiple instance types, no <b>instanceType</b> is returned.</p>
    */
   InstanceType?: string;
 
   /**
-   * <p>The instance family supported by the Dedicated Host. For example, <code>m5</code>.</p>
+   * <p>The instance family supported by the Dedicated Host. For example,
+   *             <code>m5</code>.</p>
    */
   InstanceFamily?: string;
 
@@ -4824,7 +4822,8 @@ export interface HostInstance {
   InstanceId?: string;
 
   /**
-   * <p>The instance type (for example, <code>m3.medium</code>) of the running instance.</p>
+   * <p>The instance type (for example, <code>m3.medium</code>) of the running
+   *             instance.</p>
    */
   InstanceType?: string;
 
@@ -4869,14 +4868,13 @@ export interface Host {
   HostProperties?: HostProperties;
 
   /**
-   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response
-   *             if the Dedicated Host doesn't have an associated reservation.</p>
+   * <p>The reservation ID of the Dedicated Host. This returns a <code>null</code> response if
+   *             the Dedicated Host doesn't have an associated reservation.</p>
    */
   HostReservationId?: string;
 
   /**
-   * <p>The IDs and instance type that are currently running on the Dedicated
-   *             Host.</p>
+   * <p>The IDs and instance type that are currently running on the Dedicated Host.</p>
    */
   Instances?: HostInstance[];
 
@@ -4906,9 +4904,10 @@ export interface Host {
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same instance family.
-   * 			If the value is <code>on</code>, the Dedicated Host supports multiple instance types in the instance family.
-   * 		    If the value is <code>off</code>, the Dedicated Host supports a single instance type only.</p>
+   * <p>Indicates whether the Dedicated Host supports multiple instance types of the same
+   *             instance family. If the value is <code>on</code>, the Dedicated Host supports multiple
+   *             instance types in the instance family. If the value is <code>off</code>, the Dedicated
+   *             Host supports a single instance type only.</p>
    */
   AllowsMultipleInstanceTypes?: AllowsMultipleInstanceTypes | string;
 
@@ -4923,14 +4922,14 @@ export interface Host {
   AvailabilityZoneId?: string;
 
   /**
-   * <p>Indicates whether the Dedicated Host is in a host resource group. If
-   * 			<b>memberOfServiceLinkedResourceGroup</b> is
-   * 			<code>true</code>, the host is in a host resource group; otherwise, it is not.</p>
+   * <p>Indicates whether the Dedicated Host is in a host resource group. If <b>memberOfServiceLinkedResourceGroup</b> is <code>true</code>, the
+   *             host is in a host resource group; otherwise, it is not.</p>
    */
   MemberOfServiceLinkedResourceGroup?: boolean;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the Dedicated Host is allocated.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which the
+   *             Dedicated Host is allocated.</p>
    */
   OutpostArn?: string;
 }
@@ -6198,7 +6197,7 @@ export interface InstanceAttribute {
 
   /**
    * <p>To enable the instance for Amazon Web Services Stop Protection, set this parameter to
-   *             <code>true</code>; otherwise, set it to <code>false</code>.</p>
+   *                 <code>true</code>; otherwise, set it to <code>false</code>.</p>
    */
   DisableApiStop?: AttributeBooleanValue;
 }

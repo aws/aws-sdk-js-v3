@@ -50,8 +50,8 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *                     group</a>.</p>
  *             </li>
  *          </ul>
- *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must
- *             be specified in the request. Affinity and tenancy can be modified in the same
+ *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be
+ *             specified in the request. Affinity and tenancy can be modified in the same
  *             request.</p>
  *         <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
  *             instance must be in the <code>stopped</code> state.</p>

@@ -1015,6 +1015,11 @@ export interface Placement {
    *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
   HostResourceGroupArn?: string;
+
+  /**
+   * <p>The Group Id of the placement group.</p>
+   */
+  GroupId?: string;
 }
 
 /**
@@ -2580,8 +2585,8 @@ export interface EbsBlockDevice {
 
   /**
    * <p>The ARN of the Outpost on which the snapshot is stored.</p>
-   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called
-   *             by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
+   *         <p>This parameter is only supported on <code>BlockDeviceMapping</code> objects called by
+   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateImage.html">
    *                 CreateImage</a>.</p>
    */
   OutpostArn?: string;
@@ -3810,7 +3815,8 @@ export interface LaunchTemplateCpuOptionsRequest {
 
   /**
    * <p>The number of threads per CPU core. To disable multithreading for the instance,
-   *             specify a value of <code>1</code>. Otherwise, specify the default value of <code>2</code>.</p>
+   *             specify a value of <code>1</code>. Otherwise, specify the default value of
+   *                 <code>2</code>.</p>
    */
   ThreadsPerCore?: number;
 }
@@ -3924,10 +3930,12 @@ export enum SpotInstanceType {
  */
 export interface LaunchTemplateSpotMarketOptionsRequest {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not
+   *             recommend using this parameter because it can lead to increased interruptions. If you do
+   *             not specify this parameter, you will pay the current Spot price.</p>
    *         <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
+   *                 frequently than if you do not specify this parameter.</p>
    *         </important>
    */
   MaxPrice?: string;
@@ -3948,12 +3956,13 @@ export interface LaunchTemplateSpotMarketOptionsRequest {
    *             persistent requests.</p>
    *         <ul>
    *             <li>
-   *                 <p>For a persistent request, the request remains active until the <code>ValidUntil</code>
-   *                     date and time is reached. Otherwise, the request remains active until you cancel it.</p>
+   *                 <p>For a persistent request, the request remains active until the
+   *                         <code>ValidUntil</code> date and time is reached. Otherwise, the request
+   *                     remains active until you cancel it.</p>
    *             </li>
    *             <li>
-   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request remains active until
-   *                     all instances launch or you cancel the request.</p>
+   *                 <p>For a one-time request, <code>ValidUntil</code> is not supported. The request
+   *                     remains active until all instances launch or you cancel the request.</p>
    *             </li>
    *          </ul>
    *         <p>Default: 7 days from the current date</p>
@@ -4312,6 +4321,12 @@ export interface LaunchTemplatePlacementRequest {
    *             group strategy is set to <code>partition</code>.</p>
    */
   PartitionNumber?: number;
+
+  /**
+   * <p>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b> to launch an instance in a shared placement
+   *             group.</p>
+   */
+  GroupId?: string;
 }
 
 /**
@@ -4340,13 +4355,15 @@ export interface LaunchTemplatePrivateDnsNameOptionsRequest {
 }
 
 /**
- * <p>The tags specification for the resources that are created during instance launch.</p>
+ * <p>The tags specification for the resources that are created during instance
+ *             launch.</p>
  */
 export interface LaunchTemplateTagSpecificationRequest {
   /**
    * <p>The type of resource to tag.</p>
-   *         <p>The <code>Valid Values</code> are all the resource types that can be tagged. However, when creating
-   *             a launch template, you can specify tags for the following resource types only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
+   *         <p>The <code>Valid Values</code> are all the resource types that can be tagged. However,
+   *             when creating a launch template, you can specify tags for the following resource types
+   *             only: <code>instance</code> | <code>volume</code> | <code>elastic-gpu</code> |
    *                 <code>network-interface</code> | <code>spot-instances-request</code>
    *          </p>
    *         <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
@@ -4463,8 +4480,9 @@ export interface RequestLaunchTemplateData {
 
   /**
    * <p>The user data to make available to the instance. You must provide base64-encoded text.
-   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance
-   *                 at launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             User data is limited to 16 KB. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html">Run commands on your Linux instance at
+   *                 launch</a> (Linux) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/instancedata-add-user-data.html">Work with instance
+   *                 user data</a> (Windows) in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
    *         <p>If you are creating the launch template for use with Batch, the user
    *             data must be provided in the <a href="https://cloudinit.readthedocs.io/en/latest/topics/format.html#mime-multi-part-archive"> MIME multi-part archive format</a>. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/launch-templates.html">Amazon EC2 user data in launch templates</a> in the <i>Batch User Guide</i>.</p>
@@ -4491,10 +4509,9 @@ export interface RequestLaunchTemplateData {
    *                 <p>Network interfaces</p>
    *             </li>
    *          </ul>
-   *             <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+   *         <p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
    *         <note>
-   *             <p>To tag the launch template itself, you must use the
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p>
+   *             <p>To tag the launch template itself, you must use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateLaunchTemplate.html">TagSpecification</a> parameter.</p>
    *         </note>
    */
   TagSpecifications?: LaunchTemplateTagSpecificationRequest[];
@@ -4516,9 +4533,9 @@ export interface RequestLaunchTemplateData {
   SecurityGroupIds?: string[];
 
   /**
-   * <p>One or more security group names. For a nondefault VPC, you
-   *             must use security group IDs instead. You cannot specify both a security group ID and
-   *             security name in the same request.</p>
+   * <p>One or more security group names. For a nondefault VPC, you must use security group
+   *             IDs instead. You cannot specify both a security group ID and security name in the same
+   *             request.</p>
    */
   SecurityGroups?: string[];
 
@@ -4633,10 +4650,12 @@ export interface CreateLaunchTemplateRequest {
   LaunchTemplateData: RequestLaunchTemplateData | undefined;
 
   /**
-   * <p>The tags to apply to the launch template on creation. To tag the launch template, the resource type must be <code>launch-template</code>.</p>
+   * <p>The tags to apply to the launch template on creation. To tag the launch template, the
+   *             resource type must be <code>launch-template</code>.</p>
    *         <note>
-   *             <p>To specify the tags for the resources that are created when an instance is launched, you must use the <code>TagSpecifications</code> parameter in the
-   *                 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch template data</a> structure.</p>
+   *             <p>To specify the tags for the resources that are created when an instance is
+   *                 launched, you must use the <code>TagSpecifications</code> parameter in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestLaunchTemplateData.html">launch
+   *                     template data</a> structure.</p>
    *         </note>
    */
   TagSpecifications?: TagSpecification[];
@@ -4690,15 +4709,13 @@ export interface LaunchTemplate {
 export interface ValidationError {
   /**
    * <p>The error code that indicates why the parameter or parameter combination is not valid.
-   *             For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
-   *             codes</a>.</p>
+   *             For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
    */
   Code?: string;
 
   /**
    * <p>The error message that describes why the parameter or parameter combination is not
-   *             valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error
-   *             codes</a>.</p>
+   *             valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error codes</a>.</p>
    */
   Message?: string;
 }
@@ -4748,13 +4765,15 @@ export interface CreateLaunchTemplateVersionRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *         <p>You must specify either the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>You must specify the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *         <p>You must specify the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 
@@ -4989,10 +5008,12 @@ export interface LaunchTemplateIamInstanceProfileSpecification {
  */
 export interface LaunchTemplateSpotMarketOptions {
   /**
-   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not recommend
-   *             using this parameter because it can lead to increased interruptions. If you do not specify this parameter, you will pay the current Spot price.</p>
+   * <p>The maximum hourly price you're willing to pay for the Spot Instances. We do not
+   *             recommend using this parameter because it can lead to increased interruptions. If you do
+   *             not specify this parameter, you will pay the current Spot price.</p>
    *         <important>
-   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more frequently than if you do not specify this parameter.</p>
+   *             <p>If you specify a maximum price, your Spot Instances will be interrupted more
+   *                 frequently than if you do not specify this parameter.</p>
    *         </important>
    */
   MaxPrice?: string;
@@ -5327,6 +5348,12 @@ export interface LaunchTemplatePlacement {
    *             group strategy is set to <code>partition</code>.</p>
    */
   PartitionNumber?: number;
+
+  /**
+   * <p>The Group ID of the placement group. You must specify the Placement Group <b>Group ID</b> to launch an instance in a shared placement
+   *             group.</p>
+   */
+  GroupId?: string;
 }
 
 /**
@@ -5443,7 +5470,8 @@ export interface ResponseLaunchTemplateData {
   UserData?: string;
 
   /**
-   * <p>The tags that are applied to the resources that are created during instance launch.</p>
+   * <p>The tags that are applied to the resources that are created during instance
+   *             launch.</p>
    */
   TagSpecifications?: LaunchTemplateTagSpecification[];
 
@@ -5530,8 +5558,9 @@ export interface ResponseLaunchTemplateData {
   MaintenanceOptions?: LaunchTemplateInstanceMaintenanceOptions;
 
   /**
-   * <p>Indicates whether the instance is enabled for stop protection.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+   * <p>Indicates whether the instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.</p>
    */
   DisableApiStop?: boolean;
 }
@@ -7405,10 +7434,11 @@ export interface CreatePlacementGroupRequest {
    * <p>Determines how placement groups spread instances. </p>
    *         <ul>
    *             <li>
-   *                <p>Host – You can use <code>host</code> only with Outpost placement groups.</p>
+   *                 <p>Host – You can use <code>host</code> only with Outpost placement
+   *                     groups.</p>
    *             </li>
    *             <li>
-   *                <p>Rack – No usage restrictions.</p>
+   *                 <p>Rack – No usage restrictions.</p>
    *             </li>
    *          </ul>
    */

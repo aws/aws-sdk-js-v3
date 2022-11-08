@@ -3030,9 +3030,9 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported instance
-   *         	type or instance family, the Availability Zone in which to allocate the host, and the number of
-   *         	hosts to allocate.</p>
+   * <p>Allocates a Dedicated Host to your account. At a minimum, specify the supported
+   *             instance type or instance family, the Availability Zone in which to allocate the host,
+   *             and the number of hosts to allocate.</p>
    */
   public allocateHosts(
     args: AllocateHostsCommandInput,
@@ -5505,11 +5505,11 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Creates a launch template.</p>
-   *         <p>A launch template contains the parameters to launch an
-   *             instance. When you launch an instance using <a>RunInstances</a>, you can
-   *             specify a launch template instead of providing the launch parameters in the request. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch an instance from a
-   *                 launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <p>A launch template contains the parameters to launch an instance. When you launch an
+   *             instance using <a>RunInstances</a>, you can specify a launch template instead
+   *             of providing the launch parameters in the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launch
+   *                 an instance from a launch template</a> in the
+   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *         <p>If you want to clone an existing launch template as the basis for creating a new
    *             launch template, you can use the Amazon EC2 console. The API, SDKs, and CLI do not support
    *             cloning a template. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template-from-existing-launch-template">Create a launch template from an existing launch template</a> in the
@@ -5549,8 +5549,9 @@ export class EC2 extends EC2Client {
    *             launch template from which to base the new version.</p>
    *         <p>Launch template versions are numbered in the order in which they are created. You
    *             cannot specify, change, or replace the numbering of launch template versions.</p>
-   *         <p>Launch templates are immutable; after you create a launch template, you can't modify it.
-   *             Instead, you can create a new version of the launch template that includes any changes you require.</p>
+   *         <p>Launch templates are immutable; after you create a launch template, you can't modify
+   *             it. Instead, you can create a new version of the launch template that includes any
+   *             changes you require.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions">Modify a launch template (manage launch template versions)</a> in the
    *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -11224,10 +11225,10 @@ export class EC2 extends EC2Client {
   /**
    * <p>Describes the Dedicated Host reservations that are available to purchase.</p>
    *         <p>The results describe all of the Dedicated Host reservation offerings, including
-   * 			offerings that might not match the instance family and Region of your Dedicated Hosts.
-   * 			When purchasing an offering, ensure that the instance family and Region of the offering
-   * 			matches that of the Dedicated Hosts with which it is to be associated. For more
-   * 			information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
+   *             offerings that might not match the instance family and Region of your Dedicated Hosts.
+   *             When purchasing an offering, ensure that the instance family and Region of the offering
+   *             matches that of the Dedicated Hosts with which it is to be associated. For more
+   *             information about supported instance types, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated Hosts</a>
    *             in the <i>Amazon EC2 User Guide</i>. </p>
    */
   public describeHostReservationOfferings(
@@ -16875,11 +16876,11 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Preview a reservation purchase with configurations that match those of your
-   *             Dedicated Host. You must have active Dedicated Hosts in your account before you purchase
-   *             a reservation.</p>
-   *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does
-   *             not result in the offering being purchased.</p>
+   * <p>Preview a reservation purchase with configurations that match those of your Dedicated
+   *             Host. You must have active Dedicated Hosts in your account before you purchase a
+   *             reservation.</p>
+   *         <p>This is a preview of the <a>PurchaseHostReservation</a> action and does not
+   *             result in the offering being purchased.</p>
    */
   public getHostReservationPurchasePreview(
     args: GetHostReservationPurchasePreviewCommandInput,
@@ -16957,11 +16958,12 @@ export class EC2 extends EC2Client {
    * <p>A binary representation of the UEFI variable store. Only non-volatile variables are
    *             stored. This is a base64 encoded and zlib compressed binary value that must be properly
    *             encoded.</p>
-   *         <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a>
-   *             to create an AMI, you can create an exact copy of your variable store by passing the UEFI data in the <code>UefiData</code>
-   *             parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a>
-   *             on GitHub. You can use the tool to convert the UEFI data into a human-readable format (JSON), which you can
-   *             inspect and modify, and then convert back into the binary format to use with register-image.</p>
+   *         <p>When you use <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/register-image.html">register-image</a> to create
+   *             an AMI, you can create an exact copy of your variable store by passing the UEFI data in
+   *             the <code>UefiData</code> parameter. You can modify the UEFI data by using the <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *             GitHub. You can use the tool to convert the UEFI data into a human-readable format
+   *             (JSON), which you can inspect and modify, and then convert back into the binary format
+   *             to use with register-image.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -17127,9 +17129,10 @@ export class EC2 extends EC2Client {
    *             create a launch template. </p>
    *         <p>This action calls on other describe actions to get instance information. Depending on
    *             your instance configuration, you may need to allow the following actions in your IAM
-   *             policy: <code>DescribeSpotInstanceRequests</code>, <code>DescribeInstanceCreditSpecifications</code>,
-   *             <code>DescribeVolumes</code>, <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or, you can allow
-   *                 <code>describe*</code> depending on your instance requirements.</p>
+   *             policy: <code>DescribeSpotInstanceRequests</code>,
+   *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>,
+   *                 <code>DescribeInstanceAttribute</code>, and <code>DescribeElasticGpus</code>. Or,
+   *             you can allow <code>describe*</code> depending on your instance requirements.</p>
    */
   public getLaunchTemplateData(
     args: GetLaunchTemplateDataCommandInput,
@@ -18395,13 +18398,14 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
-   *             any instances that you launch with a tenancy of <code>host</code> but without a specific host
-   *         	ID are placed onto any available Dedicated Host in your account that has auto-placement enabled.
-   *         	When auto-placement is disabled, you need to provide a host ID to have the instance launch onto
-   *         	a specific host. If no host ID is provided, the instance is launched onto a suitable host with
-   *         	auto-placement enabled.</p>
-   *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
-   *     		instance types in an instance family, or to support a specific instance type only.</p>
+   *             any instances that you launch with a tenancy of <code>host</code> but without a specific
+   *             host ID are placed onto any available Dedicated Host in your account that has
+   *             auto-placement enabled. When auto-placement is disabled, you need to provide a host ID
+   *             to have the instance launch onto a specific host. If no host ID is provided, the
+   *             instance is launched onto a suitable host with auto-placement enabled.</p>
+   *         <p>You can also use this API action to modify a Dedicated Host to support either multiple
+   *             instance types in an instance family, or to support a specific instance type
+   *             only.</p>
    */
   public modifyHosts(args: ModifyHostsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyHostsCommandOutput>;
   public modifyHosts(args: ModifyHostsCommandInput, cb: (err: any, data?: ModifyHostsCommandOutput) => void): void;
@@ -18851,8 +18855,8 @@ export class EC2 extends EC2Client {
    *                     group</a>.</p>
    *             </li>
    *          </ul>
-   *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must
-   *             be specified in the request. Affinity and tenancy can be modified in the same
+   *         <p>At least one attribute for affinity, host ID, tenancy, or placement group name must be
+   *             specified in the request. Affinity and tenancy can be modified in the same
    *             request.</p>
    *         <p>To modify the host ID, tenancy, placement group, or partition for an instance, the
    *             instance must be in the <code>stopped</code> state.</p>
@@ -22014,7 +22018,9 @@ export class EC2 extends EC2Client {
    *         <p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What to do if
    *                 an instance immediately terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting connecting to your instance</a>.</p>
    *         <note>
-   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a
+   *                 VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a
+   *                     VPC</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *         </note>
    */
   public runInstances(

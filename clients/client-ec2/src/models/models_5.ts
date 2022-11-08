@@ -4670,32 +4670,30 @@ export interface ModifyHostsRequest {
   HostIds: string[] | undefined;
 
   /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-   * 				Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. For more
+   *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
    */
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this parameter to
-   * 			modify a Dedicated Host to support only a specific instance type.</p>
+   * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
+   *             parameter to modify a Dedicated Host to support only a specific instance type.</p>
    *
-   * 		       <p>If you want to modify a Dedicated Host to support multiple instance types in its current instance
-   * 			family, omit this parameter and specify <b>InstanceFamily</b>
-   * 			instead. You cannot specify <b>InstanceType</b> and
-   * 			<b>InstanceFamily</b> in the same request.</p>
+   *         <p>If you want to modify a Dedicated Host to support multiple instance types in its
+   *             current instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
+   *             same request.</p>
    */
   InstanceType?: string;
 
   /**
-   * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this parameter
-   * 			to modify a Dedicated Host to support multiple instance types within its current
-   * 			instance family.</p>
+   * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this
+   *             parameter to modify a Dedicated Host to support multiple instance types within its
+   *             current instance family.</p>
    *
-   * 		       <p>If you want to modify a Dedicated Host to support a specific instance type only, omit this parameter
-   * 			and specify <b>InstanceType</b> instead. You cannot specify
-   * 			<b>InstanceFamily</b> and <b>InstanceType</b>
-   * 			in the same request.</p>
+   *         <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
+   *             this parameter and specify <b>InstanceType</b> instead. You
+   *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
   InstanceFamily?: string;
 }
@@ -4707,8 +4705,8 @@ export interface ModifyHostsResult {
   Successful?: string[];
 
   /**
-   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the
-   *             setting you requested can be used.</p>
+   * <p>The IDs of the Dedicated Hosts that could not be modified. Check whether the setting
+   *             you requested can be used.</p>
    */
   Unsuccessful?: UnsuccessfulItem[];
 }
@@ -4914,10 +4912,13 @@ export interface ModifyInstanceAttributeRequest {
   /**
    * <p>The name of the attribute to modify.</p>
    *         <important>
-   *             <p>You can modify the following attributes only: <code>disableApiTermination</code> | <code>instanceType</code> |
-   *                 <code>kernel</code> | <code>ramdisk</code> | <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code> |
-   *                 <code>userData</code> | <code>sourceDestCheck</code> | <code>groupSet</code> | <code>ebsOptimized</code> | <code>sriovNetSupport</code> |
-   *                 <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code> | <code>enclaveOptions</code>
+   *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
+   *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
+   *                     <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code>
+   *                 | <code>userData</code> | <code>sourceDestCheck</code> | <code>groupSet</code> |
+   *                     <code>ebsOptimized</code> | <code>sriovNetSupport</code> |
+   *                     <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
+   *                 | <code>enclaveOptions</code>
    *             </p>
    *         </important>
    */
@@ -5026,8 +5027,9 @@ export interface ModifyInstanceAttributeRequest {
   Value?: string;
 
   /**
-   * <p>Indicates whether an instance is enabled for stop protection.
-   *             For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop Protection</a>.</p>
+   * <p>Indicates whether an instance is enabled for stop protection. For more information,
+   *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
+   *                 Protection</a>.</p>
    *         <p></p>
    */
   DisableApiStop?: AttributeBooleanValue;
@@ -5415,8 +5417,7 @@ export interface ModifyInstancePlacementRequest {
    *             groups, the instance must have a tenancy of <code>default</code>. For cluster and
    *             partition placement groups, the instance must have a tenancy of <code>default</code> or
    *                 <code>dedicated</code>.</p>
-   *         <p>To remove an instance from a placement group, specify an empty string
-   *             ("").</p>
+   *         <p>To remove an instance from a placement group, specify an empty string ("").</p>
    */
   GroupName?: string;
 
@@ -5434,11 +5435,11 @@ export interface ModifyInstancePlacementRequest {
    * <p>The tenancy for the instance.</p>
    *
    *         <note>
-   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code>
-   *             to <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
-   *             Attempting to make one of these unsupported tenancy changes results in the
-   *             <code>InvalidTenancy</code> error code.</p>
-   *          </note>
+   *             <p>For T3 instances, you can't change the tenancy from <code>dedicated</code> to
+   *                     <code>host</code>, or from <code>host</code> to <code>dedicated</code>.
+   *                 Attempting to make one of these unsupported tenancy changes results in the
+   *                     <code>InvalidTenancy</code> error code.</p>
+   *         </note>
    */
   Tenancy?: HostTenancy | string;
 
@@ -5452,6 +5453,12 @@ export interface ModifyInstancePlacementRequest {
    * <p>The ARN of the host resource group in which to place the instance.</p>
    */
   HostResourceGroupArn?: string;
+
+  /**
+   * <p>The Group Id of a placement group. You must specify the Placement Group <b>Group Id</b> to launch an instance in a shared placement
+   *             group.</p>
+   */
+  GroupId?: string;
 }
 
 export interface ModifyInstancePlacementResult {
@@ -5675,13 +5682,15 @@ export interface ModifyLaunchTemplateRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
+   *         <p>You must specify either the <code>LaunchTemplateId</code> or the
+   *                 <code>LaunchTemplateName</code>, but not both.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>You must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
+   *         <p>You must specify either the <code>LaunchTemplateName</code> or the
+   *                 <code>LaunchTemplateId</code>, but not both.</p>
    */
   LaunchTemplateName?: string;
 

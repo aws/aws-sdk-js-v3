@@ -46713,6 +46713,9 @@ const serializeAws_ec2LaunchTemplatePlacementRequest = (
   if (input.PartitionNumber != null) {
     entries["PartitionNumber"] = input.PartitionNumber;
   }
+  if (input.GroupId != null) {
+    entries["GroupId"] = input.GroupId;
+  }
   return entries;
 };
 
@@ -47844,6 +47847,9 @@ const serializeAws_ec2ModifyInstancePlacementRequest = (
   }
   if (input.HostResourceGroupArn != null) {
     entries["HostResourceGroupArn"] = input.HostResourceGroupArn;
+  }
+  if (input.GroupId != null) {
+    entries["GroupId"] = input.GroupId;
   }
   return entries;
 };
@@ -49888,6 +49894,9 @@ const serializeAws_ec2Placement = (input: Placement, context: __SerdeContext): a
   }
   if (input.HostResourceGroupArn != null) {
     entries["HostResourceGroupArn"] = input.HostResourceGroupArn;
+  }
+  if (input.GroupId != null) {
+    entries["GroupId"] = input.GroupId;
   }
   return entries;
 };
@@ -71427,6 +71436,7 @@ const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __Serde
     SpreadDomain: undefined,
     HostResourceGroupArn: undefined,
     PartitionNumber: undefined,
+    GroupId: undefined,
   };
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
@@ -71451,6 +71461,9 @@ const deserializeAws_ec2LaunchTemplatePlacement = (output: any, context: __Serde
   }
   if (output["partitionNumber"] !== undefined) {
     contents.PartitionNumber = __strictParseInt32(output["partitionNumber"]) as number;
+  }
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
   }
   return contents;
 };
@@ -74350,6 +74363,7 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
     Tenancy: undefined,
     SpreadDomain: undefined,
     HostResourceGroupArn: undefined,
+    GroupId: undefined,
   };
   if (output["availabilityZone"] !== undefined) {
     contents.AvailabilityZone = __expectString(output["availabilityZone"]);
@@ -74374,6 +74388,9 @@ const deserializeAws_ec2Placement = (output: any, context: __SerdeContext): Plac
   }
   if (output["hostResourceGroupArn"] !== undefined) {
     contents.HostResourceGroupArn = __expectString(output["hostResourceGroupArn"]);
+  }
+  if (output["groupId"] !== undefined) {
+    contents.GroupId = __expectString(output["groupId"]);
   }
   return contents;
 };

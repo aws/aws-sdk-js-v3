@@ -2262,11 +2262,10 @@ export enum HostRecovery {
 
 export interface AllocateHostsRequest {
   /**
-   * <p>Indicates whether the host accepts any untargeted instance launches that
-   *     		match its instance type configuration, or if it only accepts Host tenancy
-   *     		instance launches that specify its unique host ID. For more information,
-   *     		see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding">
-   *         	Understanding auto-placement and affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>Indicates whether the host accepts any untargeted instance launches that match its
+   *             instance type configuration, or if it only accepts Host tenancy instance launches that
+   *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
+   *                 <i>Amazon EC2 User Guide</i>.</p>
    *
    *         <p>Default: <code>on</code>
    *          </p>
@@ -2284,31 +2283,30 @@ export interface AllocateHostsRequest {
   ClientToken?: string;
 
   /**
-   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you
-   * 		specify an instance type, the Dedicated Hosts support instances of the
-   * 		specified instance type only.</p>
+   * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
+   *             instance type, the Dedicated Hosts support instances of the specified instance type
+   *             only.</p>
    *
-   *     	    <p>If you want the Dedicated Hosts to support multiple instance types in a specific
-   *     		instance family, omit this parameter and specify <b>InstanceFamily</b>
-   *     		instead. You cannot specify <b>InstanceType</b> and
-   *     		<b>InstanceFamily</b> in the same request.</p>
+   *         <p>If you want the Dedicated Hosts to support multiple instance types in a specific
+   *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
+   *             same request.</p>
    */
   InstanceType?: string;
 
   /**
    * <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
-   * 			an instance family, the Dedicated Hosts support multiple instance types within that
-   * 			instance family.</p>
+   *             an instance family, the Dedicated Hosts support multiple instance types within that
+   *             instance family.</p>
    *
-   * 		       <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
-   * 			parameter and specify <b>InstanceType</b>
-   * 			instead. You cannot specify <b>InstanceFamily</b> and
-   * 			<b>InstanceType</b> in the same request.</p>
+   *         <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
+   *             parameter and specify <b>InstanceType</b> instead. You cannot
+   *             specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
   InstanceFamily?: string;
 
   /**
-   * <p>The number of Dedicated Hosts to allocate to your account with these parameters.</p>
+   * <p>The number of Dedicated Hosts to allocate to your account with these
+   *             parameters.</p>
    */
   Quantity: number | undefined;
 
@@ -2318,17 +2316,17 @@ export interface AllocateHostsRequest {
   TagSpecifications?: TagSpecification[];
 
   /**
-   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host.
-   * 			Host recovery is disabled by default. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html">
-   * 			Host recovery</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   * 		       <p>Default: <code>off</code>
+   * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host
+   *             recovery is disabled by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
+   *             in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <p>Default: <code>off</code>
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate the Dedicated Host.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Outpost on which to allocate
+   *             the Dedicated Host.</p>
    */
   OutpostArn?: string;
 }
@@ -2339,7 +2337,7 @@ export interface AllocateHostsRequest {
 export interface AllocateHostsResult {
   /**
    * <p>The ID of the allocated Dedicated Host. This is used to launch an instance onto a
-   * 			specific host.</p>
+   *             specific host.</p>
    */
   HostIds?: string[];
 }

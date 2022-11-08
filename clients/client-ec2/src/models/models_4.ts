@@ -192,19 +192,21 @@ export interface DescribeLaunchTemplateVersionsRequest {
 
   /**
    * <p>The ID of the launch template.</p>
-   *         <p>To describe one or more versions of a specified launch
-   *             template, you must specify either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not both.</p>
-   *         <p>To describe all the latest or default launch template versions in your
-   *             account, you must omit this parameter.</p>
+   *         <p>To describe one or more versions of a specified launch template, you must specify
+   *             either the <code>LaunchTemplateId</code> or the <code>LaunchTemplateName</code>, but not
+   *             both.</p>
+   *         <p>To describe all the latest or default launch template versions in your account, you
+   *             must omit this parameter.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * <p>The name of the launch template.</p>
-   *         <p>To describe one or more versions of a specified
-   *             launch template, you must specify either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not both.</p>
-   *         <p>To describe all the latest or default launch template versions in
-   *             your account, you must omit this parameter.</p>
+   *         <p>To describe one or more versions of a specified launch template, you must specify
+   *             either the <code>LaunchTemplateName</code> or the <code>LaunchTemplateId</code>, but not
+   *             both.</p>
+   *         <p>To describe all the latest or default launch template versions in your account, you
+   *             must omit this parameter.</p>
    */
   LaunchTemplateName?: string;
 
@@ -266,7 +268,7 @@ export interface DescribeLaunchTemplateVersionsRequest {
    *                 <p>
    *                   <code>http-protocol-ipv4</code> - Indicates whether the IPv4 endpoint for the
    *                     instance metadata service is enabled (<code>enabled</code> |
-   *                     <code>disabled</code>).</p>
+   *                         <code>disabled</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -1901,8 +1903,8 @@ export interface DescribePlacementGroupsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>spread-level</code> - The spread level for the placement group (<code>host</code> | <code>rack</code>).
-   *                 </p>
+   *                     <code>spread-level</code> - The spread level for the placement group
+   *                         (<code>host</code> | <code>rack</code>). </p>
    *             </li>
    *             <li>
    *                 <p>

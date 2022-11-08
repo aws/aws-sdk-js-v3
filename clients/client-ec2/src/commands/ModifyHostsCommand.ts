@@ -27,13 +27,14 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
 
 /**
  * <p>Modify the auto-placement setting of a Dedicated Host. When auto-placement is enabled,
- *             any instances that you launch with a tenancy of <code>host</code> but without a specific host
- *         	ID are placed onto any available Dedicated Host in your account that has auto-placement enabled.
- *         	When auto-placement is disabled, you need to provide a host ID to have the instance launch onto
- *         	a specific host. If no host ID is provided, the instance is launched onto a suitable host with
- *         	auto-placement enabled.</p>
- *     	    <p>You can also use this API action to modify a Dedicated Host to support either multiple
- *     		instance types in an instance family, or to support a specific instance type only.</p>
+ *             any instances that you launch with a tenancy of <code>host</code> but without a specific
+ *             host ID are placed onto any available Dedicated Host in your account that has
+ *             auto-placement enabled. When auto-placement is disabled, you need to provide a host ID
+ *             to have the instance launch onto a specific host. If no host ID is provided, the
+ *             instance is launched onto a suitable host with auto-placement enabled.</p>
+ *         <p>You can also use this API action to modify a Dedicated Host to support either multiple
+ *             instance types in an instance family, or to support a specific instance type
+ *             only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
