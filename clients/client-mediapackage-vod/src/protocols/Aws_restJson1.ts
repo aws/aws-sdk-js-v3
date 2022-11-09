@@ -1757,6 +1757,7 @@ const serializeAws_restJson1DashPackage = (input: DashPackage, context: __SerdeC
     ...(input.IncludeEncoderConfigurationInSegments != null && {
       includeEncoderConfigurationInSegments: input.IncludeEncoderConfigurationInSegments,
     }),
+    ...(input.IncludeIframeOnlyStream != null && { includeIframeOnlyStream: input.IncludeIframeOnlyStream }),
     ...(input.PeriodTriggers != null && {
       periodTriggers: serializeAws_restJson1__listOf__PeriodTriggersElement(input.PeriodTriggers, context),
     }),
@@ -2082,6 +2083,7 @@ const deserializeAws_restJson1DashPackage = (output: any, context: __SerdeContex
     Encryption:
       output.encryption != null ? deserializeAws_restJson1DashEncryption(output.encryption, context) : undefined,
     IncludeEncoderConfigurationInSegments: __expectBoolean(output.includeEncoderConfigurationInSegments),
+    IncludeIframeOnlyStream: __expectBoolean(output.includeIframeOnlyStream),
     PeriodTriggers:
       output.periodTriggers != null
         ? deserializeAws_restJson1__listOf__PeriodTriggersElement(output.periodTriggers, context)
