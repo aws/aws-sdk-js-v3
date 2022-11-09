@@ -129,7 +129,7 @@ export class Upload extends EventEmitter {
 
     const resolved = await Promise.all([this.client.send(new PutObjectCommand(params)), clientConfig?.endpoint?.()]);
     const putResult = resolved[0];
-    let endpoint: Endpoint = resolved[1];
+    let endpoint: Endpoint | undefined = resolved[1];
 
     if (!endpoint) {
       endpoint = toEndpointV1(
