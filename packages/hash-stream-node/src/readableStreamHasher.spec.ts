@@ -30,7 +30,7 @@ describe(readableStreamHasher.name, () => {
 
     end() {
       this.mockEnd();
-      super.end();
+      return super.end();
     }
   }
 
