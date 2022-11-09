@@ -1084,7 +1084,7 @@ export interface ReleasePhoneNumberRequest {
 
 export interface ReplicateInstanceRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance. You can provide the <code>InstanceId</code>, or the entire ARN.</p>
    */
   InstanceId: string | undefined;
 

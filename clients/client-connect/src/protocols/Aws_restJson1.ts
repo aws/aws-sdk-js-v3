@@ -9394,6 +9394,15 @@ export const deserializeAws_restJson1GetFederationTokenCommand = async (
   if (data.Credentials != null) {
     contents.Credentials = deserializeAws_restJson1Credentials(data.Credentials, context);
   }
+  if (data.SignInUrl != null) {
+    contents.SignInUrl = __expectString(data.SignInUrl);
+  }
+  if (data.UserArn != null) {
+    contents.UserArn = __expectString(data.UserArn);
+  }
+  if (data.UserId != null) {
+    contents.UserId = __expectString(data.UserId);
+  }
   return contents;
 };
 

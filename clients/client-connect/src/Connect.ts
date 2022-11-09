@@ -1539,8 +1539,7 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Creates
-   *    a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
+   * <p>Creates a traffic distribution group given an Amazon Connect instance that has been replicated. </p>
    *          <p>For more information about creating traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-traffic-distribution-groups.html">Set up traffic distribution groups</a> in
    *    the <i>Amazon Connect Administrator Guide</i>. </p>
    */

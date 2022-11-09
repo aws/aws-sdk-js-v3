@@ -824,6 +824,8 @@ export interface ClaimPhoneNumberRequest {
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *          <p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code>
+   *          </p>
    */
   ClientToken?: string;
 }
@@ -4634,6 +4636,21 @@ export interface GetFederationTokenResponse {
    * <p>The credentials to use for federation.</p>
    */
   Credentials?: Credentials;
+
+  /**
+   * <p>The URL to sign into the user's instance. </p>
+   */
+  SignInUrl?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the user.</p>
+   */
+  UserArn?: string;
+
+  /**
+   * <p>The identifier for the user.</p>
+   */
+  UserId?: string;
 }
 
 /**
