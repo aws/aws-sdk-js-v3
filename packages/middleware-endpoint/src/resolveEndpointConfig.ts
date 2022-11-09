@@ -47,10 +47,17 @@ interface PreviouslyResolved<T extends EndpointParameters = EndpointParameters> 
  */
 export interface EndpointResolvedConfig<T extends EndpointParameters = EndpointParameters> {
   /**
-   * Resolved value for input {@link EndpointsInputConfig.endpoint}
-   * @deprecated Use {@link EndpointResolvedConfig.endpointProvider} instead
+   * Custom endpoint provided by the user.
+   * This is normalized to a single interface from the various acceptable types.
+   * This field will be undefined if a custom endpoint is not provided.
+   *
+   * As of endpoints 2.0, this config method can not be used to resolve
+   * the endpoint for a service and region.
+   *
+   * @see https://github.com/aws/aws-sdk-js-v3/issues/4122
+   * @deprecated Use {@link EndpointResolvedConfig.endpointProvider} instead.
    */
-  endpoint: Provider<Endpoint>;
+  endpoint?: Provider<Endpoint>;
 
   endpointProvider: (params: T, context?: { logger?: Logger }) => EndpointV2;
 
