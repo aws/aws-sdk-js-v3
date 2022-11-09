@@ -70,33 +70,13 @@ declare global {
 }
 
 /**
- * Exists to maintain type consistency with the Node.js buffer encoding options
- * without importing @types/node for the browser.
- *
- * This is a copy of BufferEncoding from @types/node.
- * @internal
- */
-export type BufferEncoding =
-  | "ascii"
-  | "utf8"
-  | "utf-8"
-  | "utf16le"
-  | "ucs2"
-  | "ucs-2"
-  | "base64"
-  | "base64url"
-  | "latin1"
-  | "binary"
-  | "hex";
-
-/**
  * The interface contains mix-in utility functions to transfer the runtime-specific
  * stream implementation to specified format. Each stream can ONLY be transformed
  * once.
  */
 export interface SdkStreamMixin {
   transformToByteArray: () => Promise<Uint8Array>;
-  transformToString: (encoding?: BufferEncoding) => Promise<string>;
+  transformToString: (encoding?: string) => Promise<string>;
   transformToWebStream: () => ReadableStream;
 }
 

@@ -105,7 +105,7 @@ describe(sdkStreamMixin.name, () => {
         (fromArrayBuffer as jest.Mock).mockReturnValue({ toString: toStringMock });
         const sdkStream = sdkStreamMixin(passThrough);
         await writeDataToStream(passThrough, [Buffer.from("foo")]);
-        await sdkStream.transformToString(encoding);
+        await sdkStream.transformToString(encoding as BufferEncoding);
         expect(util.TextDecoder).toBeCalledWith(encoding);
       }
     );
