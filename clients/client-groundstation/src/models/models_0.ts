@@ -815,7 +815,7 @@ export interface SecurityDetails {
  */
 export interface EndpointDetails {
   /**
-   * <p>Endpoint security details.</p>
+   * <p>Endpoint security details including a list of subnets, a list of security groups and a role to connect streams to instances.</p>
    */
   securityDetails?: SecurityDetails;
 
@@ -835,7 +835,7 @@ export interface S3RecordingDetails {
   bucketArn?: string;
 
   /**
-   * <p>Template of the S3 key used.</p>
+   * <p>Key template used for the S3 Recording Configuration</p>
    */
   keyTemplate?: string;
 }
@@ -969,7 +969,8 @@ export interface Source {
   configId?: string;
 
   /**
-   * <p>Additional details for a <code>Config</code>, if type is dataflow endpoint or antenna demod decode.</p>
+   * <p>Additional details for a <code>Config</code>, if type is <code>dataflow-endpoint</code> or <code>antenna-downlink-demod-decode</code>
+   *          </p>
    */
   configDetails?: ConfigDetails;
 
@@ -1034,12 +1035,12 @@ export interface DescribeContactResponse {
   satelliteArn?: string;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime?: Date;
 
@@ -1109,12 +1110,12 @@ export interface ListContactsRequest {
   statusList: (ContactStatus | string)[] | undefined;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime: Date | undefined;
 
@@ -1154,12 +1155,12 @@ export interface ContactData {
   satelliteArn?: string;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime?: Date;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime?: Date;
 
@@ -1234,12 +1235,12 @@ export interface ReserveContactRequest {
   satelliteArn: string | undefined;
 
   /**
-   * <p>Start time of a contact.</p>
+   * <p>Start time of a contact in UTC.</p>
    */
   startTime: Date | undefined;
 
   /**
-   * <p>End time of a contact.</p>
+   * <p>End time of a contact in UTC.</p>
    */
   endTime: Date | undefined;
 
@@ -1277,6 +1278,186 @@ export interface DataflowEndpointGroupIdResponse {
    * <p>UUID of a dataflow endpoint group.</p>
    */
   dataflowEndpointGroupId?: string;
+}
+
+/**
+ * <p>Object stored in S3 containing ephemeris data.</p>
+ */
+export interface S3Object {
+  /**
+   * <p>An Amazon S3 Bucket name.</p>
+   */
+  bucket?: string;
+
+  /**
+   * <p>An Amazon S3 key for the ephemeris.</p>
+   */
+  key?: string;
+
+  /**
+   * <p>For versioned S3 objects, the version to use for the ephemeris.</p>
+   */
+  version?: string;
+}
+
+/**
+ * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+ */
+export interface OEMEphemeris {
+  /**
+   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   */
+  s3Object?: S3Object;
+
+  /**
+   * <p>The data for an OEM ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   */
+  oemData?: string;
+}
+
+/**
+ * <p>A time range with a start and end time.</p>
+ */
+export interface TimeRange {
+  /**
+   * <p>Time in UTC at which the time range starts.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>Time in UTC at which the time range ends.</p>
+   */
+  endTime: Date | undefined;
+}
+
+/**
+ * <p>Two-line element set (TLE) data.</p>
+ */
+export interface TLEData {
+  /**
+   * <p>First line of two-line element set (TLE) data.</p>
+   */
+  tleLine1: string | undefined;
+
+  /**
+   * <p>Second line of two-line element set (TLE) data.</p>
+   */
+  tleLine2: string | undefined;
+
+  /**
+   * <p>The valid time range for the TLE. Gaps or overlap are not permitted.</p>
+   */
+  validTimeRange: TimeRange | undefined;
+}
+
+/**
+ * <p>Two-line element set (TLE) ephemeris.</p>
+ */
+export interface TLEEphemeris {
+  /**
+   * <p>Identifies the S3 object to be used as the ephemeris.</p>
+   */
+  s3Object?: S3Object;
+
+  /**
+   * <p>The data for a TLE ephemeris, supplied directly in the request rather than through an S3 object.</p>
+   */
+  tleData?: TLEData[];
+}
+
+/**
+ * <p>Ephemeris data.</p>
+ */
+export type EphemerisData = EphemerisData.OemMember | EphemerisData.TleMember | EphemerisData.$UnknownMember;
+
+export namespace EphemerisData {
+  /**
+   * <p>Two-line element set (TLE) ephemeris.</p>
+   */
+  export interface TleMember {
+    tle: TLEEphemeris;
+    oem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Ephemeris data in Orbit Ephemeris Message (OEM) format.</p>
+   */
+  export interface OemMember {
+    tle?: never;
+    oem: OEMEphemeris;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tle?: never;
+    oem?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tle: (value: TLEEphemeris) => T;
+    oem: (value: OEMEphemeris) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EphemerisData, visitor: Visitor<T>): T => {
+    if (value.tle !== undefined) return visitor.tle(value.tle);
+    if (value.oem !== undefined) return visitor.oem(value.oem);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface CreateEphemerisRequest {
+  /**
+   * <p>AWS Ground Station satellite ID for this ephemeris.</p>
+   */
+  satelliteId: string | undefined;
+
+  /**
+   * <p>Whether to set the ephemeris status to <code>ENABLED</code> after validation.</p>
+   *         <p>Setting this to false will set the ephemeris status to <code>DISABLED</code> after validation.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *         <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>An overall expiration time for the ephemeris in UTC, after which it will become <code>EXPIRED</code>.</p>
+   */
+  expirationTime?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The ARN of a KMS key used to encrypt the ephemeris in Ground Station.</p>
+   */
+  kmsKeyArn?: string;
+
+  /**
+   * <p>Ephemeris data.</p>
+   */
+  ephemeris?: EphemerisData;
+
+  /**
+   * <p>Tags assigned to an ephemeris.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface EphemerisIdResponse {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
 }
 
 /**
@@ -1421,6 +1602,13 @@ export interface ListDataflowEndpointGroupsResponse {
   dataflowEndpointGroupList?: DataflowEndpointListItem[];
 }
 
+export interface DeleteEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+}
+
 /**
  * <p/>
  */
@@ -1429,6 +1617,303 @@ export interface DeleteMissionProfileRequest {
    * <p>UUID of a mission profile.</p>
    */
   missionProfileId: string | undefined;
+}
+
+export interface DescribeEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+}
+
+export enum EphemerisInvalidReason {
+  /**
+   * Provided KMS key is invalid
+   */
+  KMS_KEY_INVALID = "KMS_KEY_INVALID",
+  /**
+   * Provided spacecraft identifiers such as spacecraft NORAD Id are invalid
+   */
+  METADATA_INVALID = "METADATA_INVALID",
+  /**
+   * Start, end, or expiration time(s) are invalid for the provided ephemeris
+   */
+  TIME_RANGE_INVALID = "TIME_RANGE_INVALID",
+  /**
+   * Provided ephemeris defines invalid spacecraft trajectory
+   */
+  TRAJECTORY_INVALID = "TRAJECTORY_INVALID",
+  /**
+   * Internal Service Error occurred while processing ephemeris
+   */
+  VALIDATION_ERROR = "VALIDATION_ERROR",
+}
+
+export enum EphemerisStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+  ERROR = "ERROR",
+  EXPIRED = "EXPIRED",
+  INVALID = "INVALID",
+  VALIDATING = "VALIDATING",
+}
+
+/**
+ * <p>Description of ephemeris.</p>
+ */
+export interface EphemerisDescription {
+  /**
+   * <p>Source S3 object used for the ephemeris.</p>
+   */
+  sourceS3Object?: S3Object;
+
+  /**
+   * <p>Supplied ephemeris data.</p>
+   */
+  ephemerisData?: string;
+}
+
+/**
+ * <p/>
+ */
+export type EphemerisTypeDescription =
+  | EphemerisTypeDescription.OemMember
+  | EphemerisTypeDescription.TleMember
+  | EphemerisTypeDescription.$UnknownMember;
+
+export namespace EphemerisTypeDescription {
+  /**
+   * <p>Description of ephemeris.</p>
+   */
+  export interface TleMember {
+    tle: EphemerisDescription;
+    oem?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Description of ephemeris.</p>
+   */
+  export interface OemMember {
+    tle?: never;
+    oem: EphemerisDescription;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    tle?: never;
+    oem?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    tle: (value: EphemerisDescription) => T;
+    oem: (value: EphemerisDescription) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EphemerisTypeDescription, visitor: Visitor<T>): T => {
+    if (value.tle !== undefined) return visitor.tle(value.tle);
+    if (value.oem !== undefined) return visitor.oem(value.oem);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface DescribeEphemerisResponse {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The AWS Ground Station satellite ID associated with ephemeris.</p>
+   */
+  satelliteId?: string;
+
+  /**
+   * <p>The status of the ephemeris.</p>
+   */
+  status?: EphemerisStatus | string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *         <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>The time the ephemeris was uploaded in UTC.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>Whether or not the ephemeris is enabled.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Tags assigned to an ephemeris.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Supplied ephemeris data.</p>
+   */
+  suppliedData?: EphemerisTypeDescription;
+
+  /**
+   * <p>Reason that an ephemeris failed validation. Only provided for ephemerides with <code>INVALID</code> status.</p>
+   */
+  invalidReason?: EphemerisInvalidReason | string;
+}
+
+/**
+ * <p>Ephemeris item.</p>
+ */
+export interface EphemerisItem {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The status of the ephemeris.</p>
+   */
+  status?: EphemerisStatus | string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *         <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+
+  /**
+   * <p>Whether or not the ephemeris is enabled.</p>
+   */
+  enabled?: boolean;
+
+  /**
+   * <p>The time the ephemeris was uploaded in UTC.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Source S3 object used for the ephemeris.</p>
+   */
+  sourceS3Object?: S3Object;
+}
+
+export interface ListEphemeridesRequest {
+  /**
+   * <p>The AWS Ground Station satellite ID to list ephemeris for.</p>
+   */
+  satelliteId: string | undefined;
+
+  /**
+   * <p>The start time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   */
+  startTime: Date | undefined;
+
+  /**
+   * <p>The end time to list in UTC. The operation will return an ephemeris if its expiration time is within the time range defined by the <code>startTime</code> and <code>endTime</code>.</p>
+   */
+  endTime: Date | undefined;
+
+  /**
+   * <p>The list of ephemeris status to return.</p>
+   */
+  statusList?: (EphemerisStatus | string)[];
+
+  /**
+   * <p>Maximum number of ephemerides to return.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListEphemeridesResponse {
+  /**
+   * <p>Pagination token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>List of ephemerides.</p>
+   */
+  ephemerides?: EphemerisItem[];
+}
+
+export interface UpdateEphemerisRequest {
+  /**
+   * <p>The AWS Ground Station ephemeris ID.</p>
+   */
+  ephemerisId: string | undefined;
+
+  /**
+   * <p>Whether the ephemeris is enabled or not. Changing this value will not require the ephemeris to be re-validated.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Customer-provided priority score to establish the order in which overlapping ephemerides should be used.</p>
+   *         <p>The default for customer-provided ephemeris priority is 1, and higher numbers take precedence.</p>
+   *         <p>Priority must be 1 or greater</p>
+   */
+  priority?: number;
+}
+
+export enum EphemerisSource {
+  CUSTOMER_PROVIDED = "CUSTOMER_PROVIDED",
+  SPACE_TRACK = "SPACE_TRACK",
+}
+
+/**
+ * <p>Metadata describing a particular ephemeris.</p>
+ */
+export interface EphemerisMetaData {
+  /**
+   * <p>The <code>EphemerisSource</code> that generated a given ephemeris.</p>
+   */
+  source: EphemerisSource | string | undefined;
+
+  /**
+   * <p>UUID of a customer-provided ephemeris.</p>
+   *         <p>This field is not populated for default ephemerides from Space Track.</p>
+   */
+  ephemerisId?: string;
+
+  /**
+   * <p>The epoch of a default, ephemeris from Space Track in UTC.</p>
+   *         <p>This field is not populated for customer-provided ephemerides.</p>
+   */
+  epoch?: Date;
+
+  /**
+   * <p>A name string associated with the ephemeris. Used as a human-readable identifier for the ephemeris.</p>
+   *         <p>A name is only returned for customer-provider ephemerides that have a name associated.</p>
+   */
+  name?: string;
 }
 
 /**
@@ -1576,6 +2061,11 @@ export interface GetSatelliteResponse {
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
    */
   groundStations?: string[];
+
+  /**
+   * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   */
+  currentEphemeris?: EphemerisMetaData;
 }
 
 /**
@@ -1788,6 +2278,11 @@ export interface SatelliteListItem {
    * <p>A list of ground stations to which the satellite is on-boarded.</p>
    */
   groundStations?: string[];
+
+  /**
+   * <p>The current ephemeris being used to compute the trajectory of the satellite.</p>
+   */
+  currentEphemeris?: EphemerisMetaData;
 }
 
 /**
@@ -2194,6 +2689,65 @@ export const DataflowEndpointGroupIdResponseFilterSensitiveLog = (obj: DataflowE
 /**
  * @internal
  */
+export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OEMEphemerisFilterSensitiveLog = (obj: OEMEphemeris): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TimeRangeFilterSensitiveLog = (obj: TimeRange): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TLEDataFilterSensitiveLog = (obj: TLEData): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TLEEphemerisFilterSensitiveLog = (obj: TLEEphemeris): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisDataFilterSensitiveLog = (obj: EphemerisData): any => {
+  if (obj.tle !== undefined) return { tle: TLEEphemerisFilterSensitiveLog(obj.tle) };
+  if (obj.oem !== undefined) return { oem: OEMEphemerisFilterSensitiveLog(obj.oem) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateEphemerisRequestFilterSensitiveLog = (obj: CreateEphemerisRequest): any => ({
+  ...obj,
+  ...(obj.ephemeris && { ephemeris: EphemerisDataFilterSensitiveLog(obj.ephemeris) }),
+});
+
+/**
+ * @internal
+ */
+export const EphemerisIdResponseFilterSensitiveLog = (obj: EphemerisIdResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateMissionProfileRequestFilterSensitiveLog = (obj: CreateMissionProfileRequest): any => ({
   ...obj,
 });
@@ -2250,7 +2804,80 @@ export const ListDataflowEndpointGroupsResponseFilterSensitiveLog = (obj: ListDa
 /**
  * @internal
  */
+export const DeleteEphemerisRequestFilterSensitiveLog = (obj: DeleteEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteMissionProfileRequestFilterSensitiveLog = (obj: DeleteMissionProfileRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeEphemerisRequestFilterSensitiveLog = (obj: DescribeEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisDescriptionFilterSensitiveLog = (obj: EphemerisDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisTypeDescriptionFilterSensitiveLog = (obj: EphemerisTypeDescription): any => {
+  if (obj.tle !== undefined) return { tle: EphemerisDescriptionFilterSensitiveLog(obj.tle) };
+  if (obj.oem !== undefined) return { oem: EphemerisDescriptionFilterSensitiveLog(obj.oem) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const DescribeEphemerisResponseFilterSensitiveLog = (obj: DescribeEphemerisResponse): any => ({
+  ...obj,
+  ...(obj.suppliedData && { suppliedData: EphemerisTypeDescriptionFilterSensitiveLog(obj.suppliedData) }),
+});
+
+/**
+ * @internal
+ */
+export const EphemerisItemFilterSensitiveLog = (obj: EphemerisItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEphemeridesRequestFilterSensitiveLog = (obj: ListEphemeridesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListEphemeridesResponseFilterSensitiveLog = (obj: ListEphemeridesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEphemerisRequestFilterSensitiveLog = (obj: UpdateEphemerisRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EphemerisMetaDataFilterSensitiveLog = (obj: EphemerisMetaData): any => ({
   ...obj,
 });
 

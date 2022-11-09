@@ -29,6 +29,7 @@ import {
   CreateDataflowEndpointGroupCommandInput,
   CreateDataflowEndpointGroupCommandOutput,
 } from "../commands/CreateDataflowEndpointGroupCommand";
+import { CreateEphemerisCommandInput, CreateEphemerisCommandOutput } from "../commands/CreateEphemerisCommand";
 import {
   CreateMissionProfileCommandInput,
   CreateMissionProfileCommandOutput,
@@ -38,11 +39,13 @@ import {
   DeleteDataflowEndpointGroupCommandInput,
   DeleteDataflowEndpointGroupCommandOutput,
 } from "../commands/DeleteDataflowEndpointGroupCommand";
+import { DeleteEphemerisCommandInput, DeleteEphemerisCommandOutput } from "../commands/DeleteEphemerisCommand";
 import {
   DeleteMissionProfileCommandInput,
   DeleteMissionProfileCommandOutput,
 } from "../commands/DeleteMissionProfileCommand";
 import { DescribeContactCommandInput, DescribeContactCommandOutput } from "../commands/DescribeContactCommand";
+import { DescribeEphemerisCommandInput, DescribeEphemerisCommandOutput } from "../commands/DescribeEphemerisCommand";
 import { GetConfigCommandInput, GetConfigCommandOutput } from "../commands/GetConfigCommand";
 import {
   GetDataflowEndpointGroupCommandInput,
@@ -57,6 +60,7 @@ import {
   ListDataflowEndpointGroupsCommandInput,
   ListDataflowEndpointGroupsCommandOutput,
 } from "../commands/ListDataflowEndpointGroupsCommand";
+import { ListEphemeridesCommandInput, ListEphemeridesCommandOutput } from "../commands/ListEphemeridesCommand";
 import { ListGroundStationsCommandInput, ListGroundStationsCommandOutput } from "../commands/ListGroundStationsCommand";
 import {
   ListMissionProfilesCommandInput,
@@ -71,6 +75,7 @@ import { ReserveContactCommandInput, ReserveContactCommandOutput } from "../comm
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateConfigCommandInput, UpdateConfigCommandOutput } from "../commands/UpdateConfigCommand";
+import { UpdateEphemerisCommandInput, UpdateEphemerisCommandOutput } from "../commands/UpdateEphemerisCommand";
 import {
   UpdateMissionProfileCommandInput,
   UpdateMissionProfileCommandOutput,
@@ -97,13 +102,21 @@ import {
   Eirp,
   Elevation,
   EndpointDetails,
+  EphemerisData,
+  EphemerisDescription,
+  EphemerisItem,
+  EphemerisMetaData,
+  EphemerisStatus,
+  EphemerisTypeDescription,
   Frequency,
   FrequencyBandwidth,
   GroundStationData,
   InvalidParameterException,
   MissionProfileListItem,
+  OEMEphemeris,
   ResourceLimitExceededException,
   ResourceNotFoundException,
+  S3Object,
   S3RecordingConfig,
   S3RecordingDetails,
   SatelliteListItem,
@@ -111,6 +124,9 @@ import {
   SocketAddress,
   Source,
   SpectrumConfig,
+  TimeRange,
+  TLEData,
+  TLEEphemeris,
   TrackingConfig,
   UplinkEchoConfig,
   UplinkSpectrumConfig,
@@ -176,6 +192,37 @@ export const serializeAws_restJson1CreateDataflowEndpointGroupCommand = async (
     ...(input.endpointDetails != null && {
       endpointDetails: serializeAws_restJson1EndpointDetailsList(input.endpointDetails, context),
     }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateEphemerisCommand = async (
+  input: CreateEphemerisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.ephemeris != null && { ephemeris: serializeAws_restJson1EphemerisData(input.ephemeris, context) }),
+    ...(input.expirationTime != null && { expirationTime: Math.round(input.expirationTime.getTime() / 1000) }),
+    ...(input.kmsKeyArn != null && { kmsKeyArn: input.kmsKeyArn }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.priority != null && { priority: input.priority }),
+    ...(input.satelliteId != null && { satelliteId: input.satelliteId }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
   });
   return new __HttpRequest({
@@ -278,6 +325,26 @@ export const serializeAws_restJson1DeleteDataflowEndpointGroupCommand = async (
   });
 };
 
+export const serializeAws_restJson1DeleteEphemerisCommand = async (
+  input: DeleteEphemerisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris/{ephemerisId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ephemerisId", () => input.ephemerisId!, "{ephemerisId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DeleteMissionProfileCommand = async (
   input: DeleteMissionProfileCommandInput,
   context: __SerdeContext
@@ -314,6 +381,26 @@ export const serializeAws_restJson1DescribeContactCommand = async (
   const headers: any = {};
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/{contactId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "contactId", () => input.contactId!, "{contactId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeEphemerisCommand = async (
+  input: DescribeEphemerisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris/{ephemerisId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ephemerisId", () => input.ephemerisId!, "{ephemerisId}", false);
   let body: any;
   return new __HttpRequest({
     protocol,
@@ -529,6 +616,40 @@ export const serializeAws_restJson1ListDataflowEndpointGroupsCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListEphemeridesCommand = async (
+  input: ListEphemeridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemerides";
+  const query: any = map({
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  body = JSON.stringify({
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.satelliteId != null && { satelliteId: input.satelliteId }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+    ...(input.statusList != null && {
+      statusList: serializeAws_restJson1EphemerisStatusList(input.statusList, context),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListGroundStationsCommand = async (
   input: ListGroundStationsCommandInput,
   context: __SerdeContext
@@ -716,6 +837,33 @@ export const serializeAws_restJson1UpdateConfigCommand = async (
   body = JSON.stringify({
     ...(input.configData != null && { configData: serializeAws_restJson1ConfigTypeData(input.configData, context) }),
     ...(input.name != null && { name: input.name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateEphemerisCommand = async (
+  input: UpdateEphemerisCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ephemeris/{ephemerisId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "ephemerisId", () => input.ephemerisId!, "{ephemerisId}", false);
+  let body: any;
+  body = JSON.stringify({
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.priority != null && { priority: input.priority }),
   });
   return new __HttpRequest({
     protocol,
@@ -924,6 +1072,53 @@ const deserializeAws_restJson1CreateDataflowEndpointGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateEphemerisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEphemerisCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateEphemerisCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ephemerisId != null) {
+    contents.ephemerisId = __expectString(data.ephemerisId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateEphemerisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateEphemerisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependencyException":
+    case "com.amazonaws.groundstation#DependencyException":
+      throw await deserializeAws_restJson1DependencyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.groundstation#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.groundstation#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateMissionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1071,6 +1266,53 @@ const deserializeAws_restJson1DeleteDataflowEndpointGroupCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DeleteEphemerisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEphemerisCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteEphemerisCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ephemerisId != null) {
+    contents.ephemerisId = __expectString(data.ephemerisId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteEphemerisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteEphemerisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependencyException":
+    case "com.amazonaws.groundstation#DependencyException":
+      throw await deserializeAws_restJson1DependencyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.groundstation#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.groundstation#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DeleteMissionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1178,6 +1420,80 @@ const deserializeAws_restJson1DescribeContactCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependencyException":
+    case "com.amazonaws.groundstation#DependencyException":
+      throw await deserializeAws_restJson1DependencyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.groundstation#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.groundstation#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeEphemerisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEphemerisCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeEphemerisCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.creationTime != null) {
+    contents.creationTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.creationTime)));
+  }
+  if (data.enabled != null) {
+    contents.enabled = __expectBoolean(data.enabled);
+  }
+  if (data.ephemerisId != null) {
+    contents.ephemerisId = __expectString(data.ephemerisId);
+  }
+  if (data.invalidReason != null) {
+    contents.invalidReason = __expectString(data.invalidReason);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.priority != null) {
+    contents.priority = __expectInt32(data.priority);
+  }
+  if (data.satelliteId != null) {
+    contents.satelliteId = __expectString(data.satelliteId);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
+  }
+  if (data.suppliedData != null) {
+    contents.suppliedData = deserializeAws_restJson1EphemerisTypeDescription(__expectUnion(data.suppliedData), context);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeEphemerisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeEphemerisCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1466,6 +1782,9 @@ export const deserializeAws_restJson1GetSatelliteCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.currentEphemeris != null) {
+    contents.currentEphemeris = deserializeAws_restJson1EphemerisMetaData(data.currentEphemeris, context);
+  }
   if (data.groundStations != null) {
     contents.groundStations = deserializeAws_restJson1GroundStationIdList(data.groundStations, context);
   }
@@ -1638,6 +1957,56 @@ const deserializeAws_restJson1ListDataflowEndpointGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListDataflowEndpointGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependencyException":
+    case "com.amazonaws.groundstation#DependencyException":
+      throw await deserializeAws_restJson1DependencyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.groundstation#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.groundstation#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListEphemeridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEphemeridesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListEphemeridesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ephemerides != null) {
+    contents.ephemerides = deserializeAws_restJson1EphemeridesList(data.ephemerides, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListEphemeridesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEphemeridesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2049,6 +2418,53 @@ const deserializeAws_restJson1UpdateConfigCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateEphemerisCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEphemerisCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateEphemerisCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ephemerisId != null) {
+    contents.ephemerisId = __expectString(data.ephemerisId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateEphemerisCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEphemerisCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DependencyException":
+    case "com.amazonaws.groundstation#DependencyException":
+      throw await deserializeAws_restJson1DependencyExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.groundstation#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.groundstation#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateMissionProfileCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2294,6 +2710,25 @@ const serializeAws_restJson1EndpointDetailsList = (input: EndpointDetails[], con
     });
 };
 
+const serializeAws_restJson1EphemerisData = (input: EphemerisData, context: __SerdeContext): any => {
+  return EphemerisData.visit(input, {
+    oem: (value) => ({ oem: serializeAws_restJson1OEMEphemeris(value, context) }),
+    tle: (value) => ({ tle: serializeAws_restJson1TLEEphemeris(value, context) }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1EphemerisStatusList = (
+  input: (EphemerisStatus | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1Frequency = (input: Frequency, context: __SerdeContext): any => {
   return {
     ...(input.units != null && { units: input.units }),
@@ -2305,6 +2740,21 @@ const serializeAws_restJson1FrequencyBandwidth = (input: FrequencyBandwidth, con
   return {
     ...(input.units != null && { units: input.units }),
     ...(input.value != null && { value: __serializeFloat(input.value) }),
+  };
+};
+
+const serializeAws_restJson1OEMEphemeris = (input: OEMEphemeris, context: __SerdeContext): any => {
+  return {
+    ...(input.oemData != null && { oemData: input.oemData }),
+    ...(input.s3Object != null && { s3Object: serializeAws_restJson1S3Object(input.s3Object, context) }),
+  };
+};
+
+const serializeAws_restJson1S3Object = (input: S3Object, context: __SerdeContext): any => {
+  return {
+    ...(input.bucket != null && { bucket: input.bucket }),
+    ...(input.key != null && { key: input.key }),
+    ...(input.version != null && { version: input.version }),
   };
 };
 
@@ -2377,6 +2827,38 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
       [key]: value,
     };
   }, {});
+};
+
+const serializeAws_restJson1TimeRange = (input: TimeRange, context: __SerdeContext): any => {
+  return {
+    ...(input.endTime != null && { endTime: Math.round(input.endTime.getTime() / 1000) }),
+    ...(input.startTime != null && { startTime: Math.round(input.startTime.getTime() / 1000) }),
+  };
+};
+
+const serializeAws_restJson1TLEData = (input: TLEData, context: __SerdeContext): any => {
+  return {
+    ...(input.tleLine1 != null && { tleLine1: input.tleLine1 }),
+    ...(input.tleLine2 != null && { tleLine2: input.tleLine2 }),
+    ...(input.validTimeRange != null && {
+      validTimeRange: serializeAws_restJson1TimeRange(input.validTimeRange, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1TLEDataList = (input: TLEData[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1TLEData(entry, context);
+    });
+};
+
+const serializeAws_restJson1TLEEphemeris = (input: TLEEphemeris, context: __SerdeContext): any => {
+  return {
+    ...(input.s3Object != null && { s3Object: serializeAws_restJson1S3Object(input.s3Object, context) }),
+    ...(input.tleData != null && { tleData: serializeAws_restJson1TLEDataList(input.tleData, context) }),
+  };
 };
 
 const serializeAws_restJson1TrackingConfig = (input: TrackingConfig, context: __SerdeContext): any => {
@@ -2721,6 +3203,68 @@ const deserializeAws_restJson1EndpointDetailsList = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_restJson1EphemeridesList = (output: any, context: __SerdeContext): EphemerisItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EphemerisItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1EphemerisDescription = (output: any, context: __SerdeContext): EphemerisDescription => {
+  return {
+    ephemerisData: __expectString(output.ephemerisData),
+    sourceS3Object:
+      output.sourceS3Object != null ? deserializeAws_restJson1S3Object(output.sourceS3Object, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1EphemerisItem = (output: any, context: __SerdeContext): EphemerisItem => {
+  return {
+    creationTime:
+      output.creationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.creationTime)))
+        : undefined,
+    enabled: __expectBoolean(output.enabled),
+    ephemerisId: __expectString(output.ephemerisId),
+    name: __expectString(output.name),
+    priority: __expectInt32(output.priority),
+    sourceS3Object:
+      output.sourceS3Object != null ? deserializeAws_restJson1S3Object(output.sourceS3Object, context) : undefined,
+    status: __expectString(output.status),
+  } as any;
+};
+
+const deserializeAws_restJson1EphemerisMetaData = (output: any, context: __SerdeContext): EphemerisMetaData => {
+  return {
+    ephemerisId: __expectString(output.ephemerisId),
+    epoch: output.epoch != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.epoch))) : undefined,
+    name: __expectString(output.name),
+    source: __expectString(output.source),
+  } as any;
+};
+
+const deserializeAws_restJson1EphemerisTypeDescription = (
+  output: any,
+  context: __SerdeContext
+): EphemerisTypeDescription => {
+  if (output.oem != null) {
+    return {
+      oem: deserializeAws_restJson1EphemerisDescription(output.oem, context),
+    };
+  }
+  if (output.tle != null) {
+    return {
+      tle: deserializeAws_restJson1EphemerisDescription(output.tle, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
 const deserializeAws_restJson1Frequency = (output: any, context: __SerdeContext): Frequency => {
   return {
     units: __expectString(output.units),
@@ -2791,6 +3335,14 @@ const deserializeAws_restJson1MissionProfileListItem = (
   } as any;
 };
 
+const deserializeAws_restJson1S3Object = (output: any, context: __SerdeContext): S3Object => {
+  return {
+    bucket: __expectString(output.bucket),
+    key: __expectString(output.key),
+    version: __expectString(output.version),
+  } as any;
+};
+
 const deserializeAws_restJson1S3RecordingConfig = (output: any, context: __SerdeContext): S3RecordingConfig => {
   return {
     bucketArn: __expectString(output.bucketArn),
@@ -2820,6 +3372,10 @@ const deserializeAws_restJson1SatelliteList = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1SatelliteListItem = (output: any, context: __SerdeContext): SatelliteListItem => {
   return {
+    currentEphemeris:
+      output.currentEphemeris != null
+        ? deserializeAws_restJson1EphemerisMetaData(output.currentEphemeris, context)
+        : undefined,
     groundStations:
       output.groundStations != null
         ? deserializeAws_restJson1GroundStationIdList(output.groundStations, context)
