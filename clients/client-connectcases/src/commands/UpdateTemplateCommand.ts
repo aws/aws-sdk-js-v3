@@ -30,10 +30,10 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
 
 /**
  * <p>Updates the attributes of an existing template. The template attributes that can be
- *       modified include <code>name</code>, <code>description</code>, <code>layouts</code>,
- *         and <code>requiredFields</code>. At least one of these
- *       attributes must not be null. If a null value is provided for a given attribute, that attribute
- *       is ignored and its current value is preserved.</p>
+ *       modified include <code>name</code>, <code>description</code>,
+ *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
+ *       least one of these attributes must not be null. If a null value is provided for a given
+ *       attribute, that attribute is ignored and its current value is preserved.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

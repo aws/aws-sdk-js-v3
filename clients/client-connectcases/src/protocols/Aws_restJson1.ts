@@ -326,6 +326,7 @@ export const serializeAws_restJson1CreateTemplateCommand = async (
     ...(input.requiredFields != null && {
       requiredFields: serializeAws_restJson1RequiredFieldList(input.requiredFields, context),
     }),
+    ...(input.status != null && { status: input.status }),
   });
   return new __HttpRequest({
     protocol,
@@ -619,6 +620,7 @@ export const serializeAws_restJson1ListTemplatesCommand = async (
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
+    status: [() => input.status !== void 0, () => (input.status! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -878,6 +880,7 @@ export const serializeAws_restJson1UpdateTemplateCommand = async (
     ...(input.requiredFields != null && {
       requiredFields: serializeAws_restJson1RequiredFieldList(input.requiredFields, context),
     }),
+    ...(input.status != null && { status: input.status }),
   });
   return new __HttpRequest({
     protocol,
@@ -1638,6 +1641,9 @@ export const deserializeAws_restJson1GetTemplateCommand = async (
   }
   if (data.requiredFields != null) {
     contents.requiredFields = deserializeAws_restJson1RequiredFieldList(data.requiredFields, context);
+  }
+  if (data.status != null) {
+    contents.status = __expectString(data.status);
   }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1Tags(data.tags, context);
@@ -2474,6 +2480,9 @@ const deserializeAws_restJson1UpdateLayoutCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.connectcases#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connectcases#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.connectcases#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -3404,6 +3413,7 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
 const deserializeAws_restJson1TemplateSummary = (output: any, context: __SerdeContext): TemplateSummary => {
   return {
     name: __expectString(output.name),
+    status: __expectString(output.status),
     templateArn: __expectString(output.templateArn),
     templateId: __expectString(output.templateId),
   } as any;

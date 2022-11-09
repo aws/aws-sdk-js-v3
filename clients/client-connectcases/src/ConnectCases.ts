@@ -347,10 +347,12 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
-   * <p>Creates a template in the Cases domain. This template is used to define the case
-   *       object model (that is, define what data can be captured on cases) in a Cases domain. A
-   *       template must have a unique name within a domain, and it must reference existing field IDs and layout
-   *       IDs. Additionally, multiple fields with same IDs are not allowed within the same Template.</p>
+   * <p>Creates a template in the Cases domain. This template is used to define the case object
+   *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
+   *       must have a unique name within a domain, and it must reference existing field IDs and layout
+   *       IDs. Additionally, multiple fields with same IDs are not allowed within the same Template. A
+   *       template can be either Active or Inactive, as indicated by its status. Inactive templates
+   *       cannot be used to create cases.</p>
    */
   public createTemplate(
     args: CreateTemplateCommandInput,
@@ -880,8 +882,8 @@ export class ConnectCases extends ConnectCasesClient {
   }
 
   /**
-   * <p>Updates the values of fields on a case. Fields to be updated are
-   *       received as an array of id/value pairs identical to the <code>CreateCase</code> input .</p>
+   * <p>Updates the values of fields on a case. Fields to be updated are received as an array of
+   *       id/value pairs identical to the <code>CreateCase</code> input .</p>
    *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
    *       HTTP body.</p>
    */
@@ -973,10 +975,10 @@ export class ConnectCases extends ConnectCasesClient {
 
   /**
    * <p>Updates the attributes of an existing template. The template attributes that can be
-   *       modified include <code>name</code>, <code>description</code>, <code>layouts</code>,
-   *         and <code>requiredFields</code>. At least one of these
-   *       attributes must not be null. If a null value is provided for a given attribute, that attribute
-   *       is ignored and its current value is preserved.</p>
+   *       modified include <code>name</code>, <code>description</code>,
+   *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
+   *       least one of these attributes must not be null. If a null value is provided for a given
+   *       attribute, that attribute is ignored and its current value is preserved.</p>
    */
   public updateTemplate(
     args: UpdateTemplateCommandInput,

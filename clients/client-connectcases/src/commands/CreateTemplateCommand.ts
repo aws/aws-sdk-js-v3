@@ -29,10 +29,12 @@ export interface CreateTemplateCommandInput extends CreateTemplateRequest {}
 export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a template in the Cases domain. This template is used to define the case
- *       object model (that is, define what data can be captured on cases) in a Cases domain. A
- *       template must have a unique name within a domain, and it must reference existing field IDs and layout
- *       IDs. Additionally, multiple fields with same IDs are not allowed within the same Template.</p>
+ * <p>Creates a template in the Cases domain. This template is used to define the case object
+ *       model (that is, to define what data can be captured on cases) in a Cases domain. A template
+ *       must have a unique name within a domain, and it must reference existing field IDs and layout
+ *       IDs. Additionally, multiple fields with same IDs are not allowed within the same Template. A
+ *       template can be either Active or Inactive, as indicated by its status. Inactive templates
+ *       cannot be used to create cases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
