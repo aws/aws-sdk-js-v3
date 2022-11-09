@@ -4,6 +4,8 @@ import { fromArrayBuffer } from "@aws-sdk/util-buffer-from";
 import { Readable } from "stream";
 import { TextDecoder } from "util";
 
+type Encoding = Parameters<ReturnType<typeof fromArrayBuffer>["toString"]>[0];
+
 const ERR_MSG_STREAM_HAS_BEEN_TRANSFORMED = "The stream has already been transformed.";
 
 /**
@@ -29,8 +31,9 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<Readable> => {
 
   return Object.assign<Readable, SdkStreamMixin>(stream, {
     transformToByteArray,
-    transformToString: async (encoding?: string) => {
+    transformToString: async (encoding?: Encoding) => {
       const buf = await transformToByteArray();
+      type x = 5;
       if (encoding === undefined || Buffer.isEncoding(encoding)) {
         return fromArrayBuffer(buf.buffer, buf.byteOffset, buf.byteLength).toString(encoding);
       } else {
