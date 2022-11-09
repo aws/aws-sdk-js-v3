@@ -5419,6 +5419,7 @@ export interface DescribeImagesRequest {
 
 export enum ArchitectureValues {
   arm64 = "arm64",
+  arm64_mac = "arm64_mac",
   i386 = "i386",
   x86_64 = "x86_64",
   x86_64_mac = "x86_64_mac",
@@ -8813,6 +8814,7 @@ export interface PlacementGroupInfo {
 
 export enum ArchitectureType {
   arm64 = "arm64",
+  arm64_mac = "arm64_mac",
   i386 = "i386",
   x86_64 = "x86_64",
   x86_64_mac = "x86_64_mac",
