@@ -204,10 +204,10 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           "module.exports = {\n" +
           "  ...base,\n" +
           "  globals: {\n" +
-          "    'ts-jest': {\n" +
-          "      isolatedModules: true\n" +
-          "    }\n" +
-          "  }\n" +
+          '    "ts-jest": {\n' +
+          "      isolatedModules: true,\n" +
+          "    },\n" +
+          "  },\n" +
           "};\n"
       );
     }
