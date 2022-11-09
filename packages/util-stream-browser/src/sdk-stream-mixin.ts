@@ -1,5 +1,5 @@
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
-import { SdkStream, SdkStreamMixin } from "@aws-sdk/types";
+import { BufferEncoding, SdkStream, SdkStreamMixin } from "@aws-sdk/types";
 import { toBase64 } from "@aws-sdk/util-base64";
 import { toHex } from "@aws-sdk/util-hex-encoding";
 import { toUtf8 } from "@aws-sdk/util-utf8-browser";
@@ -40,7 +40,7 @@ export const sdkStreamMixin = (stream: unknown): SdkStream<ReadableStream | Blob
   return Object.assign<ReadableStream | Blob, SdkStreamMixin>(stream, {
     transformToByteArray: transformToByteArray,
 
-    transformToString: async (encoding?: string) => {
+    transformToString: async (encoding?: BufferEncoding) => {
       const buf = await transformToByteArray();
       if (encoding === "base64") {
         return toBase64(buf);
