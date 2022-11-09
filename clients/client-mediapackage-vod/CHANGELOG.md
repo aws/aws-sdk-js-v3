@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.207.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.206.0...v3.207.0) (2022-11-09)
+
+
+### Features
+
+* **client-mediapackage-vod:** This release adds "IncludeIframeOnlyStream" for Dash endpoints. ([09a0c2e](https://github.com/aws/aws-sdk-js-v3/commit/09a0c2e427e4ce1cd8a706c33c37d48664680706))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 

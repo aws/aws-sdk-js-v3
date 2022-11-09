@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.207.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.206.0...v3.207.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* **lib-storage:** fix bucket duplication in hostname ([#4157](https://github.com/aws/aws-sdk-js-v3/issues/4157)) ([004d6c0](https://github.com/aws/aws-sdk-js-v3/commit/004d6c0fe5228417dced299d899ee1f75e694429))
+
+
+### Features
+
+* **client-connectcases:** This release adds the ability to disable templates through the UpdateTemplate API. Disabling templates prevents customers from creating cases using the template. For more information see https://docs.aws.amazon.com/cases/latest/APIReference/Welcome.html ([c0c724a](https://github.com/aws/aws-sdk-js-v3/commit/c0c724a83132ad5192b52a2a2b883026b5cb24d8))
+* **client-connect:** This release adds new fields SignInUrl, UserArn, and UserId to GetFederationToken response payload. ([552e450](https://github.com/aws/aws-sdk-js-v3/commit/552e45045b3b5105b5e6e41869840813b9b93351))
+* **client-ec2:** Amazon EC2 Trn1 instances, powered by AWS Trainium chips, are purpose built for high-performance deep learning training. u-24tb1.112xlarge and u-18tb1.112xlarge High Memory instances are purpose-built to run large in-memory databases. ([f0aeeb1](https://github.com/aws/aws-sdk-js-v3/commit/f0aeeb1a032045f9ec3959f58139f47a3715503f))
+* **client-groundstation:** This release adds the preview of customer-provided ephemeris support for AWS Ground Station, allowing space vehicle owners to provide their own position and trajectory information for a satellite. ([b6eadd0](https://github.com/aws/aws-sdk-js-v3/commit/b6eadd074ebb3b5e01824d60281269a386f571ce))
+* **client-mediapackage-vod:** This release adds "IncludeIframeOnlyStream" for Dash endpoints. ([09a0c2e](https://github.com/aws/aws-sdk-js-v3/commit/09a0c2e427e4ce1cd8a706c33c37d48664680706))
+* **client-transcribe-streaming:** This will release hi-IN and th-TH ([50252d2](https://github.com/aws/aws-sdk-js-v3/commit/50252d257b758dec19539ea75d397cef1efb1d18))
+
+
+
+
+
 # [3.206.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.205.0...v3.206.0) (2022-11-08)
 
 

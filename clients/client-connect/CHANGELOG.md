@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.207.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.206.0...v3.207.0) (2022-11-09)
+
+
+### Features
+
+* **client-connect:** This release adds new fields SignInUrl, UserArn, and UserId to GetFederationToken response payload. ([552e450](https://github.com/aws/aws-sdk-js-v3/commit/552e45045b3b5105b5e6e41869840813b9b93351))
+
+
+
+
+
 # [3.204.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.203.0...v3.204.0) (2022-11-04)
 
 
