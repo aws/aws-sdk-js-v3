@@ -35,24 +35,24 @@ export interface StartStreamTranscriptionCommandInput extends StartStreamTranscr
 export interface StartStreamTranscriptionCommandOutput extends StartStreamTranscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a bidirectional HTTP/2 stream where audio is streamed to Amazon Transcribe and the transcription
- *       results are streamed to your application.</p>
- *          <p>The following are encoded as HTTP/2 headers:</p>
+ * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+ *       Amazon Transcribe and the transcription results are streamed to your application.</p>
+ *          <p>The following are encoded as headers:</p>
  *          <ul>
  *             <li>
- *                <p>x-amzn-transcribe-language-code</p>
+ *                <p>language-code</p>
  *             </li>
  *             <li>
- *                <p>x-amzn-transcribe-media-encoding</p>
+ *                <p>media-encoding</p>
  *             </li>
  *             <li>
- *                <p>x-amzn-transcribe-sample-rate</p>
+ *                <p>sample-rate</p>
  *             </li>
  *             <li>
- *                <p>x-amzn-transcribe-session-id</p>
+ *                <p>session-id</p>
  *             </li>
  *          </ul>
- *          <p>See the <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/transcribestreamingservice/#TranscribeStreamingService.StartStreamTranscription"> SDK for Go API Reference</a> for more detail.</p>
+ *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

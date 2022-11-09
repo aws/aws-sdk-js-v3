@@ -252,7 +252,22 @@ type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
- * <p>Operations and objects for transcribing streaming speech to text.</p>
+ * <p>Amazon Transcribe streaming offers two types of real-time transcription:
+ *       <b>Standard</b> and <b>Medical</b>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Standard transcriptions</b> are the most common option. Refer
+ *       to  for details.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Medical transcriptions</b> are tailored to medical professionals
+ *       and incorporate medical terms. A common use case for this service is transcribing doctor-patient
+ *       dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to
+ *        for details.</p>
+ *             </li>
+ *          </ul>
  */
 export class TranscribeStreamingClient extends __Client<
   __HttpHandlerOptions,
