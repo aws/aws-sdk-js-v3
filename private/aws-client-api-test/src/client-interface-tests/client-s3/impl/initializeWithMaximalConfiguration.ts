@@ -39,7 +39,7 @@ export const initializeWithMaximalConfiguration = () => {
 
   const s3 = new S3Client({
     endpoint: "endpoint",
-    customUserAgent: "client-api-test-user-agent",
+    customUserAgent: "aws-client-api-test-user-agent",
     apiVersion: "2006-03-01",
     base64Decoder: fromBase64,
     base64Encoder: toBase64,

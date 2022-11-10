@@ -1,5 +1,5 @@
 {
-  "name": "@aws-sdk/client-api-test",
+  "name": "@aws-sdk/aws-client-api-test",
   "description": "Test suite for client interface stability",
   "version": "3.0.0",
   "scripts": {
@@ -56,6 +56,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/aws/aws-sdk-js-v3.git",
-    "directory": "private/client-api-test"
+    "directory": "private/aws-client-api-test"
   }
 }
