@@ -89,7 +89,7 @@ export const fromSSO =
         const session = ssoSessions[profile.sso_session];
         const conflictMsg = ` configurations in profile ${profileName} and sso-session ${profile.sso_session}`;
         if (ssoRegion && ssoRegion !== session.sso_region) {
-          throw new Error(`Conflicting SSO region` + conflictMsg);
+          throw new CredentialsProviderError(`Conflicting SSO region` + conflictMsg, false);
         }
         if (ssoStartUrl && ssoStartUrl !== session.sso_start_url) {
           throw new Error(`Conflicting SSO start url` + conflictMsg);
