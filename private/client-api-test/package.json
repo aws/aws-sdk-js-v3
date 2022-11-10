@@ -1,0 +1,61 @@
+{
+  "name": "@aws-sdk/client-api-test",
+  "description": "Test suite for client interface stability",
+  "version": "3.0.0",
+  "scripts": {
+    "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:docs": "typedoc",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build:include:deps": "lerna run --scope $npm_package_name --include-dependencies build",
+    "build:types": "tsc -p tsconfig.types.json",
+    "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
+    "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
+    "test": "jest --coverage --passWithNoTests"
+  },
+  "main": "./dist-cjs/index.js",
+  "types": "./dist-types/index.d.ts",
+  "module": "./dist-es/index.js",
+  "sideEffects": false,
+  "dependencies": {
+    "@aws-sdk/client-s3": "*",
+    "tslib": "^2.3.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "1.0.3",
+    "@types/node": "^12.7.5",
+    "concurrently": "7.0.0",
+    "downlevel-dts": "0.10.1",
+    "typedoc": "0.19.2",
+    "typescript": "~4.6.2"
+  },
+  "overrides": {
+    "typedoc": {
+      "typescript": "~4.6.2"
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "typesVersions": {
+    "<4.0": {
+      "dist-types/*": [
+        "dist-types/ts3.4/*"
+      ]
+    }
+  },
+  "files": [
+    "dist-*"
+  ],
+  "author": {
+    "name": "AWS SDK for JavaScript Team",
+    "url": "https://aws.amazon.com/javascript/"
+  },
+  "license": "Apache-2.0",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aws/aws-sdk-js-v3.git",
+    "directory": "private/client-api-test"
+  }
+}
