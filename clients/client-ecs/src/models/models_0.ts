@@ -4403,8 +4403,8 @@ export interface ContainerDefinition {
 
   /**
    * <p>The dependencies defined for container startup and shutdown. A container can contain
-   * 			multiple dependencies on other containers in a task definition. When a dependency is defined for container startup, for container
-   * 			shutdown it is reversed.</p>
+   * 			multiple dependencies on other containers in a task definition. When a dependency is
+   * 			defined for container startup, for container shutdown it is reversed.</p>
    * 		       <p>For tasks using the EC2 launch type, the container instances require at
    * 			least version 1.26.0 of the container agent to turn on container dependencies. However,
    * 			we recommend using the latest container agent version. For information about checking
@@ -6749,6 +6749,90 @@ export class TargetNotConnectedException extends __BaseException {
   }
 }
 
+export interface GetTaskProtectionRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
+   * 			sets exist in.</p>
+   */
+  cluster: string | undefined;
+
+  /**
+   * <p>A list of up to 100 task IDs or full ARN entries.</p>
+   */
+  tasks?: string[];
+}
+
+/**
+ * <p>An object representing the protection status details for a task. You can set the
+ * 			protection status with the <a>UpdateTaskProtection</a> API and get the status
+ * 			of tasks with the <a>GetTaskProtection</a> API.</p>
+ */
+export interface ProtectedTask {
+  /**
+   * <p>The task ARN.</p>
+   */
+  taskArn?: string;
+
+  /**
+   * <p>The protection status of the task. If scale-in protection is enabled for a task, the
+   * 			value is <code>true</code>. Otherwise, it is <code>false</code>.</p>
+   */
+  protectionEnabled?: boolean;
+
+  /**
+   * <p>The epoch time when protection for the task will expire.</p>
+   */
+  expirationDate?: Date;
+}
+
+export interface GetTaskProtectionResponse {
+  /**
+   * <p>A list of tasks with the following information.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>taskArn</code>: The task ARN.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>protectionEnabled</code>: The protection status of the task. If scale-in
+   * 					protection is enabled for a task, the value is <code>true</code>. Otherwise, it
+   * 					is <code>false</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>expirationDate</code>: The epoch time when protection for the task will
+   * 					expire.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  protectedTasks?: ProtectedTask[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: Failure[];
+}
+
+/**
+ * <p>The specified resource wasn't found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+  }
+}
+
 export interface ListAccountSettingsRequest {
   /**
    * <p>The name of the account setting you want to list the settings for.</p>
@@ -7386,9 +7470,9 @@ export interface PutAccountSettingDefaultRequest {
    * 				<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container
    * 			instances is affected. If <code>containerInsights</code> is specified, the default
    * 			setting for CloudWatch Container Insights for your clusters is affected.</p>
-   * 		       <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can set
-   * 			the name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based quotas.
-   * 			For information about the opt in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline">Fargate vCPU-based quotas timeline</a> in the
+   * 		       <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can
+   * 			set the name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based
+   * 			quotas. For information about the opt in timeline, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline">Fargate vCPU-based quotas timeline</a> in the
    * 				<i>Amazon ECS Developer Guide</i>.</p>
    */
   name: SettingName | string | undefined;
@@ -7725,10 +7809,10 @@ export interface RegisterTaskDefinitionRequest {
    * 			         <p>Task-level CPU and memory parameters are ignored for Windows containers. We
    * 				recommend specifying container-level resources for Windows containers.</p>
    * 		       </note>
-   * 		       <p>If you're using the EC2 launch type, this field is optional. Supported values
-   * 			are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>
-   * 			CPU units (<code>10</code> vCPUs). If you do not specify a value, the parameter is
-   * 			ignored.</p>
+   * 		       <p>If you're using the EC2 launch type, this field is optional. Supported
+   * 			values are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and
+   * 				<code>10240</code> CPU units (<code>10</code> vCPUs). If you do not specify a value,
+   * 			the parameter is ignored.</p>
    * 		       <p>If you're using the Fargate launch type, this field is required and you
    * 			must use one of the following values, which determines your range of supported values
    * 			for the <code>memory</code> parameter:</p>
@@ -8564,25 +8648,6 @@ export interface SubmitTaskStateChangeResponse {
   acknowledgment?: string;
 }
 
-/**
- * <p>The specified resource wasn't found.</p>
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-  }
-}
-
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to add tags to. Currently, the supported resources are
@@ -9049,6 +9114,65 @@ export interface UpdateServicePrimaryTaskSetResponse {
    * <p>etails about the task set.</p>
    */
   taskSet?: TaskSet;
+}
+
+export interface UpdateTaskProtectionRequest {
+  /**
+   * <p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task
+   * 			sets exist in.</p>
+   */
+  cluster: string | undefined;
+
+  /**
+   * <p>A list of up to 10 task IDs or full ARN entries.</p>
+   */
+  tasks: string[] | undefined;
+
+  /**
+   * <p>Specify <code>true</code> to mark a task for protection and <code>false</code> to
+   * 			unset protection, making it eligible for termination.</p>
+   */
+  protectionEnabled: boolean | undefined;
+
+  /**
+   * <p>If you set <code>protectionEnabled</code> to <code>true</code>, you can specify the
+   * 			duration for task protection in minutes. You can specify a value from 1 minute to up to
+   * 			2,880 minutes (48 hours). During this time, your task will not be terminated by scale-in
+   * 			events from Service Auto Scaling or deployments. After this time period lapses,
+   * 				<code>protectionEnabled</code> will be reset to <code>false</code>.</p>
+   * 		       <p>If you don’t specify the time, then the task is automatically protected for 120
+   * 			minutes (2 hours).</p>
+   */
+  expiresInMinutes?: number;
+}
+
+export interface UpdateTaskProtectionResponse {
+  /**
+   * <p>A list of tasks with the following information.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>
+   *                   <code>taskArn</code>: The task ARN.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>protectionEnabled</code>: The protection status of the task. If scale-in
+   * 					protection is enabled for a task, the value is <code>true</code>. Otherwise, it
+   * 					is <code>false</code>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>
+   *                   <code>expirationDate</code>: The epoch time when protection for the task will
+   * 					expire.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  protectedTasks?: ProtectedTask[];
+
+  /**
+   * <p>Any failures associated with the call.</p>
+   */
+  failures?: Failure[];
 }
 
 export interface UpdateTaskSetRequest {
@@ -9912,6 +10036,27 @@ export const ExecuteCommandResponseFilterSensitiveLog = (obj: ExecuteCommandResp
 /**
  * @internal
  */
+export const GetTaskProtectionRequestFilterSensitiveLog = (obj: GetTaskProtectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ProtectedTaskFilterSensitiveLog = (obj: ProtectedTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetTaskProtectionResponseFilterSensitiveLog = (obj: GetTaskProtectionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListAccountSettingsRequestFilterSensitiveLog = (obj: ListAccountSettingsRequest): any => ({
   ...obj,
 });
@@ -10373,6 +10518,20 @@ export const UpdateServicePrimaryTaskSetRequestFilterSensitiveLog = (obj: Update
 export const UpdateServicePrimaryTaskSetResponseFilterSensitiveLog = (
   obj: UpdateServicePrimaryTaskSetResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTaskProtectionRequestFilterSensitiveLog = (obj: UpdateTaskProtectionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTaskProtectionResponseFilterSensitiveLog = (obj: UpdateTaskProtectionResponse): any => ({
   ...obj,
 });
 

@@ -68,6 +68,7 @@ import {
   DiscoverPollEndpointCommandOutput,
 } from "../commands/DiscoverPollEndpointCommand";
 import { ExecuteCommandCommandInput, ExecuteCommandCommandOutput } from "../commands/ExecuteCommandCommand";
+import { GetTaskProtectionCommandInput, GetTaskProtectionCommandOutput } from "../commands/GetTaskProtectionCommand";
 import {
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -149,6 +150,10 @@ import {
   UpdateServicePrimaryTaskSetCommandInput,
   UpdateServicePrimaryTaskSetCommandOutput,
 } from "../commands/UpdateServicePrimaryTaskSetCommand";
+import {
+  UpdateTaskProtectionCommandInput,
+  UpdateTaskProtectionCommandOutput,
+} from "../commands/UpdateTaskProtectionCommand";
 import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "../commands/UpdateTaskSetCommand";
 import { ECSServiceException as __BaseException } from "../models/ECSServiceException";
 import {
@@ -241,6 +246,8 @@ import {
   FirelensConfiguration,
   FSxWindowsFileServerAuthorizationConfig,
   FSxWindowsFileServerVolumeConfiguration,
+  GetTaskProtectionRequest,
+  GetTaskProtectionResponse,
   HealthCheck,
   HostEntry,
   HostVolumeProperties,
@@ -287,6 +294,7 @@ import {
   PlatformTaskDefinitionIncompatibilityException,
   PlatformUnknownException,
   PortMapping,
+  ProtectedTask,
   ProxyConfiguration,
   PutAccountSettingDefaultRequest,
   PutAccountSettingDefaultResponse,
@@ -364,6 +372,8 @@ import {
   UpdateServicePrimaryTaskSetResponse,
   UpdateServiceRequest,
   UpdateServiceResponse,
+  UpdateTaskProtectionRequest,
+  UpdateTaskProtectionResponse,
   UpdateTaskSetRequest,
   UpdateTaskSetResponse,
   VersionInfo,
@@ -641,6 +651,19 @@ export const serializeAws_json1_1ExecuteCommandCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ExecuteCommandRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetTaskProtectionCommand = async (
+  input: GetTaskProtectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonEC2ContainerServiceV20141113.GetTaskProtection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetTaskProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1031,6 +1054,19 @@ export const serializeAws_json1_1UpdateServicePrimaryTaskSetCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateServicePrimaryTaskSetRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateTaskProtectionCommand = async (
+  input: UpdateTaskProtectionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonEC2ContainerServiceV20141113.UpdateTaskProtection",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateTaskProtectionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2137,6 +2173,65 @@ const deserializeAws_json1_1ExecuteCommandCommandError = async (
     case "TargetNotConnectedException":
     case "com.amazonaws.ecs#TargetNotConnectedException":
       throw await deserializeAws_json1_1TargetNotConnectedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetTaskProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTaskProtectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetTaskProtectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetTaskProtectionResponse(data, context);
+  const response: GetTaskProtectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetTaskProtectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTaskProtectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
+      throw await deserializeAws_json1_1ClusterNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ecs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3681,6 +3776,65 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateTaskProtectionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskProtectionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateTaskProtectionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateTaskProtectionResponse(data, context);
+  const response: UpdateTaskProtectionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateTaskProtectionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTaskProtectionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.ecs#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "ClusterNotFoundException":
+    case "com.amazonaws.ecs#ClusterNotFoundException":
+      throw await deserializeAws_json1_1ClusterNotFoundExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ecs#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    case "UnsupportedFeatureException":
+    case "com.amazonaws.ecs#UnsupportedFeatureException":
+      throw await deserializeAws_json1_1UnsupportedFeatureExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateTaskSetCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4823,6 +4977,16 @@ const serializeAws_json1_1FSxWindowsFileServerVolumeConfiguration = (
   };
 };
 
+const serializeAws_json1_1GetTaskProtectionRequest = (
+  input: GetTaskProtectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cluster != null && { cluster: input.cluster }),
+    ...(input.tasks != null && { tasks: serializeAws_json1_1StringList(input.tasks, context) }),
+  };
+};
+
 const serializeAws_json1_1HealthCheck = (input: HealthCheck, context: __SerdeContext): any => {
   return {
     ...(input.command != null && { command: serializeAws_json1_1StringList(input.command, context) }),
@@ -5807,6 +5971,18 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
       serviceRegistries: serializeAws_json1_1ServiceRegistries(input.serviceRegistries, context),
     }),
     ...(input.taskDefinition != null && { taskDefinition: input.taskDefinition }),
+  };
+};
+
+const serializeAws_json1_1UpdateTaskProtectionRequest = (
+  input: UpdateTaskProtectionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.cluster != null && { cluster: input.cluster }),
+    ...(input.expiresInMinutes != null && { expiresInMinutes: input.expiresInMinutes }),
+    ...(input.protectionEnabled != null && { protectionEnabled: input.protectionEnabled }),
+    ...(input.tasks != null && { tasks: serializeAws_json1_1StringList(input.tasks, context) }),
   };
 };
 
@@ -6866,6 +7042,17 @@ const deserializeAws_json1_1FSxWindowsFileServerVolumeConfiguration = (
   } as any;
 };
 
+const deserializeAws_json1_1GetTaskProtectionResponse = (
+  output: any,
+  context: __SerdeContext
+): GetTaskProtectionResponse => {
+  return {
+    failures: output.failures != null ? deserializeAws_json1_1Failures(output.failures, context) : undefined,
+    protectedTasks:
+      output.protectedTasks != null ? deserializeAws_json1_1ProtectedTasks(output.protectedTasks, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1GpuIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -7355,6 +7542,29 @@ const deserializeAws_json1_1PortMappingList = (output: any, context: __SerdeCont
         return null as any;
       }
       return deserializeAws_json1_1PortMapping(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ProtectedTask = (output: any, context: __SerdeContext): ProtectedTask => {
+  return {
+    expirationDate:
+      output.expirationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.expirationDate)))
+        : undefined,
+    protectionEnabled: __expectBoolean(output.protectionEnabled),
+    taskArn: __expectString(output.taskArn),
+  } as any;
+};
+
+const deserializeAws_json1_1ProtectedTasks = (output: any, context: __SerdeContext): ProtectedTask[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ProtectedTask(entry, context);
     });
   return retVal;
 };
@@ -8232,6 +8442,17 @@ const deserializeAws_json1_1UpdateServicePrimaryTaskSetResponse = (
 const deserializeAws_json1_1UpdateServiceResponse = (output: any, context: __SerdeContext): UpdateServiceResponse => {
   return {
     service: output.service != null ? deserializeAws_json1_1Service(output.service, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateTaskProtectionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateTaskProtectionResponse => {
+  return {
+    failures: output.failures != null ? deserializeAws_json1_1Failures(output.failures, context) : undefined,
+    protectedTasks:
+      output.protectedTasks != null ? deserializeAws_json1_1ProtectedTasks(output.protectedTasks, context) : undefined,
   } as any;
 };
 

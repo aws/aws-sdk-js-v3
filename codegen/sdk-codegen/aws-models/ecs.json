@@ -150,6 +150,9 @@
           "target": "com.amazonaws.ecs#ExecuteCommand"
         },
         {
+          "target": "com.amazonaws.ecs#GetTaskProtection"
+        },
+        {
           "target": "com.amazonaws.ecs#ListAccountSettings"
         },
         {
@@ -238,6 +241,9 @@
         },
         {
           "target": "com.amazonaws.ecs#UpdateServicePrimaryTaskSet"
+        },
+        {
+          "target": "com.amazonaws.ecs#UpdateTaskProtection"
         },
         {
           "target": "com.amazonaws.ecs#UpdateTaskSet"
@@ -585,9 +591,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -598,9 +604,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -611,9 +617,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -624,9 +630,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-2"
               }
             },
             {
@@ -637,9 +643,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -650,9 +656,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -663,9 +669,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -676,9 +682,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -689,9 +695,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -702,9 +708,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -715,9 +721,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -728,9 +734,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -741,9 +747,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -754,9 +760,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -767,9 +773,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -780,9 +786,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-2"
               }
             },
             {
@@ -793,9 +799,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -806,9 +812,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -819,9 +825,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -832,9 +838,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -845,9 +851,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -858,9 +864,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-central-1"
               }
             },
             {
@@ -871,9 +877,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -884,9 +890,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-central-1"
               }
             },
             {
@@ -897,9 +903,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -910,9 +916,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -923,9 +929,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -936,9 +942,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -949,9 +955,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -962,9 +968,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -975,9 +981,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -988,9 +994,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -999,9 +1005,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1012,9 +1018,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1023,9 +1029,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1036,9 +1042,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1049,9 +1055,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1062,9 +1068,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1075,9 +1081,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1088,9 +1094,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1101,9 +1107,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1114,9 +1120,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1127,9 +1133,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1140,9 +1146,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -1153,9 +1159,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1166,9 +1172,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1179,9 +1185,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1192,9 +1198,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -1205,9 +1211,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1218,9 +1224,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1231,9 +1237,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1244,9 +1250,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1257,9 +1263,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1270,9 +1276,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1283,9 +1289,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1296,9 +1302,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1309,9 +1315,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1322,9 +1328,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1335,9 +1341,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1348,9 +1354,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1361,9 +1367,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1374,9 +1380,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1387,9 +1393,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1400,9 +1406,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1413,9 +1419,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1426,9 +1432,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1439,9 +1445,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1452,9 +1458,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1465,9 +1471,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1478,9 +1484,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1491,9 +1497,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1504,9 +1510,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1517,9 +1523,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1530,9 +1536,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1543,9 +1549,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1556,9 +1562,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1569,9 +1575,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1582,9 +1588,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1595,9 +1601,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1608,9 +1614,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1621,9 +1627,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1634,9 +1640,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1647,9 +1653,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1660,9 +1666,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1673,9 +1679,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1686,9 +1692,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1699,9 +1705,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1712,9 +1718,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1725,9 +1731,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1738,9 +1744,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1751,9 +1757,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1764,9 +1770,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1777,9 +1783,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1790,9 +1796,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1803,9 +1809,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1816,9 +1822,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1829,9 +1835,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1842,9 +1848,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1855,9 +1861,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1868,9 +1874,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1881,9 +1887,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1894,9 +1900,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1907,9 +1913,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1920,9 +1926,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1933,9 +1939,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1946,9 +1952,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1959,9 +1965,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1972,9 +1978,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1983,9 +1989,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -1996,9 +2002,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2007,9 +2013,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2020,9 +2026,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2033,9 +2039,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2046,9 +2052,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2059,9 +2065,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2072,9 +2078,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2085,9 +2091,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2098,9 +2104,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2111,9 +2117,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2124,9 +2130,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2137,9 +2143,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2150,9 +2156,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2163,9 +2169,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2176,9 +2182,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -2189,9 +2195,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2202,9 +2208,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2215,9 +2221,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2228,9 +2234,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -2241,9 +2247,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2254,9 +2260,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2267,9 +2273,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2280,9 +2286,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2291,9 +2297,9 @@
                 "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2304,9 +2310,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2315,9 +2321,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2328,9 +2334,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2341,9 +2347,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2353,9 +2359,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2365,9 +2371,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -3371,7 +3377,7 @@
         "dependsOn": {
           "target": "com.amazonaws.ecs#ContainerDependencies",
           "traits": {
-            "smithy.api#documentation": "<p>The dependencies defined for container startup and shutdown. A container can contain\n\t\t\tmultiple dependencies on other containers in a task definition. When a dependency is defined for container startup, for container\n\t\t\tshutdown it is reversed.</p>\n\t\t       <p>For tasks using the EC2 launch type, the container instances require at\n\t\t\tleast version 1.26.0 of the container agent to turn on container dependencies. However,\n\t\t\twe recommend using the latest container agent version. For information about checking\n\t\t\tyour agent version and updating to the latest version, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html\">Updating the Amazon ECS\n\t\t\t\tContainer Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using\n\t\t\tan Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the\n\t\t\t\t<code>ecs-init</code> package. If your container instances are launched from version\n\t\t\t\t<code>20190301</code> or later, then they contain the required versions of the\n\t\t\tcontainer agent and <code>ecs-init</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html\">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>For tasks using the Fargate launch type, the task or service requires\n\t\t\tthe following platforms:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>Linux platform version <code>1.3.0</code> or later.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Windows platform version <code>1.0.0</code> or later.</p>\n\t\t\t         </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The dependencies defined for container startup and shutdown. A container can contain\n\t\t\tmultiple dependencies on other containers in a task definition. When a dependency is\n\t\t\tdefined for container startup, for container shutdown it is reversed.</p>\n\t\t       <p>For tasks using the EC2 launch type, the container instances require at\n\t\t\tleast version 1.26.0 of the container agent to turn on container dependencies. However,\n\t\t\twe recommend using the latest container agent version. For information about checking\n\t\t\tyour agent version and updating to the latest version, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html\">Updating the Amazon ECS\n\t\t\t\tContainer Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using\n\t\t\tan Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the\n\t\t\t\t<code>ecs-init</code> package. If your container instances are launched from version\n\t\t\t\t<code>20190301</code> or later, then they contain the required versions of the\n\t\t\tcontainer agent and <code>ecs-init</code>. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html\">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>For tasks using the Fargate launch type, the task or service requires\n\t\t\tthe following platforms:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>Linux platform version <code>1.3.0</code> or later.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>Windows platform version <code>1.0.0</code> or later.</p>\n\t\t\t         </li>\n         </ul>"
           }
         },
         "startTimeout": {
@@ -4042,7 +4048,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Runs and maintains your desired number of tasks from a specified task definition. If\n\t\t\tthe number of tasks running in a service drops below the <code>desiredCount</code>,\n\t\t\tAmazon ECS runs another copy of the task in the specified cluster. To update an existing\n\t\t\tservice, see the <a>UpdateService</a> action.</p>\n\t\t       <p>In addition to maintaining the desired count of tasks in your service, you can\n\t\t\toptionally run your service behind one or more load balancers. The load balancers\n\t\t\tdistribute traffic across the tasks that are associated with the service. For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html\">Service load balancing</a> in the\n\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>Tasks for services that don't use a load balancer are considered healthy if they're in\n\t\t\tthe <code>RUNNING</code> state. Tasks for services that use a load balancer are\n\t\t\tconsidered healthy if they're in the <code>RUNNING</code> state and are reported as\n\t\t\thealthy by the load balancer.</p>\n\t\t       <p>There are two service scheduler strategies available:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>REPLICA</code> - The replica scheduling strategy places and\n\t\t\t\t\tmaintains your desired number of tasks across your cluster. By default, the\n\t\t\t\t\tservice scheduler spreads tasks across Availability Zones. You can use task\n\t\t\t\t\tplacement strategies and constraints to customize task placement decisions. For\n\t\t\t\t\tmore information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html\">Service scheduler concepts</a> in the\n\t\t\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>DAEMON</code> - The daemon scheduling strategy deploys exactly one\n\t\t\t\t\ttask on each active container instance that meets all of the task placement\n\t\t\t\t\tconstraints that you specify in your cluster. The service scheduler also\n\t\t\t\t\tevaluates the task placement constraints for running tasks. It also stops tasks\n\t\t\t\t\tthat don't meet the placement constraints. When using this strategy, you don't\n\t\t\t\t\tneed to specify a desired number of tasks, a task placement strategy, or use\n\t\t\t\t\tService Auto Scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html\">Service scheduler concepts</a> in the\n\t\t\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>You can optionally specify a deployment configuration for your service. The deployment\n\t\t\tis initiated by changing properties. For example, the deployment might be initiated by\n\t\t\tthe task definition or by your desired count of a service. This is done with an <a>UpdateService</a> operation. The default value for a replica service for\n\t\t\t\t<code>minimumHealthyPercent</code> is 100%. The default value for a daemon service\n\t\t\tfor <code>minimumHealthyPercent</code> is 0%.</p>\n\t\t       <p>If a service uses the <code>ECS</code> deployment controller, the minimum healthy\n\t\t\tpercent represents a lower limit on the number of tasks in a service that must remain in\n\t\t\tthe <code>RUNNING</code> state during a deployment. Specifically, it represents it as a\n\t\t\tpercentage of your desired number of tasks (rounded up to the nearest integer). This\n\t\t\thappens when any of your container instances are in the <code>DRAINING</code> state if\n\t\t\tthe service contains tasks using the EC2 launch type. Using this\n\t\t\tparameter, you can deploy without using additional cluster capacity. For example, if you\n\t\t\tset your service to have desired number of four tasks and a minimum healthy percent of\n\t\t\t50%, the scheduler might stop two existing tasks to free up cluster capacity before\n\t\t\tstarting two new tasks. If they're in the <code>RUNNING</code> state, tasks for services\n\t\t\tthat don't use a load balancer are considered healthy . If they're in the\n\t\t\t\t<code>RUNNING</code> state and reported as healthy by the load balancer, tasks for\n\t\t\tservices that <i>do</i> use a load balancer are considered healthy . The\n\t\t\tdefault value for minimum healthy percent is 100%.</p>\n\t\t       <p>If a service uses the <code>ECS</code> deployment controller, the <b>maximum percent</b> parameter represents an upper limit on the\n\t\t\tnumber of tasks in a service that are allowed in the <code>RUNNING</code> or\n\t\t\t\t<code>PENDING</code> state during a deployment. Specifically, it represents it as a\n\t\t\tpercentage of the desired number of tasks (rounded down to the nearest integer). This\n\t\t\thappens when any of your container instances are in the <code>DRAINING</code> state if\n\t\t\tthe service contains tasks using the EC2 launch type. Using this\n\t\t\tparameter, you can define the deployment batch size. For example, if your service has a\n\t\t\tdesired number of four tasks and a maximum percent value of 200%, the scheduler may\n\t\t\tstart four new tasks before stopping the four older tasks (provided that the cluster\n\t\t\tresources required to do this are available). The default value for maximum percent is\n\t\t\t200%.</p>\n\t\t       <p>If a service uses either the <code>CODE_DEPLOY</code> or <code>EXTERNAL</code>\n\t\t\tdeployment controller types and tasks that use the EC2 launch type, the\n\t\t\t\t<b>minimum healthy percent</b> and <b>maximum percent</b> values are used only to define the lower and upper limit\n\t\t\ton the number of the tasks in the service that remain in the <code>RUNNING</code> state.\n\t\t\tThis is while the container instances are in the <code>DRAINING</code> state. If the\n\t\t\ttasks in the service use the Fargate launch type, the minimum healthy\n\t\t\tpercent and maximum percent values aren't used. This is the case even if they're\n\t\t\tcurrently visible when describing your service.</p>\n\t\t       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you\n\t\t\tcan specify only parameters that aren't controlled at the task set level. The only\n\t\t\trequired parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>When the service scheduler launches new tasks, it determines task placement. For information\n\t\t\tabout task placement and task placement strategies, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html\">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Runs and maintains your desired number of tasks from a specified task definition. If\n\t\t\tthe number of tasks running in a service drops below the <code>desiredCount</code>,\n\t\t\tAmazon ECS runs another copy of the task in the specified cluster. To update an existing\n\t\t\tservice, see the <a>UpdateService</a> action.</p>\n\t\t       <p>In addition to maintaining the desired count of tasks in your service, you can\n\t\t\toptionally run your service behind one or more load balancers. The load balancers\n\t\t\tdistribute traffic across the tasks that are associated with the service. For more\n\t\t\tinformation, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html\">Service load balancing</a> in the\n\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>Tasks for services that don't use a load balancer are considered healthy if they're in\n\t\t\tthe <code>RUNNING</code> state. Tasks for services that use a load balancer are\n\t\t\tconsidered healthy if they're in the <code>RUNNING</code> state and are reported as\n\t\t\thealthy by the load balancer.</p>\n\t\t       <p>There are two service scheduler strategies available:</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>REPLICA</code> - The replica scheduling strategy places and\n\t\t\t\t\tmaintains your desired number of tasks across your cluster. By default, the\n\t\t\t\t\tservice scheduler spreads tasks across Availability Zones. You can use task\n\t\t\t\t\tplacement strategies and constraints to customize task placement decisions. For\n\t\t\t\t\tmore information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html\">Service scheduler concepts</a> in the\n\t\t\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>DAEMON</code> - The daemon scheduling strategy deploys exactly one\n\t\t\t\t\ttask on each active container instance that meets all of the task placement\n\t\t\t\t\tconstraints that you specify in your cluster. The service scheduler also\n\t\t\t\t\tevaluates the task placement constraints for running tasks. It also stops tasks\n\t\t\t\t\tthat don't meet the placement constraints. When using this strategy, you don't\n\t\t\t\t\tneed to specify a desired number of tasks, a task placement strategy, or use\n\t\t\t\t\tService Auto Scaling policies. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html\">Service scheduler concepts</a> in the\n\t\t\t\t\t\t<i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t\t         </li>\n         </ul>\n\t\t       <p>You can optionally specify a deployment configuration for your service. The deployment\n\t\t\tis initiated by changing properties. For example, the deployment might be initiated by\n\t\t\tthe task definition or by your desired count of a service. This is done with an <a>UpdateService</a> operation. The default value for a replica service for\n\t\t\t\t<code>minimumHealthyPercent</code> is 100%. The default value for a daemon service\n\t\t\tfor <code>minimumHealthyPercent</code> is 0%.</p>\n\t\t       <p>If a service uses the <code>ECS</code> deployment controller, the minimum healthy\n\t\t\tpercent represents a lower limit on the number of tasks in a service that must remain in\n\t\t\tthe <code>RUNNING</code> state during a deployment. Specifically, it represents it as a\n\t\t\tpercentage of your desired number of tasks (rounded up to the nearest integer). This\n\t\t\thappens when any of your container instances are in the <code>DRAINING</code> state if\n\t\t\tthe service contains tasks using the EC2 launch type. Using this\n\t\t\tparameter, you can deploy without using additional cluster capacity. For example, if you\n\t\t\tset your service to have desired number of four tasks and a minimum healthy percent of\n\t\t\t50%, the scheduler might stop two existing tasks to free up cluster capacity before\n\t\t\tstarting two new tasks. If they're in the <code>RUNNING</code> state, tasks for services\n\t\t\tthat don't use a load balancer are considered healthy . If they're in the\n\t\t\t\t<code>RUNNING</code> state and reported as healthy by the load balancer, tasks for\n\t\t\tservices that <i>do</i> use a load balancer are considered healthy . The\n\t\t\tdefault value for minimum healthy percent is 100%.</p>\n\t\t       <p>If a service uses the <code>ECS</code> deployment controller, the <b>maximum percent</b> parameter represents an upper limit on the\n\t\t\tnumber of tasks in a service that are allowed in the <code>RUNNING</code> or\n\t\t\t\t<code>PENDING</code> state during a deployment. Specifically, it represents it as a\n\t\t\tpercentage of the desired number of tasks (rounded down to the nearest integer). This\n\t\t\thappens when any of your container instances are in the <code>DRAINING</code> state if\n\t\t\tthe service contains tasks using the EC2 launch type. Using this\n\t\t\tparameter, you can define the deployment batch size. For example, if your service has a\n\t\t\tdesired number of four tasks and a maximum percent value of 200%, the scheduler may\n\t\t\tstart four new tasks before stopping the four older tasks (provided that the cluster\n\t\t\tresources required to do this are available). The default value for maximum percent is\n\t\t\t200%.</p>\n\t\t       <p>If a service uses either the <code>CODE_DEPLOY</code> or <code>EXTERNAL</code>\n\t\t\tdeployment controller types and tasks that use the EC2 launch type, the\n\t\t\t\t<b>minimum healthy percent</b> and <b>maximum percent</b> values are used only to define the lower and upper limit\n\t\t\ton the number of the tasks in the service that remain in the <code>RUNNING</code> state.\n\t\t\tThis is while the container instances are in the <code>DRAINING</code> state. If the\n\t\t\ttasks in the service use the Fargate launch type, the minimum healthy\n\t\t\tpercent and maximum percent values aren't used. This is the case even if they're\n\t\t\tcurrently visible when describing your service.</p>\n\t\t       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you\n\t\t\tcan specify only parameters that aren't controlled at the task set level. The only\n\t\t\trequired parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <p>When the service scheduler launches new tasks, it determines task placement. For\n\t\t\tinformation about task placement and task placement strategies, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html\">Amazon ECS\n\t\t\t\ttask placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>"
       }
     },
     "com.amazonaws.ecs#CreateServiceRequest": {
@@ -6307,6 +6313,76 @@
         }
       }
     },
+    "com.amazonaws.ecs#GetTaskProtection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ecs#GetTaskProtectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ecs#GetTaskProtectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ecs#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ClientException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ClusterNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ecs#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecs#UnsupportedFeatureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the protection status of tasks in an Amazon ECS service.</p>"
+      }
+    },
+    "com.amazonaws.ecs#GetTaskProtectionRequest": {
+      "type": "structure",
+      "members": {
+        "cluster": {
+          "target": "com.amazonaws.ecs#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task\n\t\t\tsets exist in.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tasks": {
+          "target": "com.amazonaws.ecs#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of up to 100 task IDs or full ARN entries.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ecs#GetTaskProtectionResponse": {
+      "type": "structure",
+      "members": {
+        "protectedTasks": {
+          "target": "com.amazonaws.ecs#ProtectedTasks",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tasks with the following information.</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>taskArn</code>: The task ARN.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>protectionEnabled</code>: The protection status of the task. If scale-in\n\t\t\t\t\tprotection is enabled for a task, the value is <code>true</code>. Otherwise, it\n\t\t\t\t\tis <code>false</code>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>expirationDate</code>: The epoch time when protection for the task will\n\t\t\t\t\texpire.</p>\n\t\t\t         </li>\n         </ul>"
+          }
+        },
+        "failures": {
+          "target": "com.amazonaws.ecs#Failures",
+          "traits": {
+            "smithy.api#documentation": "<p>Any failures associated with the call.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.ecs#GpuIds": {
       "type": "list",
       "member": {
@@ -8207,6 +8283,39 @@
         }
       }
     },
+    "com.amazonaws.ecs#ProtectedTask": {
+      "type": "structure",
+      "members": {
+        "taskArn": {
+          "target": "com.amazonaws.ecs#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The task ARN.</p>"
+          }
+        },
+        "protectionEnabled": {
+          "target": "com.amazonaws.ecs#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>The protection status of the task. If scale-in protection is enabled for a task, the\n\t\t\tvalue is <code>true</code>. Otherwise, it is <code>false</code>.</p>"
+          }
+        },
+        "expirationDate": {
+          "target": "com.amazonaws.ecs#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The epoch time when protection for the task will expire.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An object representing the protection status details for a task. You can set the\n\t\t\tprotection status with the <a>UpdateTaskProtection</a> API and get the status\n\t\t\tof tasks with the <a>GetTaskProtection</a> API.</p>"
+      }
+    },
+    "com.amazonaws.ecs#ProtectedTasks": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.ecs#ProtectedTask"
+      }
+    },
     "com.amazonaws.ecs#ProxyConfiguration": {
       "type": "structure",
       "members": {
@@ -8303,7 +8412,7 @@
         "name": {
           "target": "com.amazonaws.ecs#SettingName",
           "traits": {
-            "smithy.api#documentation": "<p>The resource name for which to modify the account setting. If\n\t\t\t\t<code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is\n\t\t\taffected. If <code>taskLongArnFormat</code> is specified, the ARN and resource ID for\n\t\t\tyour Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code> is\n\t\t\tspecified, the ARN and resource ID for your Amazon ECS container instances is affected. If\n\t\t\t\t<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container\n\t\t\tinstances is affected. If <code>containerInsights</code> is specified, the default\n\t\t\tsetting for CloudWatch Container Insights for your clusters is affected.</p>\n\t\t       <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can set\n\t\t\tthe name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based quotas.\n\t\t\tFor information about the opt in timeline, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline\">Fargate vCPU-based quotas timeline</a> in the\n\t\t\t\t<i>Amazon ECS Developer Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The resource name for which to modify the account setting. If\n\t\t\t\t<code>serviceLongArnFormat</code> is specified, the ARN for your Amazon ECS services is\n\t\t\taffected. If <code>taskLongArnFormat</code> is specified, the ARN and resource ID for\n\t\t\tyour Amazon ECS tasks is affected. If <code>containerInstanceLongArnFormat</code> is\n\t\t\tspecified, the ARN and resource ID for your Amazon ECS container instances is affected. If\n\t\t\t\t<code>awsvpcTrunking</code> is specified, the ENI limit for your Amazon ECS container\n\t\t\tinstances is affected. If <code>containerInsights</code> is specified, the default\n\t\t\tsetting for CloudWatch Container Insights for your clusters is affected.</p>\n\t\t       <p>Fargate is transitioning from task count-based quotas to vCPU-based quotas. You can\n\t\t\tset the name to <code>fargateVCPULimit</code> to opt in or opt out of the vCPU-based\n\t\t\tquotas. For information about the opt in timeline, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-account-settings.html#fargate-quota-timeline\">Fargate vCPU-based quotas timeline</a> in the\n\t\t\t\t<i>Amazon ECS Developer Guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -8659,7 +8768,7 @@
         "cpu": {
           "target": "com.amazonaws.ecs#String",
           "traits": {
-            "smithy.api#documentation": "<p>The number of CPU units used by the task. It can be expressed as an integer using CPU\n\t\t\tunits (for example, <code>1024</code>) or as a string using vCPUs (for example, <code>1\n\t\t\t\tvCPU</code> or <code>1 vcpu</code>) in a task definition. String values are\n\t\t\tconverted to an integer indicating the CPU units when the task definition is\n\t\t\tregistered.</p>\n\t\t       <note>\n\t\t\t         <p>Task-level CPU and memory parameters are ignored for Windows containers. We\n\t\t\t\trecommend specifying container-level resources for Windows containers.</p>\n\t\t       </note>\n\t\t       <p>If you're using the EC2 launch type, this field is optional. Supported values\n\t\t\tare between <code>128</code> CPU units (<code>0.125</code> vCPUs) and <code>10240</code>\n\t\t\tCPU units (<code>10</code> vCPUs). If you do not specify a value, the parameter is\n\t\t\tignored.</p>\n\t\t       <p>If you're using the Fargate launch type, this field is required and you\n\t\t\tmust use one of the following values, which determines your range of supported values\n\t\t\tfor the <code>memory</code> parameter:</p>\n\t\t       <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on\n\t\t\tFargate.</p>\n\t\t       <ul>\n            <li>\n                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>\n            </li>\n            <li>\n                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>\n            </li>\n            <li>\n                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>\n            </li>\n            <li>\n                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>\n            </li>\n            <li>\n                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>\n            </li>\n            <li>\n                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>\n            \n                 <p>This option requires Linux platform <code>1.4.0</code> or\n                                        later.</p>\n            </li>\n            <li>\n                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>\n                 <p>This option requires Linux platform <code>1.4.0</code> or\n                                        later.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The number of CPU units used by the task. It can be expressed as an integer using CPU\n\t\t\tunits (for example, <code>1024</code>) or as a string using vCPUs (for example, <code>1\n\t\t\t\tvCPU</code> or <code>1 vcpu</code>) in a task definition. String values are\n\t\t\tconverted to an integer indicating the CPU units when the task definition is\n\t\t\tregistered.</p>\n\t\t       <note>\n\t\t\t         <p>Task-level CPU and memory parameters are ignored for Windows containers. We\n\t\t\t\trecommend specifying container-level resources for Windows containers.</p>\n\t\t       </note>\n\t\t       <p>If you're using the EC2 launch type, this field is optional. Supported\n\t\t\tvalues are between <code>128</code> CPU units (<code>0.125</code> vCPUs) and\n\t\t\t\t<code>10240</code> CPU units (<code>10</code> vCPUs). If you do not specify a value,\n\t\t\tthe parameter is ignored.</p>\n\t\t       <p>If you're using the Fargate launch type, this field is required and you\n\t\t\tmust use one of the following values, which determines your range of supported values\n\t\t\tfor the <code>memory</code> parameter:</p>\n\t\t       <p>The CPU units cannot be less than 1 vCPU when you use Windows containers on\n\t\t\tFargate.</p>\n\t\t       <ul>\n            <li>\n                <p>256 (.25 vCPU) - Available <code>memory</code> values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)</p>\n            </li>\n            <li>\n                <p>512 (.5 vCPU) - Available <code>memory</code> values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)</p>\n            </li>\n            <li>\n                <p>1024 (1 vCPU) - Available <code>memory</code> values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)</p>\n            </li>\n            <li>\n                <p>2048 (2 vCPU) - Available <code>memory</code> values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)</p>\n            </li>\n            <li>\n                <p>4096 (4 vCPU) - Available <code>memory</code> values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)</p>\n            </li>\n            <li>\n                <p>8192 (8 vCPU)  - Available <code>memory</code> values: 16 GB and 60 GB in 4 GB increments</p>\n            \n                 <p>This option requires Linux platform <code>1.4.0</code> or\n                                        later.</p>\n            </li>\n            <li>\n                <p>16384 (16vCPU)  - Available <code>memory</code> values: 32GB and 120 GB in 8 GB increments</p>\n                 <p>This option requires Linux platform <code>1.4.0</code> or\n                                        later.</p>\n            </li>\n         </ul>"
           }
         },
         "memory": {
@@ -11798,6 +11907,91 @@
           "target": "com.amazonaws.ecs#Service",
           "traits": {
             "smithy.api#documentation": "<p>The full description of your service following the update call.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ecs#UpdateTaskProtection": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.ecs#UpdateTaskProtectionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.ecs#UpdateTaskProtectionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.ecs#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ClientException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ClusterNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ecs#InvalidParameterException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.ecs#ServerException"
+        },
+        {
+          "target": "com.amazonaws.ecs#UnsupportedFeatureException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to\n\t\t\t\t<code>true</code> to protect your task from termination during scale-in events from\n\t\t\t\t<a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html\">Service\n\t\t\t\tAutoscaling</a> or <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html\">deployments</a>.</p>\n\t\t       <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets the\n\t\t\t\t<code>protectionEnabled</code> property making the task eligible for termination by\n\t\t\ta subsequent scale-in event.</p>\n\t\t       <p>You can specify a custom expiration period for task protection from 1 minute to up to\n\t\t\t2,880 minutes (48 hours). To specify the custom expiration period, set the\n\t\t\t\t<code>expiresInMinutes</code> property. The <code>expiresInMinutes</code> property\n\t\t\tis always reset when you invoke this operation for a task that already has\n\t\t\t\t<code>protectionEnabled</code> set to <code>true</code>. You can keep extending the\n\t\t\tprotection expiration period of a task by invoking this operation repeatedly.</p>\n\t\t       <p>To learn more about Amazon ECS task protection, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html\">Task scale-in\n\t\t\t\tprotection</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>\n\t\t       <note>\n\t\t\t         <p>This operation is only supported for tasks belonging to an Amazon ECS service. Invoking\n\t\t\t\tthis operation for a standalone task will result in an <code>TASK_NOT_VALID</code>\n\t\t\t\tfailure. For more information, see <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html\">API\n\t\t\t\t\tfailure reasons</a>.</p>\n\t\t       </note>\n\t\t       <important>\n\t\t\t         <p>If you prefer to set task protection from within the container, we recommend using\n\t\t\t\tthe <a href=\"https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html\">Amazon ECS container\n\t\t\t\t\tagent endpoint</a>.</p>\n\t\t       </important>"
+      }
+    },
+    "com.amazonaws.ecs#UpdateTaskProtectionRequest": {
+      "type": "structure",
+      "members": {
+        "cluster": {
+          "target": "com.amazonaws.ecs#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The short name or full Amazon Resource Name (ARN) of the cluster that hosts the service that the task\n\t\t\tsets exist in.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "tasks": {
+          "target": "com.amazonaws.ecs#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of up to 10 task IDs or full ARN entries.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "protectionEnabled": {
+          "target": "com.amazonaws.ecs#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Specify <code>true</code> to mark a task for protection and <code>false</code> to\n\t\t\tunset protection, making it eligible for termination.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "expiresInMinutes": {
+          "target": "com.amazonaws.ecs#BoxedInteger",
+          "traits": {
+            "smithy.api#documentation": "<p>If you set <code>protectionEnabled</code> to <code>true</code>, you can specify the\n\t\t\tduration for task protection in minutes. You can specify a value from 1 minute to up to\n\t\t\t2,880 minutes (48 hours). During this time, your task will not be terminated by scale-in\n\t\t\tevents from Service Auto Scaling or deployments. After this time period lapses,\n\t\t\t\t<code>protectionEnabled</code> will be reset to <code>false</code>.</p>\n\t\t       <p>If you don’t specify the time, then the task is automatically protected for 120\n\t\t\tminutes (2 hours).</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.ecs#UpdateTaskProtectionResponse": {
+      "type": "structure",
+      "members": {
+        "protectedTasks": {
+          "target": "com.amazonaws.ecs#ProtectedTasks",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of tasks with the following information.</p>\n\t\t       <ul>\n            <li>\n\t\t\t\t           <p>\n                  <code>taskArn</code>: The task ARN.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>protectionEnabled</code>: The protection status of the task. If scale-in\n\t\t\t\t\tprotection is enabled for a task, the value is <code>true</code>. Otherwise, it\n\t\t\t\t\tis <code>false</code>.</p>\n\t\t\t         </li>\n            <li>\n\t\t\t\t           <p>\n                  <code>expirationDate</code>: The epoch time when protection for the task will\n\t\t\t\t\texpire.</p>\n\t\t\t         </li>\n         </ul>"
+          }
+        },
+        "failures": {
+          "target": "com.amazonaws.ecs#Failures",
+          "traits": {
+            "smithy.api#documentation": "<p>Any failures associated with the call.</p>"
           }
         }
       }

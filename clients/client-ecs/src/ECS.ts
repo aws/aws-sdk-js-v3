@@ -107,6 +107,11 @@ import {
   ExecuteCommandCommandOutput,
 } from "./commands/ExecuteCommandCommand";
 import {
+  GetTaskProtectionCommand,
+  GetTaskProtectionCommandInput,
+  GetTaskProtectionCommandOutput,
+} from "./commands/GetTaskProtectionCommand";
+import {
   ListAccountSettingsCommand,
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -236,6 +241,11 @@ import {
   UpdateServicePrimaryTaskSetCommandInput,
   UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
+import {
+  UpdateTaskProtectionCommand,
+  UpdateTaskProtectionCommandInput,
+  UpdateTaskProtectionCommandOutput,
+} from "./commands/UpdateTaskProtectionCommand";
 import {
   UpdateTaskSetCommand,
   UpdateTaskSetCommandInput,
@@ -418,8 +428,9 @@ export class ECS extends ECSClient {
    * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
    * 			can specify only parameters that aren't controlled at the task set level. The only
    * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For information
-   * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For
+   * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
+   * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -1106,6 +1117,38 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: ExecuteCommandCommandOutput) => void
   ): Promise<ExecuteCommandCommandOutput> | void {
     const command = new ExecuteCommandCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves the protection status of tasks in an Amazon ECS service.</p>
+   */
+  public getTaskProtection(
+    args: GetTaskProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTaskProtectionCommandOutput>;
+  public getTaskProtection(
+    args: GetTaskProtectionCommandInput,
+    cb: (err: any, data?: GetTaskProtectionCommandOutput) => void
+  ): void;
+  public getTaskProtection(
+    args: GetTaskProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTaskProtectionCommandOutput) => void
+  ): void;
+  public getTaskProtection(
+    args: GetTaskProtectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetTaskProtectionCommandOutput) => void),
+    cb?: (err: any, data?: GetTaskProtectionCommandOutput) => void
+  ): Promise<GetTaskProtectionCommandOutput> | void {
+    const command = new GetTaskProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2362,6 +2405,63 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: UpdateServicePrimaryTaskSetCommandOutput) => void
   ): Promise<UpdateServicePrimaryTaskSetCommandOutput> | void {
     const command = new UpdateServicePrimaryTaskSetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the protection status of a task. You can set <code>protectionEnabled</code> to
+   * 				<code>true</code> to protect your task from termination during scale-in events from
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-auto-scaling.html">Service
+   * 				Autoscaling</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">deployments</a>.</p>
+   * 		       <p>Task-protection, by default, expires after 2 hours at which point Amazon ECS unsets the
+   * 				<code>protectionEnabled</code> property making the task eligible for termination by
+   * 			a subsequent scale-in event.</p>
+   * 		       <p>You can specify a custom expiration period for task protection from 1 minute to up to
+   * 			2,880 minutes (48 hours). To specify the custom expiration period, set the
+   * 				<code>expiresInMinutes</code> property. The <code>expiresInMinutes</code> property
+   * 			is always reset when you invoke this operation for a task that already has
+   * 				<code>protectionEnabled</code> set to <code>true</code>. You can keep extending the
+   * 			protection expiration period of a task by invoking this operation repeatedly.</p>
+   * 		       <p>To learn more about Amazon ECS task protection, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html">Task scale-in
+   * 				protection</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
+   * 				this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
+   * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html">API
+   * 					failure reasons</a>.</p>
+   * 		       </note>
+   * 		       <important>
+   * 			         <p>If you prefer to set task protection from within the container, we recommend using
+   * 				the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html">Amazon ECS container
+   * 					agent endpoint</a>.</p>
+   * 		       </important>
+   */
+  public updateTaskProtection(
+    args: UpdateTaskProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTaskProtectionCommandOutput>;
+  public updateTaskProtection(
+    args: UpdateTaskProtectionCommandInput,
+    cb: (err: any, data?: UpdateTaskProtectionCommandOutput) => void
+  ): void;
+  public updateTaskProtection(
+    args: UpdateTaskProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTaskProtectionCommandOutput) => void
+  ): void;
+  public updateTaskProtection(
+    args: UpdateTaskProtectionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateTaskProtectionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateTaskProtectionCommandOutput) => void
+  ): Promise<UpdateTaskProtectionCommandOutput> | void {
+    const command = new UpdateTaskProtectionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

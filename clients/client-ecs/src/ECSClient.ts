@@ -95,6 +95,7 @@ import {
   DiscoverPollEndpointCommandOutput,
 } from "./commands/DiscoverPollEndpointCommand";
 import { ExecuteCommandCommandInput, ExecuteCommandCommandOutput } from "./commands/ExecuteCommandCommand";
+import { GetTaskProtectionCommandInput, GetTaskProtectionCommandOutput } from "./commands/GetTaskProtectionCommand";
 import {
   ListAccountSettingsCommandInput,
   ListAccountSettingsCommandOutput,
@@ -176,6 +177,10 @@ import {
   UpdateServicePrimaryTaskSetCommandInput,
   UpdateServicePrimaryTaskSetCommandOutput,
 } from "./commands/UpdateServicePrimaryTaskSetCommand";
+import {
+  UpdateTaskProtectionCommandInput,
+  UpdateTaskProtectionCommandOutput,
+} from "./commands/UpdateTaskProtectionCommand";
 import { UpdateTaskSetCommandInput, UpdateTaskSetCommandOutput } from "./commands/UpdateTaskSetCommand";
 import {
   ClientInputEndpointParameters,
@@ -207,6 +212,7 @@ export type ServiceInputTypes =
   | DescribeTasksCommandInput
   | DiscoverPollEndpointCommandInput
   | ExecuteCommandCommandInput
+  | GetTaskProtectionCommandInput
   | ListAccountSettingsCommandInput
   | ListAttributesCommandInput
   | ListClustersCommandInput
@@ -237,6 +243,7 @@ export type ServiceInputTypes =
   | UpdateContainerInstancesStateCommandInput
   | UpdateServiceCommandInput
   | UpdateServicePrimaryTaskSetCommandInput
+  | UpdateTaskProtectionCommandInput
   | UpdateTaskSetCommandInput;
 
 export type ServiceOutputTypes =
@@ -261,6 +268,7 @@ export type ServiceOutputTypes =
   | DescribeTasksCommandOutput
   | DiscoverPollEndpointCommandOutput
   | ExecuteCommandCommandOutput
+  | GetTaskProtectionCommandOutput
   | ListAccountSettingsCommandOutput
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
@@ -291,6 +299,7 @@ export type ServiceOutputTypes =
   | UpdateContainerInstancesStateCommandOutput
   | UpdateServiceCommandOutput
   | UpdateServicePrimaryTaskSetCommandOutput
+  | UpdateTaskProtectionCommandOutput
   | UpdateTaskSetCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
