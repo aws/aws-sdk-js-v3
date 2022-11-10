@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* **types:** add client config interface test with s3 example ([#4156](https://github.com/aws/aws-sdk-js-v3/issues/4156)) ([7811cd9](https://github.com/aws/aws-sdk-js-v3/commit/7811cd959b611e13466c7c1f0469947ef32a3695))
+
+
+
+
+
 # [3.201.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.200.0...v3.201.0) (2022-11-01)
 
 

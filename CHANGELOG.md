@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
+
+
+### Bug Fixes
+
+* **aws-client-api-test:** rename package ([#4165](https://github.com/aws/aws-sdk-js-v3/issues/4165)) ([2e13b67](https://github.com/aws/aws-sdk-js-v3/commit/2e13b67d85d12da2b1b12b1b83c3b80144336e22))
+* **types:** add client config interface test with s3 example ([#4156](https://github.com/aws/aws-sdk-js-v3/issues/4156)) ([7811cd9](https://github.com/aws/aws-sdk-js-v3/commit/7811cd959b611e13466c7c1f0469947ef32a3695))
+
+
+### Features
+
+* **client-ec2:** This release adds a new price capacity optimized allocation strategy for Spot Instances to help customers optimize provisioning of Spot Instances via EC2 Auto Scaling, EC2 Fleet, and Spot Fleet. It allocates Spot Instances based on both spare capacity availability and Spot Instance price. ([6f4d604](https://github.com/aws/aws-sdk-js-v3/commit/6f4d6046af15788874f42229fae1a5103d2c80b5))
+* **client-ecs:** This release adds support for task scale-in protection with updateTaskProtection and getTaskProtection APIs. UpdateTaskProtection API can be used to protect a service managed task from being terminated by scale-in events and getTaskProtection API to get the scale-in protection status of a task. ([a5eede0](https://github.com/aws/aws-sdk-js-v3/commit/a5eede0dabd563d06e90f2b987d52e003f6d48cf))
+* **client-elasticsearch-service:** Amazon OpenSearch Service now offers managed VPC endpoints to connect to your Amazon OpenSearch Service VPC-enabled domain in a Virtual Private Cloud (VPC). This feature allows you to privately access OpenSearch Service domain without using public IPs or requiring traffic to traverse the Internet. ([f36b021](https://github.com/aws/aws-sdk-js-v3/commit/f36b021c20d31bb774c8e93f3c889217f32be2c4))
+* **client-scheduler:** AWS introduces the new Amazon EventBridge Scheduler. EventBridge Scheduler is a serverless scheduler that allows you to create, run, and manage tasks from one central, managed service. ([8829f71](https://github.com/aws/aws-sdk-js-v3/commit/8829f710d9a18a87c748849e2d5afbb0057bb239))
+* **clients:** update client endpoints as of 2022-11-10 ([c01499d](https://github.com/aws/aws-sdk-js-v3/commit/c01499da278f3090fe20abb242494ddc712ab3d2))
+* **private:** add server artifacts ([#4159](https://github.com/aws/aws-sdk-js-v3/issues/4159)) ([e70f472](https://github.com/aws/aws-sdk-js-v3/commit/e70f47253fb6f6977438719ccaf8305b1e3e54e6))
+
+
+
+
+
 # [3.207.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.206.0...v3.207.0) (2022-11-09)
 
 
