@@ -2473,6 +2473,7 @@ export enum AllocationStrategy {
   CAPACITY_OPTIMIZED_PRIORITIZED = "capacityOptimizedPrioritized",
   DIVERSIFIED = "diversified",
   LOWEST_PRICE = "lowestPrice",
+  PRICE_CAPACITY_OPTIMIZED = "priceCapacityOptimized",
 }
 
 export enum AllocationType {
