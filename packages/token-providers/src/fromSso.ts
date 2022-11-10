@@ -71,7 +71,7 @@ export const fromSso =
       ssoToken = await getSSOTokenFromFile(ssoSessionName);
     } catch (e) {
       throw new TokenProviderError(
-        `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}\n${e}`,
+        `The SSO session token associated with profile=${profileName} was not found or is invalid. ${REFRESH_MESSAGE}`,
         false
       );
     }

@@ -123,7 +123,8 @@ describe(fromSso.name, () => {
     const mockError = new Error("mockError");
     (getSSOTokenFromFile as jest.Mock).mockRejectedValue(mockError);
     const expectedError = new TokenProviderError(
-      `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}\n${mockError}`,
+      `The SSO session token associated with profile=mockProfileName was not found or is invalid. ` +
+        `${REFRESH_MESSAGE}`,
       false
     );
     await expect(fromSso(mockInit)()).rejects.toStrictEqual(expectedError);
