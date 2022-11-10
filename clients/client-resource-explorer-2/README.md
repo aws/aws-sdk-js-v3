@@ -28,24 +28,8 @@ aggregator index. Therefore, the Region with the aggregator index has a copy of 
 information for all Regions in the account where you turned on Resource Explorer. As a result,
 views in the aggregator index Region include resources from all of the indexed Regions in your
 account.</p>
-
 <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the
 service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/">Amazon Web Services Resource Explorer User Guide</a>.</p>
-<note>
-<p>The example HTTP query requests and responses in this guide are displayed with the
-<a href="https://json.org">JSON</a> formatted across multiple lines for
-readability. The actual query responses from the Resource Explorer service do not include this
-extra whitespace.</p>
-</note>
-<p>
-<b>We want your feedback about this documentation</b>
-</p>
-<p>Our goal is to help you get everything you can from Resource Explorer. If this guide helps you to
-do that, then let us know. If the guide isn't helping you, then we want to hear from you
-so we can address the issue. Use the <b>Feedback</b> link
-that's in the upper-right corner of every page. That sends your comments directly to the
-writers of this guide. We review every submission, looking for opportunities to improve
-the documentation. Thank you in advance for your help!</p>
 
 ## Installing
 

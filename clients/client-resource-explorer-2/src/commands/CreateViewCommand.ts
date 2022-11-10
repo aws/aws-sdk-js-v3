@@ -37,7 +37,7 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  *             Results from queries that you make using this view include only resources that match the
  *             view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/arexug/mainline/manage-views.html">Managing views</a>
  *             in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
- *         <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code>
+ *          <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code>
  *             to the <code>Search</code> action on a <code>Resource</code> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of
  *             this view can <a>Search</a> using views you create with this
  *             operation.</p>

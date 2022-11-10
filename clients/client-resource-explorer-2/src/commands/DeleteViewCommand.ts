@@ -34,7 +34,7 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
 
 /**
  * <p>Deletes the specified view.</p>
- *         <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
+ *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
  *             until you configure a new default by calling the <a>AssociateDefaultView</a>
  *             operation.</p>
  * @example

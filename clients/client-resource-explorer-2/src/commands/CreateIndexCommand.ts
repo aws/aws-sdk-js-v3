@@ -36,51 +36,48 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
  *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
  *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
- *         <note>
+ *          <note>
  *             <p>This operation creates only a <i>local</i> index. To promote the
  *                 local index in one Amazon Web Services Region into the aggregator index for the Amazon Web Services account, use the
  *                     <a>UpdateIndexType</a> operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search by creating an aggregator index</a> in the
  *                     <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
- *         </note>
- *         <p>For more details about what happens when you turn on Resource Explorer in an Amazon Web Services Region, see
+ *          </note>
+ *          <p>For more details about what happens when you turn on Resource Explorer in an Amazon Web Services Region, see
  *                 <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-activate.html">Turn
  *                 on Resource Explorer to index your resources in an Amazon Web Services Region</a> in the
  *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
- *         <p>If this is the first Amazon Web Services Region in which you've created an index for Resource Explorer, then
+ *          <p>If this is the first Amazon Web Services Region in which you've created an index for Resource Explorer, then
  *             this operation also <a href="https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html">creates a
  *                 service-linked role</a> in your Amazon Web Services account that allows Resource Explorer to enumerate
  *             your resources to populate the index.</p>
- *
- *
- *
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Action</b>:
  *                         <code>resource-explorer-2:CreateIndex</code>
  *                </p>
- *                 <p>
+ *                <p>
  *                   <b>Resource</b>: The ARN of the index (as it will
  *                     exist after the operation completes) in the Amazon Web Services Region and account in which
  *                     you're trying to create the index. Use the wildcard character (<code>*</code>)
  *                     at the end of the string to match the eventual UUID. For example, the following
  *                         <code>Resource</code> element restricts the role or user to creating an
  *                     index in only the <code>us-east-2</code> Region of the specified account.</p>
- *                 <p>
+ *                <p>
  *                   <code>"Resource":
- *                             "arn:aws:resource-explorer-2:us-east-2:<i>&lt;account-id&gt;</i>:index/*"</code>
+ *                             "arn:aws:resource-explorer-2:us-west-2:<i>&lt;account-id&gt;</i>:index/*"</code>
  *                </p>
- *                 <p>Alternatively, you can use <code>"Resource": "*"</code> to allow the role or
+ *                <p>Alternatively, you can use <code>"Resource": "*"</code> to allow the role or
  *                     user to create an index in any Region.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Action</b>:
  *                         <code>iam:CreateServiceLinkedRole</code>
  *                </p>
- *                 <p>
+ *                <p>
  *                   <b>Resource</b>: No specific resource (*). </p>
- *                 <p>This permission is required only the first time you create an index to turn on
+ *                <p>This permission is required only the first time you create an index to turn on
  *                     Resource Explorer in the account. Resource Explorer uses this to create the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">service-linked
  *                         role needed to index the resources in your account</a>. Resource Explorer uses the
  *                     same service-linked role for all additional indexes you create

@@ -37,7 +37,7 @@ export interface AssociateDefaultViewCommandOutput extends AssociateDefaultViewO
  *             operation. When a user performs a <a>Search</a> that doesn't explicitly
  *             specify which view to use, then Amazon Web Services Resource Explorer automatically chooses this default view for
  *             searches performed in this Amazon Web Services Region.</p>
- *         <p>If an Amazon Web Services Region doesn't have a default view
+ *          <p>If an Amazon Web Services Region doesn't have a default view
  *     configured, then users must explicitly specify a view with every <code>Search</code>
  *     operation performed in that Region.</p>
  * @example

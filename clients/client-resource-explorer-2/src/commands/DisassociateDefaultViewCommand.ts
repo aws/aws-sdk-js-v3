@@ -30,7 +30,7 @@ export interface DisassociateDefaultViewCommandOutput extends __MetadataBearer {
  * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
  *             All <a>Search</a> operations in that Region must explicitly specify a view or
  *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
- *         <p>If an Amazon Web Services Region doesn't have a default view
+ *          <p>If an Amazon Web Services Region doesn't have a default view
  *     configured, then users must explicitly specify a view with every <code>Search</code>
  *     operation performed in that Region.</p>
  * @example

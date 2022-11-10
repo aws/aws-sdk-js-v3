@@ -61,11 +61,11 @@ import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
  *             tables. You can search for your resources using resource metadata like names, tags, and
  *             IDs. Resource Explorer can search across all of the Amazon Web Services Regions in your account in which you turn
  *             the service on, to simplify your cross-Region workloads.</p>
- *         <p>Resource Explorer scans the resources in each of the Amazon Web Services Regions in your Amazon Web Services account in which
+ *          <p>Resource Explorer scans the resources in each of the Amazon Web Services Regions in your Amazon Web Services account in which
  *             you turn on Resource Explorer. Resource Explorer <a href="https://docs.aws.amazon.com/arexug/mainline/getting-started-terms-and-concepts.html#term-index">creates and
  *                 maintains an index</a> in each Region, with the details of that Region's
  *             resources.</p>
- *         <p>You can <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">search across all of the indexed
+ *          <p>You can <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">search across all of the indexed
  *                 Regions in your account</a> by designating one of your Amazon Web Services Regions to contain
  *             the aggregator index for the account. When you <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region-turn-on.html">promote a local index in
  *                 a Region to become the aggregator index for the account</a>, Resource Explorer automatically
@@ -74,24 +74,8 @@ import { ResourceExplorer2Client } from "./ResourceExplorer2Client";
  *             information for all Regions in the account where you turned on Resource Explorer. As a result,
  *             views in the aggregator index Region include resources from all of the indexed Regions in your
  *             account.</p>
- *
- *         <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the
+ *          <p>For more information about Amazon Web Services Resource Explorer, including how to enable and configure the
  *             service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/">Amazon Web Services Resource Explorer User Guide</a>.</p>
- *         <note>
- *             <p>The example HTTP query requests and responses in this guide are displayed with the
- *                     <a href="https://json.org">JSON</a> formatted across multiple lines for
- *                 readability. The actual query responses from the Resource Explorer service do not include this
- *                 extra whitespace.</p>
- *         </note>
- *         <p>
- *             <b>We want your feedback about this documentation</b>
- *          </p>
- *         <p>Our goal is to help you get everything you can from Resource Explorer. If this guide helps you to
- *             do that, then let us know. If the guide isn't helping you, then we want to hear from you
- *             so we can address the issue. Use the <b>Feedback</b> link
- *             that's in the upper-right corner of every page. That sends your comments directly to the
- *             writers of this guide. We review every submission, looking for opportunities to improve
- *             the documentation. Thank you in advance for your help!</p>
  */
 export class ResourceExplorer2 extends ResourceExplorer2Client {
   /**
@@ -99,7 +83,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    *             operation. When a user performs a <a>Search</a> that doesn't explicitly
    *             specify which view to use, then Amazon Web Services Resource Explorer automatically chooses this default view for
    *             searches performed in this Amazon Web Services Region.</p>
-   *         <p>If an Amazon Web Services Region doesn't have a default view
+   *          <p>If an Amazon Web Services Region doesn't have a default view
    *     configured, then users must explicitly specify a view with every <code>Search</code>
    *     operation performed in that Region.</p>
    */
@@ -165,51 +149,48 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    * <p>Turns on Amazon Web Services Resource Explorer in the Amazon Web Services Region in which you called this operation by creating
    *             an index. Resource Explorer begins discovering the resources in this Region and stores the details
    *             about the resources in the index so that they can be queried by using the <a>Search</a> operation. You can create only one index in a Region.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation creates only a <i>local</i> index. To promote the
    *                 local index in one Amazon Web Services Region into the aggregator index for the Amazon Web Services account, use the
    *                     <a>UpdateIndexType</a> operation. For more information, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on cross-Region search by creating an aggregator index</a> in the
    *                     <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         </note>
-   *         <p>For more details about what happens when you turn on Resource Explorer in an Amazon Web Services Region, see
+   *          </note>
+   *          <p>For more details about what happens when you turn on Resource Explorer in an Amazon Web Services Region, see
    *                 <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-service-activate.html">Turn
    *                 on Resource Explorer to index your resources in an Amazon Web Services Region</a> in the
    *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         <p>If this is the first Amazon Web Services Region in which you've created an index for Resource Explorer, then
+   *          <p>If this is the first Amazon Web Services Region in which you've created an index for Resource Explorer, then
    *             this operation also <a href="https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html">creates a
    *                 service-linked role</a> in your Amazon Web Services account that allows Resource Explorer to enumerate
    *             your resources to populate the index.</p>
-   *
-   *
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Action</b>:
    *                         <code>resource-explorer-2:CreateIndex</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <b>Resource</b>: The ARN of the index (as it will
    *                     exist after the operation completes) in the Amazon Web Services Region and account in which
    *                     you're trying to create the index. Use the wildcard character (<code>*</code>)
    *                     at the end of the string to match the eventual UUID. For example, the following
    *                         <code>Resource</code> element restricts the role or user to creating an
    *                     index in only the <code>us-east-2</code> Region of the specified account.</p>
-   *                 <p>
+   *                <p>
    *                   <code>"Resource":
-   *                             "arn:aws:resource-explorer-2:us-east-2:<i>&lt;account-id&gt;</i>:index/*"</code>
+   *                             "arn:aws:resource-explorer-2:us-west-2:<i>&lt;account-id&gt;</i>:index/*"</code>
    *                </p>
-   *                 <p>Alternatively, you can use <code>"Resource": "*"</code> to allow the role or
+   *                <p>Alternatively, you can use <code>"Resource": "*"</code> to allow the role or
    *                     user to create an index in any Region.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>Action</b>:
    *                         <code>iam:CreateServiceLinkedRole</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <b>Resource</b>: No specific resource (*). </p>
-   *                 <p>This permission is required only the first time you create an index to turn on
+   *                <p>This permission is required only the first time you create an index to turn on
    *                     Resource Explorer in the account. Resource Explorer uses this to create the <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">service-linked
    *                         role needed to index the resources in your account</a>. Resource Explorer uses the
    *                     same service-linked role for all additional indexes you create
@@ -245,7 +226,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    *             Results from queries that you make using this view include only resources that match the
    *             view's <code>Filters</code>. For more information about Amazon Web Services Resource Explorer views, see <a href="https://docs.aws.amazon.com/arexug/mainline/manage-views.html">Managing views</a>
    *             in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code>
+   *          <p>Only the principals with an IAM identity-based policy that grants <code>Allow</code>
    *             to the <code>Search</code> action on a <code>Resource</code> with the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of
    *             this view can <a>Search</a> using views you create with this
    *             operation.</p>
@@ -306,7 +287,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
 
   /**
    * <p>Deletes the specified view.</p>
-   *         <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
+   *          <p>If the specified view is the default view for its Amazon Web Services Region, then all <a>Search</a> operations in that Region must explicitly specify the view to use
    *             until you configure a new default by calling the <a>AssociateDefaultView</a>
    *             operation.</p>
    */
@@ -337,7 +318,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    * <p>After you call this operation, the affected Amazon Web Services Region no longer has a default view.
    *             All <a>Search</a> operations in that Region must explicitly specify a view or
    *             the operation fails. You can configure a new default by calling the <a>AssociateDefaultView</a> operation.</p>
-   *         <p>If an Amazon Web Services Region doesn't have a default view
+   *          <p>If an Amazon Web Services Region doesn't have a default view
    *     configured, then users must explicitly specify a view with every <code>Search</code>
    *     operation performed in that Region.</p>
    */
@@ -550,7 +531,7 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   /**
    * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
    *             call this operation.</p>
-   *         <note>
+   *          <note>
    *             <p>Always check the <code>NextToken</code> response parameter
    * for a <code>null</code> value when calling a paginated operation. These operations can
    * occasionally return an empty set of results even when there are more results available. The
@@ -585,15 +566,15 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
   /**
    * <p>Searches for resources and displays details about all resources that match the
    *             specified criteria. You must specify a query string.</p>
-   *         <p>All search queries must use a view. If you don't explicitly specify a view, then
+   *          <p>All search queries must use a view. If you don't explicitly specify a view, then
    *             Amazon Web Services Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation.
    *             The results are the logical intersection of the results that match both the
    *                 <code>QueryString</code> parameter supplied to this operation and the
    *                 <code>SearchFilter</code> parameter attached to the view.</p>
-   *         <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
+   *          <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
    *                 <a href="https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html">Search
    *                 query syntax reference for Resource Explorer</a>.</p>
-   *         <p>If your search results are empty, or are missing results that you think should be
+   *          <p>If your search results are empty, or are missing results that you think should be
    *             there, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/troubleshooting_search.html">Troubleshooting Resource Explorer
    *                 search</a>.</p>
    */
@@ -683,16 +664,16 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">Turning on
    *                 cross-Region search by creating an aggregator index</a> in the
    *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>AGGREGATOR</code> index type</b>
    *                </p>
-   *                 <p>The index contains information about resources from all Amazon Web Services Regions in the
+   *                <p>The index contains information about resources from all Amazon Web Services Regions in the
    *                     Amazon Web Services account in which you've created a Resource Explorer index. Resource information from
    *                     all other Regions is replicated to this Region's index.</p>
-   *                 <p>When you change the index type to <code>AGGREGATOR</code>, Resource Explorer turns on
+   *                <p>When you change the index type to <code>AGGREGATOR</code>, Resource Explorer turns on
    *                     replication of all discovered resource information from the other Amazon Web Services Regions
    *                     in your account to this index. You can then, from this Region only, perform
    *                     resource search queries that span all Amazon Web Services Regions in the Amazon Web Services account.
@@ -703,21 +684,21 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    *                         <code>UPDATING</code> to <code>ACTIVE</code>. After that, you can start to
    *                     see results from other Amazon Web Services Regions in query results. However, it can take
    *                     several hours for replication from all other Regions to complete.</p>
-   *                 <important>
-   *                     <p>You can have only one aggregator index per Amazon Web Services account. Before you can
+   *                <important>
+   *                   <p>You can have only one aggregator index per Amazon Web Services account. Before you can
    *                         promote a different index to be the aggregator index for the account, you must
    *                         first demote the existing aggregator index to type <code>LOCAL</code>.</p>
-   *                 </important>
+   *                </important>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>
    *                      <code>LOCAL</code> index type</b>
    *                </p>
-   *                 <p>The index contains information about resources in only the Amazon Web Services Region in
+   *                <p>The index contains information about resources in only the Amazon Web Services Region in
    *                     which the index exists. If an aggregator index in another Region exists, then
    *                     information in this local index is replicated to the aggregator index.</p>
-   *                 <p>When you change the index type to <code>LOCAL</code>, Resource Explorer turns off the
+   *                <p>When you change the index type to <code>LOCAL</code>, Resource Explorer turns off the
    *                     replication of resource information from all other Amazon Web Services Regions in the
    *                     Amazon Web Services account to this Region. The aggregator index remains in the
    *                         <code>UPDATING</code> state until all replication with other Regions
@@ -729,11 +710,11 @@ export class ResourceExplorer2 extends ResourceExplorer2Client {
    *                     index is deleted within 30 days by another background task. Until that
    *                     asynchronous task completes, some results from other Regions can continue to
    *                     appear in search results.</p>
-   *                 <important>
-   *                     <p>After you demote an aggregator index to a local index, you must wait
+   *                <important>
+   *                   <p>After you demote an aggregator index to a local index, you must wait
    *                         24 hours before you can promote another index to be the new
    *                         aggregator index for the account.</p>
-   *                 </important>
+   *                </important>
    *             </li>
    *          </ul>
    */

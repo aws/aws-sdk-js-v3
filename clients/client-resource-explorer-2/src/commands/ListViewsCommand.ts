@@ -35,7 +35,7 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
 /**
  * <p>Lists the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource names (ARNs)</a> of the views available in the Amazon Web Services Region in which you
  *             call this operation.</p>
- *         <note>
+ *          <note>
  *             <p>Always check the <code>NextToken</code> response parameter
  * for a <code>null</code> value when calling a paginated operation. These operations can
  * occasionally return an empty set of results even when there are more results available. The

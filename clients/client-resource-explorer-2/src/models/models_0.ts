@@ -197,10 +197,10 @@ export interface SearchFilter {
 export interface IncludedProperty {
   /**
    * <p>The name of the property that is included in this view.</p>
-   *         <p>You can specify the following property names for this field:</p>
-   *         <ul>
+   *          <p>You can specify the following property names for this field:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Tags</code>
    *                </p>
    *             </li>
@@ -362,11 +362,11 @@ export interface CreateIndexOutput {
   /**
    * <p>Indicates the current state of the index. You can check for changes to the state for
    *             asynchronous operations by calling the <a>GetIndex</a> operation.</p>
-   *         <note>
+   *          <note>
    *             <p>The state can remain in the <code>CREATING</code> or <code>UPDATING</code> state
    *                 for several hours as Resource Explorer discovers the information about your resources and
    *                 populates the index.</p>
-   *         </note>
+   *          </note>
    */
   State?: IndexState | string;
 
@@ -387,9 +387,9 @@ export interface DeleteIndexOutput {
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon resource name (ARN)</a> of the index that you successfully started the deletion
    *             process.</p>
-   *         <note>
+   *          <note>
    *             <p>This operation is asynchronous. To check its status, call the <a>GetIndex</a> operation.</p>
-   *         </note>
+   *          </note>
    */
   Arn?: string;
 
@@ -419,7 +419,7 @@ export interface ListIndexesInput {
   /**
    * <p>If specified, limits the output to only indexes of the specified Type, either
    *                 <code>LOCAL</code> or <code>AGGREGATOR</code>.</p>
-   *         <p>Use this option to discover the aggregator index for your account.</p>
+   *          <p>Use this option to discover the aggregator index for your account.</p>
    */
   Type?: IndexType | string;
 
@@ -458,7 +458,7 @@ export interface ListIndexesInput {
  * <p>An index is the data store used by Amazon Web Services Resource Explorer to hold information about your Amazon Web Services
  *             resources that the service discovers. Creating an index in an Amazon Web Services Region turns on
  *             Resource Explorer and lets it discover your resources.</p>
- *         <p>By default, an index is <i>local</i>, meaning that it contains
+ *          <p>By default, an index is <i>local</i>, meaning that it contains
  *             information about resources in only the same Region as the index. However, you can
  *             promote the index of one Region in the account by calling <a>UpdateIndexType</a> to convert it into an aggregator index. The aggregator index
  *             receives a replicated copy of the index information from all other Regions where Resource Explorer
@@ -479,14 +479,14 @@ export interface Index {
   /**
    * <p>The type of index. It can be one of the following
    *             values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>LOCAL</b> – The index contains information
    *                     about resources from only the same Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <b>AGGREGATOR</b> – Resource Explorer replicates copies
    *                     of the indexed information about resources in all other Amazon Web Services Regions to the
    *                     aggregator index. This lets search results in the Region with the aggregator index to
@@ -592,7 +592,7 @@ export interface CreateViewInput {
 
   /**
    * <p>The name of the new view. This name appears in the list of views in Resource Explorer.</p>
-   *         <p>The name must be no more than 64 characters long, and can include letters, digits, and
+   *          <p>The name must be no more than 64 characters long, and can include letters, digits, and
    *             the dash (-) character. The name must be unique within its Amazon Web Services Region.</p>
    */
   ViewName: string | undefined;
@@ -609,16 +609,16 @@ export interface CreateViewInput {
    *             queries made using this view. When you use this view in a <a>Search</a>
    *             operation, the filter string is combined with the search's <code>QueryString</code>
    *             parameter using a logical <code>AND</code> operator.</p>
-   *         <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for
+   *          <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for
    *                 Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         <important>
+   *          <important>
    *             <p>This query string in the context of this operation supports only <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters">filter
    *                     prefixes</a> with optional <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators">operators</a>. It doesn't support free-form text. For example, the
    *                     string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2
    *                     resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is
    *                     <i>not</i> tagged with a key <code>Stage</code> that has the value
    *                     <code>prod</code>.</p>
-   *         </important>
+   *          </important>
    */
   Filters?: SearchFilter;
 
@@ -728,16 +728,16 @@ export interface UpdateViewInput {
    *             queries made using this view. When you use this view in a <a>Search</a>
    *             operation, the filter string is combined with the search's <code>QueryString</code>
    *             parameter using a logical <code>AND</code> operator.</p>
-   *         <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for
+   *          <p>For information about the supported syntax, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query reference for
    *                 Resource Explorer</a> in the <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
-   *         <important>
+   *          <important>
    *             <p>This query string in the context of this operation supports only <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-filters">filter
    *                     prefixes</a> with optional <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html#query-syntax-operators">operators</a>. It doesn't support free-form text. For example, the
    *                     string <code>region:us* service:ec2 -tag:stage=prod</code> includes all Amazon EC2
    *                     resources in any Amazon Web Services Region that begins with the letters <code>us</code> and is
    *                     <i>not</i> tagged with a key <code>Stage</code> that has the value
    *                     <code>prod</code>.</p>
-   *         </important>
+   *          </important>
    */
   Filters?: SearchFilter;
 }
@@ -948,7 +948,7 @@ export interface Resource {
  * <p>Information about the number of results that match the query. At this time, Amazon Web Services Resource Explorer
  *             doesn't count more than 1,000 matches for any query. This structure
  *             provides information about whether the query exceeded this limit.</p>
- *         <p>This field is included in every page when you paginate the results.</p>
+ *          <p>This field is included in every page when you paginate the results.</p>
  */
 export interface ResourceCount {
   /**
@@ -963,13 +963,13 @@ export interface ResourceCount {
   /**
    * <p>Indicates whether the <code>TotalResources</code> value represents an exhaustive count
    *             of search results.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If <code>True</code>, it indicates that the search was exhaustive. Every
+   *                <p>If <code>True</code>, it indicates that the search was exhaustive. Every
    *                     resource that matches the query was counted.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>False</code>, then the search reached the limit of
+   *                <p>If <code>False</code>, then the search reached the limit of
    *                     1,000 matching results, and stopped counting.</p>
    *             </li>
    *          </ul>
@@ -981,15 +981,15 @@ export interface SearchInput {
   /**
    * <p>A string that includes keywords and filters that specify the resources that you want
    *             to include in the results.</p>
-   *         <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
+   *          <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
    *                 <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html">Search query syntax reference for Resource Explorer</a>.</p>
-   *         <p>The search is completely case insensitive. You can specify an empty string to return
+   *          <p>The search is completely case insensitive. You can specify an empty string to return
    *             all results up to the limit of 1,000 total results.</p>
-   *         <note>
+   *          <note>
    *             <p>The operation can return only the first 1,000 results. If the
    *                 resource you want is not included, then use a different value for
    *                     <code>QueryString</code> to refine the results.</p>
-   *         </note>
+   *          </note>
    */
   QueryString: string | undefined;
 

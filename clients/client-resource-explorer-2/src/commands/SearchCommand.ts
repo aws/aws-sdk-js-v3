@@ -32,15 +32,15 @@ export interface SearchCommandOutput extends SearchOutput, __MetadataBearer {}
 /**
  * <p>Searches for resources and displays details about all resources that match the
  *             specified criteria. You must specify a query string.</p>
- *         <p>All search queries must use a view. If you don't explicitly specify a view, then
+ *          <p>All search queries must use a view. If you don't explicitly specify a view, then
  *             Amazon Web Services Resource Explorer uses the default view for the Amazon Web Services Region in which you call this operation.
  *             The results are the logical intersection of the results that match both the
  *                 <code>QueryString</code> parameter supplied to this operation and the
  *                 <code>SearchFilter</code> parameter attached to the view.</p>
- *         <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
+ *          <p>For the complete syntax supported by the <code>QueryString</code> parameter, see
  *                 <a href="https://docs.aws.amazon.com/resource-explorer/latest/APIReference/about-query-syntax.html">Search
  *                 query syntax reference for Resource Explorer</a>.</p>
- *         <p>If your search results are empty, or are missing results that you think should be
+ *          <p>If your search results are empty, or are missing results that you think should be
  *             there, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/troubleshooting_search.html">Troubleshooting Resource Explorer
  *                 search</a>.</p>
  * @example

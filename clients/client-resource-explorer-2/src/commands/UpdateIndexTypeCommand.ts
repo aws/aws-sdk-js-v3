@@ -37,16 +37,16 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">Turning on
  *                 cross-Region search by creating an aggregator index</a> in the
  *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>
  *                      <code>AGGREGATOR</code> index type</b>
  *                </p>
- *                 <p>The index contains information about resources from all Amazon Web Services Regions in the
+ *                <p>The index contains information about resources from all Amazon Web Services Regions in the
  *                     Amazon Web Services account in which you've created a Resource Explorer index. Resource information from
  *                     all other Regions is replicated to this Region's index.</p>
- *                 <p>When you change the index type to <code>AGGREGATOR</code>, Resource Explorer turns on
+ *                <p>When you change the index type to <code>AGGREGATOR</code>, Resource Explorer turns on
  *                     replication of all discovered resource information from the other Amazon Web Services Regions
  *                     in your account to this index. You can then, from this Region only, perform
  *                     resource search queries that span all Amazon Web Services Regions in the Amazon Web Services account.
@@ -57,21 +57,21 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *                         <code>UPDATING</code> to <code>ACTIVE</code>. After that, you can start to
  *                     see results from other Amazon Web Services Regions in query results. However, it can take
  *                     several hours for replication from all other Regions to complete.</p>
- *                 <important>
- *                     <p>You can have only one aggregator index per Amazon Web Services account. Before you can
+ *                <important>
+ *                   <p>You can have only one aggregator index per Amazon Web Services account. Before you can
  *                         promote a different index to be the aggregator index for the account, you must
  *                         first demote the existing aggregator index to type <code>LOCAL</code>.</p>
- *                 </important>
+ *                </important>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>
  *                      <code>LOCAL</code> index type</b>
  *                </p>
- *                 <p>The index contains information about resources in only the Amazon Web Services Region in
+ *                <p>The index contains information about resources in only the Amazon Web Services Region in
  *                     which the index exists. If an aggregator index in another Region exists, then
  *                     information in this local index is replicated to the aggregator index.</p>
- *                 <p>When you change the index type to <code>LOCAL</code>, Resource Explorer turns off the
+ *                <p>When you change the index type to <code>LOCAL</code>, Resource Explorer turns off the
  *                     replication of resource information from all other Amazon Web Services Regions in the
  *                     Amazon Web Services account to this Region. The aggregator index remains in the
  *                         <code>UPDATING</code> state until all replication with other Regions
@@ -83,11 +83,11 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
  *                     index is deleted within 30 days by another background task. Until that
  *                     asynchronous task completes, some results from other Regions can continue to
  *                     appear in search results.</p>
- *                 <important>
- *                     <p>After you demote an aggregator index to a local index, you must wait
+ *                <important>
+ *                   <p>After you demote an aggregator index to a local index, you must wait
  *                         24 hours before you can promote another index to be the new
  *                         aggregator index for the account.</p>
- *                 </important>
+ *                </important>
  *             </li>
  *          </ul>
  * @example
