@@ -1,4 +1,4 @@
-import { S3Client, S3ClientResolvedConfig } from "@aws-sdk/client-s3";
+import { S3Client } from "@aws-sdk/client-s3";
 import { decorateDefaultCredentialProvider } from "@aws-sdk/client-sts";
 import {
   NODE_REGION_CONFIG_FILE_OPTIONS,
@@ -28,30 +28,6 @@ import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
 import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
-
-/**
- * This function compiling indicates the expected
- * optional fields can be reassigned to void.
- */
-export const optionalConfigFieldsCanBeVoided = () => {
-  const s3 = new S3Client({});
-  const resolvedConfig: S3ClientResolvedConfig = s3.config;
-  /**
-   * Endpoint is no longer guaranteed as of endpoints 2.0 (rulesets).
-   * @see https://github.com/aws/aws-sdk-js-v3/issues/4122
-   */
-  resolvedConfig.endpoint = void 0;
-  resolvedConfig.isCustomEndpoint = void 0;
-  resolvedConfig.customUserAgent = void 0;
-};
-
-/**
- * Successful compilation indicates the client can be initialized
- * with minimal configuration.
- */
-export const initializeWithMinimalConfiguration = () => {
-  return new S3Client({});
-};
 
 /**
  * Successful compilation indicates the client can be initialized

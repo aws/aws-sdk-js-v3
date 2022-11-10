@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/client-api-test",
-  "description": "",
+  "description": "Test suite for client interface stability",
   "version": "3.0.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
