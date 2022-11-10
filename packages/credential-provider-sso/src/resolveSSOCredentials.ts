@@ -39,10 +39,7 @@ export const resolveSSOCredentials = async ({
         expiresAt: new Date(_token.expiration!).toISOString(),
       };
     } catch (e) {
-      throw new CredentialsProviderError(
-        `The SSO session ${ssoSession} for this profile is invalid. ${refreshMessage}\n` + String(e),
-        SHOULD_FAIL_CREDENTIAL_CHAIN
-      );
+      throw new CredentialsProviderError(e.message, SHOULD_FAIL_CREDENTIAL_CHAIN);
     }
   } else {
     try {
