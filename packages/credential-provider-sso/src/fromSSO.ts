@@ -92,7 +92,7 @@ export const fromSSO =
           throw new CredentialsProviderError(`Conflicting SSO region` + conflictMsg, false);
         }
         if (ssoStartUrl && ssoStartUrl !== session.sso_start_url) {
-          throw new Error(`Conflicting SSO start url` + conflictMsg);
+          throw new CredentialsProviderError(`Conflicting SSO start_url` + conflictMsg, false);
         }
         profile.sso_region = session.sso_region;
         profile.sso_start_url = session.sso_start_url;
