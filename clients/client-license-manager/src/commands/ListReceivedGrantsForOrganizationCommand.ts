@@ -15,43 +15,41 @@ import {
 
 import { LicenseManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LicenseManagerClient";
 import {
-  CheckoutLicenseRequest,
-  CheckoutLicenseRequestFilterSensitiveLog,
-  CheckoutLicenseResponse,
-  CheckoutLicenseResponseFilterSensitiveLog,
+  ListReceivedGrantsForOrganizationRequest,
+  ListReceivedGrantsForOrganizationRequestFilterSensitiveLog,
+  ListReceivedGrantsForOrganizationResponse,
+  ListReceivedGrantsForOrganizationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1CheckoutLicenseCommand,
-  serializeAws_json1_1CheckoutLicenseCommand,
+  deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
+  serializeAws_json1_1ListReceivedGrantsForOrganizationCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface CheckoutLicenseCommandInput extends CheckoutLicenseRequest {}
-export interface CheckoutLicenseCommandOutput extends CheckoutLicenseResponse, __MetadataBearer {}
+export interface ListReceivedGrantsForOrganizationCommandInput extends ListReceivedGrantsForOrganizationRequest {}
+export interface ListReceivedGrantsForOrganizationCommandOutput
+  extends ListReceivedGrantsForOrganizationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Checks out the specified license.</p>
- *          <note>
- *             <p>If the account that created the license is the same that is performing the check out, you must
- *             specify the account as the beneficiary.</p>
- *          </note>
+ * <p>Lists the grants received for all accounts in the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerClient, CheckoutLicenseCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
- * // const { LicenseManagerClient, CheckoutLicenseCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
+ * import { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } from "@aws-sdk/client-license-manager"; // ES Modules import
+ * // const { LicenseManagerClient, ListReceivedGrantsForOrganizationCommand } = require("@aws-sdk/client-license-manager"); // CommonJS import
  * const client = new LicenseManagerClient(config);
- * const command = new CheckoutLicenseCommand(input);
+ * const command = new ListReceivedGrantsForOrganizationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CheckoutLicenseCommandInput} for command's `input` shape.
- * @see {@link CheckoutLicenseCommandOutput} for command's `response` shape.
+ * @see {@link ListReceivedGrantsForOrganizationCommandInput} for command's `input` shape.
+ * @see {@link ListReceivedGrantsForOrganizationCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerClientResolvedConfig | config} for LicenseManagerClient's `config` shape.
  *
  */
-export class CheckoutLicenseCommand extends $Command<
-  CheckoutLicenseCommandInput,
-  CheckoutLicenseCommandOutput,
+export class ListReceivedGrantsForOrganizationCommand extends $Command<
+  ListReceivedGrantsForOrganizationCommandInput,
+  ListReceivedGrantsForOrganizationCommandOutput,
   LicenseManagerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +64,7 @@ export class CheckoutLicenseCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CheckoutLicenseCommandInput) {
+  constructor(readonly input: ListReceivedGrantsForOrganizationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +77,23 @@ export class CheckoutLicenseCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CheckoutLicenseCommandInput, CheckoutLicenseCommandOutput> {
+  ): Handler<ListReceivedGrantsForOrganizationCommandInput, ListReceivedGrantsForOrganizationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CheckoutLicenseCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListReceivedGrantsForOrganizationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LicenseManagerClient";
-    const commandName = "CheckoutLicenseCommand";
+    const commandName = "ListReceivedGrantsForOrganizationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CheckoutLicenseRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CheckoutLicenseResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListReceivedGrantsForOrganizationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListReceivedGrantsForOrganizationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +103,18 @@ export class CheckoutLicenseCommand extends $Command<
     );
   }
 
-  private serialize(input: CheckoutLicenseCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1CheckoutLicenseCommand(input, context);
+  private serialize(
+    input: ListReceivedGrantsForOrganizationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListReceivedGrantsForOrganizationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CheckoutLicenseCommandOutput> {
-    return deserializeAws_json1_1CheckoutLicenseCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListReceivedGrantsForOrganizationCommandOutput> {
+    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand(output, context);
   }
 
   // Start section: command_body_extra

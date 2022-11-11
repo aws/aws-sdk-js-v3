@@ -112,9 +112,17 @@ import {
 } from "../commands/ListLicenseVersionsCommand";
 import { ListReceivedGrantsCommandInput, ListReceivedGrantsCommandOutput } from "../commands/ListReceivedGrantsCommand";
 import {
+  ListReceivedGrantsForOrganizationCommandInput,
+  ListReceivedGrantsForOrganizationCommandOutput,
+} from "../commands/ListReceivedGrantsForOrganizationCommand";
+import {
   ListReceivedLicensesCommandInput,
   ListReceivedLicensesCommandOutput,
 } from "../commands/ListReceivedLicensesCommand";
+import {
+  ListReceivedLicensesForOrganizationCommandInput,
+  ListReceivedLicensesForOrganizationCommandOutput,
+} from "../commands/ListReceivedLicensesForOrganizationCommand";
 import {
   ListResourceInventoryCommandInput,
   ListResourceInventoryCommandOutput,
@@ -252,8 +260,12 @@ import {
   ListLicensesResponse,
   ListLicenseVersionsRequest,
   ListLicenseVersionsResponse,
+  ListReceivedGrantsForOrganizationRequest,
+  ListReceivedGrantsForOrganizationResponse,
   ListReceivedGrantsRequest,
   ListReceivedGrantsResponse,
+  ListReceivedLicensesForOrganizationRequest,
+  ListReceivedLicensesForOrganizationResponse,
   ListReceivedLicensesRequest,
   ListReceivedLicensesResponse,
   ListResourceInventoryRequest,
@@ -771,6 +783,19 @@ export const serializeAws_json1_1ListReceivedGrantsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+  input: ListReceivedGrantsForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.ListReceivedGrantsForOrganization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListReceivedGrantsForOrganizationRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListReceivedLicensesCommand = async (
   input: ListReceivedLicensesCommandInput,
   context: __SerdeContext
@@ -781,6 +806,19 @@ export const serializeAws_json1_1ListReceivedLicensesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+  input: ListReceivedLicensesForOrganizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AWSLicenseManager.ListReceivedLicensesForOrganization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListReceivedLicensesForOrganizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3018,6 +3056,65 @@ const deserializeAws_json1_1ListReceivedGrantsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse(data, context);
+  const response: ListReceivedGrantsForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReceivedGrantsForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedGrantsForOrganizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListReceivedLicensesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3039,6 +3136,65 @@ const deserializeAws_json1_1ListReceivedLicensesCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListReceivedLicensesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.licensemanager#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "AuthorizationException":
+    case "com.amazonaws.licensemanager#AuthorizationException":
+      throw await deserializeAws_json1_1AuthorizationExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.licensemanager#InvalidParameterValueException":
+      throw await deserializeAws_json1_1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "RateLimitExceededException":
+    case "com.amazonaws.licensemanager#RateLimitExceededException":
+      throw await deserializeAws_json1_1RateLimitExceededExceptionResponse(parsedOutput, context);
+    case "ResourceLimitExceededException":
+    case "com.amazonaws.licensemanager#ResourceLimitExceededException":
+      throw await deserializeAws_json1_1ResourceLimitExceededExceptionResponse(parsedOutput, context);
+    case "ServerInternalException":
+    case "com.amazonaws.licensemanager#ServerInternalException":
+      throw await deserializeAws_json1_1ServerInternalExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.licensemanager#ValidationException":
+      throw await deserializeAws_json1_1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse(data, context);
+  const response: ListReceivedLicensesForOrganizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListReceivedLicensesForOrganizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListReceivedLicensesForOrganizationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4480,6 +4636,18 @@ const serializeAws_json1_1ListLicenseVersionsRequest = (
   };
 };
 
+const serializeAws_json1_1ListReceivedGrantsForOrganizationRequest = (
+  input: ListReceivedGrantsForOrganizationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
+    ...(input.LicenseArn != null && { LicenseArn: input.LicenseArn }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListReceivedGrantsRequest = (
   input: ListReceivedGrantsRequest,
   context: __SerdeContext
@@ -4487,6 +4655,17 @@ const serializeAws_json1_1ListReceivedGrantsRequest = (
   return {
     ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
     ...(input.GrantArns != null && { GrantArns: serializeAws_json1_1ArnList(input.GrantArns, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
+const serializeAws_json1_1ListReceivedLicensesForOrganizationRequest = (
+  input: ListReceivedLicensesForOrganizationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1FilterList(input.Filters, context) }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
@@ -5750,12 +5929,32 @@ const deserializeAws_json1_1ListLicenseVersionsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListReceivedGrantsForOrganizationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReceivedGrantsForOrganizationResponse => {
+  return {
+    Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListReceivedGrantsResponse = (
   output: any,
   context: __SerdeContext
 ): ListReceivedGrantsResponse => {
   return {
     Grants: output.Grants != null ? deserializeAws_json1_1GrantList(output.Grants, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListReceivedLicensesForOrganizationResponse = (
+  output: any,
+  context: __SerdeContext
+): ListReceivedLicensesForOrganizationResponse => {
+  return {
+    Licenses: output.Licenses != null ? deserializeAws_json1_1GrantedLicenseList(output.Licenses, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
