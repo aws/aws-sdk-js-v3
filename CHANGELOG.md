@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
+
+
+### Bug Fixes
+
+* **clients:** remove unconditional add of util-base64 node and browser modules ([#4170](https://github.com/aws/aws-sdk-js-v3/issues/4170)) ([24ec718](https://github.com/aws/aws-sdk-js-v3/commit/24ec718ea19309059d8b923c0b5c4265d308a36f))
+* **clients:** use default no-op logger in clients codegen ([#4171](https://github.com/aws/aws-sdk-js-v3/issues/4171)) ([9721730](https://github.com/aws/aws-sdk-js-v3/commit/9721730bc3ceba8a8b80ad95e9c893e55e30272e))
+
+
+### Features
+
+* **client-iot:** This release add new api listRelatedResourcesForAuditFinding and new member type IssuerCertificates for Iot device device defender Audit. ([ef24039](https://github.com/aws/aws-sdk-js-v3/commit/ef24039905bad3e48aa837ac8c4a440bf2e44c73))
+* **client-license-manager:** AWS License Manager now supports onboarded Management Accounts or Delegated Admins to view granted licenses aggregated from all accounts in the organization. ([63e5da1](https://github.com/aws/aws-sdk-js-v3/commit/63e5da19a34fc0c545ee2e648a7c4393689ffb0d))
+* **client-marketplace-catalog:** Added three new APIs to support tagging and tag-based authorization: TagResource, UntagResource, and ListTagsForResource. Added optional parameters to the StartChangeSet API to support tagging a resource while making a request to create it. ([65b66c7](https://github.com/aws/aws-sdk-js-v3/commit/65b66c7f8769078acabcb548b09995f97998319a))
+* **client-rekognition:** Adding support for ImageProperties feature to detect dominant colors and image brightness, sharpness, and contrast, inclusion and exclusion filters for labels and label categories, new fields to the API response, "aliases" and "categories" ([a0ad760](https://github.com/aws/aws-sdk-js-v3/commit/a0ad760a72bc92c24b21bf88e54dd6fd182db7d6))
+* **client-ssm-incidents:** RelatedItems now have an ID field which can be used for referencing them else where. Introducing event references in TimelineEvent API and increasing maximum length of "eventData" to 12K characters. ([de55f7e](https://github.com/aws/aws-sdk-js-v3/commit/de55f7e800313b41c70c5a6348890e5a303ac678))
+* **clients:** update client endpoints as of 2022-11-11 ([34fc28e](https://github.com/aws/aws-sdk-js-v3/commit/34fc28e2389ef857d682e21737ce9caa6d2986fc))
+* **sso:** use SSOTokenProvider in SSOCredentialProvider ([#4145](https://github.com/aws/aws-sdk-js-v3/issues/4145)) ([e4ea7d0](https://github.com/aws/aws-sdk-js-v3/commit/e4ea7d0d75008748fcde632518ab8d5aacabbfda))
+
+
+
+
+
 # [3.208.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.207.0...v3.208.0) (2022-11-10)
 
 
