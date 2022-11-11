@@ -17,8 +17,8 @@ export const resolveClientEndpointParameters = <T>(
 ): T & ClientResolvedEndpointParameters => {
   return {
     ...options,
-    useDualstackEndpoint: options.useDualstackEndpoint ?? false,
-    useFipsEndpoint: options.useFipsEndpoint ?? false,
+    useDualstackEndpoint: options.useDualstackEndpoint || false,
+    useFipsEndpoint: options.useFipsEndpoint || false,
     defaultSigningName: "cognito-identity",
   };
 };
