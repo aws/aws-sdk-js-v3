@@ -1674,7 +1674,7 @@ export interface AwsBackupBackupPlanLifecycleDetails {
 }
 
 /**
- * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.
+ * <p>An array of <code>CopyAction</code> objects, each of which contains details of the copy operation.
  *       </p>
  */
 export interface AwsBackupBackupPlanRuleCopyActionsDetails {
@@ -1685,7 +1685,10 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
   DestinationBackupVaultArn?: string;
 
   /**
-   * <p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>
+   * <p>Defines when a protected resource is transitioned to cold storage and when it expires.
+   *             Backup transitions and expires backups automatically according to the
+   *          lifecycle that you define. If you do not specify a lifecycle, Backup applies
+   *          the lifecycle policy of the source backup to the destination backup.</p>
    *          <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>
    */
   Lifecycle?: AwsBackupBackupPlanLifecycleDetails;
@@ -1697,7 +1700,7 @@ export interface AwsBackupBackupPlanRuleCopyActionsDetails {
  */
 export interface AwsBackupBackupPlanRuleDetails {
   /**
-   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of letters, numbers, and hyphens.
+   * <p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region  where they are created. They consist of letters, numbers, and hyphens.
    *       </p>
    */
   TargetBackupVault?: string;
@@ -1715,8 +1718,7 @@ export interface AwsBackupBackupPlanRuleDetails {
   ScheduleExpression?: string;
 
   /**
-   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.
-   *       </p>
+   * <p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters. </p>
    */
   RuleName?: string;
 
@@ -1739,8 +1741,8 @@ export interface AwsBackupBackupPlanRuleDetails {
   CompletionWindowMinutes?: number;
 
   /**
-   * <p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.
-   *       </p>
+   * <p>An array of <code>CopyAction</code> objects, each of which contains details of the
+   *          copy operation. </p>
    */
   CopyActions?: AwsBackupBackupPlanRuleCopyActionsDetails[];
 

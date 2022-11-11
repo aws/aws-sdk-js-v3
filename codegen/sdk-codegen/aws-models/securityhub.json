@@ -418,18 +418,20 @@
       }
     },
     "com.amazonaws.securityhub#AdminStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLE_IN_PROGRESS",
-            "name": "DISABLE_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLE_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#AdminsMaxResults": {
@@ -449,18 +451,20 @@
       }
     },
     "com.amazonaws.securityhub#AutoEnableStandards": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NONE",
-            "name": "NONE"
-          },
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
           }
-        ]
+        },
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#AvailabilityZone": {
@@ -1708,12 +1712,12 @@
         "Lifecycle": {
           "target": "com.amazonaws.securityhub#AwsBackupBackupPlanLifecycleDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Defines when a protected resource is transitioned to cold storage and when it expires. Backup transitions and expires backups automatically according to the lifecycle that you define. If you do not specify a lifecycle, Backup applies the lifecycle policy of the source backup to the destination backup.</p>\n         <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>"
+            "smithy.api#documentation": "<p>Defines when a protected resource is transitioned to cold storage and when it expires.\n            Backup transitions and expires backups automatically according to the\n         lifecycle that you define. If you do not specify a lifecycle, Backup applies\n         the lifecycle policy of the source backup to the destination backup.</p>\n         <p>Backups transitioned to cold storage must be stored in cold storage for a minimum of 90 days.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.\n      </p>"
+        "smithy.api#documentation": "<p>An array of <code>CopyAction</code> objects, each of which contains details of the copy operation.\n      </p>"
       }
     },
     "com.amazonaws.securityhub#AwsBackupBackupPlanRuleCopyActionsList": {
@@ -1728,7 +1732,7 @@
         "TargetBackupVault": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region where they are created. They consist of letters, numbers, and hyphens.\n      </p>"
+            "smithy.api#documentation": "<p>The name of a logical container where backups are stored. Backup vaults are identified by names that are unique to the Amazon Web Services account used to create them and the Amazon Web Services Region  where they are created. They consist of letters, numbers, and hyphens.\n      </p>"
           }
         },
         "StartWindowMinutes": {
@@ -1747,7 +1751,7 @@
         "RuleName": {
           "target": "com.amazonaws.securityhub#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters.\n      </p>"
+            "smithy.api#documentation": "<p>A display name for a backup rule. Must contain 1 to 50 alphanumeric or '-_.' characters. </p>"
           }
         },
         "RuleId": {
@@ -1773,7 +1777,7 @@
         "CopyActions": {
           "target": "com.amazonaws.securityhub#AwsBackupBackupPlanRuleCopyActionsList",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>CopyAction</code> objects, which contains the details of the copy operation.\n      </p>"
+            "smithy.api#documentation": "<p>An array of <code>CopyAction</code> objects, each of which contains details of the\n         copy operation. </p>"
           }
         },
         "Lifecycle": {
@@ -9317,18 +9321,20 @@
       }
     },
     "com.amazonaws.securityhub#AwsIamAccessKeyStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Inactive",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inactive"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#AwsIamAttachedManagedPolicy": {
@@ -13855,18 +13861,20 @@
       }
     },
     "com.amazonaws.securityhub#AwsS3BucketNotificationConfigurationS3KeyFilterRuleName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Prefix",
-            "name": "PREFIX"
-          },
-          {
-            "value": "Suffix",
-            "name": "SUFFIX"
+      "type": "enum",
+      "members": {
+        "PREFIX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Prefix"
           }
-        ]
+        },
+        "SUFFIX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Suffix"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#AwsS3BucketNotificationConfigurationS3KeyFilterRules": {
@@ -16591,26 +16599,32 @@
       }
     },
     "com.amazonaws.securityhub#ComplianceStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PASSED",
-            "name": "PASSED"
-          },
-          {
-            "value": "WARNING",
-            "name": "WARNING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "NOT_AVAILABLE",
-            "name": "NOT_AVAILABLE"
+      "type": "enum",
+      "members": {
+        "PASSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PASSED"
           }
-        ]
+        },
+        "WARNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WARNING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "NOT_AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_AVAILABLE"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#ContainerDetails": {
@@ -16665,18 +16679,20 @@
       }
     },
     "com.amazonaws.securityhub#ControlStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#Country": {
@@ -16818,7 +16834,7 @@
         "Regions": {
           "target": "com.amazonaws.securityhub#StringList",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>\n         <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.\n      </p>"
+            "smithy.api#documentation": "<p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.</p>\n         <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.\n      </p>"
           }
         }
       }
@@ -17170,14 +17186,14 @@
       }
     },
     "com.amazonaws.securityhub#DateRangeUnit": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAYS",
-            "name": "DAYS"
+      "type": "enum",
+      "members": {
+        "DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAYS"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.securityhub#DeclineInvitations": {
@@ -19449,22 +19465,26 @@
       }
     },
     "com.amazonaws.securityhub#IntegrationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SEND_FINDINGS_TO_SECURITY_HUB",
-            "name": "SEND_FINDINGS_TO_SECURITY_HUB"
-          },
-          {
-            "value": "RECEIVE_FINDINGS_FROM_SECURITY_HUB",
-            "name": "RECEIVE_FINDINGS_FROM_SECURITY_HUB"
-          },
-          {
-            "value": "UPDATE_FINDINGS_IN_SECURITY_HUB",
-            "name": "UPDATE_FINDINGS_IN_SECURITY_HUB"
+      "type": "enum",
+      "members": {
+        "SEND_FINDINGS_TO_SECURITY_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SEND_FINDINGS_TO_SECURITY_HUB"
           }
-        ]
+        },
+        "RECEIVE_FINDINGS_FROM_SECURITY_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECEIVE_FINDINGS_FROM_SECURITY_HUB"
+          }
+        },
+        "UPDATE_FINDINGS_IN_SECURITY_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FINDINGS_IN_SECURITY_HUB"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#IntegrationTypeList": {
@@ -20233,89 +20253,121 @@
       }
     },
     "com.amazonaws.securityhub#MalwareState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OBSERVED",
-            "name": "OBSERVED"
-          },
-          {
-            "value": "REMOVAL_FAILED",
-            "name": "REMOVAL_FAILED"
-          },
-          {
-            "value": "REMOVED",
-            "name": "REMOVED"
+      "type": "enum",
+      "members": {
+        "OBSERVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OBSERVED"
           }
-        ]
+        },
+        "REMOVAL_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVAL_FAILED"
+          }
+        },
+        "REMOVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVED"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#MalwareType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ADWARE",
-            "name": "ADWARE"
-          },
-          {
-            "value": "BLENDED_THREAT",
-            "name": "BLENDED_THREAT"
-          },
-          {
-            "value": "BOTNET_AGENT",
-            "name": "BOTNET_AGENT"
-          },
-          {
-            "value": "COIN_MINER",
-            "name": "COIN_MINER"
-          },
-          {
-            "value": "EXPLOIT_KIT",
-            "name": "EXPLOIT_KIT"
-          },
-          {
-            "value": "KEYLOGGER",
-            "name": "KEYLOGGER"
-          },
-          {
-            "value": "MACRO",
-            "name": "MACRO"
-          },
-          {
-            "value": "POTENTIALLY_UNWANTED",
-            "name": "POTENTIALLY_UNWANTED"
-          },
-          {
-            "value": "SPYWARE",
-            "name": "SPYWARE"
-          },
-          {
-            "value": "RANSOMWARE",
-            "name": "RANSOMWARE"
-          },
-          {
-            "value": "REMOTE_ACCESS",
-            "name": "REMOTE_ACCESS"
-          },
-          {
-            "value": "ROOTKIT",
-            "name": "ROOTKIT"
-          },
-          {
-            "value": "TROJAN",
-            "name": "TROJAN"
-          },
-          {
-            "value": "VIRUS",
-            "name": "VIRUS"
-          },
-          {
-            "value": "WORM",
-            "name": "WORM"
+      "type": "enum",
+      "members": {
+        "ADWARE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADWARE"
           }
-        ]
+        },
+        "BLENDED_THREAT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BLENDED_THREAT"
+          }
+        },
+        "BOTNET_AGENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BOTNET_AGENT"
+          }
+        },
+        "COIN_MINER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COIN_MINER"
+          }
+        },
+        "EXPLOIT_KIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPLOIT_KIT"
+          }
+        },
+        "KEYLOGGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KEYLOGGER"
+          }
+        },
+        "MACRO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MACRO"
+          }
+        },
+        "POTENTIALLY_UNWANTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POTENTIALLY_UNWANTED"
+          }
+        },
+        "SPYWARE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SPYWARE"
+          }
+        },
+        "RANSOMWARE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RANSOMWARE"
+          }
+        },
+        "REMOTE_ACCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOTE_ACCESS"
+          }
+        },
+        "ROOTKIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROOTKIT"
+          }
+        },
+        "TROJAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TROJAN"
+          }
+        },
+        "VIRUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VIRUS"
+          }
+        },
+        "WORM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORM"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#MapFilter": {
@@ -20345,18 +20397,20 @@
       }
     },
     "com.amazonaws.securityhub#MapFilterComparison": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EQUALS",
-            "name": "EQUALS"
-          },
-          {
-            "value": "NOT_EQUALS",
-            "name": "NOT_EQUALS"
+      "type": "enum",
+      "members": {
+        "EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS"
           }
-        ]
+        },
+        "NOT_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUALS"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#MapFilterList": {
@@ -20562,18 +20616,20 @@
       }
     },
     "com.amazonaws.securityhub#NetworkDirection": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN",
-            "name": "IN"
-          },
-          {
-            "value": "OUT",
-            "name": "OUT"
+      "type": "enum",
+      "members": {
+        "IN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN"
           }
-        ]
+        },
+        "OUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OUT"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#NetworkHeader": {
@@ -20833,22 +20889,26 @@
       }
     },
     "com.amazonaws.securityhub#Partition": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "aws",
-            "name": "AWS"
-          },
-          {
-            "value": "aws-cn",
-            "name": "AWS_CN"
-          },
-          {
-            "value": "aws-us-gov",
-            "name": "AWS_US_GOV"
+      "type": "enum",
+      "members": {
+        "AWS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aws"
           }
-        ]
+        },
+        "AWS_CN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aws-cn"
+          }
+        },
+        "AWS_US_GOV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aws-us-gov"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#PatchSummary": {
@@ -21243,18 +21303,20 @@
       }
     },
     "com.amazonaws.securityhub#RecordState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "ARCHIVED",
-            "name": "ARCHIVED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "ARCHIVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ARCHIVED"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#Records": {
@@ -22939,8 +23001,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -22952,8 +23014,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -22965,8 +23027,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -22978,8 +23040,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -22991,8 +23053,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23004,8 +23066,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23017,8 +23079,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23030,8 +23092,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23043,8 +23105,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23056,8 +23118,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23069,8 +23131,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23082,8 +23144,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23095,8 +23157,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23108,8 +23170,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23121,8 +23183,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23134,8 +23196,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23147,8 +23209,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23160,8 +23222,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23173,8 +23235,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23186,8 +23248,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23199,8 +23261,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23212,8 +23274,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23225,8 +23287,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23238,8 +23300,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23251,8 +23313,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23264,8 +23326,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23277,8 +23339,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23290,8 +23352,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23303,8 +23365,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23316,8 +23378,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23329,8 +23391,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23342,8 +23404,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23355,8 +23417,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23368,8 +23430,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23381,8 +23443,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23394,8 +23456,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23407,8 +23469,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23420,8 +23482,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23433,8 +23495,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23446,8 +23508,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23459,8 +23521,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23472,8 +23534,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23485,8 +23547,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23498,8 +23560,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23511,8 +23573,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23524,8 +23586,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23537,8 +23599,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23550,8 +23612,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23563,8 +23625,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23576,8 +23638,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23589,8 +23651,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23602,8 +23664,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23615,8 +23677,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23628,8 +23690,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23641,8 +23703,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23654,8 +23716,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23667,8 +23729,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23680,8 +23742,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23693,8 +23755,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23706,8 +23768,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23719,8 +23781,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23732,8 +23794,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23745,8 +23807,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23758,8 +23820,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23771,8 +23833,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23784,8 +23846,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23797,8 +23859,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23810,8 +23872,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23823,8 +23885,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23836,8 +23898,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23849,8 +23911,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23862,8 +23924,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23875,8 +23937,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23888,8 +23950,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23901,8 +23963,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23914,8 +23976,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23927,8 +23989,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23940,8 +24002,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -23953,8 +24015,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -23966,8 +24028,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -23979,8 +24041,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -23992,8 +24054,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24005,8 +24067,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24018,8 +24080,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24031,8 +24093,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -24044,8 +24106,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24057,8 +24119,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24070,8 +24132,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24083,8 +24145,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -24096,8 +24158,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24109,8 +24171,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24122,8 +24184,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24135,8 +24197,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -24148,8 +24210,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24161,8 +24223,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24174,8 +24236,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24187,8 +24249,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -24200,8 +24262,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24213,8 +24275,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24226,8 +24288,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24239,8 +24301,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -24252,8 +24314,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -24265,8 +24327,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -24278,8 +24340,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -24291,8 +24353,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -24303,8 +24365,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -24315,8 +24377,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -24426,53 +24488,67 @@
       }
     },
     "com.amazonaws.securityhub#SeverityLabel": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "INFORMATIONAL",
-            "name": "INFORMATIONAL"
-          },
-          {
-            "value": "LOW",
-            "name": "LOW"
-          },
-          {
-            "value": "MEDIUM",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "HIGH",
-            "name": "HIGH"
-          },
-          {
-            "value": "CRITICAL",
-            "name": "CRITICAL"
+      "type": "enum",
+      "members": {
+        "INFORMATIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INFORMATIONAL"
           }
-        ]
+        },
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
+          }
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIUM"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        },
+        "CRITICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CRITICAL"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#SeverityRating": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LOW",
-            "name": "LOW"
-          },
-          {
-            "value": "MEDIUM",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "HIGH",
-            "name": "HIGH"
-          },
-          {
-            "value": "CRITICAL",
-            "name": "CRITICAL"
+      "type": "enum",
+      "members": {
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LOW"
           }
-        ]
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MEDIUM"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HIGH"
+          }
+        },
+        "CRITICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CRITICAL"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#SeverityUpdate": {
@@ -24604,18 +24680,20 @@
       }
     },
     "com.amazonaws.securityhub#SortOrder": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "asc",
-            "name": "ASCENDING"
-          },
-          {
-            "value": "desc",
-            "name": "DESCENDING"
+      "type": "enum",
+      "members": {
+        "ASCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "asc"
           }
-        ]
+        },
+        "DESCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "desc"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#Standard": {
@@ -24741,30 +24819,38 @@
       }
     },
     "com.amazonaws.securityhub#StandardsStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PENDING",
-            "name": "PENDING"
-          },
-          {
-            "value": "READY",
-            "name": "READY"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
-          },
-          {
-            "value": "INCOMPLETE",
-            "name": "INCOMPLETE"
+      "type": "enum",
+      "members": {
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING"
           }
-        ]
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "READY"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "INCOMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INCOMPLETE"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#StandardsStatusReason": {
@@ -24945,18 +25031,20 @@
       }
     },
     "com.amazonaws.securityhub#StatusReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NO_AVAILABLE_CONFIGURATION_RECORDER",
-            "name": "NO_AVAILABLE_CONFIGURATION_RECORDER"
-          },
-          {
-            "value": "INTERNAL_ERROR",
-            "name": "INTERNAL_ERROR"
+      "type": "enum",
+      "members": {
+        "NO_AVAILABLE_CONFIGURATION_RECORDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO_AVAILABLE_CONFIGURATION_RECORDER"
           }
-        ]
+        },
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#StatusReasonsList": {
@@ -24986,26 +25074,32 @@
       }
     },
     "com.amazonaws.securityhub#StringFilterComparison": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EQUALS",
-            "name": "EQUALS"
-          },
-          {
-            "value": "PREFIX",
-            "name": "PREFIX"
-          },
-          {
-            "value": "NOT_EQUALS",
-            "name": "NOT_EQUALS"
-          },
-          {
-            "value": "PREFIX_NOT_EQUALS",
-            "name": "PREFIX_NOT_EQUALS"
+      "type": "enum",
+      "members": {
+        "EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS"
           }
-        ]
+        },
+        "PREFIX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREFIX"
+          }
+        },
+        "NOT_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_EQUALS"
+          }
+        },
+        "PREFIX_NOT_EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PREFIX_NOT_EQUALS"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#StringFilterList": {
@@ -25196,34 +25290,44 @@
       }
     },
     "com.amazonaws.securityhub#ThreatIntelIndicatorCategory": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "BACKDOOR",
-            "name": "BACKDOOR"
-          },
-          {
-            "value": "CARD_STEALER",
-            "name": "CARD_STEALER"
-          },
-          {
-            "value": "COMMAND_AND_CONTROL",
-            "name": "COMMAND_AND_CONTROL"
-          },
-          {
-            "value": "DROP_SITE",
-            "name": "DROP_SITE"
-          },
-          {
-            "value": "EXPLOIT_SITE",
-            "name": "EXPLOIT_SITE"
-          },
-          {
-            "value": "KEYLOGGER",
-            "name": "KEYLOGGER"
+      "type": "enum",
+      "members": {
+        "BACKDOOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BACKDOOR"
           }
-        ]
+        },
+        "CARD_STEALER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CARD_STEALER"
+          }
+        },
+        "COMMAND_AND_CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMMAND_AND_CONTROL"
+          }
+        },
+        "DROP_SITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DROP_SITE"
+          }
+        },
+        "EXPLOIT_SITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPLOIT_SITE"
+          }
+        },
+        "KEYLOGGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "KEYLOGGER"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#ThreatIntelIndicatorList": {
@@ -25233,54 +25337,74 @@
       }
     },
     "com.amazonaws.securityhub#ThreatIntelIndicatorType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DOMAIN",
-            "name": "DOMAIN"
-          },
-          {
-            "value": "EMAIL_ADDRESS",
-            "name": "EMAIL_ADDRESS"
-          },
-          {
-            "value": "HASH_MD5",
-            "name": "HASH_MD5"
-          },
-          {
-            "value": "HASH_SHA1",
-            "name": "HASH_SHA1"
-          },
-          {
-            "value": "HASH_SHA256",
-            "name": "HASH_SHA256"
-          },
-          {
-            "value": "HASH_SHA512",
-            "name": "HASH_SHA512"
-          },
-          {
-            "value": "IPV4_ADDRESS",
-            "name": "IPV4_ADDRESS"
-          },
-          {
-            "value": "IPV6_ADDRESS",
-            "name": "IPV6_ADDRESS"
-          },
-          {
-            "value": "MUTEX",
-            "name": "MUTEX"
-          },
-          {
-            "value": "PROCESS",
-            "name": "PROCESS"
-          },
-          {
-            "value": "URL",
-            "name": "URL"
+      "type": "enum",
+      "members": {
+        "DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN"
           }
-        ]
+        },
+        "EMAIL_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EMAIL_ADDRESS"
+          }
+        },
+        "HASH_MD5": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HASH_MD5"
+          }
+        },
+        "HASH_SHA1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HASH_SHA1"
+          }
+        },
+        "HASH_SHA256": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HASH_SHA256"
+          }
+        },
+        "HASH_SHA512": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HASH_SHA512"
+          }
+        },
+        "IPV4_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IPV4_ADDRESS"
+          }
+        },
+        "IPV6_ADDRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IPV6_ADDRESS"
+          }
+        },
+        "MUTEX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MUTEX"
+          }
+        },
+        "PROCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESS"
+          }
+        },
+        "URL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "URL"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#ThreatList": {
@@ -25471,7 +25595,7 @@
         "Regions": {
           "target": "com.amazonaws.securityhub#StringList",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a comma-separated list of Regions that do not aggregate findings to the aggregation Region.</p>\n         <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a comma-separated list of Regions that do aggregate findings to the aggregation Region.</p>"
+            "smithy.api#documentation": "<p>If <code>RegionLinkingMode</code> is <code>ALL_REGIONS_EXCEPT_SPECIFIED</code>, then this is a space-separated list of Regions that do not aggregate findings to the aggregation Region.</p>\n         <p>If <code>RegionLinkingMode</code> is <code>SPECIFIED_REGIONS</code>, then this is a space-separated list of Regions that do aggregate findings to the aggregation Region.</p>"
           }
         }
       }
@@ -25801,26 +25925,32 @@
       "members": {}
     },
     "com.amazonaws.securityhub#VerificationState": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNKNOWN",
-            "name": "UNKNOWN"
-          },
-          {
-            "value": "TRUE_POSITIVE",
-            "name": "TRUE_POSITIVE"
-          },
-          {
-            "value": "FALSE_POSITIVE",
-            "name": "FALSE_POSITIVE"
-          },
-          {
-            "value": "BENIGN_POSITIVE",
-            "name": "BENIGN_POSITIVE"
+      "type": "enum",
+      "members": {
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNKNOWN"
           }
-        ]
+        },
+        "TRUE_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRUE_POSITIVE"
+          }
+        },
+        "FALSE_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FALSE_POSITIVE"
+          }
+        },
+        "BENIGN_POSITIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BENIGN_POSITIVE"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#VolumeMount": {
@@ -25970,22 +26100,26 @@
       }
     },
     "com.amazonaws.securityhub#VulnerabilityFixAvailable": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "YES",
-            "name": "YES"
-          },
-          {
-            "value": "NO",
-            "name": "NO"
-          },
-          {
-            "value": "PARTIAL",
-            "name": "PARTIAL"
+      "type": "enum",
+      "members": {
+        "YES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "YES"
           }
-        ]
+        },
+        "NO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NO"
+          }
+        },
+        "PARTIAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PARTIAL"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#VulnerabilityList": {
@@ -26096,56 +26230,72 @@
       }
     },
     "com.amazonaws.securityhub#WorkflowState": {
-      "type": "string",
+      "type": "enum",
+      "members": {
+        "NEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEW"
+          }
+        },
+        "ASSIGNED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSIGNED"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "DEFERRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFERRED"
+          }
+        },
+        "RESOLVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOLVED"
+          }
+        }
+      },
       "traits": {
         "smithy.api#deprecated": {
           "message": "This filter is deprecated. Instead, use SeverityLabel or FindingProviderFieldsSeverityLabel."
-        },
-        "smithy.api#enum": [
-          {
-            "value": "NEW",
-            "name": "NEW"
-          },
-          {
-            "value": "ASSIGNED",
-            "name": "ASSIGNED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "DEFERRED",
-            "name": "DEFERRED"
-          },
-          {
-            "value": "RESOLVED",
-            "name": "RESOLVED"
-          }
-        ]
+        }
       }
     },
     "com.amazonaws.securityhub#WorkflowStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NEW",
-            "name": "NEW"
-          },
-          {
-            "value": "NOTIFIED",
-            "name": "NOTIFIED"
-          },
-          {
-            "value": "RESOLVED",
-            "name": "RESOLVED"
-          },
-          {
-            "value": "SUPPRESSED",
-            "name": "SUPPRESSED"
+      "type": "enum",
+      "members": {
+        "NEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEW"
           }
-        ]
+        },
+        "NOTIFIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOTIFIED"
+          }
+        },
+        "RESOLVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOLVED"
+          }
+        },
+        "SUPPRESSED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUPPRESSED"
+          }
+        }
       }
     },
     "com.amazonaws.securityhub#WorkflowUpdate": {
