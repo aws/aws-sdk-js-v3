@@ -105,6 +105,7 @@ import {
   DeleteRegionAction,
   DynamicSsmParameterValue,
   EmptyChatChannel,
+  EventReference,
   EventSummary,
   Filter,
   IncidentRecord,
@@ -205,6 +206,9 @@ export const serializeAws_restJson1CreateTimelineEventCommand = async (
   body = JSON.stringify({
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.eventData != null && { eventData: input.eventData }),
+    ...(input.eventReferences != null && {
+      eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
+    }),
     ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
@@ -893,6 +897,9 @@ export const serializeAws_restJson1UpdateTimelineEventCommand = async (
     clientToken: input.clientToken ?? generateIdempotencyToken(),
     ...(input.eventData != null && { eventData: input.eventData }),
     ...(input.eventId != null && { eventId: input.eventId }),
+    ...(input.eventReferences != null && {
+      eventReferences: serializeAws_restJson1EventReferenceList(input.eventReferences, context),
+    }),
     ...(input.eventTime != null && { eventTime: Math.round(input.eventTime.getTime() / 1000) }),
     ...(input.eventType != null && { eventType: input.eventType }),
     ...(input.incidentRecordArn != null && { incidentRecordArn: input.incidentRecordArn }),
@@ -2707,6 +2714,22 @@ const serializeAws_restJson1EngagementSet = (input: string[], context: __SerdeCo
     });
 };
 
+const serializeAws_restJson1EventReference = (input: EventReference, context: __SerdeContext): any => {
+  return EventReference.visit(input, {
+    relatedItemId: (value) => ({ relatedItemId: value }),
+    resource: (value) => ({ resource: value }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1EventReferenceList = (input: EventReference[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1EventReference(entry, context);
+    });
+};
+
 const serializeAws_restJson1Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.condition != null && { condition: serializeAws_restJson1Condition(input.condition, context) }),
@@ -2797,6 +2820,7 @@ const serializeAws_restJson1RegionMapInputValue = (input: RegionMapInputValue, c
 
 const serializeAws_restJson1RelatedItem = (input: RelatedItem, context: __SerdeContext): any => {
   return {
+    ...(input.generatedId != null && { generatedId: input.generatedId }),
     ...(input.identifier != null && { identifier: serializeAws_restJson1ItemIdentifier(input.identifier, context) }),
     ...(input.title != null && { title: input.title }),
   };
@@ -3021,9 +3045,35 @@ const deserializeAws_restJson1EngagementSet = (output: any, context: __SerdeCont
   return retVal;
 };
 
+const deserializeAws_restJson1EventReference = (output: any, context: __SerdeContext): EventReference => {
+  if (__expectString(output.relatedItemId) !== undefined) {
+    return { relatedItemId: __expectString(output.relatedItemId) as any };
+  }
+  if (__expectString(output.resource) !== undefined) {
+    return { resource: __expectString(output.resource) as any };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1EventReferenceList = (output: any, context: __SerdeContext): EventReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1EventReference(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1EventSummary = (output: any, context: __SerdeContext): EventSummary => {
   return {
     eventId: __expectString(output.eventId),
+    eventReferences:
+      output.eventReferences != null
+        ? deserializeAws_restJson1EventReferenceList(output.eventReferences, context)
+        : undefined,
     eventTime:
       output.eventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime))) : undefined,
     eventType: __expectString(output.eventType),
@@ -3218,6 +3268,7 @@ const deserializeAws_restJson1RegionInfoMap = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1RelatedItem = (output: any, context: __SerdeContext): RelatedItem => {
   return {
+    generatedId: __expectString(output.generatedId),
     identifier:
       output.identifier != null ? deserializeAws_restJson1ItemIdentifier(output.identifier, context) : undefined,
     title: __expectString(output.title),
@@ -3365,6 +3416,10 @@ const deserializeAws_restJson1TimelineEvent = (output: any, context: __SerdeCont
   return {
     eventData: __expectString(output.eventData),
     eventId: __expectString(output.eventId),
+    eventReferences:
+      output.eventReferences != null
+        ? deserializeAws_restJson1EventReferenceList(output.eventReferences, context)
+        : undefined,
     eventTime:
       output.eventTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.eventTime))) : undefined,
     eventType: __expectString(output.eventType),

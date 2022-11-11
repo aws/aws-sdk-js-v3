@@ -610,8 +610,7 @@ export interface IncidentTemplate {
 
   /**
    * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is
-   *          called, Incident Manager assigns the tags specified in the template to the
-   *          incident.</p>
+   *          called, Incident Manager assigns the tags specified in the template to the incident.</p>
    */
   incidentTags?: Record<string, string>;
 }
@@ -699,6 +698,55 @@ export class ResourceNotFoundException extends __BaseException {
   }
 }
 
+/**
+ * <p>An item referenced in a <code>TimelineEvent</code> that is involved in or somehow
+ *          associated with an incident. You can specify an Amazon Resource Name (ARN) for an Amazon Web Services
+ *          resource or a <code>RelatedItem</code> ID.</p>
+ */
+export type EventReference =
+  | EventReference.RelatedItemIdMember
+  | EventReference.ResourceMember
+  | EventReference.$UnknownMember;
+
+export namespace EventReference {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an Amazon Web Services resource referenced in a
+   *             <code>TimelineEvent</code>.</p>
+   */
+  export interface ResourceMember {
+    resource: string;
+    relatedItemId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The ID of a <code>RelatedItem</code> referenced in a <code>TimelineEvent</code>.</p>
+   */
+  export interface RelatedItemIdMember {
+    resource?: never;
+    relatedItemId: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    resource?: never;
+    relatedItemId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    resource: (value: string) => T;
+    relatedItemId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: EventReference, visitor: Visitor<T>): T => {
+    if (value.resource !== undefined) return visitor.resource(value.resource);
+    if (value.relatedItemId !== undefined) return visitor.relatedItemId(value.relatedItemId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
 export interface CreateTimelineEventInput {
   /**
    * <p>A token ensuring that the action is called only once with the specified
@@ -727,6 +775,11 @@ export interface CreateTimelineEventInput {
    * <p>A short description of the event.</p>
    */
   eventData: string | undefined;
+
+  /**
+   * <p>Adds one or more references to the <code>TimelineEvent</code>. A reference can be an Amazon Web Services resource involved in the incident or in some way associated with it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the resource. You can also specify a related item. As an example, you could specify the ARN of an Amazon DynamoDB (DynamoDB) table. The table for this example is the resource. You could also specify a Amazon CloudWatch metric for that table. The metric is the related item.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface CreateTimelineEventOutput {
@@ -838,6 +891,11 @@ export interface EventSummary {
    * <p>The type of event. The timeline event must be <code>Custom Event</code>.</p>
    */
   eventType: string | undefined;
+
+  /**
+   * <p>A list of references in a <code>TimelineEvent</code>.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 /**
@@ -1256,6 +1314,11 @@ export interface TimelineEvent {
    * <p>A short description of the event.</p>
    */
   eventData: string | undefined;
+
+  /**
+   * <p>A list of references in a <code>TimelineEvent</code>.</p>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface GetTimelineEventOutput {
@@ -1494,6 +1557,15 @@ export interface RelatedItem {
    * <p>The title of the related item.</p>
    */
   title?: string;
+
+  /**
+   * <p>A unique ID for a <code>RelatedItem</code>.</p>
+   *          <important>
+   *             <p>Don't specify this parameter when you add a <code>RelatedItem</code> by using the
+   *                <a>UpdateRelatedItems</a> API action.</p>
+   *          </important>
+   */
+  generatedId?: string;
 }
 
 export interface ListRelatedItemsOutput {
@@ -2192,6 +2264,16 @@ export interface UpdateTimelineEventInput {
    * <p>A short description of the event.</p>
    */
   eventData?: string;
+
+  /**
+   * <p>Updates all existing references in a <code>TimelineEvent</code>. A reference can be an Amazon Web Services resource involved in the incident or in some way associated with it. When you specify a reference, you enter the Amazon Resource Name (ARN) of the resource. You can also specify a related item. As an example, you could specify the ARN of an Amazon DynamoDB (DynamoDB) table. The table for this example is the resource. You could also specify a Amazon CloudWatch metric for that table. The metric is the related item.</p>
+   *         <important>
+   *             <p>This update action overrides all existing references. If you want to keep existing
+   *                 references, you must specify them in the call. If you don't, this action removes
+   *                 them and enters only new references.</p>
+   *         </important>
+   */
+  eventReferences?: EventReference[];
 }
 
 export interface UpdateTimelineEventOutput {}
@@ -2337,8 +2419,20 @@ export const CreateResponsePlanOutputFilterSensitiveLog = (obj: CreateResponsePl
 /**
  * @internal
  */
+export const EventReferenceFilterSensitiveLog = (obj: EventReference): any => {
+  if (obj.resource !== undefined) return { resource: obj.resource };
+  if (obj.relatedItemId !== undefined) return { relatedItemId: obj.relatedItemId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
 export const CreateTimelineEventInputFilterSensitiveLog = (obj: CreateTimelineEventInput): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2430,6 +2524,9 @@ export const DeleteTimelineEventOutputFilterSensitiveLog = (obj: DeleteTimelineE
  */
 export const EventSummaryFilterSensitiveLog = (obj: EventSummary): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2554,6 +2651,9 @@ export const GetTimelineEventInputFilterSensitiveLog = (obj: GetTimelineEventInp
  */
 export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -2561,6 +2661,7 @@ export const TimelineEventFilterSensitiveLog = (obj: TimelineEvent): any => ({
  */
 export const GetTimelineEventOutputFilterSensitiveLog = (obj: GetTimelineEventOutput): any => ({
   ...obj,
+  ...(obj.event && { event: TimelineEventFilterSensitiveLog(obj.event) }),
 });
 
 /**
@@ -2688,6 +2789,7 @@ export const ListTimelineEventsInputFilterSensitiveLog = (obj: ListTimelineEvent
  */
 export const ListTimelineEventsOutputFilterSensitiveLog = (obj: ListTimelineEventsOutput): any => ({
   ...obj,
+  ...(obj.eventSummaries && { eventSummaries: obj.eventSummaries.map((item) => EventSummaryFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2862,6 +2964,9 @@ export const UpdateResponsePlanOutputFilterSensitiveLog = (obj: UpdateResponsePl
  */
 export const UpdateTimelineEventInputFilterSensitiveLog = (obj: UpdateTimelineEventInput): any => ({
   ...obj,
+  ...(obj.eventReferences && {
+    eventReferences: obj.eventReferences.map((item) => EventReferenceFilterSensitiveLog(item)),
+  }),
 });
 
 /**
