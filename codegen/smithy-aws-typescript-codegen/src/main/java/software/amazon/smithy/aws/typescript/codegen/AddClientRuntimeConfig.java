@@ -100,8 +100,8 @@ public final class AddClientRuntimeConfig implements TypeScriptIntegration {
             case SHARED:
                 return MapUtils.of(
                         "logger", writer -> {
-                            writer.addImport("Logger", "__Logger", TypeScriptDependency.AWS_SDK_TYPES.packageName);
-                            writer.write("{} as __Logger");
+                            writer.addImport("NoOpLogger", null, "@aws-sdk/smithy-client");
+                            writer.write("new NoOpLogger()");
                         }
                 );
             case BROWSER:
