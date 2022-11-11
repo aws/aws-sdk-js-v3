@@ -52,12 +52,55 @@ import {
   GroupNameAndArn,
   LogTargetType,
   RegistrationConfig,
+  SecurityProfileTarget,
   Status,
   ThingGroupIndexingConfiguration,
   ThingIndexingConfiguration,
   ThingTypeMetadata,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+export interface ListTargetsForPolicyResponse {
+  /**
+   * <p>The policy targets.</p>
+   */
+  targets?: string[];
+
+  /**
+   * <p>A marker used to get the next set of results.</p>
+   */
+  nextMarker?: string;
+}
+
+export interface ListTargetsForSecurityProfileRequest {
+  /**
+   * <p>The security profile.</p>
+   */
+  securityProfileName: string | undefined;
+
+  /**
+   * <p>The token for the next set of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListTargetsForSecurityProfileResponse {
+  /**
+   * <p>The thing groups to which the security profile is attached.</p>
+   */
+  securityProfileTargets?: SecurityProfileTarget[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
+   *         additional results.</p>
+   */
+  nextToken?: string;
+}
 
 export interface ListThingGroupsRequest {
   /**
@@ -2862,6 +2905,31 @@ export interface ValidateSecurityProfileBehaviorsResponse {
    */
   validationErrors?: ValidationError[];
 }
+
+/**
+ * @internal
+ */
+export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
+  obj: ListTargetsForSecurityProfileResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal

@@ -48,6 +48,7 @@ import {
   PresignedUrlConfig,
   Protocol,
   ProvisioningHook,
+  RelatedResource,
   ResourceIdentifier,
   ServiceType,
   StreamFile,
@@ -61,6 +62,11 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * <p>The input for the DeleteRegistrationCode operation.</p>
+ */
+export interface DeleteRegistrationCodeRequest {}
 
 /**
  * <p>The output for the DeleteRegistrationCode operation.</p>
@@ -5601,6 +5607,37 @@ export interface ListProvisioningTemplateVersionsResponse {
   nextToken?: string;
 }
 
+export interface ListRelatedResourcesForAuditFindingRequest {
+  /**
+   * <p>The finding Id.</p>
+   */
+  findingId: string | undefined;
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> if there are no additional results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return at one time.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListRelatedResourcesForAuditFindingResponse {
+  /**
+   * <p>The related resources.</p>
+   */
+  relatedResources?: RelatedResource[];
+
+  /**
+   * <p>A token that can be used to retrieve the next set of results,
+   *       or <code>null</code> for the first API call.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListRoleAliasesRequest {
   /**
    * <p>The maximum number of results to return at one time.</p>
@@ -5900,47 +5937,12 @@ export interface ListTargetsForPolicyRequest {
   pageSize?: number;
 }
 
-export interface ListTargetsForPolicyResponse {
-  /**
-   * <p>The policy targets.</p>
-   */
-  targets?: string[];
-
-  /**
-   * <p>A marker used to get the next set of results.</p>
-   */
-  nextMarker?: string;
-}
-
-export interface ListTargetsForSecurityProfileRequest {
-  /**
-   * <p>The security profile.</p>
-   */
-  securityProfileName: string | undefined;
-
-  /**
-   * <p>The token for the next set of results.</p>
-   */
-  nextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return at one time.</p>
-   */
-  maxResults?: number;
-}
-
-export interface ListTargetsForSecurityProfileResponse {
-  /**
-   * <p>The thing groups to which the security profile is attached.</p>
-   */
-  securityProfileTargets?: SecurityProfileTarget[];
-
-  /**
-   * <p>A token that can be used to retrieve the next set of results, or <code>null</code> if there are no
-   *         additional results.</p>
-   */
-  nextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7770,6 +7772,24 @@ export const ListProvisioningTemplateVersionsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListRelatedResourcesForAuditFindingRequestFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRelatedResourcesForAuditFindingResponseFilterSensitiveLog = (
+  obj: ListRelatedResourcesForAuditFindingResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListRoleAliasesRequestFilterSensitiveLog = (obj: ListRoleAliasesRequest): any => ({
   ...obj,
 });
@@ -7894,30 +7914,5 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
  * @internal
  */
 export const ListTargetsForPolicyRequestFilterSensitiveLog = (obj: ListTargetsForPolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsForPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileRequestFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListTargetsForSecurityProfileResponseFilterSensitiveLog = (
-  obj: ListTargetsForSecurityProfileResponse
-): any => ({
   ...obj,
 });

@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteRegistrationCodeRequest, DeleteRegistrationCodeRequestFilterSensitiveLog } from "../models/models_0";
-import { DeleteRegistrationCodeResponse, DeleteRegistrationCodeResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  DeleteRegistrationCodeRequest,
+  DeleteRegistrationCodeRequestFilterSensitiveLog,
+  DeleteRegistrationCodeResponse,
+  DeleteRegistrationCodeResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteRegistrationCodeCommand,
   serializeAws_restJson1DeleteRegistrationCodeCommand,

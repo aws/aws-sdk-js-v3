@@ -2002,6 +2002,26 @@ export interface AuditCheckDetails {
 }
 
 /**
+ * <p>The certificate issuer indentifier.</p>
+ */
+export interface IssuerCertificateIdentifier {
+  /**
+   * <p>The subject of the issuer certificate.</p>
+   */
+  issuerCertificateSubject?: string;
+
+  /**
+   * <p>The issuer ID.</p>
+   */
+  issuerId?: string;
+
+  /**
+   * <p>The issuer certificate serial number.</p>
+   */
+  issuerCertificateSerialNumber?: string;
+}
+
+/**
  * <p>Information about the version of the policy associated with the resource.</p>
  */
 export interface PolicyVersionIdentifier {
@@ -2059,6 +2079,16 @@ export interface ResourceIdentifier {
    * <p>The ARN of the role alias that has overly permissive actions.</p>
    */
   roleAliasArn?: string;
+
+  /**
+   * <p>The issuer certificate identifier.</p>
+   */
+  issuerCertificateIdentifier?: IssuerCertificateIdentifier;
+
+  /**
+   * <p>The ARN of the identified device certificate.</p>
+   */
+  deviceCertificateArn?: string;
 }
 
 export enum ResourceType {
@@ -2069,6 +2099,7 @@ export enum ResourceType {
   DEVICE_CERTIFICATE = "DEVICE_CERTIFICATE",
   IAM_ROLE = "IAM_ROLE",
   IOT_POLICY = "IOT_POLICY",
+  ISSUER_CERTIFICATE = "ISSUER_CERTIFICATE",
   ROLE_ALIAS = "ROLE_ALIAS",
 }
 
@@ -5808,11 +5839,6 @@ export interface DeleteProvisioningTemplateVersionRequest {
 export interface DeleteProvisioningTemplateVersionResponse {}
 
 /**
- * <p>The input for the DeleteRegistrationCode operation.</p>
- */
-export interface DeleteRegistrationCodeRequest {}
-
-/**
  * @internal
  */
 export const AbortCriteriaFilterSensitiveLog = (obj: AbortCriteria): any => ({
@@ -6286,6 +6312,13 @@ export const AuditCheckConfigurationFilterSensitiveLog = (obj: AuditCheckConfigu
  * @internal
  */
 export const AuditCheckDetailsFilterSensitiveLog = (obj: AuditCheckDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IssuerCertificateIdentifierFilterSensitiveLog = (obj: IssuerCertificateIdentifier): any => ({
   ...obj,
 });
 
@@ -7489,12 +7522,5 @@ export const DeleteProvisioningTemplateVersionRequestFilterSensitiveLog = (
 export const DeleteProvisioningTemplateVersionResponseFilterSensitiveLog = (
   obj: DeleteProvisioningTemplateVersionResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteRegistrationCodeRequestFilterSensitiveLog = (obj: DeleteRegistrationCodeRequest): any => ({
   ...obj,
 });

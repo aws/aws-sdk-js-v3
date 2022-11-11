@@ -796,6 +796,11 @@ import {
   ListProvisioningTemplateVersionsCommandOutput,
 } from "./commands/ListProvisioningTemplateVersionsCommand";
 import {
+  ListRelatedResourcesForAuditFindingCommand,
+  ListRelatedResourcesForAuditFindingCommandInput,
+  ListRelatedResourcesForAuditFindingCommandOutput,
+} from "./commands/ListRelatedResourcesForAuditFindingCommand";
+import {
   ListRoleAliasesCommand,
   ListRoleAliasesCommandInput,
   ListRoleAliasesCommandOutput,
@@ -6767,6 +6772,74 @@ export class IoT extends IoTClient {
   }
 
   /**
+   * <p>The related resources of an Audit finding.
+   *       The following resources can be returned from calling this API:</p>
+   *          <ul>
+   *             <li>
+   *                <p>DEVICE_CERTIFICATE</p>
+   *             </li>
+   *             <li>
+   *                <p>CA_CERTIFICATE</p>
+   *             </li>
+   *             <li>
+   *                <p>IOT_POLICY</p>
+   *             </li>
+   *             <li>
+   *                <p>COGNITO_IDENTITY_POOL</p>
+   *             </li>
+   *             <li>
+   *                <p>CLIENT_ID</p>
+   *             </li>
+   *             <li>
+   *                <p>ACCOUNT_SETTINGS</p>
+   *             </li>
+   *             <li>
+   *                <p>ROLE_ALIAS</p>
+   *             </li>
+   *             <li>
+   *                <p>IAM_ROLE</p>
+   *             </li>
+   *             <li>
+   *                <p>ISSUER_CERTIFICATE</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>This API is similar to DescribeAuditFinding's <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">RelatedResources</a>
+   *       but provides pagination and is not limited to 10 resources.
+   *       When calling <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_DescribeAuditFinding.html">DescribeAuditFinding</a> for the intermediate CA revoked for
+   *       active device certificates check, RelatedResources will not be populated. You must use this API, ListRelatedResourcesForAuditFinding, to list the certificates.</p>
+   *          </note>
+   */
+  public listRelatedResourcesForAuditFinding(
+    args: ListRelatedResourcesForAuditFindingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRelatedResourcesForAuditFindingCommandOutput>;
+  public listRelatedResourcesForAuditFinding(
+    args: ListRelatedResourcesForAuditFindingCommandInput,
+    cb: (err: any, data?: ListRelatedResourcesForAuditFindingCommandOutput) => void
+  ): void;
+  public listRelatedResourcesForAuditFinding(
+    args: ListRelatedResourcesForAuditFindingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRelatedResourcesForAuditFindingCommandOutput) => void
+  ): void;
+  public listRelatedResourcesForAuditFinding(
+    args: ListRelatedResourcesForAuditFindingCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRelatedResourcesForAuditFindingCommandOutput) => void),
+    cb?: (err: any, data?: ListRelatedResourcesForAuditFindingCommandOutput) => void
+  ): Promise<ListRelatedResourcesForAuditFindingCommandOutput> | void {
+    const command = new ListRelatedResourcesForAuditFindingCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the role aliases registered in your account.</p>
    *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListRoleAliases</a> action.</p>
    */
@@ -7197,11 +7270,11 @@ export class IoT extends IoTClient {
   }
 
   /**
-   * <p>Lists your things. Use the <b>attributeName</b> and
-   * 				<b>attributeValue</b> parameters to filter your things.
-   * 			For example, calling <code>ListThings</code> with attributeName=Color and
-   * 			attributeValue=Red retrieves all things in the registry that contain an attribute
-   * 				<b>Color</b> with the value <b>Red</b>. </p>
+   * <p>Lists your things. Use the <b>attributeName</b> and <b>attributeValue</b> parameters to filter your things. For example,
+   * 			calling <code>ListThings</code> with attributeName=Color and attributeValue=Red
+   * 			retrieves all things in the registry that contain an attribute <b>Color</b> with the value <b>Red</b>. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/thing-registry.html#list-things">List Things</a> from the <i>Amazon Web Services IoT Core Developer
+   * 				Guide</i>.</p>
    * 		       <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">ListThings</a> action.</p>
    *
    * 		       <note>

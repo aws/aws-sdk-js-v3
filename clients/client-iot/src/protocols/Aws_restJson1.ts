@@ -461,6 +461,10 @@ import {
   ListProvisioningTemplateVersionsCommandInput,
   ListProvisioningTemplateVersionsCommandOutput,
 } from "../commands/ListProvisioningTemplateVersionsCommand";
+import {
+  ListRelatedResourcesForAuditFindingCommandInput,
+  ListRelatedResourcesForAuditFindingCommandOutput,
+} from "../commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "../commands/ListRoleAliasesCommand";
 import {
   ListScheduledAuditsCommandInput,
@@ -749,6 +753,7 @@ import {
   IotAnalyticsAction,
   IotEventsAction,
   IotSiteWiseAction,
+  IssuerCertificateIdentifier,
   JobExecutionsRetryConfig,
   JobExecutionsRolloutConfig,
   KafkaAction,
@@ -5474,6 +5479,32 @@ export const serializeAws_restJson1ListProvisioningTemplateVersionsCommand = asy
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand = async (
+  input: ListRelatedResourcesForAuditFindingCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/relatedResources";
+  const query: any = map({
+    findingId: [, input.findingId!],
+    nextToken: [, input.nextToken!],
+    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -17182,6 +17213,59 @@ const deserializeAws_restJson1ListProvisioningTemplateVersionsCommandError = asy
   }
 };
 
+export const deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRelatedResourcesForAuditFindingCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.relatedResources != null) {
+    contents.relatedResources = deserializeAws_restJson1RelatedResources(data.relatedResources, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRelatedResourcesForAuditFindingCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRelatedResourcesForAuditFindingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalFailureException":
+    case "com.amazonaws.iot#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.iot#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.iot#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iot#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListRoleAliasesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -22409,6 +22493,19 @@ const serializeAws_restJson1IotSiteWiseAction = (input: IotSiteWiseAction, conte
   };
 };
 
+const serializeAws_restJson1IssuerCertificateIdentifier = (
+  input: IssuerCertificateIdentifier,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.issuerCertificateSerialNumber != null && {
+      issuerCertificateSerialNumber: input.issuerCertificateSerialNumber,
+    }),
+    ...(input.issuerCertificateSubject != null && { issuerCertificateSubject: input.issuerCertificateSubject }),
+    ...(input.issuerId != null && { issuerId: input.issuerId }),
+  };
+};
+
 const serializeAws_restJson1JobExecutionsRetryConfig = (
   input: JobExecutionsRetryConfig,
   context: __SerdeContext
@@ -22814,8 +22911,15 @@ const serializeAws_restJson1ResourceIdentifier = (input: ResourceIdentifier, con
     ...(input.caCertificateId != null && { caCertificateId: input.caCertificateId }),
     ...(input.clientId != null && { clientId: input.clientId }),
     ...(input.cognitoIdentityPoolId != null && { cognitoIdentityPoolId: input.cognitoIdentityPoolId }),
+    ...(input.deviceCertificateArn != null && { deviceCertificateArn: input.deviceCertificateArn }),
     ...(input.deviceCertificateId != null && { deviceCertificateId: input.deviceCertificateId }),
     ...(input.iamRoleArn != null && { iamRoleArn: input.iamRoleArn }),
+    ...(input.issuerCertificateIdentifier != null && {
+      issuerCertificateIdentifier: serializeAws_restJson1IssuerCertificateIdentifier(
+        input.issuerCertificateIdentifier,
+        context
+      ),
+    }),
     ...(input.policyVersionIdentifier != null && {
       policyVersionIdentifier: serializeAws_restJson1PolicyVersionIdentifier(input.policyVersionIdentifier, context),
     }),
@@ -24830,6 +24934,17 @@ const deserializeAws_restJson1IotSiteWiseAction = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1IssuerCertificateIdentifier = (
+  output: any,
+  context: __SerdeContext
+): IssuerCertificateIdentifier => {
+  return {
+    issuerCertificateSerialNumber: __expectString(output.issuerCertificateSerialNumber),
+    issuerCertificateSubject: __expectString(output.issuerCertificateSubject),
+    issuerId: __expectString(output.issuerId),
+  } as any;
+};
+
 const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job => {
   return {
     abortConfig:
@@ -25924,8 +26039,13 @@ const deserializeAws_restJson1ResourceIdentifier = (output: any, context: __Serd
     caCertificateId: __expectString(output.caCertificateId),
     clientId: __expectString(output.clientId),
     cognitoIdentityPoolId: __expectString(output.cognitoIdentityPoolId),
+    deviceCertificateArn: __expectString(output.deviceCertificateArn),
     deviceCertificateId: __expectString(output.deviceCertificateId),
     iamRoleArn: __expectString(output.iamRoleArn),
+    issuerCertificateIdentifier:
+      output.issuerCertificateIdentifier != null
+        ? deserializeAws_restJson1IssuerCertificateIdentifier(output.issuerCertificateIdentifier, context)
+        : undefined,
     policyVersionIdentifier:
       output.policyVersionIdentifier != null
         ? deserializeAws_restJson1PolicyVersionIdentifier(output.policyVersionIdentifier, context)
