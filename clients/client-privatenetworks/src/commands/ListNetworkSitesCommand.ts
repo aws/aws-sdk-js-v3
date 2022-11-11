@@ -56,7 +56,7 @@ export class ListNetworkSitesCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
-      UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
+      UseFIPS: { type: "builtInParams", name: "useFIPS" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },
       UseDualStack: { type: "builtInParams", name: "useDualstackEndpoint" },
