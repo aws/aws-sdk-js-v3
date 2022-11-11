@@ -19,44 +19,39 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import {
-  ListChangeSetsRequest,
-  ListChangeSetsRequestFilterSensitiveLog,
-  ListChangeSetsResponse,
-  ListChangeSetsResponseFilterSensitiveLog,
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResponse,
+  UntagResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChangeSetsCommand,
-  serializeAws_restJson1ListChangeSetsCommand,
+  deserializeAws_restJson1UntagResourceCommand,
+  serializeAws_restJson1UntagResourceCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
-export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
+export interface UntagResourceCommandInput extends UntagResourceRequest {}
+export interface UntagResourceCommandOutput extends UntagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of change sets owned by the account being used to make the call. You
- *             can filter this list by providing any combination of <code>entityId</code>,
- *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
- *             operation applies a logical AND between the filters.</p>
- *         <p>You can describe a change during the 60-day request history retention period for API
- *             calls.</p>
+ * <p>Removes a tag or list of tags from a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, UntagResourceCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, UntagResourceCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const command = new ListChangeSetsCommand(input);
+ * const command = new UntagResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
- * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
+ * @see {@link UntagResourceCommandInput} for command's `input` shape.
+ * @see {@link UntagResourceCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
-export class ListChangeSetsCommand extends $Command<
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput,
+export class UntagResourceCommand extends $Command<
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
   MarketplaceCatalogClientResolvedConfig
 > {
   // Start section: command_properties
@@ -71,7 +66,7 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListChangeSetsCommandInput) {
+  constructor(readonly input: UntagResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -84,23 +79,21 @@ export class ListChangeSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListChangeSetsCommandInput, ListChangeSetsCommandOutput> {
+  ): Handler<UntagResourceCommandInput, UntagResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListChangeSetsCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UntagResourceCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MarketplaceCatalogClient";
-    const commandName = "ListChangeSetsCommand";
+    const commandName = "UntagResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangeSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChangeSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UntagResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UntagResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +103,12 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChangeSetsCommand(input, context);
+  private serialize(input: UntagResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UntagResourceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_restJson1ListChangeSetsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagResourceCommandOutput> {
+    return deserializeAws_restJson1UntagResourceCommand(output, context);
   }
 
   // Start section: command_body_extra

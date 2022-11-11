@@ -19,44 +19,39 @@ import {
   ServiceOutputTypes,
 } from "../MarketplaceCatalogClient";
 import {
-  ListChangeSetsRequest,
-  ListChangeSetsRequestFilterSensitiveLog,
-  ListChangeSetsResponse,
-  ListChangeSetsResponseFilterSensitiveLog,
+  ListTagsForResourceRequest,
+  ListTagsForResourceRequestFilterSensitiveLog,
+  ListTagsForResourceResponse,
+  ListTagsForResourceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListChangeSetsCommand,
-  serializeAws_restJson1ListChangeSetsCommand,
+  deserializeAws_restJson1ListTagsForResourceCommand,
+  serializeAws_restJson1ListTagsForResourceCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListChangeSetsCommandInput extends ListChangeSetsRequest {}
-export interface ListChangeSetsCommandOutput extends ListChangeSetsResponse, __MetadataBearer {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the list of change sets owned by the account being used to make the call. You
- *             can filter this list by providing any combination of <code>entityId</code>,
- *                 <code>ChangeSetName</code>, and status. If you provide more than one filter, the API
- *             operation applies a logical AND between the filters.</p>
- *         <p>You can describe a change during the 60-day request history retention period for API
- *             calls.</p>
+ * <p>Lists all tags that have been added to a resource (either an <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#catalog-api-entities">entity</a> or <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets">change set</a>).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MarketplaceCatalogClient, ListChangeSetsCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
- * // const { MarketplaceCatalogClient, ListChangeSetsCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
+ * import { MarketplaceCatalogClient, ListTagsForResourceCommand } from "@aws-sdk/client-marketplace-catalog"; // ES Modules import
+ * // const { MarketplaceCatalogClient, ListTagsForResourceCommand } = require("@aws-sdk/client-marketplace-catalog"); // CommonJS import
  * const client = new MarketplaceCatalogClient(config);
- * const command = new ListChangeSetsCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListChangeSetsCommandInput} for command's `input` shape.
- * @see {@link ListChangeSetsCommandOutput} for command's `response` shape.
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link MarketplaceCatalogClientResolvedConfig | config} for MarketplaceCatalogClient's `config` shape.
  *
  */
-export class ListChangeSetsCommand extends $Command<
-  ListChangeSetsCommandInput,
-  ListChangeSetsCommandOutput,
+export class ListTagsForResourceCommand extends $Command<
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
   MarketplaceCatalogClientResolvedConfig
 > {
   // Start section: command_properties
@@ -71,7 +66,7 @@ export class ListChangeSetsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListChangeSetsCommandInput) {
+  constructor(readonly input: ListTagsForResourceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -84,23 +79,23 @@ export class ListChangeSetsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MarketplaceCatalogClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListChangeSetsCommandInput, ListChangeSetsCommandOutput> {
+  ): Handler<ListTagsForResourceCommandInput, ListTagsForResourceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListChangeSetsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTagsForResourceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MarketplaceCatalogClient";
-    const commandName = "ListChangeSetsCommand";
+    const commandName = "ListTagsForResourceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListChangeSetsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListChangeSetsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListTagsForResourceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTagsForResourceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -110,12 +105,12 @@ export class ListChangeSetsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListChangeSetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListChangeSetsCommand(input, context);
+  private serialize(input: ListTagsForResourceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListTagsForResourceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListChangeSetsCommandOutput> {
-    return deserializeAws_restJson1ListChangeSetsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTagsForResourceCommandOutput> {
+    return deserializeAws_restJson1ListTagsForResourceCommand(output, context);
   }
 
   // Start section: command_body_extra
