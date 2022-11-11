@@ -30,6 +30,26 @@ export interface ResetJobBookmarkCommandOutput extends ResetJobBookmarkResponse,
 
 /**
  * <p>Resets a bookmark entry.</p>
+ *
+ * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+ *
+ * 	        <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job parameters used by Glue</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job structure</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

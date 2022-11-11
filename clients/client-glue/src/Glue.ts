@@ -3426,7 +3426,7 @@ export class Glue extends GlueClient {
   }
 
   /**
-   * <p>Retrieves all the development endpoints in this AWS account.</p>
+   * <p>Retrieves all the development endpoints in this Amazon Web Services account.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only a private IP address
    *       and the public IP address field is not populated. When you create a non-VPC development
@@ -3490,6 +3490,26 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Returns information on a job bookmark entry.</p>
+   *
+   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job parameters used by Glue</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job structure</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public getJobBookmark(
     args: GetJobBookmarkCommandInput,
@@ -5416,6 +5436,26 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Resets a bookmark entry.</p>
+   *
+   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+   *
+   * 	        <ul>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Job parameters used by Glue</a>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-jobs-job.html#aws-glue-api-jobs-job-Job">Job structure</a>
+   *                </p>
+   *             </li>
+   *          </ul>
    */
   public resetJobBookmark(
     args: ResetJobBookmarkCommandInput,

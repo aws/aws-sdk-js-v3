@@ -1661,7 +1661,7 @@ export interface DevEndpoint {
   NumberOfNodes?: number;
 
   /**
-   * <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
+   * <p>The Amazon Web Services Availability Zone where this <code>DevEndpoint</code> is located.</p>
    */
   AvailabilityZone?: string;
 
@@ -5862,7 +5862,7 @@ export interface CreateDevEndpointResponse {
   NumberOfWorkers?: number;
 
   /**
-   * <p>The AWS Availability Zone where this <code>DevEndpoint</code> is located.</p>
+   * <p>The Amazon Web Services Availability Zone where this <code>DevEndpoint</code> is located.</p>
    */
   AvailabilityZone?: string;
 
