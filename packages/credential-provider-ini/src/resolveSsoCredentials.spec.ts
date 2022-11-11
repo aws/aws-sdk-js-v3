@@ -24,12 +24,14 @@ describe(resolveSsoCredentials.name, () => {
     sso_role_name: "mock_sso_role_name",
   });
 
-  const getMockValidatedSsoProfile = () => ({
-    sso_start_url: "mock_validated_sso_start_url",
-    sso_account_id: "mock_validated_sso_account_id",
-    sso_region: "mock_validated_sso_region",
-    sso_role_name: "mock_validated_sso_role_name",
-  });
+  const getMockValidatedSsoProfile = <T>(add: T = {} as T) =>
+    ({
+      sso_start_url: "mock_validated_sso_start_url",
+      sso_account_id: "mock_validated_sso_account_id",
+      sso_region: "mock_validated_sso_region",
+      sso_role_name: "mock_validated_sso_role_name",
+      ...add,
+    });
 
   afterEach(() => {
     jest.clearAllMocks();
@@ -93,6 +95,30 @@ describe(resolveSsoCredentials.name, () => {
       ssoAccountId: mockValidatedProfile.sso_account_id,
       ssoRegion: mockValidatedProfile.sso_region,
       ssoRoleName: mockValidatedProfile.sso_role_name,
+    });
+  });
+
+  it("calls fromSSO with optional sso session name", async () => {
+    const mockProfile = getMockOriginalSsoProfile();
+    const mockValidatedProfile = getMockValidatedSsoProfile({
+      sso_session: "test-session",
+    });
+
+    const mockCreds: Credentials = {
+      accessKeyId: "mockAccessKeyId",
+      secretAccessKey: "mockSecretAccessKey",
+    };
+
+    (validateSsoProfile as jest.Mock).mockReturnValue(mockValidatedProfile);
+    (fromSSO as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+
+    await resolveSsoCredentials(mockProfile);
+    expect(fromSSO).toHaveBeenCalledWith({
+      ssoStartUrl: mockValidatedProfile.sso_start_url,
+      ssoAccountId: mockValidatedProfile.sso_account_id,
+      ssoRegion: mockValidatedProfile.sso_region,
+      ssoRoleName: mockValidatedProfile.sso_role_name,
+      ssoSession: mockValidatedProfile.sso_session,
     });
   });
 });

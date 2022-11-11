@@ -1,11 +1,22 @@
 import { GetRoleCredentialsCommand, SSOClient } from "@aws-sdk/client-sso";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getSSOTokenFromFile } from "@aws-sdk/shared-ini-file-loader";
+import * as tokenProviders from "@aws-sdk/token-providers";
 
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
 
 jest.mock("@aws-sdk/shared-ini-file-loader");
 jest.mock("@aws-sdk/client-sso");
+jest.mock("@aws-sdk/token-providers", () => {
+  return {
+    fromSso: jest.fn(() => async () => {
+      return {
+        token: "mockAccessToken",
+        expiration: new Date(Date.now() + 6_000_000),
+      };
+    }),
+  };
+});
 
 describe(resolveSSOCredentials.name, () => {
   const mockToken = {
@@ -55,6 +66,16 @@ describe(resolveSSOCredentials.name, () => {
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
     }
+  });
+
+  it("uses the SSOTokenProvider if SSO Session name is present", async () => {
+    await resolveSSOCredentials({
+      ...mockOptions,
+      ssoSession: "test-sso-session",
+    });
+    expect(tokenProviders.fromSso).toHaveBeenCalledWith({
+      profile: undefined,
+    });
   });
 
   describe("throws error on expiration", () => {
@@ -134,8 +155,7 @@ describe(resolveSSOCredentials.name, () => {
     });
 
     it("returns valid credentials from sso.getRoleCredentials", async () => {
-      const receivedCreds = await resolveSSOCredentials(mockOptions);
-      expect(receivedCreds).toStrictEqual(receivedCreds);
+      await resolveSSOCredentials(mockOptions);
       expect(mockSsoSend).toHaveBeenCalledTimes(1);
     });
 
@@ -143,9 +163,7 @@ describe(resolveSSOCredentials.name, () => {
       const mockCustomSsoSend = jest.fn().mockResolvedValue({ roleCredentials: mockCreds });
       (SSOClient as jest.Mock).mockReturnValue({ send: mockCustomSsoSend });
 
-      const receivedCreds = await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
-      expect(receivedCreds).toStrictEqual(receivedCreds);
-
+      await resolveSSOCredentials({ ...mockOptions, ssoClient: undefined });
       expect(mockCustomSsoSend).toHaveBeenCalledTimes(1);
     });
   });

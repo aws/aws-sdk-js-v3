@@ -71,7 +71,7 @@ export const fromSso =
       ssoToken = await getSSOTokenFromFile(ssoSessionName);
     } catch (e) {
       throw new TokenProviderError(
-        `The SSO session associated with this profile is invalid. ${REFRESH_MESSAGE}`,
+        `The SSO session token associated with profile=${profileName} was not found or is invalid. ${REFRESH_MESSAGE}`,
         false
       );
     }
@@ -93,9 +93,9 @@ export const fromSso =
       return existingToken;
     }
 
-    validateTokenKey("clientId", ssoToken.clientId);
-    validateTokenKey("clientSecret", ssoToken.clientSecret);
-    validateTokenKey("refreshToken", ssoToken.refreshToken);
+    validateTokenKey("clientId", ssoToken.clientId, true);
+    validateTokenKey("clientSecret", ssoToken.clientSecret, true);
+    validateTokenKey("refreshToken", ssoToken.refreshToken, true);
 
     try {
       lastRefreshAttemptTime.setTime(Date.now());
