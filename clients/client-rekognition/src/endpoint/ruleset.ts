@@ -260,6 +260,25 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
+                            "rekognition.us-east-1",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://rekognition-fips.us-east-1.amazonaws.com",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "Region",
+                            },
                             "rekognition.us-east-2",
                           ],
                         },
@@ -285,25 +304,6 @@ export const ruleSet: RuleSetObject = {
                       ],
                       endpoint: {
                         url: "https://rekognition-fips.us-west-1.amazonaws.com",
-                        properties: {},
-                        headers: {},
-                      },
-                      type: "endpoint",
-                    },
-                    {
-                      conditions: [
-                        {
-                          fn: "stringEquals",
-                          argv: [
-                            {
-                              ref: "Region",
-                            },
-                            "rekognition.us-east-1",
-                          ],
-                        },
-                      ],
-                      endpoint: {
-                        url: "https://rekognition-fips.us-east-1.amazonaws.com",
                         properties: {},
                         headers: {},
                       },

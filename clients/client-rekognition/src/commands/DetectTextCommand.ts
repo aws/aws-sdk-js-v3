@@ -48,9 +48,11 @@ export interface DetectTextCommandOutput extends DetectTextResponse, __MetadataB
  *       returns multiple lines.</p>
  *          <p>To determine whether a <code>TextDetection</code> element is a line of text or a word,
  *       use the <code>TextDetection</code> object <code>Type</code> field. </p>
- *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal axis.</p>
+ *          <p>To be detected, text must be within +/- 90 degrees orientation of the horizontal
+ *       axis.</p>
  *
- *          <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Detecting text in the Amazon Rekognition Developer
+ *       Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

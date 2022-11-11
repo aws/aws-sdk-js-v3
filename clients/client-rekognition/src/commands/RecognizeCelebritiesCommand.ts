@@ -29,14 +29,13 @@ export interface RecognizeCelebritiesCommandInput extends RecognizeCelebritiesRe
 export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns an array of celebrities recognized in the input image.  For more information, see Recognizing celebrities
- *     in the Amazon Rekognition Developer Guide. </p>
+ * <p>Returns an array of celebrities recognized in the input image. For more
+ *       information, see Recognizing celebrities in the Amazon Rekognition Developer Guide. </p>
  *          <p>
- *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists the
- *       recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces in
- *       the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return
+ *             <code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists
+ *       the recognized celebrities in the <code>CelebrityFaces</code> array and any unrecognized faces
+ *       in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn't return
  *       celebrities whose faces aren't among the largest 64 faces in the image.</p>
- *
  *          <p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a
  *         <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity
  *       name, ID, URL links to additional information, match confidence, and a
@@ -54,10 +53,8 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *       CLI to call Amazon Rekognition operations, passing image bytes is not
  *       supported. The image must be either a PNG or JPEG formatted file. </p>
  *
- *
- *
- *
- *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition
+ *       Developer Guide.</p>
  *          <p>This operation requires permissions to perform the
  *         <code>rekognition:RecognizeCelebrities</code> operation.</p>
  * @example

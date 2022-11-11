@@ -236,8 +236,15 @@ import {
   DetectFacesRequest,
   DetectFacesResponse,
   DetectionFilter,
+  DetectLabelsFeatureName,
+  DetectLabelsImageBackground,
+  DetectLabelsImageForeground,
+  DetectLabelsImageProperties,
+  DetectLabelsImagePropertiesSettings,
+  DetectLabelsImageQuality,
   DetectLabelsRequest,
   DetectLabelsResponse,
+  DetectLabelsSettings,
   DetectModerationLabelsRequest,
   DetectModerationLabelsResponse,
   DetectProtectiveEquipmentRequest,
@@ -248,6 +255,7 @@ import {
   DistributeDataset,
   DistributeDatasetEntriesRequest,
   DistributeDatasetEntriesResponse,
+  DominantColor,
   Emotion,
   EquipmentDetection,
   EvaluationResult,
@@ -260,6 +268,7 @@ import {
   FaceRecord,
   FaceSearchSettings,
   Gender,
+  GeneralLabelsSettings,
   Geometry,
   GetCelebrityInfoRequest,
   GetCelebrityInfoResponse,
@@ -302,6 +311,8 @@ import {
   KinesisVideoStreamStartSelector,
   KnownGender,
   Label,
+  LabelAlias,
+  LabelCategory,
   LabelDetection,
   Landmark,
   LimitExceededException,
@@ -5657,11 +5668,44 @@ const serializeAws_json1_1DetectionFilter = (input: DetectionFilter, context: __
   };
 };
 
+const serializeAws_json1_1DetectLabelsFeatureList = (
+  input: (DetectLabelsFeatureName | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1DetectLabelsImagePropertiesSettings = (
+  input: DetectLabelsImagePropertiesSettings,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxDominantColors != null && { MaxDominantColors: input.MaxDominantColors }),
+  };
+};
+
 const serializeAws_json1_1DetectLabelsRequest = (input: DetectLabelsRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Features != null && { Features: serializeAws_json1_1DetectLabelsFeatureList(input.Features, context) }),
     ...(input.Image != null && { Image: serializeAws_json1_1Image(input.Image, context) }),
     ...(input.MaxLabels != null && { MaxLabels: input.MaxLabels }),
     ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1DetectLabelsSettings(input.Settings, context) }),
+  };
+};
+
+const serializeAws_json1_1DetectLabelsSettings = (input: DetectLabelsSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.GeneralLabels != null && {
+      GeneralLabels: serializeAws_json1_1GeneralLabelsSettings(input.GeneralLabels, context),
+    }),
+    ...(input.ImageProperties != null && {
+      ImageProperties: serializeAws_json1_1DetectLabelsImagePropertiesSettings(input.ImageProperties, context),
+    }),
   };
 };
 
@@ -5749,6 +5793,37 @@ const serializeAws_json1_1FaceSearchSettings = (input: FaceSearchSettings, conte
   return {
     ...(input.CollectionId != null && { CollectionId: input.CollectionId }),
     ...(input.FaceMatchThreshold != null && { FaceMatchThreshold: __serializeFloat(input.FaceMatchThreshold) }),
+  };
+};
+
+const serializeAws_json1_1GeneralLabelsFilterList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1GeneralLabelsSettings = (input: GeneralLabelsSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.LabelCategoryExclusionFilters != null && {
+      LabelCategoryExclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(
+        input.LabelCategoryExclusionFilters,
+        context
+      ),
+    }),
+    ...(input.LabelCategoryInclusionFilters != null && {
+      LabelCategoryInclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(
+        input.LabelCategoryInclusionFilters,
+        context
+      ),
+    }),
+    ...(input.LabelExclusionFilters != null && {
+      LabelExclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(input.LabelExclusionFilters, context),
+    }),
+    ...(input.LabelInclusionFilters != null && {
+      LabelInclusionFilters: serializeAws_json1_1GeneralLabelsFilterList(input.LabelInclusionFilters, context),
+    }),
   };
 };
 
@@ -7129,8 +7204,67 @@ const deserializeAws_json1_1DetectFacesResponse = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1DetectLabelsImageBackground = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageBackground => {
+  return {
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageForeground = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageForeground => {
+  return {
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageProperties = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageProperties => {
+  return {
+    Background:
+      output.Background != null
+        ? deserializeAws_json1_1DetectLabelsImageBackground(output.Background, context)
+        : undefined,
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
+    Foreground:
+      output.Foreground != null
+        ? deserializeAws_json1_1DetectLabelsImageForeground(output.Foreground, context)
+        : undefined,
+    Quality:
+      output.Quality != null ? deserializeAws_json1_1DetectLabelsImageQuality(output.Quality, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DetectLabelsImageQuality = (
+  output: any,
+  context: __SerdeContext
+): DetectLabelsImageQuality => {
+  return {
+    Brightness: __limitedParseFloat32(output.Brightness),
+    Contrast: __limitedParseFloat32(output.Contrast),
+    Sharpness: __limitedParseFloat32(output.Sharpness),
+  } as any;
+};
+
 const deserializeAws_json1_1DetectLabelsResponse = (output: any, context: __SerdeContext): DetectLabelsResponse => {
   return {
+    ImageProperties:
+      output.ImageProperties != null
+        ? deserializeAws_json1_1DetectLabelsImageProperties(output.ImageProperties, context)
+        : undefined,
     LabelModelVersion: __expectString(output.LabelModelVersion),
     Labels: output.Labels != null ? deserializeAws_json1_1Labels(output.Labels, context) : undefined,
     OrientationCorrection: __expectString(output.OrientationCorrection),
@@ -7182,6 +7316,30 @@ const deserializeAws_json1_1DistributeDatasetEntriesResponse = (
   context: __SerdeContext
 ): DistributeDatasetEntriesResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1DominantColor = (output: any, context: __SerdeContext): DominantColor => {
+  return {
+    Blue: __expectInt32(output.Blue),
+    CSSColor: __expectString(output.CSSColor),
+    Green: __expectInt32(output.Green),
+    HexCode: __expectString(output.HexCode),
+    PixelPercent: __limitedParseFloat32(output.PixelPercent),
+    Red: __expectInt32(output.Red),
+    SimplifiedColor: __expectString(output.SimplifiedColor),
+  } as any;
+};
+
+const deserializeAws_json1_1DominantColors = (output: any, context: __SerdeContext): DominantColor[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DominantColor(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Emotion = (output: any, context: __SerdeContext): Emotion => {
@@ -7635,6 +7793,8 @@ const deserializeAws_json1_1Instance = (output: any, context: __SerdeContext): I
     BoundingBox:
       output.BoundingBox != null ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context) : undefined,
     Confidence: __limitedParseFloat32(output.Confidence),
+    DominantColors:
+      output.DominantColors != null ? deserializeAws_json1_1DominantColors(output.DominantColors, context) : undefined,
   } as any;
 };
 
@@ -7733,10 +7893,49 @@ const deserializeAws_json1_1KnownGender = (output: any, context: __SerdeContext)
 
 const deserializeAws_json1_1Label = (output: any, context: __SerdeContext): Label => {
   return {
+    Aliases: output.Aliases != null ? deserializeAws_json1_1LabelAliases(output.Aliases, context) : undefined,
+    Categories:
+      output.Categories != null ? deserializeAws_json1_1LabelCategories(output.Categories, context) : undefined,
     Confidence: __limitedParseFloat32(output.Confidence),
     Instances: output.Instances != null ? deserializeAws_json1_1Instances(output.Instances, context) : undefined,
     Name: __expectString(output.Name),
     Parents: output.Parents != null ? deserializeAws_json1_1Parents(output.Parents, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1LabelAlias = (output: any, context: __SerdeContext): LabelAlias => {
+  return {
+    Name: __expectString(output.Name),
+  } as any;
+};
+
+const deserializeAws_json1_1LabelAliases = (output: any, context: __SerdeContext): LabelAlias[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LabelAlias(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LabelCategories = (output: any, context: __SerdeContext): LabelCategory[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LabelCategory(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LabelCategory = (output: any, context: __SerdeContext): LabelCategory => {
+  return {
+    Name: __expectString(output.Name),
   } as any;
 };
 

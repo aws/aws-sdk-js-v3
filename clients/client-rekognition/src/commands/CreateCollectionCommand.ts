@@ -35,13 +35,15 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  *       user can then index faces using the <code>IndexFaces</code> operation and persist results in a
  *       specific collection. Then, a user can search the collection for faces in the user-specific
  *       container. </p>
- *          <p>When you create a collection, it is associated with the latest version of the face model version.</p>
+ *          <p>When you create a collection, it is associated with the latest version of the face model
+ *       version.</p>
  *          <note>
  *             <p>Collection names are case-sensitive.</p>
  *          </note>
- *
  *          <p>This operation requires permissions to perform the
- *       <code>rekognition:CreateCollection</code> action. If you want to tag your collection, you also require permission to perform the <code>rekognition:TagResource</code> operation.</p>
+ *         <code>rekognition:CreateCollection</code> action. If you want to tag your collection, you
+ *       also require permission to perform the <code>rekognition:TagResource</code>
+ *       operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

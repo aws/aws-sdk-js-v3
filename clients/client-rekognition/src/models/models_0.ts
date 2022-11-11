@@ -58,8 +58,8 @@ export interface AgeRange {
  *       Amazon Rekognition operations.</p>
  *
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
- *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
- *       Developer Guide. </p>
+ *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+ *       Amazon Rekognition Developer Guide. </p>
  */
 export interface S3Object {
   /**
@@ -89,8 +89,8 @@ export interface GroundTruthManifest {
    *       Amazon Rekognition operations.</p>
    *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
-   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
-   *       Developer Guide. </p>
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+   *       Amazon Rekognition Developer Guide. </p>
    */
   S3Object?: S3Object;
 }
@@ -195,10 +195,10 @@ export enum BodyPart {
 }
 
 /**
- * <p>Identifies the bounding box around the label, face, text, object of interest, or personal protective equipment.
- *       The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and
- *       left sides of the bounding box. Note that the upper-left corner of the image is the origin
- *       (0,0). </p>
+ * <p>Identifies the bounding box around the label, face, text, object of interest, or
+ *       personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code>
+ *       (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note
+ *       that the upper-left corner of the image is the origin (0,0). </p>
  *          <p>The <code>top</code> and <code>left</code> values returned are ratios of the overall
  *       image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of
  *       the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700)
@@ -308,22 +308,24 @@ export interface ProtectiveEquipmentBodyPart {
   EquipmentDetections?: EquipmentDetection[];
 }
 
-export type EmotionName =
-  | "ANGRY"
-  | "CALM"
-  | "CONFUSED"
-  | "DISGUSTED"
-  | "FEAR"
-  | "HAPPY"
-  | "SAD"
-  | "SURPRISED"
-  | "UNKNOWN";
+export enum EmotionName {
+  ANGRY = "ANGRY",
+  CALM = "CALM",
+  CONFUSED = "CONFUSED",
+  DISGUSTED = "DISGUSTED",
+  FEAR = "FEAR",
+  HAPPY = "HAPPY",
+  SAD = "SAD",
+  SURPRISED = "SURPRISED",
+  UNKNOWN = "UNKNOWN",
+}
 
 /**
- * <p>The emotions that appear to be expressed on the face, and the confidence level in the determination.
- *       The API is only making a determination of the physical appearance of a person's face. It is not a determination
- *       of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have
- *       a sad face might not be sad emotionally.</p>
+ * <p>The emotions that appear to be expressed on the face, and the confidence level in the
+ *       determination. The API is only making a determination of the physical appearance of a person's
+ *       face. It is not a determination of the person’s internal emotional state and should not be
+ *       used in such a way. For example, a person pretending to have a sad face might not be sad
+ *       emotionally.</p>
  */
 export interface Emotion {
   /**
@@ -380,16 +382,17 @@ export interface Landmark {
   Type?: LandmarkType | string;
 
   /**
-   * <p>The x-coordinate of the landmark expressed as a ratio of the width of the image.
-   *       The x-coordinate is measured from the left-side of the image.
-   *       For example, if the image is 700 pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
+   * <p>The x-coordinate of the landmark expressed as a ratio of the width of the image. The
+   *       x-coordinate is measured from the left-side of the image. For example, if the image is 700
+   *       pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5.
+   *     </p>
    */
   X?: number;
 
   /**
-   * <p>The y-coordinate of the landmark expressed as a ratio of the height of the image.
-   *       The y-coordinate is measured from the top of the image.
-   *       For example, if the image height is 200 pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.</p>
+   * <p>The y-coordinate of the landmark expressed as a ratio of the height of the image. The
+   *       y-coordinate is measured from the top of the image. For example, if the image height is 200
+   *       pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.</p>
    */
   Y?: number;
 }
@@ -478,16 +481,15 @@ export interface ComparedFace {
   Quality?: ImageQuality;
 
   /**
-   * <p> The emotions that appear to be expressed on the face,
-   *       and the confidence level in the determination. Valid values include "Happy", "Sad",
-   *       "Angry", "Confused", "Disgusted", "Surprised", "Calm", "Unknown", and "Fear".
-   *     </p>
+   * <p> The emotions that appear to be expressed on the face, and the confidence level in the
+   *       determination. Valid values include "Happy", "Sad", "Angry", "Confused", "Disgusted",
+   *       "Surprised", "Calm", "Unknown", and "Fear". </p>
    */
   Emotions?: Emotion[];
 
   /**
-   * <p> Indicates whether or not the face is smiling, and the confidence level in the determination.
-   *     </p>
+   * <p> Indicates whether or not the face is smiling, and the confidence level in the
+   *       determination. </p>
    */
   Smile?: Smile;
 }
@@ -588,18 +590,19 @@ export enum GenderType {
 
 /**
  * <p>The predicted gender of a detected face.
- *           </p>
  *
- *
- *          <p>Amazon Rekognition makes gender binary (male/female) predictions based on the physical appearance
- *       of a face in a particular image. This kind of prediction is not designed to categorize a person’s gender
- *       identity, and you shouldn't use Amazon Rekognition to make such a determination. For example, a male actor
- *       wearing a long-haired wig and earrings for a role might be predicted as female.</p>
- *
- *          <p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases where aggregate gender distribution statistics need to be
- *       analyzed without identifying specific users. For example, the percentage of female users compared to male users on a social media platform. </p>
- *
- *          <p>We don't recommend using gender binary predictions to make decisions that impact an individual's rights, privacy, or access to services.</p>
+ *     </p>
+ *          <p>Amazon Rekognition makes gender binary (male/female) predictions based on the physical
+ *       appearance of a face in a particular image. This kind of prediction is not designed to
+ *       categorize a person’s gender identity, and you shouldn't use Amazon Rekognition to make such a
+ *       determination. For example, a male actor wearing a long-haired wig and earrings for a role
+ *       might be predicted as female.</p>
+ *          <p>Using Amazon Rekognition to make gender binary predictions is best suited for use cases
+ *       where aggregate gender distribution statistics need to be analyzed without identifying
+ *       specific users. For example, the percentage of female users compared to male users on a social
+ *       media platform. </p>
+ *          <p>We don't recommend using gender binary predictions to make decisions that impact an
+ *       individual's rights, privacy, or access to services.</p>
  */
 export interface Gender {
   /**
@@ -663,13 +666,16 @@ export interface Sunglasses {
 
 /**
  * <p>Structure containing attributes of the face that the algorithm detected.</p>
- *          <p>A <code>FaceDetail</code> object contains either the default facial attributes or all facial attributes.
- *       The default attributes are <code>BoundingBox</code>, <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and <code>Quality</code>.</p>
+ *          <p>A <code>FaceDetail</code> object contains either the default facial attributes or all
+ *       facial attributes. The default attributes are <code>BoundingBox</code>,
+ *         <code>Confidence</code>, <code>Landmarks</code>, <code>Pose</code>, and
+ *       <code>Quality</code>.</p>
  *          <p>
- *             <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can return a <code>FaceDetail</code> object with all attributes.
- *       To specify which attributes to return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>.
- *       The following Amazon Rekognition Video operations return only the default attributes. The corresponding Start operations
- *         don't have a <code>FaceAttributes</code> input parameter.</p>
+ *             <a>GetFaceDetection</a> is the only Amazon Rekognition Video stored video operation that can
+ *       return a <code>FaceDetail</code> object with all attributes. To specify which attributes to
+ *       return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default
+ *       attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input
+ *       parameter.</p>
  *          <ul>
  *             <li>
  *                <p>GetCelebrityRecognition</p>
@@ -683,8 +689,8 @@ export interface Sunglasses {
  *          </ul>
  *          <p>The Amazon Rekognition Image <a>DetectFaces</a> and <a>IndexFaces</a> operations
  *       can return all facial attributes. To specify which attributes to return, use the
- *       <code>Attributes</code> input parameter for <code>DetectFaces</code>. For <code>IndexFaces</code>, use the
- *       <code>DetectAttributes</code> input parameter.</p>
+ *         <code>Attributes</code> input parameter for <code>DetectFaces</code>. For
+ *         <code>IndexFaces</code>, use the <code>DetectAttributes</code> input parameter.</p>
  */
 export interface FaceDetail {
   /**
@@ -717,8 +723,7 @@ export interface FaceDetail {
   Sunglasses?: Sunglasses;
 
   /**
-   * <p>The predicted gender of a detected face.
-   *     </p>
+   * <p>The predicted gender of a detected face. </p>
    */
   Gender?: Gender;
 
@@ -747,10 +752,11 @@ export interface FaceDetail {
   MouthOpen?: MouthOpen;
 
   /**
-   * <p>The emotions that appear to be expressed on the face, and the confidence level in the determination.
-   *       The API is only making a determination of the physical appearance of a person's face. It is not a determination
-   *       of the person’s internal emotional state and should not be used in such a way. For example, a person pretending to have
-   *       a sad face might not be sad emotionally.</p>
+   * <p>The emotions that appear to be expressed on the face, and the confidence level in the
+   *       determination. The API is only making a determination of the physical appearance of a person's
+   *       face. It is not a determination of the person’s internal emotional state and should not be
+   *       used in such a way. For example, a person pretending to have a sad face might not be sad
+   *       emotionally.</p>
    */
   Emotions?: Emotion[];
 
@@ -760,7 +766,8 @@ export interface FaceDetail {
   Landmarks?: Landmark[];
 
   /**
-   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default attribute.</p>
+   * <p>Indicates the pose of the face as determined by its pitch, roll, and yaw. Default
+   *       attribute.</p>
    */
   Pose?: Pose;
 
@@ -822,7 +829,8 @@ export interface CelebrityDetail {
  */
 export interface CelebrityRecognition {
   /**
-   * <p>The time, in milliseconds from the start of the video, that the celebrity was recognized.</p>
+   * <p>The time, in milliseconds from the start of the video, that the celebrity was recognized.
+   *          Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the celebrity first appears.</p>
    */
   Timestamp?: number;
 
@@ -884,9 +892,9 @@ export enum QualityFilter {
  *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
  *       call the operation using the S3Object property.</p>
  *
- *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3
- *       object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide.
- *     </p>
+ *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
+ *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+ *       Amazon Rekognition Developer Guide. </p>
  */
 export interface Image {
   /**
@@ -902,22 +910,20 @@ export interface Image {
 
 export interface CompareFacesRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object.
-   *       If you use the AWS CLI to call Amazon Rekognition operations,
-   *       passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   SourceImage: Image | undefined;
 
   /**
    * <p>The target image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
-   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported.
-   *     </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   TargetImage: Image | undefined;
 
@@ -929,18 +935,16 @@ export interface CompareFacesRequest {
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
-   *       Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.
-   *       If you specify <code>LOW</code>,
-   *       <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that
-   *       don’t meet the chosen quality bar.
-   *
-   *       The quality bar is based on a variety of common use cases. Low-quality
-   *       detections can occur for a number of reasons. Some examples are an object that's misidentified
-   *       as a face, a face that's too blurry, or a face with a
-   *       pose that's too extreme to use. If you specify <code>NONE</code>, no
-   *       filtering is performed. The default value is <code>NONE</code>.
-   *     </p>
-   *          <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+   *       Filtered faces aren't compared. If you specify <code>AUTO</code>, Amazon Rekognition chooses the
+   *       quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>,
+   *       filtering removes all faces that don’t meet the chosen quality bar.
+   *        The quality bar is
+   *       based on a variety of common use cases. Low-quality detections can occur for a number of
+   *       reasons. Some examples are an object that's misidentified as a face, a face that's too blurry,
+   *       or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
+   *       filtering is performed. The default value is <code>NONE</code>. </p>
+   *          <p>To use quality filtering, the collection you are using must be associated with version 3
+   *       of the face model or higher.</p>
    */
   QualityFilter?: QualityFilter | string;
 }
@@ -993,37 +997,36 @@ export interface CompareFacesResponse {
 
   /**
    * <p>The value of <code>SourceImageOrientationCorrection</code> is always null.</p>
-   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
-   *       that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
-   *       image correction. The bounding box coordinates are translated to represent object locations
-   *       after the orientation information in the Exif metadata is used to correct the image orientation.
-   *       Images in .png format don't contain Exif metadata.</p>
-   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and
-   *       .jpeg images without orientation information in the image Exif metadata. The bounding box
-   *       coordinates aren't translated and represent the object locations before the image is rotated.
-   *     </p>
+   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format
+   *       (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation
+   *       information to perform image correction. The bounding box coordinates are translated to
+   *       represent object locations after the orientation information in the Exif metadata is used to
+   *       correct the image orientation. Images in .png format don't contain Exif metadata.</p>
+   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images
+   *       without orientation information in the image Exif metadata. The bounding box coordinates
+   *       aren't translated and represent the object locations before the image is rotated. </p>
    */
   SourceImageOrientationCorrection?: OrientationCorrection | string;
 
   /**
    * <p>The value of <code>TargetImageOrientationCorrection</code> is always null.</p>
-   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
-   *       that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
-   *       image correction. The bounding box coordinates are translated to represent object locations
-   *       after the orientation information in the Exif metadata is used to correct the image orientation.
-   *       Images in .png format don't contain Exif metadata.</p>
-   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and
-   *       .jpeg images without orientation information in the image Exif metadata. The bounding box
-   *       coordinates aren't translated and represent the object locations before the image is rotated.
-   *     </p>
+   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format
+   *       (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation
+   *       information to perform image correction. The bounding box coordinates are translated to
+   *       represent object locations after the orientation information in the Exif metadata is used to
+   *       correct the image orientation. Images in .png format don't contain Exif metadata.</p>
+   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images
+   *       without orientation information in the image Exif metadata. The bounding box coordinates
+   *       aren't translated and represent the object locations before the image is rotated. </p>
    */
   TargetImageOrientationCorrection?: OrientationCorrection | string;
 }
 
 /**
  * <p>The input image size exceeds the allowed limit. If you are calling
- *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more information, see
- *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *       DetectProtectiveEquipment, the image size or resolution exceeds the allowed limit. For more
+ *       information, see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide.
+ *     </p>
  */
 export class ImageTooLargeException extends __BaseException {
   readonly name: "ImageTooLargeException" = "ImageTooLargeException";
@@ -1272,9 +1275,10 @@ export enum ContentClassifier {
 }
 
 /**
- * <p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of
- *       moderated content has a label within a hierarchical taxonomy. For more information, see
- *       Content moderation in the Amazon Rekognition Developer Guide.</p>
+ * <p>Provides information about a single type of inappropriate, unwanted, or
+ *       offensive content found in an image or video. Each type of moderated content has a label
+ *       within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition
+ *       Developer Guide.</p>
  */
 export interface ModerationLabel {
   /**
@@ -1303,7 +1307,8 @@ export interface ModerationLabel {
  */
 export interface ContentModerationDetection {
   /**
-   * <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected.</p>
+   * <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected.
+   *           Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the moderated content first appears.</p>
    */
   Timestamp?: number;
 
@@ -1487,9 +1492,8 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * <p></p>
  *
- *
- *          <p>The size of the collection exceeds the allowed limit. For more information, see
- *       Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
+ *          <p>The size of the collection exceeds the allowed limit. For more information,
+ *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -1523,9 +1527,7 @@ export interface CreateCollectionRequest {
   CollectionId: string | undefined;
 
   /**
-   * <p>
-   *       A set of tags (key-value pairs) that you want to attach to the collection.
-   *     </p>
+   * <p> A set of tags (key-value pairs) that you want to attach to the collection. </p>
    */
   Tags?: Record<string, string>;
 }
@@ -1543,7 +1545,8 @@ export interface CreateCollectionResponse {
   CollectionArn?: string;
 
   /**
-   * <p>Version number of the face detection model associated with the collection you are creating.</p>
+   * <p>Version number of the face detection model associated with the collection you are
+   *       creating.</p>
    */
   FaceModelVersion?: string;
 }
@@ -1721,9 +1724,7 @@ export interface CreateProjectVersionRequest {
   TestingData?: TestingData;
 
   /**
-   * <p>
-   *       A set of tags (key-value pairs) that you want to attach to the model.
-   *     </p>
+   * <p> A set of tags (key-value pairs) that you want to attach to the model. </p>
    */
   Tags?: Record<string, string>;
 
@@ -1870,15 +1871,15 @@ export interface StreamProcessorOutput {
 }
 
 /**
- * <p>The X and Y coordinates of a point on an image or video frame. The X and Y values are ratios
- *       of the overall image size or video resolution. For example, if an input image is 700x200 and the
- *       values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the image.</p>
+ * <p>The X and Y coordinates of a point on an image or video frame. The X and Y values are
+ *       ratios of the overall image size or video resolution. For example, if an input image is
+ *       700x200 and the values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel
+ *       coordinate on the image.</p>
  *
- *          <p>An array of <code>Point</code> objects makes up a <code>Polygon</code>.
- *       A <code>Polygon</code> is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>
- *             <code>Polygon</code>
- *       represents a fine-grained polygon around a detected item. For more information, see Geometry in the
- *       Amazon Rekognition Developer Guide. </p>
+ *          <p>An array of <code>Point</code> objects makes up a <code>Polygon</code>. A
+ *         <code>Polygon</code> is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>
+ *             <code>Polygon</code> represents a fine-grained polygon around a detected item. For more
+ *       information, see Geometry in the Amazon Rekognition Developer Guide. </p>
  */
 export interface Point {
   /**
@@ -1986,9 +1987,7 @@ export interface CreateStreamProcessorRequest {
   RoleArn: string | undefined;
 
   /**
-   * <p>
-   *       A set of tags (key-value pairs) that you want to attach to the stream processor.
-   *     </p>
+   * <p> A set of tags (key-value pairs) that you want to attach to the stream processor. </p>
    */
   Tags?: Record<string, string>;
 
@@ -2036,8 +2035,7 @@ export interface CreateStreamProcessorResponse {
 }
 
 /**
- * <p>Information about where an object (<a>DetectCustomLabels</a>) or text (<a>DetectText</a>) is located on
- *       an image.</p>
+ * <p>Information about where an object (<a>DetectCustomLabels</a>) or text (<a>DetectText</a>) is located on an image.</p>
  */
 export interface Geometry {
   /**
@@ -2633,8 +2631,8 @@ export interface Summary {
    *       Amazon Rekognition operations.</p>
    *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
-   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition
-   *       Developer Guide. </p>
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+   *       Amazon Rekognition Developer Guide. </p>
    */
   S3Object?: S3Object;
 }
@@ -2946,9 +2944,9 @@ export interface DetectCustomLabelsRequest {
    *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
    *       call the operation using the S3Object property.</p>
    *
-   *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to access the S3
-   *       object. For more information, see How Amazon Rekognition works with IAM in the Amazon Rekognition Developer Guide.
-   *     </p>
+   *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
+   *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
+   *       Amazon Rekognition Developer Guide. </p>
    */
   Image: Image | undefined;
 
@@ -3010,11 +3008,11 @@ export class ResourceNotReadyException extends __BaseException {
 
 export interface DetectFacesRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
-   *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
@@ -3039,15 +3037,14 @@ export interface DetectFacesResponse {
 
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
-   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
-   *       that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
-   *       image correction. The bounding box coordinates are translated to represent object locations
-   *       after the orientation information in the Exif metadata is used to correct the image orientation.
-   *       Images in .png format don't contain Exif metadata.</p>
-   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and
-   *       .jpeg images without orientation information in the image Exif metadata. The bounding box
-   *       coordinates aren't translated and represent the object locations before the image is rotated.
-   *     </p>
+   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format
+   *       (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation
+   *       information to perform image correction. The bounding box coordinates are translated to
+   *       represent object locations after the orientation information in the Exif metadata is used to
+   *       correct the image orientation. Images in .png format don't contain Exif metadata.</p>
+   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images
+   *       without orientation information in the image Exif metadata. The bounding box coordinates
+   *       aren't translated and represent the object locations before the image is rotated. </p>
    */
   OrientationCorrection?: OrientationCorrection | string;
 }
@@ -3076,14 +3073,74 @@ export interface DetectionFilter {
   MinBoundingBoxWidth?: number;
 }
 
+export enum DetectLabelsFeatureName {
+  GENERAL_LABELS = "GENERAL_LABELS",
+  IMAGE_PROPERTIES = "IMAGE_PROPERTIES",
+}
+
+/**
+ * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
+ *       exclusive, or a combination of both and can be applied to individual l
+ *       abels or entire label categories.</p>
+ */
+export interface GeneralLabelsSettings {
+  /**
+   * <p>The labels that should be included in the return from DetectLabels.</p>
+   */
+  LabelInclusionFilters?: string[];
+
+  /**
+   * <p>The labels that should be excluded from the return from DetectLabels.</p>
+   */
+  LabelExclusionFilters?: string[];
+
+  /**
+   * <p>The label categories that should be included in the return from DetectLabels.</p>
+   */
+  LabelCategoryInclusionFilters?: string[];
+
+  /**
+   * <p>The label categories that should be excluded from the return from DetectLabels.</p>
+   */
+  LabelCategoryExclusionFilters?: string[];
+}
+
+/**
+ * <p>Settings for the IMAGE_PROPERTIES feature type.</p>
+ */
+export interface DetectLabelsImagePropertiesSettings {
+  /**
+   * <p>The maximum number of dominant colors to return when detecting labels in an image. The default value is 10.</p>
+   */
+  MaxDominantColors?: number;
+}
+
+/**
+ * <p>Settings for the DetectLabels request. Settings can include
+ *       filters for both GENERAL_LABELS and IMAGE_PROPERTIES. GENERAL_LABELS filters can be inclusive
+ *       or exclusive and applied to individual labels or label categories. IMAGE_PROPERTIES filters
+ *       allow specification of a maximum number of dominant colors.</p>
+ */
+export interface DetectLabelsSettings {
+  /**
+   * <p>Contains the specified filters for GENERAL_LABELS.</p>
+   */
+  GeneralLabels?: GeneralLabelsSettings;
+
+  /**
+   * <p>Contains the chosen number of maximum dominant colors in an image.</p>
+   */
+  ImageProperties?: DetectLabelsImagePropertiesSettings;
+}
+
 export interface DetectLabelsRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
-   *       Amazon Rekognition operations, passing image bytes is not supported. Images stored in an S3 Bucket do
-   *     not need to be base64-encoded.</p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing image bytes is not supported. Images stored in an
+   *       S3 Bucket do not need to be base64-encoded.</p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
@@ -3100,11 +3157,173 @@ export interface DetectLabelsRequest {
    *       confidence values greater than or equal to 55 percent.</p>
    */
   MinConfidence?: number;
+
+  /**
+   * <p>A list of the types of analysis to perform. Specifying GENERAL_LABELS uses the label detection
+   *       feature, while specifying IMAGE_PROPERTIES returns information regarding image color and quality.
+   *       If no option is specified GENERAL_LABELS is used by default.</p>
+   */
+  Features?: (DetectLabelsFeatureName | string)[];
+
+  /**
+   * <p>A list of the filters to be applied to returned detected labels and image properties. Specified
+   *       filters can be inclusive, exclusive, or a combination of both. Filters can be used for individual
+   *       labels or label categories. The exact label names or label categories must be supplied. For
+   *       a full list of labels and label categories, see LINK HERE.</p>
+   */
+  Settings?: DetectLabelsSettings;
 }
 
 /**
- * <p>An instance of a label returned by Amazon Rekognition Image (<a>DetectLabels</a>)
- *       or by Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>
+ * <p>A description of the dominant colors in an image.</p>
+ */
+export interface DominantColor {
+  /**
+   * <p>The Red RGB value for a dominant color.</p>
+   */
+  Red?: number;
+
+  /**
+   * <p>The Blue RGB value for a dominant color.</p>
+   */
+  Blue?: number;
+
+  /**
+   * <p>The Green RGB value for a dominant color.</p>
+   */
+  Green?: number;
+
+  /**
+   * <p>The Hex code equivalent of the RGB values for a dominant color.</p>
+   */
+  HexCode?: string;
+
+  /**
+   * <p>The CSS color name of a dominant color.</p>
+   */
+  CSSColor?: string;
+
+  /**
+   * <p>One of 12 simplified color names applied to a dominant color.</p>
+   */
+  SimplifiedColor?: string;
+
+  /**
+   * <p>The percentage of image pixels that have a given dominant color.</p>
+   */
+  PixelPercent?: number;
+}
+
+/**
+ * <p>The quality of an image provided for label detection, with regard to brightness, sharpness, and contrast.</p>
+ */
+export interface DetectLabelsImageQuality {
+  /**
+   * <p>The brightness of an image provided for label detection.</p>
+   */
+  Brightness?: number;
+
+  /**
+   * <p>The sharpness of an image provided for label detection.</p>
+   */
+  Sharpness?: number;
+
+  /**
+   * <p>The contrast of an image provided for label detection.</p>
+   */
+  Contrast?: number;
+}
+
+/**
+ * <p>The background of the image with regard to image quality and dominant colors.</p>
+ */
+export interface DetectLabelsImageBackground {
+  /**
+   * <p>The quality of the image background as defined by brightness and sharpness.</p>
+   */
+  Quality?: DetectLabelsImageQuality;
+
+  /**
+   * <p>The dominant colors found in the background of an image, defined with RGB values,
+   *       CSS color name, simplified color name, and PixelPercentage (the percentage of
+   *       image pixels that have a particular color).</p>
+   */
+  DominantColors?: DominantColor[];
+}
+
+/**
+ * <p>The foreground of the image with regard to image quality and dominant colors.</p>
+ */
+export interface DetectLabelsImageForeground {
+  /**
+   * <p>The quality of the image foreground as defined by brightness and sharpness.</p>
+   */
+  Quality?: DetectLabelsImageQuality;
+
+  /**
+   * <p>The dominant colors found in the foreground of an image, defined with RGB values,
+   *       CSS color name, simplified color name, and PixelPercentage (the percentage of image
+   *       pixels that have a particular color).</p>
+   */
+  DominantColors?: DominantColor[];
+}
+
+/**
+ * <p>Information about the quality and dominant colors of an input image.
+ *       Quality and color information is returned for the entire image, foreground, and background.</p>
+ */
+export interface DetectLabelsImageProperties {
+  /**
+   * <p>Information about the quality of the image foreground as defined by brightness,
+   *       sharpness, and contrast. The higher the value the greater the brightness,
+   *       sharpness, and contrast respectively.</p>
+   */
+  Quality?: DetectLabelsImageQuality;
+
+  /**
+   * <p>Information about the dominant colors found in an image, described with RGB values,
+   *       CSS color name, simplified color name, and PixelPercentage (the percentage of image pixels
+   *       that have a particular color).</p>
+   */
+  DominantColors?: DominantColor[];
+
+  /**
+   * <p>Information about the properties of an image’s foreground, including the
+   *       foreground’s quality and dominant colors, including the quality and dominant colors of the image.</p>
+   */
+  Foreground?: DetectLabelsImageForeground;
+
+  /**
+   * <p>Information about the properties of an image’s background, including
+   *       the background’s quality and dominant colors, including the quality
+   *       and dominant colors of the image.</p>
+   */
+  Background?: DetectLabelsImageBackground;
+}
+
+/**
+ * <p>A potential alias of for a given label.</p>
+ */
+export interface LabelAlias {
+  /**
+   * <p>The name of an alias for a given label.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * <p>The category that applies to a given label.</p>
+ */
+export interface LabelCategory {
+  /**
+   * <p>The name of a category that applies to a given label.</p>
+   */
+  Name?: string;
+}
+
+/**
+ * <p>An instance of a label returned by Amazon Rekognition Image (<a>DetectLabels</a>) or by
+ *       Amazon Rekognition Video (<a>GetLabelDetection</a>).</p>
  */
 export interface Instance {
   /**
@@ -3116,6 +3335,11 @@ export interface Instance {
    * <p>The confidence that Amazon Rekognition has in the accuracy of the bounding box.</p>
    */
   Confidence?: number;
+
+  /**
+   * <p>The dominant colors found in an individual instance of a label.</p>
+   */
+  DominantColors?: DominantColor[];
 }
 
 /**
@@ -3155,6 +3379,16 @@ export interface Label {
    * <p>The parent labels for a label. The response includes all ancestor labels.</p>
    */
   Parents?: Parent[];
+
+  /**
+   * <p>A list of potential aliases for a given label.</p>
+   */
+  Aliases?: LabelAlias[];
+
+  /**
+   * <p>A list of the categories associated with a given label.</p>
+   */
+  Categories?: LabelCategory[];
 }
 
 export interface DetectLabelsResponse {
@@ -3165,15 +3399,14 @@ export interface DetectLabelsResponse {
 
   /**
    * <p>The value of <code>OrientationCorrection</code> is always null.</p>
-   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
-   *       that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
-   *       image correction. The bounding box coordinates are translated to represent object locations
-   *       after the orientation information in the Exif metadata is used to correct the image orientation.
-   *       Images in .png format don't contain Exif metadata.</p>
-   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and
-   *          .jpeg images without orientation information in the image Exif metadata. The bounding box
-   *          coordinates aren't translated and represent the object locations before the image is rotated.
-   *       </p>
+   *          <p>If the input image is in .jpeg format, it might contain exchangeable image file format
+   *       (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation
+   *       information to perform image correction. The bounding box coordinates are translated to
+   *       represent object locations after the orientation information in the Exif metadata is used to
+   *       correct the image orientation. Images in .png format don't contain Exif metadata.</p>
+   *          <p>Amazon Rekognition doesn’t perform image correction for images in .png format and .jpeg images
+   *       without orientation information in the image Exif metadata. The bounding box coordinates
+   *       aren't translated and represent the object locations before the image is rotated. </p>
    */
   OrientationCorrection?: OrientationCorrection | string;
 
@@ -3181,6 +3414,11 @@ export interface DetectLabelsResponse {
    * <p>Version number of the label detection model that was used to detect labels.</p>
    */
   LabelModelVersion?: string;
+
+  /**
+   * <p>Information about the properties of the input image, such as brightness, sharpness, contrast, and dominant colors.</p>
+   */
+  ImageProperties?: DetectLabelsImageProperties;
 }
 
 /**
@@ -3195,19 +3433,19 @@ export interface HumanLoopDataAttributes {
 }
 
 /**
- * <p>Sets up the flow definition the image will be sent to if one of the conditions is met.
- *       You can also set certain attributes of the image before review.</p>
+ * <p>Sets up the flow definition the image will be sent to if one of the conditions is met. You
+ *       can also set certain attributes of the image before review.</p>
  */
 export interface HumanLoopConfig {
   /**
-   * <p>The name of the human review used for this image. This should be kept unique within a region.</p>
+   * <p>The name of the human review used for this image. This should be kept unique within a
+   *       region.</p>
    */
   HumanLoopName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker
-   *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html">CreateFlowDefinition</a>
-   *      Operation. </p>
+   * <p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by
+   *       using the Amazon Sagemaker <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html">CreateFlowDefinition</a> Operation. </p>
    */
   FlowDefinitionArn: string | undefined;
 
@@ -3219,12 +3457,11 @@ export interface HumanLoopConfig {
 
 export interface DetectModerationLabelsRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object.
-   *       If you use the AWS CLI to call Amazon Rekognition operations,
-   *       passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
@@ -3237,15 +3474,15 @@ export interface DetectModerationLabelsRequest {
   MinConfidence?: number;
 
   /**
-   * <p>Sets up the configuration for human evaluation, including the FlowDefinition
-   *       the image will be sent to.</p>
+   * <p>Sets up the configuration for human evaluation, including the FlowDefinition the image
+   *       will be sent to.</p>
    */
   HumanLoopConfig?: HumanLoopConfig;
 }
 
 /**
- * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did
- *        not trigger human review.</p>
+ * <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the
+ *       input did not trigger human review.</p>
  */
 export interface HumanLoopActivationOutput {
   /**
@@ -3267,13 +3504,14 @@ export interface HumanLoopActivationOutput {
 
 export interface DetectModerationLabelsResponse {
   /**
-   * <p>Array of detected Moderation labels and the time, in milliseconds from the
-   *       start of the video, they were detected.</p>
+   * <p>Array of detected Moderation labels and the time, in milliseconds from the start of the
+   *       video, they were detected.</p>
    */
   ModerationLabels?: ModerationLabel[];
 
   /**
-   * <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
+   * <p>Version number of the moderation detection model that was used to detect unsafe
+   *       content.</p>
    */
   ModerationModelVersion?: string;
 
@@ -3460,10 +3698,10 @@ export interface DetectProtectiveEquipmentResponse {
 }
 
 /**
- * <p>A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response.
- *       <code>WordFilter</code> looks at a word’s height, width, and minimum confidence. <code>RegionOfInterest</code>
- *       lets you set a specific region of the image to look for text in.
- *       </p>
+ * <p>A set of optional parameters that you can use to set the criteria that the text must meet
+ *       to be included in your response. <code>WordFilter</code> looks at a word’s height, width, and
+ *       minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the image
+ *       to look for text in. </p>
  */
 export interface DetectTextFilters {
   /**
@@ -3472,24 +3710,25 @@ export interface DetectTextFilters {
   WordFilter?: DetectionFilter;
 
   /**
-   * <p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object to set the region
-   *       of the image.</p>
+   * <p> A Filter focusing on a certain area of the image. Uses a <code>BoundingBox</code> object
+   *       to set the region of the image.</p>
    */
   RegionsOfInterest?: RegionOfInterest[];
 }
 
 export interface DetectTextRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI
-   *       to call Amazon Rekognition operations, you can't pass image bytes. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an Amazon S3 object. If you use the AWS
+   *       CLI to call Amazon Rekognition operations, you can't pass image bytes. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
   /**
-   * <p>Optional parameters that let you set the criteria that the text must meet to be included in your response.</p>
+   * <p>Optional parameters that let you set the criteria that the text must meet to be included
+   *       in your response.</p>
    */
   Filters?: DetectTextFilters;
 }
@@ -3508,7 +3747,8 @@ export enum TextTypes {
  *       the word appears. The word <code>Id</code> is also an index for the word within a line of
  *       words. </p>
  *
- *          <p>For more information, see Detecting text in the Amazon Rekognition Developer Guide.</p>
+ *          <p>For more information, see Detecting text in the Amazon Rekognition Developer
+ *       Guide.</p>
  */
 export interface TextDetection {
   /**
@@ -3617,9 +3857,8 @@ export interface Face {
   Confidence?: number;
 
   /**
-   * <p>
-   *       The version of the face detect and storage model that was used when indexing the face vector.
-   *     </p>
+   * <p> The version of the face detect and storage model that was used when indexing the face
+   *       vector. </p>
    */
   IndexFacesModelVersion?: string;
 }
@@ -3634,7 +3873,8 @@ export enum FaceAttributes {
  */
 export interface FaceDetection {
   /**
-   * <p>Time, in milliseconds from the start of the video, that the face was detected.</p>
+   * <p>Time, in milliseconds from the start of the video, that the face was detected.
+   *           Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the face first appears.</p>
    */
   Timestamp?: number;
 
@@ -3685,8 +3925,8 @@ export enum FaceSearchSortBy {
 
 export interface GetCelebrityInfoRequest {
   /**
-   * <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation,
-   *    which recognizes celebrities in an image. </p>
+   * <p>The ID for the celebrity. You get the celebrity ID from a call to the <a>RecognizeCelebrities</a> operation, which recognizes celebrities in an image.
+   *     </p>
    */
   Id: string | undefined;
 }
@@ -3980,13 +4220,14 @@ export interface PersonDetail {
 
 /**
  * <p>Information about a person whose face matches a face(s) in an Amazon Rekognition collection.
- *       Includes information about the faces in the Amazon Rekognition collection (<a>FaceMatch</a>), information about the person (<a>PersonDetail</a>),
- *       and the time stamp for when the person was detected in a video. An array of
- *         <code>PersonMatch</code> objects is returned by <a>GetFaceSearch</a>. </p>
+ *       Includes information about the faces in the Amazon Rekognition collection (<a>FaceMatch</a>), information about the person (<a>PersonDetail</a>), and the time stamp for
+ *       when the person was detected in a video. An array of <code>PersonMatch</code> objects is
+ *       returned by <a>GetFaceSearch</a>. </p>
  */
 export interface PersonMatch {
   /**
-   * <p>The time, in milliseconds from the beginning of the video, that the person was matched in the video.</p>
+   * <p>The time, in milliseconds from the beginning of the video, that the person was matched in
+   *       the video.</p>
    */
   Timestamp?: number;
 
@@ -3996,7 +4237,8 @@ export interface PersonMatch {
   Person?: PersonDetail;
 
   /**
-   * <p>Information about the faces in the input collection that match the face of a person in the video.</p>
+   * <p>Information about the faces in the input collection that match the face of a person in the
+   *       video.</p>
    */
   FaceMatches?: FaceMatch[];
 }
@@ -4075,7 +4317,8 @@ export interface GetLabelDetectionRequest {
  */
 export interface LabelDetection {
   /**
-   * <p>Time, in milliseconds from the start of the video, that the label was detected.</p>
+   * <p>Time, in milliseconds from the start of the video, that the label was detected.
+   *           Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the label first appears.</p>
    */
   Timestamp?: number;
 
@@ -4163,7 +4406,8 @@ export interface GetPersonTrackingRequest {
  */
 export interface PersonDetection {
   /**
-   * <p>The time, in milliseconds from the start of the video, that the person's path was tracked.</p>
+   * <p>The time, in milliseconds from the start of the video, that the person's path was tracked.
+   *           Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the person's path first appears.</p>
    */
   Timestamp?: number;
 
@@ -4440,7 +4684,8 @@ export interface GetTextDetectionRequest {
  */
 export interface TextDetectionResult {
   /**
-   * <p>The time, in milliseconds from the start of the video, that the text was detected.</p>
+   * <p>The time, in milliseconds from the start of the video, that the text was detected.
+   *        Note that <code>Timestamp</code> is not guaranteed to be accurate to the individual frame where the text first appears.</p>
    */
   Timestamp?: number;
 
@@ -4522,11 +4767,11 @@ export interface IndexFacesRequest {
   CollectionId: string | undefined;
 
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
-   *       Amazon Rekognition operations, passing base64-encoded image bytes isn't supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes isn't supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
@@ -4559,25 +4804,23 @@ export interface IndexFacesRequest {
    *          <p>The faces that are returned by <code>IndexFaces</code> are sorted by the largest face
    *       bounding box size to the smallest size, in descending order.</p>
    *          <p>
-   *             <code>MaxFaces</code> can be used with a collection associated with any version of
-   *       the face model.</p>
+   *             <code>MaxFaces</code> can be used with a collection associated with any version of the
+   *       face model.</p>
    */
   MaxFaces?: number;
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
-   *     Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality bar.
-   *       If you specify <code>LOW</code>,
-   *       <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that
-   *       don’t meet the chosen quality bar.  The default value is <code>AUTO</code>.
-   *
-   *       The quality bar is based on a variety of common use cases. Low-quality
-   *       detections can occur for a number of reasons. Some examples are an object that's misidentified
-   *       as a face, a face that's too blurry, or a face with a
-   *       pose that's too extreme to use. If you specify <code>NONE</code>, no
-   *       filtering is performed.
-   *     </p>
-   *          <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+   *       Filtered faces aren't indexed. If you specify <code>AUTO</code>, Amazon Rekognition chooses the quality
+   *       bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>, filtering
+   *       removes all faces that don’t meet the chosen quality bar. The default value is
+   *         <code>AUTO</code>.
+   *       The quality bar is based on a variety of common use cases. Low-quality detections can occur
+   *       for a number of reasons. Some examples are an object that's misidentified as a face, a face
+   *       that's too blurry, or a face with a pose that's too extreme to use. If you specify
+   *         <code>NONE</code>, no filtering is performed. </p>
+   *          <p>To use quality filtering, the collection you are using must be associated with version 3
+   *       of the face model or higher.</p>
    */
   QualityFilter?: QualityFilter | string;
 }
@@ -4601,12 +4844,12 @@ export interface UnindexedFace {
    * <p>An array of reasons that specify why a face wasn't indexed. </p>
    *          <ul>
    *             <li>
-   *                <p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned
-   *           too far away from the camera.</p>
+   *                <p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is
+   *           turned too far away from the camera.</p>
    *             </li>
    *             <li>
-   *                <p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the
-   *       <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p>
+   *                <p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified
+   *           by the <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p>
    *             </li>
    *             <li>
    *                <p>LOW_BRIGHTNESS - The image is too dark.</p>
@@ -4634,40 +4877,35 @@ export interface UnindexedFace {
 
 export interface IndexFacesResponse {
   /**
-   * <p>An array of faces detected and added to the collection.
-   *       For more information, see Searching Faces in a Collection in the Amazon Rekognition Developer Guide.
-   *     </p>
+   * <p>An array of faces detected and added to the collection. For more information,
+   *       see Searching Faces in a Collection in the Amazon Rekognition Developer Guide. </p>
    */
   FaceRecords?: FaceRecord[];
 
   /**
-   * <p>If your collection is associated with a face detection model that's later
-   *       than version 3.0, the value of <code>OrientationCorrection</code>
-   *       is always null and no orientation information is returned.</p>
-   *
-   *          <p>If your collection is associated with a face detection model that's
-   *       version 3.0 or earlier, the following applies:</p>
+   * <p>If your collection is associated with a face detection model that's later than version
+   *       3.0, the value of <code>OrientationCorrection</code> is always null and no orientation
+   *       information is returned.</p>
+   *          <p>If your collection is associated with a face detection model that's version 3.0 or
+   *       earlier, the following applies:</p>
    *          <ul>
    *             <li>
-   *                <p>If the input image is in .jpeg format, it might contain exchangeable image file format (Exif) metadata
-   *         that includes the image's orientation. Amazon Rekognition uses this orientation information to perform
-   *         image correction - the bounding box coordinates are translated to represent object locations
-   *         after the orientation information in the Exif metadata is used to correct the image orientation.
-   *         Images in .png format don't contain Exif metadata. The value of <code>OrientationCorrection</code>
-   *         is null.</p>
+   *                <p>If the input image is in .jpeg format, it might contain exchangeable image file format
+   *           (Exif) metadata that includes the image's orientation. Amazon Rekognition uses this orientation
+   *           information to perform image correction - the bounding box coordinates are translated to
+   *           represent object locations after the orientation information in the Exif metadata is used
+   *           to correct the image orientation. Images in .png format don't contain Exif metadata. The
+   *           value of <code>OrientationCorrection</code> is null.</p>
    *             </li>
    *             <li>
-   *                <p>If the image doesn't contain orientation information in its Exif metadata, Amazon Rekognition returns
-   *       an estimated orientation (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition doesn’t perform
-   *       image correction for images. The bounding box coordinates aren't translated and represent the
-   *       object locations before the image is rotated.</p>
+   *                <p>If the image doesn't contain orientation information in its Exif metadata, Amazon Rekognition
+   *           returns an estimated orientation (ROTATE_0, ROTATE_90, ROTATE_180, ROTATE_270). Amazon Rekognition
+   *           doesn’t perform image correction for images. The bounding box coordinates aren't
+   *           translated and represent the object locations before the image is rotated.</p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *          <p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get the
-   *     version of the face detection model by calling <a>DescribeCollection</a>. </p>
+   *          <p>Bounding box information is returned in the <code>FaceRecords</code> array. You can get
+   *       the version of the face detection model by calling <a>DescribeCollection</a>. </p>
    */
   OrientationCorrection?: OrientationCorrection | string;
 
@@ -4687,17 +4925,15 @@ export interface IndexFacesResponse {
 }
 
 /**
- * <p>
- *             Specifies the starting point in a Kinesis stream to start processing.
- *             You can use the producer timestamp or the fragment number.
- *             For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
- *         </p>
+ * <p>Specifies the starting point in a Kinesis stream to start processing. You can use the
+ *             producer timestamp or the fragment number. One of either producer timestamp or fragment
+ *             number is required. If you use the producer timestamp, you must put the time in
+ *             milliseconds. For more information about fragment numbers, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>. </p>
  */
 export interface KinesisVideoStreamStartSelector {
   /**
-   * <p>
-   *             The timestamp from the producer corresponding to the fragment.
-   *         </p>
+   * <p> The timestamp from the producer corresponding to the fragment, in milliseconds,
+   *             expressed in unix time format. </p>
    */
   ProducerTimestamp?: number;
 
@@ -4734,9 +4970,10 @@ export interface ListCollectionsResponse {
   NextToken?: string;
 
   /**
-   * <p>Version numbers of the face detection models associated with the collections in the array <code>CollectionIds</code>.
-   *     For example, the value of <code>FaceModelVersions[2]</code> is the version number for the face detection model used
-   *       by the collection in <code>CollectionId[2]</code>.</p>
+   * <p>Version numbers of the face detection models associated with the collections in the
+   *       array <code>CollectionIds</code>. For example, the value of <code>FaceModelVersions[2]</code>
+   *       is the version number for the face detection model used by the collection in
+   *         <code>CollectionId[2]</code>.</p>
    */
   FaceModelVersions?: string[];
 }
@@ -4880,7 +5117,8 @@ export interface ListFacesResponse {
   NextToken?: string;
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Version number of the face detection model associated with the input collection
+   *         (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -5002,18 +5240,15 @@ export interface ListStreamProcessorsResponse {
 
 export interface ListTagsForResourceRequest {
   /**
-   * <p>
-   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of.
-   *     </p>
+   * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains
+   *       the tags that you want a list of. </p>
    */
   ResourceArn: string | undefined;
 }
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>
-   *       A list of key-value tags assigned to the resource.
-   *     </p>
+   * <p> A list of key-value tags assigned to the resource. </p>
    */
   Tags?: Record<string, string>;
 }
@@ -5101,8 +5336,8 @@ export interface PutProjectPolicyResponse {
 
 export interface RecognizeCelebritiesRequest {
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to call
-   *       Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
    *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
    *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
    *       Images in the Amazon Rekognition developer guide.</p>
@@ -5114,9 +5349,9 @@ export interface RecognizeCelebritiesResponse {
   /**
    * <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64
    *       celebrities in an image. Each celebrity object includes the following attributes:
-   *       <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>,
-   *       <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>,
-   *       <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>,
+   *         <code>Face</code>, <code>Confidence</code>, <code>Emotions</code>, <code>Landmarks</code>,
+   *         <code>Pose</code>, <code>Quality</code>, <code>Smile</code>, <code>Id</code>,
+   *         <code>KnownGender</code>, <code>MatchConfidence</code>, <code>Name</code>,
    *       <code>Urls</code>.</p>
    */
   CelebrityFaces?: Celebrity[];
@@ -5128,8 +5363,9 @@ export interface RecognizeCelebritiesResponse {
 
   /**
    * <note>
-   *             <p>Support for estimating image orientation using the the OrientationCorrection field has ceased as of August 2021.
-   *         Any returned values for this field included in an API response will always be NULL.</p>
+   *             <p>Support for estimating image orientation using the the OrientationCorrection field
+   *         has ceased as of August 2021. Any returned values for this field included in an API response
+   *         will always be NULL.</p>
    *          </note>
    *          <p>The orientation of the input image (counterclockwise direction). If your application
    *       displays the image, you can use this value to correct the orientation. The bounding box
@@ -5166,9 +5402,8 @@ export interface SearchFacesRequest {
 
   /**
    * <p>Optional value specifying the minimum confidence in the face match to return. For
-   *       example, don't return any matches where confidence in matches is less than 70%.
-   *       The default value is 80%.
-   *     </p>
+   *       example, don't return any matches where confidence in matches is less than 70%. The default
+   *       value is 80%. </p>
    */
   FaceMatchThreshold?: number;
 }
@@ -5186,7 +5421,8 @@ export interface SearchFacesResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Version number of the face detection model associated with the input collection
+   *         (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -5198,12 +5434,11 @@ export interface SearchFacesByImageRequest {
   CollectionId: string | undefined;
 
   /**
-   * <p>The input image as base64-encoded bytes or an S3 object.
-   *       If you use the AWS CLI to call Amazon Rekognition operations,
-   *       passing base64-encoded image bytes is not supported. </p>
-   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to base64-encode image bytes
-   *       passed using the <code>Bytes</code> field.
-   *       For more information, see Images in the Amazon Rekognition developer guide.</p>
+   * <p>The input image as base64-encoded bytes or an S3 object. If you use the AWS CLI to
+   *       call Amazon Rekognition operations, passing base64-encoded image bytes is not supported. </p>
+   *          <p>If you are using an AWS SDK to call Amazon Rekognition, you might not need to
+   *       base64-encode image bytes passed using the <code>Bytes</code> field. For more information, see
+   *       Images in the Amazon Rekognition developer guide.</p>
    */
   Image: Image | undefined;
 
@@ -5215,25 +5450,23 @@ export interface SearchFacesByImageRequest {
 
   /**
    * <p>(Optional) Specifies the minimum confidence in the face match to return. For example,
-   *       don't return any matches where confidence in matches is less than 70%.
-   *     The default value is 80%.</p>
+   *       don't return any matches where confidence in matches is less than 70%. The default value is
+   *       80%.</p>
    */
   FaceMatchThreshold?: number;
 
   /**
    * <p>A filter that specifies a quality bar for how much filtering is done to identify faces.
-   *       Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>, Amazon Rekognition
-   *       chooses the quality bar.  If you specify <code>LOW</code>,
-   *       <code>MEDIUM</code>, or <code>HIGH</code>, filtering removes all faces that
-   *       don’t meet the chosen quality bar.
-   *
-   *       The quality bar is based on a variety of common use cases. Low-quality
-   *       detections can occur for a number of reasons. Some examples are an object that's misidentified
-   *       as a face, a face that's too blurry, or a face with a
-   *       pose that's too extreme to use. If you specify <code>NONE</code>, no
-   *       filtering is performed.  The default value is <code>NONE</code>.
-   *     </p>
-   *          <p>To use quality filtering, the collection you are using must be associated with version 3 of the face model or higher.</p>
+   *       Filtered faces aren't searched for in the collection. If you specify <code>AUTO</code>,
+   *       Amazon Rekognition chooses the quality bar. If you specify <code>LOW</code>, <code>MEDIUM</code>, or
+   *         <code>HIGH</code>, filtering removes all faces that don’t meet the chosen quality bar.
+   *        The quality bar is
+   *       based on a variety of common use cases. Low-quality detections can occur for a number of
+   *       reasons. Some examples are an object that's misidentified as a face, a face that's too blurry,
+   *       or a face with a pose that's too extreme to use. If you specify <code>NONE</code>, no
+   *       filtering is performed. The default value is <code>NONE</code>. </p>
+   *          <p>To use quality filtering, the collection you are using must be associated with version 3
+   *       of the face model or higher.</p>
    */
   QualityFilter?: QualityFilter | string;
 }
@@ -5258,7 +5491,8 @@ export interface SearchFacesByImageResponse {
   FaceMatches?: FaceMatch[];
 
   /**
-   * <p>Version number of the face detection model associated with the input collection (<code>CollectionId</code>).</p>
+   * <p>Version number of the face detection model associated with the input collection
+   *         (<code>CollectionId</code>).</p>
    */
   FaceModelVersion?: string;
 }
@@ -5687,12 +5921,13 @@ export interface StartSegmentDetectionResponse {
 }
 
 /**
- * <p></p>
+ * <p>This is a required parameter for label detection stream processors and should not be used
+ *             to start a face search stream processor.</p>
  */
 export interface StreamProcessingStartSelector {
   /**
    * <p>
-   *             Specifies the starting point in the stream to start processing. This can be done with a timestamp or a fragment number in a Kinesis stream.
+   *             Specifies the starting point in the stream to start processing. This can be done with a producer timestamp or a fragment number in a Kinesis stream.
    *         </p>
    */
   KVSStreamStartSelector?: KinesisVideoStreamStartSelector;
@@ -5722,8 +5957,8 @@ export interface StartStreamProcessorRequest {
   /**
    * <p>
    *             Specifies the starting point in the Kinesis stream to start processing.
-   *             You can use the producer timestamp or the fragment number.
-   *             For more information, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
+   *             You can use the producer timestamp or the fragment number. If you use the producer timestamp, you must put the time in milliseconds.
+   *             For more information about fragment numbers, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
    *         </p>
    *         <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
    */
@@ -5832,16 +6067,13 @@ export interface StopStreamProcessorResponse {}
 
 export interface TagResourceRequest {
   /**
-   * <p>
-   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to assign the tags to.
-   *     </p>
+   * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
+   *       assign the tags to. </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *       The key-value tags to assign to the resource.
-   *     </p>
+   * <p> The key-value tags to assign to the resource. </p>
    */
   Tags: Record<string, string> | undefined;
 }
@@ -5850,16 +6082,13 @@ export interface TagResourceResponse {}
 
 export interface UntagResourceRequest {
   /**
-   * <p>
-   *       Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to remove the tags from.
-   *     </p>
+   * <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to
+   *       remove the tags from. </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *       A list of the tags that you want to remove.
-   *     </p>
+   * <p> A list of the tags that you want to remove. </p>
    */
   TagKeys: string[] | undefined;
 }
@@ -6704,7 +6933,79 @@ export const DetectionFilterFilterSensitiveLog = (obj: DetectionFilter): any => 
 /**
  * @internal
  */
+export const GeneralLabelsSettingsFilterSensitiveLog = (obj: GeneralLabelsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsImagePropertiesSettingsFilterSensitiveLog = (
+  obj: DetectLabelsImagePropertiesSettings
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsSettingsFilterSensitiveLog = (obj: DetectLabelsSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DetectLabelsRequestFilterSensitiveLog = (obj: DetectLabelsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DominantColorFilterSensitiveLog = (obj: DominantColor): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsImageQualityFilterSensitiveLog = (obj: DetectLabelsImageQuality): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsImageBackgroundFilterSensitiveLog = (obj: DetectLabelsImageBackground): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsImageForegroundFilterSensitiveLog = (obj: DetectLabelsImageForeground): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetectLabelsImagePropertiesFilterSensitiveLog = (obj: DetectLabelsImageProperties): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelAliasFilterSensitiveLog = (obj: LabelAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelCategoryFilterSensitiveLog = (obj: LabelCategory): any => ({
   ...obj,
 });
 
