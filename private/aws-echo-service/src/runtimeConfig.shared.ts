@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { Logger as __Logger } from "@aws-sdk/types";
+import { NoOpLogger } from "@aws-sdk/smithy-client";
 import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
 import { EchoServiceClientConfig } from "./EchoServiceClient";
@@ -12,6 +12,6 @@ export const getRuntimeConfig = (config: EchoServiceClientConfig) => ({
   base64Decoder: config?.base64Decoder ?? fromBase64,
   base64Encoder: config?.base64Encoder ?? toBase64,
   disableHostPrefix: config?.disableHostPrefix ?? false,
-  logger: config?.logger ?? ({} as __Logger),
+  logger: config?.logger ?? new NoOpLogger(),
   urlParser: config?.urlParser ?? parseUrl,
 });
