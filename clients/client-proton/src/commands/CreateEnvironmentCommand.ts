@@ -36,11 +36,18 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentOutput,
  *          </p>
  *          <ul>
  *             <li>
- *                <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p>
+ *                <p>
+ *                   <b>Amazon Web Services-managed provisioning</b> – Proton makes direct calls to provision your resources.</p>
  *             </li>
  *             <li>
- *                <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC
- *           engine uses to provision resources.</p>
+ *                <p>
+ *                   <b>Self-managed provisioning</b> – Proton makes pull requests on your repository to provide compiled
+ *           infrastructure as code (IaC) files that your IaC engine uses to provision resources.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>CodeBuild-based provisioning</b> – Proton uses CodeBuild to run shell commands that you provide. Your commands can
+ *           read inputs that Proton provides, and are responsible for provisioning or deprovisioning infrastructure and generating output values.</p>
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User

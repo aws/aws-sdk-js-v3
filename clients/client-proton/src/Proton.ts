@@ -745,11 +745,18 @@ export class Proton extends ProtonClient {
    *          </p>
    *          <ul>
    *             <li>
-   *                <p>Amazon Web Services-managed provisioning: Proton makes direct calls to provision your resources.</p>
+   *                <p>
+   *                   <b>Amazon Web Services-managed provisioning</b> – Proton makes direct calls to provision your resources.</p>
    *             </li>
    *             <li>
-   *                <p>Self-managed provisioning: Proton makes pull requests on your repository to provide compiled infrastructure as code (IaC) files that your IaC
-   *           engine uses to provision resources.</p>
+   *                <p>
+   *                   <b>Self-managed provisioning</b> – Proton makes pull requests on your repository to provide compiled
+   *           infrastructure as code (IaC) files that your IaC engine uses to provision resources.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <b>CodeBuild-based provisioning</b> – Proton uses CodeBuild to run shell commands that you provide. Your commands can
+   *           read inputs that Proton provides, and are responsible for provisioning or deprovisioning infrastructure and generating output values.</p>
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
@@ -2525,8 +2532,19 @@ export class Proton extends ProtonClient {
   }
 
   /**
-   * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
+   * <p>Notify Proton of the following information related to a provisioned resource (environment, service instance, or service pipeline):</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-codebuild">CodeBuild-based
+   *             provisioning</a>, provide your provisioned resource output values to Proton.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">self-managed
+   *             provisioning</a>, notify Proton about the status of your provisioned resource. To disambiguate between different deployments of the same
+   *           resource, set <code>deploymentId</code> to a unique deployment ID of your choice.</p>
+   *
+   *             </li>
+   *          </ul>
    */
   public notifyResourceDeploymentStatusChange(
     args: NotifyResourceDeploymentStatusChangeCommandInput,
@@ -2731,17 +2749,17 @@ export class Proton extends ProtonClient {
   /**
    * <p>Update an environment.</p>
    *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
-   *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
+   *         <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, and <code>provisioningRepository</code> parameters.</p>
    *          <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current
    *       environment account connection was created in. The account connection must also be associated with the current environment.</p>
    *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the
    *         <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account
    *       connection if it <i>isn't</i> already associated with an environment connection.</p>
-   *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update
-   *       both.</p>
-   *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
+   *          <p>You can update either <code>environmentAccountConnectionId</code> or one or more of <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>,
+   *       and <code>provisioningRepository</code>.</p>
+   *          <p>If the environment was configured for Amazon Web Services-managed or CodeBuild-based provisioning, omit the <code>provisioningRepository</code> parameter.</p>
    *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
-   *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
+   *         <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, and <code>provisioningRepository</code> parameters.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
    *         Guide</i>.</p>
    *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>

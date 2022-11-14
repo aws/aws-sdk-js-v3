@@ -41,7 +41,8 @@ export interface EnvironmentAccountConnection {
   environmentAccountId: string | undefined;
 
   /**
-   * <p>The IAM service role that's associated with the environment account connection.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
    */
   roleArn: string | undefined;
 
@@ -75,6 +76,12 @@ export interface EnvironmentAccountConnection {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface AcceptEnvironmentAccountConnectionOutput {
@@ -238,8 +245,8 @@ export interface RepositoryBranch {
  */
 export interface AccountSettings {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
-   *       customer-owned automation for self-managed provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for Amazon Web Services-managed
+   *       provisioning.</p>
    */
   pipelineServiceRoleArn?: string;
 
@@ -248,6 +255,12 @@ export interface AccountSettings {
    *       pipelines. A linked repository is a repository that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
    */
   pipelineProvisioningRepository?: RepositoryBranch;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for CodeBuild-based
+   *       provisioning.</p>
+   */
+  pipelineCodebuildRoleArn?: string;
 }
 
 export interface GetAccountSettingsInput {}
@@ -300,6 +313,12 @@ export interface UpdateAccountSettingsInput {
    *       pipeline repository.</p>
    */
   deletePipelineProvisioningRepository?: boolean;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Proton assumes this role for CodeBuild-based
+   *       provisioning.</p>
+   */
+  pipelineCodebuildRoleArn?: string;
 }
 
 export interface UpdateAccountSettingsOutput {
@@ -478,12 +497,13 @@ export interface Environment {
   deploymentStatusMessage?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
+   *       on your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
   /**
-   * <p>The ID of the environment account connection that's used to provision infrastructure resources in an environment account.</p>
+   * <p>The ID of the environment account connection that Proton uses to provision infrastructure resources in an environment account.</p>
    */
   environmentAccountConnectionId?: string;
 
@@ -517,6 +537,12 @@ export interface Environment {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CancelEnvironmentDeploymentOutput {
@@ -1097,8 +1123,8 @@ export interface CreateEnvironmentAccountConnectionInput {
   managementAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
-   *       resources in the associated environment account.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
    */
   roleArn: string | undefined;
 
@@ -1115,8 +1141,8 @@ export interface CreateEnvironmentAccountConnectionInput {
   tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
-   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision directly defined components
+   *       in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this
    *       account.</p>
    *          <p>For more information about components, see
@@ -1124,6 +1150,12 @@ export interface CreateEnvironmentAccountConnectionInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CreateEnvironmentAccountConnectionOutput {
@@ -1289,7 +1321,8 @@ export interface UpdateEnvironmentAccountConnectionInput {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
    */
   roleArn?: string;
 
@@ -1303,6 +1336,12 @@ export interface UpdateEnvironmentAccountConnectionInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
+   *       using CodeBuild-based provisioning in the associated environment account.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface UpdateEnvironmentAccountConnectionOutput {
@@ -1397,18 +1436,19 @@ export interface CreateEnvironmentInput {
   spec: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
-   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
-   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
+   *       on your behalf.</p>
+   *          <p>To use Amazon Web Services-managed provisioning for the environment or for any service instance running in the environment, specify either the
+   *         <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter.</p>
    */
   protonServiceRoleArn?: string;
 
   /**
-   * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an environment
-   *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
-   *         connections</a> in the <i>Proton User guide</i>.</p>
-   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
-   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
+   * <p>The ID of the environment account connection that you provide if you want Proton to provision infrastructure resources for your environment or for any
+   *       of the service instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
+   *       guide</i>.</p>
+   *          <p>If you specify the <code>environmentAccountConnectionId</code> parameter, don't specify <code>protonServiceRoleArn</code>,
+   *         <code>codebuildRoleArn</code>, or <code>provisioningRepository</code>.</p>
    */
   environmentAccountConnectionId?: string;
 
@@ -1422,8 +1462,7 @@ export interface CreateEnvironmentInput {
   /**
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
    *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
-   *          <p>To use self-managed provisioning for the environment, specify this parameter and omit the <code>environmentAccountConnectionId</code> and
-   *         <code>protonServiceRoleArn</code> parameters.</p>
+   *          <p>To use self-managed provisioning for the environment or for any service instance running in the environment, specify this parameter.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
 
@@ -1436,6 +1475,14 @@ export interface CreateEnvironmentInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   *          <p>To use CodeBuild-based provisioning for the environment or for any service instance running in the environment, specify either the
+   *       <code>environmentAccountConnectionId</code> or <code>codebuildRoleArn</code> parameter.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface CreateEnvironmentOutput {
@@ -1642,7 +1689,8 @@ export interface UpdateEnvironmentInput {
   templateMinorVersion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make API calls to other services your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
+   *       on your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1685,7 +1733,9 @@ export interface UpdateEnvironmentInput {
   deploymentType: DeploymentUpdateType | string | undefined;
 
   /**
-   * <p>The ID of the environment account connection.</p>
+   * <p>The ID of the environment account connection that you provide if you want Proton to provision infrastructure resources for your environment or for any
+   *       of the service instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
+   *       guide</i>.</p>
    *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment account
    *       connection was created in and is associated with the current environment.</p>
    */
@@ -1706,6 +1756,12 @@ export interface UpdateEnvironmentInput {
    *   <i>Proton User Guide</i>.</p>
    */
   componentRoleArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using CodeBuild-based provisioning on your
+   *       behalf.</p>
+   */
+  codebuildRoleArn?: string;
 }
 
 export interface UpdateEnvironmentOutput {
@@ -2618,22 +2674,22 @@ export enum ResourceDeploymentStatus {
 
 export interface NotifyResourceDeploymentStatusChangeInput {
   /**
-   * <p>The provisioned resource Amazon Resource Name (ARN).</p>
+   * <p>The Amazon Resource Name (ARN) of your provisioned resource.</p>
    */
   resourceArn: string | undefined;
 
   /**
    * <p>The status of your provisioned resource.</p>
    */
-  status: ResourceDeploymentStatus | string | undefined;
+  status?: ResourceDeploymentStatus | string;
 
   /**
-   * <p>The provisioned resource state change detail data that's returned by Proton.</p>
+   * <p>The output values generated by your provisioned resource.</p>
    */
   outputs?: Output[];
 
   /**
-   * <p>The deployment ID for your provisioned resource.</p>
+   * <p>The deployment ID for your provisioned resource. Proton uses it to disambiguate different deployments of the resource. Applicable to <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">self-managed provisioning</a>.</p>
    */
   deploymentId?: string;
 
