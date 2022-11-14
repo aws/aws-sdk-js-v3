@@ -4298,6 +4298,7 @@ const serializeAws_restJson1DataLakeSettings = (input: DataLakeSettings, context
         context
       ),
     }),
+    ...(input.Parameters != null && { Parameters: serializeAws_restJson1ParametersMap(input.Parameters, context) }),
     ...(input.TrustedResourceOwners != null && {
       TrustedResourceOwners: serializeAws_restJson1TrustedResourceOwners(input.TrustedResourceOwners, context),
     }),
@@ -4384,6 +4385,18 @@ const serializeAws_restJson1LFTagsList = (input: LFTagPair[], context: __SerdeCo
     .map((entry) => {
       return serializeAws_restJson1LFTagPair(entry, context);
     });
+};
+
+const serializeAws_restJson1ParametersMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: value,
+    };
+  }, {});
 };
 
 const serializeAws_restJson1PartitionValueList = (input: PartitionValueList, context: __SerdeContext): any => {
@@ -4815,6 +4828,8 @@ const deserializeAws_restJson1DataLakeSettings = (output: any, context: __SerdeC
       output.ExternalDataFilteringAllowList != null
         ? deserializeAws_restJson1DataLakePrincipalList(output.ExternalDataFilteringAllowList, context)
         : undefined,
+    Parameters:
+      output.Parameters != null ? deserializeAws_restJson1ParametersMap(output.Parameters, context) : undefined,
     TrustedResourceOwners:
       output.TrustedResourceOwners != null
         ? deserializeAws_restJson1TrustedResourceOwners(output.TrustedResourceOwners, context)
@@ -4925,6 +4940,18 @@ const deserializeAws_restJson1LFTagsList = (output: any, context: __SerdeContext
       return deserializeAws_restJson1LFTagPair(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1ParametersMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    return {
+      ...acc,
+      [key]: __expectString(value) as any,
+    };
+  }, {});
 };
 
 const deserializeAws_restJson1PartitionedTableObjectsList = (
