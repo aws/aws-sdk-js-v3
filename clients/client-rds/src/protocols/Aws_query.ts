@@ -9090,6 +9090,9 @@ const deserializeAws_queryRestoreDBInstanceFromDBSnapshotCommandError = async (
     case "BackupPolicyNotFoundFault":
     case "com.amazonaws.rds#BackupPolicyNotFoundFault":
       throw await deserializeAws_queryBackupPolicyNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterSnapshotNotFoundFault":
+    case "com.amazonaws.rds#DBClusterSnapshotNotFoundFault":
+      throw await deserializeAws_queryDBClusterSnapshotNotFoundFaultResponse(parsedOutput, context);
     case "DBInstanceAlreadyExists":
     case "com.amazonaws.rds#DBInstanceAlreadyExistsFault":
       throw await deserializeAws_queryDBInstanceAlreadyExistsFaultResponse(parsedOutput, context);
@@ -16055,6 +16058,9 @@ const serializeAws_queryRestoreDBInstanceFromDBSnapshotMessage = (
   }
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.DBClusterSnapshotIdentifier != null) {
+    entries["DBClusterSnapshotIdentifier"] = input.DBClusterSnapshotIdentifier;
   }
   return entries;
 };

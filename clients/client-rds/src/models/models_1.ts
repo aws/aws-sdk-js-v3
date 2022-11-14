@@ -4339,6 +4339,7 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting applies only to the <code>gp3</code> storage type.</p>
    *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
@@ -6712,12 +6713,18 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *                 <p>Must match the identifier of an existing DBSnapshot.</p>
    *             </li>
    *             <li>
+   *                 <p>Can't be specified when <code>DBClusterSnapshotIdentifier</code> is specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must be specified when <code>DBClusterSnapshotIdentifier</code> isn't specified.</p>
+   *             </li>
+   *             <li>
    *                 <p>If you are restoring from a shared manual DB snapshot, the <code>DBSnapshotIdentifier</code>
    *               must be the ARN of the shared DB snapshot.</p>
    *             </li>
    *          </ul>
    */
-  DBSnapshotIdentifier: string | undefined;
+  DBSnapshotIdentifier?: string;
 
   /**
    * <p>The compute and memory capacity of the Amazon RDS DB instance, for example db.m4.large.
@@ -7086,6 +7093,36 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</p>
+   *         <p>For more information on Multi-AZ DB clusters, see
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html">
+   *                 Multi-AZ deployments with two readable standby DB instances</a> in the <i>Amazon RDS User Guide</i>.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must match the identifier of an existing Multi-AZ DB cluster snapshot.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't be specified when <code>DBSnapshotIdentifier</code> is specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Must be specified when <code>DBSnapshotIdentifier</code> isn't specified.</p>
+   *             </li>
+   *             <li>
+   *                 <p>If you are restoring from a shared manual Multi-AZ DB cluster snapshot, the <code>DBClusterSnapshotIdentifier</code>
+   *                     must be the ARN of the shared snapshot.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't be the identifier of an Aurora DB cluster snapshot.</p>
+   *             </li>
+   *             <li>
+   *                 <p>Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.</p>
+   *             </li>
+   *          </ul>
+   */
+  DBClusterSnapshotIdentifier?: string;
 }
 
 export interface RestoreDBInstanceFromDBSnapshotResult {

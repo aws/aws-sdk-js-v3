@@ -6272,6 +6272,7 @@ export interface CreateDBInstanceMessage {
 
   /**
    * <p>Specifies the storage throughput value for the DB instance.</p>
+   *         <p>This setting applies only to the <code>gp3</code> storage type.</p>
    *         <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
@@ -7250,6 +7251,7 @@ export interface DBInstance {
 
   /**
    * <p>Specifies the storage throughput for the DB instance.</p>
+   *         <p>This setting applies only to the <code>gp3</code> storage type.</p>
    */
   StorageThroughput?: number;
 }
