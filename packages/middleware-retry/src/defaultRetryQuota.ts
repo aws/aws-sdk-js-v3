@@ -1,7 +1,5 @@
 import { SdkError } from "@aws-sdk/types";
-
-import { NO_RETRY_INCREMENT, RETRY_COST, TIMEOUT_RETRY_COST } from "./constants";
-import { RetryQuota } from "./types";
+import { NO_RETRY_INCREMENT, RETRY_COST, RetryQuota, TIMEOUT_RETRY_COST } from "@aws-sdk/util-retry";
 
 export interface DefaultRetryQuotaOptions {
   /**
