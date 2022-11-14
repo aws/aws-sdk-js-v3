@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Features
+
+* **client-customer-profiles:** This release enhances the SearchProfiles API by providing functionality to search for profiles using multiple keys and logical operators. ([ae0500b](https://github.com/aws/aws-sdk-js-v3/commit/ae0500b542430a0af2adad48c226d84d4f609d11))
+
+
+
+
+
 # [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
 
 

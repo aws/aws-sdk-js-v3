@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Bug Fixes
+
+* **aws-procotoltests:** use default no-op logger ([#4178](https://github.com/aws/aws-sdk-js-v3/issues/4178)) ([796b02a](https://github.com/aws/aws-sdk-js-v3/commit/796b02a3ac16d6228ffc6bc2d59608aa109d9528))
+* **credential-provider-sso:** add existence check to profile ([#4186](https://github.com/aws/aws-sdk-js-v3/issues/4186)) ([cc0404a](https://github.com/aws/aws-sdk-js-v3/commit/cc0404aafb3601d2b0356440fe62542b1b958bbb))
+
+
+### Features
+
+* **client-customer-profiles:** This release enhances the SearchProfiles API by providing functionality to search for profiles using multiple keys and logical operators. ([ae0500b](https://github.com/aws/aws-sdk-js-v3/commit/ae0500b542430a0af2adad48c226d84d4f609d11))
+* **client-lakeformation:** This release adds a new parameter "Parameters" in the DataLakeSettings. ([1a047d1](https://github.com/aws/aws-sdk-js-v3/commit/1a047d1f05badc0d360b83689088f85aa450aec0))
+* **client-proton:** Add support for CodeBuild Provisioning ([7594756](https://github.com/aws/aws-sdk-js-v3/commit/7594756aea01f67a5f95983b9a2a266baf89c7bc))
+* **client-rds:** This release adds support for restoring an RDS Multi-AZ DB cluster snapshot to a Single-AZ deployment or a Multi-AZ DB instance deployment. ([1b96437](https://github.com/aws/aws-sdk-js-v3/commit/1b96437ba29a44789c3c6e8f36b9afc840b804d0))
+* **client-workdocs:** Added 2 new document related operations, DeleteDocumentVersion and RestoreDocumentVersions. ([38acfdd](https://github.com/aws/aws-sdk-js-v3/commit/38acfdd82884b3de8df76466c28d12a98d24fdc2))
+* **client-xray:** This release enhances GetServiceGraph API to support new type of edge to represent links between SQS and Lambda in event-driven applications. ([0963adb](https://github.com/aws/aws-sdk-js-v3/commit/0963adb490167d20fd626cb738dea4a966ea391c))
+
+
+
+
+
 # [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
 
 

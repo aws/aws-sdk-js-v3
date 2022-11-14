@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Bug Fixes
+
+* **credential-provider-sso:** add existence check to profile ([#4186](https://github.com/aws/aws-sdk-js-v3/issues/4186)) ([cc0404a](https://github.com/aws/aws-sdk-js-v3/commit/cc0404aafb3601d2b0356440fe62542b1b958bbb))
+
+
+
+
+
 # [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Features
+
+* **client-workdocs:** Added 2 new document related operations, DeleteDocumentVersion and RestoreDocumentVersions. ([38acfdd](https://github.com/aws/aws-sdk-js-v3/commit/38acfdd82884b3de8df76466c28d12a98d24fdc2))
+
+
+
+
+
 # [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
+
+
+### Features
+
+* **client-lakeformation:** This release adds a new parameter "Parameters" in the DataLakeSettings. ([1a047d1](https://github.com/aws/aws-sdk-js-v3/commit/1a047d1f05badc0d360b83689088f85aa450aec0))
+
+
+
+
+
 # [3.209.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.208.0...v3.209.0) (2022-11-11)
 
 
