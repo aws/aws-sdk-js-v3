@@ -15,25 +15,47 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Map;
+import software.amazon.smithy.model.Model;
+import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
+import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.endpointsV2.EndpointsParamNameMap;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
+
 @SmithyInternalApi
 public class AddEndpointsV2ParameterNameMap implements TypeScriptIntegration {
+    public static final Map<String, String> NAME_MAP = MapUtils.of(
+        "Region", "region",
+        "UseFIPS", "useFipsEndpoint",
+        "UseDualStack", "useDualstackEndpoint",
+        "ForcePathStyle", "forcePathStyle",
+        "Accelerate", "useAccelerateEndpoint",
+        "DisableMRAP", "disableMultiregionAccessPoints",
+        "DisableMultiRegionAccessPoints", "disableMultiregionAccessPoints",
+        "UseArnRegion", "useArnRegion",
+        "Endpoint", "endpoint",
+        "UseGlobalEndpoint", "useGlobalEndpoint"
+    );
+
     public AddEndpointsV2ParameterNameMap() {
-        EndpointsParamNameMap.setNameMapping(MapUtils.of(
-            "Region", "region",
-            "UseFIPS", "useFipsEndpoint",
-            "UseDualStack", "useDualstackEndpoint",
-            "ForcePathStyle", "forcePathStyle",
-            "Accelerate", "useAccelerateEndpoint",
-            "DisableMRAP", "disableMultiregionAccessPoints",
-            "DisableMultiRegionAccessPoints", "disableMultiregionAccessPoints",
-            "UseArnRegion", "useArnRegion",
-            "Endpoint", "endpoint",
-            "UseGlobalEndpoint", "useGlobalEndpoint"
-        ));
+        setParameterNameMapForAws();
+    }
+
+    @Override
+    public Model preprocessModel(Model model, TypeScriptSettings settings) {
+        setParameterNameMapForAws();
+        return TypeScriptIntegration.super.preprocessModel(model, settings);
+    }
+
+    @Override
+    public void customize(TypeScriptCodegenContext codegenContext) {
+        setParameterNameMapForAws();
+    }
+
+    private static void setParameterNameMapForAws() {
+        EndpointsParamNameMap.addNameMapping(NAME_MAP);
     }
 }
