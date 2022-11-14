@@ -48,6 +48,10 @@ import {
   DeleteCustomMetadataCommandOutput,
 } from "../commands/DeleteCustomMetadataCommand";
 import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "../commands/DeleteDocumentCommand";
+import {
+  DeleteDocumentVersionCommandInput,
+  DeleteDocumentVersionCommandOutput,
+} from "../commands/DeleteDocumentVersionCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "../commands/DeleteFolderCommand";
 import {
   DeleteFolderContentsCommandInput,
@@ -102,6 +106,10 @@ import {
   RemoveResourcePermissionCommandInput,
   RemoveResourcePermissionCommandOutput,
 } from "../commands/RemoveResourcePermissionCommand";
+import {
+  RestoreDocumentVersionsCommandInput,
+  RestoreDocumentVersionsCommandOutput,
+} from "../commands/RestoreDocumentVersionsCommand";
 import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "../commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
@@ -531,6 +539,35 @@ export const serializeAws_restJson1DeleteDocumentCommand = async (
     method: "DELETE",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
+  input: DeleteDocumentVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    authentication: input.AuthenticationToken!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/api/v1/documentVersions/{DocumentId}/versions/{VersionId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
+  const query: any = map({
+    deletePriorVersions: [() => input.DeletePriorVersions !== void 0, () => input.DeletePriorVersions!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1238,6 +1275,30 @@ export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
   });
 };
 
+export const serializeAws_restJson1RestoreDocumentVersionsCommand = async (
+  input: RestoreDocumentVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    authentication: input.AuthenticationToken!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/api/v1/documentVersions/restore/{DocumentId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateDocumentCommand = async (
   input: UpdateDocumentCommandInput,
   context: __SerdeContext
@@ -1383,6 +1444,9 @@ const deserializeAws_restJson1AbortDocumentVersionUploadCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.workdocs#ConcurrentModificationException":
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "EntityNotExistsException":
     case "com.amazonaws.workdocs#EntityNotExistsException":
       throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
@@ -1495,6 +1559,9 @@ const deserializeAws_restJson1AddResourcePermissionsCommandError = async (
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "ProhibitedStateException":
+    case "com.amazonaws.workdocs#ProhibitedStateException":
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -1660,6 +1727,9 @@ const deserializeAws_restJson1CreateFolderCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.workdocs#ConcurrentModificationException":
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "ConflictingOperationException":
     case "com.amazonaws.workdocs#ConflictingOperationException":
       throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
@@ -1778,6 +1848,9 @@ const deserializeAws_restJson1CreateNotificationSubscriptionCommandError = async
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidArgumentException":
+    case "com.amazonaws.workdocs#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -2046,12 +2119,74 @@ const deserializeAws_restJson1DeleteDocumentCommandError = async (
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workdocs#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.workdocs#UnauthorizedOperationException":
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+    case "UnauthorizedResourceAccessException":
+    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteDocumentVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDocumentVersionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteDocumentVersionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteDocumentVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDocumentVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.workdocs#ConcurrentModificationException":
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ConflictingOperationException":
+    case "com.amazonaws.workdocs#ConflictingOperationException":
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+    case "EntityNotExistsException":
+    case "com.amazonaws.workdocs#EntityNotExistsException":
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+    case "FailedDependencyException":
+    case "com.amazonaws.workdocs#FailedDependencyException":
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.workdocs#InvalidOperationException":
+      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ProhibitedStateException":
+    case "com.amazonaws.workdocs#ProhibitedStateException":
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
       throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
@@ -2105,6 +2240,9 @@ const deserializeAws_restJson1DeleteFolderCommandError = async (
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workdocs#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
@@ -2214,6 +2352,9 @@ const deserializeAws_restJson1DeleteLabelsCommandError = async (
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "ProhibitedStateException":
+    case "com.amazonaws.workdocs#ProhibitedStateException":
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -2485,6 +2626,9 @@ const deserializeAws_restJson1DescribeDocumentVersionsCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
       throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.workdocs#InvalidPasswordException":
+      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
@@ -2706,6 +2850,9 @@ const deserializeAws_restJson1DescribeResourcePermissionsCommandError = async (
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.workdocs#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -3293,6 +3440,12 @@ const deserializeAws_restJson1InitiateDocumentVersionUploadCommandError = async 
     case "FailedDependencyException":
     case "com.amazonaws.workdocs#FailedDependencyException":
       throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "InvalidPasswordException":
+    case "com.amazonaws.workdocs#InvalidPasswordException":
+      throw await deserializeAws_restJson1InvalidPasswordExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.workdocs#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
     case "ProhibitedStateException":
     case "com.amazonaws.workdocs#ProhibitedStateException":
       throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
@@ -3402,6 +3555,65 @@ const deserializeAws_restJson1RemoveResourcePermissionCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "UnauthorizedOperationException":
+    case "com.amazonaws.workdocs#UnauthorizedOperationException":
+      throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
+    case "UnauthorizedResourceAccessException":
+    case "com.amazonaws.workdocs#UnauthorizedResourceAccessException":
+      throw await deserializeAws_restJson1UnauthorizedResourceAccessExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1RestoreDocumentVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDocumentVersionsCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RestoreDocumentVersionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1RestoreDocumentVersionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestoreDocumentVersionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.workdocs#ConcurrentModificationException":
+      throw await deserializeAws_restJson1ConcurrentModificationExceptionResponse(parsedOutput, context);
+    case "ConflictingOperationException":
+    case "com.amazonaws.workdocs#ConflictingOperationException":
+      throw await deserializeAws_restJson1ConflictingOperationExceptionResponse(parsedOutput, context);
+    case "EntityNotExistsException":
+    case "com.amazonaws.workdocs#EntityNotExistsException":
+      throw await deserializeAws_restJson1EntityNotExistsExceptionResponse(parsedOutput, context);
+    case "FailedDependencyException":
+    case "com.amazonaws.workdocs#FailedDependencyException":
+      throw await deserializeAws_restJson1FailedDependencyExceptionResponse(parsedOutput, context);
+    case "InvalidOperationException":
+    case "com.amazonaws.workdocs#InvalidOperationException":
+      throw await deserializeAws_restJson1InvalidOperationExceptionResponse(parsedOutput, context);
+    case "ProhibitedStateException":
+    case "com.amazonaws.workdocs#ProhibitedStateException":
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "UnauthorizedOperationException":
     case "com.amazonaws.workdocs#UnauthorizedOperationException":
       throw await deserializeAws_restJson1UnauthorizedOperationExceptionResponse(parsedOutput, context);
@@ -3650,6 +3862,9 @@ const deserializeAws_restJson1UpdateUserCommandError = async (
     case "InvalidArgumentException":
     case "com.amazonaws.workdocs#InvalidArgumentException":
       throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ProhibitedStateException":
+    case "com.amazonaws.workdocs#ProhibitedStateException":
+      throw await deserializeAws_restJson1ProhibitedStateExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.workdocs#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);

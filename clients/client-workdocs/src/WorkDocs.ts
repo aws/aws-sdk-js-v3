@@ -63,6 +63,11 @@ import {
   DeleteDocumentCommandOutput,
 } from "./commands/DeleteDocumentCommand";
 import {
+  DeleteDocumentVersionCommand,
+  DeleteDocumentVersionCommandInput,
+  DeleteDocumentVersionCommandOutput,
+} from "./commands/DeleteDocumentVersionCommand";
+import {
   DeleteFolderCommand,
   DeleteFolderCommandInput,
   DeleteFolderCommandOutput,
@@ -171,6 +176,11 @@ import {
   RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
 import {
+  RestoreDocumentVersionsCommand,
+  RestoreDocumentVersionsCommandInput,
+  RestoreDocumentVersionsCommandOutput,
+} from "./commands/RestoreDocumentVersionsCommand";
+import {
   UpdateDocumentCommand,
   UpdateDocumentCommandInput,
   UpdateDocumentCommandOutput,
@@ -222,6 +232,32 @@ import { WorkDocsClient } from "./WorkDocsClient";
  *             permissions and upload any file to any user. This allows developers to perform the three
  *             use cases above, as well as give users the ability to grant access on a selective basis
  *             using the IAM model.</p>
+ *         <note>
+ *             <p>The pricing for Amazon WorkDocs APIs varies depending on the API call type for these actions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>READ  (Get*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>LIST (Describe*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>DELETE*, CANCEL</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
+ *         </note>
  */
 export class WorkDocs extends WorkDocsClient {
   /**
@@ -450,8 +486,7 @@ export class WorkDocs extends WorkDocsClient {
   /**
    * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
    *             confirmation message, and must confirm the subscription.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe to
-   *                 Notifications</a> in the <i>Amazon WorkDocs Developer
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
    *             Guide</i>.</p>
    */
   public createNotificationSubscription(
@@ -629,6 +664,38 @@ export class WorkDocs extends WorkDocsClient {
     cb?: (err: any, data?: DeleteDocumentCommandOutput) => void
   ): Promise<DeleteDocumentCommandOutput> | void {
     const command = new DeleteDocumentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a version of an Amazon WorkDocs document. Use the <code>DeletePriorVersions</code> parameter to delete prior versions.</p>
+   */
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDocumentVersionCommandOutput>;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): void;
+  public deleteDocumentVersion(
+    args: DeleteDocumentVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDocumentVersionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDocumentVersionCommandOutput) => void
+  ): Promise<DeleteDocumentVersionCommandOutput> | void {
+    const command = new DeleteDocumentVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1412,6 +1479,38 @@ export class WorkDocs extends WorkDocsClient {
     cb?: (err: any, data?: RemoveResourcePermissionCommandOutput) => void
   ): Promise<RemoveResourcePermissionCommandOutput> | void {
     const command = new RemoveResourcePermissionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Recovers a deleted version of an Amazon WorkDocs document.</p>
+   */
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestoreDocumentVersionsCommandOutput>;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): void;
+  public restoreDocumentVersions(
+    args: RestoreDocumentVersionsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: RestoreDocumentVersionsCommandOutput) => void),
+    cb?: (err: any, data?: RestoreDocumentVersionsCommandOutput) => void
+  ): Promise<RestoreDocumentVersionsCommandOutput> | void {
+    const command = new RestoreDocumentVersionsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -33,8 +33,7 @@ export interface CreateNotificationSubscriptionCommandOutput
 /**
  * <p>Configure Amazon WorkDocs to use Amazon SNS notifications. The endpoint receives a
  *             confirmation message, and must confirm the subscription.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/subscribe-notifications.html">Subscribe to
- *                 Notifications</a> in the <i>Amazon WorkDocs Developer
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/workdocs/latest/developerguide/manage-notifications.html">Setting up notifications for an IAM user or role</a> in the <i>Amazon WorkDocs Developer
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -42,6 +42,32 @@ set in the IAM policy). This includes, but is not limited to, the ability to mod
 permissions and upload any file to any user. This allows developers to perform the three
 use cases above, as well as give users the ability to grant access on a selective basis
 using the IAM model.</p>
+<note>
+<p>The pricing for Amazon WorkDocs APIs varies depending on the API call type for these actions:</p>
+<ul>
+<li>
+<p>
+<code>READ  (Get*)</code>
+</p>
+</li>
+<li>
+<p>
+<code>WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)</code>
+</p>
+</li>
+<li>
+<p>
+<code>LIST (Describe*)</code>
+</p>
+</li>
+<li>
+<p>
+<code>DELETE*, CANCEL</code>
+</p>
+</li>
+</ul>
+<p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
+</note>
 
 ## Installing
 

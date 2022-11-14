@@ -75,6 +75,10 @@ import {
   DeleteCustomMetadataCommandOutput,
 } from "./commands/DeleteCustomMetadataCommand";
 import { DeleteDocumentCommandInput, DeleteDocumentCommandOutput } from "./commands/DeleteDocumentCommand";
+import {
+  DeleteDocumentVersionCommandInput,
+  DeleteDocumentVersionCommandOutput,
+} from "./commands/DeleteDocumentVersionCommand";
 import { DeleteFolderCommandInput, DeleteFolderCommandOutput } from "./commands/DeleteFolderCommand";
 import {
   DeleteFolderContentsCommandInput,
@@ -129,6 +133,10 @@ import {
   RemoveResourcePermissionCommandInput,
   RemoveResourcePermissionCommandOutput,
 } from "./commands/RemoveResourcePermissionCommand";
+import {
+  RestoreDocumentVersionsCommandInput,
+  RestoreDocumentVersionsCommandOutput,
+} from "./commands/RestoreDocumentVersionsCommand";
 import { UpdateDocumentCommandInput, UpdateDocumentCommandOutput } from "./commands/UpdateDocumentCommand";
 import {
   UpdateDocumentVersionCommandInput,
@@ -158,6 +166,7 @@ export type ServiceInputTypes =
   | DeleteCommentCommandInput
   | DeleteCustomMetadataCommandInput
   | DeleteDocumentCommandInput
+  | DeleteDocumentVersionCommandInput
   | DeleteFolderCommandInput
   | DeleteFolderContentsCommandInput
   | DeleteLabelsCommandInput
@@ -182,6 +191,7 @@ export type ServiceInputTypes =
   | InitiateDocumentVersionUploadCommandInput
   | RemoveAllResourcePermissionsCommandInput
   | RemoveResourcePermissionCommandInput
+  | RestoreDocumentVersionsCommandInput
   | UpdateDocumentCommandInput
   | UpdateDocumentVersionCommandInput
   | UpdateFolderCommandInput
@@ -201,6 +211,7 @@ export type ServiceOutputTypes =
   | DeleteCommentCommandOutput
   | DeleteCustomMetadataCommandOutput
   | DeleteDocumentCommandOutput
+  | DeleteDocumentVersionCommandOutput
   | DeleteFolderCommandOutput
   | DeleteFolderContentsCommandOutput
   | DeleteLabelsCommandOutput
@@ -225,6 +236,7 @@ export type ServiceOutputTypes =
   | InitiateDocumentVersionUploadCommandOutput
   | RemoveAllResourcePermissionsCommandOutput
   | RemoveResourcePermissionCommandOutput
+  | RestoreDocumentVersionsCommandOutput
   | UpdateDocumentCommandOutput
   | UpdateDocumentVersionCommandOutput
   | UpdateFolderCommandOutput
@@ -413,6 +425,32 @@ export interface WorkDocsClientResolvedConfig extends WorkDocsClientResolvedConf
  *             permissions and upload any file to any user. This allows developers to perform the three
  *             use cases above, as well as give users the ability to grant access on a selective basis
  *             using the IAM model.</p>
+ *         <note>
+ *             <p>The pricing for Amazon WorkDocs APIs varies depending on the API call type for these actions:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>READ  (Get*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>WRITE (Activate*, Add*, Create*, Deactivate*, Initiate*, Update*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>LIST (Describe*)</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <code>DELETE*, CANCEL</code>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *             <p>For information about Amazon WorkDocs API pricing, see <a href="https://aws.amazon.com/workdocs/pricing/">Amazon WorkDocs Pricing</a>.</p>
+ *         </note>
  */
 export class WorkDocsClient extends __Client<
   __HttpHandlerOptions,
