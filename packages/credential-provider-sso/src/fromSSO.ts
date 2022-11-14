@@ -84,7 +84,11 @@ export const fromSSO =
       const profiles = await parseKnownFiles(init);
       const profile = profiles[profileName];
 
-      if (profile.sso_session) {
+      if (!isSsoProfile(profile)) {
+        throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
+      }
+
+      if (profile?.sso_session) {
         const ssoSessions = await loadSsoSessionData(init);
         const session = ssoSessions[profile.sso_session];
         const conflictMsg = ` configurations in profile ${profileName} and sso-session ${profile.sso_session}`;
@@ -96,10 +100,6 @@ export const fromSSO =
         }
         profile.sso_region = session.sso_region;
         profile.sso_start_url = session.sso_start_url;
-      }
-
-      if (!isSsoProfile(profile)) {
-        throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
       }
 
       const { sso_start_url, sso_account_id, sso_region, sso_role_name, sso_session } = validateSsoProfile(profile);
