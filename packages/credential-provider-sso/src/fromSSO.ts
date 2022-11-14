@@ -84,6 +84,10 @@ export const fromSSO =
       const profiles = await parseKnownFiles(init);
       const profile = profiles[profileName];
 
+      if (!profile) {
+        throw new CredentialsProviderError(`Profile ${profileName} was not found.`);
+      }
+
       if (!isSsoProfile(profile)) {
         throw new CredentialsProviderError(`Profile ${profileName} is not configured with SSO credentials.`);
       }
