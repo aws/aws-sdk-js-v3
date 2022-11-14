@@ -175,15 +175,11 @@ import { CustomerProfilesClient } from "./CustomerProfilesClient";
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
- *          <p>Welcome to the Amazon Connect Customer Profiles API Reference. This guide provides information
- *          about the Amazon Connect Customer Profiles API, including supported operations, data types,
- *          parameters, and schemas.</p>
  *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
  *          pre-built connectors powered by AppFlow that make it easy to combine customer information
  *          from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
- *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact
- *          center.</p>
- *          <p>If you're new to Amazon Connect , you might find it helpful to also review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/what-is-amazon-connect.html">Amazon Connect Administrator Guide</a>.</p>
+ *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.
+ *          If you're new to Amazon Connect, you might find it helpful to review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Amazon Connect Administrator Guide</a>.</p>
  */
 export class CustomerProfiles extends CustomerProfilesClient {
   /**
@@ -1358,8 +1354,11 @@ export class CustomerProfiles extends CustomerProfilesClient {
   }
 
   /**
-   * <p>Searches for profiles within a specific domain name using name, phone number, email
-   *          address, account number, or a custom defined index.</p>
+   * <p>Searches for profiles within a specific domain using one or more predefined search keys
+   *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
+   *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
+   *          <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and up to
+   *          5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>
    */
   public searchProfiles(
     args: SearchProfilesCommandInput,

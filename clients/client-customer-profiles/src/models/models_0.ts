@@ -24,6 +24,26 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
+/**
+ * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that is
+ *          used in conjunction with the
+ *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-KeyName">KeyName</a>
+ *          and
+ *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html#customerprofiles-SearchProfiles-request-Values">Values</a>
+ *          parameters to search for profiles using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> API.</p>
+ */
+export interface AdditionalSearchKey {
+  /**
+   * <p>A searchable identifier of a customer profile.</p>
+   */
+  KeyName: string | undefined;
+
+  /**
+   * <p>A list of key values.</p>
+   */
+  Values: string[] | undefined;
+}
+
 export interface AddProfileKeyRequest {
   /**
    * <p>The unique identifier of a customer profile.</p>
@@ -3109,6 +3129,11 @@ export interface PutProfileObjectTypeResponse {
   Tags?: Record<string, string>;
 }
 
+export enum LogicalOperator {
+  AND = "AND",
+  OR = "OR",
+}
+
 export interface SearchProfilesRequest {
   /**
    * <p>The pagination token from the previous SearchProfiles API call.</p>
@@ -3117,6 +3142,7 @@ export interface SearchProfilesRequest {
 
   /**
    * <p>The maximum number of objects returned per page.</p>
+   *          <p>The default is 20 if this parameter is not included in the request.</p>
    */
   MaxResults?: number;
 
@@ -3139,6 +3165,51 @@ export interface SearchProfilesRequest {
    * <p>A list of key values.</p>
    */
   Values: string[] | undefined;
+
+  /**
+   * <p>A list of <code>AdditionalSearchKey</code> objects that are each searchable identifiers of a
+   *          profile. Each <code>AdditionalSearchKey</code> object contains a <code>KeyName</code> and a
+   *          list of <code>Values</code> associated with that specific key (i.e., a key-value(s) pair).
+   *          These additional search keys will be used in conjunction with the <code>LogicalOperator</code> and the
+   *          required <code>KeyName</code> and <code>Values</code> parameters to search for profiles
+   *          that satisfy the search criteria. </p>
+   */
+  AdditionalSearchKeys?: AdditionalSearchKey[];
+
+  /**
+   * <p>Relationship between all specified search keys that will be used to search for
+   *          profiles. This includes the required <code>KeyName</code> and <code>Values</code> parameters
+   *          as well as any key-value(s) pairs specified in the <code>AdditionalSearchKeys</code> list.</p>
+   *          <p>This parameter influences which profiles will be returned in the response in the following manner:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code> - The response only includes profiles that match all of the search keys.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> - The response includes profiles that match at least one of the search keys.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The <code>OR</code> relationship is the default behavior if this parameter is not included in the request.</p>
+   */
+  LogicalOperator?: LogicalOperator | string;
+}
+
+/**
+ * <p>A data type pair that consists of a <code>KeyName</code> and <code>Values</code> list that were used
+ *          to find a profile returned in response to a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request. </p>
+ */
+export interface FoundByKeyValue {
+  /**
+   * <p>A searchable identifier of a customer profile.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>A list of key values.</p>
+   */
+  Values?: string[];
 }
 
 /**
@@ -3257,11 +3328,36 @@ export interface Profile {
    * <p>A key value pair of attributes of a customer profile.</p>
    */
   Attributes?: Record<string, string>;
+
+  /**
+   * <p>A list of items used to find a profile returned in a <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> response.
+   *          An item is a key-value(s) pair that matches an attribute in the profile.</p>
+   *          <p>If the optional <code>AdditionalSearchKeys</code> parameter was included in the
+   *          <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request, the <code>FoundByItems</code> list should be
+   *          interpreted based on the <code>LogicalOperator</code> used in the request:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AND</code> - The profile included in the response matched all of the search keys
+   *             specified in the request. The <code>FoundByItems</code> will include all of the key-value(s)
+   *             pairs that were specified in the request (as this is a requirement of <code>AND</code> search logic).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OR</code> - The profile included in the response matched at least one of the
+   *             search keys specified in the request. The <code>FoundByItems</code> will
+   *             include each of the key-value(s) pairs that the profile was found by.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The <code>OR</code> relationship is the default behavior if the <code>LogicalOperator</code> parameter is
+   *          not included in the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_SearchProfiles.html">SearchProfiles</a> request.</p>
+   */
+  FoundByItems?: FoundByKeyValue[];
 }
 
 export interface SearchProfilesResponse {
   /**
-   * <p>The list of SearchProfiles instances.</p>
+   * <p>The list of Profiles matching the search criteria.</p>
    */
   Items?: Profile[];
 
@@ -3576,6 +3672,13 @@ export interface UpdateProfileResponse {
    */
   ProfileId: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const AdditionalSearchKeyFilterSensitiveLog = (obj: AdditionalSearchKey): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -4389,6 +4492,13 @@ export const PutProfileObjectTypeResponseFilterSensitiveLog = (obj: PutProfileOb
  * @internal
  */
 export const SearchProfilesRequestFilterSensitiveLog = (obj: SearchProfilesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FoundByKeyValueFilterSensitiveLog = (obj: FoundByKeyValue): any => ({
   ...obj,
 });
 

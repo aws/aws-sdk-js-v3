@@ -103,6 +103,7 @@ import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "../comman
 import { CustomerProfilesServiceException as __BaseException } from "../models/CustomerProfilesServiceException";
 import {
   AccessDeniedException,
+  AdditionalSearchKey,
   Address,
   AppflowIntegration,
   AppflowIntegrationWorkflowAttributes,
@@ -119,6 +120,7 @@ import {
   ExportingLocation,
   FieldSourceProfileIds,
   FlowDefinition,
+  FoundByKeyValue,
   IdentityResolutionJob,
   IncrementalPullConfig,
   IntegrationConfig,
@@ -1120,7 +1122,11 @@ export const serializeAws_restJson1SearchProfilesCommand = async (
   });
   let body: any;
   body = JSON.stringify({
+    ...(input.AdditionalSearchKeys != null && {
+      AdditionalSearchKeys: serializeAws_restJson1additionalSearchKeysList(input.AdditionalSearchKeys, context),
+    }),
     ...(input.KeyName != null && { KeyName: input.KeyName }),
+    ...(input.LogicalOperator != null && { LogicalOperator: input.LogicalOperator }),
     ...(input.Values != null && { Values: serializeAws_restJson1requestValueList(input.Values, context) }),
   });
   return new __HttpRequest({
@@ -3643,6 +3649,21 @@ const deserializeAws_restJson1ThrottlingExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AdditionalSearchKey = (input: AdditionalSearchKey, context: __SerdeContext): any => {
+  return {
+    ...(input.KeyName != null && { KeyName: input.KeyName }),
+    ...(input.Values != null && { Values: serializeAws_restJson1requestValueList(input.Values, context) }),
+  };
+};
+
+const serializeAws_restJson1additionalSearchKeysList = (input: AdditionalSearchKey[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1AdditionalSearchKey(entry, context);
+    });
+};
+
 const serializeAws_restJson1Address = (input: Address, context: __SerdeContext): any => {
   return {
     ...(input.Address1 != null && { Address1: input.Address1 }),
@@ -4310,6 +4331,25 @@ const deserializeAws_restJson1FieldNameList = (output: any, context: __SerdeCont
   return retVal;
 };
 
+const deserializeAws_restJson1FoundByKeyValue = (output: any, context: __SerdeContext): FoundByKeyValue => {
+  return {
+    KeyName: __expectString(output.KeyName),
+    Values: output.Values != null ? deserializeAws_restJson1requestValueList(output.Values, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1foundByList = (output: any, context: __SerdeContext): FoundByKeyValue[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1FoundByKeyValue(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1IdentityResolutionJob = (output: any, context: __SerdeContext): IdentityResolutionJob => {
   return {
     DomainName: __expectString(output.DomainName),
@@ -4588,6 +4628,8 @@ const deserializeAws_restJson1Profile = (output: any, context: __SerdeContext): 
     BusinessPhoneNumber: __expectString(output.BusinessPhoneNumber),
     EmailAddress: __expectString(output.EmailAddress),
     FirstName: __expectString(output.FirstName),
+    FoundByItems:
+      output.FoundByItems != null ? deserializeAws_restJson1foundByList(output.FoundByItems, context) : undefined,
     Gender: __expectString(output.Gender),
     HomePhoneNumber: __expectString(output.HomePhoneNumber),
     LastName: __expectString(output.LastName),
