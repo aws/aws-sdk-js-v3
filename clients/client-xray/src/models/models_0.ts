@@ -194,8 +194,8 @@ export interface Trace {
   Duration?: number;
 
   /**
-   * <p>LimitExceeded is set to true when the trace has exceeded one of the defined quotas. For
-   *       more information about quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
+   * <p>LimitExceeded is set to true when the trace has exceeded the <code>Trace document size</code> limit. For
+   *       more information about this limit and other X-Ray limits and quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/xray.html">Amazon Web Services X-Ray endpoints and quotas</a>.</p>
    */
   LimitExceeded?: boolean;
 
@@ -1448,7 +1448,9 @@ export interface EdgeStatistics {
 }
 
 /**
- * <p>Information about a connection between two services.</p>
+ * <p>Information about a connection between two services. An edge can be a synchronous connection, such as typical
+ *     call between client and service, or an asynchronous link, such as a Lambda function which retrieves an event from an
+ *     SNS queue.</p>
  */
 export interface Edge {
   /**
@@ -1472,7 +1474,8 @@ export interface Edge {
   SummaryStatistics?: EdgeStatistics;
 
   /**
-   * <p>A histogram that maps the spread of client response times on an edge.</p>
+   * <p>A histogram that maps the spread of client response times on an edge. Only populated
+   *              for synchronous edges.</p>
    */
   ResponseTimeHistogram?: HistogramEntry[];
 
@@ -1480,6 +1483,18 @@ export interface Edge {
    * <p>Aliases for the edge.</p>
    */
   Aliases?: Alias[];
+
+  /**
+   * <p>Describes an asynchronous connection, with a value of <code>link</code>.</p>
+   */
+  EdgeType?: string;
+
+  /**
+   * <p>A histogram that maps the spread of event age when received by consumers.
+   *       Age is calculated each time an event is received. Only populated when <i>EdgeType</i> is
+   *       <code>link</code>.</p>
+   */
+  ReceivedEventAgeHistogram?: HistogramEntry[];
 }
 
 /**

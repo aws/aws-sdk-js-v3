@@ -2493,8 +2493,13 @@ const deserializeAws_restJson1AvailabilityZoneDetail = (
 const deserializeAws_restJson1Edge = (output: any, context: __SerdeContext): Edge => {
   return {
     Aliases: output.Aliases != null ? deserializeAws_restJson1AliasList(output.Aliases, context) : undefined,
+    EdgeType: __expectString(output.EdgeType),
     EndTime:
       output.EndTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.EndTime))) : undefined,
+    ReceivedEventAgeHistogram:
+      output.ReceivedEventAgeHistogram != null
+        ? deserializeAws_restJson1Histogram(output.ReceivedEventAgeHistogram, context)
+        : undefined,
     ReferenceId: __expectInt32(output.ReferenceId),
     ResponseTimeHistogram:
       output.ResponseTimeHistogram != null
