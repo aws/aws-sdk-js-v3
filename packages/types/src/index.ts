@@ -12,6 +12,7 @@ export * from "./middleware";
 export * from "./pagination";
 export * from "./profile";
 export * from "./response";
+export * from "./retry";
 export * from "./serde";
 export * from "./shapes";
 export * from "./signature";

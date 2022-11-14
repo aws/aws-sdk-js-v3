@@ -1,10 +1,5 @@
 import { Endpoint } from "./http";
-import {
-  FinalizeHandler,
-  FinalizeHandlerArguments,
-  FinalizeHandlerOutput,
-  HandlerExecutionContext,
-} from "./middleware";
+import { FinalizeHandler, FinalizeHandlerArguments, FinalizeHandlerOutput } from "./middleware";
 import { MetadataBearer } from "./response";
 
 /**
