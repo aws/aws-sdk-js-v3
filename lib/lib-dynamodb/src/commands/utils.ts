@@ -36,23 +36,19 @@ const processKeyInObj = (obj: any, processFunc: Function, children?: KeyNode[] |
   return processObj(obj, processFunc, children);
 };
 
-const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNode[]) =>
-  keyNodes.reduce(
-    (acc, { key, children }) => ({
-      ...acc,
-      [key]: processKeyInObj(acc[key], processFunc, children),
-    }),
-    obj
-  );
+const processKeysInObj = (obj: any, processFunc: Function, keyNodes: KeyNode[]) => {
+  const accumulator = { ...obj };
+  return keyNodes.reduce((acc, { key, children }) => {
+    acc[key] = processKeyInObj(acc[key], processFunc, children);
+    return acc;
+  }, accumulator);
+};
 
 const processAllKeysInObj = (obj: any, processFunc: Function, children?: KeyNode[] | AllNodes): any =>
-  Object.entries(obj).reduce(
-    (acc, [key, value]) => ({
-      ...acc,
-      [key]: processKeyInObj(value, processFunc, children),
-    }),
-    {}
-  );
+  Object.entries(obj).reduce((acc, [key, value]) => {
+    acc[key] = processKeyInObj(value, processFunc, children);
+    return acc;
+  }, {} as any);
 
 export const marshallInput = (obj: any, keyNodes: KeyNode[], options?: marshallOptions) => {
   const marshallFunc = (toMarshall: any) => marshall(toMarshall, options);
