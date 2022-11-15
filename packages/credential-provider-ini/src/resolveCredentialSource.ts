@@ -1,7 +1,7 @@
 import { fromEnv } from "@aws-sdk/credential-provider-env";
 import { fromContainerMetadata, fromInstanceMetadata } from "@aws-sdk/credential-provider-imds";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 /**
  * Resolve the `credential_source` entry from the profile, and return the
@@ -10,8 +10,8 @@ import { CredentialProvider } from "@aws-sdk/types";
  * fromIni() provider. The source credential needs to be refreshed every time
  * fromIni() is called.
  */
-export const resolveCredentialSource = (credentialSource: string, profileName: string): CredentialProvider => {
-  const sourceProvidersMap: Record<string, () => CredentialProvider> = {
+export const resolveCredentialSource = (credentialSource: string, profileName: string): AwsCredentialIdentityProvider => {
+  const sourceProvidersMap: Record<string, () => AwsCredentialIdentityProvider> = {
     EcsContainer: fromContainerMetadata,
     Ec2InstanceMetadata: fromInstanceMetadata,
     Environment: fromEnv,

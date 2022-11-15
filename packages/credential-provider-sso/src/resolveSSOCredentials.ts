@@ -2,7 +2,7 @@ import { GetRoleCredentialsCommand, GetRoleCredentialsCommandOutput, SSOClient }
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@aws-sdk/shared-ini-file-loader";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { FromSSOInit, SsoCredentialsParameters } from "./fromSSO";
 
@@ -27,7 +27,7 @@ export const resolveSSOCredentials = async ({
   ssoRoleName,
   ssoClient,
   profile,
-}: FromSSOInit & SsoCredentialsParameters): Promise<Credentials> => {
+}: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
   let token: SSOToken;
   const refreshMessage = `To refresh this SSO session run aws sso login with the corresponding profile.`;
 

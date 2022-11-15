@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { readFileSync } from "fs";
 
 import { fromWebToken, FromWebTokenInit } from "./fromWebToken";
@@ -19,12 +19,12 @@ export interface FromTokenFileInit extends Partial<Omit<FromWebTokenInit, "webId
  * Represents OIDC credentials from a file on disk.
  */
 export const fromTokenFile =
-  (init: FromTokenFileInit = {}): CredentialProvider =>
+  (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
   async () => {
     return resolveTokenFile(init);
   };
 
-const resolveTokenFile = (init?: FromTokenFileInit): Promise<Credentials> => {
+const resolveTokenFile = (init?: FromTokenFileInit): Promise<AwsCredentialIdentity> => {
   const webIdentityTokenFile = init?.webIdentityTokenFile ?? process.env[ENV_TOKEN_FILE];
   const roleArn = init?.roleArn ?? process.env[ENV_ROLE_ARN];
   const roleSessionName = init?.roleSessionName ?? process.env[ENV_ROLE_SESSION_NAME];

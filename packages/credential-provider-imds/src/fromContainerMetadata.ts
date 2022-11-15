@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 import { parse } from "url";
 
@@ -16,7 +16,7 @@ export const ENV_CMDS_AUTH_TOKEN = "AWS_CONTAINER_AUTHORIZATION_TOKEN";
  * Creates a credential provider that will source credentials from the ECS
  * Container Metadata Service
  */
-export const fromContainerMetadata = (init: RemoteProviderInit = {}): CredentialProvider => {
+export const fromContainerMetadata = (init: RemoteProviderInit = {}): AwsCredentialIdentityProvider => {
   const { timeout, maxRetries } = providerConfigFromInit(init);
   return () =>
     retry(async () => {

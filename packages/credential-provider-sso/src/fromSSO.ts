@@ -6,7 +6,7 @@ import {
   parseKnownFiles,
   SourceProfileInit,
 } from "@aws-sdk/shared-ini-file-loader";
-import { CredentialProvider } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 import { isSsoProfile } from "./isSsoProfile";
 import { resolveSSOCredentials } from "./resolveSSOCredentials";
@@ -74,7 +74,7 @@ export interface FromSSOInit extends SourceProfileInit {
  * ```
  */
 export const fromSSO =
-  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): CredentialProvider =>
+  (init: FromSSOInit & Partial<SsoCredentialsParameters> = {}): AwsCredentialIdentityProvider =>
   async () => {
     const { ssoStartUrl, ssoAccountId, ssoRegion, ssoRoleName, ssoClient, ssoSession } = init;
     const profileName = getProfileName(init);

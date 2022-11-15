@@ -1,12 +1,12 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { Credentials, ParsedIniData } from "@aws-sdk/types";
+import { AwsCredentialIdentity, ParsedIniData } from "@aws-sdk/types";
 import { exec } from "child_process";
 import { promisify } from "util";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
 
-export const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<Credentials> => {
+export const resolveProcessCredentials = async (profileName: string, profiles: ParsedIniData): Promise<AwsCredentialIdentity> => {
   const profile = profiles[profileName];
 
   if (profiles[profileName]) {

@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { Credentials, Provider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
 import { RequestOptions } from "http";
 
 import { httpRequest } from "./remoteProvider/httpRequest";
@@ -42,7 +42,7 @@ const getInstanceImdsProvider = (init: RemoteProviderInit) => {
     ).trim();
 
     return retry(async () => {
-      let creds: Credentials;
+      let creds: AwsCredentialIdentity;
       try {
         creds = await getCredentialsFromProfile(profile, options);
       } catch (err) {

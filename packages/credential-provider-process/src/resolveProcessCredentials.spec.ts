@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 import { promisify } from "util";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
@@ -103,7 +103,7 @@ describe(resolveProcessCredentials.name, () => {
   });
 
   it("returns data from getValidatedProcessCredentials", async () => {
-    const expectedCreds: Credentials = {
+    const expectedCreds: AwsCredentialIdentity = {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };

@@ -1,6 +1,6 @@
 import { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@aws-sdk/shared-ini-file-loader";
-import { CredentialProvider, Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider } from "@aws-sdk/types";
 
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
@@ -23,7 +23,7 @@ export interface FromIniInit extends SourceProfileInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumer?: (sourceCreds: Credentials, params: AssumeRoleParams) => Promise<Credentials>;
+  roleAssumer?: (sourceCreds: AwsCredentialIdentity, params: AssumeRoleParams) => Promise<AwsCredentialIdentity>;
 
   /**
    * A function that assumes a role with web identity and returns a promise fulfilled with
@@ -32,7 +32,7 @@ export interface FromIniInit extends SourceProfileInit {
    * @param sourceCreds The credentials with which to assume a role.
    * @param params
    */
-  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<Credentials>;
+  roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 }
 
 /**
@@ -40,7 +40,7 @@ export interface FromIniInit extends SourceProfileInit {
  * role assumption and multi-factor authentication.
  */
 export const fromIni =
-  (init: FromIniInit = {}): CredentialProvider =>
+  (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
   async () => {
     const profiles = await parseKnownFiles(init);
     return resolveProfileData(getProfileName(init), profiles, init);

@@ -1,6 +1,6 @@
 import { chain, memoize, TokenProviderError } from "@aws-sdk/property-provider";
 import { ENV_PROFILE, loadSharedConfigFiles } from "@aws-sdk/shared-ini-file-loader";
-import { TokenProvider } from "@aws-sdk/types";
+import { TokenIdentityProvider } from "@aws-sdk/types";
 
 import { fromSso, FromSsoInit } from "./fromSso";
 
@@ -20,7 +20,7 @@ import { fromSso, FromSsoInit } from "./fromSso";
  *                              SSO cache or ssoOidc.createToken() call
  */
 
-export const nodeProvider = (init: FromSsoInit = {}): TokenProvider =>
+export const nodeProvider = (init: FromSsoInit = {}): TokenIdentityProvider =>
   memoize(
     chain(fromSso(init), async () => {
       throw new TokenProviderError("Could not load token from any providers", false);

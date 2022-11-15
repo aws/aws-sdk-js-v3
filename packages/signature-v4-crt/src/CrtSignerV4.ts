@@ -8,7 +8,7 @@ import {
   SignatureV4Init,
 } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
+  AwsCredentialIdentity,
   HttpRequest,
   Provider,
   QueryParameterBag,
@@ -61,7 +61,7 @@ export interface CrtSignerV4Init extends SignatureV4Init {
 export class CrtSignerV4 implements RequestPresigner, RequestSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
-  private readonly credentialProvider: Provider<Credentials>;
+  private readonly credentialProvider: Provider<AwsCredentialIdentity>;
   private readonly sha256: any;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
@@ -253,7 +253,7 @@ export class CrtSignerV4 implements RequestPresigner, RequestSigner {
   }
 }
 
-function sdk2crtCredentialsProvider(credentials: Credentials): crtAuth.AwsCredentialsProvider {
+function sdk2crtCredentialsProvider(credentials: AwsCredentialIdentity): crtAuth.AwsCredentialsProvider {
   return crtAuth.AwsCredentialsProvider.newStatic(
     credentials.accessKeyId,
     credentials.secretAccessKey,

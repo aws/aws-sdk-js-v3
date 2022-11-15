@@ -2,7 +2,7 @@ import { memoize } from "@aws-sdk/property-provider";
 import { SignatureV4, SignatureV4CryptoInit, SignatureV4Init } from "@aws-sdk/signature-v4";
 import {
   AuthScheme,
-  Credentials,
+  AwsCredentialIdentity,
   HashConstructor,
   Logger,
   MemoizedProvider,
@@ -24,7 +24,7 @@ export interface AwsAuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
-  credentials?: Credentials | Provider<Credentials>;
+  credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * The signer to use when signing requests.
@@ -59,7 +59,7 @@ export interface SigV4AuthInputConfig {
   /**
    * The credentials used to sign requests.
    */
-  credentials?: Credentials | Provider<Credentials>;
+  credentials?: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * The signer to use when signing requests.
@@ -78,7 +78,7 @@ export interface SigV4AuthInputConfig {
 }
 
 interface PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   regionInfoProvider?: RegionInfoProvider;
   signingName?: string;
@@ -90,7 +90,7 @@ interface PreviouslyResolved {
 }
 
 interface SigV4PreviouslyResolved {
-  credentialDefaultProvider: (input: any) => MemoizedProvider<Credentials>;
+  credentialDefaultProvider: (input: any) => MemoizedProvider<AwsCredentialIdentity>;
   region: string | Provider<string>;
   signingName: string;
   sha256: HashConstructor;
@@ -103,7 +103,7 @@ export interface AwsAuthResolvedConfig {
    * This provider MAY memoize the loaded credentials for certain period.
    * See {@link MemoizedProvider} for more information.
    */
-  credentials: MemoizedProvider<Credentials>;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
   /**
    * Resolved value for input config {@link AwsAuthInputConfig.signer}
    */
@@ -247,8 +247,8 @@ export const resolveSigV4AuthConfig = <T>(
 };
 
 const normalizeCredentialProvider = (
-  credentials: Credentials | Provider<Credentials>
-): MemoizedProvider<Credentials> => {
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>
+): MemoizedProvider<AwsCredentialIdentity> => {
   if (typeof credentials === "function") {
     return memoize(
       credentials,

@@ -2,7 +2,7 @@ import { toEndpointV1 } from "@aws-sdk/middleware-endpoint";
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
 import {
-  Credentials,
+  AwsCredentialIdentity,
   Endpoint,
   HandlerExecutionContext,
   HashConstructor,
@@ -21,7 +21,7 @@ import {
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 interface PreviouslyResolved {
-  credentials: MemoizedProvider<Credentials>;
+  credentials: MemoizedProvider<AwsCredentialIdentity>;
   endpoint?: Provider<Endpoint>;
   region: Provider<string>;
   sha256: HashConstructor;
