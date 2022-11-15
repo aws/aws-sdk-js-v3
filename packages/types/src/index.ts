@@ -7,6 +7,7 @@ export * from "./crypto";
 export * from "./endpoint";
 export * from "./eventStream";
 export * from "./http";
+export * from "./identity";
 export * from "./logger";
 export * from "./middleware";
 export * from "./pagination";
