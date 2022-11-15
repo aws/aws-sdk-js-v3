@@ -77,10 +77,10 @@ module.exports = {
       world.data = data;
 
       try {
-        if (typeof next.condition === "function") {
+        if (next && typeof next.condition === "function") {
           const condition = next.condition.call(world, world);
           if (!condition) {
-            next.fail(new Error("Request success condition failed"));
+            next.fail(new Error("Request success condition failed."));
             return;
           }
         }
@@ -91,10 +91,16 @@ module.exports = {
         } else if (extra !== false && err) {
           world.unexpectedError(svc.config.signingName, operation, world.error.name, world.error.message, next);
         } else {
-          next.call(world);
+          if (typeof next.call === "function") {
+            next.call(world);
+          }
         }
       } catch (err) {
-        next.fail(err);
+        if (next && typeof next.fail === "function") {
+          next.fail(err);
+          return;
+        }
+        throw err;
       }
     });
   },
@@ -105,7 +111,12 @@ module.exports = {
    * operation failed.
    */
   unexpectedError: function unexpectedError(svc, op, name, msg, next) {
-    next.fail(new Error(`Received unexpected error from ${svc}.${op}, ${name}: ${msg}`));
+    var err = new Error(`Received unexpected error from ${svc}.${op}, ${name}: ${msg}`);
+    if (next && typeof next.fail === "function") {
+      next.fail(err);
+      return;
+    }
+    throw err;
   },
 
   /**
