@@ -317,12 +317,12 @@ export const ruleSet: RuleSetObject = {
                     {
                       ref: "Region",
                     },
-                    "dataplane-us-gov-west-1",
+                    "dataplane-us-gov-east-1",
                   ],
                 },
               ],
               endpoint: {
-                url: "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com",
+                url: "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com",
                 properties: {},
                 headers: {},
               },
@@ -336,12 +336,12 @@ export const ruleSet: RuleSetObject = {
                     {
                       ref: "Region",
                     },
-                    "dataplane-us-gov-east-1",
+                    "dataplane-us-gov-west-1",
                   ],
                 },
               ],
               endpoint: {
-                url: "https://greengrass-ats.iot.us-gov-east-1.amazonaws.com",
+                url: "https://greengrass-ats.iot.us-gov-west-1.amazonaws.com",
                 properties: {},
                 headers: {},
               },

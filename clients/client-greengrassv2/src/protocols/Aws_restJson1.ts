@@ -331,6 +331,7 @@ export const serializeAws_restJson1CreateDeploymentCommand = async (
     ...(input.iotJobConfiguration != null && {
       iotJobConfiguration: serializeAws_restJson1DeploymentIoTJobConfiguration(input.iotJobConfiguration, context),
     }),
+    ...(input.parentTargetArn != null && { parentTargetArn: input.parentTargetArn }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
     ...(input.targetArn != null && { targetArn: input.targetArn }),
   });
@@ -748,6 +749,7 @@ export const serializeAws_restJson1ListDeploymentsCommand = async (
   const query: any = map({
     targetArn: [, input.targetArn!],
     historyFilter: [, input.historyFilter!],
+    parentTargetArn: [, input.parentTargetArn!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -1859,6 +1861,9 @@ export const deserializeAws_restJson1GetDeploymentCommand = async (
   }
   if (data.isLatestForTarget != null) {
     contents.isLatestForTarget = __expectBoolean(data.isLatestForTarget);
+  }
+  if (data.parentTargetArn != null) {
+    contents.parentTargetArn = __expectString(data.parentTargetArn);
   }
   if (data.revisionId != null) {
     contents.revisionId = __expectString(data.revisionId);
@@ -3513,6 +3518,7 @@ const deserializeAws_restJson1Deployment = (output: any, context: __SerdeContext
     deploymentName: __expectString(output.deploymentName),
     deploymentStatus: __expectString(output.deploymentStatus),
     isLatestForTarget: __expectBoolean(output.isLatestForTarget),
+    parentTargetArn: __expectString(output.parentTargetArn),
     revisionId: __expectString(output.revisionId),
     targetArn: __expectString(output.targetArn),
   } as any;
