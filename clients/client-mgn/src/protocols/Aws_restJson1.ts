@@ -3507,10 +3507,8 @@ const serializeAws_restJson1SsmDocumentParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SsmParameterStoreParameters(value, context),
-    };
+    acc[key] = serializeAws_restJson1SsmParameterStoreParameters(value, context);
+    return acc;
   }, {});
 };
 
@@ -3564,10 +3562,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4228,10 +4224,8 @@ const deserializeAws_restJson1SsmDocumentParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SsmParameterStoreParameters(value, context),
-      };
+      acc[key] = deserializeAws_restJson1SsmParameterStoreParameters(value, context);
+      return acc;
     },
     {}
   );
@@ -4279,10 +4273,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

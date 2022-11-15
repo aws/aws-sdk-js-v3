@@ -2771,10 +2771,8 @@ const serializeAws_json1_1CustomerPolicyScopeMap = (input: Record<string, string
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1CustomerPolicyScopeIdList(value, context),
-      };
+      acc[key] = serializeAws_json1_1CustomerPolicyScopeIdList(value, context);
+      return acc;
     },
     {}
   );
@@ -3079,10 +3077,8 @@ const serializeAws_json1_1PreviousAppsList = (input: Record<string, App[]>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1AppsList(value, context),
-    };
+    acc[key] = serializeAws_json1_1AppsList(value, context);
+    return acc;
   }, {});
 };
 
@@ -3091,10 +3087,8 @@ const serializeAws_json1_1PreviousProtocolsList = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ProtocolsList(value, context),
-    };
+    acc[key] = serializeAws_json1_1ProtocolsList(value, context);
+    return acc;
   }, {});
 };
 
@@ -3436,10 +3430,8 @@ const deserializeAws_json1_1ComplianceViolatorMetadata = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3476,10 +3468,8 @@ const deserializeAws_json1_1CustomerPolicyScopeMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1CustomerPolicyScopeIdList(value, context),
-      };
+      acc[key] = deserializeAws_json1_1CustomerPolicyScopeIdList(value, context);
+      return acc;
     },
     {}
   );
@@ -3884,10 +3874,8 @@ const deserializeAws_json1_1IssueInfoMap = (output: any, context: __SerdeContext
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -4472,10 +4460,8 @@ const deserializeAws_json1_1PreviousAppsList = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1AppsList(value, context),
-    };
+    acc[key] = deserializeAws_json1_1AppsList(value, context);
+    return acc;
   }, {});
 };
 
@@ -4487,10 +4473,8 @@ const deserializeAws_json1_1PreviousProtocolsList = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ProtocolsList(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ProtocolsList(value, context);
+    return acc;
   }, {});
 };
 

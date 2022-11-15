@@ -2488,20 +2488,16 @@ export const CreateFormDataFilterSensitiveLog = (obj: CreateFormData): any => ({
   ...obj,
   ...(obj.fields && {
     fields: Object.entries(obj.fields).reduce(
-      (acc: any, [key, value]: [string, FieldConfig]) => ({
-        ...acc,
-        [key]: FieldConfigFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
   ...(obj.sectionalElements && {
     sectionalElements: Object.entries(obj.sectionalElements).reduce(
-      (acc: any, [key, value]: [string, SectionalElement]) => ({
-        ...acc,
-        [key]: SectionalElementFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2524,19 +2520,15 @@ export const FormFilterSensitiveLog = (obj: Form): any => ({
   ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
   ...(obj.fields && {
     fields: Object.entries(obj.fields).reduce(
-      (acc: any, [key, value]: [string, FieldConfig]) => ({
-        ...acc,
-        [key]: FieldConfigFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.sectionalElements && {
     sectionalElements: Object.entries(obj.sectionalElements).reduce(
-      (acc: any, [key, value]: [string, SectionalElement]) => ({
-        ...acc,
-        [key]: SectionalElementFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -2616,20 +2608,16 @@ export const UpdateFormDataFilterSensitiveLog = (obj: UpdateFormData): any => ({
   ...obj,
   ...(obj.fields && {
     fields: Object.entries(obj.fields).reduce(
-      (acc: any, [key, value]: [string, FieldConfig]) => ({
-        ...acc,
-        [key]: FieldConfigFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, FieldConfig]) => ((acc[key] = FieldConfigFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.style && { style: FormStyleFilterSensitiveLog(obj.style) }),
   ...(obj.sectionalElements && {
     sectionalElements: Object.entries(obj.sectionalElements).reduce(
-      (acc: any, [key, value]: [string, SectionalElement]) => ({
-        ...acc,
-        [key]: SectionalElementFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, SectionalElement]) => (
+        (acc[key] = SectionalElementFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),

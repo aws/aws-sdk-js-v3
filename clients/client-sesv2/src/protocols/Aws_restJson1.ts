@@ -7609,10 +7609,8 @@ const serializeAws_restJson1Dimensions = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7796,10 +7794,8 @@ const serializeAws_restJson1ListRecommendationsFilter = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -8056,10 +8052,8 @@ const deserializeAws_restJson1BlacklistReport = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BlacklistEntries(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BlacklistEntries(value, context);
+    return acc;
   }, {});
 };
 
@@ -8812,10 +8806,8 @@ const deserializeAws_restJson1PolicyMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

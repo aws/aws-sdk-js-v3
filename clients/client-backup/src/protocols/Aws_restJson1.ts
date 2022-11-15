@@ -6189,10 +6189,8 @@ const serializeAws_restJson1BackupOptions = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6377,10 +6375,8 @@ const serializeAws_restJson1GlobalSettings = (input: Record<string, string>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6404,10 +6400,8 @@ const serializeAws_restJson1Metadata = (input: Record<string, string>, context: 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6453,10 +6447,8 @@ const serializeAws_restJson1ResourceTypeManagementPreference = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6468,10 +6460,8 @@ const serializeAws_restJson1ResourceTypeOptInPreference = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6488,10 +6478,8 @@ const serializeAws_restJson1stringMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6508,10 +6496,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6592,10 +6578,8 @@ const deserializeAws_restJson1BackupOptions = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7037,10 +7021,8 @@ const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7068,10 +7050,8 @@ const deserializeAws_restJson1Metadata = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7323,10 +7303,8 @@ const deserializeAws_restJson1ResourceTypeManagementPreference = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectBoolean(value) as any,
-    };
+    acc[key] = __expectBoolean(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7338,10 +7316,8 @@ const deserializeAws_restJson1ResourceTypeOptInPreference = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectBoolean(value) as any,
-    };
+    acc[key] = __expectBoolean(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7410,10 +7386,8 @@ const deserializeAws_restJson1stringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7422,10 +7396,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

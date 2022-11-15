@@ -16137,10 +16137,8 @@ const serializeAws_json1_1CollectionParameters = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -17316,10 +17314,8 @@ const serializeAws_json1_1CustomerMetadataMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18549,10 +18545,8 @@ const serializeAws_json1_1EnvironmentMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18767,10 +18761,8 @@ const serializeAws_json1_1HookParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18881,10 +18873,8 @@ const serializeAws_json1_1HyperParameters = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -19412,10 +19402,8 @@ const serializeAws_json1_1LineageEntityParameters = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -20899,10 +20887,8 @@ const serializeAws_json1_1MonitoringEnvironmentMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21385,10 +21371,8 @@ const serializeAws_json1_1ProcessingEnvironmentMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21592,10 +21576,8 @@ const serializeAws_json1_1ProfilingParameters = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21686,10 +21668,8 @@ const serializeAws_json1_1QueryProperties = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22001,10 +21981,8 @@ const serializeAws_json1_1RuleParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22459,10 +22437,8 @@ const serializeAws_json1_1TrainingEnvironmentMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22545,10 +22521,8 @@ const serializeAws_json1_1TransformEnvironmentMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22631,10 +22605,8 @@ const serializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -22646,10 +22618,8 @@ const serializeAws_json1_1TrialComponentParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1TrialComponentParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1TrialComponentParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -24022,10 +23992,8 @@ const deserializeAws_json1_1BatchDescribeModelPackageErrorMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageError(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageError(value, context);
+      return acc;
     },
     {}
   );
@@ -24547,10 +24515,8 @@ const deserializeAws_json1_1CollectionParameters = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25162,10 +25128,8 @@ const deserializeAws_json1_1CustomerMetadataMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -27987,10 +27951,8 @@ const deserializeAws_json1_1EnvironmentMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -28441,10 +28403,8 @@ const deserializeAws_json1_1HookParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -28575,10 +28535,8 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -29605,10 +29563,8 @@ const deserializeAws_json1_1LineageEntityParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -30818,10 +30774,8 @@ const deserializeAws_json1_1ModelPackageSummaries = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context),
-      };
+      acc[key] = deserializeAws_json1_1BatchDescribeModelPackageSummary(value, context);
+      return acc;
     },
     {}
   );
@@ -31085,10 +31039,8 @@ const deserializeAws_json1_1MonitoringEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32134,10 +32086,8 @@ const deserializeAws_json1_1ProcessingEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -32559,10 +32509,8 @@ const deserializeAws_json1_1ProfilingParameters = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33056,10 +33004,8 @@ const deserializeAws_json1_1RuleParameters = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33486,10 +33432,8 @@ const deserializeAws_json1_1TrainingEnvironmentMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33732,10 +33676,8 @@ const deserializeAws_json1_1TransformEnvironmentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -33999,10 +33941,8 @@ const deserializeAws_json1_1TrialComponentArtifacts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1TrialComponentArtifact(value, context),
-    };
+    acc[key] = deserializeAws_json1_1TrialComponentArtifact(value, context);
+    return acc;
   }, {});
 };
 
@@ -34048,10 +33988,8 @@ const deserializeAws_json1_1TrialComponentParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context),
-      };
+      acc[key] = deserializeAws_json1_1TrialComponentParameterValue(__expectUnion(value), context);
+      return acc;
     },
     {}
   );

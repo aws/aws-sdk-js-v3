@@ -271,10 +271,8 @@ const deserializeAws_restJson1MatchedDetails = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1CategoryDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1CategoryDetails(value, context);
+    return acc;
   }, {});
 };
 

@@ -1027,10 +1027,9 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
   if (obj.M !== undefined)
     return {
       M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       ),
     };
@@ -1047,28 +1046,19 @@ export const StreamRecordFilterSensitiveLog = (obj: StreamRecord): any => ({
   ...obj,
   ...(obj.Keys && {
     Keys: Object.entries(obj.Keys).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.NewImage && {
     NewImage: Object.entries(obj.NewImage).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.OldImage && {
     OldImage: Object.entries(obj.OldImage).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

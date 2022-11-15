@@ -1121,10 +1121,8 @@ const serializeAws_restJson1ActiveContextParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1336,10 +1334,8 @@ const serializeAws_restJson1SlotHintsIntentMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SlotHintsSlotMap(value, context),
-    };
+    acc[key] = serializeAws_restJson1SlotHintsSlotMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -1351,10 +1347,8 @@ const serializeAws_restJson1SlotHintsSlotMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RuntimeHintDetails(value, context),
-    };
+    acc[key] = serializeAws_restJson1RuntimeHintDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -1363,10 +1357,8 @@ const serializeAws_restJson1Slots = (input: Record<string, Slot>, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Slot(value, context),
-    };
+    acc[key] = serializeAws_restJson1Slot(value, context);
+    return acc;
   }, {});
 };
 
@@ -1383,10 +1375,8 @@ const serializeAws_restJson1StringMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1438,10 +1428,8 @@ const deserializeAws_restJson1ActiveContextParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1714,10 +1702,8 @@ const deserializeAws_restJson1SlotHintsIntentMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SlotHintsSlotMap(value, context),
-      };
+      acc[key] = deserializeAws_restJson1SlotHintsSlotMap(value, context);
+      return acc;
     },
     {}
   );
@@ -1731,10 +1717,8 @@ const deserializeAws_restJson1SlotHintsSlotMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RuntimeHintDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RuntimeHintDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -1743,10 +1727,8 @@ const deserializeAws_restJson1Slots = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Slot(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Slot(value, context);
+    return acc;
   }, {});
 };
 
@@ -1767,10 +1749,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

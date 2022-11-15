@@ -6098,10 +6098,8 @@ const serializeAws_json1_1TargetFilters = (input: Record<string, string[]>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1FilterValueList(value, context),
-    };
+    acc[key] = serializeAws_json1_1FilterValueList(value, context);
+    return acc;
   }, {});
 };
 

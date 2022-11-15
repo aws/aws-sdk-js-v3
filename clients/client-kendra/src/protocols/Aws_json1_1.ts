@@ -7386,10 +7386,8 @@ const serializeAws_json1_1ValueImportanceMap = (input: Record<string, number>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -10881,10 +10879,8 @@ const deserializeAws_json1_1ValueImportanceMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 

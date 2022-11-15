@@ -1925,10 +1925,8 @@ const serializeAws_json1_1CostFilters = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1DimensionValues(value, context),
-    };
+    acc[key] = serializeAws_json1_1DimensionValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2253,10 +2251,8 @@ const serializeAws_json1_1PlannedBudgetLimits = (input: Record<string, Spend>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1Spend(value, context),
-    };
+    acc[key] = serializeAws_json1_1Spend(value, context);
+    return acc;
   }, {});
 };
 
@@ -2593,10 +2589,8 @@ const deserializeAws_json1_1CostFilters = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1DimensionValues(value, context),
-    };
+    acc[key] = deserializeAws_json1_1DimensionValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2947,10 +2941,8 @@ const deserializeAws_json1_1PlannedBudgetLimits = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Spend(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Spend(value, context);
+    return acc;
   }, {});
 };
 

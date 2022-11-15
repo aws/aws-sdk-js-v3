@@ -3551,10 +3551,8 @@ const deserializeAws_json1_1AssessmentRunFindingCounts = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3940,10 +3938,8 @@ const deserializeAws_json1_1ExclusionMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Exclusion(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Exclusion(value, context);
+    return acc;
   }, {});
 };
 
@@ -3981,10 +3977,8 @@ const deserializeAws_json1_1FailedItems = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1FailedItemDetails(value, context),
-    };
+    acc[key] = deserializeAws_json1_1FailedItemDetails(value, context);
+    return acc;
   }, {});
 };
 

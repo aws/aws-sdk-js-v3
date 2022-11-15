@@ -2907,10 +2907,8 @@ const serializeAws_restJson1__mapOf__string = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2922,10 +2920,8 @@ const serializeAws_restJson1__mapOfAudioSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AudioSelector(value, context),
-    };
+    acc[key] = serializeAws_restJson1AudioSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -2937,10 +2933,8 @@ const serializeAws_restJson1__mapOfAudioSelectorGroup = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AudioSelectorGroup(value, context),
-    };
+    acc[key] = serializeAws_restJson1AudioSelectorGroup(value, context);
+    return acc;
   }, {});
 };
 
@@ -2952,10 +2946,8 @@ const serializeAws_restJson1__mapOfCaptionSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CaptionSelector(value, context),
-    };
+    acc[key] = serializeAws_restJson1CaptionSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -5975,10 +5967,8 @@ const deserializeAws_restJson1__mapOf__string = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5990,10 +5980,8 @@ const deserializeAws_restJson1__mapOfAudioSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AudioSelector(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AudioSelector(value, context);
+    return acc;
   }, {});
 };
 
@@ -6005,10 +5993,8 @@ const deserializeAws_restJson1__mapOfAudioSelectorGroup = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AudioSelectorGroup(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AudioSelectorGroup(value, context);
+    return acc;
   }, {});
 };
 
@@ -6020,10 +6006,8 @@ const deserializeAws_restJson1__mapOfCaptionSelector = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1CaptionSelector(value, context),
-    };
+    acc[key] = deserializeAws_restJson1CaptionSelector(value, context);
+    return acc;
   }, {});
 };
 

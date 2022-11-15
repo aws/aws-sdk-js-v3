@@ -1251,10 +1251,8 @@ const serializeAws_json1_1Filters = (input: Record<string, string[]>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1Strings(value, context),
-    };
+    acc[key] = serializeAws_json1_1Strings(value, context);
+    return acc;
   }, {});
 };
 
@@ -1581,10 +1579,8 @@ const deserializeAws_json1_1ExternalSubnetMapping = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -9696,10 +9696,9 @@ export const DescribeTrialComponentResponseFilterSensitiveLog = (obj: DescribeTr
   ...obj,
   ...(obj.Parameters && {
     Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-        ...acc,
-        [key]: TrialComponentParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
+        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),

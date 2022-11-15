@@ -4118,10 +4118,8 @@ const serializeAws_json1_1CustomResponseBodies = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1CustomResponseBody(value, context),
-    };
+    acc[key] = serializeAws_json1_1CustomResponseBody(value, context);
+    return acc;
   }, {});
 };
 
@@ -5188,10 +5186,8 @@ const serializeAws_json1_1VersionsToPublish = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1VersionToPublish(value, context),
-    };
+    acc[key] = serializeAws_json1_1VersionToPublish(value, context);
+    return acc;
   }, {});
 };
 
@@ -5500,10 +5496,8 @@ const deserializeAws_json1_1CustomResponseBodies = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1CustomResponseBody(value, context),
-    };
+    acc[key] = deserializeAws_json1_1CustomResponseBody(value, context);
+    return acc;
   }, {});
 };
 
@@ -6451,10 +6445,8 @@ const deserializeAws_json1_1PublishedVersions = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ManagedRuleSetVersion(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ManagedRuleSetVersion(value, context);
+    return acc;
   }, {});
 };
 

@@ -2507,10 +2507,8 @@ const deserializeAws_queryMessageBodyAttributeMap = (
     if (pair["Value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Name"]]: deserializeAws_queryMessageAttributeValue(pair["Value"], context),
-    };
+    acc[pair["Name"]] = deserializeAws_queryMessageAttributeValue(pair["Value"], context);
+    return acc;
   }, {});
 };
 
@@ -2535,10 +2533,8 @@ const deserializeAws_queryMessageSystemAttributeMap = (
     if (pair["Value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Name"]]: __expectString(pair["Value"]) as any,
-    };
+    acc[pair["Name"]] = __expectString(pair["Value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -2557,10 +2553,8 @@ const deserializeAws_queryQueueAttributeMap = (output: any, context: __SerdeCont
     if (pair["Value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Name"]]: __expectString(pair["Value"]) as any,
-    };
+    acc[pair["Name"]] = __expectString(pair["Value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -2711,10 +2705,8 @@ const deserializeAws_queryTagMap = (output: any, context: __SerdeContext): Recor
     if (pair["Value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Key"]]: __expectString(pair["Value"]) as any,
-    };
+    acc[pair["Key"]] = __expectString(pair["Value"]) as any;
+    return acc;
   }, {});
 };
 

@@ -6750,10 +6750,9 @@ export const TrialComponentFilterSensitiveLog = (obj: TrialComponent): any => ({
   ...obj,
   ...(obj.Parameters && {
     Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-        ...acc,
-        [key]: TrialComponentParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
+        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -7278,10 +7277,9 @@ export const UpdateTrialComponentRequestFilterSensitiveLog = (obj: UpdateTrialCo
   ...obj,
   ...(obj.Parameters && {
     Parameters: Object.entries(obj.Parameters).reduce(
-      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => ({
-        ...acc,
-        [key]: TrialComponentParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, TrialComponentParameterValue]) => (
+        (acc[key] = TrialComponentParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),

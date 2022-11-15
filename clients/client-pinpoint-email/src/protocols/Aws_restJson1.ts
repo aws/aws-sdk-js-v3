@@ -3961,10 +3961,8 @@ const deserializeAws_restJson1BlacklistReport = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BlacklistEntries(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BlacklistEntries(value, context);
+    return acc;
   }, {});
 };
 

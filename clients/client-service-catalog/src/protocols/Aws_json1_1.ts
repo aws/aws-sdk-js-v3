@@ -6284,10 +6284,8 @@ const serializeAws_json1_1ExecutionParameterMap = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ExecutionParameterValueList(value, context),
-    };
+    acc[key] = serializeAws_json1_1ExecutionParameterValueList(value, context);
+    return acc;
   }, {});
 };
 
@@ -6588,10 +6586,8 @@ const serializeAws_json1_1ProductViewFilters = (input: Record<string, string[]>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ProductViewFilterValues(value, context),
-    };
+    acc[key] = serializeAws_json1_1ProductViewFilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -6612,10 +6608,8 @@ const serializeAws_json1_1ProvisionedProductFilters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1ProvisionedProductViewFilterValues(value, context),
-      };
+      acc[key] = serializeAws_json1_1ProvisionedProductViewFilterValues(value, context);
+      return acc;
     },
     {}
   );
@@ -6629,10 +6623,8 @@ const serializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6649,10 +6641,8 @@ const serializeAws_json1_1ProvisioningArtifactInfo = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -6831,10 +6821,8 @@ const serializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -6860,10 +6848,8 @@ const serializeAws_json1_1SourceProvisioningArtifactPropertiesMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -8251,10 +8237,8 @@ const deserializeAws_json1_1ProductViewAggregations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1ProductViewAggregationValues(value, context),
-      };
+      acc[key] = deserializeAws_json1_1ProductViewAggregationValues(value, context);
+      return acc;
     },
     {}
   );
@@ -8497,10 +8481,8 @@ const deserializeAws_json1_1ProvisionedProductProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8558,10 +8540,8 @@ const deserializeAws_json1_1ProvisioningArtifactInfo = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8995,10 +8975,8 @@ const deserializeAws_json1_1ServiceActionDefinitionMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );

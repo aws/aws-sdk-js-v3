@@ -4548,10 +4548,8 @@ const serializeAws_restJson1EncryptionContextMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4560,10 +4558,8 @@ const serializeAws_restJson1IdentityProviderDetails = (input: Record<string, str
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4710,10 +4706,8 @@ const deserializeAws_restJson1IdentityProviderDetails = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -810,13 +810,10 @@ export const serializeAws_restXmlHttpPrefixHeadersCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-foo": input.foo!,
     ...(input.fooMap !== undefined &&
-      Object.keys(input.fooMap).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-foo-${suffix.toLowerCase()}`]: input.fooMap![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
+        acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
+        return acc;
+      }, {})),
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/HttpPrefixHeaders";
   let body: any;
@@ -4827,10 +4824,8 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNameInputOutputMap = (
     if (pair["V"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["K"]]: __expectString(pair["V"]) as any,
-    };
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
+    return acc;
   }, {});
 };
 
@@ -4842,10 +4837,8 @@ const deserializeAws_restXmlFlattenedXmlMapWithXmlNamespaceOutputMap = (
     if (pair["V"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["K"]]: __expectString(pair["V"]) as any,
-    };
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
+    return acc;
   }, {});
 };
 
@@ -4873,10 +4866,8 @@ const deserializeAws_restXmlNestedMap = (
     if (__getArrayIfSingleItem(pair["value"]["entry"]) === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_restXmlFooEnumMap(__getArrayIfSingleItem(pair["value"]["entry"]), context),
-    };
+    acc[pair["key"]] = deserializeAws_restXmlFooEnumMap(__getArrayIfSingleItem(pair["value"]["entry"]), context);
+    return acc;
   }, {});
 };
 
@@ -5022,10 +5013,8 @@ const deserializeAws_restXmlXmlMapsInputOutputMap = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_restXmlGreetingStruct(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_restXmlGreetingStruct(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -5037,10 +5026,8 @@ const deserializeAws_restXmlXmlMapsXmlNameInputOutputMap = (
     if (pair["Setting"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Attribute"]]: deserializeAws_restXmlGreetingStruct(pair["Setting"], context),
-    };
+    acc[pair["Attribute"]] = deserializeAws_restXmlGreetingStruct(pair["Setting"], context);
+    return acc;
   }, {});
 };
 
@@ -5186,10 +5173,8 @@ const deserializeAws_restXmlFooEnumMap = (output: any, context: __SerdeContext):
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

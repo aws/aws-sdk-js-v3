@@ -14161,10 +14161,8 @@ const deserializeAws_queryEvalDecisionDetailsType = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -17106,10 +17104,8 @@ const deserializeAws_querysummaryMapType = (output: any, context: __SerdeContext
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __strictParseInt32(pair["value"]) as number,
-    };
+    acc[pair["key"]] = __strictParseInt32(pair["value"]) as number;
+    return acc;
   }, {});
 };
 

@@ -1027,10 +1027,8 @@ const deserializeAws_restJson1EnumMap = (output: any, context: __SerdeContext): 
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -1063,10 +1061,8 @@ const deserializeAws_restJson1LengthMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1LengthList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1LengthList(value, context);
+    return acc;
   }, {});
 };
 
@@ -1099,10 +1095,8 @@ const deserializeAws_restJson1PatternMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1111,10 +1105,8 @@ const deserializeAws_restJson1PatternMapOverride = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

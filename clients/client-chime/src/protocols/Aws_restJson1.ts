@@ -18597,10 +18597,8 @@ const serializeAws_restJson1SipHeadersMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18665,10 +18663,8 @@ const serializeAws_restJson1SMAUpdateCallArgumentsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 

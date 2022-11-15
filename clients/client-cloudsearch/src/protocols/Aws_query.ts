@@ -3402,10 +3402,8 @@ const deserializeAws_queryDomainNameMap = (output: any, context: __SerdeContext)
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

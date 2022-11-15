@@ -13458,10 +13458,8 @@ const serializeAws_json1_1AdditionalOptions = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -13470,10 +13468,8 @@ const serializeAws_json1_1AdditionalPlanOptionsMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -14092,10 +14088,8 @@ const serializeAws_json1_1CodeGenConfigurationNodes = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1CodeGenConfigurationNode(value, context),
-    };
+    acc[key] = serializeAws_json1_1CodeGenConfigurationNode(value, context);
+    return acc;
   }, {});
 };
 
@@ -14266,10 +14260,8 @@ const serializeAws_json1_1ConnectionProperties = (input: Record<string, string>,
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -15320,10 +15312,8 @@ const serializeAws_json1_1GenericMap = (input: Record<string, string>, context: 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16068,10 +16058,8 @@ const serializeAws_json1_1JDBCDataTypeMapping = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16399,10 +16387,8 @@ const serializeAws_json1_1LocationMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16479,10 +16465,8 @@ const serializeAws_json1_1MapValue = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16658,10 +16642,8 @@ const serializeAws_json1_1OrchestrationArgumentsMap = (input: Record<string, str
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -16693,10 +16675,8 @@ const serializeAws_json1_1ParametersMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -17694,10 +17674,8 @@ const serializeAws_json1_1TagsMap = (input: Record<string, string>, context: __S
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18202,10 +18180,8 @@ const serializeAws_json1_1WorkflowRunProperties = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -18246,10 +18222,8 @@ const deserializeAws_json1_1AdditionalOptions = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -19070,10 +19044,8 @@ const deserializeAws_json1_1CodeGenConfigurationNodes = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1CodeGenConfigurationNode(value, context),
-    };
+    acc[key] = deserializeAws_json1_1CodeGenConfigurationNode(value, context);
+    return acc;
   }, {});
 };
 
@@ -19409,10 +19381,8 @@ const deserializeAws_json1_1ConnectionProperties = (output: any, context: __Serd
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -20500,10 +20470,8 @@ const deserializeAws_json1_1ErrorByName = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ErrorDetail(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ErrorDetail(value, context);
+    return acc;
   }, {});
 };
 
@@ -20652,10 +20620,8 @@ const deserializeAws_json1_1GenericMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -21583,10 +21549,8 @@ const deserializeAws_json1_1JDBCDataTypeMapping = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -22085,10 +22049,8 @@ const deserializeAws_json1_1LocationMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -22180,10 +22142,8 @@ const deserializeAws_json1_1MapValue = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -22225,10 +22185,8 @@ const deserializeAws_json1_1MetadataInfoMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1MetadataInfo(value, context),
-    };
+    acc[key] = deserializeAws_json1_1MetadataInfo(value, context);
+    return acc;
   }, {});
 };
 
@@ -22485,10 +22443,8 @@ const deserializeAws_json1_1OrchestrationArgumentsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -22553,10 +22509,8 @@ const deserializeAws_json1_1ParametersMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23938,10 +23892,8 @@ const deserializeAws_json1_1TagsMap = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24440,10 +24392,8 @@ const deserializeAws_json1_1WorkflowRunProperties = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

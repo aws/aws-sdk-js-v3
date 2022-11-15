@@ -21784,10 +21784,8 @@ const serializeAws_restJson1AdditionalParameterMap = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21830,10 +21828,8 @@ const serializeAws_restJson1AlertTargets = (input: Record<string, AlertTarget>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AlertTarget(value, context),
-    };
+    acc[key] = serializeAws_restJson1AlertTarget(value, context);
+    return acc;
   }, {});
 };
 
@@ -21884,10 +21880,8 @@ const serializeAws_restJson1Attributes = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21896,10 +21890,8 @@ const serializeAws_restJson1AttributesMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -21920,10 +21912,8 @@ const serializeAws_restJson1AuditCheckConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1AuditCheckConfiguration(value, context),
-    };
+    acc[key] = serializeAws_restJson1AuditCheckConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -21935,10 +21925,8 @@ const serializeAws_restJson1AuditCheckToActionsMapping = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1MitigationActionNameList(value, context),
-    };
+    acc[key] = serializeAws_restJson1MitigationActionNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -21950,10 +21938,8 @@ const serializeAws_restJson1AuditCheckToReasonCodeFilter = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ReasonForNonComplianceCodes(value, context),
-    };
+    acc[key] = serializeAws_restJson1ReasonForNonComplianceCodes(value, context);
+    return acc;
   }, {});
 };
 
@@ -21993,10 +21979,8 @@ const serializeAws_restJson1AuditNotificationTargetConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_restJson1AuditNotificationTarget(value, context),
-      };
+      acc[key] = serializeAws_restJson1AuditNotificationTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -22166,10 +22150,8 @@ const serializeAws_restJson1ClientProperties = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22258,10 +22240,8 @@ const serializeAws_restJson1DetailsMap = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22341,10 +22321,8 @@ const serializeAws_restJson1EventConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Configuration(value, context),
-    };
+    acc[key] = serializeAws_restJson1Configuration(value, context);
+    return acc;
   }, {});
 };
 
@@ -22439,10 +22417,8 @@ const serializeAws_restJson1HttpHeaders = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22737,10 +22713,8 @@ const serializeAws_restJson1ParameterMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22749,10 +22723,8 @@ const serializeAws_restJson1Parameters = (input: Record<string, string>, context
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -22817,10 +22789,8 @@ const serializeAws_restJson1PublicKeyMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -23503,10 +23473,8 @@ const deserializeAws_restJson1AdditionalParameterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23555,10 +23523,8 @@ const deserializeAws_restJson1AlertTargets = (output: any, context: __SerdeConte
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1AlertTarget(value, context),
-      };
+      acc[key] = deserializeAws_restJson1AlertTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -23632,10 +23598,8 @@ const deserializeAws_restJson1Attributes = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23644,10 +23608,8 @@ const deserializeAws_restJson1AttributesMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -23668,10 +23630,8 @@ const deserializeAws_restJson1AuditCheckConfigurations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AuditCheckConfiguration(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AuditCheckConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -23695,10 +23655,8 @@ const deserializeAws_restJson1AuditCheckToActionsMapping = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MitigationActionNameList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MitigationActionNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -23710,10 +23668,8 @@ const deserializeAws_restJson1AuditCheckToReasonCodeFilter = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ReasonForNonComplianceCodes(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ReasonForNonComplianceCodes(value, context);
+    return acc;
   }, {});
 };
 
@@ -23725,10 +23681,8 @@ const deserializeAws_restJson1AuditDetails = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1AuditCheckDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1AuditCheckDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -23842,10 +23796,8 @@ const deserializeAws_restJson1AuditMitigationActionsTaskStatistics = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1TaskStatisticsForAuditCheck(value, context),
-      };
+      acc[key] = deserializeAws_restJson1TaskStatisticsForAuditCheck(value, context);
+      return acc;
     },
     {}
   );
@@ -23885,10 +23837,8 @@ const deserializeAws_restJson1AuditNotificationTargetConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1AuditNotificationTarget(value, context),
-      };
+      acc[key] = deserializeAws_restJson1AuditNotificationTarget(value, context);
+      return acc;
     },
     {}
   );
@@ -24332,10 +24282,8 @@ const deserializeAws_restJson1ClientProperties = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24439,10 +24387,8 @@ const deserializeAws_restJson1DetailsMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -24722,10 +24668,8 @@ const deserializeAws_restJson1EventConfigurations = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1Configuration(value, context),
-      };
+      acc[key] = deserializeAws_restJson1Configuration(value, context);
+      return acc;
     },
     {}
   );
@@ -25668,10 +25612,8 @@ const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -25900,10 +25842,8 @@ const deserializeAws_restJson1PublicKeyMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -26026,10 +25966,8 @@ const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -26468,10 +26406,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

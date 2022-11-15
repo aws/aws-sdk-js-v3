@@ -2054,10 +2054,8 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNameOutputMap = (
     if (pair["V"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["K"]]: __expectString(pair["V"]) as any,
-    };
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
+    return acc;
   }, {});
 };
 
@@ -2087,10 +2085,8 @@ const deserializeAws_queryFlattenedXmlMapWithXmlNamespaceOutputMap = (
     if (pair["V"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["K"]]: __expectString(pair["V"]) as any,
-    };
+    acc[pair["K"]] = __expectString(pair["V"]) as any;
+    return acc;
   }, {});
 };
 
@@ -2466,10 +2462,8 @@ const deserializeAws_queryXmlMapsOutputMap = (output: any, context: __SerdeConte
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryGreetingStruct(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryGreetingStruct(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -2496,10 +2490,8 @@ const deserializeAws_queryXmlMapsXmlNameOutputMap = (
     if (pair["Setting"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["Attribute"]]: deserializeAws_queryGreetingStruct(pair["Setting"], context),
-    };
+    acc[pair["Attribute"]] = deserializeAws_queryGreetingStruct(pair["Setting"], context);
+    return acc;
   }, {});
 };
 
@@ -2583,10 +2575,8 @@ const deserializeAws_queryFooEnumMap = (output: any, context: __SerdeContext): R
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

@@ -7881,19 +7881,13 @@ export const CreateDataSetRequestFilterSensitiveLog = (obj: CreateDataSetRequest
   ...obj,
   ...(obj.PhysicalTableMap && {
     PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ({
-        ...acc,
-        [key]: PhysicalTableFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.LogicalTableMap && {
     LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ({
-        ...acc,
-        [key]: LogicalTableFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -8454,19 +8448,13 @@ export const DataSetFilterSensitiveLog = (obj: DataSet): any => ({
   ...obj,
   ...(obj.PhysicalTableMap && {
     PhysicalTableMap: Object.entries(obj.PhysicalTableMap).reduce(
-      (acc: any, [key, value]: [string, PhysicalTable]) => ({
-        ...acc,
-        [key]: PhysicalTableFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, PhysicalTable]) => ((acc[key] = PhysicalTableFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.LogicalTableMap && {
     LogicalTableMap: Object.entries(obj.LogicalTableMap).reduce(
-      (acc: any, [key, value]: [string, LogicalTable]) => ({
-        ...acc,
-        [key]: LogicalTableFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, LogicalTable]) => ((acc[key] = LogicalTableFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

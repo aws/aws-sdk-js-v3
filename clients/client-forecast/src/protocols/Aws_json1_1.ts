@@ -4248,10 +4248,8 @@ const serializeAws_json1_1Configuration = (input: Record<string, string[]>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1Values(value, context),
-    };
+    acc[key] = serializeAws_json1_1Values(value, context);
+    return acc;
   }, {});
 };
 
@@ -4841,10 +4839,8 @@ const serializeAws_json1_1FeaturizationMethodParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5285,10 +5281,8 @@ const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5297,10 +5291,8 @@ const serializeAws_json1_1Transformations = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5457,10 +5449,8 @@ const deserializeAws_json1_1Configuration = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Values(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Values(value, context);
+    return acc;
   }, {});
 };
 
@@ -6338,10 +6328,8 @@ const deserializeAws_json1_1FeaturizationMethodParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6374,10 +6362,8 @@ const deserializeAws_json1_1FieldStatistics = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Statistics(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Statistics(value, context);
+    return acc;
   }, {});
 };
 
@@ -7259,10 +7245,8 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7271,10 +7255,8 @@ const deserializeAws_json1_1Transformations = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

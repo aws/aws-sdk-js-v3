@@ -4392,10 +4392,8 @@ const serializeAws_restJson1ParametersMap = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4452,10 +4450,8 @@ const serializeAws_restJson1QueryParameterMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4506,10 +4502,8 @@ const serializeAws_restJson1StorageOptimizerConfig = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4521,10 +4515,8 @@ const serializeAws_restJson1StorageOptimizerConfigMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1StorageOptimizerConfig(value, context),
-    };
+    acc[key] = serializeAws_restJson1StorageOptimizerConfig(value, context);
+    return acc;
   }, {});
 };
 
@@ -4947,10 +4939,8 @@ const deserializeAws_restJson1ParametersMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5158,10 +5148,8 @@ const deserializeAws_restJson1StorageOptimizerConfig = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

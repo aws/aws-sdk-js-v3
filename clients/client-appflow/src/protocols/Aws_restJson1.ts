@@ -2404,10 +2404,8 @@ const serializeAws_restJson1CredentialsMap = (input: Record<string, string>, con
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2493,10 +2491,8 @@ const serializeAws_restJson1CustomProperties = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2876,10 +2872,8 @@ const serializeAws_restJson1ProfilePropertiesMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3301,10 +3295,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3330,10 +3322,8 @@ const serializeAws_restJson1TaskPropertiesMap = (input: Record<string, string>, 
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: value,
-      };
+      acc[key] = value;
+      return acc;
     },
     {}
   );
@@ -3355,10 +3345,8 @@ const serializeAws_restJson1TokenUrlCustomProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3669,10 +3657,8 @@ const deserializeAws_restJson1ConnectorConfigurationsMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ConnectorConfiguration(value, context),
-      };
+      acc[key] = deserializeAws_restJson1ConnectorConfiguration(value, context);
+      return acc;
     },
     {}
   );
@@ -3771,10 +3757,8 @@ const deserializeAws_restJson1ConnectorEntityMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ConnectorEntityList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ConnectorEntityList(value, context);
+    return acc;
   }, {});
 };
 
@@ -4157,10 +4141,8 @@ const deserializeAws_restJson1CustomProperties = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4731,10 +4713,8 @@ const deserializeAws_restJson1ProfilePropertiesMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5262,10 +5242,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5292,10 +5270,8 @@ const deserializeAws_restJson1TaskPropertiesMap = (output: any, context: __Serde
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -5321,10 +5297,8 @@ const deserializeAws_restJson1TokenUrlCustomProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

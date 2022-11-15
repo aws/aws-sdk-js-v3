@@ -1941,10 +1941,8 @@ const deserializeAws_json1_1PipelineObjectMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1PipelineObject(value, context),
-    };
+    acc[key] = deserializeAws_json1_1PipelineObject(value, context);
+    return acc;
   }, {});
 };
 

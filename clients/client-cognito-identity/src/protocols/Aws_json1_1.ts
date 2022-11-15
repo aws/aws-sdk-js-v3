@@ -2030,10 +2030,8 @@ const serializeAws_json1_1IdentityPoolTagsType = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2042,10 +2040,8 @@ const serializeAws_json1_1IdentityProviders = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2087,10 +2083,8 @@ const serializeAws_json1_1LoginsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2149,10 +2143,8 @@ const serializeAws_json1_1PrincipalTags = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2171,10 +2163,8 @@ const serializeAws_json1_1RoleMappingMap = (input: Record<string, RoleMapping>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1RoleMapping(value, context),
-    };
+    acc[key] = serializeAws_json1_1RoleMapping(value, context);
+    return acc;
   }, {});
 };
 
@@ -2183,10 +2173,8 @@ const serializeAws_json1_1RolesMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2500,10 +2488,8 @@ const deserializeAws_json1_1IdentityPoolTagsType = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2512,10 +2498,8 @@ const deserializeAws_json1_1IdentityProviders = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2657,10 +2641,8 @@ const deserializeAws_json1_1PrincipalTags = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2698,10 +2680,8 @@ const deserializeAws_json1_1RoleMappingMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1RoleMapping(value, context),
-    };
+    acc[key] = deserializeAws_json1_1RoleMapping(value, context);
+    return acc;
   }, {});
 };
 
@@ -2710,10 +2690,8 @@ const deserializeAws_json1_1RolesMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

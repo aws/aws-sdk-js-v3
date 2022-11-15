@@ -2490,10 +2490,8 @@ const deserializeAws_json1_1SecretVersionsToStagesMapType = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1SecretVersionStagesType(value, context),
-    };
+    acc[key] = deserializeAws_json1_1SecretVersionStagesType(value, context);
+    return acc;
   }, {});
 };
 

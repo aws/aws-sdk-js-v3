@@ -2829,10 +2829,8 @@ const serializeAws_restJson1ComponentDependencyMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ComponentDependencyRequirement(value, context),
-    };
+    acc[key] = serializeAws_restJson1ComponentDependencyRequirement(value, context);
+    return acc;
   }, {});
 };
 
@@ -2867,10 +2865,8 @@ const serializeAws_restJson1ComponentDeploymentSpecifications = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ComponentDeploymentSpecification(value, context),
-    };
+    acc[key] = serializeAws_restJson1ComponentDeploymentSpecification(value, context);
+    return acc;
   }, {});
 };
 
@@ -2909,10 +2905,8 @@ const serializeAws_restJson1ComponentVersionRequirementMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3109,10 +3103,8 @@ const serializeAws_restJson1LambdaEnvironmentVariables = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3221,10 +3213,8 @@ const serializeAws_restJson1PlatformAttributesMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3240,10 +3230,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3368,10 +3356,8 @@ const deserializeAws_restJson1ComponentDeploymentSpecifications = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ComponentDeploymentSpecification(value, context),
-      };
+      acc[key] = deserializeAws_restJson1ComponentDeploymentSpecification(value, context);
+      return acc;
     },
     {}
   );
@@ -3827,10 +3813,8 @@ const deserializeAws_restJson1PlatformAttributesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3868,10 +3852,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3887,10 +3869,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

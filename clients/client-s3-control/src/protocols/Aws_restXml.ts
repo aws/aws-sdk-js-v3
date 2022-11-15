@@ -6817,10 +6817,8 @@ const deserializeAws_restXmlEndpoints = (output: any, context: __SerdeContext): 
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -8406,10 +8404,8 @@ const deserializeAws_restXmlS3UserMetadata = (output: any, context: __SerdeConte
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

@@ -11896,10 +11896,8 @@ const serializeAws_json1_1AttachedDiskMap = (input: Record<string, DiskMap[]>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1DiskMapList(value, context),
-    };
+    acc[key] = serializeAws_json1_1DiskMapList(value, context);
+    return acc;
   }, {});
 };
 
@@ -12035,10 +12033,8 @@ const serializeAws_json1_1ContainerMap = (input: Record<string, Container>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1Container(value, context),
-    };
+    acc[key] = serializeAws_json1_1Container(value, context);
+    return acc;
   }, {});
 };
 
@@ -12085,10 +12081,8 @@ const serializeAws_json1_1ContainerServicePublicDomains = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ContainerServicePublicDomainsList(value, context),
-    };
+    acc[key] = serializeAws_json1_1ContainerServicePublicDomainsList(value, context);
+    return acc;
   }, {});
 };
 
@@ -12699,10 +12693,8 @@ const serializeAws_json1_1DomainEntryOptions = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -12743,10 +12735,8 @@ const serializeAws_json1_1Environment = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -13423,10 +13413,8 @@ const serializeAws_json1_1PortMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -14488,10 +14476,8 @@ const deserializeAws_json1_1ContainerMap = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Container(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Container(value, context);
+    return acc;
   }, {});
 };
 
@@ -14651,10 +14637,8 @@ const deserializeAws_json1_1ContainerServiceMetadataEntry = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -14707,10 +14691,8 @@ const deserializeAws_json1_1ContainerServicePublicDomains = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ContainerServicePublicDomainsList(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ContainerServicePublicDomainsList(value, context);
+    return acc;
   }, {});
 };
 
@@ -15380,10 +15362,8 @@ const deserializeAws_json1_1DomainEntryOptions = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -15450,10 +15430,8 @@ const deserializeAws_json1_1Environment = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -16549,10 +16527,8 @@ const deserializeAws_json1_1LoadBalancerConfigurationOptions = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -17007,10 +16983,8 @@ const deserializeAws_json1_1PortMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );

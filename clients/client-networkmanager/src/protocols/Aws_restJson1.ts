@@ -8126,10 +8126,8 @@ const serializeAws_restJson1FilterMap = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FilterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1FilterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -8157,10 +8155,8 @@ const serializeAws_restJson1NetworkResourceMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8821,10 +8817,8 @@ const deserializeAws_restJson1ExceptionContextMap = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8986,10 +8980,8 @@ const deserializeAws_restJson1NetworkResourceMetadataMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -9161,10 +9153,8 @@ const deserializeAws_restJson1ReasonContextMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -4549,10 +4549,8 @@ const serializeAws_restJson1AdvancedOptions = (input: Record<string, string>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4767,10 +4765,8 @@ const serializeAws_restJson1LogPublishingOptions = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1LogPublishingOption(value, context),
-    };
+    acc[key] = serializeAws_restJson1LogPublishingOption(value, context);
+    return acc;
   }, {});
 };
 
@@ -4909,10 +4905,8 @@ const deserializeAws_restJson1AdvancedOptions = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5537,10 +5531,8 @@ const deserializeAws_restJson1EndpointsMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5645,10 +5637,8 @@ const deserializeAws_restJson1LimitsByRole = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Limits(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Limits(value, context);
+    return acc;
   }, {});
 };
 
@@ -5680,10 +5670,8 @@ const deserializeAws_restJson1LogPublishingOptions = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1LogPublishingOption(value, context),
-      };
+      acc[key] = deserializeAws_restJson1LogPublishingOption(value, context);
+      return acc;
     },
     {}
   );
