@@ -209,6 +209,11 @@ import {
   ModifyAccountCommandOutput,
 } from "./commands/ModifyAccountCommand";
 import {
+  ModifyCertificateBasedAuthPropertiesCommand,
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
+import {
   ModifyClientPropertiesCommand,
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
@@ -1855,6 +1860,39 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: ModifyAccountCommandOutput) => void
   ): Promise<ModifyAccountCommandOutput> | void {
     const command = new ModifyAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Modifies the properties of the certificate-based authentication you want
+   *          to use with your WorkSpaces.</p>
+   */
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput>;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    cb: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): void;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): void;
+  public modifyCertificateBasedAuthProperties(
+    args: ModifyCertificateBasedAuthPropertiesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void),
+    cb?: (err: any, data?: ModifyCertificateBasedAuthPropertiesCommandOutput) => void
+  ): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> | void {
+    const command = new ModifyCertificateBasedAuthPropertiesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

@@ -42,6 +42,7 @@ export * from "./ImportWorkspaceImageCommand";
 export * from "./ListAvailableManagementCidrRangesCommand";
 export * from "./MigrateWorkspaceCommand";
 export * from "./ModifyAccountCommand";
+export * from "./ModifyCertificateBasedAuthPropertiesCommand";
 export * from "./ModifyClientPropertiesCommand";
 export * from "./ModifySamlPropertiesCommand";
 export * from "./ModifySelfservicePermissionsCommand";

@@ -377,6 +377,27 @@ export interface WorkspaceBundle {
   CreationTime?: Date;
 }
 
+export enum CertificateBasedAuthStatusEnum {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>Describes the properties of the certificate-based authentication you want to use
+ *          with your WorkSpaces.</p>
+ */
+export interface CertificateBasedAuthProperties {
+  /**
+   * <p>The status of the certificate-based authentication properties.</p>
+   */
+  Status?: CertificateBasedAuthStatusEnum | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Certificate Manager Private CA resource.</p>
+   */
+  CertificateAuthorityArn?: string;
+}
+
 export enum ClientDeviceType {
   DEVICE_TYPE_ANDROID = "DeviceTypeAndroid",
   DEVICE_TYPE_IOS = "DeviceTypeIos",
@@ -1417,6 +1438,10 @@ export interface DefaultWorkspaceCreationProperties {
   EnableMaintenanceMode?: boolean;
 }
 
+export enum DeletableCertificateBasedAuthProperty {
+  CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN = "CERTIFICATE_BASED_AUTH_PROPERTIES_CERTIFICATE_AUTHORITY_ARN",
+}
+
 export enum DeletableSamlProperty {
   SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME = "SAML_PROPERTIES_RELAY_STATE_PARAMETER_NAME",
   SAML_PROPERTIES_USER_ACCESS_URL = "SAML_PROPERTIES_USER_ACCESS_URL",
@@ -2168,6 +2193,12 @@ export interface WorkspaceDirectory {
    *          federation with an SAML 2.0 identity provider.</p>
    */
   SamlProperties?: SamlProperties;
+
+  /**
+   * <p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)
+   *          user identities to Active Directory for WorkSpaces login.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
 }
 
 export interface DescribeWorkspaceDirectoriesResult {
@@ -2862,6 +2893,25 @@ export interface ModifyAccountRequest {
 
 export interface ModifyAccountResult {}
 
+export interface ModifyCertificateBasedAuthPropertiesRequest {
+  /**
+   * <p>The resource identifiers, in the form of directory IDs.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The properties of the certificate-based authentication.</p>
+   */
+  CertificateBasedAuthProperties?: CertificateBasedAuthProperties;
+
+  /**
+   * <p>The properties of the certificate-based authentication you want to delete.</p>
+   */
+  PropertiesToDelete?: (DeletableCertificateBasedAuthProperty | string)[];
+}
+
+export interface ModifyCertificateBasedAuthPropertiesResult {}
+
 export interface ModifyClientPropertiesRequest {
   /**
    * <p>The resource identifiers, in the form of directory IDs.</p>
@@ -3476,6 +3526,13 @@ export const UserStorageFilterSensitiveLog = (obj: UserStorage): any => ({
  * @internal
  */
 export const WorkspaceBundleFilterSensitiveLog = (obj: WorkspaceBundle): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CertificateBasedAuthPropertiesFilterSensitiveLog = (obj: CertificateBasedAuthProperties): any => ({
   ...obj,
 });
 
@@ -4263,6 +4320,24 @@ export const ModifyAccountRequestFilterSensitiveLog = (obj: ModifyAccountRequest
  * @internal
  */
 export const ModifyAccountResultFilterSensitiveLog = (obj: ModifyAccountResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCertificateBasedAuthPropertiesRequestFilterSensitiveLog = (
+  obj: ModifyCertificateBasedAuthPropertiesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ModifyCertificateBasedAuthPropertiesResultFilterSensitiveLog = (
+  obj: ModifyCertificateBasedAuthPropertiesResult
+): any => ({
   ...obj,
 });
 

@@ -148,6 +148,10 @@ import {
 import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "../commands/MigrateWorkspaceCommand";
 import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "../commands/ModifyAccountCommand";
 import {
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "../commands/ModifyCertificateBasedAuthPropertiesCommand";
+import {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
 } from "../commands/ModifyClientPropertiesCommand";
@@ -219,6 +223,7 @@ import {
   AssociateIpGroupsResult,
   AuthorizeIpRulesRequest,
   AuthorizeIpRulesResult,
+  CertificateBasedAuthProperties,
   ClientDeviceType,
   ClientProperties,
   ClientPropertiesResult,
@@ -248,6 +253,7 @@ import {
   DefaultClientBrandingAttributes,
   DefaultImportClientBrandingAttributes,
   DefaultWorkspaceCreationProperties,
+  DeletableCertificateBasedAuthProperty,
   DeletableSamlProperty,
   DeleteClientBrandingRequest,
   DeleteClientBrandingResult,
@@ -320,6 +326,8 @@ import {
   ModificationState,
   ModifyAccountRequest,
   ModifyAccountResult,
+  ModifyCertificateBasedAuthPropertiesRequest,
+  ModifyCertificateBasedAuthPropertiesResult,
   ModifyClientPropertiesRequest,
   ModifyClientPropertiesResult,
   ModifySamlPropertiesRequest,
@@ -954,6 +962,19 @@ export const serializeAws_json1_1ModifyAccountCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ModifyAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand = async (
+  input: ModifyCertificateBasedAuthPropertiesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "WorkspacesService.ModifyCertificateBasedAuthProperties",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ModifyCertificateBasedAuthPropertiesRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3331,6 +3352,56 @@ const deserializeAws_json1_1ModifyAccountCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesResult(data, context);
+  const response: ModifyCertificateBasedAuthPropertiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyCertificateBasedAuthPropertiesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.workspaces#AccessDeniedException":
+      throw await deserializeAws_json1_1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValuesException":
+    case "com.amazonaws.workspaces#InvalidParameterValuesException":
+      throw await deserializeAws_json1_1InvalidParameterValuesExceptionResponse(parsedOutput, context);
+    case "OperationNotSupportedException":
+    case "com.amazonaws.workspaces#OperationNotSupportedException":
+      throw await deserializeAws_json1_1OperationNotSupportedExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.workspaces#ResourceNotFoundException":
+      throw await deserializeAws_json1_1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ModifyClientPropertiesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4496,6 +4567,16 @@ const serializeAws_json1_1BundleIdList = (input: string[], context: __SerdeConte
     });
 };
 
+const serializeAws_json1_1CertificateBasedAuthProperties = (
+  input: CertificateBasedAuthProperties,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateAuthorityArn != null && { CertificateAuthorityArn: input.CertificateAuthorityArn }),
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_json1_1ClientDeviceTypeList = (
   input: (ClientDeviceType | string)[],
   context: __SerdeContext
@@ -4646,6 +4727,17 @@ const serializeAws_json1_1DefaultImportClientBrandingAttributes = (
     ...(input.SupportEmail != null && { SupportEmail: input.SupportEmail }),
     ...(input.SupportLink != null && { SupportLink: input.SupportLink }),
   };
+};
+
+const serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList = (
+  input: (DeletableCertificateBasedAuthProperty | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1DeletableSamlPropertiesList = (
@@ -5045,6 +5137,27 @@ const serializeAws_json1_1ModifyAccountRequest = (input: ModifyAccountRequest, c
       DedicatedTenancyManagementCidrRange: input.DedicatedTenancyManagementCidrRange,
     }),
     ...(input.DedicatedTenancySupport != null && { DedicatedTenancySupport: input.DedicatedTenancySupport }),
+  };
+};
+
+const serializeAws_json1_1ModifyCertificateBasedAuthPropertiesRequest = (
+  input: ModifyCertificateBasedAuthPropertiesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CertificateBasedAuthProperties != null && {
+      CertificateBasedAuthProperties: serializeAws_json1_1CertificateBasedAuthProperties(
+        input.CertificateBasedAuthProperties,
+        context
+      ),
+    }),
+    ...(input.PropertiesToDelete != null && {
+      PropertiesToDelete: serializeAws_json1_1DeletableCertificateBasedAuthPropertiesList(
+        input.PropertiesToDelete,
+        context
+      ),
+    }),
+    ...(input.ResourceId != null && { ResourceId: input.ResourceId }),
   };
 };
 
@@ -5568,6 +5681,16 @@ const deserializeAws_json1_1BundleList = (output: any, context: __SerdeContext):
       return deserializeAws_json1_1WorkspaceBundle(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1CertificateBasedAuthProperties = (
+  output: any,
+  context: __SerdeContext
+): CertificateBasedAuthProperties => {
+  return {
+    CertificateAuthorityArn: __expectString(output.CertificateAuthorityArn),
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_json1_1ClientProperties = (output: any, context: __SerdeContext): ClientProperties => {
@@ -6412,6 +6535,13 @@ const deserializeAws_json1_1ModifyAccountResult = (output: any, context: __Serde
   return {} as any;
 };
 
+const deserializeAws_json1_1ModifyCertificateBasedAuthPropertiesResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyCertificateBasedAuthPropertiesResult => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1ModifyClientPropertiesResult = (
   output: any,
   context: __SerdeContext
@@ -6864,6 +6994,10 @@ const deserializeAws_json1_1WorkspaceConnectionStatusList = (
 const deserializeAws_json1_1WorkspaceDirectory = (output: any, context: __SerdeContext): WorkspaceDirectory => {
   return {
     Alias: __expectString(output.Alias),
+    CertificateBasedAuthProperties:
+      output.CertificateBasedAuthProperties != null
+        ? deserializeAws_json1_1CertificateBasedAuthProperties(output.CertificateBasedAuthProperties, context)
+        : undefined,
     CustomerUserName: __expectString(output.CustomerUserName),
     DirectoryId: __expectString(output.DirectoryId),
     DirectoryName: __expectString(output.DirectoryName),

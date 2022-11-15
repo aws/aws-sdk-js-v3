@@ -178,6 +178,10 @@ import {
 import { MigrateWorkspaceCommandInput, MigrateWorkspaceCommandOutput } from "./commands/MigrateWorkspaceCommand";
 import { ModifyAccountCommandInput, ModifyAccountCommandOutput } from "./commands/ModifyAccountCommand";
 import {
+  ModifyCertificateBasedAuthPropertiesCommandInput,
+  ModifyCertificateBasedAuthPropertiesCommandOutput,
+} from "./commands/ModifyCertificateBasedAuthPropertiesCommand";
+import {
   ModifyClientPropertiesCommandInput,
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
@@ -291,6 +295,7 @@ export type ServiceInputTypes =
   | ListAvailableManagementCidrRangesCommandInput
   | MigrateWorkspaceCommandInput
   | ModifyAccountCommandInput
+  | ModifyCertificateBasedAuthPropertiesCommandInput
   | ModifyClientPropertiesCommandInput
   | ModifySamlPropertiesCommandInput
   | ModifySelfservicePermissionsCommandInput
@@ -356,6 +361,7 @@ export type ServiceOutputTypes =
   | ListAvailableManagementCidrRangesCommandOutput
   | MigrateWorkspaceCommandOutput
   | ModifyAccountCommandOutput
+  | ModifyCertificateBasedAuthPropertiesCommandOutput
   | ModifyClientPropertiesCommandOutput
   | ModifySamlPropertiesCommandOutput
   | ModifySelfservicePermissionsCommandOutput
