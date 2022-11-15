@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
+
+
+### Features
+
+* **client-greengrassv2:** Adds new parent target ARN paramater to CreateDeployment, GetDeployment, and ListDeployments APIs for the new subdeployments feature. ([9143da4](https://github.com/aws/aws-sdk-js-v3/commit/9143da4a18873dddabb3b2b218692b4ef1aa7bf4))
+
+
+
+
+
 # [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-greengrassv2

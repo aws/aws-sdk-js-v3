@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Europe (Spain) Region (eu-south-2) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([2e9f566](https://github.com/aws/aws-sdk-js-v3/commit/2e9f566a11ef3986846b48c9da8e95cda00838c7))
+
+
+
+
+
 # [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53

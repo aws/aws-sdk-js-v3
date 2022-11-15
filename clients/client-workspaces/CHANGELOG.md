@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
+
+
+### Features
+
+* **client-workspaces:** This release introduces ModifyCertificateBasedAuthProperties, a new API that allows control of certificate-based auth properties associated with a WorkSpaces directory. The DescribeWorkspaceDirectories API will now additionally return certificate-based auth properties in its responses. ([01db1ff](https://github.com/aws/aws-sdk-js-v3/commit/01db1ff4404a34dfc8381ee658d249737c6763fd))
+
+
+
+
+
 # [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

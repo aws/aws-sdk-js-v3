@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
+
+
+### Bug Fixes
+
+* **codegen:** do not call clear on endpoints param name map ([#4164](https://github.com/aws/aws-sdk-js-v3/issues/4164)) ([90b380a](https://github.com/aws/aws-sdk-js-v3/commit/90b380ad8964bec83ad07b6e6d84727c5dea07db))
+
+
+### Features
+
+* **client-connect:** This release updates the APIs: UpdateInstanceAttribute, DescribeInstanceAttribute, and ListInstanceAttributes. You can use it to programmatically enable/disable enhanced contact monitoring using attribute type ENHANCED_CONTACT_MONITORING on the specified Amazon Connect instance. ([5008e1d](https://github.com/aws/aws-sdk-js-v3/commit/5008e1d82374f82536661251b4a88b078dc8c0ef))
+* **client-greengrassv2:** Adds new parent target ARN paramater to CreateDeployment, GetDeployment, and ListDeployments APIs for the new subdeployments feature. ([9143da4](https://github.com/aws/aws-sdk-js-v3/commit/9143da4a18873dddabb3b2b218692b4ef1aa7bf4))
+* **client-route-53:** Amazon Route 53 now supports the Europe (Spain) Region (eu-south-2) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([2e9f566](https://github.com/aws/aws-sdk-js-v3/commit/2e9f566a11ef3986846b48c9da8e95cda00838c7))
+* **client-ssmsap:** AWS Systems Manager for SAP provides simplified operations and management of SAP applications such as SAP HANA. With this release, SAP customers and partners can automate and simplify their SAP system administration tasks such as backup/restore of SAP HANA. ([cadb5fd](https://github.com/aws/aws-sdk-js-v3/commit/cadb5fd7a3b227d20897aa3c4cd79e9933d6841c))
+* **client-workspaces:** This release introduces ModifyCertificateBasedAuthProperties, a new API that allows control of certificate-based auth properties associated with a WorkSpaces directory. The DescribeWorkspaceDirectories API will now additionally return certificate-based auth properties in its responses. ([01db1ff](https://github.com/aws/aws-sdk-js-v3/commit/01db1ff4404a34dfc8381ee658d249737c6763fd))
+
+
+
+
+
 # [3.210.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.209.0...v3.210.0) (2022-11-14)
 
 
