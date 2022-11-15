@@ -44,7 +44,7 @@ import software.amazon.smithy.utils.StringUtils;
  *
  * @see AwsEc2
  * @see QueryShapeSerVisitor
- * @see <a href="https://awslabs.github.io/smithy/spec/aws-core.html#ec2QueryName-trait">Smithy EC2 Query Name trait.</a>
+ * @see <a href="https://smithy.io/2.0/aws/protocols/aws-ec2-query-protocol.html#aws-protocols-ec2queryname-trait">Smithy EC2 Query Name trait.</a>
  */
 @SmithyInternalApi
 final class Ec2ShapeSerVisitor extends QueryShapeSerVisitor {

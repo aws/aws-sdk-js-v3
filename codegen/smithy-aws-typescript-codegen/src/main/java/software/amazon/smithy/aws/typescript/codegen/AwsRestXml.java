@@ -59,8 +59,8 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see XmlMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/http-bindings.html">Smithy HTTP protocol bindings.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class AwsRestXml extends HttpBindingProtocolGenerator {
