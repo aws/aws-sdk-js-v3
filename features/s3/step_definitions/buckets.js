@@ -6,16 +6,15 @@ Before({ tags: "@buckets" }, function () {
 });
 
 After({ tags: "@buckets" }, function (callback) {
+  const _callback = typeof callback === "function" ? callback : () => {};
   if (this.bucket) {
     this.s3
       .deleteBucket({ Bucket: this.bucket })
       .catch(() => {})
-      .then(() => {
-        this.bucket = undefined;
-      })
-      .then(callback);
+      .then(_callback);
+    this.bucket = undefined;
   } else {
-    callback();
+    _callback();
   }
 });
 
