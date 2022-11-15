@@ -205,8 +205,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -265,8 +265,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -325,8 +325,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -351,8 +351,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -448,8 +448,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "cn-northwest-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -508,8 +508,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "cn-northwest-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -568,8 +568,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "cn-northwest-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -594,8 +594,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "cn-northwest-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -691,8 +691,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-gov-west-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -751,8 +751,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-gov-west-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -811,8 +811,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-gov-west-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -837,8 +837,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-gov-west-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -910,8 +910,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-iso-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -936,8 +936,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-iso-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1009,8 +1009,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-isob-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -1035,8 +1035,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-isob-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1178,8 +1178,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-east-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -1205,8 +1205,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "route53",
                               signingRegion: "us-gov-west-1",
+                              signingName: "route53",
                             },
                           ],
                         },
@@ -1308,8 +1308,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1335,8 +1335,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "cn-northwest-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1362,8 +1362,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-gov-west-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1389,8 +1389,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-iso-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
@@ -1416,8 +1416,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "route53",
                       signingRegion: "us-isob-east-1",
+                      signingName: "route53",
                     },
                   ],
                 },
