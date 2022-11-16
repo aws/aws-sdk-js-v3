@@ -26,6 +26,10 @@ import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "../comm
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "../commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "../commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
@@ -57,6 +61,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "../commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "../commands/GetTraceSummariesCommand";
 import {
+  ListResourcePoliciesCommandInput,
+  ListResourcePoliciesCommandOutput,
+} from "../commands/ListResourcePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -64,6 +72,7 @@ import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "../commands/PutEncryptionConfigCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput,
@@ -104,10 +113,16 @@ import {
   InsightState,
   InsightSummary,
   InstanceIdDetail,
+  InvalidPolicyRevisionIdException,
   InvalidRequestException,
+  LockoutPreventionException,
+  MalformedPolicyDocumentException,
+  PolicyCountLimitExceededException,
+  PolicySizeLimitExceededException,
   RequestImpactStatistics,
   ResourceARNDetail,
   ResourceNotFoundException,
+  ResourcePolicy,
   ResponseTimeRootCause,
   ResponseTimeRootCauseEntity,
   ResponseTimeRootCauseService,
@@ -232,6 +247,31 @@ export const serializeAws_restJson1DeleteGroupCommand = async (
   body = JSON.stringify({
     ...(input.GroupARN != null && { GroupARN: input.GroupARN }),
     ...(input.GroupName != null && { GroupName: input.GroupName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteResourcePolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -642,6 +682,30 @@ export const serializeAws_restJson1GetTraceSummariesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListResourcePoliciesCommand = async (
+  input: ListResourcePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListResourcePolicies";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -680,6 +744,33 @@ export const serializeAws_restJson1PutEncryptionConfigCommand = async (
   body = JSON.stringify({
     ...(input.KeyId != null && { KeyId: input.KeyId }),
     ...(input.Type != null && { Type: input.Type }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutResourcePolicy";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.BypassPolicyLockoutCheck != null && { BypassPolicyLockoutCheck: input.BypassPolicyLockoutCheck }),
+    ...(input.PolicyDocument != null && { PolicyDocument: input.PolicyDocument }),
+    ...(input.PolicyName != null && { PolicyName: input.PolicyName }),
+    ...(input.PolicyRevisionId != null && { PolicyRevisionId: input.PolicyRevisionId }),
   });
   return new __HttpRequest({
     protocol,
@@ -1017,6 +1108,50 @@ const deserializeAws_restJson1DeleteGroupCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
     case "InvalidRequestException":
     case "com.amazonaws.xray#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
@@ -1775,6 +1910,53 @@ const deserializeAws_restJson1GetTraceSummariesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListResourcePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcePoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListResourcePoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.ResourcePolicies != null) {
+    contents.ResourcePolicies = deserializeAws_restJson1ResourcePolicyList(data.ResourcePolicies, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListResourcePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListResourcePoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidRequestException":
+    case "com.amazonaws.xray#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1855,6 +2037,62 @@ const deserializeAws_restJson1PutEncryptionConfigCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.xray#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ThrottledException":
+    case "com.amazonaws.xray#ThrottledException":
+      throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutResourcePolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ResourcePolicy != null) {
+    contents.ResourcePolicy = deserializeAws_restJson1ResourcePolicy(data.ResourcePolicy, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidPolicyRevisionIdException":
+    case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
+      throw await deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse(parsedOutput, context);
+    case "LockoutPreventionException":
+    case "com.amazonaws.xray#LockoutPreventionException":
+      throw await deserializeAws_restJson1LockoutPreventionExceptionResponse(parsedOutput, context);
+    case "MalformedPolicyDocumentException":
+    case "com.amazonaws.xray#MalformedPolicyDocumentException":
+      throw await deserializeAws_restJson1MalformedPolicyDocumentExceptionResponse(parsedOutput, context);
+    case "PolicyCountLimitExceededException":
+    case "com.amazonaws.xray#PolicyCountLimitExceededException":
+      throw await deserializeAws_restJson1PolicyCountLimitExceededExceptionResponse(parsedOutput, context);
+    case "PolicySizeLimitExceededException":
+    case "com.amazonaws.xray#PolicySizeLimitExceededException":
+      throw await deserializeAws_restJson1PolicySizeLimitExceededExceptionResponse(parsedOutput, context);
     case "ThrottledException":
     case "com.amazonaws.xray#ThrottledException":
       throw await deserializeAws_restJson1ThrottledExceptionResponse(parsedOutput, context);
@@ -2137,6 +2375,22 @@ const deserializeAws_restJson1UpdateSamplingRuleCommandError = async (
 };
 
 const map = __map;
+const deserializeAws_restJson1InvalidPolicyRevisionIdExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidPolicyRevisionIdException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new InvalidPolicyRevisionIdException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2147,6 +2401,70 @@ const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
     contents.Message = __expectString(data.Message);
   }
   const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1LockoutPreventionExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<LockoutPreventionException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new LockoutPreventionException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1MalformedPolicyDocumentExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedPolicyDocumentException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new MalformedPolicyDocumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1PolicyCountLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicyCountLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new PolicyCountLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1PolicySizeLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<PolicySizeLimitExceededException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  const exception = new PolicySizeLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -2985,6 +3303,30 @@ const deserializeAws_restJson1ResourceARNDetail = (output: any, context: __Serde
   return {
     ARN: __expectString(output.ARN),
   } as any;
+};
+
+const deserializeAws_restJson1ResourcePolicy = (output: any, context: __SerdeContext): ResourcePolicy => {
+  return {
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    PolicyDocument: __expectString(output.PolicyDocument),
+    PolicyName: __expectString(output.PolicyName),
+    PolicyRevisionId: __expectString(output.PolicyRevisionId),
+  } as any;
+};
+
+const deserializeAws_restJson1ResourcePolicyList = (output: any, context: __SerdeContext): ResourcePolicy[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ResourcePolicy(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ResponseTimeRootCause = (output: any, context: __SerdeContext): ResponseTimeRootCause => {

@@ -51,6 +51,10 @@ import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./comma
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "./commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
 import { DeleteSamplingRuleCommandInput, DeleteSamplingRuleCommandOutput } from "./commands/DeleteSamplingRuleCommand";
 import {
   GetEncryptionConfigCommandInput,
@@ -82,6 +86,10 @@ import {
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
 import {
+  ListResourcePoliciesCommandInput,
+  ListResourcePoliciesCommandOutput,
+} from "./commands/ListResourcePoliciesCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -89,6 +97,7 @@ import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   PutTelemetryRecordsCommandInput,
   PutTelemetryRecordsCommandOutput,
@@ -111,6 +120,7 @@ export type ServiceInputTypes =
   | CreateGroupCommandInput
   | CreateSamplingRuleCommandInput
   | DeleteGroupCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeleteSamplingRuleCommandInput
   | GetEncryptionConfigCommandInput
   | GetGroupCommandInput
@@ -126,8 +136,10 @@ export type ServiceInputTypes =
   | GetTimeSeriesServiceStatisticsCommandInput
   | GetTraceGraphCommandInput
   | GetTraceSummariesCommandInput
+  | ListResourcePoliciesCommandInput
   | ListTagsForResourceCommandInput
   | PutEncryptionConfigCommandInput
+  | PutResourcePolicyCommandInput
   | PutTelemetryRecordsCommandInput
   | PutTraceSegmentsCommandInput
   | TagResourceCommandInput
@@ -140,6 +152,7 @@ export type ServiceOutputTypes =
   | CreateGroupCommandOutput
   | CreateSamplingRuleCommandOutput
   | DeleteGroupCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeleteSamplingRuleCommandOutput
   | GetEncryptionConfigCommandOutput
   | GetGroupCommandOutput
@@ -155,8 +168,10 @@ export type ServiceOutputTypes =
   | GetTimeSeriesServiceStatisticsCommandOutput
   | GetTraceGraphCommandOutput
   | GetTraceSummariesCommandOutput
+  | ListResourcePoliciesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutEncryptionConfigCommandOutput
+  | PutResourcePolicyCommandOutput
   | PutTelemetryRecordsCommandOutput
   | PutTraceSegmentsCommandOutput
   | TagResourceCommandOutput

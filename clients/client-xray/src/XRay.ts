@@ -14,6 +14,11 @@ import {
 } from "./commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeleteSamplingRuleCommand,
   DeleteSamplingRuleCommandInput,
   DeleteSamplingRuleCommandOutput,
@@ -77,6 +82,11 @@ import {
   GetTraceSummariesCommandOutput,
 } from "./commands/GetTraceSummariesCommand";
 import {
+  ListResourcePoliciesCommand,
+  ListResourcePoliciesCommandInput,
+  ListResourcePoliciesCommandOutput,
+} from "./commands/ListResourcePoliciesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -86,6 +96,11 @@ import {
   PutEncryptionConfigCommandInput,
   PutEncryptionConfigCommandOutput,
 } from "./commands/PutEncryptionConfigCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   PutTelemetryRecordsCommand,
   PutTelemetryRecordsCommandInput,
@@ -229,6 +244,38 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: DeleteGroupCommandOutput) => void
   ): Promise<DeleteGroupCommandOutput> | void {
     const command = new DeleteGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a resource policy from the target Amazon Web Services account.</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -729,6 +776,38 @@ export class XRay extends XRayClient {
   }
 
   /**
+   * <p>Returns the list of resource policies in the target Amazon Web Services account.</p>
+   */
+  public listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourcePoliciesCommandOutput>;
+  public listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
+  ): void;
+  public listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourcePoliciesCommandOutput) => void
+  ): void;
+  public listResourcePolicies(
+    args: ListResourcePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourcePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListResourcePoliciesCommandOutput) => void
+  ): Promise<ListResourcePoliciesCommandOutput> | void {
+    const command = new ListResourcePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of tags that are applied to the specified Amazon Web Services X-Ray group or sampling rule.</p>
    */
   public listTagsForResource(
@@ -782,6 +861,43 @@ export class XRay extends XRayClient {
     cb?: (err: any, data?: PutEncryptionConfigCommandOutput) => void
   ): Promise<PutEncryptionConfigCommandOutput> | void {
     const command = new PutEncryptionConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>
+   *             Sets the resource policy to grant one or more Amazon Web Services services and accounts permissions to
+   *             access X-Ray. Each resource policy will be associated with a specific Amazon Web Services account.
+   *             Each Amazon Web Services account can have a maximum of 5 resource policies, and each policy name must be
+   *             unique within that account. The maximum size of each resource policy is 5KB.
+   *         </p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
