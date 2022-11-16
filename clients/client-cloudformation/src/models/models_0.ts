@@ -1920,7 +1920,6 @@ export interface DeploymentTargets {
   /**
    * <p>Limit deployment targets to individual accounts or include additional accounts with
    *          provided OUs.</p>
-   *
    *          <p>The following is a list of possible values for the <code>AccountFilterType</code>
    *          operation.</p>
    *          <ul>
@@ -7679,6 +7678,7 @@ export enum HandlerErrorCode {
   ServiceTimeout = "NotStabilized",
   Throttling = "Throttling",
   Unknown = "Unknown",
+  UnsupportedTarget = "UnsupportedTarget",
 }
 
 export interface RecordHandlerProgressInput {
