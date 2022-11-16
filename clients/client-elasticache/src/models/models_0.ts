@@ -4814,6 +4814,27 @@ export class SnapshotFeatureNotSupportedFault extends __BaseException {
   }
 }
 
+export enum InputAuthenticationType {
+  IAM = "iam",
+  NO_PASSWORD = "no-password-required",
+  PASSWORD = "password",
+}
+
+/**
+ * <p>Specifies the authentication mode to use.</p>
+ */
+export interface AuthenticationMode {
+  /**
+   * <p>Specifies the authentication type. Possible options are IAM authentication, password and no password.</p>
+   */
+  Type?: InputAuthenticationType | string;
+
+  /**
+   * <p>Specifies the passwords to use for authentication if <code>Type</code> is set to <code>password</code>.</p>
+   */
+  Passwords?: string[];
+}
+
 export interface CreateUserMessage {
   /**
    * <p>The ID of the user.</p>
@@ -4849,6 +4870,11 @@ export interface CreateUserMessage {
    * <p>A list of tags to be added to this resource. A tag is a key-value pair. A tag key must be accompanied by a tag value, although null is accepted.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>Specifies how to authenticate the user.</p>
+   */
+  AuthenticationMode?: AuthenticationMode;
 }
 
 /**
@@ -4871,6 +4897,7 @@ export class DuplicateUserNameFault extends __BaseException {
 }
 
 export enum AuthenticationType {
+  IAM = "iam",
   NO_PASSWORD = "no-password",
   PASSWORD = "password",
 }
@@ -9174,6 +9201,11 @@ export interface ModifyUserMessage {
    * <p>Indicates no password is required for the user.</p>
    */
   NoPasswordRequired?: boolean;
+
+  /**
+   * <p>Specifies how to authenticate the user.</p>
+   */
+  AuthenticationMode?: AuthenticationMode;
 }
 
 export interface ModifyUserGroupMessage {
@@ -10042,6 +10074,13 @@ export const CreateSnapshotMessageFilterSensitiveLog = (obj: CreateSnapshotMessa
  * @internal
  */
 export const CreateSnapshotResultFilterSensitiveLog = (obj: CreateSnapshotResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AuthenticationModeFilterSensitiveLog = (obj: AuthenticationMode): any => ({
   ...obj,
 });
 

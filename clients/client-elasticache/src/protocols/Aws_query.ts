@@ -224,6 +224,7 @@ import {
   AllowedNodeTypeModificationsMessage,
   APICallRateForCustomerExceededFault,
   Authentication,
+  AuthenticationMode,
   AuthorizationAlreadyExistsFault,
   AuthorizationNotFoundFault,
   AuthorizeCacheSecurityGroupIngressMessage,
@@ -5972,6 +5973,24 @@ const serializeAws_queryAddTagsToResourceMessage = (input: AddTagsToResourceMess
   return entries;
 };
 
+const serializeAws_queryAuthenticationMode = (input: AuthenticationMode, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Type != null) {
+    entries["Type"] = input.Type;
+  }
+  if (input.Passwords != null) {
+    const memberEntries = serializeAws_queryPasswordListInput(input.Passwords, context);
+    if (input.Passwords?.length === 0) {
+      entries.Passwords = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Passwords.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryAuthorizeCacheSecurityGroupIngressMessage = (
   input: AuthorizeCacheSecurityGroupIngressMessage,
   context: __SerdeContext
@@ -6702,6 +6721,13 @@ const serializeAws_queryCreateUserMessage = (input: CreateUserMessage, context: 
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = serializeAws_queryAuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
   }
@@ -8006,6 +8032,13 @@ const serializeAws_queryModifyUserMessage = (input: ModifyUserMessage, context: 
   }
   if (input.NoPasswordRequired != null) {
     entries["NoPasswordRequired"] = input.NoPasswordRequired;
+  }
+  if (input.AuthenticationMode != null) {
+    const memberEntries = serializeAws_queryAuthenticationMode(input.AuthenticationMode, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AuthenticationMode.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
