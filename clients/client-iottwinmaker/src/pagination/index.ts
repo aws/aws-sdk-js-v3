@@ -1,4 +1,8 @@
+export * from "./ExecuteQueryPaginator";
+
 export * from "./GetPropertyValueHistoryPaginator";
+
+export * from "./GetPropertyValuePaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListComponentTypesPaginator";

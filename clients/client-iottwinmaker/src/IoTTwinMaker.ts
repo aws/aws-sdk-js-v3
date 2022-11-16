@@ -39,11 +39,21 @@ import {
   DeleteWorkspaceCommandOutput,
 } from "./commands/DeleteWorkspaceCommand";
 import {
+  ExecuteQueryCommand,
+  ExecuteQueryCommandInput,
+  ExecuteQueryCommandOutput,
+} from "./commands/ExecuteQueryCommand";
+import {
   GetComponentTypeCommand,
   GetComponentTypeCommandInput,
   GetComponentTypeCommandOutput,
 } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommand, GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import {
+  GetPricingPlanCommand,
+  GetPricingPlanCommandInput,
+  GetPricingPlanCommandOutput,
+} from "./commands/GetPricingPlanCommand";
 import {
   GetPropertyValueCommand,
   GetPropertyValueCommandInput,
@@ -97,6 +107,11 @@ import {
   UpdateEntityCommandInput,
   UpdateEntityCommandOutput,
 } from "./commands/UpdateEntityCommand";
+import {
+  UpdatePricingPlanCommand,
+  UpdatePricingPlanCommandInput,
+  UpdatePricingPlanCommandOutput,
+} from "./commands/UpdatePricingPlanCommand";
 import { UpdateSceneCommand, UpdateSceneCommandInput, UpdateSceneCommandOutput } from "./commands/UpdateSceneCommand";
 import {
   UpdateWorkspaceCommand,
@@ -384,6 +399,35 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * <p>Run queries to access information from your knowledge graph of entities within individual workspaces.</p>
+   */
+  public executeQuery(
+    args: ExecuteQueryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteQueryCommandOutput>;
+  public executeQuery(args: ExecuteQueryCommandInput, cb: (err: any, data?: ExecuteQueryCommandOutput) => void): void;
+  public executeQuery(
+    args: ExecuteQueryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): void;
+  public executeQuery(
+    args: ExecuteQueryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ExecuteQueryCommandOutput) => void),
+    cb?: (err: any, data?: ExecuteQueryCommandOutput) => void
+  ): Promise<ExecuteQueryCommandOutput> | void {
+    const command = new ExecuteQueryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about a component type.</p>
    */
   public getComponentType(
@@ -431,6 +475,38 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
     cb?: (err: any, data?: GetEntityCommandOutput) => void
   ): Promise<GetEntityCommandOutput> | void {
     const command = new GetEntityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the pricing plan.</p>
+   */
+  public getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPricingPlanCommandOutput>;
+  public getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    cb: (err: any, data?: GetPricingPlanCommandOutput) => void
+  ): void;
+  public getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPricingPlanCommandOutput) => void
+  ): void;
+  public getPricingPlan(
+    args: GetPricingPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPricingPlanCommandOutput) => void),
+    cb?: (err: any, data?: GetPricingPlanCommandOutput) => void
+  ): Promise<GetPricingPlanCommandOutput> | void {
+    const command = new GetPricingPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -823,6 +899,38 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
     cb?: (err: any, data?: UpdateEntityCommandOutput) => void
   ): Promise<UpdateEntityCommandOutput> | void {
     const command = new UpdateEntityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the pricing plan.</p>
+   */
+  public updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePricingPlanCommandOutput>;
+  public updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
+  ): void;
+  public updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePricingPlanCommandOutput) => void
+  ): void;
+  public updatePricingPlan(
+    args: UpdatePricingPlanCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdatePricingPlanCommandOutput) => void),
+    cb?: (err: any, data?: UpdatePricingPlanCommandOutput) => void
+  ): Promise<UpdatePricingPlanCommandOutput> | void {
+    const command = new UpdatePricingPlanCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

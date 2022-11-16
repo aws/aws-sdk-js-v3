@@ -65,8 +65,10 @@ import {
 import { DeleteEntityCommandInput, DeleteEntityCommandOutput } from "./commands/DeleteEntityCommand";
 import { DeleteSceneCommandInput, DeleteSceneCommandOutput } from "./commands/DeleteSceneCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "./commands/DeleteWorkspaceCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "./commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "./commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "./commands/GetEntityCommand";
+import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "./commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "./commands/GetPropertyValueCommand";
 import {
   GetPropertyValueHistoryCommandInput,
@@ -89,6 +91,7 @@ import {
   UpdateComponentTypeCommandOutput,
 } from "./commands/UpdateComponentTypeCommand";
 import { UpdateEntityCommandInput, UpdateEntityCommandOutput } from "./commands/UpdateEntityCommand";
+import { UpdatePricingPlanCommandInput, UpdatePricingPlanCommandOutput } from "./commands/UpdatePricingPlanCommand";
 import { UpdateSceneCommandInput, UpdateSceneCommandOutput } from "./commands/UpdateSceneCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
 import {
@@ -109,8 +112,10 @@ export type ServiceInputTypes =
   | DeleteEntityCommandInput
   | DeleteSceneCommandInput
   | DeleteWorkspaceCommandInput
+  | ExecuteQueryCommandInput
   | GetComponentTypeCommandInput
   | GetEntityCommandInput
+  | GetPricingPlanCommandInput
   | GetPropertyValueCommandInput
   | GetPropertyValueHistoryCommandInput
   | GetSceneCommandInput
@@ -124,6 +129,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateComponentTypeCommandInput
   | UpdateEntityCommandInput
+  | UpdatePricingPlanCommandInput
   | UpdateSceneCommandInput
   | UpdateWorkspaceCommandInput;
 
@@ -137,8 +143,10 @@ export type ServiceOutputTypes =
   | DeleteEntityCommandOutput
   | DeleteSceneCommandOutput
   | DeleteWorkspaceCommandOutput
+  | ExecuteQueryCommandOutput
   | GetComponentTypeCommandOutput
   | GetEntityCommandOutput
+  | GetPricingPlanCommandOutput
   | GetPropertyValueCommandOutput
   | GetPropertyValueHistoryCommandOutput
   | GetSceneCommandOutput
@@ -152,6 +160,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateComponentTypeCommandOutput
   | UpdateEntityCommandOutput
+  | UpdatePricingPlanCommandOutput
   | UpdateSceneCommandOutput
   | UpdateWorkspaceCommandOutput;
 

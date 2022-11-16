@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import { DocumentType as __DocumentType } from "@aws-sdk/types";
 
 import { IoTTwinMakerServiceException as __BaseException } from "./IoTTwinMakerServiceException";
 
@@ -233,6 +234,25 @@ export enum Type {
   STRING = "STRING",
 }
 
+export enum GroupType {
+  TABULAR = "TABULAR",
+}
+
+/**
+ * <p/>
+ */
+export interface PropertyGroupRequest {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType?: GroupType | string;
+
+  /**
+   * <p>The names of properties.</p>
+   */
+  propertyNames?: string[];
+}
+
 export enum State {
   ACTIVE = "ACTIVE",
   CREATING = "CREATING",
@@ -281,6 +301,32 @@ export enum PropertyUpdateType {
   CREATE = "CREATE",
   DELETE = "DELETE",
   UPDATE = "UPDATE",
+}
+
+export enum PropertyGroupUpdateType {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPDATE = "UPDATE",
+}
+
+/**
+ * <p/>
+ */
+export interface ComponentPropertyGroupRequest {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType?: GroupType | string;
+
+  /**
+   * <p>The property names.</p>
+   */
+  propertyNames?: string[];
+
+  /**
+   * <p>The update type.</p>
+   */
+  updateType?: PropertyGroupUpdateType | string;
 }
 
 export interface CreateEntityResponse {
@@ -454,6 +500,97 @@ export interface DeleteWorkspaceRequest {
 
 export interface DeleteWorkspaceResponse {}
 
+export interface ExecuteQueryRequest {
+  /**
+   * <p>The ID of the workspace.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The query statement.</p>
+   */
+  queryStatement: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export enum ColumnType {
+  EDGE = "EDGE",
+  NODE = "NODE",
+  VALUE = "VALUE",
+}
+
+/**
+ * <p>A description of the column in the query results.</p>
+ */
+export interface ColumnDescription {
+  /**
+   * <p>The name of the column description.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The type of the column description.</p>
+   */
+  type?: ColumnType | string;
+}
+
+/**
+ * <p>Represents a single row in the query results.</p>
+ */
+export interface Row {
+  /**
+   * <p>The data in a row of query results.</p>
+   */
+  rowData?: __DocumentType[];
+}
+
+export interface ExecuteQueryResponse {
+  /**
+   * <p>A list of ColumnDescription objects.</p>
+   */
+  columnDescriptions?: ColumnDescription[];
+
+  /**
+   * <p>Represents a single row in the query results.</p>
+   */
+  rows?: Row[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The query timeout exception.</p>
+ */
+export class QueryTimeoutException extends __BaseException {
+  readonly name: "QueryTimeoutException" = "QueryTimeoutException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<QueryTimeoutException, __BaseException>) {
+    super({
+      name: "QueryTimeoutException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, QueryTimeoutException.prototype);
+  }
+}
+
 export interface GetComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -489,6 +626,26 @@ export interface FunctionResponse {
    * <p>Indicates whether this function is inherited.</p>
    */
   isInherited?: boolean;
+}
+
+/**
+ * <p>The property group response</p>
+ */
+export interface PropertyGroupResponse {
+  /**
+   * <p>The group types.</p>
+   */
+  groupType: GroupType | string | undefined;
+
+  /**
+   * <p>The names of properties.</p>
+   */
+  propertyNames: string[] | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   */
+  isInherited: boolean | undefined;
 }
 
 export enum ErrorCode {
@@ -539,6 +696,111 @@ export interface GetEntityRequest {
 }
 
 /**
+ * <p>The component property group response.</p>
+ */
+export interface ComponentPropertyGroupResponse {
+  /**
+   * <p>The group type.</p>
+   */
+  groupType: GroupType | string | undefined;
+
+  /**
+   * <p>The names of properties</p>
+   */
+  propertyNames: string[] | undefined;
+
+  /**
+   * <p>A Boolean value that specifies whether the property group is inherited from a parent entity</p>
+   */
+  isInherited: boolean | undefined;
+}
+
+export interface GetPricingPlanRequest {}
+
+export enum PricingTier {
+  TIER_1 = "TIER_1",
+  TIER_2 = "TIER_2",
+  TIER_3 = "TIER_3",
+  TIER_4 = "TIER_4",
+}
+
+/**
+ * <p>Information about pricing bundle.</p>
+ */
+export interface BundleInformation {
+  /**
+   * <p>The bundle names.</p>
+   */
+  bundleNames: string[] | undefined;
+
+  /**
+   * <p>The pricing tier.</p>
+   */
+  pricingTier?: PricingTier | string;
+}
+
+export enum PricingMode {
+  BASIC = "BASIC",
+  STANDARD = "STANDARD",
+  TIERED_BUNDLE = "TIERED_BUNDLE",
+}
+
+export enum UpdateReason {
+  DEFAULT = "DEFAULT",
+  ENTITY_COUNT_UPDATE = "ENTITY_COUNT_UPDATE",
+  OVERWRITTEN = "OVERWRITTEN",
+  PRICING_MODE_UPDATE = "PRICING_MODE_UPDATE",
+  PRICING_TIER_UPDATE = "PRICING_TIER_UPDATE",
+}
+
+/**
+ * <p>The pricing plan.</p>
+ */
+export interface PricingPlan {
+  /**
+   * <p>The billable entity count.</p>
+   */
+  billableEntityCount?: number;
+
+  /**
+   * <p>The pricing plan's bundle information.</p>
+   */
+  bundleInformation?: BundleInformation;
+
+  /**
+   * <p>The effective date and time of the pricing plan.</p>
+   */
+  effectiveDateTime: Date | undefined;
+
+  /**
+   * <p>The pricing mode.</p>
+   */
+  pricingMode: PricingMode | string | undefined;
+
+  /**
+   * <p>The set date and time for updating a pricing plan.</p>
+   */
+  updateDateTime: Date | undefined;
+
+  /**
+   * <p>The update reason, for changing a pricing plan.</p>
+   */
+  updateReason: UpdateReason | string | undefined;
+}
+
+export interface GetPricingPlanResponse {
+  /**
+   * <p>The chosen pricing plan for the current billing cycle.</p>
+   */
+  currentPricingPlan: PricingPlan | undefined;
+
+  /**
+   * <p>The pending pricing plan.</p>
+   */
+  pendingPricingPlan?: PricingPlan;
+}
+
+/**
  * <p>The connector failed.</p>
  */
 export class ConnectorFailureException extends __BaseException {
@@ -576,31 +838,24 @@ export class ConnectorTimeoutException extends __BaseException {
   }
 }
 
-export interface GetPropertyValueRequest {
+export enum Order {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
+/**
+ * <p>Filter criteria that orders the return output. It can be sorted in ascending or descending order.</p>
+ */
+export interface OrderBy {
   /**
-   * <p>The name of the component whose property values the operation returns.</p>
+   * <p>The set order that filters results.</p>
    */
-  componentName?: string;
+  order?: Order | string;
 
   /**
-   * <p>The ID of the component type whose property values the operation returns.</p>
+   * <p>The property name.</p>
    */
-  componentTypeId?: string;
-
-  /**
-   * <p>The ID of the entity whose property values the operation returns.</p>
-   */
-  entityId?: string;
-
-  /**
-   * <p>The properties whose values the operation returns.</p>
-   */
-  selectedProperties: string[] | undefined;
-
-  /**
-   * <p>The ID of the workspace whose values the operation returns.</p>
-   */
-  workspaceId: string | undefined;
+  propertyName: string | undefined;
 }
 
 export enum InterpolationType {
@@ -807,7 +1062,8 @@ export interface ListComponentTypesRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 }
@@ -946,7 +1202,8 @@ export interface ListEntitiesRequest {
   filters?: ListEntitiesFilter[];
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1089,7 +1346,8 @@ export interface ListTagsForResourceRequest {
   resourceARN: string | undefined;
 
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1113,7 +1371,8 @@ export interface ListTagsForResourceResponse {
 
 export interface ListWorkspacesRequest {
   /**
-   * <p>The maximum number of results to display.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1270,6 +1529,30 @@ export interface UpdateEntityResponse {
    * <p>The current state of the entity update.</p>
    */
   state: State | string | undefined;
+}
+
+export interface UpdatePricingPlanRequest {
+  /**
+   * <p>The pricing mode.</p>
+   */
+  pricingMode: PricingMode | string | undefined;
+
+  /**
+   * <p>The bundle names.</p>
+   */
+  bundleNames?: string[];
+}
+
+export interface UpdatePricingPlanResponse {
+  /**
+   * <p>Update the current pricing plan.</p>
+   */
+  currentPricingPlan: PricingPlan | undefined;
+
+  /**
+   * <p>Update the pending pricing plan.</p>
+   */
+  pendingPricingPlan?: PricingPlan;
 }
 
 export interface UpdateSceneRequest {
@@ -1565,7 +1848,8 @@ export interface GetPropertyValueHistoryRequest {
   nextToken?: string;
 
   /**
-   * <p>The maximum number of results to return.</p>
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   maxResults?: number;
 
@@ -1576,23 +1860,15 @@ export interface GetPropertyValueHistoryRequest {
 
   /**
    * <p>The ISO8601 DateTime of the earliest property value to return.</p>
-   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   startTime?: string;
 
   /**
    * <p>The ISO8601 DateTime of the latest property value to return.</p>
-   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/roci/latest/roci-api/API_PropertyValue.html">PropertyValue</a>.</p>
+   *          <p>For more information about the ISO8601 DateTime format, see the data type <a href="https://docs.aws.amazon.com/iot-twinmaker/latest/apireference/API_PropertyValue.html">PropertyValue</a>.</p>
    */
   endTime?: string;
-}
-
-export interface GetPropertyValueResponse {
-  /**
-   * <p>An object that maps strings to the properties and latest property values in the response. Each string
-   *        in the mapping must be unique to this object.</p>
-   */
-  propertyValues: Record<string, PropertyLatestValue> | undefined;
 }
 
 /**
@@ -1626,6 +1902,24 @@ export interface PropertyValueHistory {
 }
 
 /**
+ * <p>The tabular conditions.</p>
+ */
+export interface TabularConditions {
+  /**
+   * <p>Filter criteria that orders the output. It can be sorted in ascending or descending order.</p>
+   */
+  orderBy?: OrderBy[];
+
+  /**
+   * <p>You can filter the request using various logical operators and a key-value format. For example:</p>
+   *          <p>
+   *             <code>{"key": "serverType", "value": "webServer"}</code>
+   *          </p>
+   */
+  propertyFilters?: PropertyFilter[];
+}
+
+/**
  * <p>An error returned by the <code>BatchPutProperty</code> action.</p>
  */
 export interface BatchPutPropertyError {
@@ -1643,6 +1937,54 @@ export interface BatchPutPropertyError {
    * <p>An object that contains information about errors returned by the <code>BatchPutProperty</code> action.</p>
    */
   entry: PropertyValueEntry | undefined;
+}
+
+export interface GetPropertyValueRequest {
+  /**
+   * <p>The name of the component whose property values the operation returns.</p>
+   */
+  componentName?: string;
+
+  /**
+   * <p>The ID of the component type whose property values the operation returns.</p>
+   */
+  componentTypeId?: string;
+
+  /**
+   * <p>The ID of the entity whose property values the operation returns.</p>
+   */
+  entityId?: string;
+
+  /**
+   * <p>The properties whose values the operation returns.</p>
+   */
+  selectedProperties: string[] | undefined;
+
+  /**
+   * <p>The ID of the workspace whose values the operation returns.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The property group name.</p>
+   */
+  propertyGroupName?: string;
+
+  /**
+   * <p>The tabular conditions.</p>
+   */
+  tabularConditions?: TabularConditions;
 }
 
 export interface BatchPutPropertyValuesRequest {
@@ -1785,6 +2127,24 @@ export interface BatchPutPropertyValuesResponse {
   errorEntries: BatchPutPropertyErrorEntry[] | undefined;
 }
 
+export interface GetPropertyValueResponse {
+  /**
+   * <p>An object that maps strings to the properties and latest property values in the response. Each string
+   *        in the mapping must be unique to this object.</p>
+   */
+  propertyValues?: Record<string, PropertyLatestValue>;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>A table of property values.</p>
+   */
+  tabularPropertyValues?: Record<string, DataValue>[][];
+}
+
 export interface CreateComponentTypeRequest {
   /**
    * <p>The ID of the workspace that contains the component type.</p>
@@ -1828,6 +2188,11 @@ export interface CreateComponentTypeRequest {
    * <p>Metadata that you can use to manage the component type.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p/>
+   */
+  propertyGroups?: Record<string, PropertyGroupRequest>;
 }
 
 export interface GetComponentTypeResponse {
@@ -1899,6 +2264,12 @@ export interface GetComponentTypeResponse {
    * <p>The current status of the component type.</p>
    */
   status?: Status;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 25.</p>
+   *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
+   */
+  propertyGroups?: Record<string, PropertyGroupResponse>;
 }
 
 export interface UpdateComponentTypeRequest {
@@ -1939,6 +2310,11 @@ export interface UpdateComponentTypeRequest {
    *        in the mapping must be unique to this object.</p>
    */
   functions?: Record<string, FunctionRequest>;
+
+  /**
+   * <p>The property groups</p>
+   */
+  propertyGroups?: Record<string, PropertyGroupRequest>;
 }
 
 /**
@@ -1995,6 +2371,11 @@ export interface ComponentRequest {
    *        in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyRequest>;
+
+  /**
+   * <p>The property groups.</p>
+   */
+  propertyGroups?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 /**
@@ -2031,6 +2412,11 @@ export interface ComponentResponse {
    *        in the mapping must be unique to this object.</p>
    */
   properties?: Record<string, PropertyResponse>;
+
+  /**
+   * <p>The property groups.</p>
+   */
+  propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
 }
 
 /**
@@ -2057,6 +2443,11 @@ export interface ComponentUpdateRequest {
    *        in the mapping must be unique to this object.</p>
    */
   propertyUpdates?: Record<string, PropertyRequest>;
+
+  /**
+   * <p>The property group updates.</p>
+   */
+  propertyGroupUpdates?: Record<string, ComponentPropertyGroupRequest>;
 }
 
 export interface CreateEntityRequest {
@@ -2233,7 +2624,21 @@ export const RelationshipFilterSensitiveLog = (obj: Relationship): any => ({
 /**
  * @internal
  */
+export const PropertyGroupRequestFilterSensitiveLog = (obj: PropertyGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateComponentTypeResponseFilterSensitiveLog = (obj: CreateComponentTypeResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ComponentPropertyGroupRequestFilterSensitiveLog = (obj: ComponentPropertyGroupRequest): any => ({
   ...obj,
 });
 
@@ -2331,6 +2736,34 @@ export const DeleteWorkspaceResponseFilterSensitiveLog = (obj: DeleteWorkspaceRe
 /**
  * @internal
  */
+export const ExecuteQueryRequestFilterSensitiveLog = (obj: ExecuteQueryRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ColumnDescriptionFilterSensitiveLog = (obj: ColumnDescription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RowFilterSensitiveLog = (obj: Row): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExecuteQueryResponseFilterSensitiveLog = (obj: ExecuteQueryResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetComponentTypeRequestFilterSensitiveLog = (obj: GetComponentTypeRequest): any => ({
   ...obj,
 });
@@ -2339,6 +2772,13 @@ export const GetComponentTypeRequestFilterSensitiveLog = (obj: GetComponentTypeR
  * @internal
  */
 export const FunctionResponseFilterSensitiveLog = (obj: FunctionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PropertyGroupResponseFilterSensitiveLog = (obj: PropertyGroupResponse): any => ({
   ...obj,
 });
 
@@ -2366,7 +2806,42 @@ export const GetEntityRequestFilterSensitiveLog = (obj: GetEntityRequest): any =
 /**
  * @internal
  */
-export const GetPropertyValueRequestFilterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
+export const ComponentPropertyGroupResponseFilterSensitiveLog = (obj: ComponentPropertyGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPricingPlanRequestFilterSensitiveLog = (obj: GetPricingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BundleInformationFilterSensitiveLog = (obj: BundleInformation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PricingPlanFilterSensitiveLog = (obj: PricingPlan): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPricingPlanResponseFilterSensitiveLog = (obj: GetPricingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OrderByFilterSensitiveLog = (obj: OrderBy): any => ({
   ...obj,
 });
 
@@ -2577,6 +3052,20 @@ export const UpdateEntityResponseFilterSensitiveLog = (obj: UpdateEntityResponse
 /**
  * @internal
  */
+export const UpdatePricingPlanRequestFilterSensitiveLog = (obj: UpdatePricingPlanRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdatePricingPlanResponseFilterSensitiveLog = (obj: UpdatePricingPlanResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateSceneRequestFilterSensitiveLog = (obj: UpdateSceneRequest): any => ({
   ...obj,
 });
@@ -2647,13 +3136,6 @@ export const GetPropertyValueHistoryRequestFilterSensitiveLog = (obj: GetPropert
 /**
  * @internal
  */
-export const GetPropertyValueResponseFilterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const PropertyValueEntryFilterSensitiveLog = (obj: PropertyValueEntry): any => ({
   ...obj,
 });
@@ -2668,7 +3150,21 @@ export const PropertyValueHistoryFilterSensitiveLog = (obj: PropertyValueHistory
 /**
  * @internal
  */
+export const TabularConditionsFilterSensitiveLog = (obj: TabularConditions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const BatchPutPropertyErrorFilterSensitiveLog = (obj: BatchPutPropertyError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueRequestFilterSensitiveLog = (obj: GetPropertyValueRequest): any => ({
   ...obj,
 });
 
@@ -2711,6 +3207,13 @@ export const PropertyDefinitionResponseFilterSensitiveLog = (obj: PropertyDefini
  * @internal
  */
 export const BatchPutPropertyValuesResponseFilterSensitiveLog = (obj: BatchPutPropertyValuesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetPropertyValueResponseFilterSensitiveLog = (obj: GetPropertyValueResponse): any => ({
   ...obj,
 });
 

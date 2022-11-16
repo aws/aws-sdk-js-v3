@@ -22,6 +22,7 @@ import {
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
@@ -45,8 +46,10 @@ import {
 import { DeleteEntityCommandInput, DeleteEntityCommandOutput } from "../commands/DeleteEntityCommand";
 import { DeleteSceneCommandInput, DeleteSceneCommandOutput } from "../commands/DeleteSceneCommand";
 import { DeleteWorkspaceCommandInput, DeleteWorkspaceCommandOutput } from "../commands/DeleteWorkspaceCommand";
+import { ExecuteQueryCommandInput, ExecuteQueryCommandOutput } from "../commands/ExecuteQueryCommand";
 import { GetComponentTypeCommandInput, GetComponentTypeCommandOutput } from "../commands/GetComponentTypeCommand";
 import { GetEntityCommandInput, GetEntityCommandOutput } from "../commands/GetEntityCommand";
+import { GetPricingPlanCommandInput, GetPricingPlanCommandOutput } from "../commands/GetPricingPlanCommand";
 import { GetPropertyValueCommandInput, GetPropertyValueCommandOutput } from "../commands/GetPropertyValueCommand";
 import {
   GetPropertyValueHistoryCommandInput,
@@ -69,6 +72,7 @@ import {
   UpdateComponentTypeCommandOutput,
 } from "../commands/UpdateComponentTypeCommand";
 import { UpdateEntityCommandInput, UpdateEntityCommandOutput } from "../commands/UpdateEntityCommand";
+import { UpdatePricingPlanCommandInput, UpdatePricingPlanCommandOutput } from "../commands/UpdatePricingPlanCommand";
 import { UpdateSceneCommandInput, UpdateSceneCommandOutput } from "../commands/UpdateSceneCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "../commands/UpdateWorkspaceCommand";
 import { IoTTwinMakerServiceException as __BaseException } from "../models/IoTTwinMakerServiceException";
@@ -76,6 +80,10 @@ import {
   AccessDeniedException,
   BatchPutPropertyError,
   BatchPutPropertyErrorEntry,
+  BundleInformation,
+  ColumnDescription,
+  ComponentPropertyGroupRequest,
+  ComponentPropertyGroupResponse,
   ComponentRequest,
   ComponentResponse,
   ComponentTypeSummary,
@@ -96,22 +104,29 @@ import {
   LambdaFunction,
   ListComponentTypesFilter,
   ListEntitiesFilter,
+  OrderBy,
   ParentEntityUpdateRequest,
+  PricingPlan,
   PropertyDefinitionRequest,
   PropertyDefinitionResponse,
   PropertyFilter,
+  PropertyGroupRequest,
+  PropertyGroupResponse,
   PropertyLatestValue,
   PropertyRequest,
   PropertyResponse,
   PropertyValue,
   PropertyValueEntry,
   PropertyValueHistory,
+  QueryTimeoutException,
   Relationship,
   RelationshipValue,
   ResourceNotFoundException,
+  Row,
   SceneSummary,
   ServiceQuotaExceededException,
   Status,
+  TabularConditions,
   ThrottlingException,
   TooManyTagsException,
   ValidationException,
@@ -180,6 +195,9 @@ export const serializeAws_restJson1CreateComponentTypeCommand = async (
     ...(input.isSingleton != null && { isSingleton: input.isSingleton }),
     ...(input.propertyDefinitions != null && {
       propertyDefinitions: serializeAws_restJson1PropertyDefinitionsRequest(input.propertyDefinitions, context),
+    }),
+    ...(input.propertyGroups != null && {
+      propertyGroups: serializeAws_restJson1PropertyGroupsRequest(input.propertyGroups, context),
     }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
@@ -445,6 +463,40 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
   });
 };
 
+export const serializeAws_restJson1ExecuteQueryCommand = async (
+  input: ExecuteQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/queries/execution";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.queryStatement != null && { queryStatement: input.queryStatement }),
+    ...(input.workspaceId != null && { workspaceId: input.workspaceId }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetComponentTypeCommand = async (
   input: GetComponentTypeCommandInput,
   context: __SerdeContext
@@ -512,6 +564,35 @@ export const serializeAws_restJson1GetEntityCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetPricingPlanCommand = async (
+  input: GetPricingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pricingplan";
+  let body: any;
+  body = "";
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetPropertyValueCommand = async (
   input: GetPropertyValueCommandInput,
   context: __SerdeContext
@@ -529,8 +610,14 @@ export const serializeAws_restJson1GetPropertyValueCommand = async (
     ...(input.componentName != null && { componentName: input.componentName }),
     ...(input.componentTypeId != null && { componentTypeId: input.componentTypeId }),
     ...(input.entityId != null && { entityId: input.entityId }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.propertyGroupName != null && { propertyGroupName: input.propertyGroupName }),
     ...(input.selectedProperties != null && {
       selectedProperties: serializeAws_restJson1SelectedPropertyList(input.selectedProperties, context),
+    }),
+    ...(input.tabularConditions != null && {
+      tabularConditions: serializeAws_restJson1TabularConditions(input.tabularConditions, context),
     }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -923,6 +1010,9 @@ export const serializeAws_restJson1UpdateComponentTypeCommand = async (
     ...(input.propertyDefinitions != null && {
       propertyDefinitions: serializeAws_restJson1PropertyDefinitionsRequest(input.propertyDefinitions, context),
     }),
+    ...(input.propertyGroups != null && {
+      propertyGroups: serializeAws_restJson1PropertyGroupsRequest(input.propertyGroups, context),
+    }),
   });
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -978,6 +1068,38 @@ export const serializeAws_restJson1UpdateEntityCommand = async (
     hostname: resolvedHostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdatePricingPlanCommand = async (
+  input: UpdatePricingPlanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/pricingplan";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.bundleNames != null && { bundleNames: serializeAws_restJson1PricingBundles(input.bundleNames, context) }),
+    ...(input.pricingMode != null && { pricingMode: input.pricingMode }),
+  });
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "api." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "POST",
     headers,
     path: resolvedPath,
     body,
@@ -1558,6 +1680,68 @@ const deserializeAws_restJson1DeleteWorkspaceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ExecuteQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ExecuteQueryCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.columnDescriptions != null) {
+    contents.columnDescriptions = deserializeAws_restJson1ColumnDescriptions(data.columnDescriptions, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.rows != null) {
+    contents.rows = deserializeAws_restJson1Rows(data.rows, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ExecuteQueryCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ExecuteQueryCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "QueryTimeoutException":
+    case "com.amazonaws.iottwinmaker#QueryTimeoutException":
+      throw await deserializeAws_restJson1QueryTimeoutExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.iottwinmaker#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetComponentTypeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1602,6 +1786,9 @@ export const deserializeAws_restJson1GetComponentTypeCommand = async (
       context
     );
   }
+  if (data.propertyGroups != null) {
+    contents.propertyGroups = deserializeAws_restJson1PropertyGroupsResponse(data.propertyGroups, context);
+  }
   if (data.status != null) {
     contents.status = deserializeAws_restJson1Status(data.status, context);
   }
@@ -1636,6 +1823,9 @@ const deserializeAws_restJson1GetComponentTypeCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iottwinmaker#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1730,6 +1920,59 @@ const deserializeAws_restJson1GetEntityCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetPricingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPricingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetPricingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.currentPricingPlan != null) {
+    contents.currentPricingPlan = deserializeAws_restJson1PricingPlan(data.currentPricingPlan, context);
+  }
+  if (data.pendingPricingPlan != null) {
+    contents.pendingPricingPlan = deserializeAws_restJson1PricingPlan(data.pendingPricingPlan, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetPricingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPricingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetPropertyValueCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1741,8 +1984,14 @@ export const deserializeAws_restJson1GetPropertyValueCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
   if (data.propertyValues != null) {
     contents.propertyValues = deserializeAws_restJson1PropertyLatestValueMap(data.propertyValues, context);
+  }
+  if (data.tabularPropertyValues != null) {
+    contents.tabularPropertyValues = deserializeAws_restJson1TabularPropertyValues(data.tabularPropertyValues, context);
   }
   return contents;
 };
@@ -2476,6 +2725,59 @@ const deserializeAws_restJson1UpdateEntityCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdatePricingPlanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePricingPlanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdatePricingPlanCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.currentPricingPlan != null) {
+    contents.currentPricingPlan = deserializeAws_restJson1PricingPlan(data.currentPricingPlan, context);
+  }
+  if (data.pendingPricingPlan != null) {
+    contents.pendingPricingPlan = deserializeAws_restJson1PricingPlan(data.pendingPricingPlan, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdatePricingPlanCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePricingPlanCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.iottwinmaker#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.iottwinmaker#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iottwinmaker#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iottwinmaker#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateSceneCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2666,6 +2968,22 @@ const deserializeAws_restJson1InternalServerExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1QueryTimeoutExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<QueryTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.message != null) {
+    contents.message = __expectString(data.message);
+  }
+  const exception = new QueryTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1ResourceNotFoundExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2746,11 +3064,40 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1ComponentPropertyGroupRequest = (
+  input: ComponentPropertyGroupRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.groupType != null && { groupType: input.groupType }),
+    ...(input.propertyNames != null && {
+      propertyNames: serializeAws_restJson1PropertyNames(input.propertyNames, context),
+    }),
+    ...(input.updateType != null && { updateType: input.updateType }),
+  };
+};
+
+const serializeAws_restJson1ComponentPropertyGroupRequests = (
+  input: Record<string, ComponentPropertyGroupRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1ComponentPropertyGroupRequest(value, context);
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1ComponentRequest = (input: ComponentRequest, context: __SerdeContext): any => {
   return {
     ...(input.componentTypeId != null && { componentTypeId: input.componentTypeId }),
     ...(input.description != null && { description: input.description }),
     ...(input.properties != null && { properties: serializeAws_restJson1PropertyRequests(input.properties, context) }),
+    ...(input.propertyGroups != null && {
+      propertyGroups: serializeAws_restJson1ComponentPropertyGroupRequests(input.propertyGroups, context),
+    }),
   };
 };
 
@@ -2771,6 +3118,9 @@ const serializeAws_restJson1ComponentUpdateRequest = (input: ComponentUpdateRequ
   return {
     ...(input.componentTypeId != null && { componentTypeId: input.componentTypeId }),
     ...(input.description != null && { description: input.description }),
+    ...(input.propertyGroupUpdates != null && {
+      propertyGroupUpdates: serializeAws_restJson1ComponentPropertyGroupRequests(input.propertyGroupUpdates, context),
+    }),
     ...(input.propertyUpdates != null && {
       propertyUpdates: serializeAws_restJson1PropertyRequests(input.propertyUpdates, context),
     }),
@@ -2977,6 +3327,21 @@ const serializeAws_restJson1ListEntitiesFilters = (input: ListEntitiesFilter[], 
     });
 };
 
+const serializeAws_restJson1OrderBy = (input: OrderBy, context: __SerdeContext): any => {
+  return {
+    ...(input.order != null && { order: input.order }),
+    ...(input.propertyName != null && { propertyName: input.propertyName }),
+  };
+};
+
+const serializeAws_restJson1OrderByList = (input: OrderBy[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1OrderBy(entry, context);
+    });
+};
+
 const serializeAws_restJson1ParentEntityUpdateRequest = (
   input: ParentEntityUpdateRequest,
   context: __SerdeContext
@@ -2985,6 +3350,14 @@ const serializeAws_restJson1ParentEntityUpdateRequest = (
     ...(input.parentEntityId != null && { parentEntityId: input.parentEntityId }),
     ...(input.updateType != null && { updateType: input.updateType }),
   };
+};
+
+const serializeAws_restJson1PricingBundles = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1PropertyDefinitionRequest = (
@@ -3030,6 +3403,36 @@ const serializeAws_restJson1PropertyFilters = (input: PropertyFilter[], context:
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1PropertyFilter(entry, context);
+    });
+};
+
+const serializeAws_restJson1PropertyGroupRequest = (input: PropertyGroupRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.groupType != null && { groupType: input.groupType }),
+    ...(input.propertyNames != null && {
+      propertyNames: serializeAws_restJson1PropertyNames(input.propertyNames, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1PropertyGroupsRequest = (
+  input: Record<string, PropertyGroupRequest>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = serializeAws_restJson1PropertyGroupRequest(value, context);
+    return acc;
+  }, {});
+};
+
+const serializeAws_restJson1PropertyNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
     });
 };
 
@@ -3121,6 +3524,15 @@ const serializeAws_restJson1SelectedPropertyList = (input: string[], context: __
     });
 };
 
+const serializeAws_restJson1TabularConditions = (input: TabularConditions, context: __SerdeContext): any => {
+  return {
+    ...(input.orderBy != null && { orderBy: serializeAws_restJson1OrderByList(input.orderBy, context) }),
+    ...(input.propertyFilters != null && {
+      propertyFilters: serializeAws_restJson1PropertyFilters(input.propertyFilters, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3148,6 +3560,61 @@ const deserializeAws_restJson1BatchPutPropertyErrorEntry = (
   } as any;
 };
 
+const deserializeAws_restJson1BundleInformation = (output: any, context: __SerdeContext): BundleInformation => {
+  return {
+    bundleNames:
+      output.bundleNames != null ? deserializeAws_restJson1PricingBundles(output.bundleNames, context) : undefined,
+    pricingTier: __expectString(output.pricingTier),
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnDescription = (output: any, context: __SerdeContext): ColumnDescription => {
+  return {
+    name: __expectString(output.name),
+    type: __expectString(output.type),
+  } as any;
+};
+
+const deserializeAws_restJson1ColumnDescriptions = (output: any, context: __SerdeContext): ColumnDescription[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1ColumnDescription(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ComponentPropertyGroupResponse = (
+  output: any,
+  context: __SerdeContext
+): ComponentPropertyGroupResponse => {
+  return {
+    groupType: __expectString(output.groupType),
+    isInherited: __expectBoolean(output.isInherited),
+    propertyNames:
+      output.propertyNames != null ? deserializeAws_restJson1PropertyNames(output.propertyNames, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1ComponentPropertyGroupResponses = (
+  output: any,
+  context: __SerdeContext
+): Record<string, ComponentPropertyGroupResponse> => {
+  return Object.entries(output).reduce(
+    (acc: Record<string, ComponentPropertyGroupResponse>, [key, value]: [string, any]) => {
+      if (value === null) {
+        return acc;
+      }
+      acc[key] = deserializeAws_restJson1ComponentPropertyGroupResponse(value, context);
+      return acc;
+    },
+    {}
+  );
+};
+
 const deserializeAws_restJson1ComponentResponse = (output: any, context: __SerdeContext): ComponentResponse => {
   return {
     componentName: __expectString(output.componentName),
@@ -3156,6 +3623,10 @@ const deserializeAws_restJson1ComponentResponse = (output: any, context: __Serde
     description: __expectString(output.description),
     properties:
       output.properties != null ? deserializeAws_restJson1PropertyResponses(output.properties, context) : undefined,
+    propertyGroups:
+      output.propertyGroups != null
+        ? deserializeAws_restJson1ComponentPropertyGroupResponses(output.propertyGroups, context)
+        : undefined,
     status: output.status != null ? deserializeAws_restJson1Status(output.status, context) : undefined,
   } as any;
 };
@@ -3405,6 +3876,38 @@ const deserializeAws_restJson1LambdaFunction = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_restJson1PricingBundles = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1PricingPlan = (output: any, context: __SerdeContext): PricingPlan => {
+  return {
+    billableEntityCount: __expectLong(output.billableEntityCount),
+    bundleInformation:
+      output.bundleInformation != null
+        ? deserializeAws_restJson1BundleInformation(output.bundleInformation, context)
+        : undefined,
+    effectiveDateTime:
+      output.effectiveDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.effectiveDateTime)))
+        : undefined,
+    pricingMode: __expectString(output.pricingMode),
+    updateDateTime:
+      output.updateDateTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.updateDateTime)))
+        : undefined,
+    updateReason: __expectString(output.updateReason),
+  } as any;
+};
+
 const deserializeAws_restJson1PropertyDefinitionResponse = (
   output: any,
   context: __SerdeContext
@@ -3441,6 +3944,28 @@ const deserializeAws_restJson1PropertyDefinitionsResponse = (
   );
 };
 
+const deserializeAws_restJson1PropertyGroupResponse = (output: any, context: __SerdeContext): PropertyGroupResponse => {
+  return {
+    groupType: __expectString(output.groupType),
+    isInherited: __expectBoolean(output.isInherited),
+    propertyNames:
+      output.propertyNames != null ? deserializeAws_restJson1PropertyNames(output.propertyNames, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1PropertyGroupsResponse = (
+  output: any,
+  context: __SerdeContext
+): Record<string, PropertyGroupResponse> => {
+  return Object.entries(output).reduce((acc: Record<string, PropertyGroupResponse>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1PropertyGroupResponse(value, context);
+    return acc;
+  }, {});
+};
+
 const deserializeAws_restJson1PropertyLatestValue = (output: any, context: __SerdeContext): PropertyLatestValue => {
   return {
     propertyReference:
@@ -3465,6 +3990,18 @@ const deserializeAws_restJson1PropertyLatestValueMap = (
   }, {});
 };
 
+const deserializeAws_restJson1PropertyNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1PropertyResponse = (output: any, context: __SerdeContext): PropertyResponse => {
   return {
     definition:
@@ -3484,6 +4021,19 @@ const deserializeAws_restJson1PropertyResponses = (
       return acc;
     }
     acc[key] = deserializeAws_restJson1PropertyResponse(value, context);
+    return acc;
+  }, {});
+};
+
+const deserializeAws_restJson1PropertyTableValue = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DataValue> => {
+  return Object.entries(output).reduce((acc: Record<string, DataValue>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = deserializeAws_restJson1DataValue(value, context);
     return acc;
   }, {});
 };
@@ -3544,6 +4094,10 @@ const deserializeAws_restJson1PropertyValues = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1QueryResultValue = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
 const deserializeAws_restJson1Relationship = (output: any, context: __SerdeContext): Relationship => {
   return {
     relationshipType: __expectString(output.relationshipType),
@@ -3566,6 +4120,36 @@ const deserializeAws_restJson1RequiredProperties = (output: any, context: __Serd
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Row = (output: any, context: __SerdeContext): Row => {
+  return {
+    rowData: output.rowData != null ? deserializeAws_restJson1RowData(output.rowData, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RowData = (output: any, context: __SerdeContext): __DocumentType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1QueryResultValue(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Rows = (output: any, context: __SerdeContext): Row[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Row(entry, context);
     });
   return retVal;
 };
@@ -3616,6 +4200,36 @@ const deserializeAws_restJson1Status = (output: any, context: __SerdeContext): S
     error: output.error != null ? deserializeAws_restJson1ErrorDetails(output.error, context) : undefined,
     state: __expectString(output.state),
   } as any;
+};
+
+const deserializeAws_restJson1TabularPropertyValue = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DataValue>[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1PropertyTableValue(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1TabularPropertyValues = (
+  output: any,
+  context: __SerdeContext
+): Record<string, DataValue>[][] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TabularPropertyValue(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): Record<string, string> => {
