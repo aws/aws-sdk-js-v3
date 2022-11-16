@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-ssm-incidents:** Add support for PagerDuty integrations on ResponsePlan, IncidentRecord, and RelatedItem APIs ([7b5617c](https://github.com/aws/aws-sdk-js-v3/commit/7b5617cf214f9f26f9e1270ae61b5444b55ef0e7))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-ssm-incidents

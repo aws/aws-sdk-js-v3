@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-connect:** This release adds a new MonitorContact API for initiating monitoring of ongoing Voice and Chat contacts. ([2adc9d0](https://github.com/aws/aws-sdk-js-v3/commit/2adc9d0774cf1f835290defa4ab9ca67a9a0f901))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 

@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-billingconductor:** This release adds a new feature BillingEntity pricing rule. ([6f15a0a](https://github.com/aws/aws-sdk-js-v3/commit/6f15a0a90a035c56b4573cbce8cd8f175cc5b195))
+* **client-cloudformation:** Added UnsupportedTarget HandlerErrorCode for use with CFN Resource Hooks ([6c5beed](https://github.com/aws/aws-sdk-js-v3/commit/6c5beed8687a1c07271932e0d9d7bac89e1d0e0e))
+* **client-comprehendmedical:** This release supports new set of entities and traits. It also adds new category (BEHAVIORAL_ENVIRONMENTAL_SOCIAL). ([05089b4](https://github.com/aws/aws-sdk-js-v3/commit/05089b4f8f7e3e179b6be27a480988ff306089bd))
+* **client-connect:** This release adds a new MonitorContact API for initiating monitoring of ongoing Voice and Chat contacts. ([2adc9d0](https://github.com/aws/aws-sdk-js-v3/commit/2adc9d0774cf1f835290defa4ab9ca67a9a0f901))
+* **client-eks:** Adds support for customer-provided placement groups for Kubernetes control plane instances when creating local EKS clusters on Outposts ([4c8f3dc](https://github.com/aws/aws-sdk-js-v3/commit/4c8f3dcab691f7831802b529a6b48b83d1247085))
+* **client-elasticache:** for Redis now supports AWS Identity and Access Management authentication access to Redis clusters starting with redis-engine version 7.0 ([d1ac8d8](https://github.com/aws/aws-sdk-js-v3/commit/d1ac8d802fd7e9186386aed9df1951935b469eae))
+* **client-iottwinmaker:** This release adds the following: 1) ExecuteQuery API allows users to query their AWS IoT TwinMaker Knowledge Graph 2) Pricing plan APIs allow users to configure and manage their pricing mode 3) Support for property groups and tabular property values in existing AWS IoT TwinMaker APIs. ([8d31224](https://github.com/aws/aws-sdk-js-v3/commit/8d312240058c7ccd037ea222f3635b7226f92e30))
+* **client-personalize-events:** This release provides support for creation and use of metric attributions in AWS Personalize ([f30761f](https://github.com/aws/aws-sdk-js-v3/commit/f30761f13bcc10b8d9993ddd8f0251b7cb738c42))
+* **client-proton:** Add support for sorting and filtering in ListServiceInstances ([68d0e23](https://github.com/aws/aws-sdk-js-v3/commit/68d0e2382a2c27d3539db00a9d370ecc004809bf))
+* **client-rds:** This release adds support for container databases (CDBs) to Amazon RDS Custom for Oracle. A CDB contains one PDB at creation. You can add more PDBs using Oracle SQL. You can also customize your database installation by setting the Oracle base, Oracle home, and the OS user name and group. ([6aa6b3a](https://github.com/aws/aws-sdk-js-v3/commit/6aa6b3a087db719710a34d679eba31799f918043))
+* **client-ssm-incidents:** Add support for PagerDuty integrations on ResponsePlan, IncidentRecord, and RelatedItem APIs ([7b5617c](https://github.com/aws/aws-sdk-js-v3/commit/7b5617cf214f9f26f9e1270ae61b5444b55ef0e7))
+* **client-ssm:** This release adds support for cross account access in CreateOpsItem, UpdateOpsItem and GetOpsItem. It introduces new APIs to setup resource policies for SSM resources: PutResourcePolicy, GetResourcePolicies and DeleteResourcePolicy. ([1d04c01](https://github.com/aws/aws-sdk-js-v3/commit/1d04c01c58c38a0ddc3adaedfd3fc21246500536))
+* **client-transfer:** Allow additional operations to throw ThrottlingException ([108f81d](https://github.com/aws/aws-sdk-js-v3/commit/108f81d0547a038d8fcf6b51547be8ec1d1042a7))
+* **client-xray:** This release adds new APIs - PutResourcePolicy, DeleteResourcePolicy, ListResourcePolicies for supporting resource based policies for AWS X-Ray. ([1e16743](https://github.com/aws/aws-sdk-js-v3/commit/1e16743bee07422f8d1e1af750990e4571a618d7))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 

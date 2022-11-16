@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-cloudformation:** Added UnsupportedTarget HandlerErrorCode for use with CFN Resource Hooks ([6c5beed](https://github.com/aws/aws-sdk-js-v3/commit/6c5beed8687a1c07271932e0d9d7bac89e1d0e0e))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation

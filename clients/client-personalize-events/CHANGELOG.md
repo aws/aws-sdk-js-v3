@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-personalize-events:** This release provides support for creation and use of metric attributions in AWS Personalize ([f30761f](https://github.com/aws/aws-sdk-js-v3/commit/f30761f13bcc10b8d9993ddd8f0251b7cb738c42))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-personalize-events

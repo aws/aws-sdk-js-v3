@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
+
+
+### Features
+
+* **client-billingconductor:** This release adds a new feature BillingEntity pricing rule. ([6f15a0a](https://github.com/aws/aws-sdk-js-v3/commit/6f15a0a90a035c56b4573cbce8cd8f175cc5b195))
+
+
+
+
+
 # [3.211.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.210.0...v3.211.0) (2022-11-15)
 
 **Note:** Version bump only for package @aws-sdk/client-billingconductor
