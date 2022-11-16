@@ -118,6 +118,8 @@ import {
   Compatibility,
   ConnectorConfigRequest,
   ConnectorConfigResponse,
+  ControlPlanePlacementRequest,
+  ControlPlanePlacementResponse,
   EncryptionConfig,
   ErrorDetail,
   FargateProfile,
@@ -3272,6 +3274,15 @@ const serializeAws_restJson1ConnectorConfigRequest = (input: ConnectorConfigRequ
   };
 };
 
+const serializeAws_restJson1ControlPlanePlacementRequest = (
+  input: ControlPlanePlacementRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.groupName != null && { groupName: input.groupName }),
+  };
+};
+
 const serializeAws_restJson1EncryptionConfig = (input: EncryptionConfig, context: __SerdeContext): any => {
   return {
     ...(input.provider != null && { provider: serializeAws_restJson1Provider(input.provider, context) }),
@@ -3428,6 +3439,9 @@ const serializeAws_restJson1OidcIdentityProviderConfigRequest = (
 const serializeAws_restJson1OutpostConfigRequest = (input: OutpostConfigRequest, context: __SerdeContext): any => {
   return {
     ...(input.controlPlaneInstanceType != null && { controlPlaneInstanceType: input.controlPlaneInstanceType }),
+    ...(input.controlPlanePlacement != null && {
+      controlPlanePlacement: serializeAws_restJson1ControlPlanePlacementRequest(input.controlPlanePlacement, context),
+    }),
     ...(input.outpostArns != null && { outpostArns: serializeAws_restJson1StringList(input.outpostArns, context) }),
   };
 };
@@ -3747,6 +3761,15 @@ const deserializeAws_restJson1ConnectorConfigResponse = (
     activationId: __expectString(output.activationId),
     provider: __expectString(output.provider),
     roleArn: __expectString(output.roleArn),
+  } as any;
+};
+
+const deserializeAws_restJson1ControlPlanePlacementResponse = (
+  output: any,
+  context: __SerdeContext
+): ControlPlanePlacementResponse => {
+  return {
+    groupName: __expectString(output.groupName),
   } as any;
 };
 
@@ -4082,6 +4105,10 @@ const deserializeAws_restJson1OidcIdentityProviderConfig = (
 const deserializeAws_restJson1OutpostConfigResponse = (output: any, context: __SerdeContext): OutpostConfigResponse => {
   return {
     controlPlaneInstanceType: __expectString(output.controlPlaneInstanceType),
+    controlPlanePlacement:
+      output.controlPlanePlacement != null
+        ? deserializeAws_restJson1ControlPlanePlacementResponse(output.controlPlanePlacement, context)
+        : undefined,
     outpostArns:
       output.outpostArns != null ? deserializeAws_restJson1StringList(output.outpostArns, context) : undefined,
   } as any;

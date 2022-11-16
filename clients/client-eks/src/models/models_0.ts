@@ -66,15 +66,16 @@ export interface AddonHealth {
   issues?: AddonIssue[];
 }
 
-export type AddonStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DEGRADED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "UPDATE_FAILED"
-  | "UPDATING";
+export enum AddonStatus {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DEGRADED = "DEGRADED",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>An Amazon EKS add-on. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in
@@ -196,15 +197,16 @@ export interface AddonInfo {
   addonVersions?: AddonVersionInfo[];
 }
 
-export type AMITypes =
-  | "AL2_ARM_64"
-  | "AL2_x86_64"
-  | "AL2_x86_64_GPU"
-  | "BOTTLEROCKET_ARM_64"
-  | "BOTTLEROCKET_ARM_64_NVIDIA"
-  | "BOTTLEROCKET_x86_64"
-  | "BOTTLEROCKET_x86_64_NVIDIA"
-  | "CUSTOM";
+export enum AMITypes {
+  AL2_ARM_64 = "AL2_ARM_64",
+  AL2_x86_64 = "AL2_x86_64",
+  AL2_x86_64_GPU = "AL2_x86_64_GPU",
+  BOTTLEROCKET_ARM_64 = "BOTTLEROCKET_ARM_64",
+  BOTTLEROCKET_ARM_64_NVIDIA = "BOTTLEROCKET_ARM_64_NVIDIA",
+  BOTTLEROCKET_x86_64 = "BOTTLEROCKET_x86_64",
+  BOTTLEROCKET_x86_64_NVIDIA = "BOTTLEROCKET_x86_64_NVIDIA",
+  CUSTOM = "CUSTOM",
+}
 
 /**
  * <p>Identifies the Key Management Service (KMS) key used to encrypt the
@@ -767,7 +769,11 @@ export interface AutoScalingGroup {
   name?: string;
 }
 
-export type ResolveConflicts = "NONE" | "OVERWRITE" | "PRESERVE";
+export enum ResolveConflicts {
+  NONE = "NONE",
+  OVERWRITE = "OVERWRITE",
+  PRESERVE = "PRESERVE",
+}
 
 export interface CreateAddonRequest {
   /**
@@ -940,8 +946,22 @@ export interface Logging {
 }
 
 /**
+ * <p>The placement configuration for all the control plane instance of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+ *                 considerations</a> in the <i>Amazon EKS User Guide</i>
+ *          </p>
+ */
+export interface ControlPlanePlacementRequest {
+  /**
+   * <p>The name of the placement group for the Kubernetes control plane instances. This
+   *             setting can't be changed after cluster creation. </p>
+   */
+  groupName?: string;
+}
+
+/**
  * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services
- *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html">Creating a local Amazon EKS cluster on an Amazon Web Services Outpost</a> in the
+ *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local cluster on an Outpost</a> in the
  *             <i>Amazon EKS User Guide</i>. This API isn't available for Amazon EKS clusters on the
  *                 Amazon Web Services cloud.</p>
  */
@@ -954,30 +974,22 @@ export interface OutpostConfigRequest {
   outpostArns: string[] | undefined;
 
   /**
-   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. The instance type that you specify is used for all
-   * Kubernetes            control plane instances. The instance type can't be changed after cluster
-   *             creation.</p>
-   *         <p>Choose an instance type based on the number of nodes that your cluster will have. If
-   *             your cluster will have:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>1–20 nodes, then we recommend specifying a <code>large</code> instance
-   *                     type.</p>
-   *             </li>
-   *             <li>
-   *                 <p>21–100 nodes, then we recommend specifying an <code>xlarge</code>
-   *                     instance type.</p>
-   *             </li>
-   *             <li>
-   *                 <p>101–250 nodes, then we recommend specifying a <code>2xlarge</code>
-   *                     instance type.</p>
-   *             </li>
-   *          </ul>
-   *         <p>For a list of the available Amazon EC2 instance types, see Compute and storage
-   *             in <a href="http://aws.amazon.com/outposts/rack/features/">Outposts rack
-   *                 features</a>. The control plane is not automatically scaled by Amazon EKS.</p>
+   * <p>The Amazon EC2 instance type that you want to use for your local Amazon EKS cluster on Outposts. Choose an instance type based on the number of nodes
+   *             that your cluster will have. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   *         <p>The instance type that you specify is used for all Kubernetes control plane instances. The
+   *             instance type can't be changed after cluster creation. The control plane is not
+   *             automatically scaled by Amazon EKS.</p>
+   *         <p> </p>
    */
   controlPlaneInstanceType: string | undefined;
+
+  /**
+   * <p>An object representing the placement configuration for all the control plane instance
+   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost.  For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   */
+  controlPlanePlacement?: ControlPlanePlacementRequest;
 }
 
 /**
@@ -997,16 +1009,7 @@ export interface VpcConfigRequest {
    *             that Amazon EKS creates to use that allow communication between your nodes and
    *             the Kubernetes control plane. If you don't specify any security groups, then familiarize
    *             yourself with the difference between Amazon EKS defaults for clusters deployed
-   *             with Kubernetes:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>1.14 Amazon EKS platform version <code>eks.2</code> and earlier</p>
-   *             </li>
-   *             <li>
-   *                 <p>1.14 Amazon EKS platform version <code>eks.3</code> and later </p>
-   *             </li>
-   *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Amazon EKS security group
+   *             with Kubernetes. For more information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html">Amazon EKS security group
    *                 considerations</a> in the <i>
    *                <i>Amazon EKS User Guide</i>
    *             </i>.</p>
@@ -1128,7 +1131,7 @@ export interface CreateClusterRequest {
   /**
    * <p>An object representing the configuration of your local Amazon EKS cluster on
    *             an Amazon Web Services Outpost. Before creating a local cluster on an Outpost, review
-   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/create-cluster-outpost.html">Creating an Amazon EKS cluster on an Amazon Web Services Outpost</a> in
+   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html">Local clusters for Amazon EKS on Amazon Web Services Outposts</a> in
    *             the <i>Amazon EKS User Guide</i>. This object isn't available for creating Amazon EKS
    *             clusters on the Amazon Web Services
    *             cloud.</p>
@@ -1284,6 +1287,17 @@ export interface KubernetesNetworkConfigResponse {
 }
 
 /**
+ * <p>The placement configuration for all the control plane instance of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+ */
+export interface ControlPlanePlacementResponse {
+  /**
+   * <p>The name of the placement group for the Kubernetes control plane instances.</p>
+   */
+  groupName?: string;
+}
+
+/**
  * <p>An object representing the configuration of your local Amazon EKS cluster on
  *             an Amazon Web Services Outpost. This API isn't available for Amazon EKS clusters
  *             on the Amazon Web Services cloud.</p>
@@ -1301,6 +1315,14 @@ export interface OutpostConfigResponse {
    *             instances.</p>
    */
   controlPlaneInstanceType: string | undefined;
+
+  /**
+   * <p>An object representing the placement configuration for all the control plane instance
+   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more
+   *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
+   *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
+   */
+  controlPlanePlacement?: ControlPlanePlacementResponse;
 }
 
 /**
@@ -1367,7 +1389,14 @@ export interface VpcConfigResponse {
   publicAccessCidrs?: string[];
 }
 
-export type ClusterStatus = "ACTIVE" | "CREATING" | "DELETING" | "FAILED" | "PENDING" | "UPDATING";
+export enum ClusterStatus {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  FAILED = "FAILED",
+  PENDING = "PENDING",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>An object representing an Amazon EKS cluster.</p>
@@ -1654,7 +1683,13 @@ export interface CreateFargateProfileRequest {
   tags?: Record<string, string>;
 }
 
-export type FargateProfileStatus = "ACTIVE" | "CREATE_FAILED" | "CREATING" | "DELETE_FAILED" | "DELETING";
+export enum FargateProfileStatus {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+}
 
 /**
  * <p>An object representing an Fargate profile.</p>
@@ -1721,7 +1756,10 @@ export interface CreateFargateProfileResponse {
   fargateProfile?: FargateProfile;
 }
 
-export type CapacityTypes = "ON_DEMAND" | "SPOT";
+export enum CapacityTypes {
+  ON_DEMAND = "ON_DEMAND",
+  SPOT = "SPOT",
+}
 
 /**
  * <p>An object representing a node group launch template specification. The launch template
@@ -1752,13 +1790,8 @@ export interface LaunchTemplateSpecification {
   name?: string;
 
   /**
-   * <p>The launch template version number, <code>$Latest</code>, or
-   *             <code>$Default</code>.</p>
-   *         <p>If the value is <code>$Latest</code>, Amazon EKS uses the latest version of
-   *             the launch template.</p>
-   *         <p>If the value is <code>$Default</code>, Amazon EKS uses the default version of
-   *             the launch template.</p>
-   *         <p>Default: The default version of the launch template.</p>
+   * <p>The version number of the launch template to use. If no version is specified, then the
+   *             template's default version is used.</p>
    */
   version?: string;
 
@@ -2192,14 +2225,15 @@ export interface NodegroupResources {
   remoteAccessSecurityGroup?: string;
 }
 
-export type NodegroupStatus =
-  | "ACTIVE"
-  | "CREATE_FAILED"
-  | "CREATING"
-  | "DEGRADED"
-  | "DELETE_FAILED"
-  | "DELETING"
-  | "UPDATING";
+export enum NodegroupStatus {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DEGRADED = "DEGRADED",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  UPDATING = "UPDATING",
+}
 
 /**
  * <p>An object representing an Amazon EKS managed node group.</p>
@@ -3658,6 +3692,13 @@ export const LoggingFilterSensitiveLog = (obj: Logging): any => ({
 /**
  * @internal
  */
+export const ControlPlanePlacementRequestFilterSensitiveLog = (obj: ControlPlanePlacementRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const OutpostConfigRequestFilterSensitiveLog = (obj: OutpostConfigRequest): any => ({
   ...obj,
 });
@@ -3722,6 +3763,13 @@ export const IdentityFilterSensitiveLog = (obj: Identity): any => ({
  * @internal
  */
 export const KubernetesNetworkConfigResponseFilterSensitiveLog = (obj: KubernetesNetworkConfigResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ControlPlanePlacementResponseFilterSensitiveLog = (obj: ControlPlanePlacementResponse): any => ({
   ...obj,
 });
 
