@@ -31,19 +31,8 @@ export interface NotifyResourceDeploymentStatusChangeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Notify Proton of the following information related to a provisioned resource (environment, service instance, or service pipeline):</p>
- *          <ul>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-codebuild">CodeBuild-based
- *             provisioning</a>, provide your provisioned resource output values to Proton.</p>
- *             </li>
- *             <li>
- *                <p>For <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">self-managed
- *             provisioning</a>, notify Proton about the status of your provisioned resource. To disambiguate between different deployments of the same
- *           resource, set <code>deploymentId</code> to a unique deployment ID of your choice.</p>
- *
- *             </li>
- *          </ul>
+ * <p>Notify Proton of status changes to a provisioned resource when you use self-managed provisioning.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">Self-managed provisioning</a> in the <i>Proton User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

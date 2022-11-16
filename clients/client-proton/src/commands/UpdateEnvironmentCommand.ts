@@ -31,17 +31,17 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
 /**
  * <p>Update an environment.</p>
  *          <p>If the environment is associated with an environment account connection, <i>don't</i> update or include the
- *         <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, and <code>provisioningRepository</code> parameters.</p>
+ *         <code>protonServiceRoleArn</code> and <code>provisioningRepository</code> parameter to update or connect to an environment account connection.</p>
  *          <p>You can only update to a new environment account connection if that connection was created in the same environment account that the current
  *       environment account connection was created in. The account connection must also be associated with the current environment.</p>
  *          <p>If the environment <i>isn't</i> associated with an environment account connection, <i>don't</i> update or include the
  *         <code>environmentAccountConnectionId</code> parameter. You <i>can't</i> update or connect the environment to an environment account
  *       connection if it <i>isn't</i> already associated with an environment connection.</p>
- *          <p>You can update either <code>environmentAccountConnectionId</code> or one or more of <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>,
- *       and <code>provisioningRepository</code>.</p>
- *          <p>If the environment was configured for Amazon Web Services-managed or CodeBuild-based provisioning, omit the <code>provisioningRepository</code> parameter.</p>
+ *          <p>You can update either the <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter and value. You can’t update
+ *       both.</p>
+ *          <p>If the environment was configured for Amazon Web Services-managed provisioning, omit the <code>provisioningRepository</code> parameter.</p>
  *          <p>If the environment was configured for self-managed provisioning, specify the <code>provisioningRepository</code> parameter and omit the
- *         <code>protonServiceRoleArn</code>, <code>codebuildRoleArn</code>, and <code>provisioningRepository</code> parameters.</p>
+ *         <code>protonServiceRoleArn</code> and <code>environmentAccountConnectionId</code> parameters.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-environments.html">Environments</a> and <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html">Provisioning methods</a> in the <i>Proton User
  *         Guide</i>.</p>
  *          <p>There are four modes for updating an environment. The <code>deploymentType</code> field defines the mode.</p>

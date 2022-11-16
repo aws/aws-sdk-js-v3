@@ -41,8 +41,7 @@ export interface EnvironmentAccountConnection {
   environmentAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
-   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
+   * <p>The IAM service role that's associated with the environment account connection.</p>
    */
   roleArn: string | undefined;
 
@@ -245,8 +244,8 @@ export interface RepositoryBranch {
  */
 export interface AccountSettings {
   /**
-   * <p>The Amazon Resource Name (ARN) of the service role that Proton uses for provisioning pipelines. Proton assumes this role for Amazon Web Services-managed
-   *       provisioning.</p>
+   * <p>The Amazon Resource Name (ARN) of the service role you want to use for provisioning pipelines. Assumed by Proton for Amazon Web Services-managed provisioning, and by
+   *       customer-owned automation for self-managed provisioning.</p>
    */
   pipelineServiceRoleArn?: string;
 
@@ -497,13 +496,12 @@ export interface Environment {
   deploymentStatusMessage?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
-   *       on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
   /**
-   * <p>The ID of the environment account connection that Proton uses to provision infrastructure resources in an environment account.</p>
+   * <p>The ID of the environment account connection that's used to provision infrastructure resources in an environment account.</p>
    */
   environmentAccountConnectionId?: string;
 
@@ -1123,8 +1121,8 @@ export interface CreateEnvironmentAccountConnectionInput {
   managementAccountId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
-   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
+   *       resources in the associated environment account.</p>
    */
   roleArn: string | undefined;
 
@@ -1141,8 +1139,8 @@ export interface CreateEnvironmentAccountConnectionInput {
   tags?: Tag[];
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision directly defined components
-   *       in the associated environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that Proton uses when provisioning directly defined components in the associated
+   *       environment account. It determines the scope of infrastructure that a component can provision in the account.</p>
    *          <p>You must specify <code>componentRoleArn</code> to allow directly defined components to be associated with any environments running in this
    *       account.</p>
    *          <p>For more information about components, see
@@ -1321,8 +1319,7 @@ export interface UpdateEnvironmentAccountConnectionInput {
   id: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM service role in the environment account. Proton uses this role to provision infrastructure resources
-   *       using Amazon Web Services-managed provisioning and CloudFormation in the associated environment account.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM service role that's associated with the environment account connection to update.</p>
    */
   roleArn?: string;
 
@@ -1436,19 +1433,18 @@ export interface CreateEnvironmentInput {
   spec: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
-   *       on your behalf.</p>
-   *          <p>To use Amazon Web Services-managed provisioning for the environment or for any service instance running in the environment, specify either the
-   *         <code>environmentAccountConnectionId</code> or <code>protonServiceRoleArn</code> parameter.</p>
+   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make calls to other services on your behalf.</p>
+   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
+   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
    */
   protonServiceRoleArn?: string;
 
   /**
-   * <p>The ID of the environment account connection that you provide if you want Proton to provision infrastructure resources for your environment or for any
-   *       of the service instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
-   *       guide</i>.</p>
-   *          <p>If you specify the <code>environmentAccountConnectionId</code> parameter, don't specify <code>protonServiceRoleArn</code>,
-   *         <code>codebuildRoleArn</code>, or <code>provisioningRepository</code>.</p>
+   * <p>The ID of the environment account connection that you provide if you're provisioning your environment infrastructure resources to an environment
+   *       account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account
+   *         connections</a> in the <i>Proton User guide</i>.</p>
+   *          <p>To use Amazon Web Services-managed provisioning for the environment, specify either the <code>environmentAccountConnectionId</code> or
+   *         <code>protonServiceRoleArn</code> parameter and omit the <code>provisioningRepository</code> parameter.</p>
    */
   environmentAccountConnectionId?: string;
 
@@ -1462,7 +1458,8 @@ export interface CreateEnvironmentInput {
   /**
    * <p>The linked repository that you use to host your rendered infrastructure templates for self-managed provisioning. A linked repository is a repository
    *       that has been registered with Proton. For more information, see <a>CreateRepository</a>.</p>
-   *          <p>To use self-managed provisioning for the environment or for any service instance running in the environment, specify this parameter.</p>
+   *          <p>To use self-managed provisioning for the environment, specify this parameter and omit the <code>environmentAccountConnectionId</code> and
+   *         <code>protonServiceRoleArn</code> parameters.</p>
    */
   provisioningRepository?: RepositoryBranchInput;
 
@@ -1689,8 +1686,7 @@ export interface UpdateEnvironmentInput {
   templateMinorVersion?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM service role that allows Proton to provision infrastructure using Amazon Web Services-managed provisioning and CloudFormation
-   *       on your behalf.</p>
+   * <p>The Amazon Resource Name (ARN) of the Proton service role that allows Proton to make API calls to other services your behalf.</p>
    */
   protonServiceRoleArn?: string;
 
@@ -1733,9 +1729,7 @@ export interface UpdateEnvironmentInput {
   deploymentType: DeploymentUpdateType | string | undefined;
 
   /**
-   * <p>The ID of the environment account connection that you provide if you want Proton to provision infrastructure resources for your environment or for any
-   *       of the service instances running in it in an environment account. For more information, see <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-env-account-connections.html">Environment account connections</a> in the <i>Proton User
-   *       guide</i>.</p>
+   * <p>The ID of the environment account connection.</p>
    *          <p>You can only update to a new environment account connection if it was created in the same environment account that the current environment account
    *       connection was created in and is associated with the current environment.</p>
    */
@@ -2674,7 +2668,7 @@ export enum ResourceDeploymentStatus {
 
 export interface NotifyResourceDeploymentStatusChangeInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of your provisioned resource.</p>
+   * <p>The provisioned resource Amazon Resource Name (ARN).</p>
    */
   resourceArn: string | undefined;
 
@@ -2684,12 +2678,12 @@ export interface NotifyResourceDeploymentStatusChangeInput {
   status?: ResourceDeploymentStatus | string;
 
   /**
-   * <p>The output values generated by your provisioned resource.</p>
+   * <p>The provisioned resource state change detail data that's returned by Proton.</p>
    */
   outputs?: Output[];
 
   /**
-   * <p>The deployment ID for your provisioned resource. Proton uses it to disambiguate different deployments of the resource. Applicable to <a href="https://docs.aws.amazon.com/proton/latest/userguide/ag-works-prov-methods.html#ag-works-prov-methods-self">self-managed provisioning</a>.</p>
+   * <p>The deployment ID for your provisioned resource.</p>
    */
   deploymentId?: string;
 
@@ -2929,6 +2923,51 @@ export interface GetServiceInstanceOutput {
   serviceInstance: ServiceInstance | undefined;
 }
 
+export enum ListServiceInstancesFilterBy {
+  CREATED_AT_AFTER = "createdAtAfter",
+  CREATED_AT_BEFORE = "createdAtBefore",
+  DEPLOYED_TEMPLATE_VERSION_STATUS = "deployedTemplateVersionStatus",
+  DEPLOYMENT_STATUS = "deploymentStatus",
+  ENVIRONMENT_NAME = "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_AFTER = "lastDeploymentAttemptedAtAfter",
+  LAST_DEPLOYMENT_ATTEMPTED_AT_BEFORE = "lastDeploymentAttemptedAtBefore",
+  NAME = "name",
+  SERVICE_NAME = "serviceName",
+  TEMPLATE_NAME = "templateName",
+}
+
+/**
+ * <p>A filtering criterion to scope down the result list of the <a>ListServiceInstances</a> action.</p>
+ */
+export interface ListServiceInstancesFilter {
+  /**
+   * <p>The name of a filtering criterion.</p>
+   */
+  key?: ListServiceInstancesFilterBy | string;
+
+  /**
+   * <p>A value to filter by.</p>
+   *          <p>With the date/time keys (<code>*At{Before,After}</code>), the value is a valid <a href="https://datatracker.ietf.org/doc/html/rfc3339.html">RFC
+   *         3339</a> string with no UTC offset and with an optional fractional precision (for example, <code>1985-04-12T23:20:50.52Z</code>).</p>
+   */
+  value?: string;
+}
+
+export enum ListServiceInstancesSortBy {
+  CREATED_AT = "createdAt",
+  DEPLOYMENT_STATUS = "deploymentStatus",
+  ENVIRONMENT_NAME = "environmentName",
+  LAST_DEPLOYMENT_ATTEMPTED_AT = "lastDeploymentAttemptedAt",
+  NAME = "name",
+  SERVICE_NAME = "serviceName",
+  TEMPLATE_NAME = "templateName",
+}
+
+export enum SortOrder {
+  ASCENDING = "ASCENDING",
+  DESCENDING = "DESCENDING",
+}
+
 export interface ListServiceInstancesInput {
   /**
    * <p>The name of the service that the service instance belongs to.</p>
@@ -2945,6 +2984,26 @@ export interface ListServiceInstancesInput {
    * <p>The maximum number of service instances to list.</p>
    */
   maxResults?: number;
+
+  /**
+   * <p>An array of filtering criteria that scope down the result list. By default, all service instances in the Amazon Web Services account are returned.</p>
+   */
+  filters?: ListServiceInstancesFilter[];
+
+  /**
+   * <p>The field that the result list is sorted by.</p>
+   *          <p>When you choose to sort by <code>serviceName</code>, service instances within each service are sorted by service instance name.</p>
+   *          <p>Default: <code>serviceName</code>
+   *          </p>
+   */
+  sortBy?: ListServiceInstancesSortBy | string;
+
+  /**
+   * <p>Result list sort order.</p>
+   *          <p>Default: <code>ASCENDING</code>
+   *          </p>
+   */
+  sortOrder?: SortOrder | string;
 }
 
 /**
@@ -5302,6 +5361,13 @@ export const GetServiceInstanceInputFilterSensitiveLog = (obj: GetServiceInstanc
 export const GetServiceInstanceOutputFilterSensitiveLog = (obj: GetServiceInstanceOutput): any => ({
   ...obj,
   ...(obj.serviceInstance && { serviceInstance: ServiceInstanceFilterSensitiveLog(obj.serviceInstance) }),
+});
+
+/**
+ * @internal
+ */
+export const ListServiceInstancesFilterFilterSensitiveLog = (obj: ListServiceInstancesFilter): any => ({
+  ...obj,
 });
 
 /**

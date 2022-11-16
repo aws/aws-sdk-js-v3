@@ -367,6 +367,7 @@ import {
   ListServiceInstanceOutputsOutput,
   ListServiceInstanceProvisionedResourcesInput,
   ListServiceInstanceProvisionedResourcesOutput,
+  ListServiceInstancesFilter,
   ListServiceInstancesInput,
   ListServiceInstancesOutput,
   ListServicePipelineOutputsInput,
@@ -6206,14 +6207,40 @@ const serializeAws_json1_0ListServiceInstanceProvisionedResourcesInput = (
   };
 };
 
+const serializeAws_json1_0ListServiceInstancesFilter = (
+  input: ListServiceInstancesFilter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
+  };
+};
+
+const serializeAws_json1_0ListServiceInstancesFilterList = (
+  input: ListServiceInstancesFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_0ListServiceInstancesFilter(entry, context);
+    });
+};
+
 const serializeAws_json1_0ListServiceInstancesInput = (
   input: ListServiceInstancesInput,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.filters != null && {
+      filters: serializeAws_json1_0ListServiceInstancesFilterList(input.filters, context),
+    }),
     ...(input.maxResults != null && { maxResults: input.maxResults }),
     ...(input.nextToken != null && { nextToken: input.nextToken }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
+    ...(input.sortBy != null && { sortBy: input.sortBy }),
+    ...(input.sortOrder != null && { sortOrder: input.sortOrder }),
   };
 };
 
