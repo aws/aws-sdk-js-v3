@@ -74,9 +74,8 @@ const convertMap = (
   options?: unmarshallOptions
 ): Record<string, NativeAttributeValue> =>
   Object.entries(map).reduce(
-    (acc: Record<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) => ({
-      ...acc,
-      [key]: convertToNative(value, options),
-    }),
+    (acc: Record<string, NativeAttributeValue>, [key, value]: [string, AttributeValue]) => (
+      (acc[key] = convertToNative(value, options)), acc
+    ),
     {}
   );
