@@ -51,7 +51,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * Timestamps are deserialized from {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML
  *      traits.</a>
  */
 @SmithyInternalApi

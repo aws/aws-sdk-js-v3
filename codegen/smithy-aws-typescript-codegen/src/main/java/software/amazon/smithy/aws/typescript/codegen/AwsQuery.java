@@ -45,7 +45,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see QueryMemberSerVisitor
  * @see XmlMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class AwsQuery extends HttpRpcProtocolGenerator {

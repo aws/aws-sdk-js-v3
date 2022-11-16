@@ -2,7 +2,7 @@ import { sleep } from "./utils/sleep";
 import { WaiterOptions, WaiterResult, WaiterState } from "./waiter";
 
 /**
- * Reference: https://awslabs.github.io/smithy/1.0/spec/waiters.html#waiter-retries
+ * Reference: https://smithy.io/2.0/additional-specs/waiters.html#waiter-retries
  */
 const exponentialBackoffWithJitter = (minDelay: number, maxDelay: number, attemptCeiling: number, attempt: number) => {
   if (attempt > attemptCeiling) return maxDelay;

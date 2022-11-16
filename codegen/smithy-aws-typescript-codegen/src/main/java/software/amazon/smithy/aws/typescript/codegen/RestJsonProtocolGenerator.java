@@ -49,7 +49,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  * @see JsonMemberSerVisitor
  * @see JsonMemberDeserVisitor
  * @see AwsProtocolUtils
- * @see <a href="https://awslabs.github.io/smithy/spec/http.html">Smithy HTTP protocol bindings.</a>
+ * @see <a href="https://smithy.io/2.0/spec/http-bindings.html">Smithy HTTP protocol bindings.</a>
  */
 @SmithyInternalApi
 abstract class RestJsonProtocolGenerator extends HttpBindingProtocolGenerator {

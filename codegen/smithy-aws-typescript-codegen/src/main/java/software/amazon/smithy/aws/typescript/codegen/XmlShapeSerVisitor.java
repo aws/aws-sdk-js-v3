@@ -48,7 +48,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * Timestamps are serialized to {@link Format}.DATE_TIME by default.
  *
- * @see <a href="https://awslabs.github.io/smithy/spec/xml.html">Smithy XML traits.</a>
+ * @see <a href="https://smithy.io/2.0/spec/protocol-traits.html#xml-bindings">Smithy XML traits.</a>
  */
 @SmithyInternalApi
 final class XmlShapeSerVisitor extends DocumentShapeSerVisitor {
