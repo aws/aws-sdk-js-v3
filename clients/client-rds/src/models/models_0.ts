@@ -1633,6 +1633,11 @@ export interface DBClusterSnapshot {
    *          </p>
    */
   TagList?: Tag[];
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  DBSystemId?: string;
 }
 
 export interface CopyDBClusterSnapshotResult {
@@ -3001,6 +3006,15 @@ export interface DBEngineVersion {
    * <p>A value that indicates whether the engine version supports Babelfish for Aurora PostgreSQL.</p>
    */
   SupportsBabelfish?: boolean;
+
+  /**
+   * <p>JSON string that lists the installation files and parameters that RDS Custom uses to create a custom engine version (CEV).
+   *           RDS Custom applies the patches in the order in which they're listed in the manifest. You can set the Oracle home, Oracle base,
+   *           and UNIX/Linux user and group using the installation parameters. For more information,
+   *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.preparing.html#custom-cev.preparing.manifest.fields">JSON fields in the CEV manifest</a> in the <i>Amazon RDS User Guide</i>.
+   *       </p>
+   */
+  CustomDBEngineVersionManifest?: string;
 }
 
 /**
@@ -3790,6 +3804,11 @@ export interface CreateDBClusterMessage {
    *         <p>Valid for: Aurora DB clusters only</p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  DBSystemId?: string;
 }
 
 /**
@@ -3950,6 +3969,23 @@ export interface ClusterPendingModifiedValues {
    * <p>The database engine version.</p>
    */
   EngineVersion?: string;
+
+  /**
+   * <p>The number of days for which automatic DB snapshots are retained.</p>
+   */
+  BackupRetentionPeriod?: number;
+
+  /**
+   * <p>The allocated storage size in gibibytes (GiB) for all database engines except Amazon Aurora. For Aurora,
+   *             <code>AllocatedStorage</code> always returns 1, because Aurora DB cluster storage size isn't fixed, but
+   *             instead automatically adjusts as needed.</p>
+   */
+  AllocatedStorage?: number;
+
+  /**
+   * <p>The Provisioned IOPS (I/O operations per second) value. This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  Iops?: number;
 }
 
 /**
@@ -4500,6 +4536,11 @@ export interface DBCluster {
    *         <p>This setting is only for Aurora DB clusters.</p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>Reserved for future use.</p>
+   */
+  DBSystemId?: string;
 }
 
 export interface CreateDBClusterResult {
@@ -7254,6 +7295,12 @@ export interface DBInstance {
    *         <p>This setting applies only to the <code>gp3</code> storage type.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>The Oracle system ID (Oracle SID) for a container database (CDB). The Oracle SID is also
+   *             the name of the CDB. This setting is valid for RDS Custom only.</p>
+   */
+  DBSystemId?: string;
 }
 
 export interface CreateDBInstanceResult {

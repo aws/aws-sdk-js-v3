@@ -12116,6 +12116,9 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.DBSystemId != null) {
+    entries["DBSystemId"] = input.DBSystemId;
+  }
   return entries;
 };
 
@@ -17032,6 +17035,9 @@ const deserializeAws_queryClusterPendingModifiedValues = (
     MasterUserPassword: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     EngineVersion: undefined,
+    BackupRetentionPeriod: undefined,
+    AllocatedStorage: undefined,
+    Iops: undefined,
   };
   if (output["PendingCloudwatchLogsExports"] !== undefined) {
     contents.PendingCloudwatchLogsExports = deserializeAws_queryPendingCloudwatchLogsExports(
@@ -17050,6 +17056,15 @@ const deserializeAws_queryClusterPendingModifiedValues = (
   }
   if (output["EngineVersion"] !== undefined) {
     contents.EngineVersion = __expectString(output["EngineVersion"]);
+  }
+  if (output["BackupRetentionPeriod"] !== undefined) {
+    contents.BackupRetentionPeriod = __strictParseInt32(output["BackupRetentionPeriod"]) as number;
+  }
+  if (output["AllocatedStorage"] !== undefined) {
+    contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
+  }
+  if (output["Iops"] !== undefined) {
+    contents.Iops = __strictParseInt32(output["Iops"]) as number;
   }
   return contents;
 };
@@ -17443,6 +17458,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     PerformanceInsightsRetentionPeriod: undefined,
     ServerlessV2ScalingConfiguration: undefined,
     NetworkType: undefined,
+    DBSystemId: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -17726,6 +17742,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["NetworkType"] !== undefined) {
     contents.NetworkType = __expectString(output["NetworkType"]);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };
@@ -18278,6 +18297,7 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     SourceDBClusterSnapshotArn: undefined,
     IAMDatabaseAuthenticationEnabled: undefined,
     TagList: undefined,
+    DBSystemId: undefined,
   };
   if (output.AvailabilityZones === "") {
     contents.AvailabilityZones = [];
@@ -18354,6 +18374,9 @@ const deserializeAws_queryDBClusterSnapshot = (output: any, context: __SerdeCont
     contents.TagList = [];
   } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
     contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };
@@ -18503,6 +18526,7 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
     CreateTime: undefined,
     TagList: undefined,
     SupportsBabelfish: undefined,
+    CustomDBEngineVersionManifest: undefined,
   };
   if (output["Engine"] !== undefined) {
     contents.Engine = __expectString(output["Engine"]);
@@ -18628,6 +18652,9 @@ const deserializeAws_queryDBEngineVersion = (output: any, context: __SerdeContex
   if (output["SupportsBabelfish"] !== undefined) {
     contents.SupportsBabelfish = __parseBoolean(output["SupportsBabelfish"]);
   }
+  if (output["CustomDBEngineVersionManifest"] !== undefined) {
+    contents.CustomDBEngineVersionManifest = __expectString(output["CustomDBEngineVersionManifest"]);
+  }
   return contents;
 };
 
@@ -18737,6 +18764,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     NetworkType: undefined,
     ActivityStreamPolicyStatus: undefined,
     StorageThroughput: undefined,
+    DBSystemId: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -19066,6 +19094,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["StorageThroughput"] !== undefined) {
     contents.StorageThroughput = __strictParseInt32(output["StorageThroughput"]) as number;
+  }
+  if (output["DBSystemId"] !== undefined) {
+    contents.DBSystemId = __expectString(output["DBSystemId"]);
   }
   return contents;
 };
