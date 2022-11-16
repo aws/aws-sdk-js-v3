@@ -98,6 +98,10 @@ import {
   DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
 } from "./commands/DeregisterManagedInstanceCommand";
@@ -295,6 +299,10 @@ import {
   GetPatchBaselineForPatchGroupCommandInput,
   GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand";
+import {
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand";
 import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "./commands/GetServiceSettingCommand";
 import {
   LabelParameterVersionCommandInput,
@@ -356,6 +364,7 @@ import {
 import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "./commands/PutComplianceItemsCommand";
 import { PutInventoryCommandInput, PutInventoryCommandOutput } from "./commands/PutInventoryCommand";
 import { PutParameterCommandInput, PutParameterCommandOutput } from "./commands/PutParameterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
 import {
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput,
@@ -484,6 +493,7 @@ export type ServiceInputTypes =
   | DeleteParametersCommandInput
   | DeletePatchBaselineCommandInput
   | DeleteResourceDataSyncCommandInput
+  | DeleteResourcePolicyCommandInput
   | DeregisterManagedInstanceCommandInput
   | DeregisterPatchBaselineForPatchGroupCommandInput
   | DeregisterTargetFromMaintenanceWindowCommandInput
@@ -544,6 +554,7 @@ export type ServiceInputTypes =
   | GetParametersCommandInput
   | GetPatchBaselineCommandInput
   | GetPatchBaselineForPatchGroupCommandInput
+  | GetResourcePoliciesCommandInput
   | GetServiceSettingCommandInput
   | LabelParameterVersionCommandInput
   | ListAssociationVersionsCommandInput
@@ -566,6 +577,7 @@ export type ServiceInputTypes =
   | PutComplianceItemsCommandInput
   | PutInventoryCommandInput
   | PutParameterCommandInput
+  | PutResourcePolicyCommandInput
   | RegisterDefaultPatchBaselineCommandInput
   | RegisterPatchBaselineForPatchGroupCommandInput
   | RegisterTargetWithMaintenanceWindowCommandInput
@@ -621,6 +633,7 @@ export type ServiceOutputTypes =
   | DeleteParametersCommandOutput
   | DeletePatchBaselineCommandOutput
   | DeleteResourceDataSyncCommandOutput
+  | DeleteResourcePolicyCommandOutput
   | DeregisterManagedInstanceCommandOutput
   | DeregisterPatchBaselineForPatchGroupCommandOutput
   | DeregisterTargetFromMaintenanceWindowCommandOutput
@@ -681,6 +694,7 @@ export type ServiceOutputTypes =
   | GetParametersCommandOutput
   | GetPatchBaselineCommandOutput
   | GetPatchBaselineForPatchGroupCommandOutput
+  | GetResourcePoliciesCommandOutput
   | GetServiceSettingCommandOutput
   | LabelParameterVersionCommandOutput
   | ListAssociationVersionsCommandOutput
@@ -703,6 +717,7 @@ export type ServiceOutputTypes =
   | PutComplianceItemsCommandOutput
   | PutInventoryCommandOutput
   | PutParameterCommandOutput
+  | PutResourcePolicyCommandOutput
   | RegisterDefaultPatchBaselineCommandOutput
   | RegisterPatchBaselineForPatchGroupCommandOutput
   | RegisterTargetWithMaintenanceWindowCommandOutput

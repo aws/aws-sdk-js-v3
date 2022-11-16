@@ -14,40 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateDocumentRequest,
-  UpdateDocumentRequestFilterSensitiveLog,
-  UpdateDocumentResult,
-  UpdateDocumentResultFilterSensitiveLog,
-} from "../models/models_2";
+  GetResourcePoliciesRequest,
+  GetResourcePoliciesRequestFilterSensitiveLog,
+  GetResourcePoliciesResponse,
+  GetResourcePoliciesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
+  deserializeAws_json1_1GetResourcePoliciesCommand,
+  serializeAws_json1_1GetResourcePoliciesCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
-export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
-export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
+export interface GetResourcePoliciesCommandInput extends GetResourcePoliciesRequest {}
+export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates one or more values for an SSM document.</p>
+ * <p>Returns an array of the <code>Policy</code> object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, GetResourcePoliciesCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, GetResourcePoliciesCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const command = new UpdateDocumentCommand(input);
+ * const command = new GetResourcePoliciesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
- * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link GetResourcePoliciesCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePoliciesCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
-export class UpdateDocumentCommand extends $Command<
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput,
+export class GetResourcePoliciesCommand extends $Command<
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
   SSMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +62,7 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateDocumentCommandInput) {
+  constructor(readonly input: GetResourcePoliciesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +75,23 @@ export class UpdateDocumentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDocumentCommandInput, UpdateDocumentCommandOutput> {
+  ): Handler<GetResourcePoliciesCommandInput, GetResourcePoliciesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDocumentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetResourcePoliciesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMClient";
-    const commandName = "UpdateDocumentCommand";
+    const commandName = "GetResourcePoliciesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: GetResourcePoliciesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourcePoliciesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +101,12 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+  private serialize(input: GetResourcePoliciesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetResourcePoliciesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePoliciesCommandOutput> {
+    return deserializeAws_json1_1GetResourcePoliciesCommand(output, context);
   }
 
   // Start section: command_body_extra

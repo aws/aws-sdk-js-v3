@@ -117,6 +117,11 @@ import {
   DeleteResourceDataSyncCommandOutput,
 } from "./commands/DeleteResourceDataSyncCommand";
 import {
+  DeleteResourcePolicyCommand,
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "./commands/DeleteResourcePolicyCommand";
+import {
   DeregisterManagedInstanceCommand,
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
@@ -409,6 +414,11 @@ import {
   GetPatchBaselineForPatchGroupCommandOutput,
 } from "./commands/GetPatchBaselineForPatchGroupCommand";
 import {
+  GetResourcePoliciesCommand,
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "./commands/GetResourcePoliciesCommand";
+import {
   GetServiceSettingCommand,
   GetServiceSettingCommandInput,
   GetServiceSettingCommandOutput,
@@ -518,6 +528,11 @@ import {
   PutParameterCommandInput,
   PutParameterCommandOutput,
 } from "./commands/PutParameterCommand";
+import {
+  PutResourcePolicyCommand,
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
+} from "./commands/PutResourcePolicyCommand";
 import {
   RegisterDefaultPatchBaselineCommand,
   RegisterDefaultPatchBaselineCommandInput,
@@ -1554,6 +1569,41 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: DeleteResourceDataSyncCommandOutput) => void
   ): Promise<DeleteResourceDataSyncCommandOutput> | void {
     const command = new DeleteResourceDataSyncCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. Currently,
+   *     <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies. The
+   *    resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with
+   *    OpsCenter operational work items (OpsItems).</p>
+   */
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteResourcePolicyCommandOutput>;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): void;
+  public deleteResourcePolicy(
+    args: DeleteResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteResourcePolicyCommandOutput) => void
+  ): Promise<DeleteResourcePolicyCommandOutput> | void {
+    const command = new DeleteResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3661,6 +3711,38 @@ export class SSM extends SSMClient {
   }
 
   /**
+   * <p>Returns an array of the <code>Policy</code> object.</p>
+   */
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePoliciesCommandOutput>;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): void;
+  public getResourcePolicies(
+    args: GetResourcePoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePoliciesCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePoliciesCommandOutput) => void
+  ): Promise<GetResourcePoliciesCommandOutput> | void {
+    const command = new GetResourcePoliciesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>
    *             <code>ServiceSetting</code> is an account-level setting for an Amazon Web Services service. This setting
    *    defines how a user interacts with or uses a service or a feature of a service. For example, if an
@@ -4479,6 +4561,42 @@ export class SSM extends SSMClient {
     cb?: (err: any, data?: PutParameterCommandOutput) => void
   ): Promise<PutParameterCommandOutput> | void {
     const command = new PutParameterCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
+   *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
+   *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
+   *    The resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact
+   *    with OpsCenter operational work items (OpsItems).</p>
+   */
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutResourcePolicyCommandOutput>;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+  public putResourcePolicy(
+    args: PutResourcePolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutResourcePolicyCommandOutput) => void),
+    cb?: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): Promise<PutResourcePolicyCommandOutput> | void {
+    const command = new PutResourcePolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

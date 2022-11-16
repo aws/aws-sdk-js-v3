@@ -70,6 +70,10 @@ import {
   DeleteResourceDataSyncCommandOutput,
 } from "../commands/DeleteResourceDataSyncCommand";
 import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
+import {
   DeregisterManagedInstanceCommandInput,
   DeregisterManagedInstanceCommandOutput,
 } from "../commands/DeregisterManagedInstanceCommand";
@@ -267,6 +271,10 @@ import {
   GetPatchBaselineForPatchGroupCommandInput,
   GetPatchBaselineForPatchGroupCommandOutput,
 } from "../commands/GetPatchBaselineForPatchGroupCommand";
+import {
+  GetResourcePoliciesCommandInput,
+  GetResourcePoliciesCommandOutput,
+} from "../commands/GetResourcePoliciesCommand";
 import { GetServiceSettingCommandInput, GetServiceSettingCommandOutput } from "../commands/GetServiceSettingCommand";
 import {
   LabelParameterVersionCommandInput,
@@ -328,6 +336,7 @@ import {
 import { PutComplianceItemsCommandInput, PutComplianceItemsCommandOutput } from "../commands/PutComplianceItemsCommand";
 import { PutInventoryCommandInput, PutInventoryCommandOutput } from "../commands/PutInventoryCommand";
 import { PutParameterCommandInput, PutParameterCommandOutput } from "../commands/PutParameterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import {
   RegisterDefaultPatchBaselineCommandInput,
   RegisterDefaultPatchBaselineCommandOutput,
@@ -495,6 +504,8 @@ import {
   DeletePatchBaselineResult,
   DeleteResourceDataSyncRequest,
   DeleteResourceDataSyncResult,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResponse,
   DeregisterManagedInstanceRequest,
   DeregisterManagedInstanceResult,
   DeregisterPatchBaselineForPatchGroupRequest,
@@ -554,8 +565,6 @@ import {
   DescribeMaintenanceWindowTargetsResult,
   DescribeMaintenanceWindowTasksRequest,
   DescribeMaintenanceWindowTasksResult,
-  DescribeOpsItemsRequest,
-  DescribeOpsItemsResponse,
   DocumentAlreadyExists,
   DocumentDescription,
   DocumentLimitExceeded,
@@ -622,15 +631,14 @@ import {
   MaintenanceWindowTaskParameterValueExpression,
   MaxDocumentSizeExceeded,
   MetadataValue,
+  OpsItemAccessDeniedException,
   OpsItemAlreadyExistsException,
   OpsItemDataValue,
-  OpsItemFilter,
   OpsItemInvalidParameterException,
   OpsItemLimitExceededException,
   OpsItemNotFoundException,
   OpsItemNotification,
   OpsItemRelatedItemAlreadyExistsException,
-  OpsItemSummary,
   OpsMetadataAlreadyExistsException,
   OpsMetadataInvalidArgumentException,
   OpsMetadataLimitExceededException,
@@ -662,6 +670,8 @@ import {
   ResourceDataSyncSource,
   ResourceInUseException,
   ResourceLimitExceededException,
+  ResourcePolicyConflictException,
+  ResourcePolicyInvalidParameterException,
   ReviewInformation,
   Runbook,
   S3OutputLocation,
@@ -704,6 +714,8 @@ import {
   ComplianceTypeCountLimitExceededException,
   CompliantSummary,
   CustomSchemaCountLimitExceededException,
+  DescribeOpsItemsRequest,
+  DescribeOpsItemsResponse,
   DescribeParametersRequest,
   DescribeParametersResult,
   DescribePatchBaselinesRequest,
@@ -726,9 +738,6 @@ import {
   DocumentReviewCommentSource,
   DocumentReviewerResponseSource,
   DocumentVersionInfo,
-  DocumentVersionLimitExceeded,
-  DuplicateDocumentContent,
-  DuplicateDocumentVersionName,
   FeatureNotAvailableException,
   GetAutomationExecutionRequest,
   GetAutomationExecutionResult,
@@ -774,6 +783,9 @@ import {
   GetPatchBaselineForPatchGroupResult,
   GetPatchBaselineRequest,
   GetPatchBaselineResult,
+  GetResourcePoliciesRequest,
+  GetResourcePoliciesResponse,
+  GetResourcePoliciesResponseEntry,
   GetServiceSettingRequest,
   GetServiceSettingResult,
   HierarchyLevelLimitExceededException,
@@ -798,7 +810,6 @@ import {
   InvalidPolicyTypeException,
   InvalidResultAttributeException,
   InvalidRole,
-  InvalidUpdate,
   InventoryFilter,
   InventoryGroup,
   InventoryItem,
@@ -859,10 +870,12 @@ import {
   OpsItem,
   OpsItemEventFilter,
   OpsItemEventSummary,
+  OpsItemFilter,
   OpsItemIdentity,
   OpsItemRelatedItemAssociationNotFoundException,
   OpsItemRelatedItemsFilter,
   OpsItemRelatedItemSummary,
+  OpsItemSummary,
   OpsMetadata,
   OpsMetadataFilter,
   OpsResultAttribute,
@@ -888,6 +901,8 @@ import {
   PutInventoryResult,
   PutParameterRequest,
   PutParameterResult,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResponse,
   RegisterDefaultPatchBaselineRequest,
   RegisterDefaultPatchBaselineResult,
   RegisterPatchBaselineForPatchGroupRequest,
@@ -903,6 +918,7 @@ import {
   ResourceComplianceSummaryItem,
   ResourceDataSyncItem,
   ResourceDataSyncSourceWithState,
+  ResourcePolicyLimitExceededException,
   ResultAttribute,
   ResumeSessionRequest,
   ResumeSessionResponse,
@@ -924,7 +940,6 @@ import {
   StartChangeRequestExecutionResult,
   StartSessionRequest,
   StartSessionResponse,
-  StatusUnchanged,
   StopAutomationExecutionRequest,
   StopAutomationExecutionResult,
   SubTypeCountLimitExceededException,
@@ -939,26 +954,31 @@ import {
   UnsupportedInventoryItemContextException,
   UnsupportedInventorySchemaVersionException,
   UnsupportedParameterType,
-  UpdateAssociationRequest,
-  UpdateAssociationResult,
-  UpdateAssociationStatusRequest,
-  UpdateAssociationStatusResult,
-  UpdateDocumentRequest,
-  UpdateDocumentResult,
 } from "../models/models_1";
 import {
   DocumentDefaultVersionDescription,
   DocumentReviews,
+  DocumentVersionLimitExceeded,
+  DuplicateDocumentContent,
+  DuplicateDocumentVersionName,
   GetInventoryRequest,
   GetOpsSummaryRequest,
+  InvalidUpdate,
   InventoryAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
+  StatusUnchanged,
+  UpdateAssociationRequest,
+  UpdateAssociationResult,
+  UpdateAssociationStatusRequest,
+  UpdateAssociationStatusResult,
   UpdateDocumentDefaultVersionRequest,
   UpdateDocumentDefaultVersionResult,
   UpdateDocumentMetadataRequest,
   UpdateDocumentMetadataResponse,
+  UpdateDocumentRequest,
+  UpdateDocumentResult,
   UpdateMaintenanceWindowRequest,
   UpdateMaintenanceWindowResult,
   UpdateMaintenanceWindowTargetRequest,
@@ -1276,6 +1296,19 @@ export const serializeAws_json1_1DeleteResourceDataSyncCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DeleteResourceDataSyncRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.DeleteResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2059,6 +2092,19 @@ export const serializeAws_json1_1GetPatchBaselineForPatchGroupCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetResourcePoliciesCommand = async (
+  input: GetResourcePoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.GetResourcePolicies",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetResourcePoliciesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetServiceSettingCommand = async (
   input: GetServiceSettingCommandInput,
   context: __SerdeContext
@@ -2342,6 +2388,19 @@ export const serializeAws_json1_1PutParameterCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutParameterRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonSSM.PutResourcePolicy",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PutResourcePolicyRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3263,6 +3322,9 @@ const deserializeAws_json1_1CreateOpsItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "OpsItemAccessDeniedException":
+    case "com.amazonaws.ssm#OpsItemAccessDeniedException":
+      throw await deserializeAws_json1_1OpsItemAccessDeniedExceptionResponse(parsedOutput, context);
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       throw await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(parsedOutput, context);
@@ -3892,6 +3954,53 @@ const deserializeAws_json1_1DeleteResourceDataSyncCommandError = async (
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       throw await deserializeAws_json1_1ResourceDataSyncNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteResourcePolicyResponse(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "ResourcePolicyConflictException":
+    case "com.amazonaws.ssm#ResourcePolicyConflictException":
+      throw await deserializeAws_json1_1ResourcePolicyConflictExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyInvalidParameterException":
+    case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
+      throw await deserializeAws_json1_1ResourcePolicyInvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6288,6 +6397,9 @@ const deserializeAws_json1_1GetOpsItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "OpsItemAccessDeniedException":
+    case "com.amazonaws.ssm#OpsItemAccessDeniedException":
+      throw await deserializeAws_json1_1OpsItemAccessDeniedExceptionResponse(parsedOutput, context);
     case "OpsItemNotFoundException":
     case "com.amazonaws.ssm#OpsItemNotFoundException":
       throw await deserializeAws_json1_1OpsItemNotFoundExceptionResponse(parsedOutput, context);
@@ -6682,6 +6794,50 @@ const deserializeAws_json1_1GetPatchBaselineForPatchGroupCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetResourcePoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePoliciesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetResourcePoliciesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetResourcePoliciesResponse(data, context);
+  const response: GetResourcePoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetResourcePoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "ResourcePolicyInvalidParameterException":
+    case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
+      throw await deserializeAws_json1_1ResourcePolicyInvalidParameterExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7821,6 +7977,56 @@ const deserializeAws_json1_1PutParameterCommandError = async (
     case "UnsupportedParameterType":
     case "com.amazonaws.ssm#UnsupportedParameterType":
       throw await deserializeAws_json1_1UnsupportedParameterTypeResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PutResourcePolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1PutResourcePolicyResponse(data, context);
+  const response: PutResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PutResourcePolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServerError":
+    case "com.amazonaws.ssm#InternalServerError":
+      throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "ResourcePolicyConflictException":
+    case "com.amazonaws.ssm#ResourcePolicyConflictException":
+      throw await deserializeAws_json1_1ResourcePolicyConflictExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyInvalidParameterException":
+    case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
+      throw await deserializeAws_json1_1ResourcePolicyInvalidParameterExceptionResponse(parsedOutput, context);
+    case "ResourcePolicyLimitExceededException":
+    case "com.amazonaws.ssm#ResourcePolicyLimitExceededException":
+      throw await deserializeAws_json1_1ResourcePolicyLimitExceededExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -9151,6 +9357,9 @@ const deserializeAws_json1_1UpdateOpsItemCommandError = async (
     case "InternalServerError":
     case "com.amazonaws.ssm#InternalServerError":
       throw await deserializeAws_json1_1InternalServerErrorResponse(parsedOutput, context);
+    case "OpsItemAccessDeniedException":
+    case "com.amazonaws.ssm#OpsItemAccessDeniedException":
+      throw await deserializeAws_json1_1OpsItemAccessDeniedExceptionResponse(parsedOutput, context);
     case "OpsItemAlreadyExistsException":
     case "com.amazonaws.ssm#OpsItemAlreadyExistsException":
       throw await deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse(parsedOutput, context);
@@ -10434,6 +10643,19 @@ const deserializeAws_json1_1MaxDocumentSizeExceededResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1OpsItemAccessDeniedExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<OpsItemAccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1OpsItemAccessDeniedException(body, context);
+  const exception = new OpsItemAccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1OpsItemAlreadyExistsExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -10779,6 +11001,45 @@ const deserializeAws_json1_1ResourceLimitExceededExceptionResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_json1_1ResourceLimitExceededException(body, context);
   const exception = new ResourceLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyConflictExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyConflictException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyConflictException(body, context);
+  const exception = new ResourcePolicyConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyInvalidParameterExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyInvalidParameterException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyInvalidParameterException(body, context);
+  const exception = new ResourcePolicyInvalidParameterException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1ResourcePolicyLimitExceededExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1ResourcePolicyLimitExceededException(body, context);
+  const exception = new ResourcePolicyLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -11492,6 +11753,7 @@ const serializeAws_json1_1CreateMaintenanceWindowRequest = (
 
 const serializeAws_json1_1CreateOpsItemRequest = (input: CreateOpsItemRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AccountId != null && { AccountId: input.AccountId }),
     ...(input.ActualEndTime != null && { ActualEndTime: Math.round(input.ActualEndTime.getTime() / 1000) }),
     ...(input.ActualStartTime != null && { ActualStartTime: Math.round(input.ActualStartTime.getTime() / 1000) }),
     ...(input.Category != null && { Category: input.Category }),
@@ -11657,6 +11919,17 @@ const serializeAws_json1_1DeleteResourceDataSyncRequest = (
   return {
     ...(input.SyncName != null && { SyncName: input.SyncName }),
     ...(input.SyncType != null && { SyncType: input.SyncType }),
+  };
+};
+
+const serializeAws_json1_1DeleteResourcePolicyRequest = (
+  input: DeleteResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.PolicyHash != null && { PolicyHash: input.PolicyHash }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -12346,6 +12619,7 @@ const serializeAws_json1_1GetMaintenanceWindowTaskRequest = (
 
 const serializeAws_json1_1GetOpsItemRequest = (input: GetOpsItemRequest, context: __SerdeContext): any => {
   return {
+    ...(input.OpsItemArn != null && { OpsItemArn: input.OpsItemArn }),
     ...(input.OpsItemId != null && { OpsItemId: input.OpsItemId }),
   };
 };
@@ -12428,6 +12702,17 @@ const serializeAws_json1_1GetPatchBaselineForPatchGroupRequest = (
 const serializeAws_json1_1GetPatchBaselineRequest = (input: GetPatchBaselineRequest, context: __SerdeContext): any => {
   return {
     ...(input.BaselineId != null && { BaselineId: input.BaselineId }),
+  };
+};
+
+const serializeAws_json1_1GetResourcePoliciesRequest = (
+  input: GetResourcePoliciesRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
   };
 };
 
@@ -13506,6 +13791,18 @@ const serializeAws_json1_1PutParameterRequest = (input: PutParameterRequest, con
   };
 };
 
+const serializeAws_json1_1PutResourcePolicyRequest = (
+  input: PutResourcePolicyRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Policy != null && { Policy: input.Policy }),
+    ...(input.PolicyHash != null && { PolicyHash: input.PolicyHash }),
+    ...(input.PolicyId != null && { PolicyId: input.PolicyId }),
+    ...(input.ResourceArn != null && { ResourceArn: input.ResourceArn }),
+  };
+};
+
 const serializeAws_json1_1Regions = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -14255,6 +14552,7 @@ const serializeAws_json1_1UpdateOpsItemRequest = (input: UpdateOpsItemRequest, c
     ...(input.OperationalDataToDelete != null && {
       OperationalDataToDelete: serializeAws_json1_1OpsItemOpsDataKeysList(input.OperationalDataToDelete, context),
     }),
+    ...(input.OpsItemArn != null && { OpsItemArn: input.OpsItemArn }),
     ...(input.OpsItemId != null && { OpsItemId: input.OpsItemId }),
     ...(input.PlannedEndTime != null && { PlannedEndTime: Math.round(input.PlannedEndTime.getTime() / 1000) }),
     ...(input.PlannedStartTime != null && { PlannedStartTime: Math.round(input.PlannedStartTime.getTime() / 1000) }),
@@ -15444,6 +15742,7 @@ const deserializeAws_json1_1CreateMaintenanceWindowResult = (
 
 const deserializeAws_json1_1CreateOpsItemResponse = (output: any, context: __SerdeContext): CreateOpsItemResponse => {
   return {
+    OpsItemArn: __expectString(output.OpsItemArn),
     OpsItemId: __expectString(output.OpsItemId),
   } as any;
 };
@@ -15554,6 +15853,13 @@ const deserializeAws_json1_1DeleteResourceDataSyncResult = (
   output: any,
   context: __SerdeContext
 ): DeleteResourceDataSyncResult => {
+  return {} as any;
+};
+
+const deserializeAws_json1_1DeleteResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteResourcePolicyResponse => {
   return {} as any;
 };
 
@@ -16726,6 +17032,45 @@ const deserializeAws_json1_1GetPatchBaselineResult = (output: any, context: __Se
       output.RejectedPatches != null ? deserializeAws_json1_1PatchIdList(output.RejectedPatches, context) : undefined,
     RejectedPatchesAction: __expectString(output.RejectedPatchesAction),
     Sources: output.Sources != null ? deserializeAws_json1_1PatchSourceList(output.Sources, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourcePoliciesResponse = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePoliciesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    Policies:
+      output.Policies != null
+        ? deserializeAws_json1_1GetResourcePoliciesResponseEntries(output.Policies, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1GetResourcePoliciesResponseEntries = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePoliciesResponseEntry[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1GetResourcePoliciesResponseEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1GetResourcePoliciesResponseEntry = (
+  output: any,
+  context: __SerdeContext
+): GetResourcePoliciesResponseEntry => {
+  return {
+    Policy: __expectString(output.Policy),
+    PolicyHash: __expectString(output.PolicyHash),
+    PolicyId: __expectString(output.PolicyId),
   } as any;
 };
 
@@ -18354,6 +18699,7 @@ const deserializeAws_json1_1OpsItem = (output: any, context: __SerdeContext): Op
       output.OperationalData != null
         ? deserializeAws_json1_1OpsItemOperationalData(output.OperationalData, context)
         : undefined,
+    OpsItemArn: __expectString(output.OpsItemArn),
     OpsItemId: __expectString(output.OpsItemId),
     OpsItemType: __expectString(output.OpsItemType),
     PlannedEndTime:
@@ -18374,6 +18720,15 @@ const deserializeAws_json1_1OpsItem = (output: any, context: __SerdeContext): Op
     Status: __expectString(output.Status),
     Title: __expectString(output.Title),
     Version: __expectString(output.Version),
+  } as any;
+};
+
+const deserializeAws_json1_1OpsItemAccessDeniedException = (
+  output: any,
+  context: __SerdeContext
+): OpsItemAccessDeniedException => {
+  return {
+    Message: __expectString(output.Message),
   } as any;
 };
 
@@ -19294,6 +19649,16 @@ const deserializeAws_json1_1PutParameterResult = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_json1_1PutResourcePolicyResponse = (
+  output: any,
+  context: __SerdeContext
+): PutResourcePolicyResponse => {
+  return {
+    PolicyHash: __expectString(output.PolicyHash),
+    PolicyId: __expectString(output.PolicyId),
+  } as any;
+};
+
 const deserializeAws_json1_1Regions = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -19631,6 +19996,51 @@ const deserializeAws_json1_1ResourceLimitExceededException = (
   return {
     Message: __expectString(output.Message),
   } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyConflictException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyConflictException => {
+  return {
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyInvalidParameterException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyInvalidParameterException => {
+  return {
+    Message: __expectString(output.Message),
+    ParameterNames:
+      output.ParameterNames != null
+        ? deserializeAws_json1_1ResourcePolicyParameterNamesList(output.ParameterNames, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyLimitExceededException = (
+  output: any,
+  context: __SerdeContext
+): ResourcePolicyLimitExceededException => {
+  return {
+    Limit: __expectInt32(output.Limit),
+    LimitType: __expectString(output.LimitType),
+    Message: __expectString(output.Message),
+  } as any;
+};
+
+const deserializeAws_json1_1ResourcePolicyParameterNamesList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ResumeSessionResponse = (output: any, context: __SerdeContext): ResumeSessionResponse => {

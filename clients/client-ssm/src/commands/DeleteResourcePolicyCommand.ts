@@ -14,40 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateDocumentRequest,
-  UpdateDocumentRequestFilterSensitiveLog,
-  UpdateDocumentResult,
-  UpdateDocumentResultFilterSensitiveLog,
-} from "../models/models_2";
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyRequestFilterSensitiveLog,
+  DeleteResourcePolicyResponse,
+  DeleteResourcePolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
+  deserializeAws_json1_1DeleteResourcePolicyCommand,
+  serializeAws_json1_1DeleteResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
-export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
-export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
+export interface DeleteResourcePolicyCommandInput extends DeleteResourcePolicyRequest {}
+export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates one or more values for an SSM document.</p>
+ * <p>Deletes a Systems Manager resource policy. A resource policy helps you to define the IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources. Currently,
+ *     <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies. The
+ *    resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact with
+ *    OpsCenter operational work items (OpsItems).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, DeleteResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, DeleteResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const command = new UpdateDocumentCommand(input);
+ * const command = new DeleteResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
- * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link DeleteResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
-export class UpdateDocumentCommand extends $Command<
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput,
+export class DeleteResourcePolicyCommand extends $Command<
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
   SSMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateDocumentCommandInput) {
+  constructor(readonly input: DeleteResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +78,23 @@ export class UpdateDocumentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDocumentCommandInput, UpdateDocumentCommandOutput> {
+  ): Handler<DeleteResourcePolicyCommandInput, DeleteResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDocumentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMClient";
-    const commandName = "UpdateDocumentCommand";
+    const commandName = "DeleteResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +104,12 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+  private serialize(input: DeleteResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteResourcePolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteResourcePolicyCommandOutput> {
+    return deserializeAws_json1_1DeleteResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

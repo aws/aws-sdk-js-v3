@@ -14,40 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateDocumentRequest,
-  UpdateDocumentRequestFilterSensitiveLog,
-  UpdateDocumentResult,
-  UpdateDocumentResultFilterSensitiveLog,
-} from "../models/models_2";
+  PutResourcePolicyRequest,
+  PutResourcePolicyRequestFilterSensitiveLog,
+  PutResourcePolicyResponse,
+  PutResourcePolicyResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_json1_1UpdateDocumentCommand,
-  serializeAws_json1_1UpdateDocumentCommand,
+  deserializeAws_json1_1PutResourcePolicyCommand,
+  serializeAws_json1_1PutResourcePolicyCommand,
 } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
-export interface UpdateDocumentCommandInput extends UpdateDocumentRequest {}
-export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __MetadataBearer {}
+export interface PutResourcePolicyCommandInput extends PutResourcePolicyRequest {}
+export interface PutResourcePolicyCommandOutput extends PutResourcePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates one or more values for an SSM document.</p>
+ * <p>Creates or updates a Systems Manager resource policy. A resource policy helps you to define the
+ *     IAM entity (for example, an Amazon Web Services account) that can manage your Systems Manager resources.
+ *    Currently, <code>OpsItemGroup</code> is the only resource that supports Systems Manager resource policies.
+ *    The resource policy for <code>OpsItemGroup</code> enables Amazon Web Services accounts to view and interact
+ *    with OpsCenter operational work items (OpsItems).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SSMClient, UpdateDocumentCommand } from "@aws-sdk/client-ssm"; // ES Modules import
- * // const { SSMClient, UpdateDocumentCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
+ * import { SSMClient, PutResourcePolicyCommand } from "@aws-sdk/client-ssm"; // ES Modules import
+ * // const { SSMClient, PutResourcePolicyCommand } = require("@aws-sdk/client-ssm"); // CommonJS import
  * const client = new SSMClient(config);
- * const command = new UpdateDocumentCommand(input);
+ * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateDocumentCommandInput} for command's `input` shape.
- * @see {@link UpdateDocumentCommandOutput} for command's `response` shape.
+ * @see {@link PutResourcePolicyCommandInput} for command's `input` shape.
+ * @see {@link PutResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link SSMClientResolvedConfig | config} for SSMClient's `config` shape.
  *
  */
-export class UpdateDocumentCommand extends $Command<
-  UpdateDocumentCommandInput,
-  UpdateDocumentCommandOutput,
+export class PutResourcePolicyCommand extends $Command<
+  PutResourcePolicyCommandInput,
+  PutResourcePolicyCommandOutput,
   SSMClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +66,7 @@ export class UpdateDocumentCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateDocumentCommandInput) {
+  constructor(readonly input: PutResourcePolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +79,23 @@ export class UpdateDocumentCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SSMClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDocumentCommandInput, UpdateDocumentCommandOutput> {
+  ): Handler<PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDocumentCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, PutResourcePolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SSMClient";
-    const commandName = "UpdateDocumentCommand";
+    const commandName = "PutResourcePolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDocumentRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDocumentResultFilterSensitiveLog,
+      inputFilterSensitiveLog: PutResourcePolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: PutResourcePolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +105,12 @@ export class UpdateDocumentCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateDocumentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDocumentCommand(input, context);
+  private serialize(input: PutResourcePolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1PutResourcePolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDocumentCommandOutput> {
-    return deserializeAws_json1_1UpdateDocumentCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutResourcePolicyCommandOutput> {
+    return deserializeAws_json1_1PutResourcePolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

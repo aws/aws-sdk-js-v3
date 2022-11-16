@@ -3,6 +3,15 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import {
   AlarmConfiguration,
+  AssociationComplianceSeverity,
+  AssociationDescription,
+  AssociationDescriptionFilterSensitiveLog,
+  AssociationStatus,
+  AssociationSyncCompliance,
+  AttachmentsSource,
+  DocumentDescription,
+  DocumentFormat,
+  InstanceAssociationOutputLocation,
   LoggingInfo,
   MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskParameterValueExpression,
@@ -10,7 +19,6 @@ import {
   OperatingSystem,
   OpsItemDataValue,
   OpsItemNotification,
-  OpsItemStatus,
   PatchAction,
   PatchComplianceLevel,
   PatchFilterGroup,
@@ -20,6 +28,7 @@ import {
   RelatedOpsItem,
   ResourceDataSyncSource,
   Target,
+  TargetLocation,
 } from "./models_0";
 import {
   DocumentReviewCommentSource,
@@ -28,10 +37,394 @@ import {
   MaintenanceWindowTaskInvocationParameters,
   MaintenanceWindowTaskInvocationParametersFilterSensitiveLog,
   OpsFilter,
+  OpsItemStatus,
   OpsResultAttribute,
   ResultAttribute,
 } from "./models_1";
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * <p>The update isn't valid.</p>
+ */
+export class InvalidUpdate extends __BaseException {
+  readonly name: "InvalidUpdate" = "InvalidUpdate";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidUpdate, __BaseException>) {
+    super({
+      name: "InvalidUpdate",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidUpdate.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface UpdateAssociationRequest {
+  /**
+   * <p>The ID of the association you want to update. </p>
+   */
+  AssociationId: string | undefined;
+
+  /**
+   * <p>The parameters you want to update for the association. If you create a parameter using
+   *    Parameter Store, a capability of Amazon Web Services Systems Manager, you can reference the parameter using
+   *     <code>{{ssm:parameter-name}}</code>.</p>
+   */
+  Parameters?: Record<string, string[]>;
+
+  /**
+   * <p>The document version you want update for the association. </p>
+   *          <important>
+   *             <p>State Manager doesn't support running associations that use a new version of a document if
+   *     that document is shared from another account. State Manager always runs the <code>default</code>
+   *     version of a document if shared from another account, even though the Systems Manager console shows that a
+   *     new version was processed. If you want to run an association using a new version of a document
+   *     shared form another account, you must set the document version to <code>default</code>.</p>
+   *          </important>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>The cron expression used to schedule the association that you want to update.</p>
+   */
+  ScheduleExpression?: string;
+
+  /**
+   * <p>An S3 bucket where you want to store the results of this request.</p>
+   */
+  OutputLocation?: InstanceAssociationOutputLocation;
+
+  /**
+   * <p>The name of the SSM Command document or Automation runbook that contains the configuration
+   *    information for the managed node.</p>
+   *          <p>You can specify Amazon Web Services-predefined documents, documents you created, or a document that is
+   *    shared with you from another account.</p>
+   *          <p>For Systems Manager document (SSM document) that are shared with you from other Amazon Web Services accounts, you
+   *    must specify the complete SSM document ARN, in the following format:</p>
+   *          <p>
+   *             <code>arn:aws:ssm:<i>region</i>:<i>account-id</i>:document/<i>document-name</i>
+   *             </code>
+   *          </p>
+   *          <p>For example:</p>
+   *          <p>
+   *             <code>arn:aws:ssm:us-east-2:12345678912:document/My-Shared-Document</code>
+   *          </p>
+   *          <p>For Amazon Web Services-predefined documents and SSM documents you created in your account, you only need
+   *    to specify the document name. For example, <code>AWS-ApplyPatchBaseline</code> or
+   *     <code>My-Document</code>.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The targets of the association.</p>
+   */
+  Targets?: Target[];
+
+  /**
+   * <p>The name of the association that you want to update.</p>
+   */
+  AssociationName?: string;
+
+  /**
+   * <p>This parameter is provided for concurrency control purposes. You must specify the latest
+   *    association version in the service. If you want to ensure that this request succeeds, either
+   *    specify <code>$LATEST</code>, or omit this parameter.</p>
+   */
+  AssociationVersion?: string;
+
+  /**
+   * <p>Choose the parameter that will define how your automation will branch out. This target is
+   *    required for associations that use an Automation runbook and target resources by using rate
+   *    controls. Automation is a capability of Amazon Web Services Systems Manager.</p>
+   */
+  AutomationTargetParameterName?: string;
+
+  /**
+   * <p>The number of errors that are allowed before the system stops sending requests to run the
+   *    association on additional targets. You can specify either an absolute number of errors, for
+   *    example 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
+   *    the system stops sending requests when the fourth error is received. If you specify 0, then the
+   *    system stops sending requests after the first error is returned. If you run an association on 50
+   *    managed nodes and set <code>MaxError</code> to 10%, then the system stops sending the request
+   *    when the sixth error is received.</p>
+   *          <p>Executions that are already running an association when <code>MaxErrors</code> is reached
+   *    are allowed to complete, but some of these executions may fail as well. If you need to ensure
+   *    that there won't be more than max-errors failed executions, set <code>MaxConcurrency</code> to 1
+   *    so that executions proceed one at a time.</p>
+   */
+  MaxErrors?: string;
+
+  /**
+   * <p>The maximum number of targets allowed to run the association at the same time. You can
+   *    specify a number, for example 10, or a percentage of the target set, for example 10%. The default
+   *    value is 100%, which means all targets run the association at the same time.</p>
+   *          <p>If a new managed node starts and attempts to run an association while Systems Manager is running
+   *     <code>MaxConcurrency</code> associations, the association is allowed to run. During the next
+   *    association interval, the new managed node will process its association within the limit
+   *    specified for <code>MaxConcurrency</code>.</p>
+   */
+  MaxConcurrency?: string;
+
+  /**
+   * <p>The severity level to assign to the association.</p>
+   */
+  ComplianceSeverity?: AssociationComplianceSeverity | string;
+
+  /**
+   * <p>The mode for generating association compliance. You can specify <code>AUTO</code> or
+   *     <code>MANUAL</code>. In <code>AUTO</code> mode, the system uses the status of the association
+   *    execution to determine the compliance status. If the association execution runs successfully,
+   *    then the association is <code>COMPLIANT</code>. If the association execution doesn't run
+   *    successfully, the association is <code>NON-COMPLIANT</code>.</p>
+   *          <p>In <code>MANUAL</code> mode, you must specify the <code>AssociationId</code> as a parameter
+   *    for the <a>PutComplianceItems</a> API operation. In this case, compliance data isn't
+   *    managed by State Manager, a capability of Amazon Web Services Systems Manager. It is managed by your direct call to the
+   *     <a>PutComplianceItems</a> API operation.</p>
+   *          <p>By default, all associations use <code>AUTO</code> mode.</p>
+   */
+  SyncCompliance?: AssociationSyncCompliance | string;
+
+  /**
+   * <p>By default, when you update an association, the system runs it immediately after it is
+   *    updated and then according to the schedule you specified. Specify this option if you don't want
+   *    an association to run immediately after you update it. This parameter isn't supported for rate
+   *    expressions.</p>
+   *
+   *          <p>If you chose this option when you created an association and later you edit that association
+   *    or you make changes to the SSM document on which that association is based (by using the
+   *    Documents page in the console), State Manager applies the association at the next specified cron
+   *    interval. For example, if you chose the <code>Latest</code> version of an SSM document when you
+   *    created an association and you edit the association by choosing a different document version on
+   *    the Documents page, State Manager applies the association at the next specified cron interval if
+   *    you previously selected this option. If this option wasn't selected, State Manager immediately
+   *    runs the association.</p>
+   *          <p>You can reset this option. To do so, specify the <code>no-apply-only-at-cron-interval</code>
+   *    parameter when you update the association from the command line. This parameter forces the
+   *    association to run immediately after updating it and according to the interval specified.</p>
+   */
+  ApplyOnlyAtCronInterval?: boolean;
+
+  /**
+   * <p>The names or Amazon Resource Names (ARNs) of the Change Calendar type documents you want to
+   *    gate your associations under. The associations only run when that change calendar is open. For
+   *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar">Amazon Web Services Systems Manager Change
+   *     Calendar</a>.</p>
+   */
+  CalendarNames?: string[];
+
+  /**
+   * <p>A location is a combination of Amazon Web Services Regions and Amazon Web Services accounts where you want to run the
+   *    association. Use this action to update an association in multiple Regions and multiple
+   *    accounts.</p>
+   */
+  TargetLocations?: TargetLocation[];
+
+  /**
+   * <p>Number of days to wait after the scheduled day to run an association. For example, if you
+   *    specified a cron schedule of <code>cron(0 0 ? * THU#2 *)</code>, you could specify an offset of 3
+   *    to run the association each Sunday after the second Thursday of the month. For more information
+   *    about cron schedules for associations, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/reference-cron-and-rate-expressions.html">Reference: Cron
+   *     and rate expressions for Systems Manager</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+   *          <note>
+   *             <p>To use offsets, you must specify the <code>ApplyOnlyAtCronInterval</code> parameter. This
+   *     option tells the system not to run an association immediately after you create it. </p>
+   *          </note>
+   */
+  ScheduleOffset?: number;
+
+  /**
+   * <p>A key-value mapping of document parameters to target resources. Both Targets and TargetMaps
+   *    can't be specified together.</p>
+   */
+  TargetMaps?: Record<string, string[]>[];
+
+  /**
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   */
+  AlarmConfiguration?: AlarmConfiguration;
+}
+
+export interface UpdateAssociationResult {
+  /**
+   * <p>The description of the association that was updated.</p>
+   */
+  AssociationDescription?: AssociationDescription;
+}
+
+/**
+ * <p>The updated status is the same as the current status.</p>
+ */
+export class StatusUnchanged extends __BaseException {
+  readonly name: "StatusUnchanged" = "StatusUnchanged";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StatusUnchanged, __BaseException>) {
+    super({
+      name: "StatusUnchanged",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StatusUnchanged.prototype);
+  }
+}
+
+export interface UpdateAssociationStatusRequest {
+  /**
+   * <p>The name of the SSM document.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The managed node ID.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The association status.</p>
+   */
+  AssociationStatus: AssociationStatus | undefined;
+}
+
+export interface UpdateAssociationStatusResult {
+  /**
+   * <p>Information about the association.</p>
+   */
+  AssociationDescription?: AssociationDescription;
+}
+
+/**
+ * <p>The document has too many versions. Delete one or more document versions and try
+ *    again.</p>
+ */
+export class DocumentVersionLimitExceeded extends __BaseException {
+  readonly name: "DocumentVersionLimitExceeded" = "DocumentVersionLimitExceeded";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DocumentVersionLimitExceeded, __BaseException>) {
+    super({
+      name: "DocumentVersionLimitExceeded",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DocumentVersionLimitExceeded.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The content of the association document matches another document. Change the content of the
+ *    document and try again.</p>
+ */
+export class DuplicateDocumentContent extends __BaseException {
+  readonly name: "DuplicateDocumentContent" = "DuplicateDocumentContent";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateDocumentContent, __BaseException>) {
+    super({
+      name: "DuplicateDocumentContent",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateDocumentContent.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The version name has already been used in this document. Specify a different version name,
+ *    and then try again.</p>
+ */
+export class DuplicateDocumentVersionName extends __BaseException {
+  readonly name: "DuplicateDocumentVersionName" = "DuplicateDocumentVersionName";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DuplicateDocumentVersionName, __BaseException>) {
+    super({
+      name: "DuplicateDocumentVersionName",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DuplicateDocumentVersionName.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface UpdateDocumentRequest {
+  /**
+   * <p>A valid JSON or YAML string.</p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>A list of key-value pairs that describe attachments to a version of a document.</p>
+   */
+  Attachments?: AttachmentsSource[];
+
+  /**
+   * <p>The name of the SSM document that you want to update.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The friendly name of the SSM document that you want to update. This value can differ for
+   *    each version of the document. If you don't specify a value for this parameter in your request,
+   *    the existing value is applied to the new document version.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>An optional field specifying the version of the artifact you are updating with the document.
+   *    For example, "Release 12, Update 6". This value is unique across all versions of a document, and
+   *    can't be changed.</p>
+   */
+  VersionName?: string;
+
+  /**
+   * <p>The version of the document that you want to update. Currently, Systems Manager supports updating only
+   *    the latest version of the document. You can specify the version number of the latest version or
+   *    use the <code>$LATEST</code> variable.</p>
+   *          <note>
+   *             <p>If you change a document version for a State Manager association, Systems Manager immediately runs
+   *     the association unless you previously specifed the <code>apply-only-at-cron-interval</code>
+   *     parameter.</p>
+   *          </note>
+   */
+  DocumentVersion?: string;
+
+  /**
+   * <p>Specify the document format for the new document version. Systems Manager supports JSON and YAML
+   *    documents. JSON is the default format.</p>
+   */
+  DocumentFormat?: DocumentFormat | string;
+
+  /**
+   * <p>Specify a new target type for the document.</p>
+   */
+  TargetType?: string;
+}
+
+export interface UpdateDocumentResult {
+  /**
+   * <p>A description of the document that was updated.</p>
+   */
+  DocumentDescription?: DocumentDescription;
+}
 
 export interface UpdateDocumentDefaultVersionRequest {
   /**
@@ -622,7 +1015,14 @@ export interface UpdateManagedInstanceRoleRequest {
   InstanceId: string | undefined;
 
   /**
-   * <p>The IAM role you want to assign or change.</p>
+   * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
+   *    the managed node. This IAM role must provide AssumeRole permissions for the
+   *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
+   *     IAM service role for a hybrid environment</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <note>
+   *             <p>You can't specify an IAM service-linked role for this parameter. You must create a unique role.</p>
+   *          </note>
    */
   IamRole: string | undefined;
 }
@@ -732,6 +1132,11 @@ export interface UpdateOpsItemRequest {
    *    only for the OpsItem type <code>/aws/changerequest</code>.</p>
    */
   PlannedEndTime?: Date;
+
+  /**
+   * <p>The OpsItem Amazon Resource Name (ARN).</p>
+   */
+  OpsItemArn?: string;
 }
 
 export interface UpdateOpsItemResponse {}
@@ -1218,6 +1623,55 @@ export interface GetOpsSummaryRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateAssociationRequestFilterSensitiveLog = (obj: UpdateAssociationRequest): any => ({
+  ...obj,
+  ...(obj.Parameters && { Parameters: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationResultFilterSensitiveLog = (obj: UpdateAssociationResult): any => ({
+  ...obj,
+  ...(obj.AssociationDescription && {
+    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationStatusRequestFilterSensitiveLog = (obj: UpdateAssociationStatusRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateAssociationStatusResultFilterSensitiveLog = (obj: UpdateAssociationStatusResult): any => ({
+  ...obj,
+  ...(obj.AssociationDescription && {
+    AssociationDescription: AssociationDescriptionFilterSensitiveLog(obj.AssociationDescription),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentRequestFilterSensitiveLog = (obj: UpdateDocumentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDocumentResultFilterSensitiveLog = (obj: UpdateDocumentResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
