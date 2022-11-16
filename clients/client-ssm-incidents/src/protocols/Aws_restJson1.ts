@@ -112,10 +112,14 @@ import {
   IncidentRecordSource,
   IncidentRecordSummary,
   IncidentTemplate,
+  Integration,
   InternalServerException,
   ItemIdentifier,
   ItemValue,
   NotificationTargetItem,
+  PagerDutyConfiguration,
+  PagerDutyIncidentConfiguration,
+  PagerDutyIncidentDetail,
   RegionInfo,
   RegionMapInputValue,
   RelatedItem,
@@ -178,6 +182,9 @@ export const serializeAws_restJson1CreateResponsePlanCommand = async (
     ...(input.engagements != null && { engagements: serializeAws_restJson1EngagementSet(input.engagements, context) }),
     ...(input.incidentTemplate != null && {
       incidentTemplate: serializeAws_restJson1IncidentTemplate(input.incidentTemplate, context),
+    }),
+    ...(input.integrations != null && {
+      integrations: serializeAws_restJson1Integrations(input.integrations, context),
     }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -871,6 +878,9 @@ export const serializeAws_restJson1UpdateResponsePlanCommand = async (
       incidentTemplateTags: serializeAws_restJson1TagMapUpdate(input.incidentTemplateTags, context),
     }),
     ...(input.incidentTemplateTitle != null && { incidentTemplateTitle: input.incidentTemplateTitle }),
+    ...(input.integrations != null && {
+      integrations: serializeAws_restJson1Integrations(input.integrations, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -1517,6 +1527,9 @@ export const deserializeAws_restJson1GetResponsePlanCommand = async (
   }
   if (data.incidentTemplate != null) {
     contents.incidentTemplate = deserializeAws_restJson1IncidentTemplate(data.incidentTemplate, context);
+  }
+  if (data.integrations != null) {
+    contents.integrations = deserializeAws_restJson1Integrations(data.integrations, context);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -2764,6 +2777,23 @@ const serializeAws_restJson1IntegerList = (input: number[], context: __SerdeCont
     });
 };
 
+const serializeAws_restJson1Integration = (input: Integration, context: __SerdeContext): any => {
+  return Integration.visit(input, {
+    pagerDutyConfiguration: (value) => ({
+      pagerDutyConfiguration: serializeAws_restJson1PagerDutyConfiguration(value, context),
+    }),
+    _: (name, value) => ({ name: value } as any),
+  });
+};
+
+const serializeAws_restJson1Integrations = (input: Integration[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1Integration(entry, context);
+    });
+};
+
 const serializeAws_restJson1ItemIdentifier = (input: ItemIdentifier, context: __SerdeContext): any => {
   return {
     ...(input.type != null && { type: input.type }),
@@ -2775,6 +2805,9 @@ const serializeAws_restJson1ItemValue = (input: ItemValue, context: __SerdeConte
   return ItemValue.visit(input, {
     arn: (value) => ({ arn: value }),
     metricDefinition: (value) => ({ metricDefinition: value }),
+    pagerDutyIncidentDetail: (value) => ({
+      pagerDutyIncidentDetail: serializeAws_restJson1PagerDutyIncidentDetail(value, context),
+    }),
     url: (value) => ({ url: value }),
     _: (name, value) => ({ name: value } as any),
   });
@@ -2793,6 +2826,39 @@ const serializeAws_restJson1NotificationTargetSet = (input: NotificationTargetIt
     .map((entry) => {
       return serializeAws_restJson1NotificationTargetItem(entry, context);
     });
+};
+
+const serializeAws_restJson1PagerDutyConfiguration = (input: PagerDutyConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.name != null && { name: input.name }),
+    ...(input.pagerDutyIncidentConfiguration != null && {
+      pagerDutyIncidentConfiguration: serializeAws_restJson1PagerDutyIncidentConfiguration(
+        input.pagerDutyIncidentConfiguration,
+        context
+      ),
+    }),
+    ...(input.secretId != null && { secretId: input.secretId }),
+  };
+};
+
+const serializeAws_restJson1PagerDutyIncidentConfiguration = (
+  input: PagerDutyIncidentConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.serviceId != null && { serviceId: input.serviceId }),
+  };
+};
+
+const serializeAws_restJson1PagerDutyIncidentDetail = (
+  input: PagerDutyIncidentDetail,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.autoResolve != null && { autoResolve: input.autoResolve }),
+    ...(input.id != null && { id: input.id }),
+    ...(input.secretId != null && { secretId: input.secretId }),
+  };
 };
 
 const serializeAws_restJson1RegionMapInput = (
@@ -3185,6 +3251,27 @@ const deserializeAws_restJson1IncidentTemplate = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1Integration = (output: any, context: __SerdeContext): Integration => {
+  if (output.pagerDutyConfiguration != null) {
+    return {
+      pagerDutyConfiguration: deserializeAws_restJson1PagerDutyConfiguration(output.pagerDutyConfiguration, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+const deserializeAws_restJson1Integrations = (output: any, context: __SerdeContext): Integration[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Integration(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ItemIdentifier = (output: any, context: __SerdeContext): ItemIdentifier => {
   return {
     type: __expectString(output.type),
@@ -3198,6 +3285,11 @@ const deserializeAws_restJson1ItemValue = (output: any, context: __SerdeContext)
   }
   if (__expectString(output.metricDefinition) !== undefined) {
     return { metricDefinition: __expectString(output.metricDefinition) as any };
+  }
+  if (output.pagerDutyIncidentDetail != null) {
+    return {
+      pagerDutyIncidentDetail: deserializeAws_restJson1PagerDutyIncidentDetail(output.pagerDutyIncidentDetail, context),
+    };
   }
   if (__expectString(output.url) !== undefined) {
     return { url: __expectString(output.url) as any };
@@ -3228,6 +3320,40 @@ const deserializeAws_restJson1NotificationTargetSet = (
       return deserializeAws_restJson1NotificationTargetItem(__expectUnion(entry), context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1PagerDutyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyConfiguration => {
+  return {
+    name: __expectString(output.name),
+    pagerDutyIncidentConfiguration:
+      output.pagerDutyIncidentConfiguration != null
+        ? deserializeAws_restJson1PagerDutyIncidentConfiguration(output.pagerDutyIncidentConfiguration, context)
+        : undefined,
+    secretId: __expectString(output.secretId),
+  } as any;
+};
+
+const deserializeAws_restJson1PagerDutyIncidentConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyIncidentConfiguration => {
+  return {
+    serviceId: __expectString(output.serviceId),
+  } as any;
+};
+
+const deserializeAws_restJson1PagerDutyIncidentDetail = (
+  output: any,
+  context: __SerdeContext
+): PagerDutyIncidentDetail => {
+  return {
+    autoResolve: __expectBoolean(output.autoResolve),
+    id: __expectString(output.id),
+    secretId: __expectString(output.secretId),
+  } as any;
 };
 
 const deserializeAws_restJson1RegionInfo = (output: any, context: __SerdeContext): RegionInfo => {
