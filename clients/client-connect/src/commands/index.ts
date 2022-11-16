@@ -105,6 +105,7 @@ export * from "./ListTrafficDistributionGroupsCommand";
 export * from "./ListUseCasesCommand";
 export * from "./ListUserHierarchyGroupsCommand";
 export * from "./ListUsersCommand";
+export * from "./MonitorContactCommand";
 export * from "./PutUserStatusCommand";
 export * from "./ReleasePhoneNumberCommand";
 export * from "./ReplicateInstanceCommand";

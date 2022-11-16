@@ -500,6 +500,11 @@ import {
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommand, ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
 import {
+  MonitorContactCommand,
+  MonitorContactCommandInput,
+  MonitorContactCommandOutput,
+} from "./commands/MonitorContactCommand";
+import {
   PutUserStatusCommand,
   PutUserStatusCommandInput,
   PutUserStatusCommandOutput,
@@ -3043,8 +3048,9 @@ export class Connect extends ConnectClient {
   /**
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in the
-   *    <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent Event Stream</a>.</p>
+   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
+   *     Event Stream</a>.</p>
    */
   public dismissUserContact(
     args: DismissUserContactCommandInput,
@@ -4327,6 +4333,39 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: ListUsersCommandOutput) => void
   ): Promise<ListUsersCommandOutput> | void {
     const command = new ListUsersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by
+   *    <i>userId</i> will be set to silent monitoring mode on the contact.</p>
+   */
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<MonitorContactCommandOutput>;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    cb: (err: any, data?: MonitorContactCommandOutput) => void
+  ): void;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: MonitorContactCommandOutput) => void
+  ): void;
+  public monitorContact(
+    args: MonitorContactCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: MonitorContactCommandOutput) => void),
+    cb?: (err: any, data?: MonitorContactCommandOutput) => void
+  ): Promise<MonitorContactCommandOutput> | void {
+    const command = new MonitorContactCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

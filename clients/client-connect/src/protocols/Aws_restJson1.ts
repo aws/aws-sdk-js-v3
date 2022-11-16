@@ -314,6 +314,7 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "../commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "../commands/ListUsersCommand";
+import { MonitorContactCommandInput, MonitorContactCommandOutput } from "../commands/MonitorContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "../commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "../commands/ReplicateInstanceCommand";
@@ -551,6 +552,7 @@ import {
   LexV2Bot,
   LimitExceededException,
   MediaConcurrency,
+  MonitorCapability,
   NumberReference,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
@@ -3709,6 +3711,39 @@ export const serializeAws_restJson1ListUsersCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1MonitorContactCommand = async (
+  input: MonitorContactCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/contact/monitor";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.AllowedMonitorCapabilities != null && {
+      AllowedMonitorCapabilities: serializeAws_restJson1AllowedMonitorCapabilities(
+        input.AllowedMonitorCapabilities,
+        context
+      ),
+    }),
+    ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.ContactId != null && { ContactId: input.ContactId }),
+    ...(input.InstanceId != null && { InstanceId: input.InstanceId }),
+    ...(input.UserId != null && { UserId: input.UserId }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -11403,6 +11438,68 @@ const deserializeAws_restJson1ListUsersCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1MonitorContactCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MonitorContactCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1MonitorContactCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ContactArn != null) {
+    contents.ContactArn = __expectString(data.ContactArn);
+  }
+  if (data.ContactId != null) {
+    contents.ContactId = __expectString(data.ContactId);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1MonitorContactCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<MonitorContactCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.connect#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "IdempotencyException":
+    case "com.amazonaws.connect#IdempotencyException":
+      throw await deserializeAws_restJson1IdempotencyExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.connect#InternalServiceException":
+      throw await deserializeAws_restJson1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.connect#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.connect#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.connect#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.connect#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1PutUserStatusCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -14724,6 +14821,17 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
     ...contents,
   });
   return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const serializeAws_restJson1AllowedMonitorCapabilities = (
+  input: (MonitorCapability | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_restJson1AnswerMachineDetectionConfig = (

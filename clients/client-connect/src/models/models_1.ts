@@ -14,6 +14,7 @@ import {
   InstanceStorageResourceType,
   LexBot,
   MediaConcurrency,
+  MonitorCapability,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -36,6 +37,24 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+export interface ListLambdaFunctionsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
 
 export interface ListLambdaFunctionsResponse {
   /**
@@ -1046,6 +1065,49 @@ export interface ListUsersResponse {
    * <p>If there are additional results, this is the token for the next set of results.</p>
    */
   NextToken?: string;
+}
+
+export interface MonitorContactRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId: string | undefined;
+
+  /**
+   * <p>The identifier of the user account.</p>
+   */
+  UserId: string | undefined;
+
+  /**
+   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is
+   *    allowed to escalate from silent monitoring to barge.</p>
+   */
+  AllowedMonitorCapabilities?: (MonitorCapability | string)[];
+
+  /**
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. If not provided, the Amazon Web Services
+   *             SDK populates this field. For more information about idempotency, see
+   *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   */
+  ClientToken?: string;
+}
+
+export interface MonitorContactResponse {
+  /**
+   * <p>The identifier of the contact.</p>
+   */
+  ContactId?: string;
+
+  /**
+   * <p>The ARN of the contact.</p>
+   */
+  ContactArn?: string;
 }
 
 export interface PutUserStatusRequest {
@@ -2085,7 +2147,8 @@ export interface StartTaskContactResponse {
 }
 
 /**
- * <p>The contact with the specified ID is not active or does not exist.</p>
+ * <p>The contact with the specified ID is not active or does not exist. Applies to Voice calls
+ *    only, not to Chat, Task, or Voice Callback.</p>
  */
 export class ContactNotFoundException extends __BaseException {
   readonly name: "ContactNotFoundException" = "ContactNotFoundException";
@@ -3099,6 +3162,11 @@ export interface UpdateUserSecurityProfilesRequest {
 
 /**
  * <p>The search criteria to be used to return queues.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results. </p>
+ *          </note>
  */
 export interface QueueSearchCriteria {
   /**
@@ -3129,6 +3197,11 @@ export interface QueueSearchCriteria {
 
 /**
  * <p>The search criteria to be used to return routing profiles.</p>
+ *          <note>
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results. </p>
+ *          </note>
  */
 export interface RoutingProfileSearchCriteria {
   /**
@@ -3154,6 +3227,11 @@ export interface RoutingProfileSearchCriteria {
 
 /**
  * <p>The search criteria to be used to return security profiles.</p>
+ *          <note>
+ *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
+ *     maximum of 25 characters. Any queries with character lengths outside of this range will throw
+ *     invalid results.</p>
+ *          </note>
  */
 export interface SecurityProfileSearchCriteria {
   /**
@@ -3180,9 +3258,9 @@ export interface SecurityProfileSearchCriteria {
 /**
  * <p>The search criteria to be used to return users.</p>
  *          <note>
- *             <p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support
- *     "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries
- *     with character lengths outside of this range result in empty results.
+ *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+ *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+ *     outside of this range will throw invalid results.
  *     </p>
  *          </note>
  */
@@ -3234,6 +3312,11 @@ export interface SearchQueuesRequest {
 
   /**
    * <p>The search criteria to be used to return queues.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
    */
   SearchCriteria?: QueueSearchCriteria;
 }
@@ -3262,6 +3345,11 @@ export interface SearchRoutingProfilesRequest {
 
   /**
    * <p>The search criteria to be used to return routing profiles.</p>
+   *          <note>
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results. </p>
+   *          </note>
    */
   SearchCriteria?: RoutingProfileSearchCriteria;
 }
@@ -3285,6 +3373,9 @@ export interface SearchSecurityProfilesRequest {
 
   /**
    * <p>The search criteria to be used to return security profiles. </p>
+   *          <note>
+   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p>
+   *          </note>
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
    *             </p>
@@ -3324,14 +3415,21 @@ export interface SearchUsersRequest {
   /**
    * <p>The search criteria to be used to return users.</p>
    *          <note>
-   *             <p>The <code>Username</code>, <code>Firstname</code>, and <code>Lastname</code> fields support
-   *     "contains" queries with a minimum of 2 characters and a maximum of 25 characters. Any queries
-   *     with character lengths outside of this range result in empty results.
+   *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
+   *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
+   *     outside of this range will throw invalid results.
    *     </p>
    *          </note>
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const ListLambdaFunctionsRequestFilterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -3688,6 +3786,20 @@ export const UserSummaryFilterSensitiveLog = (obj: UserSummary): any => ({
  * @internal
  */
 export const ListUsersResponseFilterSensitiveLog = (obj: ListUsersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorContactRequestFilterSensitiveLog = (obj: MonitorContactRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MonitorContactResponseFilterSensitiveLog = (obj: MonitorContactResponse): any => ({
   ...obj,
 });
 

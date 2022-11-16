@@ -15,43 +15,40 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  DismissUserContactRequest,
-  DismissUserContactRequestFilterSensitiveLog,
-  DismissUserContactResponse,
-  DismissUserContactResponseFilterSensitiveLog,
-} from "../models/models_0";
+  MonitorContactRequest,
+  MonitorContactRequestFilterSensitiveLog,
+  MonitorContactResponse,
+  MonitorContactResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restJson1DismissUserContactCommand,
-  serializeAws_restJson1DismissUserContactCommand,
+  deserializeAws_restJson1MonitorContactCommand,
+  serializeAws_restJson1MonitorContactCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DismissUserContactCommandInput extends DismissUserContactRequest {}
-export interface DismissUserContactCommandOutput extends DismissUserContactResponse, __MetadataBearer {}
+export interface MonitorContactCommandInput extends MonitorContactRequest {}
+export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
 
 /**
- * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
- *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
- *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
- *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
- *     Event Stream</a>.</p>
+ * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by
+ *    <i>userId</i> will be set to silent monitoring mode on the contact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, DismissUserContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, DismissUserContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, MonitorContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, MonitorContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new DismissUserContactCommand(input);
+ * const command = new MonitorContactCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DismissUserContactCommandInput} for command's `input` shape.
- * @see {@link DismissUserContactCommandOutput} for command's `response` shape.
+ * @see {@link MonitorContactCommandInput} for command's `input` shape.
+ * @see {@link MonitorContactCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class DismissUserContactCommand extends $Command<
-  DismissUserContactCommandInput,
-  DismissUserContactCommandOutput,
+export class MonitorContactCommand extends $Command<
+  MonitorContactCommandInput,
+  MonitorContactCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +63,7 @@ export class DismissUserContactCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DismissUserContactCommandInput) {
+  constructor(readonly input: MonitorContactCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +76,23 @@ export class DismissUserContactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DismissUserContactCommandInput, DismissUserContactCommandOutput> {
+  ): Handler<MonitorContactCommandInput, MonitorContactCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DismissUserContactCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, MonitorContactCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "DismissUserContactCommand";
+    const commandName = "MonitorContactCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DismissUserContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DismissUserContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: MonitorContactRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: MonitorContactResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +102,12 @@ export class DismissUserContactCommand extends $Command<
     );
   }
 
-  private serialize(input: DismissUserContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DismissUserContactCommand(input, context);
+  private serialize(input: MonitorContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1MonitorContactCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DismissUserContactCommandOutput> {
-    return deserializeAws_restJson1DismissUserContactCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorContactCommandOutput> {
+    return deserializeAws_restJson1MonitorContactCommand(output, context);
   }
 
   // Start section: command_body_extra

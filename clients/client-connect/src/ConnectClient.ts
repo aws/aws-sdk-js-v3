@@ -336,6 +336,7 @@ import {
   ListUserHierarchyGroupsCommandOutput,
 } from "./commands/ListUserHierarchyGroupsCommand";
 import { ListUsersCommandInput, ListUsersCommandOutput } from "./commands/ListUsersCommand";
+import { MonitorContactCommandInput, MonitorContactCommandOutput } from "./commands/MonitorContactCommand";
 import { PutUserStatusCommandInput, PutUserStatusCommandOutput } from "./commands/PutUserStatusCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "./commands/ReleasePhoneNumberCommand";
 import { ReplicateInstanceCommandInput, ReplicateInstanceCommandOutput } from "./commands/ReplicateInstanceCommand";
@@ -621,6 +622,7 @@ export type ServiceInputTypes =
   | ListUseCasesCommandInput
   | ListUserHierarchyGroupsCommandInput
   | ListUsersCommandInput
+  | MonitorContactCommandInput
   | PutUserStatusCommandInput
   | ReleasePhoneNumberCommandInput
   | ReplicateInstanceCommandInput
@@ -785,6 +787,7 @@ export type ServiceOutputTypes =
   | ListUseCasesCommandOutput
   | ListUserHierarchyGroupsCommandOutput
   | ListUsersCommandOutput
+  | MonitorContactCommandOutput
   | PutUserStatusCommandOutput
   | ReleasePhoneNumberCommandOutput
   | ReplicateInstanceCommandOutput

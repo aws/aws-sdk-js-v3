@@ -218,6 +218,11 @@ export interface AgentStatusSummary {
   Type?: AgentStatusType | string;
 }
 
+export enum MonitorCapability {
+  BARGE = "BARGE",
+  SILENT_MONITOR = "SILENT_MONITOR",
+}
+
 export interface AssociateApprovedOriginRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -824,6 +829,7 @@ export interface ClaimPhoneNumberRequest {
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
+   *
    *          <p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code>
    *          </p>
    */
@@ -4119,7 +4125,8 @@ export interface DismissUserContactRequest {
   UserId: string | undefined;
 
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -4226,10 +4233,20 @@ export interface GetCurrentMetricDataRequest {
   /**
    * <p>The grouping applied to the metrics returned. For example, when grouped by
    *     <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all
-   *    queues. If you group by <code>CHANNEL</code>, you should include a Channels filter.
-   *    VOICE, CHAT, and TASK channels are supported.</p>
-   *          <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
-   *    returned.</p>
+   *    queues. </p>
+   *          <ul>
+   *             <li>
+   *                <p>If you group by <code>CHANNEL</code>, you should include a Channels filter.
+   *     VOICE, CHAT, and TASK channels are supported.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you group by <code>ROUTING_PROFILE</code>, you must include either a queue or routing profile filter.</p>
+   *             </li>
+   *             <li>
+   *                <p>If no <code>Grouping</code> is included in the request, a summary of metrics is
+   *     returned.</p>
+   *             </li>
+   *          </ul>
    */
   Groupings?: (Grouping | string)[];
 
@@ -6002,24 +6019,6 @@ export interface ListIntegrationAssociationsResponse {
   NextToken?: string;
 }
 
-export interface ListLambdaFunctionsRequest {
-  /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
-   */
-  InstanceId: string | undefined;
-
-  /**
-   * <p>The token for the next set of results. Use the value returned in the previous
-   * response in the next request to retrieve the next set of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return per page.</p>
-   */
-  MaxResults?: number;
-}
-
 /**
  * @internal
  */
@@ -7762,12 +7761,5 @@ export const IntegrationAssociationSummaryFilterSensitiveLog = (obj: Integration
 export const ListIntegrationAssociationsResponseFilterSensitiveLog = (
   obj: ListIntegrationAssociationsResponse
 ): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListLambdaFunctionsRequestFilterSensitiveLog = (obj: ListLambdaFunctionsRequest): any => ({
   ...obj,
 });
