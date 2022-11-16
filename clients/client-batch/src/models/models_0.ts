@@ -1014,8 +1014,8 @@ export enum CEStatus {
 
 /**
  * <p>Specifies the infrastructure update policy for the compute environment. For more information about
- *    infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/infrastructure-updates.html">Infrastructure
- *    updates</a> in the <i>Batch User Guide</i>.</p>
+ *    infrastructure updates, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating
+ *     compute environments</a> in the <i>Batch User Guide</i>.</p>
  */
 export interface UpdatePolicy {
   /**
@@ -1617,17 +1617,42 @@ export interface ResourceRequirement {
    *                   <dt>value = 8192</dt>
    *                   <dd>
    *                      <p>
-   *                         <code>VCPU</code> = 1, 2, or 4</p>
+   *                         <code>VCPU</code> = 1, 2, 4, or 8</p>
    *                   </dd>
-   *                   <dt>value = 9216, 10240, 11264, 12288, 13312, 14336, 15360, or 16384</dt>
+   *                   <dt>value = 9216, 10240, 11264, 12288, 13312, 14336, or 15360</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 2 or 4</p>
    *                   </dd>
-   *                   <dt>value = 17408, 18432, 19456, 20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720</dt>
+   *                   <dt>value = 16384</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 2, 4, or 8</p>
+   *                   </dd>
+   *                   <dt>value = 17408, 18432, 19456, 21504, 22528, 23552, 25600, 26624, 27648, 29696, or 30720</dt>
    *                   <dd>
    *                      <p>
    *                         <code>VCPU</code> = 4</p>
+   *                   </dd>
+   *                   <dt>value = 20480, 24576, or 28672</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 4 or 8</p>
+   *                   </dd>
+   *                   <dt>value = 36864, 45056, 53248, or 61440</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 8</p>
+   *                   </dd>
+   *                   <dt>value = 32768, 40960, 49152, or 57344</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 8 or 16</p>
+   *                   </dd>
+   *                   <dt>value = 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>VCPU</code> = 16</p>
    *                   </dd>
    *                </dl>
    *             </dd>
@@ -1638,9 +1663,11 @@ export interface ResourceRequirement {
    *       <a href="https://docs.docker.com/engine/reference/run/">docker run</a>. Each vCPU is equivalent to 1,024 CPU shares. For EC2
    *       resources, you must specify at least one vCPU. This is required but can be specified in several places; it must be
    *       specified for each node at least once.</p>
+   *                <p>The default for the Fargate On-Demand vCPU resource count quota is 6 vCPUs. For more information about
+   *       Fargate quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/ecs-service.html#service-quotas-fargate">Fargate quotas</a> in the <i>Amazon Web Services General Reference</i>.</p>
    *                <p>For jobs that are running on Fargate resources, then <code>value</code> must match one of the supported
    *       values and the <code>MEMORY</code> values must be one of the values supported for that <code>VCPU</code> value.
-   *       The supported values are 0.25, 0.5, 1, 2, and 4</p>
+   *       The supported values are 0.25, 0.5, 1, 2, 4, 8, and 16</p>
    *                <dl>
    *                   <dt>value = 0.25</dt>
    *                   <dd>
@@ -1667,6 +1694,18 @@ export interface ResourceRequirement {
    *                      <p>
    *                         <code>MEMORY</code> = 8192, 9216, 10240, 11264, 12288, 13312, 14336, 15360, 16384, 17408, 18432, 19456,
    *      20480, 21504, 22528, 23552, 24576, 25600, 26624, 27648, 28672, 29696, or 30720</p>
+   *                   </dd>
+   *                   <dt>value = 8</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>MEMORY</code> = 16384, 20480, 24576, 28672, 32768, 36864, 40960, 45056, 49152, 53248, 57344, or 61440
+   * </p>
+   *                   </dd>
+   *                   <dt>value = 16</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <code>MEMORY</code> = 32768, 40960, 49152, 57344, 65536, 73728, 81920, 90112, 98304, 106496, 114688, or 122880
+   * </p>
    *                   </dd>
    *                </dl>
    *             </dd>
@@ -2411,8 +2450,7 @@ export interface EksPodProperties {
    *    that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver
    *    inherited from the node. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
    *    policy</a> in the <i>Kubernetes documentation</i>.</p>
-   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code> |
-   *    <code>None</code>
+   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code>
    *          </p>
    */
   dnsPolicy?: string;
@@ -3189,10 +3227,12 @@ export interface EksPodPropertiesDetail {
    * <p>The DNS policy for the pod. The default value is <code>ClusterFirst</code>. If the <code>hostNetwork</code>
    *    parameter is not specified, the default is <code>ClusterFirstWithHostNet</code>. <code>ClusterFirst</code> indicates
    *    that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver
-   *    inherited from the node. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
+   *    inherited from the node. If no value was specified for <code>dnsPolicy</code> in the <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_RegisterJobDefinition.html">RegisterJobDefinition</a> API operation, then no
+   *    value will be returned for <code>dnsPolicy</code> by either of <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobDefinitions.html">DescribeJobDefinitions</a> or <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_DescribeJobs.html">DescribeJobs</a> API operations. The
+   *    pod spec setting will contain either <code>ClusterFirst</code> or <code>ClusterFirstWithHostNet</code>, depending
+   *    on the value of the <code>hostNetwork</code> parameter. For more information, see <a href="https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy">Pod's DNS
    *    policy</a> in the <i>Kubernetes documentation</i>.</p>
-   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code> |
-   *    <code>None</code>
+   *          <p>Valid values: <code>Default</code> | <code>ClusterFirst</code> | <code>ClusterFirstWithHostNet</code>
    *          </p>
    */
   dnsPolicy?: string;
@@ -4308,6 +4348,10 @@ export interface ComputeResourceUpdate {
    *    and maximum values based on job queue demand.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
+   *          </note>
+   *          <note>
+   *             <p>Batch doesn't support changing the desired number of vCPUs of an existing compute environment. Don't specify
+   *     this parameter for compute environments using Amazon EKS clusters.</p>
    *          </note>
    */
   desiredvCpus?: number;
