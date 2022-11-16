@@ -310,6 +310,7 @@ export enum ValidationExceptionReason {
   DUPLICATE_PRICINGRULE_ARNS = "DUPLICATE_PRICINGRULE_ARNS",
   FIELD_VALIDATION_FAILED = "FIELD_VALIDATION_FAILED",
   ILLEGAL_ACCOUNTS = "ILLEGAL_ACCOUNTS",
+  ILLEGAL_BILLING_ENTITY = "ILLEGAL_BILLING_ENTITY",
   ILLEGAL_BILLING_PERIOD = "ILLEGAL_BILLING_PERIOD",
   ILLEGAL_BILLING_PERIOD_RANGE = "ILLEGAL_BILLING_PERIOD_RANGE",
   ILLEGAL_CHARGE_DETAILS = "ILLEGAL_CHARGE_DETAILS",
@@ -318,6 +319,7 @@ export enum ValidationExceptionReason {
   ILLEGAL_CUSTOMLINEITEM_MODIFICATION = "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
   ILLEGAL_CUSTOMLINEITEM_UPDATE = "ILLEGAL_CUSTOMLINEITEM_UPDATE",
   ILLEGAL_EXPRESSION = "ILLEGAL_EXPRESSION",
+  ILLEGAL_MODIFIER_PERCENTAGE = "ILLEGAL_MODIFIER_PERCENTAGE",
   ILLEGAL_PRIMARY_ACCOUNT = "ILLEGAL_PRIMARY_ACCOUNT",
   ILLEGAL_RESOURCE_ARNS = "ILLEGAL_RESOURCE_ARNS",
   ILLEGAL_SCOPE = "ILLEGAL_SCOPE",
@@ -2072,6 +2074,7 @@ export interface UpdatePricingPlanOutput {
 }
 
 export enum PricingRuleScope {
+  BILLING_ENTITY = "BILLING_ENTITY",
   GLOBAL = "GLOBAL",
   SERVICE = "SERVICE",
 }
@@ -2133,6 +2136,13 @@ export interface CreatePricingRuleInput {
    *     </p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>
+   *       The seller of services provided by Amazon Web Services, their affiliates, or third-party providers selling services via Amazon Web Services Marketplace.
+   *     </p>
+   */
+  BillingEntity?: string;
 }
 
 export interface CreatePricingRuleOutput {
@@ -2268,6 +2278,13 @@ export interface PricingRuleListElement {
    * <p> The most recent time when the pricing rule was modified. </p>
    */
   LastModifiedTime?: number;
+
+  /**
+   * <p>
+   *       The seller of services provided by Amazon Web Services, their affiliates, or third-party providers selling services via Amazon Web Services Marketplace.
+   *     </p>
+   */
+  BillingEntity?: string;
 }
 
 export interface ListPricingRulesOutput {
@@ -2444,6 +2461,13 @@ export interface UpdatePricingRuleOutput {
    *     </p>
    */
   LastModifiedTime?: number;
+
+  /**
+   * <p>
+   *       The seller of services provided by Amazon Web Services, their affiliates, or third-party providers selling services via Amazon Web Services Marketplace.
+   *     </p>
+   */
+  BillingEntity?: string;
 }
 
 export interface TagResourceRequest {

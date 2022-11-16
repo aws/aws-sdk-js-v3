@@ -372,6 +372,7 @@ export const serializeAws_restJson1CreatePricingRuleCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/create-pricing-rule";
   let body: any;
   body = JSON.stringify({
+    ...(input.BillingEntity != null && { BillingEntity: input.BillingEntity }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
     ...(input.Name != null && { Name: input.Name }),
@@ -2787,6 +2788,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   if (data.AssociatedPricingPlanCount != null) {
     contents.AssociatedPricingPlanCount = __expectLong(data.AssociatedPricingPlanCount);
   }
+  if (data.BillingEntity != null) {
+    contents.BillingEntity = __expectString(data.BillingEntity);
+  }
   if (data.Description != null) {
     contents.Description = __expectString(data.Description);
   }
@@ -3646,6 +3650,7 @@ const deserializeAws_restJson1PricingRuleListElement = (
   return {
     Arn: __expectString(output.Arn),
     AssociatedPricingPlanCount: __expectLong(output.AssociatedPricingPlanCount),
+    BillingEntity: __expectString(output.BillingEntity),
     CreationTime: __expectLong(output.CreationTime),
     Description: __expectString(output.Description),
     LastModifiedTime: __expectLong(output.LastModifiedTime),
