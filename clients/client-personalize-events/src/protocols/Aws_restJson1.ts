@@ -21,6 +21,7 @@ import {
   Event,
   InvalidInputException,
   Item,
+  MetricAttribution,
   ResourceInUseException,
   ResourceNotFoundException,
   User,
@@ -286,6 +287,9 @@ const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any
     ...(input.eventValue != null && { eventValue: __serializeFloat(input.eventValue) }),
     ...(input.impression != null && { impression: serializeAws_restJson1Impression(input.impression, context) }),
     ...(input.itemId != null && { itemId: input.itemId }),
+    ...(input.metricAttribution != null && {
+      metricAttribution: serializeAws_restJson1MetricAttribution(input.metricAttribution, context),
+    }),
     ...(input.properties != null && { properties: __LazyJsonString.fromObject(input.properties) }),
     ...(input.recommendationId != null && { recommendationId: input.recommendationId }),
     ...(input.sentAt != null && { sentAt: Math.round(input.sentAt.getTime() / 1000) }),
@@ -321,6 +325,12 @@ const serializeAws_restJson1ItemList = (input: Item[], context: __SerdeContext):
     .map((entry) => {
       return serializeAws_restJson1Item(entry, context);
     });
+};
+
+const serializeAws_restJson1MetricAttribution = (input: MetricAttribution, context: __SerdeContext): any => {
+  return {
+    ...(input.eventAttributionSource != null && { eventAttributionSource: input.eventAttributionSource }),
+  };
 };
 
 const serializeAws_restJson1User = (input: User, context: __SerdeContext): any => {
