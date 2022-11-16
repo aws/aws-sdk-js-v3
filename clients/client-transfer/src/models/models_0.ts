@@ -623,6 +623,27 @@ export interface CreateAgreementResponse {
   AgreementId: string | undefined;
 }
 
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
+}
+
 export interface CreateConnectorRequest {
   /**
    * <p>The URL of the partner's AS2 endpoint.</p>
@@ -1263,27 +1284,6 @@ export interface CreateServerResponse {
    * <p>The service-assigned identifier of the server that is created.</p>
    */
   ServerId: string | undefined;
-}
-
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  RetryAfterSeconds?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
 }
 
 export interface CreateUserRequest {

@@ -1108,6 +1108,9 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1161,6 +1164,9 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1211,6 +1217,9 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3603,6 +3612,9 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3656,6 +3668,9 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3706,6 +3721,9 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3759,6 +3777,9 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3862,6 +3883,9 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.transfer#ThrottlingException":
+      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
