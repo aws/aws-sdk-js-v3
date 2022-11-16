@@ -2762,10 +2762,8 @@ const serializeAws_restJson1ComponentsMapRequest = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ComponentRequest(value, context),
-    };
+    acc[key] = serializeAws_restJson1ComponentRequest(value, context);
+    return acc;
   }, {});
 };
 
@@ -2788,10 +2786,8 @@ const serializeAws_restJson1ComponentUpdatesMapRequest = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ComponentUpdateRequest(value, context),
-    };
+    acc[key] = serializeAws_restJson1ComponentUpdateRequest(value, context);
+    return acc;
   }, {});
 };
 
@@ -2800,10 +2796,8 @@ const serializeAws_restJson1Configuration = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2857,10 +2851,8 @@ const serializeAws_restJson1DataValueMap = (input: Record<string, DataValue>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1DataValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1DataValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2899,10 +2891,8 @@ const serializeAws_restJson1ExternalIdProperty = (input: Record<string, string>,
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2926,10 +2916,8 @@ const serializeAws_restJson1FunctionsRequest = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FunctionRequest(value, context),
-    };
+    acc[key] = serializeAws_restJson1FunctionRequest(value, context);
+    return acc;
   }, {});
 };
 
@@ -3024,10 +3012,8 @@ const serializeAws_restJson1PropertyDefinitionsRequest = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1PropertyDefinitionRequest(value, context),
-    };
+    acc[key] = serializeAws_restJson1PropertyDefinitionRequest(value, context);
+    return acc;
   }, {});
 };
 
@@ -3065,10 +3051,8 @@ const serializeAws_restJson1PropertyRequests = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1PropertyRequest(value, context),
-    };
+    acc[key] = serializeAws_restJson1PropertyRequest(value, context);
+    return acc;
   }, {});
 };
 
@@ -3142,10 +3126,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3186,10 +3168,8 @@ const deserializeAws_restJson1ComponentsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ComponentResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ComponentResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -3230,10 +3210,8 @@ const deserializeAws_restJson1Configuration = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3290,10 +3268,8 @@ const deserializeAws_restJson1DataValueMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1DataValue(value, context),
-    };
+    acc[key] = deserializeAws_restJson1DataValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -3392,10 +3368,8 @@ const deserializeAws_restJson1ExternalIdProperty = (output: any, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3420,10 +3394,8 @@ const deserializeAws_restJson1FunctionsResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FunctionResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FunctionResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -3462,10 +3434,8 @@ const deserializeAws_restJson1PropertyDefinitionsResponse = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1PropertyDefinitionResponse(value, context),
-      };
+      acc[key] = deserializeAws_restJson1PropertyDefinitionResponse(value, context);
+      return acc;
     },
     {}
   );
@@ -3490,10 +3460,8 @@ const deserializeAws_restJson1PropertyLatestValueMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1PropertyLatestValue(value, context),
-    };
+    acc[key] = deserializeAws_restJson1PropertyLatestValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -3515,10 +3483,8 @@ const deserializeAws_restJson1PropertyResponses = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1PropertyResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1PropertyResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -3657,10 +3623,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

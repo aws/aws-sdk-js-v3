@@ -789,10 +789,8 @@ const serializeAws_json1_1TagMap = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -880,10 +878,8 @@ const deserializeAws_json1_1FailedResourcesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1FailureInfo(value, context),
-    };
+    acc[key] = deserializeAws_json1_1FailureInfo(value, context);
+    return acc;
   }, {});
 };
 

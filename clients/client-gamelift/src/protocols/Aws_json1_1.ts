@@ -7728,10 +7728,8 @@ const serializeAws_json1_1LatencyMap = (input: Record<string, number>, context: 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7883,10 +7881,8 @@ const serializeAws_json1_1PlayerAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1AttributeValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -7895,10 +7891,8 @@ const serializeAws_json1_1PlayerDataMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8178,10 +8172,8 @@ const serializeAws_json1_1StringDoubleMap = (input: Record<string, number>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __serializeFloat(value),
-    };
+    acc[key] = __serializeFloat(value);
+    return acc;
   }, {});
 };
 
@@ -9766,10 +9758,8 @@ const deserializeAws_json1_1LatencyMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -10081,10 +10071,8 @@ const deserializeAws_json1_1PlayerAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1AttributeValue(value, context),
-    };
+    acc[key] = deserializeAws_json1_1AttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -10457,10 +10445,8 @@ const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 

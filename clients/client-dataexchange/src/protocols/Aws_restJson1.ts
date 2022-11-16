@@ -636,13 +636,10 @@ export const serializeAws_restJson1SendApiAssetCommand = async (
     "x-amzn-dataexchange-path": input.Path!,
     "x-amzn-dataexchange-revision-id": input.RevisionId!,
     ...(input.RequestHeaders !== undefined &&
-      Object.keys(input.RequestHeaders).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amzn-dataexchange-header-${suffix.toLowerCase()}`]: input.RequestHeaders![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.RequestHeaders).reduce((acc: any, suffix: string) => {
+        acc[`x-amzn-dataexchange-header-${suffix.toLowerCase()}`] = input.RequestHeaders![suffix];
+        return acc;
+      }, {})),
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1";
   const query: any = map({
@@ -3026,10 +3023,8 @@ const serializeAws_restJson1MapOf__string = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3546,10 +3541,8 @@ const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

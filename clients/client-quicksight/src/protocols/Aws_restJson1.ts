@@ -13774,10 +13774,8 @@ const serializeAws_restJson1FieldFolderMap = (input: Record<string, FieldFolder>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1FieldFolder(value, context),
-    };
+    acc[key] = serializeAws_restJson1FieldFolder(value, context);
+    return acc;
   }, {});
 };
 
@@ -13854,10 +13852,8 @@ const serializeAws_restJson1IdentityMap = (input: Record<string, string[]>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1IdentityNameList(value, context),
-    };
+    acc[key] = serializeAws_restJson1IdentityNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -13904,10 +13900,8 @@ const serializeAws_restJson1IpRestrictionRuleMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -13953,10 +13947,8 @@ const serializeAws_restJson1LogicalTableMap = (input: Record<string, LogicalTabl
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1LogicalTable(value, context),
-    };
+    acc[key] = serializeAws_restJson1LogicalTable(value, context);
+    return acc;
   }, {});
 };
 
@@ -14046,10 +14038,8 @@ const serializeAws_restJson1PhysicalTableMap = (input: Record<string, PhysicalTa
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1PhysicalTable(value, context),
-    };
+    acc[key] = serializeAws_restJson1PhysicalTable(value, context);
+    return acc;
   }, {});
 };
 
@@ -15480,10 +15470,8 @@ const deserializeAws_restJson1FieldFolderMap = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldFolder(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldFolder(value, context);
+    return acc;
   }, {});
 };
 
@@ -15666,10 +15654,8 @@ const deserializeAws_restJson1IdentityMap = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1IdentityNameList(value, context),
-    };
+    acc[key] = deserializeAws_restJson1IdentityNameList(value, context);
+    return acc;
   }, {});
 };
 
@@ -15740,10 +15726,8 @@ const deserializeAws_restJson1IpRestrictionRuleMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -15807,10 +15791,8 @@ const deserializeAws_restJson1LogicalTableMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1LogicalTable(value, context),
-    };
+    acc[key] = deserializeAws_restJson1LogicalTable(value, context);
+    return acc;
   }, {});
 };
 
@@ -15961,10 +15943,8 @@ const deserializeAws_restJson1PhysicalTableMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1PhysicalTable(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1PhysicalTable(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 

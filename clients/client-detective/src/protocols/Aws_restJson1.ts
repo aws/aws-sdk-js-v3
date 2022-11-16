@@ -2012,10 +2012,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2074,10 +2072,8 @@ const deserializeAws_restJson1DatasourcePackageIngestDetails = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DatasourcePackageIngestDetail(value, context),
-      };
+      acc[key] = deserializeAws_restJson1DatasourcePackageIngestDetail(value, context);
+      return acc;
     },
     {}
   );
@@ -2092,10 +2088,8 @@ const deserializeAws_restJson1DatasourcePackageIngestHistory = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1LastIngestStateChangeDates(value, context),
-      };
+      acc[key] = deserializeAws_restJson1LastIngestStateChangeDates(value, context);
+      return acc;
     },
     {}
   );
@@ -2110,10 +2104,8 @@ const deserializeAws_restJson1DatasourcePackageIngestStates = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -2160,10 +2152,8 @@ const deserializeAws_restJson1LastIngestStateChangeDates = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1TimestampForCollection(value, context),
-      };
+      acc[key] = deserializeAws_restJson1TimestampForCollection(value, context);
+      return acc;
     },
     {}
   );
@@ -2257,10 +2247,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2320,10 +2308,8 @@ const deserializeAws_restJson1VolumeUsageByDatasourcePackage = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1DatasourcePackageUsageInfo(value, context),
-      };
+      acc[key] = deserializeAws_restJson1DatasourcePackageUsageInfo(value, context);
+      return acc;
     },
     {}
   );

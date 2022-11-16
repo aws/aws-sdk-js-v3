@@ -6258,10 +6258,8 @@ const serializeAws_restJson1BucketCriteria = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context),
-    };
+    acc[key] = serializeAws_restJson1BucketCriteriaAdditionalProperties(value, context);
+    return acc;
   }, {});
 };
 
@@ -6323,10 +6321,8 @@ const serializeAws_restJson1Criterion = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CriterionAdditionalProperties(value, context),
-    };
+    acc[key] = serializeAws_restJson1CriterionAdditionalProperties(value, context);
+    return acc;
   }, {});
 };
 
@@ -6639,10 +6635,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7383,10 +7377,8 @@ const deserializeAws_restJson1Criterion = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1CriterionAdditionalProperties(value, context),
-      };
+      acc[key] = deserializeAws_restJson1CriterionAdditionalProperties(value, context);
+      return acc;
     },
     {}
   );
@@ -8064,10 +8056,8 @@ const deserializeAws_restJson1SensitiveDataOccurrences = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1__listOfDetectedDataDetails(value, context),
-    };
+    acc[key] = deserializeAws_restJson1__listOfDetectedDataDetails(value, context);
+    return acc;
   }, {});
 };
 
@@ -8192,10 +8182,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

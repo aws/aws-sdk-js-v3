@@ -3496,10 +3496,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3526,10 +3524,8 @@ const deserializeAws_restJson1ConversionMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4281,10 +4277,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4321,10 +4315,8 @@ const deserializeAws_restJson1VolumeToConversionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ConversionMap(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ConversionMap(value, context);
+    return acc;
   }, {});
 };
 
@@ -4333,10 +4325,8 @@ const deserializeAws_restJson1VolumeToSizeMap = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
+    acc[key] = __expectLong(value) as any;
+    return acc;
   }, {});
 };
 

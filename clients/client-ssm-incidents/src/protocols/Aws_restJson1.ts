@@ -2685,10 +2685,8 @@ const serializeAws_restJson1DynamicSsmParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1DynamicSsmParameterValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1DynamicSsmParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2805,10 +2803,8 @@ const serializeAws_restJson1RegionMapInput = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RegionMapInputValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1RegionMapInputValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2860,10 +2856,8 @@ const serializeAws_restJson1SsmParameters = (input: Record<string, string[]>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SsmParameterValues(value, context),
-    };
+    acc[key] = serializeAws_restJson1SsmParameterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -2888,10 +2882,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2900,10 +2892,8 @@ const serializeAws_restJson1TagMapUpdate = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3012,10 +3002,8 @@ const deserializeAws_restJson1DynamicSsmParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1DynamicSsmParameterValue(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -3259,10 +3247,8 @@ const deserializeAws_restJson1RegionInfoMap = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1RegionInfo(value, context),
-    };
+    acc[key] = deserializeAws_restJson1RegionInfo(value, context);
+    return acc;
   }, {});
 };
 
@@ -3381,10 +3367,8 @@ const deserializeAws_restJson1SsmParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1SsmParameterValues(value, context),
-    };
+    acc[key] = deserializeAws_restJson1SsmParameterValues(value, context);
+    return acc;
   }, {});
 };
 
@@ -3405,10 +3389,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

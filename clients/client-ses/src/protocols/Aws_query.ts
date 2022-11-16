@@ -7425,10 +7425,8 @@ const deserializeAws_queryDkimAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityDkimAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityDkimAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8256,10 +8254,8 @@ const deserializeAws_queryMailFromDomainAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityMailFromDomainAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityMailFromDomainAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8311,10 +8307,8 @@ const deserializeAws_queryNotificationAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityNotificationAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityNotificationAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 
@@ -8323,10 +8317,8 @@ const deserializeAws_queryPolicyMap = (output: any, context: __SerdeContext): Re
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 
@@ -8962,10 +8954,8 @@ const deserializeAws_queryVerificationAttributes = (
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: deserializeAws_queryIdentityVerificationAttributes(pair["value"], context),
-    };
+    acc[pair["key"]] = deserializeAws_queryIdentityVerificationAttributes(pair["value"], context);
+    return acc;
   }, {});
 };
 

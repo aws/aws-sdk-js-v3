@@ -565,13 +565,10 @@ export const serializeAws_restXmlCopyObjectCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-source-expected-bucket-owner": input.ExpectedSourceBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -675,13 +672,10 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3100,13 +3094,10 @@ export const serializeAws_restXmlPutObjectCommand = async (
     "x-amz-object-lock-legal-hold": input.ObjectLockLegalHoldStatus!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/{Key+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Bucket", () => input.Bucket!, "{Bucket}", false);
@@ -3671,13 +3662,10 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
       () => input.BucketKeyEnabled!.toString(),
     ],
     ...(input.Metadata !== undefined &&
-      Object.keys(input.Metadata).reduce(
-        (acc: any, suffix: string) => ({
-          ...acc,
-          [`x-amz-meta-${suffix.toLowerCase()}`]: input.Metadata![suffix],
-        }),
-        {}
-      )),
+      Object.keys(input.Metadata).reduce((acc: any, suffix: string) => {
+        acc[`x-amz-meta-${suffix.toLowerCase()}`] = input.Metadata![suffix];
+        return acc;
+      }, {})),
   });
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/WriteGetObjectResponse";

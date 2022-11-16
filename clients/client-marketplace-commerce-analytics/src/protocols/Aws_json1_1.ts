@@ -152,10 +152,8 @@ const serializeAws_json1_1CustomerDefinedValues = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 

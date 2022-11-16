@@ -4792,10 +4792,8 @@ const deserializeAws_queryDatapointValueMap = (output: any, context: __SerdeCont
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __strictParseFloat(pair["value"]) as number,
-    };
+    acc[pair["key"]] = __strictParseFloat(pair["value"]) as number;
+    return acc;
   }, {});
 };
 

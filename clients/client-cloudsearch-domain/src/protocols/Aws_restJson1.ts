@@ -364,10 +364,8 @@ const deserializeAws_restJson1Exprs = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -376,10 +374,8 @@ const deserializeAws_restJson1Facets = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1BucketInfo(value, context),
-    };
+    acc[key] = deserializeAws_restJson1BucketInfo(value, context);
+    return acc;
   }, {});
 };
 
@@ -388,10 +384,8 @@ const deserializeAws_restJson1Fields = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldValue(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -425,10 +419,8 @@ const deserializeAws_restJson1Highlights = (output: any, context: __SerdeContext
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -474,10 +466,8 @@ const deserializeAws_restJson1Stats = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1FieldStats(value, context),
-    };
+    acc[key] = deserializeAws_restJson1FieldStats(value, context);
+    return acc;
   }, {});
 };
 

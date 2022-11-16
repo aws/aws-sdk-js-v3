@@ -2228,10 +2228,8 @@ const serializeAws_restJson1AttributeMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2431,10 +2429,8 @@ const deserializeAws_restJson1Annotations = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ValuesWithServiceIds(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ValuesWithServiceIds(value, context);
+    return acc;
   }, {});
 };
 
@@ -2474,10 +2470,8 @@ const deserializeAws_restJson1AttributeMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -10891,10 +10891,9 @@ export const AttributeValueFilterSensitiveLog = (obj: AttributeValue): any => {
   if (obj.M !== undefined)
     return {
       M: Object.entries(obj.M).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       ),
     };
@@ -10927,10 +10926,7 @@ export const BatchStatementResponseFilterSensitiveLog = (obj: BatchStatementResp
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10943,10 +10939,7 @@ export const CancellationReasonFilterSensitiveLog = (obj: CancellationReason): a
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10969,10 +10962,7 @@ export const DeleteRequestFilterSensitiveLog = (obj: DeleteRequest): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -10993,10 +10983,7 @@ export const GetFilterSensitiveLog = (obj: Get): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11009,10 +10996,7 @@ export const GetItemInputFilterSensitiveLog = (obj: GetItemInput): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11025,10 +11009,7 @@ export const GetItemOutputFilterSensitiveLog = (obj: GetItemOutput): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11041,10 +11022,7 @@ export const ItemCollectionMetricsFilterSensitiveLog = (obj: ItemCollectionMetri
   ...obj,
   ...(obj.ItemCollectionKey && {
     ItemCollectionKey: Object.entries(obj.ItemCollectionKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11057,10 +11035,7 @@ export const ItemResponseFilterSensitiveLog = (obj: ItemResponse): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11081,10 +11056,7 @@ export const PutRequestFilterSensitiveLog = (obj: PutRequest): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11098,10 +11070,9 @@ export const KeysAndAttributesFilterSensitiveLog = (obj: KeysAndAttributes): any
   ...(obj.Keys && {
     Keys: obj.Keys.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
@@ -11165,10 +11136,9 @@ export const BatchGetItemInputFilterSensitiveLog = (obj: BatchGetItemInput): any
   ...obj,
   ...(obj.RequestItems && {
     RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
-        ...acc,
-        [key]: KeysAndAttributesFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
+        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -11200,10 +11170,9 @@ export const TransactWriteItemsOutputFilterSensitiveLog = (obj: TransactWriteIte
   ...obj,
   ...(obj.ItemCollectionMetrics && {
     ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
+        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -11216,19 +11185,13 @@ export const ConditionCheckFilterSensitiveLog = (obj: ConditionCheck): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11241,19 +11204,13 @@ export const DeleteFilterSensitiveLog = (obj: Delete): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11266,19 +11223,13 @@ export const PutFilterSensitiveLog = (obj: Put): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11291,19 +11242,13 @@ export const UpdateFilterSensitiveLog = (obj: Update): any => ({
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11316,10 +11261,7 @@ export const DeleteItemOutputFilterSensitiveLog = (obj: DeleteItemOutput): any =
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11336,20 +11278,16 @@ export const ExecuteStatementOutputFilterSensitiveLog = (obj: ExecuteStatementOu
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11362,10 +11300,7 @@ export const PutItemOutputFilterSensitiveLog = (obj: PutItemOutput): any => ({
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11382,20 +11317,16 @@ export const QueryOutputFilterSensitiveLog = (obj: QueryOutput): any => ({
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11409,20 +11340,16 @@ export const ScanOutputFilterSensitiveLog = (obj: ScanOutput): any => ({
   ...(obj.Items && {
     Items: obj.Items.map((item) =>
       Object.entries(item).reduce(
-        (acc: any, [key, value]: [string, AttributeValue]) => ({
-          ...acc,
-          [key]: AttributeValueFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, AttributeValue]) => (
+          (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+        ),
         {}
       )
     ),
   }),
   ...(obj.LastEvaluatedKey && {
     LastEvaluatedKey: Object.entries(obj.LastEvaluatedKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11435,10 +11362,7 @@ export const UpdateItemOutputFilterSensitiveLog = (obj: UpdateItemOutput): any =
   ...obj,
   ...(obj.Attributes && {
     Attributes: Object.entries(obj.Attributes).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11463,27 +11387,25 @@ export const BatchGetItemOutputFilterSensitiveLog = (obj: BatchGetItemOutput): a
   ...obj,
   ...(obj.Responses && {
     Responses: Object.entries(obj.Responses).reduce(
-      (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => ({
-        ...acc,
-        [key]: value.map((item) =>
+      (acc: any, [key, value]: [string, Record<string, AttributeValue>[]]) => (
+        (acc[key] = value.map((item) =>
           Object.entries(item).reduce(
-            (acc: any, [key, value]: [string, AttributeValue]) => ({
-              ...acc,
-              [key]: AttributeValueFilterSensitiveLog(value),
-            }),
+            (acc: any, [key, value]: [string, AttributeValue]) => (
+              (acc[key] = AttributeValueFilterSensitiveLog(value)), acc
+            ),
             {}
           )
-        ),
-      }),
+        )),
+        acc
+      ),
       {}
     ),
   }),
   ...(obj.UnprocessedKeys && {
     UnprocessedKeys: Object.entries(obj.UnprocessedKeys).reduce(
-      (acc: any, [key, value]: [string, KeysAndAttributes]) => ({
-        ...acc,
-        [key]: KeysAndAttributesFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, KeysAndAttributes]) => (
+        (acc[key] = KeysAndAttributesFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -11496,28 +11418,19 @@ export const ScanInputFilterSensitiveLog = (obj: ScanInput): any => ({
   ...obj,
   ...(obj.ScanFilter && {
     ScanFilter: Object.entries(obj.ScanFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExclusiveStartKey && {
     ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11530,10 +11443,9 @@ export const BatchWriteItemInputFilterSensitiveLog = (obj: BatchWriteItemInput):
   ...obj,
   ...(obj.RequestItems && {
     RequestItems: Object.entries(obj.RequestItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => ({
-        ...acc,
-        [key]: value.map((item) => WriteRequestFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, WriteRequest[]]) => (
+        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -11546,28 +11458,21 @@ export const DeleteItemInputFilterSensitiveLog = (obj: DeleteItemInput): any => 
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11580,28 +11485,21 @@ export const PutItemInputFilterSensitiveLog = (obj: PutItemInput): any => ({
   ...obj,
   ...(obj.Item && {
     Item: Object.entries(obj.Item).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11614,37 +11512,25 @@ export const QueryInputFilterSensitiveLog = (obj: QueryInput): any => ({
   ...obj,
   ...(obj.KeyConditions && {
     KeyConditions: Object.entries(obj.KeyConditions).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.QueryFilter && {
     QueryFilter: Object.entries(obj.QueryFilter).reduce(
-      (acc: any, [key, value]: [string, Condition]) => ({
-        ...acc,
-        [key]: ConditionFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Condition]) => ((acc[key] = ConditionFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExclusiveStartKey && {
     ExclusiveStartKey: Object.entries(obj.ExclusiveStartKey).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -11657,19 +11543,17 @@ export const BatchWriteItemOutputFilterSensitiveLog = (obj: BatchWriteItemOutput
   ...obj,
   ...(obj.UnprocessedItems && {
     UnprocessedItems: Object.entries(obj.UnprocessedItems).reduce(
-      (acc: any, [key, value]: [string, WriteRequest[]]) => ({
-        ...acc,
-        [key]: value.map((item) => WriteRequestFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, WriteRequest[]]) => (
+        (acc[key] = value.map((item) => WriteRequestFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
   ...(obj.ItemCollectionMetrics && {
     ItemCollectionMetrics: Object.entries(obj.ItemCollectionMetrics).reduce(
-      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ItemCollectionMetrics[]]) => (
+        (acc[key] = value.map((item) => ItemCollectionMetricsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),
@@ -11682,37 +11566,29 @@ export const UpdateItemInputFilterSensitiveLog = (obj: UpdateItemInput): any => 
   ...obj,
   ...(obj.Key && {
     Key: Object.entries(obj.Key).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
   ...(obj.AttributeUpdates && {
     AttributeUpdates: Object.entries(obj.AttributeUpdates).reduce(
-      (acc: any, [key, value]: [string, AttributeValueUpdate]) => ({
-        ...acc,
-        [key]: AttributeValueUpdateFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValueUpdate]) => (
+        (acc[key] = AttributeValueUpdateFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.Expected && {
     Expected: Object.entries(obj.Expected).reduce(
-      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => ({
-        ...acc,
-        [key]: ExpectedAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, ExpectedAttributeValue]) => (
+        (acc[key] = ExpectedAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
   ...(obj.ExpressionAttributeValues && {
     ExpressionAttributeValues: Object.entries(obj.ExpressionAttributeValues).reduce(
-      (acc: any, [key, value]: [string, AttributeValue]) => ({
-        ...acc,
-        [key]: AttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, AttributeValue]) => ((acc[key] = AttributeValueFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

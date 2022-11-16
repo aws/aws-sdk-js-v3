@@ -4431,10 +4431,8 @@ const serializeAws_json1_1AppAttributes = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4722,10 +4720,8 @@ const serializeAws_json1_1DailyAutoScalingSchedule = (input: Record<string, stri
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4792,10 +4788,8 @@ const serializeAws_json1_1DeploymentCommandArgs = (input: Record<string, string[
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1Strings(value, context),
-    };
+    acc[key] = serializeAws_json1_1Strings(value, context);
+    return acc;
   }, {});
 };
 
@@ -5109,10 +5103,8 @@ const serializeAws_json1_1LayerAttributes = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5276,10 +5268,8 @@ const serializeAws_json1_1StackAttributes = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5346,10 +5336,8 @@ const serializeAws_json1_1Tags = (input: Record<string, string>, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5610,10 +5598,8 @@ const deserializeAws_json1_1AppAttributes = (output: any, context: __SerdeContex
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -5798,10 +5784,8 @@ const deserializeAws_json1_1DailyAutoScalingSchedule = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5857,10 +5841,8 @@ const deserializeAws_json1_1DeploymentCommandArgs = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1Strings(value, context),
-    };
+    acc[key] = deserializeAws_json1_1Strings(value, context);
+    return acc;
   }, {});
 };
 
@@ -6341,10 +6323,8 @@ const deserializeAws_json1_1LayerAttributes = (output: any, context: __SerdeCont
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -6465,10 +6445,8 @@ const deserializeAws_json1_1Parameters = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6711,10 +6689,8 @@ const deserializeAws_json1_1StackAttributes = (output: any, context: __SerdeCont
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -6771,10 +6747,8 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -3044,10 +3044,8 @@ const serializeAws_json1_1KMSEncryptionContextMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3067,10 +3065,8 @@ const serializeAws_json1_1LanguageIdSettingsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1LanguageIdSettings(value, context),
-    };
+    acc[key] = serializeAws_json1_1LanguageIdSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -3941,10 +3937,8 @@ const deserializeAws_json1_1LanguageIdSettingsMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1LanguageIdSettings(value, context),
-      };
+      acc[key] = deserializeAws_json1_1LanguageIdSettings(value, context);
+      return acc;
     },
     {}
   );

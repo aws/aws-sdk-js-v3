@@ -4046,10 +4046,8 @@ const serializeAws_restJson1ParameterMap = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4071,10 +4069,8 @@ const serializeAws_restJson1PathParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1DatasetParameter(value, context),
-    };
+    acc[key] = serializeAws_restJson1DatasetParameter(value, context);
+    return acc;
   }, {});
 };
 
@@ -4245,10 +4241,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4286,10 +4280,8 @@ const serializeAws_restJson1ValuesMap = (input: Record<string, string>, context:
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4822,10 +4814,8 @@ const deserializeAws_restJson1ParameterMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4849,10 +4839,8 @@ const deserializeAws_restJson1PathParametersMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1DatasetParameter(value, context),
-    };
+    acc[key] = deserializeAws_restJson1DatasetParameter(value, context);
+    return acc;
   }, {});
 };
 
@@ -5196,10 +5184,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5241,10 +5227,8 @@ const deserializeAws_restJson1ValuesMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -2614,10 +2614,8 @@ const serializeAws_restJson1ConfigurationsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Configuration(value, context),
-    };
+    acc[key] = serializeAws_restJson1Configuration(value, context);
+    return acc;
   }, {});
 };
 
@@ -2680,10 +2678,8 @@ const serializeAws_restJson1FilterCriteriaMap = (input: Record<string, Criterion
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Criterion(value, context),
-    };
+    acc[key] = serializeAws_restJson1Criterion(value, context);
+    return acc;
   }, {});
 };
 
@@ -2725,10 +2721,8 @@ const serializeAws_restJson1KmsConstraintsMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2793,10 +2787,8 @@ const serializeAws_restJson1KmsKeyPoliciesMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2838,10 +2830,8 @@ const serializeAws_restJson1RdsDbClusterSnapshotAttributesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RdsDbClusterSnapshotAttributeValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1RdsDbClusterSnapshotAttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2883,10 +2873,8 @@ const serializeAws_restJson1RdsDbSnapshotAttributesMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1RdsDbSnapshotAttributeValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1RdsDbSnapshotAttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -2943,10 +2931,8 @@ const serializeAws_restJson1S3AccessPointConfigurationsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1S3AccessPointConfiguration(value, context),
-    };
+    acc[key] = serializeAws_restJson1S3AccessPointConfiguration(value, context);
+    return acc;
   }, {});
 };
 
@@ -3033,10 +3019,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3288,10 +3272,8 @@ const deserializeAws_restJson1ConditionKeyMap = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3368,10 +3350,8 @@ const deserializeAws_restJson1ConfigurationsMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Configuration(__expectUnion(value), context),
-    };
+    acc[key] = deserializeAws_restJson1Configuration(__expectUnion(value), context);
+    return acc;
   }, {});
 };
 
@@ -3442,10 +3422,8 @@ const deserializeAws_restJson1FilterCriteriaMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Criterion(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Criterion(value, context);
+    return acc;
   }, {});
 };
 
@@ -3603,10 +3581,8 @@ const deserializeAws_restJson1KmsConstraintsMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3681,10 +3657,8 @@ const deserializeAws_restJson1KmsKeyPoliciesMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3789,10 +3763,8 @@ const deserializeAws_restJson1PrincipalMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3817,10 +3789,8 @@ const deserializeAws_restJson1RdsDbClusterSnapshotAttributesMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1RdsDbClusterSnapshotAttributeValue(__expectUnion(value), context),
-      };
+      acc[key] = deserializeAws_restJson1RdsDbClusterSnapshotAttributeValue(__expectUnion(value), context);
+      return acc;
     },
     {}
   );
@@ -3872,10 +3842,8 @@ const deserializeAws_restJson1RdsDbSnapshotAttributesMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1RdsDbSnapshotAttributeValue(__expectUnion(value), context),
-      };
+      acc[key] = deserializeAws_restJson1RdsDbSnapshotAttributeValue(__expectUnion(value), context);
+      return acc;
     },
     {}
   );
@@ -3944,10 +3912,8 @@ const deserializeAws_restJson1S3AccessPointConfigurationsMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1S3AccessPointConfiguration(value, context),
-      };
+      acc[key] = deserializeAws_restJson1S3AccessPointConfiguration(value, context);
+      return acc;
     },
     {}
   );
@@ -4066,10 +4032,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

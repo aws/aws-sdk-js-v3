@@ -3173,10 +3173,8 @@ const serializeAws_json1_1ActionConfigurationMap = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3382,10 +3380,8 @@ const serializeAws_json1_1ArtifactStoreMap = (input: Record<string, ArtifactStor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1ArtifactStore(value, context),
-    };
+    acc[key] = serializeAws_json1_1ArtifactStore(value, context);
+    return acc;
   }, {});
 };
 
@@ -3695,10 +3691,8 @@ const serializeAws_json1_1OutputVariablesMap = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3853,10 +3847,8 @@ const serializeAws_json1_1QueryParamMap = (input: Record<string, string>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4050,10 +4042,8 @@ const deserializeAws_json1_1ActionConfigurationMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4531,10 +4521,8 @@ const deserializeAws_json1_1ArtifactStoreMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1ArtifactStore(value, context),
-    };
+    acc[key] = deserializeAws_json1_1ArtifactStore(value, context);
+    return acc;
   }, {});
 };
 
@@ -5024,10 +5012,8 @@ const deserializeAws_json1_1OutputVariablesMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5297,10 +5283,8 @@ const deserializeAws_json1_1ResolvedActionConfigurationMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

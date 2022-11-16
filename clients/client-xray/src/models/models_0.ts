@@ -3319,10 +3319,9 @@ export const TraceSummaryFilterSensitiveLog = (obj: TraceSummary): any => ({
   ...obj,
   ...(obj.Annotations && {
     Annotations: Object.entries(obj.Annotations).reduce(
-      (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => ({
-        ...acc,
-        [key]: value.map((item) => ValueWithServiceIdsFilterSensitiveLog(item)),
-      }),
+      (acc: any, [key, value]: [string, ValueWithServiceIds[]]) => (
+        (acc[key] = value.map((item) => ValueWithServiceIdsFilterSensitiveLog(item))), acc
+      ),
       {}
     ),
   }),

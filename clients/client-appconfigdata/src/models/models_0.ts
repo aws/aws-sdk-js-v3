@@ -287,10 +287,9 @@ export const BadRequestDetailsFilterSensitiveLog = (obj: BadRequestDetails): any
   if (obj.InvalidParameters !== undefined)
     return {
       InvalidParameters: Object.entries(obj.InvalidParameters).reduce(
-        (acc: any, [key, value]: [string, InvalidParameterDetail]) => ({
-          ...acc,
-          [key]: InvalidParameterDetailFilterSensitiveLog(value),
-        }),
+        (acc: any, [key, value]: [string, InvalidParameterDetail]) => (
+          (acc[key] = InvalidParameterDetailFilterSensitiveLog(value)), acc
+        ),
         {}
       ),
     };

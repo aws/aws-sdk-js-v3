@@ -2420,10 +2420,8 @@ const deserializeAws_json1_1DetectedWorkload = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1WorkloadMetaData(value, context),
-      };
+      acc[key] = deserializeAws_json1_1WorkloadMetaData(value, context);
+      return acc;
     },
     {}
   );
@@ -2438,10 +2436,8 @@ const deserializeAws_json1_1Feedback = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -2792,10 +2788,8 @@ const deserializeAws_json1_1WorkloadMetaData = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

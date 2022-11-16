@@ -4024,10 +4024,8 @@ const deserializeAws_restJson1PerformanceInsightsMetricFilterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

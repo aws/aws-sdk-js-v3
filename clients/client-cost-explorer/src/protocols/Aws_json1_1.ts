@@ -3407,10 +3407,8 @@ const deserializeAws_json1_1Attributes = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4452,10 +4450,8 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1MetricValue(value, context),
-    };
+    acc[key] = deserializeAws_json1_1MetricValue(value, context);
+    return acc;
   }, {});
 };
 

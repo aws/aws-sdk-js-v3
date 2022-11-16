@@ -5068,10 +5068,8 @@ const serializeAws_restJson1Criterion = (input: Record<string, Condition>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Condition(value, context),
-    };
+    acc[key] = serializeAws_restJson1Condition(value, context);
+    return acc;
   }, {});
 };
 
@@ -5357,10 +5355,8 @@ const serializeAws_restJson1ScanCriterion = (input: Record<string, ScanCondition
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ScanCondition(value, context),
-    };
+    acc[key] = serializeAws_restJson1ScanCondition(value, context);
+    return acc;
   }, {});
 };
 
@@ -5392,10 +5388,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5519,10 +5513,8 @@ const deserializeAws_restJson1AffectedResources = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5649,10 +5641,8 @@ const deserializeAws_restJson1CountBySeverity = (output: any, context: __SerdeCo
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5668,10 +5658,8 @@ const deserializeAws_restJson1Criterion = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Condition(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Condition(value, context);
+    return acc;
   }, {});
 };
 
@@ -6776,10 +6764,8 @@ const deserializeAws_restJson1ScanCriterion = (output: any, context: __SerdeCont
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1ScanCondition(value, context),
-      };
+      acc[key] = deserializeAws_restJson1ScanCondition(value, context);
+      return acc;
     },
     {}
   );
@@ -6971,10 +6957,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

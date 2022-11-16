@@ -7818,10 +7818,8 @@ const serializeAws_restJson1RuleMap = (input: Record<string, Rule>, context: __S
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1Rule(value, context),
-    };
+    acc[key] = serializeAws_restJson1Rule(value, context);
+    return acc;
   }, {});
 };
 
@@ -7830,10 +7828,8 @@ const serializeAws_restJson1RuleParameterMap = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -8703,10 +8699,8 @@ const deserializeAws_restJson1LinkNameToObjectIdentifierMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8755,10 +8749,8 @@ const deserializeAws_restJson1ObjectIdentifierToLinkNameMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8849,10 +8841,8 @@ const deserializeAws_restJson1RuleMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Rule(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Rule(value, context);
+    return acc;
   }, {});
 };
 
@@ -8861,10 +8851,8 @@ const deserializeAws_restJson1RuleParameterMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

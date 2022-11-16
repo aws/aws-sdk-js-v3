@@ -4628,10 +4628,8 @@ const serializeAws_restJson1MessageAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1MessageAttributeValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1MessageAttributeValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -5226,10 +5224,8 @@ const deserializeAws_restJson1MessageAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MessageAttributeValue(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MessageAttributeValue(value, context);
+    return acc;
   }, {});
 };
 

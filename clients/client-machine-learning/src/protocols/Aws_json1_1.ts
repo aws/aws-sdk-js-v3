@@ -2252,10 +2252,8 @@ const serializeAws_json1_1Record = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2329,10 +2327,8 @@ const serializeAws_json1_1TrainingParameters = (input: Record<string, string>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -2618,10 +2614,8 @@ const deserializeAws_json1_1DetailsMap = (output: any, context: __SerdeContext):
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: __expectString(value) as any,
-      };
+      acc[key] = __expectString(value) as any;
+      return acc;
     },
     {}
   );
@@ -2911,10 +2905,8 @@ const deserializeAws_json1_1PerformanceMetricsProperties = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3006,10 +2998,8 @@ const deserializeAws_json1_1ScoreValuePerLabelMap = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseFloat32(value) as any,
-    };
+    acc[key] = __limitedParseFloat32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3046,10 +3036,8 @@ const deserializeAws_json1_1TrainingParameters = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

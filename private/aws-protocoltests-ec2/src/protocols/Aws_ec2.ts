@@ -1854,10 +1854,8 @@ const deserializeAws_ec2FooEnumMap = (output: any, context: __SerdeContext): Rec
     if (pair["value"] === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [pair["key"]]: __expectString(pair["value"]) as any,
-    };
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
   }, {});
 };
 

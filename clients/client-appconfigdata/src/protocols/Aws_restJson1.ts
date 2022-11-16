@@ -296,10 +296,8 @@ const deserializeAws_restJson1InvalidParameterMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1InvalidParameterDetail(value, context),
-    };
+    acc[key] = deserializeAws_restJson1InvalidParameterDetail(value, context);
+    return acc;
   }, {});
 };
 
@@ -308,10 +306,8 @@ const deserializeAws_restJson1StringMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

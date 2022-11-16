@@ -145,10 +145,8 @@ const serializeAws_json1_1GetEntitlementFilters = (input: Record<string, string[
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: serializeAws_json1_1FilterValueList(value, context),
-      };
+      acc[key] = serializeAws_json1_1FilterValueList(value, context);
+      return acc;
     },
     {}
   );

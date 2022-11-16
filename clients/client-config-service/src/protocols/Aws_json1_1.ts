@@ -8243,10 +8243,8 @@ const serializeAws_json1_1RemediationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_json1_1RemediationParameterValue(value, context),
-    };
+    acc[key] = serializeAws_json1_1RemediationParameterValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -8531,10 +8529,8 @@ const serializeAws_json1_1Tags = (input: Record<string, string>, context: __Serd
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -11631,10 +11627,8 @@ const deserializeAws_json1_1RemediationParameters = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1RemediationParameterValue(value, context),
-      };
+      acc[key] = deserializeAws_json1_1RemediationParameterValue(value, context);
+      return acc;
     },
     {}
   );
@@ -11960,10 +11954,8 @@ const deserializeAws_json1_1SupplementaryConfiguration = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -11991,10 +11983,8 @@ const deserializeAws_json1_1Tags = (output: any, context: __SerdeContext): Recor
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

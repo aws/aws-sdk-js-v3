@@ -7537,10 +7537,8 @@ const serializeAws_restJson1AdditionalVersionWeights = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __serializeFloat(value),
-    };
+    acc[key] = __serializeFloat(value);
+    return acc;
   }, {});
 };
 
@@ -7669,10 +7667,8 @@ const serializeAws_restJson1Endpoints = (input: Record<string, string[]>, contex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1EndpointLists(value, context),
-    };
+    acc[key] = serializeAws_restJson1EndpointLists(value, context);
+    return acc;
   }, {});
 };
 
@@ -7687,10 +7683,8 @@ const serializeAws_restJson1EnvironmentVariables = (input: Record<string, string
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7885,10 +7879,8 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7940,10 +7932,8 @@ const deserializeAws_restJson1AdditionalVersionWeights = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8152,10 +8142,8 @@ const deserializeAws_restJson1Endpoints = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1EndpointLists(value, context),
-    };
+    acc[key] = deserializeAws_restJson1EndpointLists(value, context);
+    return acc;
   }, {});
 };
 
@@ -8179,10 +8167,8 @@ const deserializeAws_restJson1EnvironmentVariables = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8748,10 +8734,8 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

@@ -6263,10 +6263,8 @@ const serializeAws_json1_1TestParameters = (input: Record<string, string>, conte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -7383,10 +7381,8 @@ const deserializeAws_json1_1MaxSlotMap = (output: any, context: __SerdeContext):
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -7502,10 +7498,8 @@ const deserializeAws_json1_1OfferingStatusMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1OfferingStatus(value, context),
-    };
+    acc[key] = deserializeAws_json1_1OfferingStatus(value, context);
+    return acc;
   }, {});
 };
 
@@ -7604,10 +7598,8 @@ const deserializeAws_json1_1PurchasedDevicesMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectInt32(value) as any,
-    };
+    acc[key] = __expectInt32(value) as any;
+    return acc;
   }, {});
 };
 
@@ -8124,10 +8116,8 @@ const deserializeAws_json1_1UniqueProblemsByExecutionResultMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_json1_1UniqueProblems(value, context),
-      };
+      acc[key] = deserializeAws_json1_1UniqueProblems(value, context);
+      return acc;
     },
     {}
   );

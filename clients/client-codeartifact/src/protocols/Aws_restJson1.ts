@@ -3454,10 +3454,8 @@ const serializeAws_restJson1PackageVersionRevisionMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3503,10 +3501,8 @@ const deserializeAws_restJson1AssetHashes = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3717,10 +3713,8 @@ const deserializeAws_restJson1PackageVersionErrorMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1PackageVersionError(value, context),
-    };
+    acc[key] = deserializeAws_restJson1PackageVersionError(value, context);
+    return acc;
   }, {});
 };
 
@@ -3853,10 +3847,8 @@ const deserializeAws_restJson1SuccessfulPackageVersionInfoMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SuccessfulPackageVersionInfo(value, context),
-      };
+      acc[key] = deserializeAws_restJson1SuccessfulPackageVersionInfo(value, context);
+      return acc;
     },
     {}
   );

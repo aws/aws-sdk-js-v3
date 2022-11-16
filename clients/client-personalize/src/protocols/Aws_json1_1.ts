@@ -4498,10 +4498,8 @@ const serializeAws_json1_1FeatureTransformationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -4572,10 +4570,8 @@ const serializeAws_json1_1HyperParameters = (input: Record<string, string>, cont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -5929,10 +5925,8 @@ const deserializeAws_json1_1FeatureTransformationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -5944,10 +5938,8 @@ const deserializeAws_json1_1FeaturizationParameters = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6062,10 +6054,8 @@ const deserializeAws_json1_1HyperParameters = (output: any, context: __SerdeCont
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6270,10 +6260,8 @@ const deserializeAws_json1_1Metrics = (output: any, context: __SerdeContext): Re
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __limitedParseDouble(value) as any,
-    };
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
   }, {});
 };
 
@@ -6441,10 +6429,8 @@ const deserializeAws_json1_1ResourceConfig = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

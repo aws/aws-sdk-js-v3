@@ -11694,10 +11694,8 @@ const serializeAws_restJson1MapOfApiStageThrottleSettings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ThrottleSettings(value, context),
-    };
+    acc[key] = serializeAws_restJson1ThrottleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -11706,10 +11704,8 @@ const serializeAws_restJson1MapOfStringToBoolean = (input: Record<string, boolea
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -11718,10 +11714,8 @@ const serializeAws_restJson1MapOfStringToList = (input: Record<string, string[]>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1ListOfString(value, context),
-    };
+    acc[key] = serializeAws_restJson1ListOfString(value, context);
+    return acc;
   }, {});
 };
 
@@ -11730,10 +11724,8 @@ const serializeAws_restJson1MapOfStringToString = (input: Record<string, string>
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -12344,10 +12336,8 @@ const deserializeAws_restJson1MapOfApiStageThrottleSettings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ThrottleSettings(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ThrottleSettings(value, context);
+    return acc;
   }, {});
 };
 
@@ -12359,10 +12349,8 @@ const deserializeAws_restJson1MapOfIntegrationResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1IntegrationResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1IntegrationResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -12371,10 +12359,8 @@ const deserializeAws_restJson1MapOfKeyUsages = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ListOfUsage(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ListOfUsage(value, context);
+    return acc;
   }, {});
 };
 
@@ -12383,10 +12369,8 @@ const deserializeAws_restJson1MapOfMethod = (output: any, context: __SerdeContex
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1Method(value, context),
-    };
+    acc[key] = deserializeAws_restJson1Method(value, context);
+    return acc;
   }, {});
 };
 
@@ -12398,10 +12382,8 @@ const deserializeAws_restJson1MapOfMethodResponse = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MethodResponse(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MethodResponse(value, context);
+    return acc;
   }, {});
 };
 
@@ -12413,10 +12395,8 @@ const deserializeAws_restJson1MapOfMethodSettings = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MethodSetting(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MethodSetting(value, context);
+    return acc;
   }, {});
 };
 
@@ -12428,10 +12408,8 @@ const deserializeAws_restJson1MapOfMethodSnapshot = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1MethodSnapshot(value, context),
-    };
+    acc[key] = deserializeAws_restJson1MethodSnapshot(value, context);
+    return acc;
   }, {});
 };
 
@@ -12443,10 +12421,8 @@ const deserializeAws_restJson1MapOfStringToBoolean = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectBoolean(value) as any,
-    };
+    acc[key] = __expectBoolean(value) as any;
+    return acc;
   }, {});
 };
 
@@ -12455,10 +12431,8 @@ const deserializeAws_restJson1MapOfStringToList = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ListOfString(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ListOfString(value, context);
+    return acc;
   }, {});
 };
 
@@ -12467,10 +12441,8 @@ const deserializeAws_restJson1MapOfStringToString = (output: any, context: __Ser
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -12574,10 +12546,8 @@ const deserializeAws_restJson1PathToMapOfMethodSnapshot = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1MapOfMethodSnapshot(value, context),
-      };
+      acc[key] = deserializeAws_restJson1MapOfMethodSnapshot(value, context);
+      return acc;
     },
     {}
   );

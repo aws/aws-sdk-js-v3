@@ -2293,10 +2293,9 @@ export const SsmAutomationFilterSensitiveLog = (obj: SsmAutomation): any => ({
   ...obj,
   ...(obj.dynamicParameters && {
     dynamicParameters: Object.entries(obj.dynamicParameters).reduce(
-      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => ({
-        ...acc,
-        [key]: DynamicSsmParameterValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, DynamicSsmParameterValue]) => (
+        (acc[key] = DynamicSsmParameterValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),

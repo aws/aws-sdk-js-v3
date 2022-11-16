@@ -3333,10 +3333,8 @@ const serializeAws_restJson1EntityOverrideMap = (input: Record<string, string>, 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3399,10 +3397,8 @@ const serializeAws_restJson1GroupToWeightMap = (input: Record<string, number>, c
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3567,10 +3563,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3604,10 +3598,8 @@ const serializeAws_restJson1TreatmentToWeightMap = (input: Record<string, number
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -3670,10 +3662,8 @@ const deserializeAws_restJson1EntityOverrideMap = (output: any, context: __Serde
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3910,10 +3900,8 @@ const deserializeAws_restJson1FeatureToVariationMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -3922,10 +3910,8 @@ const deserializeAws_restJson1GroupToWeightMap = (output: any, context: __SerdeC
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
+    acc[key] = __expectLong(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4307,10 +4293,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -4354,10 +4338,8 @@ const deserializeAws_restJson1TreatmentToWeightMap = (output: any, context: __Se
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectLong(value) as any,
-    };
+    acc[key] = __expectLong(value) as any;
+    return acc;
   }, {});
 };
 

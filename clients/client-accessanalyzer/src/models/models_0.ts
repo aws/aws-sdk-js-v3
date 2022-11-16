@@ -3429,10 +3429,9 @@ export const RdsDbClusterSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbCl
   ...obj,
   ...(obj.attributes && {
     attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => ({
-        ...acc,
-        [key]: RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, RdsDbClusterSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbClusterSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3453,10 +3452,9 @@ export const RdsDbSnapshotConfigurationFilterSensitiveLog = (obj: RdsDbSnapshotC
   ...obj,
   ...(obj.attributes && {
     attributes: Object.entries(obj.attributes).reduce(
-      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => ({
-        ...acc,
-        [key]: RdsDbSnapshotAttributeValueFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, RdsDbSnapshotAttributeValue]) => (
+        (acc[key] = RdsDbSnapshotAttributeValueFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3529,10 +3527,9 @@ export const S3BucketConfigurationFilterSensitiveLog = (obj: S3BucketConfigurati
   }),
   ...(obj.accessPoints && {
     accessPoints: Object.entries(obj.accessPoints).reduce(
-      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => ({
-        ...acc,
-        [key]: S3AccessPointConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, S3AccessPointConfiguration]) => (
+        (acc[key] = S3AccessPointConfigurationFilterSensitiveLog(value)), acc
+      ),
       {}
     ),
   }),
@@ -3590,10 +3587,7 @@ export const CreateAccessPreviewRequestFilterSensitiveLog = (obj: CreateAccessPr
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),
@@ -3627,10 +3621,7 @@ export const AccessPreviewFilterSensitiveLog = (obj: AccessPreview): any => ({
   ...obj,
   ...(obj.configurations && {
     configurations: Object.entries(obj.configurations).reduce(
-      (acc: any, [key, value]: [string, Configuration]) => ({
-        ...acc,
-        [key]: ConfigurationFilterSensitiveLog(value),
-      }),
+      (acc: any, [key, value]: [string, Configuration]) => ((acc[key] = ConfigurationFilterSensitiveLog(value)), acc),
       {}
     ),
   }),

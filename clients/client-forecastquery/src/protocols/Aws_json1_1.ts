@@ -235,10 +235,8 @@ const serializeAws_json1_1Filters = (input: Record<string, string>, context: __S
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -305,10 +303,8 @@ const deserializeAws_json1_1Predictions = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_json1_1TimeSeries(value, context),
-    };
+    acc[key] = deserializeAws_json1_1TimeSeries(value, context);
+    return acc;
   }, {});
 };
 

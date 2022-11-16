@@ -1364,10 +1364,8 @@ const serializeAws_restJson1DefaultPlacementAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1379,10 +1377,8 @@ const serializeAws_restJson1DeviceCallbackOverrideMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1403,10 +1399,8 @@ const serializeAws_restJson1DeviceTemplateMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1DeviceTemplate(value, context),
-    };
+    acc[key] = serializeAws_restJson1DeviceTemplate(value, context);
+    return acc;
   }, {});
 };
 
@@ -1415,10 +1409,8 @@ const serializeAws_restJson1PlacementAttributeMap = (input: Record<string, strin
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1438,10 +1430,8 @@ const serializeAws_restJson1TagMap = (input: Record<string, string>, context: __
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1453,10 +1443,8 @@ const deserializeAws_restJson1DefaultPlacementAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1468,10 +1456,8 @@ const deserializeAws_restJson1DeviceCallbackOverrideMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1480,10 +1466,8 @@ const deserializeAws_restJson1DeviceMap = (output: any, context: __SerdeContext)
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1505,10 +1489,8 @@ const deserializeAws_restJson1DeviceTemplateMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1DeviceTemplate(value, context),
-    };
+    acc[key] = deserializeAws_restJson1DeviceTemplate(value, context);
+    return acc;
   }, {});
 };
 
@@ -1520,10 +1502,8 @@ const deserializeAws_restJson1PlacementAttributeMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1638,10 +1618,8 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 

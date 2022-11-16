@@ -1726,10 +1726,8 @@ const serializeAws_restJson1ImportColumnMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1SourceDataColumnProperties(value, context),
-    };
+    acc[key] = serializeAws_restJson1SourceDataColumnProperties(value, context);
+    return acc;
   }, {});
 };
 
@@ -1763,10 +1761,8 @@ const serializeAws_restJson1RowDataInput = (input: Record<string, CellInput>, co
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1CellInput(value, context),
-    };
+    acc[key] = serializeAws_restJson1CellInput(value, context);
+    return acc;
   }, {});
 };
 
@@ -1792,10 +1788,8 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: value,
-    };
+    acc[key] = value;
+    return acc;
   }, {});
 };
 
@@ -1845,10 +1839,8 @@ const serializeAws_restJson1VariableValueMap = (input: Record<string, VariableVa
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: serializeAws_restJson1VariableValue(value, context),
-    };
+    acc[key] = serializeAws_restJson1VariableValue(value, context);
+    return acc;
   }, {});
 };
 
@@ -1889,10 +1881,8 @@ const deserializeAws_restJson1CreatedRowsMap = (output: any, context: __SerdeCon
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -1975,10 +1965,8 @@ const deserializeAws_restJson1ImportColumnMap = (
       if (value === null) {
         return acc;
       }
-      return {
-        ...acc,
-        [key]: deserializeAws_restJson1SourceDataColumnProperties(value, context),
-      };
+      acc[key] = deserializeAws_restJson1SourceDataColumnProperties(value, context);
+      return acc;
     },
     {}
   );
@@ -2077,10 +2065,8 @@ const deserializeAws_restJson1ResultSetMap = (output: any, context: __SerdeConte
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1ResultSet(value, context),
-    };
+    acc[key] = deserializeAws_restJson1ResultSet(value, context);
+    return acc;
   }, {});
 };
 
@@ -2184,10 +2170,8 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: __expectString(value) as any,
-    };
+    acc[key] = __expectString(value) as any;
+    return acc;
   }, {});
 };
 
@@ -2206,10 +2190,8 @@ const deserializeAws_restJson1UpsertRowsResultMap = (
     if (value === null) {
       return acc;
     }
-    return {
-      ...acc,
-      [key]: deserializeAws_restJson1UpsertRowsResult(value, context),
-    };
+    acc[key] = deserializeAws_restJson1UpsertRowsResult(value, context);
+    return acc;
   }, {});
 };
 
