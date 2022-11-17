@@ -62,6 +62,7 @@ export enum Engine {
 }
 
 export enum LanguageCode {
+  ar_AE = "ar-AE",
   arb = "arb",
   ca_ES = "ca-ES",
   cmn_CN = "cmn-CN",
@@ -164,6 +165,7 @@ export enum VoiceId {
   Geraint = "Geraint",
   Giorgio = "Giorgio",
   Gwyneth = "Gwyneth",
+  Hala = "Hala",
   Hannah = "Hannah",
   Hans = "Hans",
   Hiujin = "Hiujin",
@@ -198,6 +200,7 @@ export enum VoiceId {
   Mizuki = "Mizuki",
   Naja = "Naja",
   Nicole = "Nicole",
+  Ola = "Ola",
   Olivia = "Olivia",
   Pedro = "Pedro",
   Penelope = "Penelope",
