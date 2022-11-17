@@ -6,6 +6,7 @@ export * from "./CopyWorkspaceImageCommand";
 export * from "./CreateConnectClientAddInCommand";
 export * from "./CreateConnectionAliasCommand";
 export * from "./CreateIpGroupCommand";
+export * from "./CreateStandbyWorkspacesCommand";
 export * from "./CreateTagsCommand";
 export * from "./CreateUpdatedWorkspaceImageCommand";
 export * from "./CreateWorkspaceBundleCommand";

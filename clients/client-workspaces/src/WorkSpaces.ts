@@ -36,6 +36,11 @@ import {
   CreateIpGroupCommandInput,
   CreateIpGroupCommandOutput,
 } from "./commands/CreateIpGroupCommand";
+import {
+  CreateStandbyWorkspacesCommand,
+  CreateStandbyWorkspacesCommandInput,
+  CreateStandbyWorkspacesCommandOutput,
+} from "./commands/CreateStandbyWorkspacesCommand";
 import { CreateTagsCommand, CreateTagsCommandInput, CreateTagsCommandOutput } from "./commands/CreateTagsCommand";
 import {
   CreateUpdatedWorkspaceImageCommand,
@@ -579,6 +584,38 @@ export class WorkSpaces extends WorkSpacesClient {
     cb?: (err: any, data?: CreateIpGroupCommandOutput) => void
   ): Promise<CreateIpGroupCommandOutput> | void {
     const command = new CreateIpGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a Standby WorkSpace in a secondary region.</p>
+   */
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStandbyWorkspacesCommandOutput>;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    cb: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): void;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): void;
+  public createStandbyWorkspaces(
+    args: CreateStandbyWorkspacesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateStandbyWorkspacesCommandOutput) => void),
+    cb?: (err: any, data?: CreateStandbyWorkspacesCommandOutput) => void
+  ): Promise<CreateStandbyWorkspacesCommandOutput> | void {
+    const command = new CreateStandbyWorkspacesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

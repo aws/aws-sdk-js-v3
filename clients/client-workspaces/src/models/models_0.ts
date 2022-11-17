@@ -278,6 +278,11 @@ export interface AuthorizeIpRulesRequest {
 
 export interface AuthorizeIpRulesResult {}
 
+export enum BundleType {
+  REGULAR = "REGULAR",
+  STANDBY = "STANDBY",
+}
+
 export enum Compute {
   GRAPHICS = "GRAPHICS",
   GRAPHICSPRO = "GRAPHICSPRO",
@@ -308,6 +313,12 @@ export interface RootStorage {
    * <p>The size of the root volume.</p>
    */
   Capacity?: string;
+}
+
+export enum WorkspaceBundleState {
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  PENDING = "PENDING",
 }
 
 /**
@@ -375,6 +386,16 @@ export interface WorkspaceBundle {
    * <p>The time when the bundle was created.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The state of the WorkSpace bundle.</p>
+   */
+  State?: WorkspaceBundleState | string;
+
+  /**
+   * <p>The type of WorkSpace bundle.</p>
+   */
+  BundleType?: BundleType | string;
 }
 
 export enum CertificateBasedAuthStatusEnum {
@@ -761,6 +782,125 @@ export interface CreateIpGroupResult {
   GroupId?: string;
 }
 
+/**
+ * <p>Describes a Standby WorkSpace.</p>
+ */
+export interface StandbyWorkspace {
+  /**
+   * <p>The identifier of the Standby WorkSpace.</p>
+   */
+  PrimaryWorkspaceId: string | undefined;
+
+  /**
+   * <p>The volume encryption key of the Standby WorkSpace.</p>
+   */
+  VolumeEncryptionKey?: string;
+
+  /**
+   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   */
+  DirectoryId: string | undefined;
+
+  /**
+   * <p>The tags associated with the Standby WorkSpace.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface CreateStandbyWorkspacesRequest {
+  /**
+   * <p>The Region of the primary WorkSpace.</p>
+   */
+  PrimaryRegion: string | undefined;
+
+  /**
+   * <p>Information about the Standby WorkSpace to be created.</p>
+   */
+  StandbyWorkspaces: StandbyWorkspace[] | undefined;
+}
+
+/**
+ * <p>Describes the Standby WorkSpace that could not be created.</p>
+ */
+export interface FailedCreateStandbyWorkspacesRequest {
+  /**
+   * <p>Information about the Standby WorkSpace that could not be created.</p>
+   */
+  StandbyWorkspaceRequest?: StandbyWorkspace;
+
+  /**
+   * <p>The error code that is returned if the Standby WorkSpace could not be created.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The text of the error message that is returned if the Standby WorkSpace could not be created.</p>
+   */
+  ErrorMessage?: string;
+}
+
+export enum WorkspaceState {
+  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
+  AVAILABLE = "AVAILABLE",
+  ERROR = "ERROR",
+  IMPAIRED = "IMPAIRED",
+  MAINTENANCE = "MAINTENANCE",
+  PENDING = "PENDING",
+  REBOOTING = "REBOOTING",
+  REBUILDING = "REBUILDING",
+  RESTORING = "RESTORING",
+  STARTING = "STARTING",
+  STOPPED = "STOPPED",
+  STOPPING = "STOPPING",
+  SUSPENDED = "SUSPENDED",
+  TERMINATED = "TERMINATED",
+  TERMINATING = "TERMINATING",
+  UNHEALTHY = "UNHEALTHY",
+  UPDATING = "UPDATING",
+}
+
+/**
+ * <p>Information about the Standby WorkSpace.</p>
+ */
+export interface PendingCreateStandbyWorkspacesRequest {
+  /**
+   * <p>Describes the Standby WorkSpace that was created.</p>
+   *          <p>Because this operation is asynchronous, the identifier returned is not immediately
+   *          available for use with other operations. For example, if you call
+   *          <a href="https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html">
+   *             DescribeWorkspaces</a>
+   *          before the WorkSpace is created, the information returned can be incomplete. </p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The identifier of the directory for the Standby WorkSpace.</p>
+   */
+  DirectoryId?: string;
+
+  /**
+   * <p>The operational state of the Standby WorkSpace.</p>
+   */
+  State?: WorkspaceState | string;
+
+  /**
+   * <p>The identifier of the Standby WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+}
+
+export interface CreateStandbyWorkspacesResult {
+  /**
+   * <p>Information about the Standby WorkSpace that could not be created. </p>
+   */
+  FailedStandbyRequests?: FailedCreateStandbyWorkspacesRequest[];
+
+  /**
+   * <p>Information about the Standby WorkSpace that was created.</p>
+   */
+  PendingStandbyRequests?: PendingCreateStandbyWorkspacesRequest[];
+}
+
 export interface CreateTagsRequest {
   /**
    * <p>The identifier of the WorkSpaces resource. The supported resource types are WorkSpaces,
@@ -1130,24 +1270,35 @@ export interface ModificationState {
   State?: ModificationStateEnum | string;
 }
 
-export enum WorkspaceState {
-  ADMIN_MAINTENANCE = "ADMIN_MAINTENANCE",
-  AVAILABLE = "AVAILABLE",
-  ERROR = "ERROR",
-  IMPAIRED = "IMPAIRED",
-  MAINTENANCE = "MAINTENANCE",
-  PENDING = "PENDING",
-  REBOOTING = "REBOOTING",
-  REBUILDING = "REBUILDING",
-  RESTORING = "RESTORING",
-  STARTING = "STARTING",
-  STOPPED = "STOPPED",
-  STOPPING = "STOPPING",
-  SUSPENDED = "SUSPENDED",
-  TERMINATED = "TERMINATED",
-  TERMINATING = "TERMINATING",
-  UNHEALTHY = "UNHEALTHY",
-  UPDATING = "UPDATING",
+export enum StandbyWorkspaceRelationshipType {
+  PRIMARY = "PRIMARY",
+  STANDBY = "STANDBY",
+}
+
+/**
+ * <p>Describes the related WorkSpace. The related WorkSpace could be a Standby WorkSpace or
+ *          Primary WorkSpace related to the specified WorkSpace.</p>
+ */
+export interface RelatedWorkspaceProperties {
+  /**
+   * <p>The identifier of the related WorkSpace.</p>
+   */
+  WorkspaceId?: string;
+
+  /**
+   * <p>The Region of the related WorkSpace.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>Indicates the state of the WorkSpace.</p>
+   */
+  State?: WorkspaceState | string;
+
+  /**
+   * <p>Indicates the type of WorkSpace.</p>
+   */
+  Type?: StandbyWorkspaceRelationshipType | string;
 }
 
 /**
@@ -1240,6 +1391,11 @@ export interface Workspace {
    * <p>The modification states of the WorkSpace.</p>
    */
   ModificationStates?: ModificationState[];
+
+  /**
+   * <p>The Standby WorkSpace or Primary WorkSpace related to the specified WorkSpace.</p>
+   */
+  RelatedWorkspaces?: RelatedWorkspaceProperties[];
 }
 
 export interface CreateWorkspacesResult {
@@ -3644,6 +3800,45 @@ export const CreateIpGroupResultFilterSensitiveLog = (obj: CreateIpGroupResult):
 /**
  * @internal
  */
+export const StandbyWorkspaceFilterSensitiveLog = (obj: StandbyWorkspace): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStandbyWorkspacesRequestFilterSensitiveLog = (obj: CreateStandbyWorkspacesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FailedCreateStandbyWorkspacesRequestFilterSensitiveLog = (
+  obj: FailedCreateStandbyWorkspacesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PendingCreateStandbyWorkspacesRequestFilterSensitiveLog = (
+  obj: PendingCreateStandbyWorkspacesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStandbyWorkspacesResultFilterSensitiveLog = (obj: CreateStandbyWorkspacesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateTagsRequestFilterSensitiveLog = (obj: CreateTagsRequest): any => ({
   ...obj,
 });
@@ -3736,6 +3931,13 @@ export const FailedCreateWorkspaceRequestFilterSensitiveLog = (obj: FailedCreate
  * @internal
  */
 export const ModificationStateFilterSensitiveLog = (obj: ModificationState): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RelatedWorkspacePropertiesFilterSensitiveLog = (obj: RelatedWorkspaceProperties): any => ({
   ...obj,
 });
 
