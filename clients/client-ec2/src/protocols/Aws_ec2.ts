@@ -34451,6 +34451,9 @@ const serializeAws_ec2CreateNatGatewayRequest = (input: CreateNatGatewayRequest,
   if (input.ConnectivityType != null) {
     entries["ConnectivityType"] = input.ConnectivityType;
   }
+  if (input.PrivateIpAddress != null) {
+    entries["PrivateIpAddress"] = input.PrivateIpAddress;
+  }
   return entries;
 };
 
