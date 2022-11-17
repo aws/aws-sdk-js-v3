@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ matrix.java }}
-          distribution: 'zulu'
+          distribution: 'corretto'
       
       - name: build and publish smithy-typescript
         run: |
