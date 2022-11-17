@@ -89,7 +89,6 @@ import { RUMClient } from "./RUMClient";
  *        your web application performance from actual user sessions in real time. The data collected includes page load
  *        times, client-side errors, and user behavior. When you view this data, you can see it all aggregated together and
  *        also see breakdowns by the browsers and devices that your customers use.</p>
- *
  *          <p>You can use the collected data to quickly identify and debug client-side performance issues. CloudWatch
  *        RUM helps you visualize anomalies in your application performance and find relevant debugging data such as error
  *        messages, stack traces, and user sessions. You can also use RUM to
@@ -111,7 +110,6 @@ export class RUM extends RUMClient {
    *             Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
    *          <p>The maximum number of metric definitions that you can specify in one
    *          <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p>
-   *
    *          <p>The maximum number of metric definitions that one destination can contain is 2000.</p>
    *          <p>Extended metrics sent are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension
    *          value counts as a custom metric. For more information, see

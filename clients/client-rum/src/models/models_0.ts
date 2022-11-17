@@ -58,7 +58,6 @@ export interface AppMonitorConfiguration {
 
   /**
    * <p>If this app monitor is to collect data from only certain pages in your application, this structure lists those pages. </p>
-   *
    *          <p>You can't include both <code>ExcludedPages</code> and <code>IncludedPages</code> in the same operation.</p>
    */
   IncludedPages?: string[];
@@ -122,6 +121,22 @@ export interface AppMonitorConfiguration {
    *          </p>
    */
   EnableXRay?: boolean;
+}
+
+export enum CustomEventsStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>A structure that contains information about custom events for this app monitor.</p>
+ */
+export interface CustomEvents {
+  /**
+   * <p>Specifies whether this app monitor allows the web client to define and send
+   *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
+   */
+  Status?: CustomEventsStatus | string;
 }
 
 /**
@@ -210,6 +225,14 @@ export interface AppMonitor {
    *          the telemetry data that RUM collects using CloudWatch Logs.</p>
    */
   DataStorage?: DataStorage;
+
+  /**
+   * <p>Specifies whether this app monitor allows the web client to define and send
+   *       custom events.</p>
+   *          <p>For more information about custom events, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   */
+  CustomEvents?: CustomEvents;
 }
 
 /**
@@ -450,7 +473,6 @@ export interface MetricDefinitionRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p> All dimensions listed in this field
    *          must also be included in <code>EventPattern</code>.</p>
    */
@@ -910,7 +932,6 @@ export interface CreateAppMonitorRequest {
    *          permissions by granting a user
    *          permission to access or change only resources with certain tag values.</p>
    *          <p>Tags don't have any semantic meaning to Amazon Web Services and are interpreted strictly as strings of characters.</p>
-   *
    *          <p>You can associate as many as 50 tags with an app monitor.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>.</p>
    */
@@ -935,6 +956,14 @@ export interface CreateAppMonitorRequest {
    *          <p>If you omit this parameter, the default is <code>false</code>.</p>
    */
   CwLogEnabled?: boolean;
+
+  /**
+   * <p>Specifies whether this app monitor allows the web client to define and send
+   *          custom events. If you omit this parameter, custom events are <code>DISABLED</code>.</p>
+   *          <p>For more information about custom events, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   */
+  CustomEvents?: CustomEvents;
 }
 
 export interface CreateAppMonitorResponse {
@@ -1248,6 +1277,14 @@ export interface UpdateAppMonitorRequest {
    *          Amazon CloudWatch Logs charges.</p>
    */
   CwLogEnabled?: boolean;
+
+  /**
+   * <p>Specifies whether this app monitor allows the web client to define and send
+   *          custom events. The default is for custom events to be <code>DISABLED</code>.</p>
+   *          <p>For more information about custom events, see
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-events.html">Send custom events</a>.</p>
+   */
+  CustomEvents?: CustomEvents;
 }
 
 export interface UpdateAppMonitorResponse {}
@@ -1416,6 +1453,13 @@ export interface UntagResourceResponse {}
  * @internal
  */
 export const AppMonitorConfigurationFilterSensitiveLog = (obj: AppMonitorConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CustomEventsFilterSensitiveLog = (obj: CustomEvents): any => ({
   ...obj,
 });
 

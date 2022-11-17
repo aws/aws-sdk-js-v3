@@ -45,7 +45,6 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  *             Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
  *          <p>The maximum number of metric definitions that you can specify in one
  *          <code>BatchCreateRumMetricDefinitions</code> operation is 200.</p>
- *
  *          <p>The maximum number of metric definitions that one destination can contain is 2000.</p>
  *          <p>Extended metrics sent are charged as CloudWatch custom metrics. Each combination of additional dimension name and dimension
  *          value counts as a custom metric. For more information, see

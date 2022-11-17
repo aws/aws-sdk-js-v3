@@ -75,6 +75,7 @@ import {
   BatchCreateRumMetricDefinitionsError,
   BatchDeleteRumMetricDefinitionsError,
   ConflictException,
+  CustomEvents,
   CwLog,
   DataStorage,
   InternalServerException,
@@ -215,6 +216,9 @@ export const serializeAws_restJson1CreateAppMonitorCommand = async (
   body = JSON.stringify({
     ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
+    }),
+    ...(input.CustomEvents != null && {
+      CustomEvents: serializeAws_restJson1CustomEvents(input.CustomEvents, context),
     }),
     ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
     ...(input.Domain != null && { Domain: input.Domain }),
@@ -548,6 +552,9 @@ export const serializeAws_restJson1UpdateAppMonitorCommand = async (
   body = JSON.stringify({
     ...(input.AppMonitorConfiguration != null && {
       AppMonitorConfiguration: serializeAws_restJson1AppMonitorConfiguration(input.AppMonitorConfiguration, context),
+    }),
+    ...(input.CustomEvents != null && {
+      CustomEvents: serializeAws_restJson1CustomEvents(input.CustomEvents, context),
     }),
     ...(input.CwLogEnabled != null && { CwLogEnabled: input.CwLogEnabled }),
     ...(input.Domain != null && { Domain: input.Domain }),
@@ -1673,6 +1680,12 @@ const serializeAws_restJson1AppMonitorDetails = (input: AppMonitorDetails, conte
   };
 };
 
+const serializeAws_restJson1CustomEvents = (input: CustomEvents, context: __SerdeContext): any => {
+  return {
+    ...(input.Status != null && { Status: input.Status }),
+  };
+};
+
 const serializeAws_restJson1DimensionKeysMap = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -1805,6 +1818,8 @@ const deserializeAws_restJson1AppMonitor = (output: any, context: __SerdeContext
         ? deserializeAws_restJson1AppMonitorConfiguration(output.AppMonitorConfiguration, context)
         : undefined,
     Created: __expectString(output.Created),
+    CustomEvents:
+      output.CustomEvents != null ? deserializeAws_restJson1CustomEvents(output.CustomEvents, context) : undefined,
     DataStorage:
       output.DataStorage != null ? deserializeAws_restJson1DataStorage(output.DataStorage, context) : undefined,
     Domain: __expectString(output.Domain),
@@ -1912,6 +1927,12 @@ const deserializeAws_restJson1BatchDeleteRumMetricDefinitionsErrors = (
       return deserializeAws_restJson1BatchDeleteRumMetricDefinitionsError(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1CustomEvents = (output: any, context: __SerdeContext): CustomEvents => {
+  return {
+    Status: __expectString(output.Status),
+  } as any;
 };
 
 const deserializeAws_restJson1CwLog = (output: any, context: __SerdeContext): CwLog => {
