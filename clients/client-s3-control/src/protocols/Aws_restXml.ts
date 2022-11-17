@@ -213,6 +213,8 @@ import {
   AccessPoint,
   AccountLevel,
   ActivityMetrics,
+  AdvancedCostOptimizationMetrics,
+  AdvancedDataProtectionMetrics,
   AsyncErrorDetails,
   AsyncOperation,
   AsyncRequestParameters,
@@ -226,6 +228,7 @@ import {
   CreateBucketConfiguration,
   CreateMultiRegionAccessPointInput,
   DeleteMultiRegionAccessPointInput,
+  DetailedStatusCodesMetrics,
   EstablishedMultiRegionAccessPointPolicy,
   GeneratedManifestEncryption,
   IdempotencyException,
@@ -5093,11 +5096,55 @@ const serializeAws_restXmlAccountLevel = (input: AccountLevel, context: __SerdeC
     const node = serializeAws_restXmlBucketLevel(input.BucketLevel, context).withName("BucketLevel");
     bodyNode.addChildNode(node);
   }
+  if (input.AdvancedCostOptimizationMetrics != null) {
+    const node = serializeAws_restXmlAdvancedCostOptimizationMetrics(
+      input.AdvancedCostOptimizationMetrics,
+      context
+    ).withName("AdvancedCostOptimizationMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedDataProtectionMetrics != null) {
+    const node = serializeAws_restXmlAdvancedDataProtectionMetrics(
+      input.AdvancedDataProtectionMetrics,
+      context
+    ).withName("AdvancedDataProtectionMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DetailedStatusCodesMetrics != null) {
+    const node = serializeAws_restXmlDetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
+      "DetailedStatusCodesMetrics"
+    );
+    bodyNode.addChildNode(node);
+  }
   return bodyNode;
 };
 
 const serializeAws_restXmlActivityMetrics = (input: ActivityMetrics, context: __SerdeContext): any => {
   const bodyNode = new __XmlNode("ActivityMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlAdvancedCostOptimizationMetrics = (
+  input: AdvancedCostOptimizationMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("AdvancedCostOptimizationMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlAdvancedDataProtectionMetrics = (
+  input: AdvancedDataProtectionMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("AdvancedDataProtectionMetrics");
   if (input.IsEnabled != null) {
     const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
     bodyNode.addChildNode(node);
@@ -5126,6 +5173,26 @@ const serializeAws_restXmlBucketLevel = (input: BucketLevel, context: __SerdeCon
   }
   if (input.PrefixLevel != null) {
     const node = serializeAws_restXmlPrefixLevel(input.PrefixLevel, context).withName("PrefixLevel");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedCostOptimizationMetrics != null) {
+    const node = serializeAws_restXmlAdvancedCostOptimizationMetrics(
+      input.AdvancedCostOptimizationMetrics,
+      context
+    ).withName("AdvancedCostOptimizationMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.AdvancedDataProtectionMetrics != null) {
+    const node = serializeAws_restXmlAdvancedDataProtectionMetrics(
+      input.AdvancedDataProtectionMetrics,
+      context
+    ).withName("AdvancedDataProtectionMetrics");
+    bodyNode.addChildNode(node);
+  }
+  if (input.DetailedStatusCodesMetrics != null) {
+    const node = serializeAws_restXmlDetailedStatusCodesMetrics(input.DetailedStatusCodesMetrics, context).withName(
+      "DetailedStatusCodesMetrics"
+    );
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -5194,6 +5261,18 @@ const serializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   const bodyNode = new __XmlNode("DeleteMultiRegionAccessPointInput");
   if (input.Name != null) {
     const node = __XmlNode.of("MultiRegionAccessPointName", input.Name).withName("Name");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlDetailedStatusCodesMetrics = (
+  input: DetailedStatusCodesMetrics,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("DetailedStatusCodesMetrics");
+  if (input.IsEnabled != null) {
+    const node = __XmlNode.of("IsEnabled", String(input.IsEnabled)).withName("IsEnabled");
     bodyNode.addChildNode(node);
   }
   return bodyNode;
@@ -6605,6 +6684,9 @@ const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext
   const contents: any = {
     ActivityMetrics: undefined,
     BucketLevel: undefined,
+    AdvancedCostOptimizationMetrics: undefined,
+    AdvancedDataProtectionMetrics: undefined,
+    DetailedStatusCodesMetrics: undefined,
   };
   if (output["ActivityMetrics"] !== undefined) {
     contents.ActivityMetrics = deserializeAws_restXmlActivityMetrics(output["ActivityMetrics"], context);
@@ -6612,10 +6694,54 @@ const deserializeAws_restXmlAccountLevel = (output: any, context: __SerdeContext
   if (output["BucketLevel"] !== undefined) {
     contents.BucketLevel = deserializeAws_restXmlBucketLevel(output["BucketLevel"], context);
   }
+  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
+    contents.AdvancedCostOptimizationMetrics = deserializeAws_restXmlAdvancedCostOptimizationMetrics(
+      output["AdvancedCostOptimizationMetrics"],
+      context
+    );
+  }
+  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
+    contents.AdvancedDataProtectionMetrics = deserializeAws_restXmlAdvancedDataProtectionMetrics(
+      output["AdvancedDataProtectionMetrics"],
+      context
+    );
+  }
+  if (output["DetailedStatusCodesMetrics"] !== undefined) {
+    contents.DetailedStatusCodesMetrics = deserializeAws_restXmlDetailedStatusCodesMetrics(
+      output["DetailedStatusCodesMetrics"],
+      context
+    );
+  }
   return contents;
 };
 
 const deserializeAws_restXmlActivityMetrics = (output: any, context: __SerdeContext): ActivityMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlAdvancedCostOptimizationMetrics = (
+  output: any,
+  context: __SerdeContext
+): AdvancedCostOptimizationMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlAdvancedDataProtectionMetrics = (
+  output: any,
+  context: __SerdeContext
+): AdvancedDataProtectionMetrics => {
   const contents: any = {
     IsEnabled: undefined,
   };
@@ -6742,12 +6868,33 @@ const deserializeAws_restXmlBucketLevel = (output: any, context: __SerdeContext)
   const contents: any = {
     ActivityMetrics: undefined,
     PrefixLevel: undefined,
+    AdvancedCostOptimizationMetrics: undefined,
+    AdvancedDataProtectionMetrics: undefined,
+    DetailedStatusCodesMetrics: undefined,
   };
   if (output["ActivityMetrics"] !== undefined) {
     contents.ActivityMetrics = deserializeAws_restXmlActivityMetrics(output["ActivityMetrics"], context);
   }
   if (output["PrefixLevel"] !== undefined) {
     contents.PrefixLevel = deserializeAws_restXmlPrefixLevel(output["PrefixLevel"], context);
+  }
+  if (output["AdvancedCostOptimizationMetrics"] !== undefined) {
+    contents.AdvancedCostOptimizationMetrics = deserializeAws_restXmlAdvancedCostOptimizationMetrics(
+      output["AdvancedCostOptimizationMetrics"],
+      context
+    );
+  }
+  if (output["AdvancedDataProtectionMetrics"] !== undefined) {
+    contents.AdvancedDataProtectionMetrics = deserializeAws_restXmlAdvancedDataProtectionMetrics(
+      output["AdvancedDataProtectionMetrics"],
+      context
+    );
+  }
+  if (output["DetailedStatusCodesMetrics"] !== undefined) {
+    contents.DetailedStatusCodesMetrics = deserializeAws_restXmlDetailedStatusCodesMetrics(
+      output["DetailedStatusCodesMetrics"],
+      context
+    );
   }
   return contents;
 };
@@ -6808,6 +6955,19 @@ const deserializeAws_restXmlDeleteMultiRegionAccessPointInput = (
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlDetailedStatusCodesMetrics = (
+  output: any,
+  context: __SerdeContext
+): DetailedStatusCodesMetrics => {
+  const contents: any = {
+    IsEnabled: undefined,
+  };
+  if (output["IsEnabled"] !== undefined) {
+    contents.IsEnabled = __parseBoolean(output["IsEnabled"]);
   }
   return contents;
 };

@@ -75,11 +75,55 @@ export interface AccessPoint {
 }
 
 /**
- * <p>A container for the activity metrics.</p>
+ * <p>The container element for Amazon S3 Storage Lens activity metrics. Activity metrics show details about
+ *          how your storage is requested, such as requests (for example, All requests, Get requests,
+ *          Put requests), bytes uploaded or downloaded, and errors.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface ActivityMetrics {
   /**
-   * <p>A container for whether the activity metrics are enabled.</p>
+   * <p>A container that indicates whether activity metrics are enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens advanced cost-optimization metrics. Advanced
+ *          cost-optimization metrics provide insights that you can use to manage and optimize your
+ *          storage costs, for example, lifecycle rule counts for transitions, expirations, and
+ *          incomplete multipart uploads.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface AdvancedCostOptimizationMetrics {
+  /**
+   * <p>A container that indicates whether advanced cost-optimization metrics are
+   *          enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens advanced data-protection metrics. Advanced
+ *          data-protection metrics provide insights that you can use to perform audits and protect
+ *          your data, for example replication rule counts within and across Regions.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface AdvancedDataProtectionMetrics {
+  /**
+   * <p>A container that indicates whether advanced data-protection metrics are enabled.</p>
+   */
+  IsEnabled?: boolean;
+}
+
+/**
+ * <p>The container element for Amazon S3 Storage Lens detailed status code metrics. Detailed status
+ *          code metrics generate metrics for HTTP status codes, such as <code>200 OK</code>, <code>403
+ *             Forbidden</code>, <code>503 Service Unavailable</code> and others. </p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
+ */
+export interface DetailedStatusCodesMetrics {
+  /**
+   * <p>A container that indicates whether detailed status code metrics are enabled.</p>
    */
   IsEnabled?: boolean;
 }
@@ -133,26 +177,43 @@ export interface PrefixLevel {
 }
 
 /**
- * <p>A container for the bucket-level configuration.</p>
+ * <p>A container for the bucket-level configuration for Amazon S3 Storage Lens.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface BucketLevel {
   /**
-   * <p>A container for the bucket-level activity metrics for Amazon S3 Storage Lens</p>
+   * <p>A container for the bucket-level activity metrics for S3 Storage Lens.</p>
    */
   ActivityMetrics?: ActivityMetrics;
 
   /**
-   * <p>A container for the bucket-level prefix-level metrics for S3 Storage Lens</p>
+   * <p>A container for the prefix-level metrics for S3 Storage Lens. </p>
    */
   PrefixLevel?: PrefixLevel;
+
+  /**
+   * <p>A container for bucket-level advanced cost-optimization metrics for S3 Storage Lens.</p>
+   */
+  AdvancedCostOptimizationMetrics?: AdvancedCostOptimizationMetrics;
+
+  /**
+   * <p>A container for bucket-level advanced data-protection metrics for S3 Storage Lens.</p>
+   */
+  AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
+
+  /**
+   * <p>A container for bucket-level detailed status code metrics for S3 Storage Lens.</p>
+   */
+  DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
 }
 
 /**
- * <p>A container for the account level Amazon S3 Storage Lens configuration.</p>
+ * <p>A container for the account-level Amazon S3 Storage Lens configuration.</p>
+ *          <p>For more information about S3 Storage Lens, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens.html">Assessing your storage activity and usage with S3 Storage Lens</a> in the <i>Amazon S3 User Guide</i>. For a complete list of S3 Storage Lens metrics, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage_lens_metrics_glossary.html">S3 Storage Lens metrics glossary</a> in the <i>Amazon S3 User Guide</i>.</p>
  */
 export interface AccountLevel {
   /**
-   * <p>A container for the S3 Storage Lens activity metrics.</p>
+   * <p>A container for S3 Storage Lens activity metrics.</p>
    */
   ActivityMetrics?: ActivityMetrics;
 
@@ -160,6 +221,21 @@ export interface AccountLevel {
    * <p>A container for the S3 Storage Lens bucket-level configuration.</p>
    */
   BucketLevel: BucketLevel | undefined;
+
+  /**
+   * <p>A container for S3 Storage Lens advanced cost-optimization metrics.</p>
+   */
+  AdvancedCostOptimizationMetrics?: AdvancedCostOptimizationMetrics;
+
+  /**
+   * <p>A container for S3 Storage Lens advanced data-protection metrics.</p>
+   */
+  AdvancedDataProtectionMetrics?: AdvancedDataProtectionMetrics;
+
+  /**
+   * <p>A container for detailed status code metrics. </p>
+   */
+  DetailedStatusCodesMetrics?: DetailedStatusCodesMetrics;
 }
 
 /**
@@ -197,17 +273,18 @@ export enum AsyncOperationName {
  * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
  *          account. You can enable the configuration options in any combination. For more information
  *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>This is not supported for Amazon S3 on Outposts.</p>
+ *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
  */
 export interface PublicAccessBlockConfiguration {
   /**
-   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets
-   *          in this account. Setting this element to <code>TRUE</code> causes the following
+   * <p>Specifies whether Amazon S3 should block public access control lists (ACLs) for buckets in
+   *          this account. Setting this element to <code>TRUE</code> causes the following
    *          behavior:</p>
    *          <ul>
    *             <li>
-   *                <p>PUT Bucket acl and PUT Object acl calls fail if the specified ACL is
-   *                public.</p>
+   *                <p>
+   *                   <code>PutBucketAcl</code> and <code>PutObjectAcl</code> calls fail if the
+   *                specified ACL is public.</p>
    *             </li>
    *             <li>
    *                <p>PUT Object calls fail if the request includes a public ACL.</p>
@@ -217,26 +294,26 @@ export interface PublicAccessBlockConfiguration {
    *             </li>
    *          </ul>
    *          <p>Enabling this setting doesn't affect existing policies or ACLs.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   BlockPublicAcls?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 should ignore public ACLs for buckets in this account. Setting
-   *          this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in
-   *          this account and any objects that they contain. </p>
+   *          this element to <code>TRUE</code> causes Amazon S3 to ignore all public ACLs on buckets in this
+   *          account and any objects that they contain. </p>
    *          <p>Enabling this setting doesn't affect the persistence of any existing ACLs and doesn't
    *          prevent new public ACLs from being set.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   IgnorePublicAcls?: boolean;
 
   /**
    * <p>Specifies whether Amazon S3 should block public bucket policies for buckets in this account.
-   *          Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket
-   *          policy if the specified bucket policy allows public access. </p>
+   *          Setting this element to <code>TRUE</code> causes Amazon S3 to reject calls to PUT Bucket policy
+   *          if the specified bucket policy allows public access. </p>
    *          <p>Enabling this setting doesn't affect existing bucket policies.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   BlockPublicPolicy?: boolean;
 
@@ -248,7 +325,7 @@ export interface PublicAccessBlockConfiguration {
    *          <p>Enabling this setting doesn't affect previously stored bucket policies, except that
    *          public and cross-account access within any public bucket policy, including non-public
    *          delegation to specific accounts, is blocked.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This property is not supported for Amazon S3 on Outposts.</p>
    */
   RestrictPublicBuckets?: boolean;
 }
@@ -276,7 +353,7 @@ export interface CreateMultiRegionAccessPointInput {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
 
@@ -1173,8 +1250,10 @@ export interface S3AccessControlPolicy {
 
 /**
  * <p>Contains the configuration parameters for a Set Object ACL operation. S3 Batch Operations
- *          passes every object to the underlying PUT Object acl API. For more information about the
- *          parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">PUT Object acl</a>.</p>
+ *          passes every object to the underlying <code>PutObjectAcl</code> API. For more information
+ *          about the parameters for this operation, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectPUTacl.html">
+ *                <code>PutObjectAcl</code>
+ *             </a>.</p>
  */
 export interface S3SetObjectAclOperation {
   /**
@@ -1261,16 +1340,16 @@ export interface S3ObjectMetadata {
 }
 
 /**
- * <p></p>
+ * <p>A container for a key-value name pair.</p>
  */
 export interface S3Tag {
   /**
-   * <p></p>
+   * <p>Key of the tag</p>
    */
   Key: string | undefined;
 
   /**
-   * <p></p>
+   * <p>Value of the tag</p>
    */
   Value: string | undefined;
 }
@@ -1303,8 +1382,9 @@ export enum S3StorageClass {
 export interface S3CopyObjectOperation {
   /**
    * <p>Specifies the destination bucket ARN for the batch copy operation. For example, to copy
-   *          objects to a bucket named "destinationBucket", set the TargetResource to
-   *          "arn:aws:s3:::destinationBucket".</p>
+   *          objects to a bucket named <code>destinationBucket</code>, set the
+   *             <code>TargetResource</code> property to
+   *          <code>arn:aws:s3:::destinationBucket</code>.</p>
    */
   TargetResource?: string;
 
@@ -1518,7 +1598,7 @@ export interface JobOperation {
   S3PutObjectCopy?: S3CopyObjectOperation;
 
   /**
-   * <p>Directs the specified job to run a PUT Object acl call on every object in the
+   * <p>Directs the specified job to run a <code>PutObjectAcl</code> call on every object in the
    *          manifest.</p>
    */
   S3PutObjectAcl?: S3SetObjectAclOperation;
@@ -2261,7 +2341,7 @@ export interface GetAccessPointResult {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
 
@@ -2535,7 +2615,7 @@ export interface LifecycleRuleFilter {
   Prefix?: string;
 
   /**
-   * <p></p>
+   * <p>A container for a key-value name pair.</p>
    */
   Tag?: S3Tag;
 
@@ -2859,7 +2939,7 @@ export interface MultiRegionAccessPointReport {
    * <p>The <code>PublicAccessBlock</code> configuration that you want to apply to this Amazon S3
    *          account. You can enable the configuration options in any combination. For more information
    *          about when Amazon S3 considers a bucket or object public, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html#access-control-block-public-access-policy-status">The Meaning of "Public"</a> in the <i>Amazon S3 User Guide</i>.</p>
-   *          <p>This is not supported for Amazon S3 on Outposts.</p>
+   *          <p>This data type is not supported for Amazon S3 on Outposts.</p>
    */
   PublicAccessBlock?: PublicAccessBlockConfiguration;
 
@@ -4113,6 +4193,27 @@ export const AccessPointFilterSensitiveLog = (obj: AccessPoint): any => ({
  * @internal
  */
 export const ActivityMetricsFilterSensitiveLog = (obj: ActivityMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedCostOptimizationMetricsFilterSensitiveLog = (obj: AdvancedCostOptimizationMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AdvancedDataProtectionMetricsFilterSensitiveLog = (obj: AdvancedDataProtectionMetrics): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DetailedStatusCodesMetricsFilterSensitiveLog = (obj: DetailedStatusCodesMetrics): any => ({
   ...obj,
 });
 
