@@ -3,6 +3,11 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { EMRServerlessServiceException as __BaseException } from "./EMRServerlessServiceException";
 
+export enum Architecture {
+  ARM64 = "ARM64",
+  X86_64 = "X86_64",
+}
+
 /**
  * <p>The configuration for an application to automatically start on job submission.</p>
  */
@@ -195,6 +200,11 @@ export interface Application {
    * <p>The network configuration for customer VPC connectivity for the application.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
 }
 
 /**
@@ -245,6 +255,11 @@ export interface ApplicationSummary {
    * <p>The date and time when the application was last updated.</p>
    */
   updatedAt: Date | undefined;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
 }
 
 /**
@@ -321,6 +336,11 @@ export interface CreateApplicationRequest {
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
 }
 
 export interface CreateApplicationResponse {
@@ -527,6 +547,11 @@ export interface UpdateApplicationRequest {
    * <p>The network configuration for customer VPC connectivity.</p>
    */
   networkConfiguration?: NetworkConfiguration;
+
+  /**
+   * <p>The CPU architecture of an application.</p>
+   */
+  architecture?: Architecture | string;
 }
 
 export interface UpdateApplicationResponse {

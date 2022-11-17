@@ -114,6 +114,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/applications";
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -515,6 +516,7 @@ export const serializeAws_restJson1UpdateApplicationCommand = async (
   );
   let body: any;
   body = JSON.stringify({
+    ...(input.architecture != null && { architecture: input.architecture }),
     ...(input.autoStartConfiguration != null && {
       autoStartConfiguration: serializeAws_restJson1AutoStartConfig(input.autoStartConfiguration, context),
     }),
@@ -1542,6 +1544,7 @@ const serializeAws_restJson1WorkerResourceConfig = (input: WorkerResourceConfig,
 const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
   return {
     applicationId: __expectString(output.applicationId),
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     autoStartConfiguration:
       output.autoStartConfiguration != null
@@ -1590,6 +1593,7 @@ const deserializeAws_restJson1ApplicationList = (output: any, context: __SerdeCo
 
 const deserializeAws_restJson1ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
   return {
+    architecture: __expectString(output.architecture),
     arn: __expectString(output.arn),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
