@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.213.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.212.0...v3.213.0) (2022-11-17)
+
+
+### Features
+
+* **client-database-migration-service:** Adds support for Internet Protocol Version 6 (IPv6) on DMS Replication Instances ([0528c9c](https://github.com/aws/aws-sdk-js-v3/commit/0528c9ccd1fcb06c254c64bc996f1dd5eaadb564))
+
+
+
+
+
 # [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-database-migration-service

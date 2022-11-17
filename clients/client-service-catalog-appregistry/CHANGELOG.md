@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.213.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.212.0...v3.213.0) (2022-11-17)
+
+
+### Features
+
+* **client-service-catalog-appregistry:** This release adds support for tagged resource associations, which allows you to associate a group of resources with a defined resource tag key and value to the application. ([8212786](https://github.com/aws/aws-sdk-js-v3/commit/82127866ea2feab18106989a88a88cf0d486734b))
+
+
+
+
+
 # [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-service-catalog-appregistry

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.213.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.212.0...v3.213.0) (2022-11-17)
+
+
+### Features
+
+* **client-emr-serverless:** Adds support for AWS Graviton2 based applications. You can now select CPU architecture when creating new applications or updating existing ones. ([1ed217a](https://github.com/aws/aws-sdk-js-v3/commit/1ed217ad8c399c6d1224e094bfc8a443a1f12280))
+
+
+
+
+
 # [3.212.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.211.0...v3.212.0) (2022-11-16)
 
 **Note:** Version bump only for package @aws-sdk/client-emr-serverless
