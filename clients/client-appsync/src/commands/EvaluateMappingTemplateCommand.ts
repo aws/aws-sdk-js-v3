@@ -29,12 +29,11 @@ export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemp
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates a given template and returns the response. The mapping template can be a
- *          request or response template.</p>
- *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
- *          convert it into a request configuration for the selected data source operation. Response
- *          templates interpret responses from the data source and map it to the shape of the GraphQL
- *          field output type.</p>
+ * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
+ *          template.</p>
+ *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
+ *          request configuration for the selected data source operation. Response templates interpret responses from the
+ *          data source and map it to the shape of the GraphQL field output type.</p>
  *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

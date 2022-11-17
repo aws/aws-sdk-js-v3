@@ -30,8 +30,8 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
 
 /**
  * <p>Adds a new schema to your GraphQL API.</p>
- *          <p>This operation is asynchronous. Use  to
- *          determine when it has completed.</p>
+ *          <p>This operation is asynchronous. Use  to determine when it has
+ *          completed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

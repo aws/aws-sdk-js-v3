@@ -65,6 +65,7 @@ import { DeleteGraphqlApiCommandInput, DeleteGraphqlApiCommandOutput } from "./c
 import { DeleteResolverCommandInput, DeleteResolverCommandOutput } from "./commands/DeleteResolverCommand";
 import { DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { DisassociateApiCommandInput, DisassociateApiCommandOutput } from "./commands/DisassociateApiCommand";
+import { EvaluateCodeCommandInput, EvaluateCodeCommandOutput } from "./commands/EvaluateCodeCommand";
 import {
   EvaluateMappingTemplateCommandInput,
   EvaluateMappingTemplateCommandOutput,
@@ -142,6 +143,7 @@ export type ServiceInputTypes =
   | DeleteResolverCommandInput
   | DeleteTypeCommandInput
   | DisassociateApiCommandInput
+  | EvaluateCodeCommandInput
   | EvaluateMappingTemplateCommandInput
   | FlushApiCacheCommandInput
   | GetApiAssociationCommandInput
@@ -194,6 +196,7 @@ export type ServiceOutputTypes =
   | DeleteResolverCommandOutput
   | DeleteTypeCommandOutput
   | DisassociateApiCommandOutput
+  | EvaluateCodeCommandOutput
   | EvaluateMappingTemplateCommandOutput
   | FlushApiCacheCommandOutput
   | GetApiAssociationCommandOutput
@@ -377,8 +380,8 @@ type AppSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandl
 export interface AppSyncClientResolvedConfig extends AppSyncClientResolvedConfigType {}
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data
- *          sources using GraphQL from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
+ *          from your application.</p>
  */
 export class AppSyncClient extends __Client<
   __HttpHandlerOptions,

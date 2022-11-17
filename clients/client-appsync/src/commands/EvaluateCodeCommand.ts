@@ -15,44 +15,43 @@ import {
 
 import { AppSyncClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppSyncClient";
 import {
-  ListApiKeysRequest,
-  ListApiKeysRequestFilterSensitiveLog,
-  ListApiKeysResponse,
-  ListApiKeysResponseFilterSensitiveLog,
+  EvaluateCodeRequest,
+  EvaluateCodeRequestFilterSensitiveLog,
+  EvaluateCodeResponse,
+  EvaluateCodeResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1ListApiKeysCommand,
-  serializeAws_restJson1ListApiKeysCommand,
+  deserializeAws_restJson1EvaluateCodeCommand,
+  serializeAws_restJson1EvaluateCodeCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListApiKeysCommandInput extends ListApiKeysRequest {}
-export interface ListApiKeysCommandOutput extends ListApiKeysResponse, __MetadataBearer {}
+export interface EvaluateCodeCommandInput extends EvaluateCodeRequest {}
+export interface EvaluateCodeCommandOutput extends EvaluateCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the API keys for a given API.</p>
- *          <note>
- *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
- *             response until they have actually been deleted. You can safely call <code>DeleteApiKey</code> to manually
- *             delete a key before it's automatically deleted.</p>
- *          </note>
+ * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
+ *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
+ *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
+ *          configuration for the selected data source operation. The response function interprets responses from the data
+ *          source and maps it to the shape of the GraphQL field output type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppSyncClient, ListApiKeysCommand } from "@aws-sdk/client-appsync"; // ES Modules import
- * // const { AppSyncClient, ListApiKeysCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
+ * import { AppSyncClient, EvaluateCodeCommand } from "@aws-sdk/client-appsync"; // ES Modules import
+ * // const { AppSyncClient, EvaluateCodeCommand } = require("@aws-sdk/client-appsync"); // CommonJS import
  * const client = new AppSyncClient(config);
- * const command = new ListApiKeysCommand(input);
+ * const command = new EvaluateCodeCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListApiKeysCommandInput} for command's `input` shape.
- * @see {@link ListApiKeysCommandOutput} for command's `response` shape.
+ * @see {@link EvaluateCodeCommandInput} for command's `input` shape.
+ * @see {@link EvaluateCodeCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  */
-export class ListApiKeysCommand extends $Command<
-  ListApiKeysCommandInput,
-  ListApiKeysCommandOutput,
+export class EvaluateCodeCommand extends $Command<
+  EvaluateCodeCommandInput,
+  EvaluateCodeCommandOutput,
   AppSyncClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +66,7 @@ export class ListApiKeysCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListApiKeysCommandInput) {
+  constructor(readonly input: EvaluateCodeCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,21 +79,21 @@ export class ListApiKeysCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppSyncClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListApiKeysCommandInput, ListApiKeysCommandOutput> {
+  ): Handler<EvaluateCodeCommandInput, EvaluateCodeCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListApiKeysCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(getEndpointPlugin(configuration, EvaluateCodeCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppSyncClient";
-    const commandName = "ListApiKeysCommand";
+    const commandName = "EvaluateCodeCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListApiKeysRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListApiKeysResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: EvaluateCodeRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: EvaluateCodeResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,12 +103,12 @@ export class ListApiKeysCommand extends $Command<
     );
   }
 
-  private serialize(input: ListApiKeysCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListApiKeysCommand(input, context);
+  private serialize(input: EvaluateCodeCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1EvaluateCodeCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApiKeysCommandOutput> {
-    return deserializeAws_restJson1ListApiKeysCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<EvaluateCodeCommandOutput> {
+    return deserializeAws_restJson1EvaluateCodeCommand(output, context);
   }
 
   // Start section: command_body_extra

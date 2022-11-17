@@ -85,6 +85,11 @@ import {
   DisassociateApiCommandOutput,
 } from "./commands/DisassociateApiCommand";
 import {
+  EvaluateCodeCommand,
+  EvaluateCodeCommandInput,
+  EvaluateCodeCommandOutput,
+} from "./commands/EvaluateCodeCommand";
+import {
   EvaluateMappingTemplateCommand,
   EvaluateMappingTemplateCommandInput,
   EvaluateMappingTemplateCommandOutput,
@@ -214,8 +219,8 @@ import {
 import { UpdateTypeCommand, UpdateTypeCommandInput, UpdateTypeCommandOutput } from "./commands/UpdateTypeCommand";
 
 /**
- * <p>AppSync provides API actions for creating and interacting with data
- *          sources using GraphQL from your application.</p>
+ * <p>AppSync provides API actions for creating and interacting with data sources using GraphQL
+ *          from your application.</p>
  */
 export class AppSync extends AppSyncClient {
   /**
@@ -374,8 +379,7 @@ export class AppSync extends AppSyncClient {
 
   /**
    * <p>Creates a <code>Function</code> object.</p>
-   *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver
-   *          logic.</p>
+   *          <p>A function is a reusable entity. You can use multiple functions to compose the resolver logic.</p>
    */
   public createFunction(
     args: CreateFunctionCommandInput,
@@ -440,8 +444,8 @@ export class AppSync extends AppSyncClient {
 
   /**
    * <p>Creates a <code>Resolver</code> object.</p>
-   *          <p>A resolver converts incoming requests into a format that a data source can understand,
-   *          and converts the data source's responses into GraphQL.</p>
+   *          <p>A resolver converts incoming requests into a format that a data source can understand, and converts the data
+   *          source's responses into GraphQL.</p>
    */
   public createResolver(
     args: CreateResolverCommandInput,
@@ -778,12 +782,44 @@ export class AppSync extends AppSyncClient {
   }
 
   /**
-   * <p>Evaluates a given template and returns the response. The mapping template can be a
-   *          request or response template.</p>
-   *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
-   *          convert it into a request configuration for the selected data source operation. Response
-   *          templates interpret responses from the data source and map it to the shape of the GraphQL
-   *          field output type.</p>
+   * <p>Evaluates the given code and returns the response. The code definition requirements depend on the specified
+   *          runtime. For <code>APPSYNC_JS</code> runtimes, the code defines the request and response functions. The request
+   *          function takes the incoming request after a GraphQL operation is parsed and converts it into a request
+   *          configuration for the selected data source operation. The response function interprets responses from the data
+   *          source and maps it to the shape of the GraphQL field output type. </p>
+   */
+  public evaluateCode(
+    args: EvaluateCodeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EvaluateCodeCommandOutput>;
+  public evaluateCode(args: EvaluateCodeCommandInput, cb: (err: any, data?: EvaluateCodeCommandOutput) => void): void;
+  public evaluateCode(
+    args: EvaluateCodeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EvaluateCodeCommandOutput) => void
+  ): void;
+  public evaluateCode(
+    args: EvaluateCodeCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: EvaluateCodeCommandOutput) => void),
+    cb?: (err: any, data?: EvaluateCodeCommandOutput) => void
+  ): Promise<EvaluateCodeCommandOutput> | void {
+    const command = new EvaluateCodeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
+   *          template.</p>
+   *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
+   *          request configuration for the selected data source operation. Response templates interpret responses from the
+   *          data source and map it to the shape of the GraphQL field output type.</p>
    *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
    */
   public evaluateMappingTemplate(
@@ -1146,10 +1182,9 @@ export class AppSync extends AppSyncClient {
   /**
    * <p>Lists the API keys for a given API.</p>
    *          <note>
-   *             <p>API keys are deleted automatically 60 days after they expire. However, they may still
-   *             be included in the response until they have actually been deleted. You can safely call
-   *                <code>DeleteApiKey</code> to manually delete a key before it's automatically
-   *             deleted.</p>
+   *             <p>API keys are deleted automatically 60 days after they expire. However, they may still be included in the
+   *             response until they have actually been deleted. You can safely call <code>DeleteApiKey</code> to manually
+   *             delete a key before it's automatically deleted.</p>
    *          </note>
    */
   public listApiKeys(args: ListApiKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListApiKeysCommandOutput>;
@@ -1427,8 +1462,8 @@ export class AppSync extends AppSyncClient {
 
   /**
    * <p>Adds a new schema to your GraphQL API.</p>
-   *          <p>This operation is asynchronous. Use  to
-   *          determine when it has completed.</p>
+   *          <p>This operation is asynchronous. Use  to determine when it has
+   *          completed.</p>
    */
   public startSchemaCreation(
     args: StartSchemaCreationCommandInput,
