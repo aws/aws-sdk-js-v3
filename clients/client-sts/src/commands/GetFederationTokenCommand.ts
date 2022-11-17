@@ -75,9 +75,9 @@ export interface GetFederationTokenCommandOutput extends GetFederationTokenRespo
  *          </ul>
  *          <p>You must pass an inline or managed <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html#policies_session">session policy</a> to
  *          this operation. You can pass a single JSON policy document to use as an inline session
- *          policy. You can also specify up to 10 managed policies to use as managed session policies.
- *          The plaintext that you use for both inline and managed session policies can't exceed 2,048
- *          characters.</p>
+ *          policy. You can also specify up to 10 managed policy Amazon Resource Names (ARNs) to use as
+ *          managed session policies. The plaintext that you use for both inline and managed session
+ *          policies can't exceed 2,048 characters.</p>
  *          <p>Though the session policy parameters are optional, if you do not pass a policy, then the
  *          resulting federated user session has no permissions. When you pass session policies, the
  *          session permissions are the intersection of the IAM user policies and the session
