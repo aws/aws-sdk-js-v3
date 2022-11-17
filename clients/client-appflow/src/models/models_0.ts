@@ -37,6 +37,14 @@ export interface AggregationConfig {
    *       leave them unaggregated. </p>
    */
   aggregationType?: AggregationType | string;
+
+  /**
+   * <p>The desired file size, in MB, for each output file that Amazon AppFlow writes to the
+   *       flow destination. For each file, Amazon AppFlow attempts to achieve the size that you
+   *       specify. The actual file sizes might differ from this target based on the number and size of
+   *       the records that each file contains.</p>
+   */
+  targetFileSize?: number;
 }
 
 export enum AmplitudeConnectorOperator {
@@ -281,6 +289,10 @@ export interface BasicAuthCredentials {
    * <p> The password to use to connect to a resource.</p>
    */
   password: string | undefined;
+}
+
+export enum CatalogType {
+  GLUE = "GLUE",
 }
 
 /**
@@ -2846,6 +2858,11 @@ export enum FileType {
   PARQUET = "PARQUET",
 }
 
+export enum PathPrefix {
+  EXECUTION_ID = "EXECUTION_ID",
+  SCHEMA_VERSION = "SCHEMA_VERSION",
+}
+
 export enum PrefixFormat {
   DAY = "DAY",
   HOUR = "HOUR",
@@ -2861,20 +2878,49 @@ export enum PrefixType {
 }
 
 /**
- * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
- *       You can name your destination folders according to the flow frequency and date. </p>
+ * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
+ *       destination.</p>
  */
 export interface PrefixConfig {
   /**
-   * <p> Determines the format of the prefix, and whether it applies to the file name, file path,
+   * <p>Determines the format of the prefix, and whether it applies to the file name, file path,
    *       or both. </p>
    */
   prefixType?: PrefixType | string;
 
   /**
-   * <p> Determines the level of granularity that's included in the prefix. </p>
+   * <p>Determines the level of granularity for the date and time that's included in the prefix. </p>
    */
   prefixFormat?: PrefixFormat | string;
+
+  /**
+   * <p>Specifies whether the destination file path includes either or both of the following
+   *       elements:</p>
+   *          <dl>
+   *             <dt>EXECUTION_ID</dt>
+   *             <dd>
+   *                <p>The ID that Amazon AppFlow assigns to the flow run.</p>
+   *             </dd>
+   *             <dt>SCHEMA_VERSION</dt>
+   *             <dd>
+   *                <p>The version number of your data schema. Amazon AppFlow assigns this version
+   *             number. The version number increases by one when you change any of the following
+   *             settings in your flow configuration:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>Source-to-destination field mappings</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Field data types</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>Partition keys</p>
+   *                   </li>
+   *                </ul>
+   *             </dd>
+   *          </dl>
+   */
+  pathPrefixHierarchy?: (PathPrefix | string)[];
 }
 
 /**
@@ -3113,8 +3159,8 @@ export interface UpsolverS3OutputFormatConfig {
   fileType?: FileType | string;
 
   /**
-   * <p> Determines the prefix that Amazon AppFlow applies to the destination folder name.
-   *       You can name your destination folders according to the flow frequency and date. </p>
+   * <p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow
+   *       destination.</p>
    */
   prefixConfig: PrefixConfig | undefined;
 
@@ -3273,6 +3319,56 @@ export interface DestinationFlowConfig {
    * <p> This stores the information that is required to query a particular connector. </p>
    */
   destinationConnectorProperties: DestinationConnectorProperties | undefined;
+}
+
+/**
+ * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
+ *       the Glue Data Catalog. When Amazon AppFlow catalogs your data, it stores
+ *       metadata in Data Catalog tables. This metadata represents the data that's transferred
+ *       by the flow that you configure with these settings.</p>
+ *          <note>
+ *             <p>You can configure a flow with these settings only when the flow destination is Amazon S3.</p>
+ *          </note>
+ */
+export interface GlueDataCatalogConfig {
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and
+   *       partitions.</p>
+   *          <p>For an example IAM policy that has the required permissions, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html">Identity-based
+   *         policy examples for Amazon AppFlow</a>.</p>
+   */
+  roleArn: string | undefined;
+
+  /**
+   * <p>The name of the Data Catalog database that stores the metadata tables that
+   *         Amazon AppFlow creates in your Amazon Web Services account. These tables contain
+   *       metadata for the data that's transferred by the flow that you configure with this
+   *       parameter.</p>
+   *          <note>
+   *             <p>When you configure a new flow with this parameter, you must specify an existing
+   *         database.</p>
+   *          </note>
+   */
+  databaseName: string | undefined;
+
+  /**
+   * <p>A naming prefix for each Data Catalog table that Amazon AppFlow creates for
+   *       the flow that you configure with this setting. Amazon AppFlow adds the prefix to the
+   *       beginning of the each table name.</p>
+   */
+  tablePrefix: string | undefined;
+}
+
+/**
+ * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data.
+ *       When Amazon AppFlow catalogs your data, it stores metadata in a data catalog.</p>
+ */
+export interface MetadataCatalogConfig {
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with the
+   *         Glue Data Catalog.</p>
+   */
+  glueDataCatalog?: GlueDataCatalogConfig;
 }
 
 /**
@@ -3675,6 +3771,7 @@ export enum OperatorPropertiesKeys {
   MASK_LENGTH = "MASK_LENGTH",
   MASK_VALUE = "MASK_VALUE",
   MATH_OPERATION_FIELDS_ORDER = "MATH_OPERATION_FIELDS_ORDER",
+  ORDERED_PARTITION_KEYS_LIST = "ORDERED_PARTITION_KEYS_LIST",
   SOURCE_DATA_TYPE = "SOURCE_DATA_TYPE",
   SUBFIELD_CATEGORY_MAP = "SUBFIELD_CATEGORY_MAP",
   TRUNCATE_LENGTH = "TRUNCATE_LENGTH",
@@ -3691,6 +3788,7 @@ export enum TaskType {
   MAP_ALL = "Map_all",
   MASK = "Mask",
   MERGE = "Merge",
+  PARTITION = "Partition",
   PASSTHROUGH = "Passthrough",
   TRUNCATE = "Truncate",
   VALIDATE = "Validate",
@@ -3870,6 +3968,13 @@ export interface CreateFlowRequest {
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data
+   *       that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a
+   *       flow, it stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
 export enum FlowStatus {
@@ -4113,6 +4218,72 @@ export interface ExecutionDetails {
   mostRecentExecutionStatus?: ExecutionStatus | string;
 }
 
+/**
+ * <p>Describes the status of an attempt from Amazon AppFlow to register a
+ *       resource.</p>
+ *          <p>When you run a flow that you've configured to use a metadata catalog, Amazon AppFlow
+ *       registers a metadata table and data partitions with that catalog. This operation provides the
+ *       status of that registration attempt. The operation also indicates how many related resources
+ *         Amazon AppFlow created or updated.</p>
+ */
+export interface RegistrationOutput {
+  /**
+   * <p>Explains the status of the registration attempt from Amazon AppFlow. If the attempt
+   *       fails, the message explains why.</p>
+   */
+  message?: string;
+
+  /**
+   * <p>Indicates the number of resources that Amazon AppFlow created or updated. Possible
+   *       resources include metadata tables and data partitions.</p>
+   */
+  result?: string;
+
+  /**
+   * <p>Indicates the status of the registration attempt from Amazon AppFlow.</p>
+   */
+  status?: ExecutionStatus | string;
+}
+
+/**
+ * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+ */
+export interface MetadataCatalogDetail {
+  /**
+   * <p>The type of metadata catalog that Amazon AppFlow used for the associated flow run.
+   *       This parameter returns the following value:</p>
+   *          <dl>
+   *             <dt>GLUE</dt>
+   *             <dd>
+   *                <p>The metadata catalog is provided by the Glue Data Catalog. Glue includes the Glue Data Catalog as a component.</p>
+   *             </dd>
+   *          </dl>
+   */
+  catalogType?: CatalogType | string;
+
+  /**
+   * <p>The name of the table that stores the metadata for the associated flow run. The table
+   *       stores metadata that represents the data that the flow transferred. Amazon AppFlow
+   *       stores the table in the metadata catalog.</p>
+   */
+  tableName?: string;
+
+  /**
+   * <p>Describes the status of the attempt from Amazon AppFlow to register the metadata
+   *       table with the metadata catalog. Amazon AppFlow creates or updates this table for the
+   *       associated flow run.</p>
+   */
+  tableRegistrationOutput?: RegistrationOutput;
+
+  /**
+   * <p>Describes the status of the attempt from Amazon AppFlow to register the data
+   *       partitions with the metadata catalog. The data partitions organize the flow output into a
+   *       hierarchical path, such as a folder path in an  S3 bucket. Amazon AppFlow creates the
+   *       partitions (if they don't already exist) based on your flow configuration.</p>
+   */
+  partitionRegistrationOutput?: RegistrationOutput;
+}
+
 export interface DescribeFlowResponse {
   /**
    * <p> The flow's Amazon Resource Name (ARN). </p>
@@ -4200,6 +4371,36 @@ export interface DescribeFlowResponse {
    * <p> The tags used to organize, track, or control access for your flow. </p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data
+   *       that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a
+   *       flow, it stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
+
+  /**
+   * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+   */
+  lastRunMetadataCatalogDetails?: MetadataCatalogDetail[];
+
+  /**
+   * <p>The version number of your data schema. Amazon AppFlow assigns this version number.
+   *       The version number increases by one when you change any of the following settings in your flow
+   *       configuration:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Source-to-destination field mappings</p>
+   *             </li>
+   *             <li>
+   *                <p>Field data types</p>
+   *             </li>
+   *             <li>
+   *                <p>Partition keys</p>
+   *             </li>
+   *          </ul>
+   */
+  schemaVersion?: number;
 }
 
 export interface DescribeFlowExecutionRecordsRequest {
@@ -4303,6 +4504,11 @@ export interface ExecutionRecord {
    *       run. </p>
    */
   dataPullEndTime?: Date;
+
+  /**
+   * <p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>
+   */
+  metadataCatalogDetails?: MetadataCatalogDetail[];
 }
 
 export interface DescribeFlowExecutionRecordsResponse {
@@ -4723,6 +4929,13 @@ export interface UpdateFlowRequest {
    *       flow run. </p>
    */
   tasks: Task[] | undefined;
+
+  /**
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data
+   *       that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a
+   *       flow, it stores metadata in a data catalog.</p>
+   */
+  metadataCatalogConfig?: MetadataCatalogConfig;
 }
 
 export interface UpdateFlowResponse {
@@ -5635,6 +5848,20 @@ export const DestinationFlowConfigFilterSensitiveLog = (obj: DestinationFlowConf
 /**
  * @internal
  */
+export const GlueDataCatalogConfigFilterSensitiveLog = (obj: GlueDataCatalogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataCatalogConfigFilterSensitiveLog = (obj: MetadataCatalogConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const IncrementalPullConfigFilterSensitiveLog = (obj: IncrementalPullConfig): any => ({
   ...obj,
 });
@@ -5902,6 +6129,20 @@ export const DescribeFlowRequestFilterSensitiveLog = (obj: DescribeFlowRequest):
  * @internal
  */
 export const ExecutionDetailsFilterSensitiveLog = (obj: ExecutionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RegistrationOutputFilterSensitiveLog = (obj: RegistrationOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MetadataCatalogDetailFilterSensitiveLog = (obj: MetadataCatalogDetail): any => ({
   ...obj,
 });
 

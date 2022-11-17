@@ -92,6 +92,12 @@
           "traits": {
             "smithy.api#documentation": "<p> Specifies whether Amazon AppFlow aggregates the flow records into a single file, or\n      leave them unaggregated. </p>"
           }
+        },
+        "targetFileSize": {
+          "target": "com.amazonaws.appflow#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired file size, in MB, for each output file that Amazon AppFlow writes to the\n      flow destination. For each file, Amazon AppFlow attempts to achieve the size that you\n      specify. The actual file sizes might differ from this target based on the number and size of\n      the records that each file contains.</p>"
+          }
         }
       },
       "traits": {
@@ -481,6 +487,17 @@
           "max": 512
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.appflow#CatalogType": {
+      "type": "enum",
+      "members": {
+        "GLUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GLUE"
+          }
+        }
       }
     },
     "com.amazonaws.appflow#ClientCredentialsArn": {
@@ -2103,6 +2120,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The tags used to organize, track, or control access for your flow. </p>"
           }
+        },
+        "metadataCatalogConfig": {
+          "target": "com.amazonaws.appflow#MetadataCatalogConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data\n      that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a\n      flow, it stores metadata in a data catalog.</p>"
+          }
         }
       }
     },
@@ -3202,6 +3225,24 @@
           "traits": {
             "smithy.api#documentation": "<p> The tags used to organize, track, or control access for your flow. </p>"
           }
+        },
+        "metadataCatalogConfig": {
+          "target": "com.amazonaws.appflow#MetadataCatalogConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data\n      that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a\n      flow, it stores metadata in a data catalog.</p>"
+          }
+        },
+        "lastRunMetadataCatalogDetails": {
+          "target": "com.amazonaws.appflow#MetadataCatalogDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>"
+          }
+        },
+        "schemaVersion": {
+          "target": "com.amazonaws.appflow#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The version number of your data schema. Amazon AppFlow assigns this version number.\n      The version number increases by one when you change any of the following settings in your flow\n      configuration:</p>\n         <ul>\n            <li>\n               <p>Source-to-destination field mappings</p>\n            </li>\n            <li>\n               <p>Field data types</p>\n            </li>\n            <li>\n               <p>Partition keys</p>\n            </li>\n         </ul>"
+          }
         }
       }
     },
@@ -3765,6 +3806,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The timestamp that indicates the last new or updated record to be transferred in the flow\n      run. </p>"
           }
+        },
+        "metadataCatalogDetails": {
+          "target": "com.amazonaws.appflow#MetadataCatalogDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>"
+          }
         }
       },
       "traits": {
@@ -4109,6 +4156,65 @@
           "max": 2048
         },
         "smithy.api#pattern": "^[\\s\\w/!@#+=.-]*$"
+      }
+    },
+    "com.amazonaws.appflow#GlueDataCatalogConfig": {
+      "type": "structure",
+      "members": {
+        "roleArn": {
+          "target": "com.amazonaws.appflow#GlueDataCatalogIAMRole",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of an IAM role that grants Amazon AppFlow the permissions it needs to create Data Catalog tables, databases, and\n      partitions.</p>\n         <p>For an example IAM policy that has the required permissions, see <a href=\"https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_id-based-policy-examples.html\">Identity-based\n        policy examples for Amazon AppFlow</a>.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "databaseName": {
+          "target": "com.amazonaws.appflow#GlueDataCatalogDatabaseName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the Data Catalog database that stores the metadata tables that\n        Amazon AppFlow creates in your Amazon Web Services account. These tables contain\n      metadata for the data that's transferred by the flow that you configure with this\n      parameter.</p>\n         <note>\n            <p>When you configure a new flow with this parameter, you must specify an existing\n        database.</p>\n         </note>",
+            "smithy.api#required": {}
+          }
+        },
+        "tablePrefix": {
+          "target": "com.amazonaws.appflow#GlueDataCatalogTablePrefix",
+          "traits": {
+            "smithy.api#documentation": "<p>A naming prefix for each Data Catalog table that Amazon AppFlow creates for\n      the flow that you configure with this setting. Amazon AppFlow adds the prefix to the\n      beginning of the each table name.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with\n      the Glue Data Catalog. When Amazon AppFlow catalogs your data, it stores\n      metadata in Data Catalog tables. This metadata represents the data that's transferred\n      by the flow that you configure with these settings.</p>\n         <note>\n            <p>You can configure a flow with these settings only when the flow destination is Amazon S3.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.appflow#GlueDataCatalogDatabaseName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 255
+        },
+        "smithy.api#pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$"
+      }
+    },
+    "com.amazonaws.appflow#GlueDataCatalogIAMRole": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^arn:aws:iam:.*:[0-9]+:"
+      }
+    },
+    "com.amazonaws.appflow#GlueDataCatalogTablePrefix": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[\\u0020-\\uD7FF\\uE000-\\uFFFD\\uD800\\uDC00-\\uDBFF\\uDFFF\\t]*$"
       }
     },
     "com.amazonaws.appflow#GoogleAnalyticsConnectorOperator": {
@@ -5035,6 +5141,58 @@
         }
       }
     },
+    "com.amazonaws.appflow#MetadataCatalogConfig": {
+      "type": "structure",
+      "members": {
+        "glueDataCatalog": {
+          "target": "com.amazonaws.appflow#GlueDataCatalogConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with the\n        Glue Data Catalog.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data.\n      When Amazon AppFlow catalogs your data, it stores metadata in a data catalog.</p>"
+      }
+    },
+    "com.amazonaws.appflow#MetadataCatalogDetail": {
+      "type": "structure",
+      "members": {
+        "catalogType": {
+          "target": "com.amazonaws.appflow#CatalogType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of metadata catalog that Amazon AppFlow used for the associated flow run.\n      This parameter returns the following value:</p>\n         <dl>\n            <dt>GLUE</dt>\n            <dd>\n               <p>The metadata catalog is provided by the Glue Data Catalog. Glue includes the Glue Data Catalog as a component.</p>\n            </dd>\n         </dl>"
+          }
+        },
+        "tableName": {
+          "target": "com.amazonaws.appflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table that stores the metadata for the associated flow run. The table\n      stores metadata that represents the data that the flow transferred. Amazon AppFlow\n      stores the table in the metadata catalog.</p>"
+          }
+        },
+        "tableRegistrationOutput": {
+          "target": "com.amazonaws.appflow#RegistrationOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the status of the attempt from Amazon AppFlow to register the metadata\n      table with the metadata catalog. Amazon AppFlow creates or updates this table for the\n      associated flow run.</p>"
+          }
+        },
+        "partitionRegistrationOutput": {
+          "target": "com.amazonaws.appflow#RegistrationOutput",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the status of the attempt from Amazon AppFlow to register the data\n      partitions with the metadata catalog. The data partitions organize the flow output into a\n      hierarchical path, such as a folder path in an  S3 bucket. Amazon AppFlow creates the\n      partitions (if they don't already exist) based on your flow configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the metadata catalog, metadata table, and data partitions that Amazon AppFlow used for the associated flow run.</p>"
+      }
+    },
+    "com.amazonaws.appflow#MetadataCatalogDetails": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appflow#MetadataCatalogDetail"
+      }
+    },
     "com.amazonaws.appflow#MostRecentExecutionMessage": {
       "type": "string",
       "traits": {
@@ -5598,6 +5756,12 @@
           "traits": {
             "smithy.api#enumValue": "INCLUDE_NEW_FIELDS"
           }
+        },
+        "ORDERED_PARTITION_KEYS_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORDERED_PARTITION_KEYS_LIST"
+          }
         }
       }
     },
@@ -5743,6 +5907,29 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.appflow#PathPrefix": {
+      "type": "enum",
+      "members": {
+        "EXECUTION_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXECUTION_ID"
+          }
+        },
+        "SCHEMA_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SCHEMA_VERSION"
+          }
+        }
+      }
+    },
+    "com.amazonaws.appflow#PathPrefixHierarchy": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.appflow#PathPrefix"
+      }
+    },
     "com.amazonaws.appflow#PortNumber": {
       "type": "integer",
       "traits": {
@@ -5759,18 +5946,24 @@
         "prefixType": {
           "target": "com.amazonaws.appflow#PrefixType",
           "traits": {
-            "smithy.api#documentation": "<p> Determines the format of the prefix, and whether it applies to the file name, file path,\n      or both. </p>"
+            "smithy.api#documentation": "<p>Determines the format of the prefix, and whether it applies to the file name, file path,\n      or both. </p>"
           }
         },
         "prefixFormat": {
           "target": "com.amazonaws.appflow#PrefixFormat",
           "traits": {
-            "smithy.api#documentation": "<p> Determines the level of granularity that's included in the prefix. </p>"
+            "smithy.api#documentation": "<p>Determines the level of granularity for the date and time that's included in the prefix. </p>"
+          }
+        },
+        "pathPrefixHierarchy": {
+          "target": "com.amazonaws.appflow#PathPrefixHierarchy",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the destination file path includes either or both of the following\n      elements:</p>\n         <dl>\n            <dt>EXECUTION_ID</dt>\n            <dd>\n               <p>The ID that Amazon AppFlow assigns to the flow run.</p>\n            </dd>\n            <dt>SCHEMA_VERSION</dt>\n            <dd>\n               <p>The version number of your data schema. Amazon AppFlow assigns this version\n            number. The version number increases by one when you change any of the following\n            settings in your flow configuration:</p>\n               <ul>\n                  <li>\n                     <p>Source-to-destination field mappings</p>\n                  </li>\n                  <li>\n                     <p>Field data types</p>\n                  </li>\n                  <li>\n                     <p>Partition keys</p>\n                  </li>\n               </ul>\n            </dd>\n         </dl>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> Determines the prefix that Amazon AppFlow applies to the destination folder name.\n      You can name your destination folders according to the flow frequency and date. </p>"
+        "smithy.api#documentation": "<p>Specifies elements that Amazon AppFlow includes in the file and folder names in the flow\n      destination.</p>"
       }
     },
     "com.amazonaws.appflow#PrefixFormat": {
@@ -6230,6 +6423,32 @@
           "max": 512
         },
         "smithy.api#pattern": "^\\S+$"
+      }
+    },
+    "com.amazonaws.appflow#RegistrationOutput": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.appflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Explains the status of the registration attempt from Amazon AppFlow. If the attempt\n      fails, the message explains why.</p>"
+          }
+        },
+        "result": {
+          "target": "com.amazonaws.appflow#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the number of resources that Amazon AppFlow created or updated. Possible\n      resources include metadata tables and data partitions.</p>"
+          }
+        },
+        "status": {
+          "target": "com.amazonaws.appflow#ExecutionStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the status of the registration attempt from Amazon AppFlow.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the status of an attempt from Amazon AppFlow to register a\n      resource.</p>\n         <p>When you run a flow that you've configured to use a metadata catalog, Amazon AppFlow\n      registers a metadata table and data partitions with that catalog. This operation provides the\n      status of that registration attempt. The operation also indicates how many related resources\n        Amazon AppFlow created or updated.</p>"
       }
     },
     "com.amazonaws.appflow#ResourceNotFoundException": {
@@ -7469,9 +7688,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7482,9 +7701,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7495,9 +7714,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7508,9 +7727,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -7521,9 +7740,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7534,9 +7753,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7547,9 +7766,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7560,9 +7779,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -7573,9 +7792,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7586,9 +7805,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7599,9 +7818,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7612,9 +7831,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -7625,9 +7844,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -7638,9 +7857,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -7651,9 +7870,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -7664,9 +7883,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -7677,9 +7896,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -7690,9 +7909,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -7703,9 +7922,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -7716,9 +7935,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -7729,9 +7948,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -7742,9 +7961,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -7755,9 +7974,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -7768,9 +7987,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -7781,9 +8000,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -7794,9 +8013,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -7807,9 +8026,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -7820,9 +8039,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -7833,9 +8052,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7846,9 +8065,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7859,9 +8078,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7872,9 +8091,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -7885,9 +8104,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7898,9 +8117,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7911,9 +8130,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7924,9 +8143,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -7937,9 +8156,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7950,9 +8169,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7963,9 +8182,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7976,9 +8195,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -7989,9 +8208,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -8002,9 +8221,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -8015,9 +8234,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -8028,9 +8247,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -8041,9 +8260,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -8054,9 +8273,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -8067,9 +8286,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -8080,9 +8299,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -8093,9 +8312,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -8106,9 +8325,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -8119,9 +8338,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -8132,9 +8351,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -8145,9 +8364,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -8158,9 +8377,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -8171,9 +8390,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -8184,9 +8403,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -8197,9 +8416,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -8210,9 +8429,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -8223,9 +8442,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -8236,9 +8455,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -8249,9 +8468,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -8262,9 +8481,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -8275,9 +8494,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -8288,9 +8507,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -8301,9 +8520,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -8313,9 +8532,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -8325,9 +8544,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -9721,6 +9940,12 @@
           "traits": {
             "smithy.api#enumValue": "Validate"
           }
+        },
+        "PARTITION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Partition"
+          }
         }
       }
     },
@@ -10250,6 +10475,12 @@
           "traits": {
             "smithy.api#documentation": "<p> A list of tasks that Amazon AppFlow performs while transferring the data in the\n      flow run. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "metadataCatalogConfig": {
+          "target": "com.amazonaws.appflow#MetadataCatalogConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the configuration that Amazon AppFlow uses when it catalogs the data\n      that's transferred by the associated flow. When Amazon AppFlow catalogs the data from a\n      flow, it stores metadata in a data catalog.</p>"
           }
         }
       }
