@@ -820,9 +820,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-south-2"
               }
             },
             {
@@ -833,9 +833,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-south-2"
               }
             },
             {
@@ -846,9 +846,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-2"
               }
             },
             {
@@ -859,9 +859,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-south-2"
               }
             },
             {
@@ -872,9 +872,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -885,9 +885,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-south-1"
               }
             },
             {
@@ -898,9 +898,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -911,9 +911,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-south-1"
               }
             },
             {
@@ -924,9 +924,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-south-1"
               }
             },
             {
@@ -937,9 +937,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-south-1"
               }
             },
             {
@@ -950,9 +950,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-south-1"
               }
             },
             {
@@ -963,9 +963,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-south-1"
               }
             },
             {
@@ -976,9 +976,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-south-2"
               }
             },
             {
@@ -989,9 +989,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-south-2"
               }
             },
             {
@@ -1002,9 +1002,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-south-2"
               }
             },
             {
@@ -1015,9 +1015,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-south-2"
               }
             },
             {
@@ -1028,9 +1028,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -1041,9 +1041,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -1054,9 +1054,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -1067,9 +1067,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -1080,9 +1080,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "me-central-1"
               }
             },
             {
@@ -1093,9 +1093,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "me-central-1"
               }
             },
             {
@@ -1106,9 +1106,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "me-central-1"
               }
             },
             {
@@ -1119,9 +1119,9 @@
                 }
               },
               "params": {
-                "Region": "me-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "me-central-1"
               }
             },
             {
@@ -1132,9 +1132,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1145,9 +1145,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1158,9 +1158,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1171,9 +1171,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ca-central-1"
               }
             },
             {
@@ -1184,9 +1184,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1197,9 +1197,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1210,9 +1210,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1223,9 +1223,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -1234,9 +1234,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1247,9 +1247,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-iso-west-1"
               }
             },
             {
@@ -1260,9 +1260,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1273,9 +1273,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1286,9 +1286,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1299,9 +1299,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-2"
               }
             },
             {
@@ -1312,9 +1312,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-1"
               }
             },
             {
@@ -1325,9 +1325,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-1"
               }
             },
             {
@@ -1338,9 +1338,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-1"
               }
             },
             {
@@ -1351,9 +1351,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-1"
               }
             },
             {
@@ -1364,9 +1364,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -1377,9 +1377,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -1390,9 +1390,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -1403,9 +1403,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -1416,9 +1416,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -1429,9 +1429,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "af-south-1"
               }
             },
             {
@@ -1442,9 +1442,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -1455,9 +1455,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "af-south-1"
               }
             },
             {
@@ -1468,9 +1468,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1481,9 +1481,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1494,9 +1494,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1507,9 +1507,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1520,9 +1520,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1533,9 +1533,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1546,9 +1546,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1559,9 +1559,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1572,9 +1572,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1585,9 +1585,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1598,9 +1598,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1611,9 +1611,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1624,9 +1624,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1637,9 +1637,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1650,9 +1650,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1663,9 +1663,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1676,9 +1676,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1689,9 +1689,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1702,9 +1702,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1715,9 +1715,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1728,9 +1728,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1741,9 +1741,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1754,9 +1754,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1767,9 +1767,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1780,9 +1780,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1793,9 +1793,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1806,9 +1806,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1819,9 +1819,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1832,9 +1832,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "me-south-1"
               }
             },
             {
@@ -1845,9 +1845,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "me-south-1"
               }
             },
             {
@@ -1858,9 +1858,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "me-south-1"
               }
             },
             {
@@ -1871,9 +1871,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "me-south-1"
               }
             },
             {
@@ -1884,9 +1884,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1897,9 +1897,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1910,9 +1910,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1923,9 +1923,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1936,9 +1936,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1949,9 +1949,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1962,9 +1962,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1975,9 +1975,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1988,9 +1988,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -2001,9 +2001,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "cn-north-1"
               }
             },
             {
@@ -2014,9 +2014,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -2027,9 +2027,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "cn-north-1"
               }
             },
             {
@@ -2040,9 +2040,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -2053,9 +2053,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -2066,9 +2066,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -2079,9 +2079,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -2092,9 +2092,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2105,9 +2105,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2118,9 +2118,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2131,9 +2131,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -2144,9 +2144,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2157,9 +2157,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2170,9 +2170,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2183,9 +2183,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -2194,9 +2194,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2207,9 +2207,9 @@
                 }
               },
               "params": {
-                "Region": "us-iso-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-iso-east-1"
               }
             },
             {
@@ -2220,9 +2220,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2233,9 +2233,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2246,9 +2246,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2259,9 +2259,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -2272,9 +2272,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2285,9 +2285,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2298,9 +2298,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2311,9 +2311,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-4",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-southeast-4"
               }
             },
             {
@@ -2324,9 +2324,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -2337,9 +2337,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -2350,9 +2350,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -2363,9 +2363,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -2376,9 +2376,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -2389,9 +2389,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -2402,9 +2402,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -2415,9 +2415,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -2428,9 +2428,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2441,9 +2441,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2454,9 +2454,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2467,9 +2467,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -2478,9 +2478,9 @@
                 "error": "DualStack is enabled but this partition does not support DualStack"
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2491,9 +2491,9 @@
                 }
               },
               "params": {
-                "Region": "us-isob-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-isob-east-1"
               }
             },
             {
@@ -2504,9 +2504,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2516,9 +2516,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2528,9 +2528,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2606,37 +2606,43 @@
       }
     },
     "com.amazonaws.databasemigrationservice#AuthMechanismValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "default",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "mongodb_cr",
-            "name": "MONGODB_CR"
-          },
-          {
-            "value": "scram_sha_1",
-            "name": "SCRAM_SHA_1"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "default"
           }
-        ]
+        },
+        "MONGODB_CR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "mongodb_cr"
+          }
+        },
+        "SCRAM_SHA_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "scram_sha_1"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#AuthTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "no",
-            "name": "NO"
-          },
-          {
-            "value": "password",
-            "name": "PASSWORD"
+      "type": "enum",
+      "members": {
+        "NO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "no"
           }
-        ]
+        },
+        "PASSWORD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "password"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#AvailabilityZone": {
@@ -2721,42 +2727,56 @@
       }
     },
     "com.amazonaws.databasemigrationservice#CannedAclForObjectsValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "none",
-            "name": "NONE"
-          },
-          {
-            "value": "private",
-            "name": "PRIVATE"
-          },
-          {
-            "value": "public-read",
-            "name": "PUBLIC_READ"
-          },
-          {
-            "value": "public-read-write",
-            "name": "PUBLIC_READ_WRITE"
-          },
-          {
-            "value": "authenticated-read",
-            "name": "AUTHENTICATED_READ"
-          },
-          {
-            "value": "aws-exec-read",
-            "name": "AWS_EXEC_READ"
-          },
-          {
-            "value": "bucket-owner-read",
-            "name": "BUCKET_OWNER_READ"
-          },
-          {
-            "value": "bucket-owner-full-control",
-            "name": "BUCKET_OWNER_FULL_CONTROL"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
           }
-        ]
+        },
+        "PRIVATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "private"
+          }
+        },
+        "PUBLIC_READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "public-read"
+          }
+        },
+        "PUBLIC_READ_WRITE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "public-read-write"
+          }
+        },
+        "AUTHENTICATED_READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "authenticated-read"
+          }
+        },
+        "AWS_EXEC_READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "aws-exec-read"
+          }
+        },
+        "BUCKET_OWNER_READ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "bucket-owner-read"
+          }
+        },
+        "BUCKET_OWNER_FULL_CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "bucket-owner-full-control"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#Certificate": {
@@ -2840,22 +2860,26 @@
       "type": "blob"
     },
     "com.amazonaws.databasemigrationservice#CharLengthSemantics": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "default",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "char",
-            "name": "CHAR"
-          },
-          {
-            "value": "byte",
-            "name": "BYTE"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "default"
           }
-        ]
+        },
+        "CHAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "char"
+          }
+        },
+        "BYTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "byte"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#CollectorHealthCheck": {
@@ -3010,18 +3034,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#CollectorStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNREGISTERED",
-            "name": "UNREGISTERED"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
+      "type": "enum",
+      "members": {
+        "UNREGISTERED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNREGISTERED"
           }
-        ]
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#CollectorsList": {
@@ -3031,18 +3057,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#CompressionTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "none",
-            "name": "NONE"
-          },
-          {
-            "value": "gzip",
-            "name": "GZIP"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
           }
-        ]
+        },
+        "GZIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "gzip"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#Connection": {
@@ -3153,7 +3181,7 @@
         "EngineName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of engine for the endpoint. Valid values, depending on the\n         <code>EndpointType</code> value, include <code>\"mysql\"</code>, <code>\"oracle\"</code>,\n          <code>\"postgres\"</code>, <code>\"mariadb\"</code>, <code>\"aurora\"</code>, \n          <code>\"aurora-postgresql\"</code>, <code>\"opensearch\"</code>, <code>\"redshift\"</code>, <code>\"s3\"</code>,\n         <code>\"db2\"</code>, <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>,\n         <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>, <code>\"docdb\"</code>,\n         <code>\"sqlserver\"</code>, and <code>\"neptune\"</code>.</p>",
+            "smithy.api#documentation": "<p>The type of engine for the endpoint. Valid values, depending on the\n         <code>EndpointType</code> value, include <code>\"mysql\"</code>, <code>\"oracle\"</code>,\n          <code>\"postgres\"</code>, <code>\"mariadb\"</code>, <code>\"aurora\"</code>, \n          <code>\"aurora-postgresql\"</code>, <code>\"opensearch\"</code>, <code>\"redshift\"</code>, <code>\"s3\"</code>,\n         <code>\"db2\"</code>, <code>\"db2-zos\"</code>, <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>,\n         <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>, <code>\"docdb\"</code>,\n         <code>\"sqlserver\"</code>, <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3700,6 +3728,12 @@
           "traits": {
             "smithy.api#documentation": "<p>A friendly name for the resource identifier at the end of the <code>EndpointArn</code>\n         response parameter that is returned in the created <code>Endpoint</code> object. The value\n         for this parameter can have up to 31 characters. It can contain only ASCII letters, digits,\n         and hyphen ('-'). Also, it can't end with a hyphen or contain two consecutive hyphens,\n         and can only begin with a letter, such as <code>Example-App-ARN1</code>. For example, this\n         value might result in the <code>EndpointArn</code> value\n         <code>arn:aws:dms:eu-west-1:012345678901:rep:Example-App-ARN1</code>. If you don't\n         specify a <code>ResourceIdentifier</code> value, DMS generates a default identifier\n         value for the end of <code>EndpointArn</code>.</p>"
           }
+        },
+        "NetworkType": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of IP address protocol used by a replication instance, \n         such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. \n         IPv6 only is not yet supported.</p>"
+          }
         }
       },
       "traits": {
@@ -3940,18 +3974,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#DataFormatValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "csv",
-            "name": "CSV"
-          },
-          {
-            "value": "parquet",
-            "name": "PARQUET"
+      "type": "enum",
+      "members": {
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "csv"
           }
-        ]
+        },
+        "PARQUET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "parquet"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#DatabaseInstanceSoftwareDetailsResponse": {
@@ -4093,53 +4129,67 @@
       }
     },
     "com.amazonaws.databasemigrationservice#DatePartitionDelimiterValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SLASH",
-            "name": "SLASH"
-          },
-          {
-            "value": "UNDERSCORE",
-            "name": "UNDERSCORE"
-          },
-          {
-            "value": "DASH",
-            "name": "DASH"
-          },
-          {
-            "value": "NONE",
-            "name": "NONE"
+      "type": "enum",
+      "members": {
+        "SLASH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SLASH"
           }
-        ]
+        },
+        "UNDERSCORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDERSCORE"
+          }
+        },
+        "DASH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DASH"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#DatePartitionSequenceValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "YYYYMMDD",
-            "name": "YYYYMMDD"
-          },
-          {
-            "value": "YYYYMMDDHH",
-            "name": "YYYYMMDDHH"
-          },
-          {
-            "value": "YYYYMM",
-            "name": "YYYYMM"
-          },
-          {
-            "value": "MMYYYYDD",
-            "name": "MMYYYYDD"
-          },
-          {
-            "value": "DDMMYYYY",
-            "name": "DDMMYYYY"
+      "type": "enum",
+      "members": {
+        "YYYYMMDD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "YYYYMMDD"
           }
-        ]
+        },
+        "YYYYMMDDHH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "YYYYMMDDHH"
+          }
+        },
+        "YYYYMM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "YYYYMM"
+          }
+        },
+        "MMYYYYDD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MMYYYYDD"
+          }
+        },
+        "DDMMYYYY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DDMMYYYY"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#DeleteCertificate": {
@@ -6901,26 +6951,32 @@
       }
     },
     "com.amazonaws.databasemigrationservice#DmsSslModeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "none",
-            "name": "NONE"
-          },
-          {
-            "value": "require",
-            "name": "REQUIRE"
-          },
-          {
-            "value": "verify-ca",
-            "name": "VERIFY_CA"
-          },
-          {
-            "value": "verify-full",
-            "name": "VERIFY_FULL"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
           }
-        ]
+        },
+        "REQUIRE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "require"
+          }
+        },
+        "VERIFY_CA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "verify-ca"
+          }
+        },
+        "VERIFY_FULL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "verify-full"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#DmsTransferSettings": {
@@ -7076,37 +7132,43 @@
       }
     },
     "com.amazonaws.databasemigrationservice#EncodingTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "plain",
-            "name": "PLAIN"
-          },
-          {
-            "value": "plain-dictionary",
-            "name": "PLAIN_DICTIONARY"
-          },
-          {
-            "value": "rle-dictionary",
-            "name": "RLE_DICTIONARY"
+      "type": "enum",
+      "members": {
+        "PLAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "plain"
           }
-        ]
+        },
+        "PLAIN_DICTIONARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "plain-dictionary"
+          }
+        },
+        "RLE_DICTIONARY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rle-dictionary"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#EncryptionModeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "sse-s3",
-            "name": "SSE_S3"
-          },
-          {
-            "value": "sse-kms",
-            "name": "SSE_KMS"
+      "type": "enum",
+      "members": {
+        "SSE_S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sse-s3"
           }
-        ]
+        },
+        "SSE_KMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sse-kms"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#Endpoint": {
@@ -7127,13 +7189,13 @@
         "EngineName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The database engine name. Valid values, depending on the EndpointType, include\n            <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n            <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"opensearch\"</code>,\n            <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"azuredb\"</code>,\n            <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>,\n            <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>,\n            <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, and <code>\"neptune\"</code>.</p>"
+            "smithy.api#documentation": "<p>The database engine name. Valid values, depending on the EndpointType, include\n         <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n         <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>,\n         <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, \n         <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, \n         <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, \n         <code>\"elasticsearch\"</code>, <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, \n         <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>"
           }
         },
         "EngineDisplayName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The expanded name for the engine name. For example, if the <code>EngineName</code>\n         parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"</p>"
+            "smithy.api#documentation": "<p>The expanded name for the engine name. For example, if the <code>EngineName</code>\n         parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".</p>"
           }
         },
         "Username": {
@@ -7402,26 +7464,32 @@
       }
     },
     "com.amazonaws.databasemigrationservice#EndpointSettingTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "string",
-            "name": "STRING"
-          },
-          {
-            "value": "boolean",
-            "name": "BOOLEAN"
-          },
-          {
-            "value": "integer",
-            "name": "INTEGER"
-          },
-          {
-            "value": "enum",
-            "name": "ENUM"
+      "type": "enum",
+      "members": {
+        "STRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "string"
           }
-        ]
+        },
+        "BOOLEAN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "boolean"
+          }
+        },
+        "INTEGER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "integer"
+          }
+        },
+        "ENUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "enum"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#EndpointSettingsList": {
@@ -8140,26 +8208,32 @@
       }
     },
     "com.amazonaws.databasemigrationservice#KafkaSecurityProtocol": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "plaintext",
-            "name": "PLAINTEXT"
-          },
-          {
-            "value": "ssl-authentication",
-            "name": "SSL_AUTHENTICATION"
-          },
-          {
-            "value": "ssl-encryption",
-            "name": "SSL_ENCRYPTION"
-          },
-          {
-            "value": "sasl-ssl",
-            "name": "SASL_SSL"
+      "type": "enum",
+      "members": {
+        "PLAINTEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "plaintext"
           }
-        ]
+        },
+        "SSL_AUTHENTICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ssl-authentication"
+          }
+        },
+        "SSL_ENCRYPTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ssl-encryption"
+          }
+        },
+        "SASL_SSL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "sasl-ssl"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#KafkaSettings": {
@@ -8413,18 +8487,20 @@
       "type": "long"
     },
     "com.amazonaws.databasemigrationservice#MessageFormatValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "json",
-            "name": "JSON"
-          },
-          {
-            "value": "json-unformatted",
-            "name": "JSON_UNFORMATTED"
+      "type": "enum",
+      "members": {
+        "JSON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "json"
           }
-        ]
+        },
+        "JSON_UNFORMATTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "json-unformatted"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#MicrosoftSQLServerSettings": {
@@ -8526,22 +8602,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#MigrationTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "full-load",
-            "name": "FULL_LOAD"
-          },
-          {
-            "value": "cdc",
-            "name": "CDC"
-          },
-          {
-            "value": "full-load-and-cdc",
-            "name": "FULL_LOAD_AND_CDC"
+      "type": "enum",
+      "members": {
+        "FULL_LOAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "full-load"
           }
-        ]
+        },
+        "CDC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cdc"
+          }
+        },
+        "FULL_LOAD_AND_CDC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "full-load-and-cdc"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#ModifyEndpoint": {
@@ -8598,7 +8678,7 @@
         "EngineName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The type of engine for the endpoint. Valid values, depending on the EndpointType,\n         include\n         <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n         <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>, <code>\"opensearch\"</code>,\n         <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"azuredb\"</code>,\n         <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>,\n         <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>,\n         <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, and <code>\"neptune\"</code>.</p>"
+            "smithy.api#documentation": "<p>The database engine name. Valid values, depending on the EndpointType, include\n         <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n         <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>,\n         <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, \n         <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, \n         <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, \n         <code>\"elasticsearch\"</code>, <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, \n         <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>"
           }
         },
         "Username": {
@@ -8990,6 +9070,12 @@
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
             "smithy.api#documentation": "<p>The replication instance identifier. This parameter is stored as a lowercase\n         string.</p>"
+          }
+        },
+        "NetworkType": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of IP address protocol used by a replication instance, \n         such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. \n         IPv6 only is not yet supported.</p>"
           }
         }
       },
@@ -9490,18 +9576,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#NestingLevelValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "none",
-            "name": "NONE"
-          },
-          {
-            "value": "one",
-            "name": "ONE"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
           }
-        ]
+        },
+        "ONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "one"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#OracleSettings": {
@@ -9594,7 +9682,7 @@
         "ArchivedLogsOnly": {
           "target": "com.amazonaws.databasemigrationservice#BooleanOptional",
           "traits": {
-            "smithy.api#documentation": "<p>When this field is set to <code>Y</code>, DMS only accesses the\n         archived redo logs. If the archived redo logs are stored on\n         Oracle ASM only, the DMS user account needs to be\n         granted ASM privileges.</p>"
+            "smithy.api#documentation": "<p>When this field is set to <code>Y</code>, DMS only accesses the\n         archived redo logs. If the archived redo logs are stored on\n         Automatic Storage Management (ASM) only, the DMS user account needs to be\n         granted ASM privileges.</p>"
           }
         },
         "AsmPassword": {
@@ -9738,13 +9826,13 @@
         "SecretsManagerOracleAsmAccessRoleArn": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full ARN\n         of the IAM role that specifies DMS as the trusted entity and grants the required\n         permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This\n            <code>SecretsManagerOracleAsmSecret</code> has the secret value that allows access to\n         the Oracle ASM of the endpoint.</p>\n         <note>\n            <p>You can specify one of two sets of values for these permissions. You can specify the\n            values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can\n            specify clear-text values for <code>AsmUserName</code>, <code>AsmPassword</code>, and\n               <code>AsmServerName</code>. You can't specify both. For more information on\n            creating this <code>SecretsManagerOracleAsmSecret</code> and the\n               <code>SecretsManagerOracleAsmAccessRoleArn</code> and\n               <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager\">Using secrets to access Database Migration Service\n               resources</a> in the <i>Database Migration Service User\n               Guide</i>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN\n         of the IAM role that specifies DMS as the trusted entity and grants the required\n         permissions to access the <code>SecretsManagerOracleAsmSecret</code>. This\n            <code>SecretsManagerOracleAsmSecret</code> has the secret value that allows access to\n         the Oracle ASM of the endpoint.</p>\n         <note>\n            <p>You can specify one of two sets of values for these permissions. You can specify the\n            values for this setting and <code>SecretsManagerOracleAsmSecretId</code>. Or you can\n            specify clear-text values for <code>AsmUserName</code>, <code>AsmPassword</code>, and\n               <code>AsmServerName</code>. You can't specify both. For more information on\n            creating this <code>SecretsManagerOracleAsmSecret</code> and the\n               <code>SecretsManagerOracleAsmAccessRoleArn</code> and\n               <code>SecretsManagerOracleAsmSecretId</code> required to access it, see <a href=\"https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Security.html#security-iam-secretsmanager\">Using secrets to access Database Migration Service\n               resources</a> in the <i>Database Migration Service User\n               Guide</i>.</p>\n         </note>"
           }
         },
         "SecretsManagerOracleAsmSecretId": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>Required only if your Oracle endpoint uses Advanced Storage Manager (ASM). The full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code> \n         that contains the Oracle ASM connection details for the Oracle endpoint.</p>"
+            "smithy.api#documentation": "<p>Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the <code>SecretsManagerOracleAsmSecret</code> \n         that contains the Oracle ASM connection details for the Oracle endpoint.</p>"
           }
         },
         "TrimSpaceInChar": {
@@ -9834,18 +9922,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#ParquetVersionValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "parquet-1-0",
-            "name": "PARQUET_1_0"
-          },
-          {
-            "value": "parquet-2-0",
-            "name": "PARQUET_2_0"
+      "type": "enum",
+      "members": {
+        "PARQUET_1_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "parquet-1-0"
           }
-        ]
+        },
+        "PARQUET_2_0": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "parquet-2-0"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#PendingMaintenanceAction": {
@@ -9911,22 +10001,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#PluginNameValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "no-preference",
-            "name": "NO_PREFERENCE"
-          },
-          {
-            "value": "test-decoding",
-            "name": "TEST_DECODING"
-          },
-          {
-            "value": "pglogical",
-            "name": "PGLOGICAL"
+      "type": "enum",
+      "members": {
+        "NO_PREFERENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "no-preference"
           }
-        ]
+        },
+        "TEST_DECODING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "test-decoding"
+          }
+        },
+        "PGLOGICAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pglogical"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#PostgreSQLSettings": {
@@ -10107,22 +10201,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#RedisAuthTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "none",
-            "name": "NONE"
-          },
-          {
-            "value": "auth-role",
-            "name": "AUTH_ROLE"
-          },
-          {
-            "value": "auth-token",
-            "name": "AUTH_TOKEN"
+      "type": "enum",
+      "members": {
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "none"
           }
-        ]
+        },
+        "AUTH_ROLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "auth-role"
+          }
+        },
+        "AUTH_TOKEN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "auth-token"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#RedisSettings": {
@@ -10467,48 +10565,54 @@
       }
     },
     "com.amazonaws.databasemigrationservice#RefreshSchemasStatusTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "successful",
-            "name": "SUCCESSFUL"
-          },
-          {
-            "value": "failed",
-            "name": "FAILED"
-          },
-          {
-            "value": "refreshing",
-            "name": "REFRESHING"
+      "type": "enum",
+      "members": {
+        "SUCCESSFUL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "successful"
           }
-        ]
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failed"
+          }
+        },
+        "REFRESHING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "refreshing"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#ReleaseStatusValues": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "beta",
-            "name": "BETA"
+      "type": "enum",
+      "members": {
+        "BETA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "beta"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#ReloadOptionValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "data-reload",
-            "name": "DATA_RELOAD"
-          },
-          {
-            "value": "validate-only",
-            "name": "VALIDATE_ONLY"
+      "type": "enum",
+      "members": {
+        "DATA_RELOAD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "data-reload"
           }
-        ]
+        },
+        "VALIDATE_ONLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "validate-only"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#ReloadTables": {
@@ -10614,18 +10718,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#ReplicationEndpointTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "source",
-            "name": "SOURCE"
-          },
-          {
-            "value": "target",
-            "name": "TARGET"
+      "type": "enum",
+      "members": {
+        "SOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "source"
           }
-        ]
+        },
+        "TARGET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "target"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#ReplicationInstance": {
@@ -10750,6 +10856,12 @@
             "smithy.api#documentation": "<p>One or more private IP addresses for the replication instance.</p>"
           }
         },
+        "ReplicationInstanceIpv6Addresses": {
+          "target": "com.amazonaws.databasemigrationservice#ReplicationInstanceIpv6AddressList",
+          "traits": {
+            "smithy.api#documentation": "<p>One or more IPv6 addresses for the replication instance.</p>"
+          }
+        },
         "PubliclyAccessible": {
           "target": "com.amazonaws.databasemigrationservice#Boolean",
           "traits": {
@@ -10774,10 +10886,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The DNS name servers supported for the replication instance to access your on-premise source or target database.</p>"
           }
+        },
+        "NetworkType": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of IP address protocol used by a replication instance, \n         such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. \n         IPv6 only is not yet supported.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Provides information that defines a replication instance.</p>"
+      }
+    },
+    "com.amazonaws.databasemigrationservice#ReplicationInstanceIpv6AddressList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.databasemigrationservice#String"
       }
     },
     "com.amazonaws.databasemigrationservice#ReplicationInstanceList": {
@@ -10860,6 +10984,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The engine version number of the replication instance.</p>"
           }
+        },
+        "NetworkType": {
+          "target": "com.amazonaws.databasemigrationservice#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of IP address protocol used by a replication instance, \n         such as IPv4 only or Dual-stack that supports both IPv4 and IPv6 addressing. \n         IPv6 only is not yet supported.</p>"
+          }
         }
       },
       "traits": {
@@ -10897,6 +11027,12 @@
           "target": "com.amazonaws.databasemigrationservice#SubnetList",
           "traits": {
             "smithy.api#documentation": "<p>The subnets that are in the subnet group.</p>"
+          }
+        },
+        "SupportedNetworkTypes": {
+          "target": "com.amazonaws.databasemigrationservice#StringList",
+          "traits": {
+            "smithy.api#documentation": "<p>The IP addressing protocol supported by the subnet group. This is used by a \n      replication instance with values such as IPv4 only or Dual-stack that supports \n      both IPv4 and IPv6 addressing. IPv6 only is not yet supported.</p>"
           }
         }
       },
@@ -11680,7 +11816,7 @@
         "CdcMinFileSize": {
           "target": "com.amazonaws.databasemigrationservice#IntegerOptional",
           "traits": {
-            "smithy.api#documentation": "<p>Minimum file size, defined in megabytes, to reach for a file output to Amazon S3.</p>\n         <p>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified, the file \n         write is triggered by whichever parameter condition is met first within an DMS \n         CloudFormation template.</p>\n         <p>The default value is 32 MB.</p>"
+            "smithy.api#documentation": "<p>Minimum file size, defined in kilobytes, to reach for a file output to Amazon S3.</p>\n         <p>When <code>CdcMinFileSize</code> and <code>CdcMaxBatchInterval</code> are both specified, the file \n         write is triggered by whichever parameter condition is met first within an DMS \n         CloudFormation template.</p>\n         <p>The default value is 32 MB.</p>"
           }
         },
         "CsvNullValue": {
@@ -11761,22 +11897,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#SafeguardPolicy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "rely-on-sql-server-replication-agent",
-            "name": "RELY_ON_SQL_SERVER_REPLICATION_AGENT"
-          },
-          {
-            "value": "exclusive-automatic-truncation",
-            "name": "EXCLUSIVE_AUTOMATIC_TRUNCATION"
-          },
-          {
-            "value": "shared-automatic-truncation",
-            "name": "SHARED_AUTOMATIC_TRUNCATION"
+      "type": "enum",
+      "members": {
+        "RELY_ON_SQL_SERVER_REPLICATION_AGENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rely-on-sql-server-replication-agent"
           }
-        ]
+        },
+        "EXCLUSIVE_AUTOMATIC_TRUNCATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "exclusive-automatic-truncation"
+          }
+        },
+        "SHARED_AUTOMATIC_TRUNCATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "shared-automatic-truncation"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#SchemaList": {
@@ -11924,29 +12064,31 @@
       }
     },
     "com.amazonaws.databasemigrationservice#SourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "replication-instance",
-            "name": "replication_instance"
+      "type": "enum",
+      "members": {
+        "replication_instance": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "replication-instance"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#SslSecurityProtocolValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "plaintext",
-            "name": "PLAINTEXT"
-          },
-          {
-            "value": "ssl-encryption",
-            "name": "SSL_ENCRYPTION"
+      "type": "enum",
+      "members": {
+        "PLAINTEXT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "plaintext"
           }
-        ]
+        },
+        "SSL_ENCRYPTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ssl-encryption"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#StartReplicationTask": {
@@ -12206,22 +12348,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#StartReplicationTaskTypeValue": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "start-replication",
-            "name": "START_REPLICATION"
-          },
-          {
-            "value": "resume-processing",
-            "name": "RESUME_PROCESSING"
-          },
-          {
-            "value": "reload-target",
-            "name": "RELOAD_TARGET"
+      "type": "enum",
+      "members": {
+        "START_REPLICATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "start-replication"
           }
-        ]
+        },
+        "RESUME_PROCESSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "resume-processing"
+          }
+        },
+        "RELOAD_TARGET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "reload-target"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#StopReplicationTask": {
@@ -12362,7 +12508,7 @@
         "EngineName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The database engine name. Valid values, depending on the EndpointType,  include\n         <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n         <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>,\n         <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"azuredb\"</code>,\n         <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, <code>\"mongodb\"</code>,\n         <code>\"kinesis\"</code>, <code>\"kafka\"</code>, <code>\"elasticsearch\"</code>,\n         <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, and <code>\"neptune\"</code>.</p>"
+            "smithy.api#documentation": "<p>The database engine name. Valid values, depending on the EndpointType, include\n         <code>\"mysql\"</code>, <code>\"oracle\"</code>, <code>\"postgres\"</code>,\n         <code>\"mariadb\"</code>, <code>\"aurora\"</code>, <code>\"aurora-postgresql\"</code>,\n         <code>\"redshift\"</code>, <code>\"s3\"</code>, <code>\"db2\"</code>, <code>\"db2-zos\"</code>, \n         <code>\"azuredb\"</code>, <code>\"sybase\"</code>, <code>\"dynamodb\"</code>, \n         <code>\"mongodb\"</code>, <code>\"kinesis\"</code>, <code>\"kafka\"</code>, \n         <code>\"elasticsearch\"</code>, <code>\"documentdb\"</code>, <code>\"sqlserver\"</code>, \n         <code>\"neptune\"</code>, and <code>\"babelfish\"</code>.</p>"
           }
         },
         "SupportsCDC": {
@@ -12387,7 +12533,7 @@
         "EngineDisplayName": {
           "target": "com.amazonaws.databasemigrationservice#String",
           "traits": {
-            "smithy.api#documentation": "<p>The expanded name for the engine name. For example, if the <code>EngineName</code>\n         parameter is \"aurora,\" this value would be \"Amazon Aurora MySQL.\"</p>"
+            "smithy.api#documentation": "<p>The expanded name for the engine name. For example, if the <code>EngineName</code>\n         parameter is \"aurora\", this value would be \"Amazon Aurora MySQL\".</p>"
           }
         }
       },
@@ -12504,6 +12650,30 @@
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>The data definition language (DDL) used to build and modify the structure of your tables.</p>"
+          }
+        },
+        "AppliedInserts": {
+          "target": "com.amazonaws.databasemigrationservice#LongOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of insert actions applied on a target table.</p>"
+          }
+        },
+        "AppliedDeletes": {
+          "target": "com.amazonaws.databasemigrationservice#LongOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of delete actions applied on a target table.</p>"
+          }
+        },
+        "AppliedUpdates": {
+          "target": "com.amazonaws.databasemigrationservice#LongOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of update actions applied on a target table.</p>"
+          }
+        },
+        "AppliedDdls": {
+          "target": "com.amazonaws.databasemigrationservice#LongOptional",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of data definition language (DDL) statements used to build and modify the structure\n         of your tables applied on the target.</p>"
           }
         },
         "FullLoadRows": {
@@ -12659,18 +12829,20 @@
       }
     },
     "com.amazonaws.databasemigrationservice#TargetDbType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "specific-database",
-            "name": "SPECIFIC_DATABASE"
-          },
-          {
-            "value": "multiple-databases",
-            "name": "MULTIPLE_DATABASES"
+      "type": "enum",
+      "members": {
+        "SPECIFIC_DATABASE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "specific-database"
           }
-        ]
+        },
+        "MULTIPLE_DATABASES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "multiple-databases"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#TestConnection": {
@@ -12802,22 +12974,26 @@
       }
     },
     "com.amazonaws.databasemigrationservice#VersionStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UP_TO_DATE",
-            "name": "UP_TO_DATE"
-          },
-          {
-            "value": "OUTDATED",
-            "name": "OUTDATED"
-          },
-          {
-            "value": "UNSUPPORTED",
-            "name": "UNSUPPORTED"
+      "type": "enum",
+      "members": {
+        "UP_TO_DATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UP_TO_DATE"
           }
-        ]
+        },
+        "OUTDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OUTDATED"
+          }
+        },
+        "UNSUPPORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNSUPPORTED"
+          }
+        }
       }
     },
     "com.amazonaws.databasemigrationservice#VpcSecurityGroupIdList": {
