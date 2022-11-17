@@ -229,7 +229,7 @@ export interface TargetGroupStickinessConfig {
  */
 export interface ForwardActionConfig {
   /**
-   * <p>One or more target groups. For Network Load Balancers, you can specify a single target
+   * <p>The target groups. For Network Load Balancers, you can specify a single target
    *       group.</p>
    */
   TargetGroups?: TargetGroupTuple[];
@@ -1560,7 +1560,7 @@ export class TooManyLoadBalancersException extends __BaseException {
  */
 export interface HostHeaderConditionConfig {
   /**
-   * <p>One or more host names. The maximum size of each name is 128 characters. The comparison is
+   * <p>The host names. The maximum size of each name is 128 characters. The comparison is
    *       case insensitive. The following wildcard characters are supported: * (matches 0 or more
    *       characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of the strings matches
@@ -1584,7 +1584,7 @@ export interface HttpHeaderConditionConfig {
   HttpHeaderName?: string;
 
   /**
-   * <p>One or more strings to compare against the value of the HTTP header. The maximum size of
+   * <p>The strings to compare against the value of the HTTP header. The maximum size of
    *       each string is 128 characters. The comparison strings are case insensitive. The following
    *       wildcard characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character).</p>
@@ -1620,7 +1620,7 @@ export interface HttpRequestMethodConditionConfig {
  */
 export interface PathPatternConditionConfig {
   /**
-   * <p>One or more path patterns to compare against the request URL. The maximum size of each
+   * <p>The path patterns to compare against the request URL. The maximum size of each
    *       string is 128 characters. The comparison is case sensitive. The following wildcard characters
    *       are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>
    *          <p>If you specify multiple strings, the condition is satisfied if one of them matches the
@@ -1654,7 +1654,7 @@ export interface QueryStringKeyValuePair {
  */
 export interface QueryStringConditionConfig {
   /**
-   * <p>One or more key/value pairs or values to find in the query string. The maximum size of
+   * <p>The key/value pairs or values to find in the query string. The maximum size of
    *       each string is 128 characters. The comparison is case insensitive. The following wildcard
    *       characters are supported: * (matches 0 or more characters) and ? (matches exactly 1
    *       character). To search for a literal '*' or '?' character in a query string, you must escape
@@ -1673,7 +1673,7 @@ export interface QueryStringConditionConfig {
  */
 export interface SourceIpConditionConfig {
   /**
-   * <p>One or more source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.
+   * <p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.
    *       Wildcards are not supported.</p>
    *          <p>If you specify multiple addresses, the condition is satisfied if the source IP address of
    *       the request matches one of the CIDR blocks. This condition is not satisfied by the addresses
@@ -1956,10 +1956,11 @@ export enum TargetGroupIpAddressTypeEnum {
  */
 export interface Matcher {
   /**
-   * <p>For Application Load Balancers, you can specify values between 200 and 499, and the
-   *       default value is 200. You can specify multiple values (for example, "200,202") or a range of
-   *       values (for example, "200-299").</p>
-   *          <p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p>
+   * <p>For Application Load Balancers, you can specify values between 200 and 499, with the
+   *       default value being 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
+   *          <p>For Network Load Balancers, you can specify values between 200 and 599, with the
+   *       default value being 200-399. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p>
+   *          <p>For Gateway Load Balancers, this must be "200–399".</p>
    *          <p>Note that when using shorthand syntax, some values such as commas need to be
    *       escaped.</p>
    */
@@ -2051,10 +2052,8 @@ export interface CreateTargetGroupInput {
   HealthCheckPath?: string;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target.
-   *       If the target group protocol is HTTP or HTTPS, the default is 30 seconds.
-   *       If the target group protocol is TCP, TLS, UDP, or TCP_UDP, the supported values are 10 and 30
-   *       seconds and the default is 30 seconds.
+   * <p>The approximate amount of time, in seconds, between health checks of an individual target. The range is 5-300.
+   *       If the target group protocol is TCP, TLS, UDP, TCP_UDP, HTTP or HTTPS, the default is 30 seconds.
    *       If the target group protocol is GENEVE, the default is 10 seconds.
    *       If the target type is <code>lambda</code>, the default is 35 seconds.</p>
    */
@@ -2062,33 +2061,34 @@ export interface CreateTargetGroupInput {
 
   /**
    * <p>The amount of time, in seconds, during which no response from a target means a failed
-   *       health check. For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5
-   *       seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for
-   *       HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is
-   *         <code>lambda</code>, the default is 30 seconds.</p>
+   *       health check. The range is 2–120 seconds. For target groups with a protocol of HTTP, the
+   *       default is 6 seconds. For target groups with a protocol of TCP, TLS or HTTPS, the default
+   *       is 10 seconds. For target groups with a protocol of GENEVE, the default is 5 seconds. If
+   *       the target type is <code>lambda</code>, the default is 30 seconds.</p>
    */
   HealthCheckTimeoutSeconds?: number;
 
   /**
-   * <p>The number of consecutive health checks successes required before considering an unhealthy
-   *       target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For
-   *       target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is
-   *         <code>lambda</code>, the default is 5.</p>
+   * <p>The number of consecutive health check successes required before considering a target healthy. The range is
+   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 5. For target groups
+   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       is <code>lambda</code>, the default is 5.</p>
    */
   HealthyThresholdCount?: number;
 
   /**
-   * <p>The number of consecutive health check failures required before considering a target
-   *       unhealthy. If the target group protocol is HTTP or HTTPS, the default is 2. If the target
-   *       group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If
-   *       the target group protocol is GENEVE, the default is 3. If the target type is
-   *         <code>lambda</code>, the default is 2.</p>
+   * <p>The number of consecutive health check failures required before considering a target unhealthy. The range is
+   *       2-10. If the target group protocol is TCP, TCP_UDP, UDP, TLS, HTTP or HTTPS, the default is 2. For target groups
+   *       with a protocol of GENEVE, the default is 3. If the target type
+   *       is <code>lambda</code>, the default is 5.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target.</p>
+   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
+   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
+   *       groups with a protocol of GENEVE, the range is 200-399.</p>
    */
   Matcher?: Matcher;
 
@@ -2331,14 +2331,22 @@ export interface TargetDescription {
    * <p>An Availability Zone or <code>all</code>. This determines whether the target receives
    *       traffic from the load balancer nodes in the specified Availability Zone or from all enabled
    *       Availability Zones for the load balancer.</p>
+   *
+   *          <p>For Application Load Balancer target groups, the specified Availability Zone value is only applicable
+   *       when cross-zone load balancing is off. Otherwise the parameter is ignored and treated
+   *       as <code>all</code>.</p>
+   *
    *          <p>This parameter is not supported if the target type of the target group is
-   *         <code>instance</code> or <code>alb</code>.</p>
-   *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the
-   *       target group, the Availability Zone is automatically detected and this parameter is optional.
-   *       If the IP address is outside the VPC, this parameter is required.</p>
-   *          <p>With an Application Load Balancer, if the target type is <code>ip</code> and the IP
-   *       address is outside the VPC for the target group, the only supported value is
-   *       <code>all</code>.</p>
+   *       <code>instance</code> or <code>alb</code>.</p>
+   *
+   *          <p>If the target type is <code>ip</code> and the IP address is in a subnet of the VPC for the target group,
+   *       the Availability Zone is automatically detected and this parameter is optional. If the IP address is outside
+   *       the VPC, this parameter is required.</p>
+   *
+   *          <p>For Application Load Balancer target groups with cross-zone load balancing off, if the target type
+   *       is <code>ip</code> and the IP address is outside of the VPC for the target group, this should be an
+   *       Availability Zone inside the VPC for the target group.</p>
+   *
    *          <p>If the target type is <code>lambda</code>, this parameter is optional and the only
    *       supported value is <code>all</code>.</p>
    */
@@ -2561,13 +2569,20 @@ export interface LoadBalancerAttribute {
   /**
    * <p>The name of the attribute.</p>
    *
-   *          <p>The following attribute is supported by all load balancers:</p>
+   *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>deletion_protection.enabled</code> - Indicates whether deletion protection is
    *           enabled. The value is <code>true</code> or <code>false</code>. The default is
    *             <code>false</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
+   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
+   *           The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>.
+   *           The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>
    *             </li>
    *          </ul>
    *
@@ -2684,17 +2699,6 @@ export interface LoadBalancerAttribute {
    *                   <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load
    *           balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The
    *           default is <code>false</code>.</p>
-   *             </li>
-   *          </ul>
-   *
-   *          <p>The following attribute is supported by Network Load Balancers and Gateway Load
-   *       Balancers:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load
-   *           balancing is enabled. The possible values are <code>true</code> and <code>false</code>.
-   *           The default is <code>false</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2892,7 +2896,7 @@ export interface TargetGroupAttribute {
   /**
    * <p>The name of the attribute.</p>
    *
-   *          <p>The following attribute is supported by all load balancers:</p>
+   *          <p>The following attributes are supported by all load balancers:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -2902,11 +2906,6 @@ export interface TargetGroupAttribute {
    *           default value is 300 seconds. If the target is a Lambda function, this attribute is not
    *           supported.</p>
    *             </li>
-   *          </ul>
-   *
-   *          <p>The following attributes are supported by Application Load Balancers, Network Load
-   *       Balancers, and Gateway Load Balancers:</p>
-   *          <ul>
    *             <li>
    *                <p>
    *                   <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The
@@ -2915,8 +2914,7 @@ export interface TargetGroupAttribute {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>stickiness.type</code> - Indicates the type of stickiness. The possible values
-   *           are: </p>
+   *                   <code>stickiness.type</code> - Indicates the type of stickiness. The possible values are:</p>
    *                <ul>
    *                   <li>
    *                      <p>
@@ -2928,10 +2926,53 @@ export interface TargetGroupAttribute {
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load
-   *               Balancers.</p>
+   *                         <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load Balancers.</p>
    *                   </li>
    *                </ul>
+   *             </li>
+   *          </ul>
+   *
+   *          <p>The following attributes are supported by Application Load Balancers and
+   *       Network Load Balancers:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross zone load
+   *           balancing is enabled. The value is <code>true</code>, <code>false</code> or
+   *           <code>use_load_balancer_configuration</code>. The default is
+   *           <code>use_load_balancer_configuration</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.count</code> -
+   *           The minimum number of targets that must be healthy.
+   *           If the number of healthy targets is below this value, mark the zone as unhealthy
+   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
+   *           <code>off</code> or an integer from 1 to the maximum number of targets.
+   *           The default is <code>off</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.dns_failover.minimum_healthy_targets.percentage</code> -
+   *           The minimum percentage of targets that must be healthy.
+   *           If the percentage of healthy targets is below this value, mark the zone as unhealthy
+   *           in DNS, so that traffic is routed only to healthy zones. The possible values are
+   *           <code>off</code> or an integer from 1 to 100. The default is <code>off</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.count</code> -
+   *           The minimum number of targets that must be healthy.
+   *           If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
+   *           The possible values are 1 to the maximum number of targets. The default is 1.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage</code> -
+   *           The minimum percentage of targets that must be healthy.
+   *           If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets.
+   *           The possible values are <code>off</code> or an integer from 1 to 100.
+   *           The default is <code>off</code>.</p>
    *             </li>
    *          </ul>
    *
@@ -3013,6 +3054,7 @@ export interface TargetGroupAttribute {
    *             <code>false</code>. </p>
    *             </li>
    *          </ul>
+   *
    *          <p>The following attributes are supported only by Gateway Load Balancers:</p>
    *          <ul>
    *             <li>
@@ -3453,8 +3495,7 @@ export interface ModifyTargetGroupInput {
   HealthCheckEnabled?: boolean;
 
   /**
-   * <p>The approximate amount of time, in seconds, between health checks of an individual target.
-   *       For TCP health checks, the supported values are 10 or 30 seconds.</p>
+   * <p>The approximate amount of time, in seconds, between health checks of an individual target.</p>
    */
   HealthCheckIntervalSeconds?: number;
 
@@ -3472,14 +3513,15 @@ export interface ModifyTargetGroupInput {
 
   /**
    * <p>The number of consecutive health check failures required before considering the target
-   *       unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the
-   *       healthy threshold count.</p>
+   *       unhealthy.</p>
    */
   UnhealthyThresholdCount?: number;
 
   /**
    * <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful
-   *       response from a target.</p>
+   *       response from a target. For target groups with a protocol of TCP, TCP_UDP, UDP or TLS the range
+   *       is 200-599. For target groups with a protocol of HTTP or HTTPS, the range is 200-499. For target
+   *       groups with a protocol of GENEVE, the range is 200-399.</p>
    */
   Matcher?: Matcher;
 }
