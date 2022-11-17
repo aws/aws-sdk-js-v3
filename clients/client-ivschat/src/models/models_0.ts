@@ -218,110 +218,176 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export enum FallbackResult {
-  ALLOW = "ALLOW",
-  DENY = "DENY",
+/**
+ * <p>Specifies a CloudWatch Logs location where chat logs will be stored.</p>
+ */
+export interface CloudWatchLogsDestinationConfiguration {
+  /**
+   * <p>Name of the Amazon Cloudwatch Logs destination where chat activity will be logged.</p>
+   */
+  logGroupName: string | undefined;
 }
 
 /**
- * <p>Configuration information for optional message review.</p>
+ * <p>Specifies a Kinesis Firehose location where chat logs will be stored.</p>
  */
-export interface MessageReviewHandler {
+export interface FirehoseDestinationConfiguration {
   /**
-   * <p>Identifier of the message review handler. Currently this must be an ARN of a lambda function.</p>
+   * <p>Name of the Amazon Kinesis Firehose delivery stream where chat activity will be
+   *       logged.</p>
    */
-  uri?: string;
-
-  /**
-   * <p>Specifies the fallback behavior (whether the message is allowed or denied) if the handler
-   *       does not return a valid response, encounters an error, or times out. (For the timeout period, see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html"> Service Quotas</a>.) If allowed, the message is
-   *       delivered with returned content to all users connected to the room. If denied, the message is
-   *       not delivered to any user. Default: <code>ALLOW</code>.</p>
-   */
-  fallbackResult?: FallbackResult | string;
+  deliveryStreamName: string | undefined;
 }
 
-export interface CreateRoomRequest {
+/**
+ * <p>Specifies an S3 location where chat logs will be stored.</p>
+ */
+export interface S3DestinationConfiguration {
   /**
-   * <p>Room name. The value does not need to be unique.</p>
+   * <p>Name of the Amazon S3 bucket where chat activity will be logged.</p>
+   */
+  bucketName: string | undefined;
+}
+
+/**
+ * <p>A complex type that describes a location where chat logs will be stored. Each member
+ *       represents the configuration of one log destination. For logging, you define only one type of
+ *       destination (for CloudWatch Logs, Kinesis Firehose, or S3).</p>
+ */
+export type DestinationConfiguration =
+  | DestinationConfiguration.CloudWatchLogsMember
+  | DestinationConfiguration.FirehoseMember
+  | DestinationConfiguration.S3Member
+  | DestinationConfiguration.$UnknownMember;
+
+export namespace DestinationConfiguration {
+  /**
+   * <p>Name of the Amazon S3 bucket where chat activity will be logged.</p>
+   */
+  export interface S3Member {
+    s3: S3DestinationConfiguration;
+    cloudWatchLogs?: never;
+    firehose?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Name of the Amazon CloudWatch Logs destination where chat activity will be logged.</p>
+   */
+  export interface CloudWatchLogsMember {
+    s3?: never;
+    cloudWatchLogs: CloudWatchLogsDestinationConfiguration;
+    firehose?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Name of the Amazon Kinesis Data Firehose destination where chat activity will be
+   *       logged</p>
+   */
+  export interface FirehoseMember {
+    s3?: never;
+    cloudWatchLogs?: never;
+    firehose: FirehoseDestinationConfiguration;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    s3?: never;
+    cloudWatchLogs?: never;
+    firehose?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    s3: (value: S3DestinationConfiguration) => T;
+    cloudWatchLogs: (value: CloudWatchLogsDestinationConfiguration) => T;
+    firehose: (value: FirehoseDestinationConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DestinationConfiguration, visitor: Visitor<T>): T => {
+    if (value.s3 !== undefined) return visitor.s3(value.s3);
+    if (value.cloudWatchLogs !== undefined) return visitor.cloudWatchLogs(value.cloudWatchLogs);
+    if (value.firehose !== undefined) return visitor.firehose(value.firehose);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface CreateLoggingConfigurationRequest {
+  /**
+   * <p>Logging-configuration name. The value does not need to be unique.</p>
    */
   name?: string;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
-   *          Default: 10. </p>
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *          logged. There can be only one type of destination (<code>cloudWatchLogs</code>,
+   *             <code>firehose</code>, or <code>s3</code>) in a
+   *          <code>destinationConfiguration</code>.</p>
    */
-  maximumMessageRatePerSecond?: number;
-
-  /**
-   * <p>Maximum number of characters in a single message. Messages are expected to be UTF-8
-   *          encoded and this limit applies specifically to rune/code-point count, not number of bytes.
-   *          Default: 500.</p>
-   */
-  maximumMessageLength?: number;
-
-  /**
-   * <p>Configuration information for optional review of messages.</p>
-   */
-  messageReviewHandler?: MessageReviewHandler;
+  destinationConfiguration: DestinationConfiguration | undefined;
 
   /**
    * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
    *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
    *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
-   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
-   *          there.</p>
+   *          limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is
+   *          documented there.</p>
    */
   tags?: Record<string, string>;
 }
 
-export interface CreateRoomResponse {
+export enum CreateLoggingConfigurationState {
+  ACTIVE = "ACTIVE",
+}
+
+export interface CreateLoggingConfigurationResponse {
   /**
-   * <p>Room ARN, assigned by the system.</p>
+   * <p>Logging-configuration ARN, assigned by the system.</p>
    */
   arn?: string;
 
   /**
-   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN
-   *          that uniquely identifies the room.</p>
+   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
+   *          part of the ARN that uniquely identifies the logging configuration.</p>
    */
   id?: string;
 
   /**
-   * <p>Room name, from the request (if specified).</p>
-   */
-  name?: string;
-
-  /**
-   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
    */
   createTime?: Date;
 
   /**
-   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
-   *             is returned as a string</i>.</p>
+   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
    */
   updateTime?: Date;
 
   /**
-   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
-   *          from the request.</p>
+   * <p>Logging-configuration name, from the request (if specified).</p>
    */
-  maximumMessageRatePerSecond?: number;
+  name?: string;
 
   /**
-   * <p>Maximum number of characters in a single message, from the request.</p>
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *          logged, from the request. There is only one type of destination
+   *             (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a
+   *             <code>destinationConfiguration</code>.</p>
    */
-  maximumMessageLength?: number;
+  destinationConfiguration?: DestinationConfiguration;
 
   /**
-   * <p>Configuration information for optional review of messages.</p>
+   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
+   *          configuration is ready to log chat content.</p>
    */
-  messageReviewHandler?: MessageReviewHandler;
+  state?: CreateLoggingConfigurationState | string;
 
   /**
-   * <p>Tags attached to the resource, from the request.</p>
+   * <p>Tags attached to the resource, from the request (if specified). Array of maps, each of
+   *          the form <code>string:string (key:value)</code>.</p>
    */
   tags?: Record<string, string>;
 }
@@ -361,6 +427,136 @@ export class ServiceQuotaExceededException extends __BaseException {
     this.resourceType = opts.resourceType;
     this.limit = opts.limit;
   }
+}
+
+export enum FallbackResult {
+  ALLOW = "ALLOW",
+  DENY = "DENY",
+}
+
+/**
+ * <p>Configuration information for optional message review.</p>
+ */
+export interface MessageReviewHandler {
+  /**
+   * <p>Identifier of the message review handler. Currently this must be an ARN of a lambda
+   *       function.</p>
+   */
+  uri?: string;
+
+  /**
+   * <p>Specifies the fallback behavior (whether the message is allowed or denied) if the handler
+   *       does not return a valid response, encounters an error, or times out. (For the timeout period,
+   *       see <a href="https://docs.aws.amazon.com/ivs/latest/userguide/service-quotas.html"> Service
+   *         Quotas</a>.) If allowed, the message is delivered with returned content to all users
+   *       connected to the room. If denied, the message is not delivered to any user. Default:
+   *         <code>ALLOW</code>.</p>
+   */
+  fallbackResult?: FallbackResult | string;
+}
+
+export interface CreateRoomRequest {
+  /**
+   * <p>Room name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients).
+   *          Default: 10. </p>
+   */
+  maximumMessageRatePerSecond?: number;
+
+  /**
+   * <p>Maximum number of characters in a single message. Messages are expected to be UTF-8
+   *          encoded and this limit applies specifically to rune/code-point count, not number of bytes.
+   *          Default: 500.</p>
+   */
+  maximumMessageLength?: number;
+
+  /**
+   * <p>Configuration information for optional review of messages.</p>
+   */
+  messageReviewHandler?: MessageReviewHandler;
+
+  /**
+   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
+   *          there.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Array of logging-configuration identifiers attached to the room.</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
+}
+
+export interface CreateRoomResponse {
+  /**
+   * <p>Room ARN, assigned by the system.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Room ID, generated by the system. This is a relative identifier, the part of the ARN
+   *          that uniquely identifies the room.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Room name, from the request (if specified).</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Time when the room was created. This is an ISO 8601 timestamp; <i>note that this
+   *             is returned as a string</i>.</p>
+   */
+  createTime?: Date;
+
+  /**
+   * <p>Time of the room’s last update. This is an ISO 8601 timestamp; <i>note that this
+   *             is returned as a string</i>.</p>
+   */
+  updateTime?: Date;
+
+  /**
+   * <p>Maximum number of messages per second that can be sent to the room (by all clients),
+   *          from the request (if specified).</p>
+   */
+  maximumMessageRatePerSecond?: number;
+
+  /**
+   * <p>Maximum number of characters in a single message, from the request (if
+   *          specified).</p>
+   */
+  maximumMessageLength?: number;
+
+  /**
+   * <p>Configuration information for optional review of messages.</p>
+   */
+  messageReviewHandler?: MessageReviewHandler;
+
+  /**
+   * <p>Tags attached to the resource, from the request (if specified).</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Array of logging configurations attached to the room, from the request (if
+   *          specified).</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
+}
+
+export interface DeleteLoggingConfigurationRequest {
+  /**
+   * <p>Identifier of the logging configuration to be deleted.</p>
+   */
+  identifier: string | undefined;
 }
 
 export interface DeleteMessageRequest {
@@ -454,6 +650,74 @@ export interface DisconnectUserRequest {
 
 export interface DisconnectUserResponse {}
 
+export interface GetLoggingConfigurationRequest {
+  /**
+   * <p>Identifier of the logging configuration to be retrieved.</p>
+   */
+  identifier: string | undefined;
+}
+
+export enum LoggingConfigurationState {
+  ACTIVE = "ACTIVE",
+  CREATE_FAILED = "CREATE_FAILED",
+  CREATING = "CREATING",
+  DELETE_FAILED = "DELETE_FAILED",
+  DELETING = "DELETING",
+  UPDATE_FAILED = "UPDATE_FAILED",
+  UPDATING = "UPDATING",
+}
+
+export interface GetLoggingConfigurationResponse {
+  /**
+   * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
+   *          ARN).</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
+   *          part of the ARN that uniquely identifies the logging configuration.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
+   */
+  createTime?: Date;
+
+  /**
+   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
+   */
+  updateTime?: Date;
+
+  /**
+   * <p>Logging-configuration name. This value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *          logged. There is only one type of destination (<code>cloudWatchLogs</code>,
+   *             <code>firehose</code>, or <code>s3</code>) in a
+   *          <code>destinationConfiguration</code>.</p>
+   */
+  destinationConfiguration?: DestinationConfiguration;
+
+  /**
+   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
+   *          configuration is ready to log chat content.</p>
+   */
+  state?: LoggingConfigurationState | string;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>.</p>
+   */
+  tags?: Record<string, string>;
+}
+
 export interface GetRoomRequest {
   /**
    * <p>Identifier of the room for which the configuration is to be retrieved. Currently this
@@ -514,6 +778,93 @@ export interface GetRoomResponse {
    *             (key:value)</code>.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Array of logging configurations attached to the room.</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
+}
+
+export interface ListLoggingConfigurationsRequest {
+  /**
+   * <p>The first logging configurations to retrieve. This is used for pagination; see the
+   *             <code>nextToken</code> response field.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Maximum number of logging configurations to return. Default: 50.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * <p>Summary information about a logging configuration.</p>
+ */
+export interface LoggingConfigurationSummary {
+  /**
+   * <p>Logging-configuration ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the part
+   *       of the ARN that uniquely identifies the room.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
+   *         <i>note that this is returned as a string</i>.</p>
+   */
+  createTime?: Date;
+
+  /**
+   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
+   *         <i>note that this is returned as a string</i>.</p>
+   */
+  updateTime?: Date;
+
+  /**
+   * <p>Logging-configuration name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *       logged.</p>
+   */
+  destinationConfiguration?: DestinationConfiguration;
+
+  /**
+   * <p>The state of the logging configuration. When this is <code>ACTIVE</code>, the
+   *       configuration is ready for logging chat content.</p>
+   */
+  state?: LoggingConfigurationState | string;
+
+  /**
+   * <p>Tags to attach to the resource. Array of maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *         Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   *       limits and requirements"; Amazon IVS Chat has no constraints on tags beyond what is documented
+   *       there.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface ListLoggingConfigurationsResponse {
+  /**
+   * <p>List of the matching logging configurations (summary information only). There is only
+   *          one type of destination (<code>cloudWatchLogs</code>, <code>firehose</code>, or
+   *             <code>s3</code>) in a <code>destinationConfiguration</code>.</p>
+   */
+  loggingConfigurations: LoggingConfigurationSummary[] | undefined;
+
+  /**
+   * <p>If there are more logging configurations than <code>maxResults</code>, use
+   *             <code>nextToken</code> in the request to get the next set.</p>
+   */
+  nextToken?: string;
 }
 
 export interface ListRoomsRequest {
@@ -537,6 +888,11 @@ export interface ListRoomsRequest {
    * <p>Filters the list to match the specified message review handler URI.</p>
    */
   messageReviewHandlerUri?: string;
+
+  /**
+   * <p>Logging-configuration identifier.</p>
+   */
+  loggingConfigurationIdentifier?: string;
 }
 
 /**
@@ -577,12 +933,18 @@ export interface RoomSummary {
   updateTime?: Date;
 
   /**
-   * <p>Tags attached to the resource. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *       Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *         (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *         Resources</a> for details, including restrictions that apply to tags and "Tag naming
    *       limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *       there.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>List of logging-configuration identifiers attached to the room.</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
 }
 
 export interface ListRoomsResponse {
@@ -626,7 +988,8 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>Tags attached to the resource, from the request.</p>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>.</p>
    */
   tags: Record<string, string> | undefined;
 }
@@ -665,8 +1028,9 @@ export interface TagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be added or updated. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *          Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   * <p>Array of tags to be added or updated. Array of maps, each of the form
+   *             <code>string:string (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *          there.</p>
    */
@@ -682,8 +1046,9 @@ export interface UntagResourceRequest {
   resourceArn: string | undefined;
 
   /**
-   * <p>Array of tags to be removed. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
-   *          Resources</a> for details, including restrictions that apply to tags and "Tag naming
+   * <p>Array of tags to be removed. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS
+   *             Resources</a> for details, including restrictions that apply to tags and "Tag naming
    *          limits and requirements"; Amazon IVS Chat has no constraints beyond what is documented
    *          there.</p>
    */
@@ -691,6 +1056,81 @@ export interface UntagResourceRequest {
 }
 
 export interface UntagResourceResponse {}
+
+export interface UpdateLoggingConfigurationRequest {
+  /**
+   * <p>Identifier of the logging configuration to be updated.</p>
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>Logging-configuration name. The value does not need to be unique.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *          logged. There can be only one type of destination (<code>cloudWatchLogs</code>,
+   *             <code>firehose</code>, or <code>s3</code>) in a
+   *          <code>destinationConfiguration</code>.</p>
+   */
+  destinationConfiguration?: DestinationConfiguration;
+}
+
+export enum UpdateLoggingConfigurationState {
+  ACTIVE = "ACTIVE",
+}
+
+export interface UpdateLoggingConfigurationResponse {
+  /**
+   * <p>Logging-configuration ARN, from the request (if <code>identifier</code> was an
+   *          ARN).</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Logging-configuration ID, generated by the system. This is a relative identifier, the
+   *          part of the ARN that uniquely identifies the room.</p>
+   */
+  id?: string;
+
+  /**
+   * <p>Time when the logging configuration was created. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
+   */
+  createTime?: Date;
+
+  /**
+   * <p>Time of the logging configuration’s last update. This is an ISO 8601 timestamp;
+   *             <i>note that this is returned as a string</i>.</p>
+   */
+  updateTime?: Date;
+
+  /**
+   * <p>Logging-configuration name, from the request (if specified).</p>
+   */
+  name?: string;
+
+  /**
+   * <p>A complex type that contains a destination configuration for where chat content will be
+   *          logged, from the request. There is only one type of destination
+   *             (<code>cloudWatchLogs</code>, <code>firehose</code>, or <code>s3</code>) in a
+   *             <code>destinationConfiguration</code>.</p>
+   */
+  destinationConfiguration?: DestinationConfiguration;
+
+  /**
+   * <p>The state of the logging configuration. When the state is <code>ACTIVE</code>, the
+   *          configuration is ready to log chat content.</p>
+   */
+  state?: UpdateLoggingConfigurationState | string;
+
+  /**
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>. </p>
+   */
+  tags?: Record<string, string>;
+}
 
 export interface UpdateRoomRequest {
   /**
@@ -722,6 +1162,11 @@ export interface UpdateRoomRequest {
    *          room.</p>
    */
   messageReviewHandler?: MessageReviewHandler;
+
+  /**
+   * <p>Array of logging-configuration identifiers attached to the room.</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
 }
 
 export interface UpdateRoomResponse {
@@ -737,7 +1182,7 @@ export interface UpdateRoomResponse {
   id?: string;
 
   /**
-   * <p>Room name, from the request.</p>
+   * <p>Room name, from the request (if specified).</p>
    */
   name?: string;
 
@@ -755,12 +1200,13 @@ export interface UpdateRoomResponse {
 
   /**
    * <p>Maximum number of messages per second that can be sent to the room (by all clients),
-   *          from the request.</p>
+   *          from the request (if specified).</p>
    */
   maximumMessageRatePerSecond?: number;
 
   /**
-   * <p>Maximum number of characters in a single message, from the request.</p>
+   * <p>Maximum number of characters in a single message, from the request (if
+   *          specified).</p>
    */
   maximumMessageLength?: number;
 
@@ -770,9 +1216,16 @@ export interface UpdateRoomResponse {
   messageReviewHandler?: MessageReviewHandler;
 
   /**
-   * <p>Tags attached to the resource.</p>
+   * <p>Tags attached to the resource. Array of maps, each of the form <code>string:string
+   *             (key:value)</code>.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Array of logging configurations attached to the room, from the request (if
+   *          specified).</p>
+   */
+  loggingConfigurationIdentifiers?: string[];
 }
 
 /**
@@ -799,6 +1252,60 @@ export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExcept
 /**
  * @internal
  */
+export const CloudWatchLogsDestinationConfigurationFilterSensitiveLog = (
+  obj: CloudWatchLogsDestinationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirehoseDestinationConfigurationFilterSensitiveLog = (obj: FirehoseDestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const S3DestinationConfigurationFilterSensitiveLog = (obj: S3DestinationConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DestinationConfigurationFilterSensitiveLog = (obj: DestinationConfiguration): any => {
+  if (obj.s3 !== undefined) return { s3: S3DestinationConfigurationFilterSensitiveLog(obj.s3) };
+  if (obj.cloudWatchLogs !== undefined)
+    return { cloudWatchLogs: CloudWatchLogsDestinationConfigurationFilterSensitiveLog(obj.cloudWatchLogs) };
+  if (obj.firehose !== undefined) return { firehose: FirehoseDestinationConfigurationFilterSensitiveLog(obj.firehose) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateLoggingConfigurationRequestFilterSensitiveLog = (obj: CreateLoggingConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateLoggingConfigurationResponseFilterSensitiveLog = (obj: CreateLoggingConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const MessageReviewHandlerFilterSensitiveLog = (obj: MessageReviewHandler): any => ({
   ...obj,
 });
@@ -814,6 +1321,13 @@ export const CreateRoomRequestFilterSensitiveLog = (obj: CreateRoomRequest): any
  * @internal
  */
 export const CreateRoomResponseFilterSensitiveLog = (obj: CreateRoomResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteLoggingConfigurationRequestFilterSensitiveLog = (obj: DeleteLoggingConfigurationRequest): any => ({
   ...obj,
 });
 
@@ -855,6 +1369,23 @@ export const DisconnectUserResponseFilterSensitiveLog = (obj: DisconnectUserResp
 /**
  * @internal
  */
+export const GetLoggingConfigurationRequestFilterSensitiveLog = (obj: GetLoggingConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLoggingConfigurationResponseFilterSensitiveLog = (obj: GetLoggingConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const GetRoomRequestFilterSensitiveLog = (obj: GetRoomRequest): any => ({
   ...obj,
 });
@@ -864,6 +1395,33 @@ export const GetRoomRequestFilterSensitiveLog = (obj: GetRoomRequest): any => ({
  */
 export const GetRoomResponseFilterSensitiveLog = (obj: GetRoomResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsRequestFilterSensitiveLog = (obj: ListLoggingConfigurationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoggingConfigurationSummaryFilterSensitiveLog = (obj: LoggingConfigurationSummary): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListLoggingConfigurationsResponseFilterSensitiveLog = (obj: ListLoggingConfigurationsResponse): any => ({
+  ...obj,
+  ...(obj.loggingConfigurations && {
+    loggingConfigurations: obj.loggingConfigurations.map((item) => LoggingConfigurationSummaryFilterSensitiveLog(item)),
+  }),
 });
 
 /**
@@ -941,6 +1499,26 @@ export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest
  */
 export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
   ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationRequestFilterSensitiveLog = (obj: UpdateLoggingConfigurationRequest): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateLoggingConfigurationResponseFilterSensitiveLog = (obj: UpdateLoggingConfigurationResponse): any => ({
+  ...obj,
+  ...(obj.destinationConfiguration && {
+    destinationConfiguration: DestinationConfigurationFilterSensitiveLog(obj.destinationConfiguration),
+  }),
 });
 
 /**
