@@ -859,6 +859,7 @@ export class SecretsManager extends SecretsManagerClient {
    *       version. If the <code>AWSPENDING</code> staging label is present but not attached to the same
    *       version as <code>AWSCURRENT</code>, then any later invocation of <code>RotateSecret</code>
    *       assumes that a previous rotation request is still in progress and returns an error.</p>
+   *          <p>When rotation is unsuccessful, the <code>AWSPENDING</code> staging label might be attached to an empty secret version. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/troubleshoot_rotation.html">Troubleshoot rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
    *          <p>Secrets Manager generates a CloudTrail log entry when you call this action. Do not include sensitive information in request parameters because it might be logged. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/retrieve-ct-entries.html">Logging Secrets Manager events with CloudTrail</a>.</p>
    *          <p>
    *             <b>Required permissions: </b>
