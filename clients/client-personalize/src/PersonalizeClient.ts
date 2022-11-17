@@ -68,6 +68,10 @@ import {
 } from "./commands/CreateDatasetImportJobCommand";
 import { CreateEventTrackerCommandInput, CreateEventTrackerCommandOutput } from "./commands/CreateEventTrackerCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
+import {
+  CreateMetricAttributionCommandInput,
+  CreateMetricAttributionCommandOutput,
+} from "./commands/CreateMetricAttributionCommand";
 import { CreateRecommenderCommandInput, CreateRecommenderCommandOutput } from "./commands/CreateRecommenderCommand";
 import { CreateSchemaCommandInput, CreateSchemaCommandOutput } from "./commands/CreateSchemaCommand";
 import { CreateSolutionCommandInput, CreateSolutionCommandOutput } from "./commands/CreateSolutionCommand";
@@ -80,6 +84,10 @@ import { DeleteDatasetCommandInput, DeleteDatasetCommandOutput } from "./command
 import { DeleteDatasetGroupCommandInput, DeleteDatasetGroupCommandOutput } from "./commands/DeleteDatasetGroupCommand";
 import { DeleteEventTrackerCommandInput, DeleteEventTrackerCommandOutput } from "./commands/DeleteEventTrackerCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
+import {
+  DeleteMetricAttributionCommandInput,
+  DeleteMetricAttributionCommandOutput,
+} from "./commands/DeleteMetricAttributionCommand";
 import { DeleteRecommenderCommandInput, DeleteRecommenderCommandOutput } from "./commands/DeleteRecommenderCommand";
 import { DeleteSchemaCommandInput, DeleteSchemaCommandOutput } from "./commands/DeleteSchemaCommand";
 import { DeleteSolutionCommandInput, DeleteSolutionCommandOutput } from "./commands/DeleteSolutionCommand";
@@ -115,6 +123,10 @@ import {
   DescribeFeatureTransformationCommandOutput,
 } from "./commands/DescribeFeatureTransformationCommand";
 import { DescribeFilterCommandInput, DescribeFilterCommandOutput } from "./commands/DescribeFilterCommand";
+import {
+  DescribeMetricAttributionCommandInput,
+  DescribeMetricAttributionCommandOutput,
+} from "./commands/DescribeMetricAttributionCommand";
 import { DescribeRecipeCommandInput, DescribeRecipeCommandOutput } from "./commands/DescribeRecipeCommand";
 import {
   DescribeRecommenderCommandInput,
@@ -148,6 +160,14 @@ import {
 import { ListDatasetsCommandInput, ListDatasetsCommandOutput } from "./commands/ListDatasetsCommand";
 import { ListEventTrackersCommandInput, ListEventTrackersCommandOutput } from "./commands/ListEventTrackersCommand";
 import { ListFiltersCommandInput, ListFiltersCommandOutput } from "./commands/ListFiltersCommand";
+import {
+  ListMetricAttributionMetricsCommandInput,
+  ListMetricAttributionMetricsCommandOutput,
+} from "./commands/ListMetricAttributionMetricsCommand";
+import {
+  ListMetricAttributionsCommandInput,
+  ListMetricAttributionsCommandOutput,
+} from "./commands/ListMetricAttributionsCommand";
 import { ListRecipesCommandInput, ListRecipesCommandOutput } from "./commands/ListRecipesCommand";
 import { ListRecommendersCommandInput, ListRecommendersCommandOutput } from "./commands/ListRecommendersCommand";
 import { ListSchemasCommandInput, ListSchemasCommandOutput } from "./commands/ListSchemasCommand";
@@ -169,6 +189,10 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateCampaignCommandInput, UpdateCampaignCommandOutput } from "./commands/UpdateCampaignCommand";
+import {
+  UpdateMetricAttributionCommandInput,
+  UpdateMetricAttributionCommandOutput,
+} from "./commands/UpdateMetricAttributionCommand";
 import { UpdateRecommenderCommandInput, UpdateRecommenderCommandOutput } from "./commands/UpdateRecommenderCommand";
 import {
   ClientInputEndpointParameters,
@@ -188,6 +212,7 @@ export type ServiceInputTypes =
   | CreateDatasetImportJobCommandInput
   | CreateEventTrackerCommandInput
   | CreateFilterCommandInput
+  | CreateMetricAttributionCommandInput
   | CreateRecommenderCommandInput
   | CreateSchemaCommandInput
   | CreateSolutionCommandInput
@@ -197,6 +222,7 @@ export type ServiceInputTypes =
   | DeleteDatasetGroupCommandInput
   | DeleteEventTrackerCommandInput
   | DeleteFilterCommandInput
+  | DeleteMetricAttributionCommandInput
   | DeleteRecommenderCommandInput
   | DeleteSchemaCommandInput
   | DeleteSolutionCommandInput
@@ -211,6 +237,7 @@ export type ServiceInputTypes =
   | DescribeEventTrackerCommandInput
   | DescribeFeatureTransformationCommandInput
   | DescribeFilterCommandInput
+  | DescribeMetricAttributionCommandInput
   | DescribeRecipeCommandInput
   | DescribeRecommenderCommandInput
   | DescribeSchemaCommandInput
@@ -226,6 +253,8 @@ export type ServiceInputTypes =
   | ListDatasetsCommandInput
   | ListEventTrackersCommandInput
   | ListFiltersCommandInput
+  | ListMetricAttributionMetricsCommandInput
+  | ListMetricAttributionsCommandInput
   | ListRecipesCommandInput
   | ListRecommendersCommandInput
   | ListSchemasCommandInput
@@ -238,6 +267,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCampaignCommandInput
+  | UpdateMetricAttributionCommandInput
   | UpdateRecommenderCommandInput;
 
 export type ServiceOutputTypes =
@@ -250,6 +280,7 @@ export type ServiceOutputTypes =
   | CreateDatasetImportJobCommandOutput
   | CreateEventTrackerCommandOutput
   | CreateFilterCommandOutput
+  | CreateMetricAttributionCommandOutput
   | CreateRecommenderCommandOutput
   | CreateSchemaCommandOutput
   | CreateSolutionCommandOutput
@@ -259,6 +290,7 @@ export type ServiceOutputTypes =
   | DeleteDatasetGroupCommandOutput
   | DeleteEventTrackerCommandOutput
   | DeleteFilterCommandOutput
+  | DeleteMetricAttributionCommandOutput
   | DeleteRecommenderCommandOutput
   | DeleteSchemaCommandOutput
   | DeleteSolutionCommandOutput
@@ -273,6 +305,7 @@ export type ServiceOutputTypes =
   | DescribeEventTrackerCommandOutput
   | DescribeFeatureTransformationCommandOutput
   | DescribeFilterCommandOutput
+  | DescribeMetricAttributionCommandOutput
   | DescribeRecipeCommandOutput
   | DescribeRecommenderCommandOutput
   | DescribeSchemaCommandOutput
@@ -288,6 +321,8 @@ export type ServiceOutputTypes =
   | ListDatasetsCommandOutput
   | ListEventTrackersCommandOutput
   | ListFiltersCommandOutput
+  | ListMetricAttributionMetricsCommandOutput
+  | ListMetricAttributionsCommandOutput
   | ListRecipesCommandOutput
   | ListRecommendersCommandOutput
   | ListSchemasCommandOutput
@@ -300,6 +335,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCampaignCommandOutput
+  | UpdateMetricAttributionCommandOutput
   | UpdateRecommenderCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
