@@ -10088,6 +10088,9 @@ const serializeAws_restJson1AwsLambdaFunctionDetails = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Architectures != null && {
+      Architectures: serializeAws_restJson1NonEmptyStringList(input.Architectures, context),
+    }),
     ...(input.Code != null && { Code: serializeAws_restJson1AwsLambdaFunctionCode(input.Code, context) }),
     ...(input.CodeSha256 != null && { CodeSha256: input.CodeSha256 }),
     ...(input.DeadLetterConfig != null && {
@@ -10103,6 +10106,7 @@ const serializeAws_restJson1AwsLambdaFunctionDetails = (
     ...(input.Layers != null && { Layers: serializeAws_restJson1AwsLambdaFunctionLayerList(input.Layers, context) }),
     ...(input.MasterArn != null && { MasterArn: input.MasterArn }),
     ...(input.MemorySize != null && { MemorySize: input.MemorySize }),
+    ...(input.PackageType != null && { PackageType: input.PackageType }),
     ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
@@ -14441,6 +14445,8 @@ const serializeAws_restJson1SoftwarePackage = (input: SoftwarePackage, context: 
     ...(input.PackageManager != null && { PackageManager: input.PackageManager }),
     ...(input.Release != null && { Release: input.Release }),
     ...(input.Remediation != null && { Remediation: input.Remediation }),
+    ...(input.SourceLayerArn != null && { SourceLayerArn: input.SourceLayerArn }),
+    ...(input.SourceLayerHash != null && { SourceLayerHash: input.SourceLayerHash }),
     ...(input.Version != null && { Version: input.Version }),
   };
 };
@@ -20102,6 +20108,10 @@ const deserializeAws_restJson1AwsLambdaFunctionDetails = (
   context: __SerdeContext
 ): AwsLambdaFunctionDetails => {
   return {
+    Architectures:
+      output.Architectures != null
+        ? deserializeAws_restJson1NonEmptyStringList(output.Architectures, context)
+        : undefined,
     Code: output.Code != null ? deserializeAws_restJson1AwsLambdaFunctionCode(output.Code, context) : undefined,
     CodeSha256: __expectString(output.CodeSha256),
     DeadLetterConfig:
@@ -20120,6 +20130,7 @@ const deserializeAws_restJson1AwsLambdaFunctionDetails = (
       output.Layers != null ? deserializeAws_restJson1AwsLambdaFunctionLayerList(output.Layers, context) : undefined,
     MasterArn: __expectString(output.MasterArn),
     MemorySize: __expectInt32(output.MemorySize),
+    PackageType: __expectString(output.PackageType),
     RevisionId: __expectString(output.RevisionId),
     Role: __expectString(output.Role),
     Runtime: __expectString(output.Runtime),
@@ -25074,6 +25085,8 @@ const deserializeAws_restJson1SoftwarePackage = (output: any, context: __SerdeCo
     PackageManager: __expectString(output.PackageManager),
     Release: __expectString(output.Release),
     Remediation: __expectString(output.Remediation),
+    SourceLayerArn: __expectString(output.SourceLayerArn),
+    SourceLayerHash: __expectString(output.SourceLayerHash),
     Version: __expectString(output.Version),
   } as any;
 };

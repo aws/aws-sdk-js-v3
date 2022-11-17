@@ -9562,7 +9562,7 @@ export interface AwsLambdaFunctionVpcConfig {
 }
 
 /**
- * <p>Details about a function's configuration.</p>
+ * <p>Details about an Lambda function's configuration.</p>
  */
 export interface AwsLambdaFunctionDetails {
   /**
@@ -9657,6 +9657,18 @@ export interface AwsLambdaFunctionDetails {
    * <p>The version of the Lambda function.</p>
    */
   Version?: string;
+
+  /**
+   * <p>The instruction set architecture that the function uses. Valid values are <code>x86_64</code> or
+   * <code>arm64</code>.</p>
+   */
+  Architectures?: string[];
+
+  /**
+   * <p>The type of deployment package that's used to deploy the function code to Lambda. Set to <code>Image</code> for a container image and <code>Zip</code>  for a .zip file archive.
+   *       </p>
+   */
+  PackageType?: string;
 }
 
 /**

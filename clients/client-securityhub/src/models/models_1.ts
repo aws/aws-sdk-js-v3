@@ -6307,6 +6307,18 @@ export interface SoftwarePackage {
    *       </p>
    */
   Remediation?: string;
+
+  /**
+   * <p>The source layer hash of the vulnerable package.
+   *       </p>
+   */
+  SourceLayerHash?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source layer.
+   *       </p>
+   */
+  SourceLayerArn?: string;
 }
 
 /**
