@@ -79,6 +79,43 @@ export interface ApplicationSummary {
   lastUpdateTime?: Date;
 }
 
+/**
+ * <p>
+ *       The
+ *       definition
+ *       of <code>tagQuery</code>.
+ *       Specifies which resources are associated with an
+ *       application.
+ *     </p>
+ */
+export interface TagQueryConfiguration {
+  /**
+   * <p>
+   *       Condition
+   *       in the IAM policy
+   *       that associates resources
+   *       to an application.
+   *     </p>
+   */
+  tagKey?: string;
+}
+
+/**
+ * <p>
+ *       Includes all
+ *       of the Service Catalog AppRegistry settings.
+ *     </p>
+ */
+export interface AppRegistryConfiguration {
+  /**
+   * <p>
+   *       Includes the definition
+   *       of a <code>tagQuery</code>.
+   *     </p>
+   */
+  tagQueryConfiguration?: TagQueryConfiguration;
+}
+
 export interface AssociateAttributeGroupRequest {
   /**
    * <p>The name or ID of the application.</p>
@@ -104,8 +141,8 @@ export interface AssociateAttributeGroupResponse {
 }
 
 /**
- * <p>There was a conflict when processing the request (for example, a resource with the given name already
- *       exists within the account).</p>
+ * <p>There was a conflict when processing the request (for example, a resource with the given
+ *       name already exists within the account).</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -201,6 +238,7 @@ export class ValidationException extends __BaseException {
 
 export enum ResourceType {
   CFN_STACK = "CFN_STACK",
+  RESOURCE_TAG_VALUE = "RESOURCE_TAG_VALUE",
 }
 
 export interface AssociateResourceRequest {
@@ -273,7 +311,9 @@ export interface AttributeGroup {
 }
 
 /**
- * <p> The details related to a specific AttributeGroup. </p>
+ * <p>
+ *       The details related to a specific AttributeGroup.
+ *     </p>
  */
 export interface AttributeGroupDetails {
   /**
@@ -287,7 +327,18 @@ export interface AttributeGroupDetails {
   arn?: string;
 
   /**
-   * <p>The name of the attribute group. </p>
+   * @deprecated
+   *
+   * <important>
+   *             <p>
+   *         This field is no longer supported.
+   *         We recommend
+   *         you don't use the field when using <code>ListAttributeGroupsForApplication</code>.
+   *       </p>
+   *          </important>
+   *          <p>
+   *       The name of the attribute group.
+   *     </p>
    */
   name?: string;
 }
@@ -577,7 +628,14 @@ export interface GetApplicationResponse {
   tags?: Record<string, string>;
 
   /**
-   * <p>The information about the integration of the application with other services, such as Resource Groups.</p>
+   * <p>
+   *        The information
+   *        about the integration
+   *        of the application
+   *        with other services,
+   *        such as
+   *         Resource Groups.
+   *      </p>
    */
   integrations?: Integrations;
 }
@@ -691,6 +749,16 @@ export interface GetAttributeGroupResponse {
   tags?: Record<string, string>;
 }
 
+export interface GetConfigurationResponse {
+  /**
+   * <p>
+   *       Retrieves <code>TagKey</code> configuration
+   *       from an account.
+   *     </p>
+   */
+  configuration?: AppRegistryConfiguration;
+}
+
 export interface ListApplicationsRequest {
   /**
    * <p>The token to use to get the next page of results after a previous API call. </p>
@@ -762,6 +830,21 @@ export interface ListAssociatedResourcesRequest {
 }
 
 /**
+ * <p>
+ *       The details
+ *       related
+ *       to the
+ *       resource.
+ *     </p>
+ */
+export interface ResourceDetails {
+  /**
+   * <p>The value of the tag.</p>
+   */
+  tagValue?: string;
+}
+
+/**
  * <p>The information about the resource.</p>
  */
 export interface ResourceInfo {
@@ -774,6 +857,23 @@ export interface ResourceInfo {
    * <p>The Amazon resource name (ARN) that specifies the resource across services.</p>
    */
   arn?: string;
+
+  /**
+   * <p>
+   *       Provides information
+   *       about the Service Catalog App Registry resource type.
+   *     </p>
+   */
+  resourceType?: ResourceType | string;
+
+  /**
+   * <p>
+   *       The details related
+   *       to
+   *       the resource.
+   *     </p>
+   */
+  resourceDetails?: ResourceDetails;
 }
 
 export interface ListAssociatedResourcesResponse {
@@ -831,7 +931,7 @@ export interface ListAttributeGroupsForApplicationRequest {
 
 export interface ListAttributeGroupsForApplicationResponse {
   /**
-   * <p> The details related to a specific AttributeGroup. </p>
+   * <p> The details related to a specific attribute group. </p>
    */
   attributeGroupsDetails?: AttributeGroupDetails[];
 
@@ -853,6 +953,16 @@ export interface ListTagsForResourceResponse {
    * <p>The tags on the resource.</p>
    */
   tags?: Record<string, string>;
+}
+
+export interface PutConfigurationRequest {
+  /**
+   * <p>
+   *       Associates a <code>TagKey</code> configuration
+   *       to an account.
+   *     </p>
+   */
+  configuration: AppRegistryConfiguration | undefined;
 }
 
 export interface SyncResourceRequest {
@@ -987,6 +1097,20 @@ export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
  * @internal
  */
 export const ApplicationSummaryFilterSensitiveLog = (obj: ApplicationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagQueryConfigurationFilterSensitiveLog = (obj: TagQueryConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AppRegistryConfigurationFilterSensitiveLog = (obj: AppRegistryConfiguration): any => ({
   ...obj,
 });
 
@@ -1196,6 +1320,13 @@ export const GetAttributeGroupResponseFilterSensitiveLog = (obj: GetAttributeGro
 /**
  * @internal
  */
+export const GetConfigurationResponseFilterSensitiveLog = (obj: GetConfigurationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
   ...obj,
 });
@@ -1229,6 +1360,13 @@ export const ListAssociatedAttributeGroupsResponseFilterSensitiveLog = (
  * @internal
  */
 export const ListAssociatedResourcesRequestFilterSensitiveLog = (obj: ListAssociatedResourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
   ...obj,
 });
 
@@ -1289,6 +1427,13 @@ export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForRes
  * @internal
  */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationRequestFilterSensitiveLog = (obj: PutConfigurationRequest): any => ({
   ...obj,
 });
 

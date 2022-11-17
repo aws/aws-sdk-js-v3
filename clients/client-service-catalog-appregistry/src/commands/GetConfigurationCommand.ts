@@ -13,15 +13,10 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { GetConfigurationResponse, GetConfigurationResponseFilterSensitiveLog } from "../models/models_0";
 import {
-  ListAssociatedResourcesRequest,
-  ListAssociatedResourcesRequestFilterSensitiveLog,
-  ListAssociatedResourcesResponse,
-  ListAssociatedResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  deserializeAws_restJson1ListAssociatedResourcesCommand,
-  serializeAws_restJson1ListAssociatedResourcesCommand,
+  deserializeAws_restJson1GetConfigurationCommand,
+  serializeAws_restJson1GetConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceCatalogAppRegistryClientResolvedConfig,
@@ -29,49 +24,32 @@ import {
   ServiceOutputTypes,
 } from "../ServiceCatalogAppRegistryClient";
 
-export interface ListAssociatedResourcesCommandInput extends ListAssociatedResourcesRequest {}
-export interface ListAssociatedResourcesCommandOutput extends ListAssociatedResourcesResponse, __MetadataBearer {}
+export interface GetConfigurationCommandInput {}
+export interface GetConfigurationCommandOutput extends GetConfigurationResponse, __MetadataBearer {}
 
 /**
  * <p>
- *        Lists all
- *        of the resources
- *        that are associated
- *        with the specified application.
- *        Results are paginated.
- *      </p>
- *          <note>
- *             <p>
- *          If you share an application,
- *          and a consumer account associates a tag query
- *          to the application,
- *          all of the users
- *          who can access the application
- *          can also view the tag values
- *          in all accounts
- *          that are associated
- *          with it
- *          using this API.
- *        </p>
- *          </note>
+ *       Retrieves a <code>TagKey</code> configuration
+ *       from an account.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
- * // const { ServiceCatalogAppRegistryClient, ListAssociatedResourcesCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
+ * import { ServiceCatalogAppRegistryClient, GetConfigurationCommand } from "@aws-sdk/client-service-catalog-appregistry"; // ES Modules import
+ * // const { ServiceCatalogAppRegistryClient, GetConfigurationCommand } = require("@aws-sdk/client-service-catalog-appregistry"); // CommonJS import
  * const client = new ServiceCatalogAppRegistryClient(config);
- * const command = new ListAssociatedResourcesCommand(input);
+ * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListAssociatedResourcesCommandInput} for command's `input` shape.
- * @see {@link ListAssociatedResourcesCommandOutput} for command's `response` shape.
+ * @see {@link GetConfigurationCommandInput} for command's `input` shape.
+ * @see {@link GetConfigurationCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogAppRegistryClientResolvedConfig | config} for ServiceCatalogAppRegistryClient's `config` shape.
  *
  */
-export class ListAssociatedResourcesCommand extends $Command<
-  ListAssociatedResourcesCommandInput,
-  ListAssociatedResourcesCommandOutput,
+export class GetConfigurationCommand extends $Command<
+  GetConfigurationCommandInput,
+  GetConfigurationCommandOutput,
   ServiceCatalogAppRegistryClientResolvedConfig
 > {
   // Start section: command_properties
@@ -86,7 +64,7 @@ export class ListAssociatedResourcesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListAssociatedResourcesCommandInput) {
+  constructor(readonly input: GetConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -99,23 +77,23 @@ export class ListAssociatedResourcesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ServiceCatalogAppRegistryClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListAssociatedResourcesCommandInput, ListAssociatedResourcesCommandOutput> {
+  ): Handler<GetConfigurationCommandInput, GetConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListAssociatedResourcesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ServiceCatalogAppRegistryClient";
-    const commandName = "ListAssociatedResourcesCommand";
+    const commandName = "GetConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListAssociatedResourcesRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListAssociatedResourcesResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: (input: any) => input,
+      outputFilterSensitiveLog: GetConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -125,12 +103,12 @@ export class ListAssociatedResourcesCommand extends $Command<
     );
   }
 
-  private serialize(input: ListAssociatedResourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListAssociatedResourcesCommand(input, context);
+  private serialize(input: GetConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetConfigurationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListAssociatedResourcesCommandOutput> {
-    return deserializeAws_restJson1ListAssociatedResourcesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetConfigurationCommandOutput> {
+    return deserializeAws_restJson1GetConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra
