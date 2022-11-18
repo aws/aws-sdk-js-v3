@@ -19,7 +19,7 @@ type WithSession = {
  * the result stream. So it copies the parameters from input to the same
  * parameters in the output.
  */
-export const injectSessionIdMiddleware =
+export const injectResponseValuesMiddleware =
   (config: { requestHandler: RequestHandler<any, any> }): InitializeMiddleware<any, any> =>
   (next: InitializeHandler<WithSession, WithSession>) =>
   async (args: InitializeHandlerArguments<WithSession>) => {
@@ -40,11 +40,11 @@ export const injectSessionIdMiddleware =
   };
 
 const isWebSocket = (config: { requestHandler: RequestHandler<any, any> }) =>
-  config.requestHandler.metadata?.handlerProtocol === "websocket";
+  config.requestHandler.metadata?.handlerProtocol?.includes("websocket");
 
-export const injectSessionIdMiddlewareOptions: InitializeHandlerOptions = {
+export const injectResponseValuesMiddlewareOptions: InitializeHandlerOptions = {
   step: "initialize",
-  name: "injectSessionIdMiddleware",
+  name: "injectResponseValuesMiddleware",
   tags: ["WEBSOCKET", "EVENT_STREAM"],
   override: true,
 };
