@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.214.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.213.0...v3.214.0) (2022-11-18)
+
+
+### Features
+
+* **client-auditmanager:** This release introduces a new feature for Audit Manager: Evidence finder. You can now use evidence finder to quickly query your evidence, and add the matching evidence results to an assessment report. ([12d17b7](https://github.com/aws/aws-sdk-js-v3/commit/12d17b7d1a71a0f70b8ce3ae9d9c176b4a968a08))
+
+
+
+
+
 # [3.213.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.212.0...v3.213.0) (2022-11-17)
 
 **Note:** Version bump only for package @aws-sdk/client-auditmanager
