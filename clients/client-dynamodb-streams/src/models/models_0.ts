@@ -24,7 +24,10 @@ export interface DescribeStreamInput {
   ExclusiveStartShardId?: string;
 }
 
-export type KeyType = "HASH" | "RANGE";
+export enum KeyType {
+  HASH = "HASH",
+  RANGE = "RANGE",
+}
 
 /**
  * <p>Represents <i>a single element</i> of a key schema. A key schema specifies
@@ -106,9 +109,19 @@ export interface Shard {
   ParentShardId?: string;
 }
 
-export type StreamStatus = "DISABLED" | "DISABLING" | "ENABLED" | "ENABLING";
+export enum StreamStatus {
+  DISABLED = "DISABLED",
+  DISABLING = "DISABLING",
+  ENABLED = "ENABLED",
+  ENABLING = "ENABLING",
+}
 
-export type StreamViewType = "KEYS_ONLY" | "NEW_AND_OLD_IMAGES" | "NEW_IMAGE" | "OLD_IMAGE";
+export enum StreamViewType {
+  KEYS_ONLY = "KEYS_ONLY",
+  NEW_AND_OLD_IMAGES = "NEW_AND_OLD_IMAGES",
+  NEW_IMAGE = "NEW_IMAGE",
+  OLD_IMAGE = "OLD_IMAGE",
+}
 
 /**
  * <p>Represents all of the data describing a particular stream.</p>
@@ -302,7 +315,11 @@ export interface GetRecordsInput {
   Limit?: number;
 }
 
-export type OperationType = "INSERT" | "MODIFY" | "REMOVE";
+export enum OperationType {
+  INSERT = "INSERT",
+  MODIFY = "MODIFY",
+  REMOVE = "REMOVE",
+}
 
 /**
  * <p>Contains details about the type of identity that made the request.</p>
@@ -322,14 +339,15 @@ export interface Identity {
 
 /**
  * <p>There is no limit to the number of daily on-demand backups that can be taken. </p>
- *          <p>Up to 500 simultaneous table operations are allowed per account. These operations
+ *          <p>For most purposes, up to 500 simultaneous table operations are allowed per account. These operations
  *           include <code>CreateTable</code>, <code>UpdateTable</code>,
  *           <code>DeleteTable</code>,<code>UpdateTimeToLive</code>,
  *           <code>RestoreTableFromBackup</code>, and <code>RestoreTableToPointInTime</code>. </p>
- *          <p>The only exception is when you are creating a table with one or more secondary
- *           indexes. You can have up to 250 such requests running at a time; however, if the table or
- *           index specifications are complex, DynamoDB might temporarily reduce the number
+ *          <p>When you are creating a table with one or more secondary
+ *           indexes, you can have up to 250 such requests running at a time. However, if the table or
+ *           index specifications are complex, then DynamoDB might temporarily reduce the number
  *           of concurrent operations.</p>
+ *          <p>When importing into DynamoDB, up to 50 simultaneous import table operations are allowed per account.</p>
  *          <p>There is a soft account quota of 2,500 tables.</p>
  */
 export class LimitExceededException extends __BaseException {
@@ -378,7 +396,12 @@ export class TrimmedDataAccessException extends __BaseException {
   }
 }
 
-export type ShardIteratorType = "AFTER_SEQUENCE_NUMBER" | "AT_SEQUENCE_NUMBER" | "LATEST" | "TRIM_HORIZON";
+export enum ShardIteratorType {
+  AFTER_SEQUENCE_NUMBER = "AFTER_SEQUENCE_NUMBER",
+  AT_SEQUENCE_NUMBER = "AT_SEQUENCE_NUMBER",
+  LATEST = "LATEST",
+  TRIM_HORIZON = "TRIM_HORIZON",
+}
 
 /**
  * <p>Represents the input of a <code>GetShardIterator</code> operation.</p>
