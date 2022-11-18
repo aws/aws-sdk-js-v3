@@ -4253,7 +4253,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
-   *       information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a>
+   *       information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a>
    *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public cancelImageLaunchPermission(
@@ -4513,8 +4513,8 @@ export class EC2 extends EC2Client {
    *    		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
    *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
-   *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copying an AMI</a>
-   *         in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public copyImage(args: CopyImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageCommandOutput>;
   public copyImage(args: CopyImageCommandInput, cb: (err: any, data?: CopyImageCommandOutput) => void): void;
@@ -5212,8 +5212,8 @@ export class EC2 extends EC2Client {
    *    	     <p>If you customized your instance with instance store volumes or Amazon EBS volumes in addition to the root device volume, the
    *      	new AMI contains block device mapping information for those volumes. When you launch an instance from this new AMI,
    *      	the instance automatically launches with those additional volumes.</p>
-   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating Amazon EBS-Backed Linux AMIs</a>
-   * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *    	     <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Create an Amazon EBS-backed Linux
+   *         AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createImage(args: CreateImageCommandInput, options?: __HttpHandlerOptions): Promise<CreateImageCommandOutput>;
   public createImage(args: CreateImageCommandInput, cb: (err: any, data?: CreateImageCommandOutput) => void): void;
@@ -9927,10 +9927,9 @@ export class EC2 extends EC2Client {
    *        launch new instances.</p>
    *
    *
-   *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is
-   *       retained in the Recycle Bin for the specified retention period. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
+   *       in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
+   *       the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *
    *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
    *        launched from the AMI. You'll continue to incur usage costs for those instances until
@@ -20590,8 +20589,8 @@ export class EC2 extends EC2Client {
   /**
    * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
    *       before you can launch an instance from the AMI. For more information about creating AMIs, see
-   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
-   *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
+   *         own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    *          <note>
    *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
    *         in a single request, so you don't have to register the AMI yourself. We recommend that you
@@ -20638,8 +20637,8 @@ export class EC2 extends EC2Client {
    *       from an AMI with a billing product code, make sure that the Reserved Instance has the matching
    *       billing product code. If you purchase a Reserved Instance without the matching billing product
    *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
-   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI
-   *       	billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI
+   *         billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public registerImage(
     args: RegisterImageCommandInput,

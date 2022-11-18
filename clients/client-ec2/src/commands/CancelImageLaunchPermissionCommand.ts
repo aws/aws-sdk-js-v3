@@ -30,7 +30,7 @@ export interface CancelImageLaunchPermissionCommandOutput extends CancelImageLau
 
 /**
  * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
- *       information, see <a href="https://docs.aws.amazon.com/">Cancel sharing an AMI with your Amazon Web Services account</a>
+ *       information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

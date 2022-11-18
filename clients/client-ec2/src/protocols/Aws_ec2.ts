@@ -33221,6 +33221,9 @@ const serializeAws_ec2CopyImageRequest = (input: CopyImageRequest, context: __Se
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.CopyImageTags != null) {
+    entries["CopyImageTags"] = input.CopyImageTags;
+  }
   return entries;
 };
 

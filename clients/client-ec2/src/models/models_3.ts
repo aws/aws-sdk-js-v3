@@ -5325,8 +5325,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>platform</code> - The platform. To only list Windows-based AMIs, use
-   *             <code>windows</code>.</p>
+   *                   <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5522,8 +5521,8 @@ export interface Image {
 
   /**
    * <p>The platform details associated with the billing code of the AMI. For more information,
-   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding
-   *         AMI billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
+   *         AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   PlatformDetails?: string;
 

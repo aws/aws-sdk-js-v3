@@ -28,8 +28,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
 /**
  * <p>Registers an AMI. When you're creating an AMI, this is the final step you must complete
  *       before you can launch an instance from the AMI. For more information about creating AMIs, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Creating your
- *         own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html">Create your
+ *         own AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          <note>
  *      	      <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI
  *         in a single request, so you don't have to register the AMI yourself. We recommend that you
@@ -76,8 +76,8 @@ export interface RegisterImageCommandOutput extends RegisterImageResult, __Metad
  *       from an AMI with a billing product code, make sure that the Reserved Instance has the matching
  *       billing product code. If you purchase a Reserved Instance without the matching billing product
  *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
- *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understanding AMI
- *       	billing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI
+ *         billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

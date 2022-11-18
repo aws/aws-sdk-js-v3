@@ -4341,8 +4341,9 @@ export interface AuthorizeSecurityGroupIngressResult {
  */
 export interface S3Storage {
   /**
-   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access key ID, review and follow the guidance
-   *        in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best Practices for Managing Amazon Web Services Access Keys</a>.</p>
+   * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
+   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/general/latest/gr/aws-access-keys-best-practices.html">Best practices for managing
+   *         Amazon Web Services access keys</a>.</p>
    */
   AWSAccessKeyId?: string;
 
@@ -5082,10 +5083,11 @@ export interface CopyImageRequest {
   Description?: string;
 
   /**
-   * <p>Specifies whether the destination snapshots of the copied image should be encrypted.
-   *        You can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted
-   *        copy of an encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *        Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
+   *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
+   *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
+   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
+   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
@@ -5136,10 +5138,8 @@ export interface CopyImageRequest {
    *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
-   *
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis">
-   *   		Copying AMIs from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
+   *         Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 
@@ -5149,6 +5149,22 @@ export interface CopyImageRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to include your user-defined AMI tags when copying the AMI.</p>
+   *          <p>The following tags will not be copied:</p>
+   *          <ul>
+   *             <li>
+   *                <p>System tags (prefixed with <code>aws:</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>For public and shared AMIs, user-defined tags that are attached by other Amazon Web Services
+   *           accounts</p>
+   *             </li>
+   *          </ul>
+   *          <p>Default: Your user-defined AMI tags are not copied.</p>
+   */
+  CopyImageTags?: boolean;
 }
 
 /**
