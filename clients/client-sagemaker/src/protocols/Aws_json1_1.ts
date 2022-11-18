@@ -21520,6 +21520,7 @@ const serializeAws_json1_1ProductionVariantServerlessConfig = (
 
 const serializeAws_json1_1ProfilerConfig = (input: ProfilerConfig, context: __SerdeContext): any => {
   return {
+    ...(input.DisableProfiler != null && { DisableProfiler: input.DisableProfiler }),
     ...(input.ProfilingIntervalInMilliseconds != null && {
       ProfilingIntervalInMilliseconds: input.ProfilingIntervalInMilliseconds,
     }),
@@ -32433,6 +32434,7 @@ const deserializeAws_json1_1ProductListings = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1ProfilerConfig = (output: any, context: __SerdeContext): ProfilerConfig => {
   return {
+    DisableProfiler: __expectBoolean(output.DisableProfiler),
     ProfilingIntervalInMilliseconds: __expectLong(output.ProfilingIntervalInMilliseconds),
     ProfilingParameters:
       output.ProfilingParameters != null

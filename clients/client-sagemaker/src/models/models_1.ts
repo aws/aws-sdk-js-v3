@@ -6763,7 +6763,7 @@ export interface ProfilerConfig {
   /**
    * <p>Path to Amazon S3 storage location for system and framework metrics.</p>
    */
-  S3OutputPath: string | undefined;
+  S3OutputPath?: string;
 
   /**
    * <p>A time interval for capturing system metrics in milliseconds. Available values are
@@ -6780,6 +6780,11 @@ export interface ProfilerConfig {
    *         </p>
    */
   ProfilingParameters?: Record<string, string>;
+
+  /**
+   * <p>To disable system monitoring and profiling, set to <code>True</code>.</p>
+   */
+  DisableProfiler?: boolean;
 }
 
 /**
