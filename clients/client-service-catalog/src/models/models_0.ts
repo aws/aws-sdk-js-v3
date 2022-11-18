@@ -217,6 +217,7 @@ export class DuplicateResourceException extends __BaseException {
 
 export enum PrincipalType {
   IAM = "IAM",
+  IAM_PATTERN = "IAM_PATTERN",
 }
 
 export interface AssociatePrincipalWithPortfolioInput {
@@ -245,12 +246,17 @@ export interface AssociatePrincipalWithPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   *       <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>
+   *          <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.
+   *       This is useful in Principal Name Sharing if you want to share a principal without creating it in the
+   *       account that owns the portfolio. </p>
    */
   PrincipalARN: string | undefined;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN,
+   *          or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
   PrincipalType: PrincipalType | string | undefined;
 }
@@ -945,9 +951,22 @@ export interface CreatePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>
+   * <p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not
+   *          provided, TagOptions sharing is disabled.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,
+   *          principal sharing is disabled. </p>
+   *          <p>When you enable Principal Name Sharing for a portfolio share, the share recipient
+   *          account end users with a principal that matches any of the associated IAM
+   *          patterns can provision products from the portfolio. Once
+   *          shared, the share recipient can view associations of <code>PrincipalType</code>:
+   *          <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or
+   *          after creating the share. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface CreatePortfolioShareOutput {
@@ -1006,7 +1025,7 @@ export interface ProvisioningArtifactProperties {
   /**
    * <p>Specify the template source with one of the following options, but not both.
    *          Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.
+   *          <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.
    *        Specify the URL in JSON format as follows:</p>
    *          <p>
    *             <code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code>
@@ -1017,7 +1036,7 @@ export interface ProvisioningArtifactProperties {
    *          format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>
    *          </p>
    */
-  Info: Record<string, string> | undefined;
+  Info?: Record<string, string>;
 
   /**
    * <p>The type of provisioning artifact.</p>
@@ -1039,9 +1058,69 @@ export interface ProvisioningArtifactProperties {
   Type?: ProvisioningArtifactType | string;
 
   /**
-   * <p>If set to true, Amazon Web Services Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
+   * <p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>
    */
   DisableTemplateValidation?: boolean;
+}
+
+/**
+ * <p>The subtype containing details about the Codestar connection <code>Type</code>. </p>
+ */
+export interface CodeStarParameters {
+  /**
+   * <p>The CodeStar ARN, which is the connection between Service Catalog and the external repository.</p>
+   */
+  ConnectionArn: string | undefined;
+
+  /**
+   * <p>The specific repository where the product’s artifact-to-be-synced resides, formatted as
+   *          "Account/Repo." </p>
+   */
+  Repository: string | undefined;
+
+  /**
+   * <p>The specific branch where the artifact resides. </p>
+   */
+  Branch: string | undefined;
+
+  /**
+   * <p>The absolute path wehre the artifact resides within the repo and branch, formatted as
+   *          "folder/file.json." </p>
+   */
+  ArtifactPath: string | undefined;
+}
+
+/**
+ * <p>Provides connection details.</p>
+ */
+export interface SourceConnectionParameters {
+  /**
+   * <p>Provides <code>ConnectionType</code> details.</p>
+   */
+  CodeStar?: CodeStarParameters;
+}
+
+export enum SourceType {
+  CODESTAR = "CODESTAR",
+}
+
+/**
+ * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+ *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+ *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+ *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+ *          addition of the <code>LastSync</code> response.</p>
+ */
+export interface SourceConnection {
+  /**
+   * <p>The only supported <code>SourceConnection</code> type is Codestar. </p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * <p>The connection details based on the connection <code>Type</code>. </p>
+   */
+  ConnectionParameters: SourceConnectionParameters | undefined;
 }
 
 export interface CreateProductInput {
@@ -1114,13 +1193,32 @@ export interface CreateProductInput {
   /**
    * <p>The configuration of the provisioning artifact. </p>
    */
-  ProvisioningArtifactParameters: ProvisioningArtifactProperties | undefined;
+  ProvisioningArtifactParameters?: ProvisioningArtifactProperties;
 
   /**
    * <p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,
    *   the same response is returned for each repeated request.</p>
    */
   IdempotencyToken?: string;
+
+  /**
+   * <p>Specifies connection details for the created product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SourceConnection?: SourceConnection;
 }
 
 /**
@@ -1190,6 +1288,115 @@ export interface ProductViewSummary {
   SupportUrl?: string;
 }
 
+export enum LastSyncStatus {
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatus</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSyncStatusMessage</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncTime</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface LastSync {
+  /**
+   * <p>The time of the last attempted sync from the repository to the Service Catalog product. </p>
+   */
+  LastSyncTime?: Date;
+
+  /**
+   * <p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>
+   */
+  LastSyncStatus?: LastSyncStatus | string;
+
+  /**
+   * <p>The sync's status message. </p>
+   */
+  LastSyncStatusMessage?: string;
+
+  /**
+   * <p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>
+   */
+  LastSuccessfulSyncTime?: Date;
+
+  /**
+   * <p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>
+   */
+  LastSuccessfulSyncProvisioningArtifactId?: string;
+}
+
+/**
+ * <p>Provides details about the configured <code>SourceConnection</code>. </p>
+ */
+export interface SourceConnectionDetail {
+  /**
+   * <p>The only supported <code>SourceConnection</code> type is Codestar.</p>
+   */
+  Type?: SourceType | string;
+
+  /**
+   * <p>The connection details based on the connection <code>Type</code>.</p>
+   */
+  ConnectionParameters?: SourceConnectionParameters;
+
+  /**
+   * <p>Provides details about the product's connection sync and contains the following sub-fields. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatus</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSyncStatusMessage</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncTime</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>LastSuccessfulSyncProvisioningArtifactID</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  LastSync?: LastSync;
+}
+
 /**
  * <p>Information about a product view.</p>
  */
@@ -1227,6 +1434,15 @@ export interface ProductViewDetail {
    * <p>The UTC time stamp of the creation time.</p>
    */
   CreatedTime?: Date;
+
+  /**
+   * <p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.
+   *          Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>,
+   *          <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs.
+   *          This response contains the same fields as the <code>ConnectionParameters</code> request, with the
+   *          addition of the <code>LastSync</code> response.</p>
+   */
+  SourceConnection?: SourceConnectionDetail;
 }
 
 export enum ProvisioningArtifactGuidance {
@@ -1286,6 +1502,17 @@ export interface ProvisioningArtifactDetail {
    * <p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>
    */
   Guidance?: ProvisioningArtifactGuidance | string;
+
+  /**
+   * <p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product
+   *          and create the provisioning artifact. Service Catalog includes this response parameter as a high level
+   *          field to the existing <code>ProvisioningArtifactDetail</code> type, which is returned as part of the
+   *          response for <code>CreateProduct</code>, <code>UpdateProduct</code>, <code>DescribeProductAsAdmin</code>,
+   *          <code>DescribeProvisioningArtifact</code>, <code>ListProvisioningArtifact</code>,
+   *          and <code>UpdateProvisioningArticat</code> APIs. </p>
+   *          <p>This field only exists for Repo-Synced products. </p>
+   */
+  SourceRevision?: string;
 }
 
 export interface CreateProductOutput {
@@ -1480,11 +1707,11 @@ export interface CreateProvisioningArtifactOutput {
   /**
    * <p>Specify the template source with one of the following options, but not both. Keys
    *          accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>
-   *          <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format. </p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. </p>
    *          <p>
    *             <code>LoadTemplateFromURL</code>
    *          </p>
-   *          <p>Use the URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>
+   *          <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    *          <p>
    *             <code>ImportFromPhysicalId</code>
    *          </p>
@@ -2115,8 +2342,7 @@ export interface DescribePortfolioSharesInput {
 export interface PortfolioShareDetail {
   /**
    * <p>The identifier of the recipient entity that received the portfolio share.
-   *          The recipient entities can be one of the following:
-   *       </p>
+   *          The recipient entity can be one of the following:</p>
    *          <p>1. An external account.</p>
    *          <p>2. An organziation member account.</p>
    *          <p>3. An organzational unit (OU).</p>
@@ -2138,6 +2364,11 @@ export interface PortfolioShareDetail {
    * <p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface DescribePortfolioSharesOutput {
@@ -2788,7 +3019,7 @@ export interface ProvisionedProductPlanDetails {
   Status?: ProvisionedProductPlanStatus | string;
 
   /**
-   * <p>The time when the plan was last updated.</p>
+   * <p>The UTC time stamp when the plan was last updated.</p>
    */
   UpdatedTime?: Date;
 
@@ -3001,7 +3232,7 @@ export interface DescribeProvisioningArtifactOutput {
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
   Info?: Record<string, string>;
 
@@ -3667,9 +3898,16 @@ export interface DisassociatePrincipalFromPortfolioInput {
   PortfolioId: string | undefined;
 
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if
+   *          <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>
    */
   PrincipalARN: string | undefined;
+
+  /**
+   * <p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>
+   *          if you use no <code>accountID</code>. </p>
+   */
+  PrincipalType?: PrincipalType | string;
 }
 
 export interface DisassociatePrincipalFromPortfolioOutput {}
@@ -4464,19 +4702,21 @@ export interface ListPrincipalsForPortfolioInput {
  */
 export interface Principal {
   /**
-   * <p>The ARN of the principal (IAM user, role, or group).</p>
+   * <p>The ARN of the principal (IAM user, role, or group). This field allows for an ARN with no <code>accountID</code> if the
+   *       <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>
    */
   PrincipalARN?: string;
 
   /**
-   * <p>The principal type. The supported value is <code>IAM</code>.</p>
+   * <p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or
+   *       <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>
    */
   PrincipalType?: PrincipalType | string;
 }
 
 export interface ListPrincipalsForPortfolioOutput {
   /**
-   * <p>The IAM principals (users or roles) associated with the portfolio.</p>
+   * <p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>
    */
   Principals?: Principal[];
 
@@ -6023,9 +6263,16 @@ export interface UpdatePortfolioShareInput {
   OrganizationNode?: OrganizationNode;
 
   /**
-   * <p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>
+   * <p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of
+   *          TagOptions sharing on the portfolio share will not be modified.</p>
    */
   ShareTagOptions?: boolean;
+
+  /**
+   * <p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,
+   *          the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>
+   */
+  SharePrincipals?: boolean;
 }
 
 export interface UpdatePortfolioShareOutput {
@@ -6111,6 +6358,25 @@ export interface UpdateProductInput {
    * <p>The tags to remove from the product.</p>
    */
   RemoveTags?: string[];
+
+  /**
+   * <p>Specifies connection details for the updated product and syncs the product to the connection source
+   *          artifact. This automatically manages the product's artifacts based on changes to the source.
+   *          The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Type</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ConnectionParamters</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  SourceConnection?: SourceConnection;
 }
 
 export interface UpdateProductOutput {
@@ -6125,7 +6391,11 @@ export interface UpdateProductOutput {
   Tags?: Tag[];
 }
 
-export type StackSetOperationType = "CREATE" | "DELETE" | "UPDATE";
+export enum StackSetOperationType {
+  CREATE = "CREATE",
+  DELETE = "DELETE",
+  UPDATE = "UPDATE",
+}
 
 /**
  * <p>The user-defined preferences that will be applied when updating a provisioned product. Not all preferences are applicable to all provisioned product types.</p>
@@ -6437,7 +6707,7 @@ export interface UpdateProvisioningArtifactOutput {
   ProvisioningArtifactDetail?: ProvisioningArtifactDetail;
 
   /**
-   * <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>
+   * <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>
    */
   Info?: Record<string, string>;
 
@@ -6768,6 +7038,27 @@ export const ProvisioningArtifactPropertiesFilterSensitiveLog = (obj: Provisioni
 /**
  * @internal
  */
+export const CodeStarParametersFilterSensitiveLog = (obj: CodeStarParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionParametersFilterSensitiveLog = (obj: SourceConnectionParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionFilterSensitiveLog = (obj: SourceConnection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): any => ({
   ...obj,
 });
@@ -6776,6 +7067,20 @@ export const CreateProductInputFilterSensitiveLog = (obj: CreateProductInput): a
  * @internal
  */
 export const ProductViewSummaryFilterSensitiveLog = (obj: ProductViewSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LastSyncFilterSensitiveLog = (obj: LastSync): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceConnectionDetailFilterSensitiveLog = (obj: SourceConnectionDetail): any => ({
   ...obj,
 });
 

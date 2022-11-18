@@ -307,7 +307,7 @@
           "name": "servicecatalog"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<fullname>AWS Service Catalog</fullname>\n         <p>\n            <a href=\"https://aws.amazon.com/servicecatalog/\">Service Catalog</a> enables\n         organizations to create and manage catalogs of IT services that are approved for Amazon Web Services. To\n         get the most out of this documentation, you should be familiar with the terminology\n         discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">Service Catalog\n         Concepts</a>.</p>",
+        "smithy.api#documentation": "<fullname>Service Catalog</fullname>\n         <p>\n            <a href=\"http://aws.amazon.com/servicecatalog\">Service Catalog</a> enables\n         organizations to create and manage catalogs of IT services that are approved for Amazon Web Services. To\n         get the most out of this documentation, you should be familiar with the terminology\n         discussed in <a href=\"http://docs.aws.amazon.com/servicecatalog/latest/adminguide/what-is_concepts.html\">Service Catalog\n         Concepts</a>.</p>",
         "smithy.api#title": "AWS Service Catalog",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -634,9 +634,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -647,9 +647,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -660,9 +660,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -673,9 +673,9 @@
                 }
               },
               "params": {
-                "Region": "ap-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-south-1"
               }
             },
             {
@@ -686,9 +686,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -699,9 +699,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -712,9 +712,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -725,9 +725,9 @@
                 }
               },
               "params": {
-                "Region": "eu-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-south-1"
               }
             },
             {
@@ -738,9 +738,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -751,9 +751,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -764,9 +764,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -777,9 +777,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-east-1"
               }
             },
             {
@@ -790,9 +790,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -803,9 +803,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -816,9 +816,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -829,9 +829,9 @@
                 }
               },
               "params": {
-                "Region": "ca-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ca-central-1"
               }
             },
             {
@@ -842,9 +842,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -855,9 +855,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -868,9 +868,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -881,9 +881,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-central-1"
               }
             },
             {
@@ -894,9 +894,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -907,9 +907,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-1"
               }
             },
             {
@@ -920,9 +920,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -933,9 +933,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-1"
               }
             },
             {
@@ -946,9 +946,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -959,9 +959,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-west-2"
               }
             },
             {
@@ -972,9 +972,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -985,9 +985,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-west-2"
               }
             },
             {
@@ -998,9 +998,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1011,9 +1011,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1024,9 +1024,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1037,9 +1037,9 @@
                 }
               },
               "params": {
-                "Region": "af-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "af-south-1"
               }
             },
             {
@@ -1050,9 +1050,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1063,9 +1063,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1076,9 +1076,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1089,9 +1089,9 @@
                 }
               },
               "params": {
-                "Region": "eu-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-north-1"
               }
             },
             {
@@ -1102,9 +1102,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1115,9 +1115,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1128,9 +1128,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1141,9 +1141,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-3"
               }
             },
             {
@@ -1154,9 +1154,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1167,9 +1167,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1180,9 +1180,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1193,9 +1193,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-2"
               }
             },
             {
@@ -1206,9 +1206,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1219,9 +1219,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1232,9 +1232,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1245,9 +1245,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "eu-west-1"
               }
             },
             {
@@ -1258,9 +1258,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1271,9 +1271,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1284,9 +1284,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1297,9 +1297,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-3"
               }
             },
             {
@@ -1310,9 +1310,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1323,9 +1323,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1336,9 +1336,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1349,9 +1349,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -1362,9 +1362,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1375,9 +1375,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1388,9 +1388,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1401,9 +1401,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -1414,9 +1414,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1427,9 +1427,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1440,9 +1440,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1453,9 +1453,9 @@
                 }
               },
               "params": {
-                "Region": "me-south-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "me-south-1"
               }
             },
             {
@@ -1466,9 +1466,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1479,9 +1479,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1492,9 +1492,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1505,9 +1505,9 @@
                 }
               },
               "params": {
-                "Region": "sa-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "sa-east-1"
               }
             },
             {
@@ -1518,9 +1518,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1531,9 +1531,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1544,9 +1544,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1557,9 +1557,9 @@
                 }
               },
               "params": {
-                "Region": "ap-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-east-1"
               }
             },
             {
@@ -1570,9 +1570,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1583,9 +1583,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1596,9 +1596,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1609,9 +1609,9 @@
                 }
               },
               "params": {
-                "Region": "cn-north-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-north-1"
               }
             },
             {
@@ -1622,9 +1622,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1635,9 +1635,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1648,9 +1648,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1661,9 +1661,9 @@
                 }
               },
               "params": {
-                "Region": "us-gov-west-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-gov-west-1"
               }
             },
             {
@@ -1674,9 +1674,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1687,9 +1687,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1700,9 +1700,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1713,9 +1713,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-1"
               }
             },
             {
@@ -1726,9 +1726,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1739,9 +1739,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1752,9 +1752,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1765,9 +1765,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-2"
               }
             },
             {
@@ -1778,9 +1778,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1791,9 +1791,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1804,9 +1804,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1817,9 +1817,9 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-3",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "ap-southeast-3"
               }
             },
             {
@@ -1830,9 +1830,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1843,9 +1843,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1856,9 +1856,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1869,9 +1869,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-1"
               }
             },
             {
@@ -1882,9 +1882,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1895,9 +1895,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1908,9 +1908,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1921,9 +1921,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "us-east-2"
               }
             },
             {
@@ -1934,9 +1934,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1947,9 +1947,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1960,9 +1960,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1973,9 +1973,9 @@
                 }
               },
               "params": {
-                "Region": "cn-northwest-1",
                 "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "Region": "cn-northwest-1"
               }
             },
             {
@@ -1986,9 +1986,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -1998,9 +1998,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
                 "UseFIPS": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2010,9 +2010,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
                 "UseFIPS": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2102,44 +2102,52 @@
       }
     },
     "com.amazonaws.servicecatalog#AccessLevelFilterKey": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Account",
-            "name": "ACCOUNT"
-          },
-          {
-            "value": "Role",
-            "name": "ROLE"
-          },
-          {
-            "value": "User",
-            "name": "USER"
+      "type": "enum",
+      "members": {
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Account"
           }
-        ]
+        },
+        "ROLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Role"
+          }
+        },
+        "USER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "User"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#AccessLevelFilterValue": {
       "type": "string"
     },
     "com.amazonaws.servicecatalog#AccessStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ENABLED",
-            "name": "ENABLED"
-          },
-          {
-            "value": "UNDER_CHANGE",
-            "name": "UNDER_CHANGE"
-          },
-          {
-            "value": "DISABLED",
-            "name": "DISABLED"
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
           }
-        ]
+        },
+        "UNDER_CHANGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_CHANGE"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#AccountId": {
@@ -2247,7 +2255,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Associates the specified principal ARN with the specified portfolio.</p>"
+        "smithy.api#documentation": "<p>Associates the specified principal ARN with the specified portfolio.</p>\n         <p>If you share the portfolio with principal name sharing enabled, the <code>PrincipalARN</code> association is \n         included in the share. </p>\n         <p>The <code>PortfolioID</code>, <code>PrincipalARN</code>, and <code>PrincipalType</code> parameters are\n      required. </p>\n         <p>You can associate a maximum of 10 Principals with a portfolio using <code>PrincipalType</code> as <code>IAM_PATTERN</code>\n         </p>\n      \n         <note>\n            <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is \n         then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin, \n         but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal \n         name association for the portfolio. Although this user may not know which principal names are associated through \n         Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then \n         Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, \n         the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p> \n         </note>"
       }
     },
     "com.amazonaws.servicecatalog#AssociatePrincipalWithPortfolioInput": {
@@ -2269,14 +2277,14 @@
         "PrincipalARN": {
           "target": "com.amazonaws.servicecatalog#PrincipalARN",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group).</p>",
+            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if \n      <code>PrincipalType</code> is <code>IAM_PATTERN</code>. </p>\n         <p>You can associate multiple <code>IAM</code> patterns even if the account has no principal with that name.\n      This is useful in Principal Name Sharing if you want to share a principal without creating it in the \n      account that owns the portfolio. </p>",
             "smithy.api#required": {}
           }
         },
         "PrincipalType": {
           "target": "com.amazonaws.servicecatalog#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "<p>The principal type. The supported value is <code>IAM</code>.</p>",
+            "smithy.api#documentation": "<p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, \n         or <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>",
             "smithy.api#required": {}
           }
         }
@@ -2592,22 +2600,26 @@
       "type": "string"
     },
     "com.amazonaws.servicecatalog#ChangeAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ADD",
-            "name": "ADD"
-          },
-          {
-            "value": "MODIFY",
-            "name": "MODIFY"
-          },
-          {
-            "value": "REMOVE",
-            "name": "REMOVE"
+      "type": "enum",
+      "members": {
+        "ADD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ADD"
           }
-        ]
+        },
+        "MODIFY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MODIFY"
+          }
+        },
+        "REMOVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REMOVE"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#CloudWatchDashboard": {
@@ -2631,6 +2643,52 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.servicecatalog#CloudWatchDashboard"
+      }
+    },
+    "com.amazonaws.servicecatalog#CodeStarConnectionArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1224
+        },
+        "smithy.api#pattern": "^arn:[a-z0-9][-.a-z0-9]{0,62}:codestar-connections:([a-z0-9][-.a-z0-9]{0,62})?:([a-z0-9][-.a-z0-9]{0,62})?:[^/].{0,1023}$"
+      }
+    },
+    "com.amazonaws.servicecatalog#CodeStarParameters": {
+      "type": "structure",
+      "members": {
+        "ConnectionArn": {
+          "target": "com.amazonaws.servicecatalog#CodeStarConnectionArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The CodeStar ARN, which is the connection between Service Catalog and the external repository.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Repository": {
+          "target": "com.amazonaws.servicecatalog#Repository",
+          "traits": {
+            "smithy.api#documentation": "<p>The specific repository where the product’s artifact-to-be-synced resides, formatted as \n         \"Account/Repo.\" </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Branch": {
+          "target": "com.amazonaws.servicecatalog#RepositoryBranch",
+          "traits": {
+            "smithy.api#documentation": "<p>The specific branch where the artifact resides. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ArtifactPath": {
+          "target": "com.amazonaws.servicecatalog#RepositoryArtifactPath",
+          "traits": {
+            "smithy.api#documentation": "<p>The absolute path wehre the artifact resides within the repo and branch, formatted as \n         \"folder/file.json.\" </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The subtype containing details about the Codestar connection <code>Type</code>. </p>"
       }
     },
     "com.amazonaws.servicecatalog#ConstraintDescription": {
@@ -2731,14 +2789,14 @@
       }
     },
     "com.amazonaws.servicecatalog#CopyOption": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CopyTags",
-            "name": "CopyTags"
+      "type": "enum",
+      "members": {
+        "CopyTags": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CopyTags"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#CopyOptions": {
@@ -2829,22 +2887,26 @@
       }
     },
     "com.amazonaws.servicecatalog#CopyProductStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#CreateConstraint": {
@@ -3060,7 +3122,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Shares the specified portfolio with the specified account or organization node.\n         Shares to an organization node can only be created by the management account of an\n         organization or by a delegated administrator. You can share portfolios to an organization,\n         an organizational unit, or a specific account.</p>\n         <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>\n        <p> \n            <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>\n         <p>You can't share a shared resource, including portfolios that contain a shared product.</p>\n         <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead.</p>"
+        "smithy.api#documentation": "<p>Shares the specified portfolio with the specified account or organization node.\n         Shares to an organization node can only be created by the management account of an\n         organization or by a delegated administrator. You can share portfolios to an organization,\n         an organizational unit, or a specific account.</p>\n         <p>Note that if a delegated admin is de-registered, they can no longer create portfolio shares.</p>\n        <p>\n            <code>AWSOrganizationsAccess</code> must be enabled in order to create a portfolio share to an organization node.</p>\n         <p>You can't share a shared resource, including portfolios that contain a shared product.</p>\n         <p>If the portfolio share with the specified account or organization node already exists, this action will have no effect \n         and will not return an error. To update an existing share, you must use the <code> UpdatePortfolioShare</code> API instead. </p>\n      \n         <note>\n            <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is \n         then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin, \n         but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal \n         name association for the portfolio. Although this user may not know which principal names are associated through \n         Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then \n         Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, \n         the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p> \n         </note>"
       }
     },
     "com.amazonaws.servicecatalog#CreatePortfolioShareInput": {
@@ -3095,7 +3157,14 @@
           "target": "com.amazonaws.servicecatalog#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not provided, TagOptions sharing is disabled.</p>"
+            "smithy.api#documentation": "<p>Enables or disables <code>TagOptions </code> sharing when creating the portfolio share. If this flag is not \n         provided, TagOptions sharing is disabled.</p>"
+          }
+        },
+        "SharePrincipals": {
+          "target": "com.amazonaws.servicecatalog#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Enables or disables <code>Principal</code> sharing when creating the portfolio share. If this flag is not provided,\n         principal sharing is disabled. </p>\n         <p>When you enable Principal Name Sharing for a portfolio share, the share recipient\n         account end users with a principal that matches any of the associated IAM\n         patterns can provision products from the portfolio. Once\n         shared, the share recipient can view associations of <code>PrincipalType</code>: \n         <code>IAM_PATTERN</code> on their portfolio. You can create the principals in the recipient account before or \n         after creating the share. </p>"
           }
         }
       }
@@ -3203,8 +3272,7 @@
         "ProvisioningArtifactParameters": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactProperties",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration of the provisioning artifact. </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The configuration of the provisioning artifact. </p>"
           }
         },
         "IdempotencyToken": {
@@ -3213,6 +3281,12 @@
             "smithy.api#documentation": "<p>A unique identifier that you provide to ensure idempotency. If multiple requests differ only by the idempotency token,\n  the same response is returned for each repeated request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
+          }
+        },
+        "SourceConnection": {
+          "target": "com.amazonaws.servicecatalog#SourceConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies connection details for the created product and syncs the product to the connection source\n         artifact. This automatically manages the product's artifacts based on changes to the source.\n         The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Type</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ConnectionParamters</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -3444,7 +3518,7 @@
         "Info": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactInfo",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the template source with one of the following options, but not both. Keys\n         accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>\n         <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format. </p>\n         <p>\n            <code>LoadTemplateFromURL</code>\n         </p>\n         <p>Use the URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>\n         <p>\n            <code>ImportFromPhysicalId</code>\n         </p>\n         <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>"
+            "smithy.api#documentation": "<p>Specify the template source with one of the following options, but not both. Keys\n         accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ].</p>\n         <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format. </p>\n         <p>\n            <code>LoadTemplateFromURL</code>\n         </p>\n         <p>Use the URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>\n         <p>\n            <code>ImportFromPhysicalId</code>\n         </p>\n         <p>Use the physical id of the resource that contains the template; currently supports CloudFormation stack ARN.</p>"
           }
         },
         "Status": {
@@ -4233,26 +4307,32 @@
       }
     },
     "com.amazonaws.servicecatalog#DescribePortfolioShareType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACCOUNT",
-            "name": "ACCOUNT"
-          },
-          {
-            "value": "ORGANIZATION",
-            "name": "ORGANIZATION"
-          },
-          {
-            "value": "ORGANIZATIONAL_UNIT",
-            "name": "ORGANIZATIONAL_UNIT"
-          },
-          {
-            "value": "ORGANIZATION_MEMBER_ACCOUNT",
-            "name": "ORGANIZATION_MEMBER_ACCOUNT"
+      "type": "enum",
+      "members": {
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT"
           }
-        ]
+        },
+        "ORGANIZATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATION"
+          }
+        },
+        "ORGANIZATIONAL_UNIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATIONAL_UNIT"
+          }
+        },
+        "ORGANIZATION_MEMBER_ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATION_MEMBER_ACCOUNT"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#DescribePortfolioShares": {
@@ -4751,7 +4831,7 @@
         "Info": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactInfo",
           "traits": {
-            "smithy.api#documentation": "<p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>"
+            "smithy.api#documentation": "<p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>"
           }
         },
         "Status": {
@@ -5193,7 +5273,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Disassociates a previously associated principal ARN from a specified\n         portfolio.</p>"
+        "smithy.api#documentation": "<p>Disassociates a previously associated principal ARN from a specified\n         portfolio.</p>\n         <p>The <code>PrincipalType</code> and <code>PrincipalARN</code> must match the \n         <code>AssociatePrincipalWithPortfolio</code> call request details. For example,\n         to disassociate an association created with a <code>PrincipalARN</code> of <code>PrincipalType</code>\n         IAM you must use the <code>PrincipalType</code> IAM when calling <code>DisassociatePrincipalFromPortfolio</code>. </p>\n         <p>For portfolios that have been shared with principal name sharing enabled: after disassociating a principal,\n   share recipient accounts will no longer be able to provision products in this portfolio using a role matching the name \n   of the associated principal. </p>"
       }
     },
     "com.amazonaws.servicecatalog#DisassociatePrincipalFromPortfolioInput": {
@@ -5215,8 +5295,14 @@
         "PrincipalARN": {
           "target": "com.amazonaws.servicecatalog#PrincipalARN",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group).</p>",
+            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group). This field allows an ARN with no <code>accountID</code> if \n         <code>PrincipalType</code> is <code>IAM_PATTERN</code>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "PrincipalType": {
+          "target": "com.amazonaws.servicecatalog#PrincipalType",
+          "traits": {
+            "smithy.api#documentation": "<p>The supported value is <code>IAM</code> if you use a fully defined ARN, or <code>IAM_PATTERN</code>\n         if you use no <code>accountID</code>. </p>"
           }
         }
       }
@@ -5437,18 +5523,20 @@
       }
     },
     "com.amazonaws.servicecatalog#EvaluationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STATIC",
-            "name": "STATIC"
-          },
-          {
-            "value": "DYNAMIC",
-            "name": "DYNAMIC"
+      "type": "enum",
+      "members": {
+        "STATIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STATIC"
           }
-        ]
+        },
+        "DYNAMIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DYNAMIC"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ExecuteProvisionedProductPlan": {
@@ -5894,7 +5982,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Requests the import of a resource as a Amazon Web Services Service Catalog provisioned product that is\n         associated to a Amazon Web Services Service Catalog product and provisioning artifact. Once imported, all\n         supported Amazon Web Services Service Catalog governance actions are supported on the provisioned\n         product.</p>\n         <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and\n         non-root nested stacks are not supported.</p>\n         <p>The CloudFormation stack must have one of the following statuses to be imported:\n         <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,\n         <code>IMPORT_ROLLBACK_COMPLETE</code>.</p>\n         <p>Import of the resource requires that the CloudFormation stack template matches the\n         associated Amazon Web Services Service Catalog product provisioning artifact. </p>\n     \n         <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>\n         and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>"
+        "smithy.api#documentation": "<p>Requests the import of a resource as an Service Catalog provisioned product that is\n         associated to an Service Catalog product and provisioning artifact. Once imported, all\n         supported Service Catalog governance actions are supported on the provisioned\n         product.</p>\n         <p>Resource import only supports CloudFormation stack ARNs. CloudFormation StackSets and\n         non-root nested stacks are not supported.</p>\n         <p>The CloudFormation stack must have one of the following statuses to be imported:\n         <code>CREATE_COMPLETE</code>, <code>UPDATE_COMPLETE</code>, <code>UPDATE_ROLLBACK_COMPLETE</code>, <code>IMPORT_COMPLETE</code>,\n         <code>IMPORT_ROLLBACK_COMPLETE</code>.</p>\n         <p>Import of the resource requires that the CloudFormation stack template matches the\n         associated Service Catalog product provisioning artifact. </p>\n     \n         <p>The user or role that performs this operation must have the <code>cloudformation:GetTemplate</code>\n         and <code>cloudformation:DescribeStacks</code> IAM policy permissions. </p>"
       }
     },
     "com.amazonaws.servicecatalog#ImportAsProvisionedProductInput": {
@@ -5984,6 +6072,70 @@
     },
     "com.amazonaws.servicecatalog#LastRequestId": {
       "type": "string"
+    },
+    "com.amazonaws.servicecatalog#LastSuccessfulSyncTime": {
+      "type": "timestamp"
+    },
+    "com.amazonaws.servicecatalog#LastSync": {
+      "type": "structure",
+      "members": {
+        "LastSyncTime": {
+          "target": "com.amazonaws.servicecatalog#LastSyncTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time of the last attempted sync from the repository to the Service Catalog product. </p>"
+          }
+        },
+        "LastSyncStatus": {
+          "target": "com.amazonaws.servicecatalog#LastSyncStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the sync. Responses include <code>SUCCEEDED</code> or <code>FAILED</code>. </p>"
+          }
+        },
+        "LastSyncStatusMessage": {
+          "target": "com.amazonaws.servicecatalog#LastSyncStatusMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The sync's status message. </p>"
+          }
+        },
+        "LastSuccessfulSyncTime": {
+          "target": "com.amazonaws.servicecatalog#LastSuccessfulSyncTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The time of the latest successful sync from the source repo artifact to the Service Catalog product.</p>"
+          }
+        },
+        "LastSuccessfulSyncProvisioningArtifactId": {
+          "target": "com.amazonaws.servicecatalog#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The ProvisioningArtifactID of the ProvisioningArtifact created from the latest successful sync. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides details about the product's connection sync and contains the following sub-fields. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>LastSyncTime</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSyncStatus</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSyncStatusMessage</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSuccessfulSyncTime</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSuccessfulSyncProvisioningArtifactID</code>\n               </p>\n            </li>\n         </ul>"
+      }
+    },
+    "com.amazonaws.servicecatalog#LastSyncStatus": {
+      "type": "enum",
+      "members": {
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#LastSyncStatusMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.servicecatalog#LastSyncTime": {
+      "type": "timestamp"
     },
     "com.amazonaws.servicecatalog#LaunchPath": {
       "type": "structure",
@@ -6673,7 +6825,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists all principal ARNs associated with the specified portfolio.</p>",
+        "smithy.api#documentation": "<p>Lists all <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the specified portfolio.</p>",
         "smithy.api#paginated": {
           "inputToken": "PageToken",
           "outputToken": "NextPageToken",
@@ -6718,7 +6870,7 @@
         "Principals": {
           "target": "com.amazonaws.servicecatalog#Principals",
           "traits": {
-            "smithy.api#documentation": "<p>The IAM principals (users or roles) associated with the portfolio.</p>"
+            "smithy.api#documentation": "<p>The <code>PrincipalARN</code>s and corresponding <code>PrincipalType</code>s associated with the portfolio.</p>"
           }
         },
         "NextPageToken": {
@@ -7479,22 +7631,26 @@
       }
     },
     "com.amazonaws.servicecatalog#OrganizationNodeType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ORGANIZATION",
-            "name": "ORGANIZATION"
-          },
-          {
-            "value": "ORGANIZATIONAL_UNIT",
-            "name": "ORGANIZATIONAL_UNIT"
-          },
-          {
-            "value": "ACCOUNT",
-            "name": "ACCOUNT"
+      "type": "enum",
+      "members": {
+        "ORGANIZATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATION"
           }
-        ]
+        },
+        "ORGANIZATIONAL_UNIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ORGANIZATIONAL_UNIT"
+          }
+        },
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#OrganizationNodeValue": {
@@ -7732,7 +7888,7 @@
         "PrincipalId": {
           "target": "com.amazonaws.servicecatalog#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the recipient entity that received the portfolio share. \n         The recipient entities can be one of the following:\n      </p>\n         <p>1. An external account.</p>\n         <p>2. An organziation member account.</p>\n         <p>3. An organzational unit (OU).</p>\n         <p>4. The organization itself. (This shares with every account in the organization).</p>"
+            "smithy.api#documentation": "<p>The identifier of the recipient entity that received the portfolio share. \n         The recipient entity can be one of the following:</p>\n         <p>1. An external account.</p>\n         <p>2. An organziation member account.</p>\n         <p>3. An organzational unit (OU).</p>\n         <p>4. The organization itself. (This shares with every account in the organization).</p>"
           }
         },
         "Type": {
@@ -7754,6 +7910,13 @@
             "smithy.api#default": false,
             "smithy.api#documentation": "<p>Indicates whether TagOptions sharing is enabled or disabled for the portfolio share.</p>"
           }
+        },
+        "SharePrincipals": {
+          "target": "com.amazonaws.servicecatalog#Boolean",
+          "traits": {
+            "smithy.api#default": false,
+            "smithy.api#documentation": "<p>Indicates if <code>Principal</code> sharing is enabled or disabled for the portfolio share. </p>"
+          }
         }
       },
       "traits": {
@@ -7767,22 +7930,26 @@
       }
     },
     "com.amazonaws.servicecatalog#PortfolioShareType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IMPORTED",
-            "name": "IMPORTED"
-          },
-          {
-            "value": "AWS_SERVICECATALOG",
-            "name": "AWS_SERVICECATALOG"
-          },
-          {
-            "value": "AWS_ORGANIZATIONS",
-            "name": "AWS_ORGANIZATIONS"
+      "type": "enum",
+      "members": {
+        "IMPORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORTED"
           }
-        ]
+        },
+        "AWS_SERVICECATALOG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_SERVICECATALOG"
+          }
+        },
+        "AWS_ORGANIZATIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_ORGANIZATIONS"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#Principal": {
@@ -7791,13 +7958,13 @@
         "PrincipalARN": {
           "target": "com.amazonaws.servicecatalog#PrincipalARN",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group).</p>"
+            "smithy.api#documentation": "<p>The ARN of the principal (IAM user, role, or group). This field allows for an ARN with no <code>accountID</code> if the\n      <code>PrincipalType</code> is an <code>IAM_PATTERN</code>. </p>"
           }
         },
         "PrincipalType": {
           "target": "com.amazonaws.servicecatalog#PrincipalType",
           "traits": {
-            "smithy.api#documentation": "<p>The principal type. The supported value is <code>IAM</code>.</p>"
+            "smithy.api#documentation": "<p>The principal type. The supported value is <code>IAM</code> if you use a fully defined ARN, or\n      <code>IAM_PATTERN</code> if you use an ARN with no <code>accountID</code>. </p>"
           }
         }
       },
@@ -7815,14 +7982,20 @@
       }
     },
     "com.amazonaws.servicecatalog#PrincipalType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IAM",
-            "name": "IAM"
+      "type": "enum",
+      "members": {
+        "IAM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM"
           }
-        ]
+        },
+        "IAM_PATTERN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_PATTERN"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#Principals": {
@@ -7842,29 +8015,33 @@
       }
     },
     "com.amazonaws.servicecatalog#ProductSource": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACCOUNT",
-            "name": "ACCOUNT"
+      "type": "enum",
+      "members": {
+        "ACCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProductType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CLOUD_FORMATION_TEMPLATE",
-            "name": "CLOUD_FORMATION_TEMPLATE"
-          },
-          {
-            "value": "MARKETPLACE",
-            "name": "MARKETPLACE"
+      "type": "enum",
+      "members": {
+        "CLOUD_FORMATION_TEMPLATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOUD_FORMATION_TEMPLATE"
           }
-        ],
+        },
+        "MARKETPLACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MARKETPLACE"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 0,
           "max": 8191
@@ -7936,6 +8113,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The UTC time stamp of the creation time.</p>"
           }
+        },
+        "SourceConnection": {
+          "target": "com.amazonaws.servicecatalog#SourceConnectionDetail",
+          "traits": {
+            "smithy.api#documentation": "<p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.\n         Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>, \n         <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs. \n         This response contains the same fields as the <code>ConnectionParameters</code> request, with the \n         addition of the <code>LastSync</code> response.</p>"
+          }
         }
       },
       "traits": {
@@ -7952,26 +8135,32 @@
       "type": "string"
     },
     "com.amazonaws.servicecatalog#ProductViewFilterBy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "FullTextSearch",
-            "name": "FullTextSearch"
-          },
-          {
-            "value": "Owner",
-            "name": "Owner"
-          },
-          {
-            "value": "ProductType",
-            "name": "ProductType"
-          },
-          {
-            "value": "SourceProductId",
-            "name": "SourceProductId"
+      "type": "enum",
+      "members": {
+        "FullTextSearch": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FullTextSearch"
           }
-        ]
+        },
+        "Owner": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Owner"
+          }
+        },
+        "ProductType": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ProductType"
+          }
+        },
+        "SourceProductId": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SourceProductId"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProductViewFilterValue": {
@@ -8020,22 +8209,26 @@
       }
     },
     "com.amazonaws.servicecatalog#ProductViewSortBy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Title",
-            "name": "Title"
-          },
-          {
-            "value": "VersionCount",
-            "name": "VersionCount"
-          },
-          {
-            "value": "CreationDate",
-            "name": "CreationDate"
+      "type": "enum",
+      "members": {
+        "Title": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Title"
           }
-        ]
+        },
+        "VersionCount": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VersionCount"
+          }
+        },
+        "CreationDate": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CreationDate"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProductViewSummaries": {
@@ -8120,18 +8313,22 @@
       }
     },
     "com.amazonaws.servicecatalog#PropertyKey": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "OWNER",
-            "name": "Owner"
-          },
-          {
-            "value": "LAUNCH_ROLE",
-            "name": "LaunchRole"
+      "type": "enum",
+      "members": {
+        "Owner": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OWNER"
           }
-        ],
+        },
+        "LaunchRole": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LAUNCH_ROLE"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#length": {
           "min": 1,
           "max": 128
@@ -8603,7 +8800,7 @@
         "UpdatedTime": {
           "target": "com.amazonaws.servicecatalog#UpdatedTime",
           "traits": {
-            "smithy.api#documentation": "<p>The time when the plan was last updated.</p>"
+            "smithy.api#documentation": "<p>The UTC time stamp when the plan was last updated.</p>"
           }
         },
         "NotificationArns": {
@@ -8639,34 +8836,44 @@
       "type": "string"
     },
     "com.amazonaws.servicecatalog#ProvisionedProductPlanStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE_IN_PROGRESS",
-            "name": "CREATE_IN_PROGRESS"
-          },
-          {
-            "value": "CREATE_SUCCESS",
-            "name": "CREATE_SUCCESS"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "EXECUTE_IN_PROGRESS",
-            "name": "EXECUTE_IN_PROGRESS"
-          },
-          {
-            "value": "EXECUTE_SUCCESS",
-            "name": "EXECUTE_SUCCESS"
-          },
-          {
-            "value": "EXECUTE_FAILED",
-            "name": "EXECUTE_FAILED"
+      "type": "enum",
+      "members": {
+        "CREATE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_IN_PROGRESS"
           }
-        ]
+        },
+        "CREATE_SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_SUCCESS"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "EXECUTE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXECUTE_IN_PROGRESS"
+          }
+        },
+        "EXECUTE_SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXECUTE_SUCCESS"
+          }
+        },
+        "EXECUTE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXECUTE_FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductPlanSummary": {
@@ -8714,14 +8921,14 @@
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductPlanType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CLOUDFORMATION",
-            "name": "CLOUDFORMATION"
+      "type": "enum",
+      "members": {
+        "CLOUDFORMATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOUDFORMATION"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductPlans": {
@@ -8746,30 +8953,38 @@
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "UNDER_CHANGE",
-            "name": "UNDER_CHANGE"
-          },
-          {
-            "value": "TAINTED",
-            "name": "TAINTED"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
-          },
-          {
-            "value": "PLAN_IN_PROGRESS",
-            "name": "PLAN_IN_PROGRESS"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "UNDER_CHANGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_CHANGE"
+          }
+        },
+        "TAINTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TAINTED"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        },
+        "PLAN_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PLAN_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductStatusMessage": {
@@ -8779,14 +8994,14 @@
       "type": "string"
     },
     "com.amazonaws.servicecatalog#ProvisionedProductViewFilterBy": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SearchQuery",
-            "name": "SearchQuery"
+      "type": "enum",
+      "members": {
+        "SearchQuery": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SearchQuery"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisionedProductViewFilterValue": {
@@ -8895,6 +9110,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Information set by the administrator to provide guidance to end users about which provisioning artifacts to use.</p>"
           }
+        },
+        "SourceRevision": {
+          "target": "com.amazonaws.servicecatalog#SourceRevision",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the revision of the external artifact that was used to automatically sync the Service Catalog product \n         and create the provisioning artifact. Service Catalog includes this response parameter as a high level \n         field to the existing <code>ProvisioningArtifactDetail</code> type, which is returned as part of the\n         response for <code>CreateProduct</code>, <code>UpdateProduct</code>, <code>DescribeProductAsAdmin</code>, \n         <code>DescribeProvisioningArtifact</code>, <code>ListProvisioningArtifact</code>, \n         and <code>UpdateProvisioningArticat</code> APIs. </p>\n         <p>This field only exists for Repo-Synced products. </p>"
+          }
         }
       },
       "traits": {
@@ -8908,18 +9129,20 @@
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactGuidance": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DEFAULT",
-            "name": "DEFAULT"
-          },
-          {
-            "value": "DEPRECATED",
-            "name": "DEPRECATED"
+      "type": "enum",
+      "members": {
+        "DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT"
           }
-        ]
+        },
+        "DEPRECATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEPRECATED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactInfo": {
@@ -9083,8 +9306,7 @@
         "Info": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactInfo",
           "traits": {
-            "smithy.api#documentation": "<p>Specify the template source with one of the following options, but not both.\n         Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>\n         <p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.\n       Specify the URL in JSON format as follows:</p>\n         <p>\n            <code>\"LoadTemplateFromURL\": \"https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/...\"</code>\n         </p> \n         <p>\n            <code>ImportFromPhysicalId</code>: The physical id of the resource that contains the\n         template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON\n         format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>\n         </p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>Specify the template source with one of the following options, but not both.\n         Keys accepted: [ <code>LoadTemplateFromURL</code>, <code>ImportFromPhysicalId</code> ]</p>\n         <p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.\n       Specify the URL in JSON format as follows:</p>\n         <p>\n            <code>\"LoadTemplateFromURL\": \"https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/...\"</code>\n         </p> \n         <p>\n            <code>ImportFromPhysicalId</code>: The physical id of the resource that contains the\n         template. Currently only supports CloudFormation stack arn. Specify the physical id in JSON\n         format as follows: <code>ImportFromPhysicalId: “arn:aws:cloudformation:[us-east-1]:[accountId]:stack/[StackName]/[resourceId]</code>\n         </p>"
           }
         },
         "Type": {
@@ -9097,7 +9319,7 @@
           "target": "com.amazonaws.servicecatalog#DisableTemplateValidation",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>If set to true, Amazon Web Services Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>"
+            "smithy.api#documentation": "<p>If set to true, Service Catalog stops validating the specified provisioning artifact even if it is invalid.</p>"
           }
         }
       },
@@ -9106,14 +9328,14 @@
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactPropertyName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Id",
-            "name": "Id"
+      "type": "enum",
+      "members": {
+        "Id": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Id"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactPropertyValue": {
@@ -9164,22 +9386,26 @@
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CLOUD_FORMATION_TEMPLATE",
-            "name": "CLOUD_FORMATION_TEMPLATE"
-          },
-          {
-            "value": "MARKETPLACE_AMI",
-            "name": "MARKETPLACE_AMI"
-          },
-          {
-            "value": "MARKETPLACE_CAR",
-            "name": "MARKETPLACE_CAR"
+      "type": "enum",
+      "members": {
+        "CLOUD_FORMATION_TEMPLATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLOUD_FORMATION_TEMPLATE"
           }
-        ]
+        },
+        "MARKETPLACE_AMI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MARKETPLACE_AMI"
+          }
+        },
+        "MARKETPLACE_CAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MARKETPLACE_CAR"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ProvisioningArtifactView": {
@@ -9441,30 +9667,38 @@
       }
     },
     "com.amazonaws.servicecatalog#RecordStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATED",
-            "name": "CREATED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "IN_PROGRESS_IN_ERROR",
-            "name": "IN_PROGRESS_IN_ERROR"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "IN_PROGRESS_IN_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS_IN_ERROR"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#RecordTag": {
@@ -9571,41 +9805,76 @@
       "members": {}
     },
     "com.amazonaws.servicecatalog#Replacement": {
+      "type": "enum",
+      "members": {
+        "TRUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRUE"
+          }
+        },
+        "FALSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FALSE"
+          }
+        },
+        "CONDITIONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONDITIONAL"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#Repository": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TRUE",
-            "name": "TRUE"
-          },
-          {
-            "value": "FALSE",
-            "name": "FALSE"
-          },
-          {
-            "value": "CONDITIONAL",
-            "name": "CONDITIONAL"
-          }
-        ]
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#RepositoryArtifactPath": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 4096
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#RepositoryBranch": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 250
+        }
       }
     },
     "com.amazonaws.servicecatalog#RequiresRecreation": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NEVER",
-            "name": "NEVER"
-          },
-          {
-            "value": "CONDITIONALLY",
-            "name": "CONDITIONALLY"
-          },
-          {
-            "value": "ALWAYS",
-            "name": "ALWAYS"
+      "type": "enum",
+      "members": {
+        "NEVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NEVER"
           }
-        ]
+        },
+        "CONDITIONALLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONDITIONALLY"
+          }
+        },
+        "ALWAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALWAYS"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ResourceARN": {
@@ -9618,34 +9887,44 @@
       }
     },
     "com.amazonaws.servicecatalog#ResourceAttribute": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROPERTIES",
-            "name": "PROPERTIES"
-          },
-          {
-            "value": "METADATA",
-            "name": "METADATA"
-          },
-          {
-            "value": "CREATIONPOLICY",
-            "name": "CREATIONPOLICY"
-          },
-          {
-            "value": "UPDATEPOLICY",
-            "name": "UPDATEPOLICY"
-          },
-          {
-            "value": "DELETIONPOLICY",
-            "name": "DELETIONPOLICY"
-          },
-          {
-            "value": "TAGS",
-            "name": "TAGS"
+      "type": "enum",
+      "members": {
+        "PROPERTIES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROPERTIES"
           }
-        ]
+        },
+        "METADATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "METADATA"
+          }
+        },
+        "CREATIONPOLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATIONPOLICY"
+          }
+        },
+        "UPDATEPOLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATEPOLICY"
+          }
+        },
+        "DELETIONPOLICY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETIONPOLICY"
+          }
+        },
+        "TAGS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TAGS"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ResourceChange": {
@@ -10260,30 +10539,38 @@
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionAssociationErrorCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DUPLICATE_RESOURCE",
-            "name": "DuplicateResourceException"
-          },
-          {
-            "value": "INTERNAL_FAILURE",
-            "name": "InternalFailure"
-          },
-          {
-            "value": "LIMIT_EXCEEDED",
-            "name": "LimitExceededException"
-          },
-          {
-            "value": "RESOURCE_NOT_FOUND",
-            "name": "ResourceNotFoundException"
-          },
-          {
-            "value": "THROTTLING",
-            "name": "ThrottlingException"
+      "type": "enum",
+      "members": {
+        "DuplicateResourceException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DUPLICATE_RESOURCE"
           }
-        ]
+        },
+        "InternalFailure": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_FAILURE"
+          }
+        },
+        "LimitExceededException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LIMIT_EXCEEDED"
+          }
+        },
+        "ResourceNotFoundException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOURCE_NOT_FOUND"
+          }
+        },
+        "ThrottlingException": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "THROTTLING"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionAssociationErrorMessage": {
@@ -10308,26 +10595,32 @@
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionDefinitionKey": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Name",
-            "name": "Name"
-          },
-          {
-            "value": "Version",
-            "name": "Version"
-          },
-          {
-            "value": "AssumeRole",
-            "name": "AssumeRole"
-          },
-          {
-            "value": "Parameters",
-            "name": "Parameters"
+      "type": "enum",
+      "members": {
+        "Name": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Name"
           }
-        ]
+        },
+        "Version": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Version"
+          }
+        },
+        "AssumeRole": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AssumeRole"
+          }
+        },
+        "Parameters": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Parameters"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionDefinitionMap": {
@@ -10346,14 +10639,14 @@
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionDefinitionType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SSM_AUTOMATION",
-            "name": "SsmAutomation"
+      "type": "enum",
+      "members": {
+        "SsmAutomation": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SSM_AUTOMATION"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.servicecatalog#ServiceActionDefinitionValue": {
@@ -10495,48 +10788,119 @@
       }
     },
     "com.amazonaws.servicecatalog#ShareStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NOT_STARTED",
-            "name": "NOT_STARTED"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "COMPLETED",
-            "name": "COMPLETED"
-          },
-          {
-            "value": "COMPLETED_WITH_ERRORS",
-            "name": "COMPLETED_WITH_ERRORS"
-          },
-          {
-            "value": "ERROR",
-            "name": "ERROR"
+      "type": "enum",
+      "members": {
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        },
+        "COMPLETED_WITH_ERRORS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED_WITH_ERRORS"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ERROR"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#SortField": {
       "type": "string"
     },
     "com.amazonaws.servicecatalog#SortOrder": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASCENDING",
-            "name": "ASCENDING"
-          },
-          {
-            "value": "DESCENDING",
-            "name": "DESCENDING"
+      "type": "enum",
+      "members": {
+        "ASCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASCENDING"
           }
-        ]
+        },
+        "DESCENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DESCENDING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#SourceConnection": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.servicecatalog#SourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The only supported <code>SourceConnection</code> type is Codestar. </p>"
+          }
+        },
+        "ConnectionParameters": {
+          "target": "com.amazonaws.servicecatalog#SourceConnectionParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection details based on the connection <code>Type</code>. </p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A top level <code>ProductViewDetail</code> response containing details about the product’s connection.\n         Service Catalog returns this field for the <code>CreateProduct</code>, <code>UpdateProduct</code>, \n         <code>DescribeProductAsAdmin</code>, and <code>SearchProductAsAdmin</code> APIs. \n         This response contains the same fields as the <code>ConnectionParameters</code> request, with the \n         addition of the <code>LastSync</code> response.</p>"
+      }
+    },
+    "com.amazonaws.servicecatalog#SourceConnectionDetail": {
+      "type": "structure",
+      "members": {
+        "Type": {
+          "target": "com.amazonaws.servicecatalog#SourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The only supported <code>SourceConnection</code> type is Codestar.</p>"
+          }
+        },
+        "ConnectionParameters": {
+          "target": "com.amazonaws.servicecatalog#SourceConnectionParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The connection details based on the connection <code>Type</code>.</p>"
+          }
+        },
+        "LastSync": {
+          "target": "com.amazonaws.servicecatalog#LastSync",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides details about the product's connection sync and contains the following sub-fields. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>LastSyncTime</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSyncStatus</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSyncStatusMessage</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSuccessfulSyncTime</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>LastSuccessfulSyncProvisioningArtifactID</code>\n               </p>\n            </li>\n         </ul>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides details about the configured <code>SourceConnection</code>. </p>"
+      }
+    },
+    "com.amazonaws.servicecatalog#SourceConnectionParameters": {
+      "type": "structure",
+      "members": {
+        "CodeStar": {
+          "target": "com.amazonaws.servicecatalog#CodeStarParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Provides <code>ConnectionType</code> details.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Provides connection details.</p>"
       }
     },
     "com.amazonaws.servicecatalog#SourceProvisioningArtifactProperties": {
@@ -10552,6 +10916,26 @@
       },
       "value": {
         "target": "com.amazonaws.servicecatalog#ProvisioningArtifactPropertyValue"
+      }
+    },
+    "com.amazonaws.servicecatalog#SourceRevision": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 512
+        }
+      }
+    },
+    "com.amazonaws.servicecatalog#SourceType": {
+      "type": "enum",
+      "members": {
+        "CODESTAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CODESTAR"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#StackInstance": {
@@ -10581,22 +10965,26 @@
       }
     },
     "com.amazonaws.servicecatalog#StackInstanceStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CURRENT",
-            "name": "CURRENT"
-          },
-          {
-            "value": "OUTDATED",
-            "name": "OUTDATED"
-          },
-          {
-            "value": "INOPERABLE",
-            "name": "INOPERABLE"
+      "type": "enum",
+      "members": {
+        "CURRENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CURRENT"
           }
-        ]
+        },
+        "OUTDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OUTDATED"
+          }
+        },
+        "INOPERABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INOPERABLE"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#StackInstances": {
@@ -10646,22 +11034,26 @@
       }
     },
     "com.amazonaws.servicecatalog#StackSetOperationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE",
-            "name": "CREATE"
-          },
-          {
-            "value": "UPDATE",
-            "name": "UPDATE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
+      "type": "enum",
+      "members": {
+        "CREATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE"
           }
-        ]
+        },
+        "UPDATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#StackSetRegions": {
@@ -10671,22 +11063,26 @@
       }
     },
     "com.amazonaws.servicecatalog#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AVAILABLE",
-            "name": "AVAILABLE"
-          },
-          {
-            "value": "CREATING",
-            "name": "CREATING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AVAILABLE"
           }
-        ]
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.servicecatalog#StatusDetail": {
@@ -11180,7 +11576,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the specified portfolio share. You can use this API to enable or disable TagOptions sharing for an existing portfolio share. </p>\n      \n         <p>The portfolio share cannot be updated if the <code> CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>\n      \n         <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>\n      \n         <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>\n      \n         <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>"
+        "smithy.api#documentation": "<p>Updates the specified portfolio share. You can use this API to enable or disable <code>TagOptions</code> sharing \n         or Principal sharing for an existing portfolio share. </p>\n      \n         <p>The portfolio share cannot be updated if the <code>CreatePortfolioShare</code> operation is <code>IN_PROGRESS</code>, as the share is not available to recipient entities. In this case, you must wait for the portfolio share to be COMPLETED.</p>\n      \n         <p>You must provide the <code>accountId</code> or organization node in the input, but not both.</p>\n      \n         <p>If the portfolio is shared to both an external account and an organization node, and both shares need to be updated, you must invoke <code>UpdatePortfolioShare</code> separately for each share type. </p>\n      \n         <p>This API cannot be used for removing the portfolio share. You must use <code>DeletePortfolioShare</code> API for that action. </p>\n      \n         <note>\n            <p>When you associate a principal with portfolio, a potential privilege escalation path may occur when that portfolio is \n         then shared with other accounts. For a user in a recipient account who is <i>not</i> an Service Catalog Admin, \n         but still has the ability to create Principals (Users/Groups/Roles), that user could create a role that matches a principal \n         name association for the portfolio. Although this user may not know which principal names are associated through \n         Service Catalog, they may be able to guess the user. If this potential escalation path is a concern, then \n         Service Catalog recommends using <code>PrincipalType</code> as <code>IAM</code>. With this configuration, \n         the <code>PrincipalARN</code> must already exist in the recipient account before it can be associated. </p> \n         </note>"
       }
     },
     "com.amazonaws.servicecatalog#UpdatePortfolioShareInput": {
@@ -11211,7 +11607,13 @@
         "ShareTagOptions": {
           "target": "com.amazonaws.servicecatalog#NullableBoolean",
           "traits": {
-            "smithy.api#documentation": "<p>A flag to enable or disable TagOptions sharing for the portfolio share. If this field is not provided, the current state of TagOptions sharing on the portfolio share will not be modified.</p>"
+            "smithy.api#documentation": "<p>Enables or disables <code>TagOptions</code> sharing for the portfolio share. If this field is not provided, the current state of \n         TagOptions sharing on the portfolio share will not be modified.</p>"
+          }
+        },
+        "SharePrincipals": {
+          "target": "com.amazonaws.servicecatalog#NullableBoolean",
+          "traits": {
+            "smithy.api#documentation": "<p>A flag to enables or disables <code>Principals</code> sharing in the portfolio. If this field is not provided,\n         the current state of the <code>Principals</code> sharing on the portfolio share will not be modified. </p>"
           }
         }
       }
@@ -11324,6 +11726,12 @@
           "target": "com.amazonaws.servicecatalog#TagKeys",
           "traits": {
             "smithy.api#documentation": "<p>The tags to remove from the product.</p>"
+          }
+        },
+        "SourceConnection": {
+          "target": "com.amazonaws.servicecatalog#SourceConnection",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies connection details for the updated product and syncs the product to the connection source\n         artifact. This automatically manages the product's artifacts based on changes to the source.\n         The <code>SourceConnection</code> parameter consists of the following sub-fields.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>Type</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ConnectionParamters</code>\n               </p>\n            </li>\n         </ul>"
           }
         }
       }
@@ -11627,7 +12035,7 @@
         "Info": {
           "target": "com.amazonaws.servicecatalog#ProvisioningArtifactInfo",
           "traits": {
-            "smithy.api#documentation": "<p>The URL of the CloudFormation template in Amazon S3, Amazon Web Services CodeCommit, or GitHub in JSON format.</p>"
+            "smithy.api#documentation": "<p>The URL of the CloudFormation template in Amazon S3 or GitHub in JSON format.</p>"
           }
         },
         "Status": {
