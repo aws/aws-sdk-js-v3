@@ -70,6 +70,10 @@ import {
   UpdateConnectorProfileCommandInput,
   UpdateConnectorProfileCommandOutput,
 } from "../commands/UpdateConnectorProfileCommand";
+import {
+  UpdateConnectorRegistrationCommandInput,
+  UpdateConnectorRegistrationCommandOutput,
+} from "../commands/UpdateConnectorRegistrationCommand";
 import { UpdateFlowCommandInput, UpdateFlowCommandOutput } from "../commands/UpdateFlowCommand";
 import { AppflowServiceException as __BaseException } from "../models/AppflowServiceException";
 import {
@@ -796,6 +800,38 @@ export const serializeAws_restJson1UpdateConnectorProfileCommand = async (
       connectorProfileConfig: serializeAws_restJson1ConnectorProfileConfig(input.connectorProfileConfig, context),
     }),
     ...(input.connectorProfileName != null && { connectorProfileName: input.connectorProfileName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UpdateConnectorRegistrationCommand = async (
+  input: UpdateConnectorRegistrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update-connector-registration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.connectorLabel != null && { connectorLabel: input.connectorLabel }),
+    ...(input.connectorProvisioningConfig != null && {
+      connectorProvisioningConfig: serializeAws_restJson1ConnectorProvisioningConfig(
+        input.connectorProvisioningConfig,
+        context
+      ),
+    }),
+    ...(input.description != null && { description: input.description }),
   });
   return new __HttpRequest({
     protocol,
@@ -1954,6 +1990,71 @@ const deserializeAws_restJson1UpdateConnectorProfileCommandError = async (
     case "ResourceNotFoundException":
     case "com.amazonaws.appflow#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.appflow#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateConnectorRegistrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorRegistrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateConnectorRegistrationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.connectorArn != null) {
+    contents.connectorArn = __expectString(data.connectorArn);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateConnectorRegistrationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorRegistrationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.appflow#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.appflow#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ConnectorAuthenticationException":
+    case "com.amazonaws.appflow#ConnectorAuthenticationException":
+      throw await deserializeAws_restJson1ConnectorAuthenticationExceptionResponse(parsedOutput, context);
+    case "ConnectorServerException":
+    case "com.amazonaws.appflow#ConnectorServerException":
+      throw await deserializeAws_restJson1ConnectorServerExceptionResponse(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.appflow#InternalServerException":
+      throw await deserializeAws_restJson1InternalServerExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.appflow#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.appflow#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.appflow#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.appflow#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);

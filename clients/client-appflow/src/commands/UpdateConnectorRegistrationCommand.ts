@@ -15,40 +15,49 @@ import {
 
 import { AppflowClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppflowClient";
 import {
-  RegisterConnectorRequest,
-  RegisterConnectorRequestFilterSensitiveLog,
-  RegisterConnectorResponse,
-  RegisterConnectorResponseFilterSensitiveLog,
+  UpdateConnectorRegistrationRequest,
+  UpdateConnectorRegistrationRequestFilterSensitiveLog,
+  UpdateConnectorRegistrationResponse,
+  UpdateConnectorRegistrationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1RegisterConnectorCommand,
-  serializeAws_restJson1RegisterConnectorCommand,
+  deserializeAws_restJson1UpdateConnectorRegistrationCommand,
+  serializeAws_restJson1UpdateConnectorRegistrationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface RegisterConnectorCommandInput extends RegisterConnectorRequest {}
-export interface RegisterConnectorCommandOutput extends RegisterConnectorResponse, __MetadataBearer {}
+export interface UpdateConnectorRegistrationCommandInput extends UpdateConnectorRegistrationRequest {}
+export interface UpdateConnectorRegistrationCommandOutput
+  extends UpdateConnectorRegistrationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Registers a new custom connector with your Amazon Web Services account. Before you can register
- *       the connector, you must deploy the associated AWS lambda function in your account.</p>
+ * <p>Updates a custom connector that you've previously registered. This operation updates the connector with one of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The latest version of the AWS Lambda function that's assigned to the connector</p>
+ *             </li>
+ *             <li>
+ *                <p>A new AWS Lambda function that you specify</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AppflowClient, RegisterConnectorCommand } from "@aws-sdk/client-appflow"; // ES Modules import
- * // const { AppflowClient, RegisterConnectorCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
+ * import { AppflowClient, UpdateConnectorRegistrationCommand } from "@aws-sdk/client-appflow"; // ES Modules import
+ * // const { AppflowClient, UpdateConnectorRegistrationCommand } = require("@aws-sdk/client-appflow"); // CommonJS import
  * const client = new AppflowClient(config);
- * const command = new RegisterConnectorCommand(input);
+ * const command = new UpdateConnectorRegistrationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link RegisterConnectorCommandInput} for command's `input` shape.
- * @see {@link RegisterConnectorCommandOutput} for command's `response` shape.
+ * @see {@link UpdateConnectorRegistrationCommandInput} for command's `input` shape.
+ * @see {@link UpdateConnectorRegistrationCommandOutput} for command's `response` shape.
  * @see {@link AppflowClientResolvedConfig | config} for AppflowClient's `config` shape.
  *
  */
-export class RegisterConnectorCommand extends $Command<
-  RegisterConnectorCommandInput,
-  RegisterConnectorCommandOutput,
+export class UpdateConnectorRegistrationCommand extends $Command<
+  UpdateConnectorRegistrationCommandInput,
+  UpdateConnectorRegistrationCommandOutput,
   AppflowClientResolvedConfig
 > {
   // Start section: command_properties
@@ -63,7 +72,7 @@ export class RegisterConnectorCommand extends $Command<
     };
   }
 
-  constructor(readonly input: RegisterConnectorCommandInput) {
+  constructor(readonly input: UpdateConnectorRegistrationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -76,23 +85,23 @@ export class RegisterConnectorCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AppflowClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<RegisterConnectorCommandInput, RegisterConnectorCommandOutput> {
+  ): Handler<UpdateConnectorRegistrationCommandInput, UpdateConnectorRegistrationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, RegisterConnectorCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateConnectorRegistrationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AppflowClient";
-    const commandName = "RegisterConnectorCommand";
+    const commandName = "UpdateConnectorRegistrationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: RegisterConnectorRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: RegisterConnectorResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateConnectorRegistrationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateConnectorRegistrationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -102,12 +111,15 @@ export class RegisterConnectorCommand extends $Command<
     );
   }
 
-  private serialize(input: RegisterConnectorCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1RegisterConnectorCommand(input, context);
+  private serialize(input: UpdateConnectorRegistrationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateConnectorRegistrationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<RegisterConnectorCommandOutput> {
-    return deserializeAws_restJson1RegisterConnectorCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateConnectorRegistrationCommandOutput> {
+    return deserializeAws_restJson1UpdateConnectorRegistrationCommand(output, context);
   }
 
   // Start section: command_body_extra

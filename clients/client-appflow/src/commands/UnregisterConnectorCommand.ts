@@ -30,7 +30,7 @@ export interface UnregisterConnectorCommandOutput extends UnregisterConnectorRes
 
 /**
  * <p>Unregisters the custom connector registered in your account that matches the
- *       connectorLabel provided in the request.</p>
+ *       connector label provided in the request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

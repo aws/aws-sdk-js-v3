@@ -83,6 +83,11 @@ import {
   UpdateConnectorProfileCommandInput,
   UpdateConnectorProfileCommandOutput,
 } from "./commands/UpdateConnectorProfileCommand";
+import {
+  UpdateConnectorRegistrationCommand,
+  UpdateConnectorRegistrationCommandInput,
+  UpdateConnectorRegistrationCommandOutput,
+} from "./commands/UpdateConnectorRegistrationCommand";
 import { UpdateFlowCommand, UpdateFlowCommandInput, UpdateFlowCommandOutput } from "./commands/UpdateFlowCommand";
 
 /**
@@ -574,8 +579,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>Registers a new connector with your Amazon Web Services account. Before you can register
-   *       the connector, you must deploy lambda in your account.</p>
+   * <p>Registers a new custom connector with your Amazon Web Services account. Before you can register
+   *       the connector, you must deploy the associated AWS lambda function in your account.</p>
    */
   public registerConnector(
     args: RegisterConnectorCommandInput,
@@ -689,7 +694,7 @@ export class Appflow extends AppflowClient {
 
   /**
    * <p>Unregisters the custom connector registered in your account that matches the
-   *       connectorLabel provided in the request.</p>
+   *       connector label provided in the request.</p>
    */
   public unregisterConnector(
     args: UnregisterConnectorCommandInput,
@@ -774,6 +779,46 @@ export class Appflow extends AppflowClient {
     cb?: (err: any, data?: UpdateConnectorProfileCommandOutput) => void
   ): Promise<UpdateConnectorProfileCommandOutput> | void {
     const command = new UpdateConnectorProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a custom connector that you've previously registered. This operation updates the connector with one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The latest version of the AWS Lambda function that's assigned to the connector</p>
+   *             </li>
+   *             <li>
+   *                <p>A new AWS Lambda function that you specify</p>
+   *             </li>
+   *          </ul>
+   */
+  public updateConnectorRegistration(
+    args: UpdateConnectorRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorRegistrationCommandOutput>;
+  public updateConnectorRegistration(
+    args: UpdateConnectorRegistrationCommandInput,
+    cb: (err: any, data?: UpdateConnectorRegistrationCommandOutput) => void
+  ): void;
+  public updateConnectorRegistration(
+    args: UpdateConnectorRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorRegistrationCommandOutput) => void
+  ): void;
+  public updateConnectorRegistration(
+    args: UpdateConnectorRegistrationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateConnectorRegistrationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateConnectorRegistrationCommandOutput) => void
+  ): Promise<UpdateConnectorRegistrationCommandOutput> | void {
+    const command = new UpdateConnectorRegistrationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

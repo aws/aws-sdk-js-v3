@@ -20,4 +20,5 @@ export * from "./TagResourceCommand";
 export * from "./UnregisterConnectorCommand";
 export * from "./UntagResourceCommand";
 export * from "./UpdateConnectorProfileCommand";
+export * from "./UpdateConnectorRegistrationCommand";
 export * from "./UpdateFlowCommand";

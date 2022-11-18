@@ -3542,7 +3542,7 @@ export interface SalesforceSourceProperties {
    *                <p>Amazon AppFlow uses only Salesforce REST API. By choosing this option, you
    *             ensure that your flow writes consistent output, but you decrease performance for large
    *             data transfers that are better suited for Bulk API 2.0. In some cases, if your flow
-   *             attempts to transfer a vary large set of data, it might fail with a timed out
+   *             attempts to transfer a vary large set of data, it might fail wituh a timed out
    *             error.</p>
    *             </dd>
    *          </dl>
@@ -4893,6 +4893,31 @@ export interface UpdateConnectorProfileResponse {
    * <p> The Amazon Resource Name (ARN) of the connector profile. </p>
    */
   connectorProfileArn?: string;
+}
+
+export interface UpdateConnectorRegistrationRequest {
+  /**
+   * <p>The name of the connector. The name is unique for each connector registration in your AWS
+   *       account.</p>
+   */
+  connectorLabel: string | undefined;
+
+  /**
+   * <p>A description about the update that you're applying to the connector.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Contains information about the configuration of the connector being registered.</p>
+   */
+  connectorProvisioningConfig?: ConnectorProvisioningConfig;
+}
+
+export interface UpdateConnectorRegistrationResponse {
+  /**
+   * <p>The ARN of the connector being updated.</p>
+   */
+  connectorArn?: string;
 }
 
 export interface UpdateFlowRequest {
@@ -6350,6 +6375,22 @@ export const UpdateConnectorProfileRequestFilterSensitiveLog = (obj: UpdateConne
  * @internal
  */
 export const UpdateConnectorProfileResponseFilterSensitiveLog = (obj: UpdateConnectorProfileResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRegistrationRequestFilterSensitiveLog = (obj: UpdateConnectorRegistrationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRegistrationResponseFilterSensitiveLog = (
+  obj: UpdateConnectorRegistrationResponse
+): any => ({
   ...obj,
 });
 
