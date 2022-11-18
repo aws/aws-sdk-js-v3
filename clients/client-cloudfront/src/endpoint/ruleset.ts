@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: false,
+      required: true,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -205,8 +205,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "us-east-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -265,8 +265,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "us-east-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -325,8 +325,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "us-east-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -351,8 +351,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "cloudfront",
                       signingRegion: "us-east-1",
+                      signingName: "cloudfront",
                     },
                   ],
                 },
@@ -448,8 +448,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "cn-northwest-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -508,8 +508,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "cn-northwest-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -568,8 +568,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "cloudfront",
                               signingRegion: "cn-northwest-1",
+                              signingName: "cloudfront",
                             },
                           ],
                         },
@@ -594,8 +594,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "cloudfront",
                       signingRegion: "cn-northwest-1",
+                      signingName: "cloudfront",
                     },
                   ],
                 },
@@ -813,8 +813,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "cloudfront",
                       signingRegion: "us-east-1",
+                      signingName: "cloudfront",
                     },
                   ],
                 },
@@ -840,8 +840,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "cloudfront",
                       signingRegion: "cn-northwest-1",
+                      signingName: "cloudfront",
                     },
                   ],
                 },

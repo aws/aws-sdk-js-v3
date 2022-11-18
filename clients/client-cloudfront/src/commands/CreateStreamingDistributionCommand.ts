@@ -19,7 +19,7 @@ import {
   CreateStreamingDistributionRequestFilterSensitiveLog,
   CreateStreamingDistributionResult,
   CreateStreamingDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restXmlCreateStreamingDistributionCommand,
   serializeAws_restXmlCreateStreamingDistributionCommand,

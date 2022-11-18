@@ -3,6 +3,7 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { CloudFrontServiceException as __BaseException } from "./CloudFrontServiceException";
 import {
+  ActiveTrustedSigners,
   Aliases,
   AliasICPRecordal,
   CacheBehaviors,
@@ -13,6 +14,8 @@ import {
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityConfig,
   ContentTypeProfileConfig,
+  ContinuousDeploymentPolicy,
+  ContinuousDeploymentPolicyConfig,
   CustomErrorResponses,
   DefaultCacheBehavior,
   Distribution,
@@ -50,13 +53,329 @@ import {
   ResponseHeadersPolicy,
   ResponseHeadersPolicyConfig,
   Restrictions,
-  S3Origin,
-  StreamingDistribution,
-  StreamingDistributionConfig,
+  StreamingLoggingConfig,
   Tags,
   TrustedSigners,
   ViewerCertificate,
 } from "./models_0";
+
+/**
+ * <p>A complex type that contains information about the Amazon S3 bucket from which you want
+ * 			CloudFront to get your media files for distribution.</p>
+ */
+export interface S3Origin {
+  /**
+   * <p>The DNS name of the Amazon S3 origin. </p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>The CloudFront origin access identity to associate with the distribution. Use an origin
+   * 			access identity to configure the distribution so that end users can only access objects in an
+   * 			Amazon S3 bucket through CloudFront.</p>
+   * 		       <p>If you want end users to be able to access objects using either the CloudFront URL or the
+   * 			Amazon S3 URL, specify an empty <code>OriginAccessIdentity</code> element.</p>
+   * 		       <p>To delete the origin access identity from an existing distribution, update the
+   * 			distribution configuration and include an empty <code>OriginAccessIdentity</code>
+   * 			element.</p>
+   * 		       <p>To replace the origin access identity, update the distribution configuration and
+   * 			specify the new origin access identity.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using an Origin Access
+   * 				Identity to Restrict Access to Your Amazon S3 Content</a> in the <i>
+   * 				Amazon CloudFront Developer Guide</i>.</p>
+   */
+  OriginAccessIdentity: string | undefined;
+}
+
+/**
+ * <p>The RTMP distribution's configuration information.</p>
+ */
+export interface StreamingDistributionConfig {
+  /**
+   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be
+   * 			replayed.</p>
+   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
+   * 			<code>StreamingDistributionConfig</code> object), CloudFront creates a new distribution.</p>
+   * 		       <p>If <code>CallerReference</code> is a value that you already sent in a previous request to
+   * 			create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code> error.</p>
+   */
+  CallerReference: string | undefined;
+
+  /**
+   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
+   * 			CloudFront to get your media files for distribution. </p>
+   */
+  S3Origin: S3Origin | undefined;
+
+  /**
+   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
+   * 			for this streaming distribution. </p>
+   */
+  Aliases?: Aliases;
+
+  /**
+   * <p>Any comments you want to include about the streaming distribution. </p>
+   */
+  Comment: string | undefined;
+
+  /**
+   * <p>A complex type that controls whether access logs are written for the streaming
+   * 			distribution. </p>
+   */
+  Logging?: StreamingLoggingConfig;
+
+  /**
+   * <p>A complex type that specifies any Amazon Web Services accounts that you want to permit to create signed
+   * 			URLs for private content. If you want the distribution to use signed URLs, include this
+   * 			element; if you want the distribution to use public URLs, remove this element. For more
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through
+   * 				CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   */
+  TrustedSigners: TrustedSigners | undefined;
+
+  /**
+   * <p>A complex type that contains information about price class for this streaming
+   * 			distribution. </p>
+   */
+  PriceClass?: PriceClass | string;
+
+  /**
+   * <p>Whether the streaming distribution is enabled to accept user requests for
+   * 			content.</p>
+   */
+  Enabled: boolean | undefined;
+}
+
+/**
+ * <p>The request to create a new streaming distribution.</p>
+ */
+export interface CreateStreamingDistributionRequest {
+  /**
+   * <p>The streaming distribution's configuration information.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
+}
+
+/**
+ * <p>A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to
+ * 			track and manage content delivery.</p>
+ */
+export interface StreamingDistribution {
+  /**
+   * <p>The identifier for the RTMP distribution. For example:
+   * 			<code>EGTXBD79EXAMPLE</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
+   * 			<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
+   * 			<code>123456789012</code> is your Amazon Web Services account ID.</p>
+   */
+  ARN: string | undefined;
+
+  /**
+   * <p>The current status of the RTMP distribution. When the status is <code>Deployed</code>,
+   * 			the distribution's information is propagated to all CloudFront edge locations.</p>
+   */
+  Status: string | undefined;
+
+  /**
+   * <p>The date and time that the distribution was last modified. </p>
+   */
+  LastModifiedTime?: Date;
+
+  /**
+   * <p>The domain name that corresponds to the streaming distribution, for example, <code>s5c39gqb8ow64r.cloudfront.net</code>. </p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * <p>A complex type that lists the Amazon Web Services accounts, if any, that you included in the
+   * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
+   * 			you want to allow to create signed URLs for private content.</p>
+   * 		       <p>The <code>Signer</code> complex type lists the Amazon Web Services account number of the trusted
+   * 			signer or <code>self</code> if the signer is the Amazon Web Services account that created the distribution.
+   * 			The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are
+   * 			associated with the trusted signer's Amazon Web Services account. If no <code>KeyPairId</code> element
+   * 			appears for a <code>Signer</code>, that signer can't create signed URLs.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
+   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   */
+  ActiveTrustedSigners: ActiveTrustedSigners | undefined;
+
+  /**
+   * <p>The current configuration information for the RTMP distribution.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface CreateStreamingDistributionResult {
+  /**
+   * <p>The streaming distribution's information.</p>
+   */
+  StreamingDistribution?: StreamingDistribution;
+
+  /**
+   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current version of the streaming distribution created.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>The caller reference you attempted to create the streaming distribution with
+ * 			is associated with another distribution</p>
+ */
+export class StreamingDistributionAlreadyExists extends __BaseException {
+  readonly name: "StreamingDistributionAlreadyExists" = "StreamingDistributionAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StreamingDistributionAlreadyExists, __BaseException>) {
+    super({
+      name: "StreamingDistributionAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StreamingDistributionAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
+ */
+export class TooManyStreamingDistributionCNAMEs extends __BaseException {
+  readonly name: "TooManyStreamingDistributionCNAMEs" = "TooManyStreamingDistributionCNAMEs";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributionCNAMEs, __BaseException>) {
+    super({
+      name: "TooManyStreamingDistributionCNAMEs",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyStreamingDistributionCNAMEs.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
+ */
+export class TooManyStreamingDistributions extends __BaseException {
+  readonly name: "TooManyStreamingDistributions" = "TooManyStreamingDistributions";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributions, __BaseException>) {
+    super({
+      name: "TooManyStreamingDistributions",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyStreamingDistributions.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>A streaming distribution Configuration and a list of tags to be associated with the
+ * 			streaming distribution.</p>
+ */
+export interface StreamingDistributionConfigWithTags {
+  /**
+   * <p>A streaming distribution Configuration.</p>
+   */
+  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
+
+  /**
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
+   */
+  Tags: Tags | undefined;
+}
+
+/**
+ * <p>The request to create a new streaming distribution with tags.</p>
+ */
+export interface CreateStreamingDistributionWithTagsRequest {
+  /**
+   * <p> The streaming distribution's configuration information. </p>
+   */
+  StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags | undefined;
+}
+
+/**
+ * <p>The returned result of the corresponding request. </p>
+ */
+export interface CreateStreamingDistributionWithTagsResult {
+  /**
+   * <p>The streaming distribution's information. </p>
+   */
+  StreamingDistribution?: StreamingDistribution;
+
+  /**
+   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current version of the distribution created.</p>
+   */
+  ETag?: string;
+}
+
+export interface DeleteCachePolicyRequest {
+  /**
+   * <p>The unique identifier for the cache policy that you are deleting. To get the
+   * 			identifier, you can use <code>ListCachePolicies</code>.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The version of the cache policy that you are deleting. The version is the cache
+   * 			policy’s <code>ETag</code> value, which you can get using
+   * 			<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
+   * 			<code>GetCachePolicyConfig</code>.</p>
+   */
+  IfMatch?: string;
+}
+
+/**
+ * <p>You cannot delete a managed policy.</p>
+ */
+export class IllegalDelete extends __BaseException {
+  readonly name: "IllegalDelete" = "IllegalDelete";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalDelete, __BaseException>) {
+    super({
+      name: "IllegalDelete",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalDelete.prototype);
+    this.Message = opts.Message;
+  }
+}
 
 /**
  * <p>The Origin Access Identity specified is already in use.</p>
@@ -114,6 +433,19 @@ export class NoSuchCloudFrontOriginAccessIdentity extends __BaseException {
     Object.setPrototypeOf(this, NoSuchCloudFrontOriginAccessIdentity.prototype);
     this.Message = opts.Message;
   }
+}
+
+export interface DeleteContinuousDeploymentPolicyRequest {
+  /**
+   * <p>The identifier of the continuous deployment policy that you are deleting.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the continuous deployment policy that
+   * 			you are deleting.</p>
+   */
+  IfMatch?: string;
 }
 
 /**
@@ -790,6 +1122,45 @@ export interface GetCloudFrontOriginAccessIdentityConfigResult {
   /**
    * <p>The current version of the configuration. For example:
    * 			<code>E2QWRUHAPOMQZL</code>.</p>
+   */
+  ETag?: string;
+}
+
+export interface GetContinuousDeploymentPolicyRequest {
+  /**
+   * <p>The identifier of the continuous deployment policy that you are getting.</p>
+   */
+  Id: string | undefined;
+}
+
+export interface GetContinuousDeploymentPolicyResult {
+  /**
+   * <p>A continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+
+  /**
+   * <p>The version identifier for the current version of the continuous deployment policy.</p>
+   */
+  ETag?: string;
+}
+
+export interface GetContinuousDeploymentPolicyConfigRequest {
+  /**
+   * <p>The identifier of the continuous deployment policy whose configuration you are
+   * 			getting.</p>
+   */
+  Id: string | undefined;
+}
+
+export interface GetContinuousDeploymentPolicyConfigResult {
+  /**
+   * <p>Contains the configuration for a continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicyConfig?: ContinuousDeploymentPolicyConfig;
+
+  /**
+   * <p>The version identifier for the current version of the continuous deployment policy.</p>
    */
   ETag?: string;
 }
@@ -1521,6 +1892,65 @@ export interface ListConflictingAliasesResult {
    * <p>A list of conflicting aliases.</p>
    */
   ConflictingAliasesList?: ConflictingAliasesList;
+}
+
+export interface ListContinuousDeploymentPoliciesRequest {
+  /**
+   * <p>Use this field when paginating results to indicate where to begin in your list of
+   * 			continuous deployment policies. The response includes policies in the list that occur
+   * 			after the marker. To get the next page of the list, set this field’s value to the value
+   * 			of <code>NextMarker</code> from the current page’s response.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of continuous deployment policies that you want returned in the
+   * 			response.</p>
+   */
+  MaxItems?: number;
+}
+
+/**
+ * <p>A summary of the information about your continuous deployment policies.</p>
+ */
+export interface ContinuousDeploymentPolicySummary {
+  /**
+   * <p>The continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicy: ContinuousDeploymentPolicy | undefined;
+}
+
+/**
+ * <p>Contains a list of continuous deployment policies.</p>
+ */
+export interface ContinuousDeploymentPolicyList {
+  /**
+   * <p>Indicates the next page of continuous deployment policies. To get the next page of the list,
+   * 			use this value in the <code>Marker</code> field of your request.</p>
+   */
+  NextMarker?: string;
+
+  /**
+   * <p>The maximum number of continuous deployment policies that were specified in your request.</p>
+   */
+  MaxItems: number | undefined;
+
+  /**
+   * <p>The total number of continuous deployment policies in your Amazon Web Services account, regardless of the <code>MaxItems</code> value.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>A list of continuous deployment policy items.</p>
+   */
+  Items?: ContinuousDeploymentPolicySummary[];
+}
+
+export interface ListContinuousDeploymentPoliciesResult {
+  /**
+   * <p>A list of continuous deployment policies.</p>
+   */
+  ContinuousDeploymentPolicyList?: ContinuousDeploymentPolicyList;
 }
 
 /**
@@ -2433,7 +2863,10 @@ export interface ListOriginAccessControlsResult {
   OriginAccessControlList?: OriginAccessControlList;
 }
 
-export type OriginRequestPolicyType = "custom" | "managed";
+export enum OriginRequestPolicyType {
+  custom = "custom",
+  managed = "managed",
+}
 
 export interface ListOriginRequestPoliciesRequest {
   /**
@@ -3124,6 +3557,36 @@ export interface UpdateCloudFrontOriginAccessIdentityResult {
   ETag?: string;
 }
 
+export interface UpdateContinuousDeploymentPolicyRequest {
+  /**
+   * <p>The continuous deployment policy configuration.</p>
+   */
+  ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfig | undefined;
+
+  /**
+   * <p>The identifier of the continuous deployment policy that you are updating.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The current version (<code>ETag</code> value) of the continuous deployment policy that you
+   * 			are updating.</p>
+   */
+  IfMatch?: string;
+}
+
+export interface UpdateContinuousDeploymentPolicyResult {
+  /**
+   * <p>A continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+
+  /**
+   * <p>The version identifier for the current version of the continuous deployment policy.</p>
+   */
+  ETag?: string;
+}
+
 /**
  * <p>The request to update a distribution.</p>
  */
@@ -3491,8 +3954,86 @@ export interface UpdateStreamingDistributionResult {
 /**
  * @internal
  */
+export const S3OriginFilterSensitiveLog = (obj: S3Origin): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionConfigFilterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionRequestFilterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionFilterSensitiveLog = (obj: StreamingDistribution): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionResultFilterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingDistributionConfigWithTagsFilterSensitiveLog = (
+  obj: StreamingDistributionConfigWithTags
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionWithTagsRequestFilterSensitiveLog = (
+  obj: CreateStreamingDistributionWithTagsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateStreamingDistributionWithTagsResultFilterSensitiveLog = (
+  obj: CreateStreamingDistributionWithTagsResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteCachePolicyRequestFilterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
   obj: DeleteCloudFrontOriginAccessIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog = (
+  obj: DeleteContinuousDeploymentPolicyRequest
 ): any => ({
   ...obj,
 });
@@ -3668,6 +4209,42 @@ export const GetCloudFrontOriginAccessIdentityConfigRequestFilterSensitiveLog = 
  */
 export const GetCloudFrontOriginAccessIdentityConfigResultFilterSensitiveLog = (
   obj: GetCloudFrontOriginAccessIdentityConfigResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContinuousDeploymentPolicyRequestFilterSensitiveLog = (
+  obj: GetContinuousDeploymentPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContinuousDeploymentPolicyResultFilterSensitiveLog = (
+  obj: GetContinuousDeploymentPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContinuousDeploymentPolicyConfigRequestFilterSensitiveLog = (
+  obj: GetContinuousDeploymentPolicyConfigRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetContinuousDeploymentPolicyConfigResultFilterSensitiveLog = (
+  obj: GetContinuousDeploymentPolicyConfigResult
 ): any => ({
   ...obj,
 });
@@ -4080,6 +4657,38 @@ export const ConflictingAliasesListFilterSensitiveLog = (obj: ConflictingAliases
  * @internal
  */
 export const ListConflictingAliasesResultFilterSensitiveLog = (obj: ListConflictingAliasesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContinuousDeploymentPoliciesRequestFilterSensitiveLog = (
+  obj: ListContinuousDeploymentPoliciesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentPolicySummaryFilterSensitiveLog = (obj: ContinuousDeploymentPolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentPolicyListFilterSensitiveLog = (obj: ContinuousDeploymentPolicyList): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListContinuousDeploymentPoliciesResultFilterSensitiveLog = (
+  obj: ListContinuousDeploymentPoliciesResult
+): any => ({
   ...obj,
 });
 
@@ -4623,6 +5232,24 @@ export const UpdateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
  */
 export const UpdateCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
   obj: UpdateCloudFrontOriginAccessIdentityResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContinuousDeploymentPolicyRequestFilterSensitiveLog = (
+  obj: UpdateContinuousDeploymentPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateContinuousDeploymentPolicyResultFilterSensitiveLog = (
+  obj: UpdateContinuousDeploymentPolicyResult
 ): any => ({
   ...obj,
 });

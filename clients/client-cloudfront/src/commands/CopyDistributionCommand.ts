@@ -15,39 +15,45 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
-  CreateDistributionRequest,
-  CreateDistributionRequestFilterSensitiveLog,
-  CreateDistributionResult,
-  CreateDistributionResultFilterSensitiveLog,
+  CopyDistributionRequest,
+  CopyDistributionRequestFilterSensitiveLog,
+  CopyDistributionResult,
+  CopyDistributionResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restXmlCreateDistributionCommand,
-  serializeAws_restXmlCreateDistributionCommand,
+  deserializeAws_restXmlCopyDistributionCommand,
+  serializeAws_restXmlCopyDistributionCommand,
 } from "../protocols/Aws_restXml";
 
-export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
-export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
+export interface CopyDistributionCommandInput extends CopyDistributionRequest {}
+export interface CopyDistributionCommandOutput extends CopyDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a CloudFront distribution.</p>
+ * <p>Creates a staging distribution using the configuration of the provided primary distribution.
+ * 			A staging distribution is a copy of an existing distribution (called the primary
+ * 			distribution) that you can use in a continuous deployment workflow.</p>
+ * 		       <p>After you create a staging distribution, you can use <code>UpdateDistribution</code> to
+ * 			modify the staging distribution’s configuration. Then you can use
+ * 				<code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the
+ * 			staging distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, CopyDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, CopyDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const command = new CreateDistributionCommand(input);
+ * const command = new CopyDistributionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateDistributionCommandInput} for command's `input` shape.
- * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
+ * @see {@link CopyDistributionCommandInput} for command's `input` shape.
+ * @see {@link CopyDistributionCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
-export class CreateDistributionCommand extends $Command<
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
+export class CopyDistributionCommand extends $Command<
+  CopyDistributionCommandInput,
+  CopyDistributionCommandOutput,
   CloudFrontClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +68,7 @@ export class CreateDistributionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateDistributionCommandInput) {
+  constructor(readonly input: CopyDistributionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +81,23 @@ export class CreateDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDistributionCommandInput, CreateDistributionCommandOutput> {
+  ): Handler<CopyDistributionCommandInput, CopyDistributionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDistributionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CopyDistributionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudFrontClient";
-    const commandName = "CreateDistributionCommand";
+    const commandName = "CopyDistributionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: CopyDistributionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CopyDistributionResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +107,12 @@ export class CreateDistributionCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionCommand(input, context);
+  private serialize(input: CopyDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlCopyDistributionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CopyDistributionCommandOutput> {
+    return deserializeAws_restXmlCopyDistributionCommand(output, context);
   }
 
   // Start section: command_body_extra

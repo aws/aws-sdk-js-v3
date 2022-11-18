@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
-import { DeleteCachePolicyRequest, DeleteCachePolicyRequestFilterSensitiveLog } from "../models/models_0";
+import { DeleteCachePolicyRequest, DeleteCachePolicyRequestFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restXmlDeleteCachePolicyCommand,
   serializeAws_restXmlDeleteCachePolicyCommand,

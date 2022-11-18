@@ -8,6 +8,11 @@ import {
   AssociateAliasCommandOutput,
 } from "./commands/AssociateAliasCommand";
 import {
+  CopyDistributionCommand,
+  CopyDistributionCommandInput,
+  CopyDistributionCommandOutput,
+} from "./commands/CopyDistributionCommand";
+import {
   CreateCachePolicyCommand,
   CreateCachePolicyCommandInput,
   CreateCachePolicyCommandOutput,
@@ -17,6 +22,11 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CreateContinuousDeploymentPolicyCommand,
+  CreateContinuousDeploymentPolicyCommandInput,
+  CreateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/CreateContinuousDeploymentPolicyCommand";
 import {
   CreateDistributionCommand,
   CreateDistributionCommandInput,
@@ -103,6 +113,11 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
 import {
+  DeleteContinuousDeploymentPolicyCommand,
+  DeleteContinuousDeploymentPolicyCommandInput,
+  DeleteContinuousDeploymentPolicyCommandOutput,
+} from "./commands/DeleteContinuousDeploymentPolicyCommand";
+import {
   DeleteDistributionCommand,
   DeleteDistributionCommandInput,
   DeleteDistributionCommandOutput,
@@ -187,6 +202,16 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetContinuousDeploymentPolicyCommand,
+  GetContinuousDeploymentPolicyCommandInput,
+  GetContinuousDeploymentPolicyCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyCommand";
+import {
+  GetContinuousDeploymentPolicyConfigCommand,
+  GetContinuousDeploymentPolicyConfigCommandInput,
+  GetContinuousDeploymentPolicyConfigCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyConfigCommand";
 import {
   GetDistributionCommand,
   GetDistributionCommandInput,
@@ -304,6 +329,11 @@ import {
   ListConflictingAliasesCommandInput,
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
+import {
+  ListContinuousDeploymentPoliciesCommand,
+  ListContinuousDeploymentPoliciesCommandInput,
+  ListContinuousDeploymentPoliciesCommandOutput,
+} from "./commands/ListContinuousDeploymentPoliciesCommand";
 import {
   ListDistributionsByCachePolicyIdCommand,
   ListDistributionsByCachePolicyIdCommandInput,
@@ -426,6 +456,11 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
 import {
+  UpdateContinuousDeploymentPolicyCommand,
+  UpdateContinuousDeploymentPolicyCommandInput,
+  UpdateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/UpdateContinuousDeploymentPolicyCommand";
+import {
   UpdateDistributionCommand,
   UpdateDistributionCommandInput,
   UpdateDistributionCommandOutput,
@@ -531,6 +566,44 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
+   * <p>Creates a staging distribution using the configuration of the provided primary distribution.
+   * 			A staging distribution is a copy of an existing distribution (called the primary
+   * 			distribution) that you can use in a continuous deployment workflow.</p>
+   * 		       <p>After you create a staging distribution, you can use <code>UpdateDistribution</code> to
+   * 			modify the staging distribution’s configuration. Then you can use
+   * 				<code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the
+   * 			staging distribution.</p>
+   */
+  public copyDistribution(
+    args: CopyDistributionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CopyDistributionCommandOutput>;
+  public copyDistribution(
+    args: CopyDistributionCommandInput,
+    cb: (err: any, data?: CopyDistributionCommandOutput) => void
+  ): void;
+  public copyDistribution(
+    args: CopyDistributionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CopyDistributionCommandOutput) => void
+  ): void;
+  public copyDistribution(
+    args: CopyDistributionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CopyDistributionCommandOutput) => void),
+    cb?: (err: any, data?: CopyDistributionCommandOutput) => void
+  ): Promise<CopyDistributionCommandOutput> | void {
+    const command = new CopyDistributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a cache policy.</p>
    * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it’s
    * 			attached to a cache behavior, the cache policy determines the following:</p>
@@ -618,19 +691,48 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a new web distribution. You create a CloudFront distribution to tell CloudFront where you
-   * 			want content to be delivered from, and the details about how to track and manage content delivery. Send a <code>POST</code> request to the
-   * 			<code>/<i>CloudFront API version</i>/distribution</code>/<code>distribution ID</code> resource.</p>
-   * 		       <important>
-   *             <p>When you update a distribution, there are more required fields than when you create a distribution.
-   * 			When you update your distribution by using
-   * 			<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>,
-   * 			follow the steps included
-   * 			in the documentation to get the current configuration
-   * 			and then make your updates. This helps to make sure that you include all of the required fields. To view a summary,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
-   * 				Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   *          </important>
+   * <p>Creates a continuous deployment policy that distributes traffic for a custom domain name to
+   * 			two different CloudFront distributions.</p>
+   * 		       <p>To use a continuous deployment policy, first use
+   * 			<code>CopyDistribution</code> to create a staging distribution, then use
+   * 			<code>UpdateDistribution</code> to modify the staging distribution’s
+   * 			configuration.</p>
+   * 		       <p>After you create and update a staging distribution, you can use a continuous deployment
+   * 			policy to incrementally move traffic to the staging distribution. This workflow enables
+   * 			you to test changes to a distribution’s configuration before moving all of your domain’s
+   * 			production traffic to the new configuration.</p>
+   */
+  public createContinuousDeploymentPolicy(
+    args: CreateContinuousDeploymentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContinuousDeploymentPolicyCommandOutput>;
+  public createContinuousDeploymentPolicy(
+    args: CreateContinuousDeploymentPolicyCommandInput,
+    cb: (err: any, data?: CreateContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public createContinuousDeploymentPolicy(
+    args: CreateContinuousDeploymentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public createContinuousDeploymentPolicy(
+    args: CreateContinuousDeploymentPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateContinuousDeploymentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: CreateContinuousDeploymentPolicyCommandOutput) => void
+  ): Promise<CreateContinuousDeploymentPolicyCommandOutput> | void {
+    const command = new CreateContinuousDeploymentPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a CloudFront distribution.</p>
    */
   public createDistribution(
     args: CreateDistributionCommandInput,
@@ -1233,6 +1335,41 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: DeleteCloudFrontOriginAccessIdentityCommandOutput) => void
   ): Promise<DeleteCloudFrontOriginAccessIdentityCommandOutput> | void {
     const command = new DeleteCloudFrontOriginAccessIdentityCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a continuous deployment policy.</p>
+   * 		       <p>You cannot delete a continuous deployment policy that’s attached to a primary
+   * 			distribution. First update your distribution to remove the continuous deployment policy,
+   * 			then you can delete the policy.</p>
+   */
+  public deleteContinuousDeploymentPolicy(
+    args: DeleteContinuousDeploymentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContinuousDeploymentPolicyCommandOutput>;
+  public deleteContinuousDeploymentPolicy(
+    args: DeleteContinuousDeploymentPolicyCommandInput,
+    cb: (err: any, data?: DeleteContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public deleteContinuousDeploymentPolicy(
+    args: DeleteContinuousDeploymentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public deleteContinuousDeploymentPolicy(
+    args: DeleteContinuousDeploymentPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteContinuousDeploymentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: DeleteContinuousDeploymentPolicyCommandOutput) => void
+  ): Promise<DeleteContinuousDeploymentPolicyCommandOutput> | void {
+    const command = new DeleteContinuousDeploymentPolicyCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1881,6 +2018,71 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: GetCloudFrontOriginAccessIdentityConfigCommandOutput) => void
   ): Promise<GetCloudFrontOriginAccessIdentityConfigCommandOutput> | void {
     const command = new GetCloudFrontOriginAccessIdentityConfigCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a continuous deployment policy, including metadata (the policy’s identifier and
+   * 			the date and time when the policy was last modified).</p>
+   */
+  public getContinuousDeploymentPolicy(
+    args: GetContinuousDeploymentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContinuousDeploymentPolicyCommandOutput>;
+  public getContinuousDeploymentPolicy(
+    args: GetContinuousDeploymentPolicyCommandInput,
+    cb: (err: any, data?: GetContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public getContinuousDeploymentPolicy(
+    args: GetContinuousDeploymentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public getContinuousDeploymentPolicy(
+    args: GetContinuousDeploymentPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContinuousDeploymentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetContinuousDeploymentPolicyCommandOutput) => void
+  ): Promise<GetContinuousDeploymentPolicyCommandOutput> | void {
+    const command = new GetContinuousDeploymentPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets configuration information about a continuous deployment policy.</p>
+   */
+  public getContinuousDeploymentPolicyConfig(
+    args: GetContinuousDeploymentPolicyConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetContinuousDeploymentPolicyConfigCommandOutput>;
+  public getContinuousDeploymentPolicyConfig(
+    args: GetContinuousDeploymentPolicyConfigCommandInput,
+    cb: (err: any, data?: GetContinuousDeploymentPolicyConfigCommandOutput) => void
+  ): void;
+  public getContinuousDeploymentPolicyConfig(
+    args: GetContinuousDeploymentPolicyConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetContinuousDeploymentPolicyConfigCommandOutput) => void
+  ): void;
+  public getContinuousDeploymentPolicyConfig(
+    args: GetContinuousDeploymentPolicyConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetContinuousDeploymentPolicyConfigCommandOutput) => void),
+    cb?: (err: any, data?: GetContinuousDeploymentPolicyConfigCommandOutput) => void
+  ): Promise<GetContinuousDeploymentPolicyConfigCommandOutput> | void {
+    const command = new GetContinuousDeploymentPolicyConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2744,6 +2946,43 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: ListConflictingAliasesCommandOutput) => void
   ): Promise<ListConflictingAliasesCommandOutput> | void {
     const command = new ListConflictingAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send a
+   * 			subsequent request that specifies the <code>NextMarker</code> value from the current
+   * 			response as the <code>Marker</code> value in the subsequent request.</p>
+   */
+  public listContinuousDeploymentPolicies(
+    args: ListContinuousDeploymentPoliciesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContinuousDeploymentPoliciesCommandOutput>;
+  public listContinuousDeploymentPolicies(
+    args: ListContinuousDeploymentPoliciesCommandInput,
+    cb: (err: any, data?: ListContinuousDeploymentPoliciesCommandOutput) => void
+  ): void;
+  public listContinuousDeploymentPolicies(
+    args: ListContinuousDeploymentPoliciesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContinuousDeploymentPoliciesCommandOutput) => void
+  ): void;
+  public listContinuousDeploymentPolicies(
+    args: ListContinuousDeploymentPoliciesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListContinuousDeploymentPoliciesCommandOutput) => void),
+    cb?: (err: any, data?: ListContinuousDeploymentPoliciesCommandOutput) => void
+  ): Promise<ListContinuousDeploymentPoliciesCommandOutput> | void {
+    const command = new ListContinuousDeploymentPoliciesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3653,83 +3892,92 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Updates the configuration for a web distribution. </p>
-   * 		       <important>
-   *             <p>When you update a distribution, there are more required fields than when you create a distribution.
-   * 			When you update your distribution by using this API action, follow the steps here to get the current configuration
-   * 			and then make your updates, to make sure that you include all of the required fields. To view a summary,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-overview-required-fields.html">Required
-   * 				Fields for Create Distribution and Update Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   *          </important>
-   * 		       <p>The update process includes getting the current distribution configuration, updating the XML document that is
-   * 			returned to make your changes, and then submitting an <code>UpdateDistribution</code> request to make the updates.</p>
-   * 		       <p>For information about updating a distribution using the CloudFront console instead, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-creating-console.html">Creating a
-   * 				Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * <p>Updates a continuous deployment policy. You can update a continuous deployment policy to
+   * 			enable or disable it, to change the percentage of traffic that it sends to the staging
+   * 			distribution, or to change the staging distribution that it sends traffic to.</p>
+   * 		       <p>When you update a continuous deployment policy configuration, all the fields are
+   * 			updated with the values that are provided in the request. You cannot update some fields
+   * 			independent of others. To update a continuous deployment policy configuration:</p>
+   * 		       <ol>
+   *             <li>
+   * 				           <p>Use <code>GetContinuousDeploymentPolicyConfig</code> to get the current
+   * 					configuration.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Locally modify the fields in the continuous deployment policy configuration
+   * 					that you want to update.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>Use <code>UpdateContinuousDeploymentPolicy</code>, providing the entire
+   * 					continuous deployment policy configuration, including the fields that you
+   * 					modified and those that you didn’t.</p>
+   * 			         </li>
+   *          </ol>
+   */
+  public updateContinuousDeploymentPolicy(
+    args: UpdateContinuousDeploymentPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateContinuousDeploymentPolicyCommandOutput>;
+  public updateContinuousDeploymentPolicy(
+    args: UpdateContinuousDeploymentPolicyCommandInput,
+    cb: (err: any, data?: UpdateContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public updateContinuousDeploymentPolicy(
+    args: UpdateContinuousDeploymentPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateContinuousDeploymentPolicyCommandOutput) => void
+  ): void;
+  public updateContinuousDeploymentPolicy(
+    args: UpdateContinuousDeploymentPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateContinuousDeploymentPolicyCommandOutput) => void),
+    cb?: (err: any, data?: UpdateContinuousDeploymentPolicyCommandOutput) => void
+  ): Promise<UpdateContinuousDeploymentPolicyCommandOutput> | void {
+    const command = new UpdateContinuousDeploymentPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the configuration for a CloudFront distribution.</p>
+   * 		       <p>The update process includes getting the current distribution configuration, updating it to
+   * 			make your changes, and then submitting an <code>UpdateDistribution</code> request to
+   * 			make the updates.</p>
    *
    * 		       <p>
    *             <b>To update a web distribution using the CloudFront API</b>
    *          </p>
    * 		       <ol>
    *             <li>
-   *                <p>Submit a
-   * 				<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistributionConfig.html">GetDistributionConfig</a>
-   * 				request to get the current configuration and an <code>Etag</code> header
-   * 				for the distribution.</p>
-   * 				           <note>
-   *                   <p>If you update the distribution again, you must get a new <code>Etag</code> header.</p>
-   *                </note>
+   *                <p>Use <code>GetDistributionConfig</code> to get the current configuration, including the version
+   * 					identifier (<code>ETag</code>).</p>
    * 			         </li>
    *             <li>
-   *                <p>Update the XML document that was returned in the response to your <code>GetDistributionConfig</code> request to include
-   * 				your changes. </p>
-   * 				           <important>
-   * 					             <p>When you edit the XML file, be aware of the following:</p>
-   * 					             <ul>
-   *                      <li>
-   *                         <p>You must strip out the ETag parameter that is returned.</p>
-   *                      </li>
-   *                      <li>
-   *                         <p>Additional fields are required when you update a distribution. There may be fields included in the
-   * 							XML file for features that you haven't configured for your distribution. This is expected and required to
-   * 							successfully update the distribution.</p>
-   *                      </li>
-   *                      <li>
-   *                         <p>You can't change the value of <code>CallerReference</code>. If you try to change this value, CloudFront returns an
-   * 							<code>IllegalUpdate</code> error. </p>
-   *                      </li>
-   *                      <li>
-   *                         <p>The new configuration replaces the existing configuration; the values that you specify in an
-   * 							<code>UpdateDistribution</code> request are not merged into your existing configuration. When you add, delete, or
-   * 							replace values in an element that allows multiple values (for example, <code>CNAME</code>), you must specify all of the
-   * 							values that you want to appear in the updated distribution. In addition,
-   * 							you must update the corresponding <code>Quantity</code> element.</p>
-   *                      </li>
-   *                   </ul>
-   *                </important>
-   * 			         </li>
-   *             <li>
-   *                <p>Submit an <code>UpdateDistribution</code> request to update the configuration for your distribution:</p>
+   *                <p>Update the distribution configuration that was returned in the response. Note the following
+   * 					important requirements and restrictions:</p>
    * 				           <ul>
    *                   <li>
-   *                      <p>In the request body, include the XML document that you updated in Step 2. The request body must include an
-   * 						XML document with a <code>DistributionConfig</code> element.</p>
-   *                   </li>
+   * 						               <p>You must rename the <code>ETag</code> field to <code>IfMatch</code>,
+   * 							leaving the value unchanged. (Set the value of <code>IfMatch</code> to
+   * 							the value of <code>ETag</code>, then remove the <code>ETag</code>
+   * 							field.)</p>
+   * 					             </li>
    *                   <li>
-   *                      <p>Set the value of the HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront returned
-   * 						when you submitted the <code>GetDistributionConfig</code> request in Step 1.</p>
-   *                   </li>
+   * 						               <p>You can’t change the value of <code>CallerReference</code>.</p>
+   * 					             </li>
    *                </ul>
    * 			         </li>
    *             <li>
-   *                <p>Review the response to the <code>UpdateDistribution</code> request to confirm that the configuration was
-   * 				successfully updated.</p>
-   *             </li>
-   *             <li>
-   *                <p>Optional: Submit a
-   * 				<a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a>
-   * 				request to confirm that your changes have propagated.
-   * 				When propagation is complete, the value of <code>Status</code> is <code>Deployed</code>.</p>
+   *                <p>Submit an <code>UpdateDistribution</code> request, providing the distribution configuration.
+   * 					The new configuration replaces the existing configuration. The values that you
+   * 					specify in an <code>UpdateDistribution</code> request are not merged into your
+   * 					existing configuration. Make sure to include all fields: the ones that you
+   * 					modified and also the ones that you didn’t.</p>
    * 			         </li>
    *          </ol>
    */

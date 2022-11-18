@@ -15,39 +15,40 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
-  CreateDistributionRequest,
-  CreateDistributionRequestFilterSensitiveLog,
-  CreateDistributionResult,
-  CreateDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
+  DeleteContinuousDeploymentPolicyRequest,
+  DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restXmlCreateDistributionCommand,
-  serializeAws_restXmlCreateDistributionCommand,
+  deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
+  serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
-export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
-export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
+export interface DeleteContinuousDeploymentPolicyCommandInput extends DeleteContinuousDeploymentPolicyRequest {}
+export interface DeleteContinuousDeploymentPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates a CloudFront distribution.</p>
+ * <p>Deletes a continuous deployment policy.</p>
+ * 		       <p>You cannot delete a continuous deployment policy that’s attached to a primary
+ * 			distribution. First update your distribution to remove the continuous deployment policy,
+ * 			then you can delete the policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, DeleteContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const command = new CreateDistributionCommand(input);
+ * const command = new DeleteContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateDistributionCommandInput} for command's `input` shape.
- * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
+ * @see {@link DeleteContinuousDeploymentPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
-export class CreateDistributionCommand extends $Command<
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
+export class DeleteContinuousDeploymentPolicyCommand extends $Command<
+  DeleteContinuousDeploymentPolicyCommandInput,
+  DeleteContinuousDeploymentPolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +63,7 @@ export class CreateDistributionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateDistributionCommandInput) {
+  constructor(readonly input: DeleteContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +76,23 @@ export class CreateDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDistributionCommandInput, CreateDistributionCommandOutput> {
+  ): Handler<DeleteContinuousDeploymentPolicyCommandInput, DeleteContinuousDeploymentPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDistributionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteContinuousDeploymentPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudFrontClient";
-    const commandName = "CreateDistributionCommand";
+    const commandName = "DeleteContinuousDeploymentPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteContinuousDeploymentPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +102,18 @@ export class CreateDistributionCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionCommand(input, context);
+  private serialize(
+    input: DeleteContinuousDeploymentPolicyCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteContinuousDeploymentPolicyCommandOutput> {
+    return deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

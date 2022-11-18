@@ -151,7 +151,11 @@ export interface Aliases {
   Items?: string[];
 }
 
-export type ICPRecordalStatus = "APPROVED" | "PENDING" | "SUSPENDED";
+export enum ICPRecordalStatus {
+  APPROVED = "APPROVED",
+  PENDING = "PENDING",
+  SUSPENDED = "SUSPENDED",
+}
 
 /**
  * <p>Amazon Web Services services in China customers must file for an Internet Content Provider (ICP) recordal if they want to serve content
@@ -194,7 +198,15 @@ export interface AliasICPRecordal {
   ICPRecordalStatus?: ICPRecordalStatus | string;
 }
 
-export type Method = "DELETE" | "GET" | "HEAD" | "OPTIONS" | "PATCH" | "POST" | "PUT";
+export enum Method {
+  DELETE = "DELETE",
+  GET = "GET",
+  HEAD = "HEAD",
+  OPTIONS = "OPTIONS",
+  PATCH = "PATCH",
+  POST = "POST",
+  PUT = "PUT",
+}
 
 /**
  * <p>A complex type that controls whether CloudFront caches the response to requests using the
@@ -400,7 +412,11 @@ export class BatchTooLarge extends __BaseException {
   }
 }
 
-export type ItemSelection = "all" | "none" | "whitelist";
+export enum ItemSelection {
+  all = "all",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>Contains a list of cookie names.</p>
@@ -595,7 +611,12 @@ export interface ForwardedValues {
   QueryStringCacheKeys?: QueryStringCacheKeys;
 }
 
-export type EventType = "origin-request" | "origin-response" | "viewer-request" | "viewer-response";
+export enum EventType {
+  origin_request = "origin-request",
+  origin_response = "origin-response",
+  viewer_request = "viewer-request",
+  viewer_response = "viewer-response",
+}
 
 /**
  * <p>A CloudFront function that is associated with a cache behavior in a CloudFront
@@ -756,7 +777,11 @@ export interface TrustedSigners {
   Items?: string[];
 }
 
-export type ViewerProtocolPolicy = "allow-all" | "https-only" | "redirect-to-https";
+export enum ViewerProtocolPolicy {
+  allow_all = "allow-all",
+  https_only = "https-only",
+  redirect_to_https = "redirect-to-https",
+}
 
 /**
  * <p>A complex type that describes how CloudFront processes requests.</p>
@@ -1032,7 +1057,12 @@ export interface CacheBehaviors {
   Items?: CacheBehavior[];
 }
 
-export type CachePolicyCookieBehavior = "all" | "allExcept" | "none" | "whitelist";
+export enum CachePolicyCookieBehavior {
+  all = "all",
+  allExcept = "allExcept",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
@@ -1083,7 +1113,10 @@ export interface CachePolicyCookiesConfig {
   Cookies?: CookieNames;
 }
 
-export type CachePolicyHeaderBehavior = "none" | "whitelist";
+export enum CachePolicyHeaderBehavior {
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -1120,7 +1153,12 @@ export interface CachePolicyHeadersConfig {
   Headers?: Headers;
 }
 
-export type CachePolicyQueryStringBehavior = "all" | "allExcept" | "none" | "whitelist";
+export enum CachePolicyQueryStringBehavior {
+  all = "all",
+  allExcept = "allExcept",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>Contains a list of query string names.</p>
@@ -1456,7 +1494,10 @@ export class CachePolicyInUse extends __BaseException {
   }
 }
 
-export type CachePolicyType = "custom" | "managed";
+export enum CachePolicyType {
+  custom = "custom",
+  managed = "managed",
+}
 
 /**
  * <p>Contains a cache policy.</p>
@@ -1522,293 +1563,10 @@ export class CannotChangeImmutablePublicKeyFields extends __BaseException {
   }
 }
 
-export type CertificateSource = "acm" | "cloudfront" | "iam";
-
-export interface CreateCachePolicyRequest {
-  /**
-   * <p>A cache policy configuration.</p>
-   */
-  CachePolicyConfig: CachePolicyConfig | undefined;
-}
-
-export interface CreateCachePolicyResult {
-  /**
-   * <p>A cache policy.</p>
-   */
-  CachePolicy?: CachePolicy;
-
-  /**
-   * <p>The fully qualified URI of the cache policy just created.</p>
-   */
-  Location?: string;
-
-  /**
-   * <p>The current version of the cache policy.</p>
-   */
-  ETag?: string;
-}
-
-/**
- * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
- */
-export class InconsistentQuantities extends __BaseException {
-  readonly name: "InconsistentQuantities" = "InconsistentQuantities";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InconsistentQuantities, __BaseException>) {
-    super({
-      name: "InconsistentQuantities",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InconsistentQuantities.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyCachePolicies extends __BaseException {
-  readonly name: "TooManyCachePolicies" = "TooManyCachePolicies";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyCachePolicies, __BaseException>) {
-    super({
-      name: "TooManyCachePolicies",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyCachePolicies.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of cookies in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyCookiesInCachePolicy extends __BaseException {
-  readonly name: "TooManyCookiesInCachePolicy" = "TooManyCookiesInCachePolicy";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyCookiesInCachePolicy, __BaseException>) {
-    super({
-      name: "TooManyCookiesInCachePolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyCookiesInCachePolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of headers in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyHeadersInCachePolicy extends __BaseException {
-  readonly name: "TooManyHeadersInCachePolicy" = "TooManyHeadersInCachePolicy";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyHeadersInCachePolicy, __BaseException>) {
-    super({
-      name: "TooManyHeadersInCachePolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyHeadersInCachePolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The number of query strings in the cache policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyQueryStringsInCachePolicy extends __BaseException {
-  readonly name: "TooManyQueryStringsInCachePolicy" = "TooManyQueryStringsInCachePolicy";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyQueryStringsInCachePolicy, __BaseException>) {
-    super({
-      name: "TooManyQueryStringsInCachePolicy",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyQueryStringsInCachePolicy.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
- * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
- * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
- */
-export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
-  readonly name: "CloudFrontOriginAccessIdentityAlreadyExists" = "CloudFrontOriginAccessIdentityAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<CloudFrontOriginAccessIdentityAlreadyExists, __BaseException>) {
-    super({
-      name: "CloudFrontOriginAccessIdentityAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, CloudFrontOriginAccessIdentityAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Origin access identity configuration. Send a <code>GET</code> request to the
- * 					<code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource.
- * 		</p>
- */
-export interface CloudFrontOriginAccessIdentityConfig {
-  /**
-   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.</p>
-   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
-   * 			<code>CloudFrontOriginAccessIdentityConfig</code> object), a new origin access identity is
-   * 			created.</p>
-   * 		       <p>If the <code>CallerReference</code> is a value already sent in a previous identity
-   * 			request, and the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is identical
-   * 			to the original request (ignoring white space), the response includes the same information
-   * 			returned to the original request. </p>
-   * 		       <p>If the <code>CallerReference</code> is a value you already sent in a previous request
-   * 			to create an identity, but the content of the
-   * 			<code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request,
-   * 			CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
-   */
-  CallerReference: string | undefined;
-
-  /**
-   * <p>A comment to describe the origin access identity. The comment cannot be longer
-   * 			than 128 characters.</p>
-   */
-  Comment: string | undefined;
-}
-
-/**
- * <p>The request to create a new origin access identity (OAI). An origin access identity is a
- * 			special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or
- * 			just some of your Amazon S3 content. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">
- * 			Restricting Access to Amazon S3 Content by Using an Origin Access Identity</a> in the
- * 			<i>Amazon CloudFront Developer Guide</i>. </p>
- */
-export interface CreateCloudFrontOriginAccessIdentityRequest {
-  /**
-   * <p>The current configuration information for the identity.</p>
-   */
-  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
-}
-
-/**
- * <p>CloudFront origin access identity.</p>
- */
-export interface CloudFrontOriginAccessIdentity {
-  /**
-   * <p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>.
-   * 		</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The Amazon S3 canonical user ID for the origin access identity, used when giving the origin
-   * 			access identity read permission to an object in Amazon S3. </p>
-   */
-  S3CanonicalUserId: string | undefined;
-
-  /**
-   * <p>The current configuration information for the identity. </p>
-   */
-  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface CreateCloudFrontOriginAccessIdentityResult {
-  /**
-   * <p>The origin access identity's information.</p>
-   */
-  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
-
-  /**
-   * <p>The fully qualified URI of the new origin access identity just created.</p>
-   */
-  Location?: string;
-
-  /**
-   * <p>The current version of the origin access identity created.</p>
-   */
-  ETag?: string;
-}
-
-/**
- * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
- */
-export class MissingBody extends __BaseException {
-  readonly name: "MissingBody" = "MissingBody";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MissingBody, __BaseException>) {
-    super({
-      name: "MissingBody",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MissingBody.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
- */
-export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
-  readonly name: "TooManyCloudFrontOriginAccessIdentities" = "TooManyCloudFrontOriginAccessIdentities";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyCloudFrontOriginAccessIdentities, __BaseException>) {
-    super({
-      name: "TooManyCloudFrontOriginAccessIdentities",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyCloudFrontOriginAccessIdentities.prototype);
-    this.Message = opts.Message;
-  }
+export enum CertificateSource {
+  acm = "acm",
+  cloudfront = "cloudfront",
+  iam = "iam",
 }
 
 /**
@@ -1830,6 +1588,34 @@ export class CNAMEAlreadyExists extends __BaseException {
     Object.setPrototypeOf(this, CNAMEAlreadyExists.prototype);
     this.Message = opts.Message;
   }
+}
+
+export interface CopyDistributionRequest {
+  /**
+   * <p>The identifier of the primary distribution whose configuration you are copying. To get a
+   * 			distribution ID, use <code>ListDistributions</code>.</p>
+   */
+  PrimaryDistributionId: string | undefined;
+
+  /**
+   * <p>The type of distribution that your primary distribution will be copied to. The only valid
+   * 			value is <code>True</code>, indicating that you are copying to a staging distribution.</p>
+   */
+  Staging?: boolean;
+
+  /**
+   * <p>The version identifier of the primary distribution whose configuration you are copying. This
+   * 			is the <code>ETag</code> value returned in the response to <code>GetDistribution</code>
+   * 			and <code>GetDistributionConfig</code>.</p>
+   */
+  IfMatch?: string;
+
+  /**
+   * <p>A value that uniquely identifies a request to create a resource. This helps to prevent CloudFront
+   * 			from creating a duplicate resource if you accidentally resubmit an identical
+   * 			request.</p>
+   */
+  CallerReference: string | undefined;
 }
 
 /**
@@ -2173,7 +1959,12 @@ export interface DefaultCacheBehavior {
   MaxTTL?: number;
 }
 
-export type HttpVersion = "http1.1" | "http2" | "http2and3" | "http3";
+export enum HttpVersion {
+  http1_1 = "http1.1",
+  http2 = "http2",
+  http2and3 = "http2and3",
+  http3 = "http3",
+}
 
 /**
  * <p>A complex type that controls whether access logs are written for the
@@ -2343,9 +2134,18 @@ export interface CustomHeaders {
   Items?: OriginCustomHeader[];
 }
 
-export type OriginProtocolPolicy = "http-only" | "https-only" | "match-viewer";
+export enum OriginProtocolPolicy {
+  http_only = "http-only",
+  https_only = "https-only",
+  match_viewer = "match-viewer",
+}
 
-export type SslProtocol = "SSLv3" | "TLSv1" | "TLSv1.1" | "TLSv1.2";
+export enum SslProtocol {
+  SSLv3 = "SSLv3",
+  TLSv1 = "TLSv1",
+  TLSv1_1 = "TLSv1.1",
+  TLSv1_2 = "TLSv1.2",
+}
 
 /**
  * <p>A complex type that contains information about the SSL/TLS protocols that CloudFront can use
@@ -2624,9 +2424,17 @@ export interface Origins {
   Items: Origin[] | undefined;
 }
 
-export type PriceClass = "PriceClass_100" | "PriceClass_200" | "PriceClass_All";
+export enum PriceClass {
+  PriceClass_100 = "PriceClass_100",
+  PriceClass_200 = "PriceClass_200",
+  PriceClass_All = "PriceClass_All",
+}
 
-export type GeoRestrictionType = "blacklist" | "none" | "whitelist";
+export enum GeoRestrictionType {
+  blacklist = "blacklist",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>A complex type that controls the countries in which your content is distributed. CloudFront
@@ -2691,16 +2499,21 @@ export interface Restrictions {
   GeoRestriction: GeoRestriction | undefined;
 }
 
-export type MinimumProtocolVersion =
-  | "SSLv3"
-  | "TLSv1"
-  | "TLSv1.1_2016"
-  | "TLSv1.2_2018"
-  | "TLSv1.2_2019"
-  | "TLSv1.2_2021"
-  | "TLSv1_2016";
+export enum MinimumProtocolVersion {
+  SSLv3 = "SSLv3",
+  TLSv1 = "TLSv1",
+  TLSv1_1_2016 = "TLSv1.1_2016",
+  TLSv1_2016 = "TLSv1_2016",
+  TLSv1_2_2018 = "TLSv1.2_2018",
+  TLSv1_2_2019 = "TLSv1.2_2019",
+  TLSv1_2_2021 = "TLSv1.2_2021",
+}
 
-export type SSLSupportMethod = "sni-only" | "static-ip" | "vip";
+export enum SSLSupportMethod {
+  sni_only = "sni-only",
+  static_ip = "static-ip",
+  vip = "vip",
+}
 
 /**
  * <p>A complex type that determines the distribution’s SSL/TLS configuration for communicating
@@ -2942,10 +2755,10 @@ export interface DistributionConfig {
 
   /**
    * <p>The object that you want CloudFront to request from your origin (for example,
-   * 				<code>index.html</code>) when a viewer requests the root URL for your distribution
-   * 				(<code>http://www.example.com</code>) instead of an object in your distribution
-   * 				(<code>http://www.example.com/product-description.html</code>). Specifying a default root
-   * 			object avoids exposing the contents of your distribution.</p>
+   * 			<code>index.html</code>) when a viewer requests the root URL for your distribution
+   * 			(<code>https://www.example.com</code>) instead of an object in your distribution
+   * 			(<code>https://www.example.com/product-description.html</code>). Specifying a default
+   * 			root object avoids exposing the contents of your distribution.</p>
    * 		       <p>Specify only the object name, for example, <code>index.html</code>. Don't add a
    * 				<code>/</code> before the object name.</p>
    * 		       <p>If you don't want to specify a default root object when you create a distribution,
@@ -3115,42 +2928,28 @@ export interface DistributionConfig {
 }
 
 /**
- * <p>The request to create a new distribution.</p>
- */
-export interface CreateDistributionRequest {
-  /**
-   * <p>The distribution's configuration information.</p>
-   */
-  DistributionConfig: DistributionConfig | undefined;
-}
-
-/**
  * <p>A distribution tells CloudFront where you want content to be delivered from, and the details about how to
  * 			track and manage content delivery.</p>
  */
 export interface Distribution {
   /**
-   * <p>The identifier for the distribution. For example: <code>EDFDVBD632BHDS5</code>.
-   * 		</p>
+   * <p>The distribution’s identifier. For example: <code>E1U5RQF7T870K0</code>.</p>
    */
   Id: string | undefined;
 
   /**
-   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
-   * 				<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 				<code>123456789012</code> is your Amazon Web Services account ID.</p>
+   * <p>The distribution’s Amazon Resource Name (ARN).</p>
    */
   ARN: string | undefined;
 
   /**
-   * <p>This response element indicates the current status of the distribution. When the status
-   * 			is <code>Deployed</code>, the distribution's information is fully propagated to all CloudFront edge
-   * 			locations. </p>
+   * <p>The distribution’s status. When the status is <code>Deployed</code>, the distribution’s
+   * 			information is fully propagated to all CloudFront edge locations.</p>
    */
   Status: string | undefined;
 
   /**
-   * <p>The date and time the distribution was last modified. </p>
+   * <p>The date and time when the distribution was last modified.</p>
    */
   LastModifiedTime: Date | undefined;
 
@@ -3160,7 +2959,7 @@ export interface Distribution {
   InProgressInvalidationBatches: number | undefined;
 
   /**
-   * <p>The domain name corresponding to the distribution, for example, <code>d111111abcdef8.cloudfront.net</code>. </p>
+   * <p>The distribution’s CloudFront domain name. For example: <code>d111111abcdef8.cloudfront.net</code>.</p>
    */
   DomainName: string | undefined;
 
@@ -3185,9 +2984,7 @@ export interface Distribution {
   ActiveTrustedKeyGroups?: ActiveTrustedKeyGroups;
 
   /**
-   * <p>The current configuration information for the distribution. Send a <code>GET</code>
-   * 			request to the <code>/<i>CloudFront API version</i>/distribution ID/config</code>
-   * 			resource.</p>
+   * <p>The distribution’s configuration.</p>
    */
   DistributionConfig: DistributionConfig | undefined;
 
@@ -3201,22 +2998,20 @@ export interface Distribution {
   AliasICPRecordals?: AliasICPRecordal[];
 }
 
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface CreateDistributionResult {
+export interface CopyDistributionResult {
   /**
-   * <p>The distribution's information.</p>
+   * <p>A distribution tells CloudFront where you want content to be delivered from, and the details about how to
+   * 			track and manage content delivery.</p>
    */
   Distribution?: Distribution;
 
   /**
-   * <p>The fully qualified URI of the new distribution resource just created.</p>
+   * <p>The URL of the staging distribution.</p>
    */
   Location?: string;
 
   /**
-   * <p>The current version of the distribution created.</p>
+   * <p>The version identifier for the current version of the staging distribution.</p>
    */
   ETag?: string;
 }
@@ -3267,23 +3062,22 @@ export class IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior exten
 }
 
 /**
- * <p>An origin cannot contain both an origin access control (OAC) and an origin access identity
- * 			(OAI).</p>
+ * <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  */
-export class IllegalOriginAccessConfiguration extends __BaseException {
-  readonly name: "IllegalOriginAccessConfiguration" = "IllegalOriginAccessConfiguration";
+export class InconsistentQuantities extends __BaseException {
+  readonly name: "InconsistentQuantities" = "InconsistentQuantities";
   readonly $fault: "client" = "client";
   Message?: string;
   /**
    * @internal
    */
-  constructor(opts: __ExceptionOptionType<IllegalOriginAccessConfiguration, __BaseException>) {
+  constructor(opts: __ExceptionOptionType<InconsistentQuantities, __BaseException>) {
     super({
-      name: "IllegalOriginAccessConfiguration",
+      name: "InconsistentQuantities",
       $fault: "client",
       ...opts,
     });
-    Object.setPrototypeOf(this, IllegalOriginAccessConfiguration.prototype);
+    Object.setPrototypeOf(this, InconsistentQuantities.prototype);
     this.Message = opts.Message;
   }
 }
@@ -3305,28 +3099,6 @@ export class InvalidDefaultRootObject extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidDefaultRootObject.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An origin access control is associated with an origin whose domain name is not
- * 			supported.</p>
- */
-export class InvalidDomainNameForOriginAccessControl extends __BaseException {
-  readonly name: "InvalidDomainNameForOriginAccessControl" = "InvalidDomainNameForOriginAccessControl";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidDomainNameForOriginAccessControl, __BaseException>) {
-    super({
-      name: "InvalidDomainNameForOriginAccessControl",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidDomainNameForOriginAccessControl.prototype);
     this.Message = opts.Message;
   }
 }
@@ -3433,6 +3205,27 @@ export class InvalidHeadersForS3Origin extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InvalidHeadersForS3Origin.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The <code>If-Match</code> version is missing or not valid.</p>
+ */
+export class InvalidIfMatchVersion extends __BaseException {
+  readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidIfMatchVersion, __BaseException>) {
+    super({
+      name: "InvalidIfMatchVersion",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidIfMatchVersion.prototype);
     this.Message = opts.Message;
   }
 }
@@ -3780,6 +3573,27 @@ export class InvalidWebACLId extends __BaseException {
 }
 
 /**
+ * <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
+ */
+export class MissingBody extends __BaseException {
+  readonly name: "MissingBody" = "MissingBody";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MissingBody, __BaseException>) {
+    super({
+      name: "MissingBody",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MissingBody.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>The cache policy does not exist.</p>
  */
 export class NoSuchCachePolicy extends __BaseException {
@@ -3901,6 +3715,28 @@ export class NoSuchResponseHeadersPolicy extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NoSuchResponseHeadersPolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The precondition in one or more of the request fields evaluated to
+ * 			<code>false</code>.</p>
+ */
+export class PreconditionFailed extends __BaseException {
+  readonly name: "PreconditionFailed" = "PreconditionFailed";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<PreconditionFailed, __BaseException>) {
+    super({
+      name: "PreconditionFailed",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, PreconditionFailed.prototype);
     this.Message = opts.Message;
   }
 }
@@ -4076,31 +3912,6 @@ export class TooManyDistributionsAssociatedToKeyGroup extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, TooManyDistributionsAssociatedToKeyGroup.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The maximum number of distributions have been associated with the specified origin
- * 			access control.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
- */
-export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
-  readonly name: "TooManyDistributionsAssociatedToOriginAccessControl" =
-    "TooManyDistributionsAssociatedToOriginAccessControl";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToOriginAccessControl, __BaseException>) {
-    super({
-      name: "TooManyDistributionsAssociatedToOriginAccessControl",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToOriginAccessControl.prototype);
     this.Message = opts.Message;
   }
 }
@@ -4456,6 +4267,538 @@ export class TrustedSignerDoesNotExist extends __BaseException {
   }
 }
 
+export interface CreateCachePolicyRequest {
+  /**
+   * <p>A cache policy configuration.</p>
+   */
+  CachePolicyConfig: CachePolicyConfig | undefined;
+}
+
+export interface CreateCachePolicyResult {
+  /**
+   * <p>A cache policy.</p>
+   */
+  CachePolicy?: CachePolicy;
+
+  /**
+   * <p>The fully qualified URI of the cache policy just created.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current version of the cache policy.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyCachePolicies extends __BaseException {
+  readonly name: "TooManyCachePolicies" = "TooManyCachePolicies";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCachePolicies, __BaseException>) {
+    super({
+      name: "TooManyCachePolicies",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCachePolicies.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of cookies in the cache policy exceeds the maximum. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyCookiesInCachePolicy extends __BaseException {
+  readonly name: "TooManyCookiesInCachePolicy" = "TooManyCookiesInCachePolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCookiesInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyCookiesInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCookiesInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of headers in the cache policy exceeds the maximum. For more information,
+ * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyHeadersInCachePolicy extends __BaseException {
+  readonly name: "TooManyHeadersInCachePolicy" = "TooManyHeadersInCachePolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyHeadersInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyHeadersInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyHeadersInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The number of query strings in the cache policy exceeds the maximum. For more
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyQueryStringsInCachePolicy extends __BaseException {
+  readonly name: "TooManyQueryStringsInCachePolicy" = "TooManyQueryStringsInCachePolicy";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyQueryStringsInCachePolicy, __BaseException>) {
+    super({
+      name: "TooManyQueryStringsInCachePolicy",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyQueryStringsInCachePolicy.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>If the <code>CallerReference</code> is a value you already sent in a previous request to create an identity but the content
+ * 			of the <code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request, CloudFront returns a
+ * 			<code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+ */
+export class CloudFrontOriginAccessIdentityAlreadyExists extends __BaseException {
+  readonly name: "CloudFrontOriginAccessIdentityAlreadyExists" = "CloudFrontOriginAccessIdentityAlreadyExists";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CloudFrontOriginAccessIdentityAlreadyExists, __BaseException>) {
+    super({
+      name: "CloudFrontOriginAccessIdentityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CloudFrontOriginAccessIdentityAlreadyExists.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>Origin access identity configuration. Send a <code>GET</code> request to the
+ * 					<code>/<i>CloudFront API version</i>/CloudFront/identity ID/config</code> resource.
+ * 		</p>
+ */
+export interface CloudFrontOriginAccessIdentityConfig {
+  /**
+   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be replayed.</p>
+   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
+   * 			<code>CloudFrontOriginAccessIdentityConfig</code> object), a new origin access identity is
+   * 			created.</p>
+   * 		       <p>If the <code>CallerReference</code> is a value already sent in a previous identity
+   * 			request, and the content of the <code>CloudFrontOriginAccessIdentityConfig</code> is identical
+   * 			to the original request (ignoring white space), the response includes the same information
+   * 			returned to the original request. </p>
+   * 		       <p>If the <code>CallerReference</code> is a value you already sent in a previous request
+   * 			to create an identity, but the content of the
+   * 			<code>CloudFrontOriginAccessIdentityConfig</code> is different from the original request,
+   * 			CloudFront returns a <code>CloudFrontOriginAccessIdentityAlreadyExists</code> error. </p>
+   */
+  CallerReference: string | undefined;
+
+  /**
+   * <p>A comment to describe the origin access identity. The comment cannot be longer
+   * 			than 128 characters.</p>
+   */
+  Comment: string | undefined;
+}
+
+/**
+ * <p>The request to create a new origin access identity (OAI). An origin access identity is a
+ * 			special CloudFront user that you can associate with Amazon S3 origins, so that you can secure all or
+ * 			just some of your Amazon S3 content. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">
+ * 			Restricting Access to Amazon S3 Content by Using an Origin Access Identity</a> in the
+ * 			<i>Amazon CloudFront Developer Guide</i>. </p>
+ */
+export interface CreateCloudFrontOriginAccessIdentityRequest {
+  /**
+   * <p>The current configuration information for the identity.</p>
+   */
+  CloudFrontOriginAccessIdentityConfig: CloudFrontOriginAccessIdentityConfig | undefined;
+}
+
+/**
+ * <p>CloudFront origin access identity.</p>
+ */
+export interface CloudFrontOriginAccessIdentity {
+  /**
+   * <p>The ID for the origin access identity, for example, <code>E74FTE3AJFJ256A</code>.
+   * 		</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The Amazon S3 canonical user ID for the origin access identity, used when giving the origin
+   * 			access identity read permission to an object in Amazon S3. </p>
+   */
+  S3CanonicalUserId: string | undefined;
+
+  /**
+   * <p>The current configuration information for the identity. </p>
+   */
+  CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface CreateCloudFrontOriginAccessIdentityResult {
+  /**
+   * <p>The origin access identity's information.</p>
+   */
+  CloudFrontOriginAccessIdentity?: CloudFrontOriginAccessIdentity;
+
+  /**
+   * <p>The fully qualified URI of the new origin access identity just created.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current version of the origin access identity created.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>Processing your request would cause you to exceed the maximum number of origin access identities allowed.</p>
+ */
+export class TooManyCloudFrontOriginAccessIdentities extends __BaseException {
+  readonly name: "TooManyCloudFrontOriginAccessIdentities" = "TooManyCloudFrontOriginAccessIdentities";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyCloudFrontOriginAccessIdentities, __BaseException>) {
+    super({
+      name: "TooManyCloudFrontOriginAccessIdentities",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyCloudFrontOriginAccessIdentities.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The CloudFront domain name of the staging distribution.</p>
+ */
+export interface StagingDistributionDnsNames {
+  /**
+   * <p>The number of CloudFront domain names in your staging distribution.</p>
+   */
+  Quantity: number | undefined;
+
+  /**
+   * <p>The CloudFront domain name of the staging distribution.</p>
+   */
+  Items?: string[];
+}
+
+/**
+ * <p>This configuration determines which HTTP requests are sent to the staging
+ * 			distribution. If the HTTP request contains a header and value that matches what you
+ * 			specify here, the request is sent to the staging distribution. Otherwise the request
+ * 			is sent to the primary distribution.</p>
+ */
+export interface ContinuousDeploymentSingleHeaderConfig {
+  /**
+   * <p>The request header name that you want CloudFront to send to your staging distribution.</p>
+   */
+  Header: string | undefined;
+
+  /**
+   * <p>The request header value.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>Session stickiness provides the ability to define multiple requests from a single viewer as
+ * 			a single session. This prevents the potentially inconsistent experience of sending some
+ * 			of a given user's requests to your staging distribution, while others are sent to your
+ * 			primary distribution. Define the session duration using TTL values.</p>
+ */
+export interface SessionStickinessConfig {
+  /**
+   * <p>The amount of time after which you want sessions to cease if no requests are
+   * 			received. Allowed values are 300–3600 seconds (5–60 minutes).</p>
+   * 		       <p>The value must be less than or equal to <code>MaximumTTL</code>.</p>
+   */
+  IdleTTL: number | undefined;
+
+  /**
+   * <p>The maximum amount of time to consider requests from the viewer as being part of the same
+   * 			session. Allowed values are 300–3600 seconds (5–60 minutes).</p>
+   * 		       <p>The value must be less than or equal to <code>IdleTTL</code>.</p>
+   */
+  MaximumTTL: number | undefined;
+}
+
+/**
+ * <p>Contains the percentage of traffic to send to a staging distribution, expressed as a decimal
+ * 			number between 0 and 1.</p>
+ */
+export interface ContinuousDeploymentSingleWeightConfig {
+  /**
+   * <p>The percentage of traffic to send to the staging distribution, expressed as a decimal number
+   * 			between 0 and 1.</p>
+   */
+  Weight: number | undefined;
+
+  /**
+   * <p>Session stickiness provides the ability to define multiple requests from a single viewer as
+   * 			a single session. This prevents the potentially inconsistent experience of sending some
+   * 			of a given user's requests to your staging distribution, while others are sent to your
+   * 			primary distribution. Define the session duration using TTL values.</p>
+   */
+  SessionStickinessConfig?: SessionStickinessConfig;
+}
+
+export enum ContinuousDeploymentPolicyType {
+  SingleHeader = "SingleHeader",
+  SingleWeight = "SingleWeight",
+}
+
+/**
+ * <p>The traffic configuration of your continuous deployment.</p>
+ */
+export interface TrafficConfig {
+  /**
+   * <p>Contains the percentage of traffic to send to the staging distribution.</p>
+   */
+  SingleWeightConfig?: ContinuousDeploymentSingleWeightConfig;
+
+  /**
+   * <p>Determines which HTTP requests are sent to the staging distribution.</p>
+   */
+  SingleHeaderConfig?: ContinuousDeploymentSingleHeaderConfig;
+
+  /**
+   * <p>The type of traffic configuration.</p>
+   */
+  Type: ContinuousDeploymentPolicyType | string | undefined;
+}
+
+/**
+ * <p>Contains the configuration for a continuous deployment policy.</p>
+ */
+export interface ContinuousDeploymentPolicyConfig {
+  /**
+   * <p>The CloudFront domain name of the staging distribution. For example:
+   * 			<code>d111111abcdef8.cloudfront.net</code>.</p>
+   */
+  StagingDistributionDnsNames: StagingDistributionDnsNames | undefined;
+
+  /**
+   * <p>A Boolean that indicates whether this continuous deployment policy is enabled (in effect).
+   * 			When this value is <code>true</code>, this policy is enabled and in effect. When this
+   * 			value is <code>false</code>, this policy is not enabled and has no effect.</p>
+   */
+  Enabled: boolean | undefined;
+
+  /**
+   * <p>Contains the parameters for routing production traffic from your primary to staging distributions.</p>
+   */
+  TrafficConfig?: TrafficConfig;
+}
+
+export interface CreateContinuousDeploymentPolicyRequest {
+  /**
+   * <p>Contains the configuration for a continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfig | undefined;
+}
+
+/**
+ * <p>A continuous deployment policy.</p>
+ */
+export interface ContinuousDeploymentPolicy {
+  /**
+   * <p>The identifier of the continuous deployment policy.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The date and time the continuous deployment policy was last modified.</p>
+   */
+  LastModifiedTime: Date | undefined;
+
+  /**
+   * <p>Contains the configuration for a continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicyConfig: ContinuousDeploymentPolicyConfig | undefined;
+}
+
+export interface CreateContinuousDeploymentPolicyResult {
+  /**
+   * <p>A continuous deployment policy.</p>
+   */
+  ContinuousDeploymentPolicy?: ContinuousDeploymentPolicy;
+
+  /**
+   * <p>The location of the continuous deployment policy.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The version identifier for the current version of the continuous deployment policy.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>A continuous deployment policy for this staging distribution already exists.</p>
+ */
+export class StagingDistributionInUse extends __BaseException {
+  readonly name: "StagingDistributionInUse" = "StagingDistributionInUse";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<StagingDistributionInUse, __BaseException>) {
+    super({
+      name: "StagingDistributionInUse",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, StagingDistributionInUse.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request to create a new distribution.</p>
+ */
+export interface CreateDistributionRequest {
+  /**
+   * <p>The distribution's configuration information.</p>
+   */
+  DistributionConfig: DistributionConfig | undefined;
+}
+
+/**
+ * <p>The returned result of the corresponding request.</p>
+ */
+export interface CreateDistributionResult {
+  /**
+   * <p>The distribution's information.</p>
+   */
+  Distribution?: Distribution;
+
+  /**
+   * <p>The fully qualified URI of the new distribution resource just created.</p>
+   */
+  Location?: string;
+
+  /**
+   * <p>The current version of the distribution created.</p>
+   */
+  ETag?: string;
+}
+
+/**
+ * <p>An origin cannot contain both an origin access control (OAC) and an origin access identity
+ * 			(OAI).</p>
+ */
+export class IllegalOriginAccessConfiguration extends __BaseException {
+  readonly name: "IllegalOriginAccessConfiguration" = "IllegalOriginAccessConfiguration";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IllegalOriginAccessConfiguration, __BaseException>) {
+    super({
+      name: "IllegalOriginAccessConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IllegalOriginAccessConfiguration.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An origin access control is associated with an origin whose domain name is not
+ * 			supported.</p>
+ */
+export class InvalidDomainNameForOriginAccessControl extends __BaseException {
+  readonly name: "InvalidDomainNameForOriginAccessControl" = "InvalidDomainNameForOriginAccessControl";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidDomainNameForOriginAccessControl, __BaseException>) {
+    super({
+      name: "InvalidDomainNameForOriginAccessControl",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidDomainNameForOriginAccessControl.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The maximum number of distributions have been associated with the specified origin
+ * 			access control.</p>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ */
+export class TooManyDistributionsAssociatedToOriginAccessControl extends __BaseException {
+  readonly name: "TooManyDistributionsAssociatedToOriginAccessControl" =
+    "TooManyDistributionsAssociatedToOriginAccessControl";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyDistributionsAssociatedToOriginAccessControl, __BaseException>) {
+    super({
+      name: "TooManyDistributionsAssociatedToOriginAccessControl",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyDistributionsAssociatedToOriginAccessControl.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 /**
  * <p> A complex type that contains <code>Tag</code> key and <code>Tag</code> value.</p>
  */
@@ -4554,7 +4897,9 @@ export class InvalidTagging extends __BaseException {
   }
 }
 
-export type Format = "URLEncoded";
+export enum Format {
+  URLEncoded = "URLEncoded",
+}
 
 /**
  * <p>A field-level encryption content type profile. </p>
@@ -5668,7 +6013,7 @@ export interface OriginAccessControlConfig {
   /**
    * <p>A description of the origin access control.</p>
    */
-  Description: string | undefined;
+  Description?: string;
 
   /**
    * <p>The signing protocol of the origin access control, which determines how CloudFront signs
@@ -5800,7 +6145,11 @@ export class TooManyOriginAccessControls extends __BaseException {
   }
 }
 
-export type OriginRequestPolicyCookieBehavior = "all" | "none" | "whitelist";
+export enum OriginRequestPolicyCookieBehavior {
+  all = "all",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>An object that determines whether any cookies in viewer requests (and if so, which cookies)
@@ -5840,7 +6189,12 @@ export interface OriginRequestPolicyCookiesConfig {
   Cookies?: CookieNames;
 }
 
-export type OriginRequestPolicyHeaderBehavior = "allViewer" | "allViewerAndWhitelistCloudFront" | "none" | "whitelist";
+export enum OriginRequestPolicyHeaderBehavior {
+  allViewer = "allViewer",
+  allViewerAndWhitelistCloudFront = "allViewerAndWhitelistCloudFront",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>An object that determines whether any HTTP headers (and if so, which headers) are included
@@ -5886,7 +6240,11 @@ export interface OriginRequestPolicyHeadersConfig {
   Headers?: Headers;
 }
 
-export type OriginRequestPolicyQueryStringBehavior = "all" | "none" | "whitelist";
+export enum OriginRequestPolicyQueryStringBehavior {
+  all = "all",
+  none = "none",
+  whitelist = "whitelist",
+}
 
 /**
  * <p>An object that determines whether any URL query strings in viewer requests (and if so, which
@@ -7171,367 +7529,6 @@ export interface StreamingLoggingConfig {
 }
 
 /**
- * <p>A complex type that contains information about the Amazon S3 bucket from which you want
- * 			CloudFront to get your media files for distribution.</p>
- */
-export interface S3Origin {
-  /**
-   * <p>The DNS name of the Amazon S3 origin. </p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>The CloudFront origin access identity to associate with the distribution. Use an origin
-   * 			access identity to configure the distribution so that end users can only access objects in an
-   * 			Amazon S3 bucket through CloudFront.</p>
-   * 		       <p>If you want end users to be able to access objects using either the CloudFront URL or the
-   * 			Amazon S3 URL, specify an empty <code>OriginAccessIdentity</code> element.</p>
-   * 		       <p>To delete the origin access identity from an existing distribution, update the
-   * 			distribution configuration and include an empty <code>OriginAccessIdentity</code>
-   * 			element.</p>
-   * 		       <p>To replace the origin access identity, update the distribution configuration and
-   * 			specify the new origin access identity.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using an Origin Access
-   * 				Identity to Restrict Access to Your Amazon S3 Content</a> in the <i>
-   * 				Amazon CloudFront Developer Guide</i>.</p>
-   */
-  OriginAccessIdentity: string | undefined;
-}
-
-/**
- * <p>The RTMP distribution's configuration information.</p>
- */
-export interface StreamingDistributionConfig {
-  /**
-   * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be
-   * 			replayed.</p>
-   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
-   * 			<code>StreamingDistributionConfig</code> object), CloudFront creates a new distribution.</p>
-   * 		       <p>If <code>CallerReference</code> is a value that you already sent in a previous request to
-   * 			create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code> error.</p>
-   */
-  CallerReference: string | undefined;
-
-  /**
-   * <p>A complex type that contains information about the Amazon S3 bucket from which you want
-   * 			CloudFront to get your media files for distribution. </p>
-   */
-  S3Origin: S3Origin | undefined;
-
-  /**
-   * <p>A complex type that contains information about CNAMEs (alternate domain names), if any,
-   * 			for this streaming distribution. </p>
-   */
-  Aliases?: Aliases;
-
-  /**
-   * <p>Any comments you want to include about the streaming distribution. </p>
-   */
-  Comment: string | undefined;
-
-  /**
-   * <p>A complex type that controls whether access logs are written for the streaming
-   * 			distribution. </p>
-   */
-  Logging?: StreamingLoggingConfig;
-
-  /**
-   * <p>A complex type that specifies any Amazon Web Services accounts that you want to permit to create signed
-   * 			URLs for private content. If you want the distribution to use signed URLs, include this
-   * 			element; if you want the distribution to use public URLs, remove this element. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through
-   * 				CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
-   */
-  TrustedSigners: TrustedSigners | undefined;
-
-  /**
-   * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
-   */
-  PriceClass?: PriceClass | string;
-
-  /**
-   * <p>Whether the streaming distribution is enabled to accept user requests for
-   * 			content.</p>
-   */
-  Enabled: boolean | undefined;
-}
-
-/**
- * <p>The request to create a new streaming distribution.</p>
- */
-export interface CreateStreamingDistributionRequest {
-  /**
-   * <p>The streaming distribution's configuration information.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-}
-
-/**
- * <p>A streaming distribution tells CloudFront where you want RTMP content to be delivered from, and the details about how to
- * 			track and manage content delivery.</p>
- */
-export interface StreamingDistribution {
-  /**
-   * <p>The identifier for the RTMP distribution. For example:
-   * 			<code>EGTXBD79EXAMPLE</code>.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The ARN (Amazon Resource Name) for the distribution. For example:
-   * 			<code>arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5</code>, where
-   * 			<code>123456789012</code> is your Amazon Web Services account ID.</p>
-   */
-  ARN: string | undefined;
-
-  /**
-   * <p>The current status of the RTMP distribution. When the status is <code>Deployed</code>,
-   * 			the distribution's information is propagated to all CloudFront edge locations.</p>
-   */
-  Status: string | undefined;
-
-  /**
-   * <p>The date and time that the distribution was last modified. </p>
-   */
-  LastModifiedTime?: Date;
-
-  /**
-   * <p>The domain name that corresponds to the streaming distribution, for example, <code>s5c39gqb8ow64r.cloudfront.net</code>. </p>
-   */
-  DomainName: string | undefined;
-
-  /**
-   * <p>A complex type that lists the Amazon Web Services accounts, if any, that you included in the
-   * 				<code>TrustedSigners</code> complex type for this distribution. These are the accounts that
-   * 			you want to allow to create signed URLs for private content.</p>
-   * 		       <p>The <code>Signer</code> complex type lists the Amazon Web Services account number of the trusted
-   * 			signer or <code>self</code> if the signer is the Amazon Web Services account that created the distribution.
-   * 			The <code>Signer</code> element also includes the IDs of any active CloudFront key pairs that are
-   * 			associated with the trusted signer's Amazon Web Services account. If no <code>KeyPairId</code> element
-   * 			appears for a <code>Signer</code>, that signer can't create signed URLs.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
-   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
-   */
-  ActiveTrustedSigners: ActiveTrustedSigners | undefined;
-
-  /**
-   * <p>The current configuration information for the RTMP distribution.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-}
-
-/**
- * <p>The returned result of the corresponding request.</p>
- */
-export interface CreateStreamingDistributionResult {
-  /**
-   * <p>The streaming distribution's information.</p>
-   */
-  StreamingDistribution?: StreamingDistribution;
-
-  /**
-   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
-   */
-  Location?: string;
-
-  /**
-   * <p>The current version of the streaming distribution created.</p>
-   */
-  ETag?: string;
-}
-
-/**
- * <p>The caller reference you attempted to create the streaming distribution with
- * 			is associated with another distribution</p>
- */
-export class StreamingDistributionAlreadyExists extends __BaseException {
-  readonly name: "StreamingDistributionAlreadyExists" = "StreamingDistributionAlreadyExists";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<StreamingDistributionAlreadyExists, __BaseException>) {
-    super({
-      name: "StreamingDistributionAlreadyExists",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, StreamingDistributionAlreadyExists.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Your request contains more CNAMEs than are allowed per distribution.</p>
- */
-export class TooManyStreamingDistributionCNAMEs extends __BaseException {
-  readonly name: "TooManyStreamingDistributionCNAMEs" = "TooManyStreamingDistributionCNAMEs";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributionCNAMEs, __BaseException>) {
-    super({
-      name: "TooManyStreamingDistributionCNAMEs",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyStreamingDistributionCNAMEs.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
- */
-export class TooManyStreamingDistributions extends __BaseException {
-  readonly name: "TooManyStreamingDistributions" = "TooManyStreamingDistributions";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyStreamingDistributions, __BaseException>) {
-    super({
-      name: "TooManyStreamingDistributions",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyStreamingDistributions.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>A streaming distribution Configuration and a list of tags to be associated with the
- * 			streaming distribution.</p>
- */
-export interface StreamingDistributionConfigWithTags {
-  /**
-   * <p>A streaming distribution Configuration.</p>
-   */
-  StreamingDistributionConfig: StreamingDistributionConfig | undefined;
-
-  /**
-   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
-   */
-  Tags: Tags | undefined;
-}
-
-/**
- * <p>The request to create a new streaming distribution with tags.</p>
- */
-export interface CreateStreamingDistributionWithTagsRequest {
-  /**
-   * <p> The streaming distribution's configuration information. </p>
-   */
-  StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags | undefined;
-}
-
-/**
- * <p>The returned result of the corresponding request. </p>
- */
-export interface CreateStreamingDistributionWithTagsResult {
-  /**
-   * <p>The streaming distribution's information. </p>
-   */
-  StreamingDistribution?: StreamingDistribution;
-
-  /**
-   * <p>The fully qualified URI of the new streaming distribution resource just created.</p>
-   */
-  Location?: string;
-
-  /**
-   * <p>The current version of the distribution created.</p>
-   */
-  ETag?: string;
-}
-
-export interface DeleteCachePolicyRequest {
-  /**
-   * <p>The unique identifier for the cache policy that you are deleting. To get the
-   * 			identifier, you can use <code>ListCachePolicies</code>.</p>
-   */
-  Id: string | undefined;
-
-  /**
-   * <p>The version of the cache policy that you are deleting. The version is the cache
-   * 			policy’s <code>ETag</code> value, which you can get using
-   * 			<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
-   * 			<code>GetCachePolicyConfig</code>.</p>
-   */
-  IfMatch?: string;
-}
-
-/**
- * <p>You cannot delete a managed policy.</p>
- */
-export class IllegalDelete extends __BaseException {
-  readonly name: "IllegalDelete" = "IllegalDelete";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<IllegalDelete, __BaseException>) {
-    super({
-      name: "IllegalDelete",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, IllegalDelete.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The <code>If-Match</code> version is missing or not valid.</p>
- */
-export class InvalidIfMatchVersion extends __BaseException {
-  readonly name: "InvalidIfMatchVersion" = "InvalidIfMatchVersion";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidIfMatchVersion, __BaseException>) {
-    super({
-      name: "InvalidIfMatchVersion",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidIfMatchVersion.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
- */
-export class PreconditionFailed extends __BaseException {
-  readonly name: "PreconditionFailed" = "PreconditionFailed";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<PreconditionFailed, __BaseException>) {
-    super({
-      name: "PreconditionFailed",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, PreconditionFailed.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @internal
  */
 export const KeyPairIdsFilterSensitiveLog = (obj: KeyPairIds): any => ({
@@ -7760,48 +7757,7 @@ export const CachePolicyListFilterSensitiveLog = (obj: CachePolicyList): any => 
 /**
  * @internal
  */
-export const CreateCachePolicyRequestFilterSensitiveLog = (obj: CreateCachePolicyRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCachePolicyResultFilterSensitiveLog = (obj: CreateCachePolicyResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFrontOriginAccessIdentityConfigFilterSensitiveLog = (
-  obj: CloudFrontOriginAccessIdentityConfig
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
-  obj: CreateCloudFrontOriginAccessIdentityRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CloudFrontOriginAccessIdentityFilterSensitiveLog = (obj: CloudFrontOriginAccessIdentity): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
-  obj: CreateCloudFrontOriginAccessIdentityResult
-): any => ({
+export const CopyDistributionRequestFilterSensitiveLog = (obj: CopyDistributionRequest): any => ({
   ...obj,
 });
 
@@ -7966,7 +7922,7 @@ export const DistributionConfigFilterSensitiveLog = (obj: DistributionConfig): a
 /**
  * @internal
  */
-export const CreateDistributionRequestFilterSensitiveLog = (obj: CreateDistributionRequest): any => ({
+export const DistributionFilterSensitiveLog = (obj: Distribution): any => ({
   ...obj,
   ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
 });
@@ -7974,7 +7930,134 @@ export const CreateDistributionRequestFilterSensitiveLog = (obj: CreateDistribut
 /**
  * @internal
  */
-export const DistributionFilterSensitiveLog = (obj: Distribution): any => ({
+export const CopyDistributionResultFilterSensitiveLog = (obj: CopyDistributionResult): any => ({
+  ...obj,
+  ...(obj.Distribution && { Distribution: DistributionFilterSensitiveLog(obj.Distribution) }),
+});
+
+/**
+ * @internal
+ */
+export const CreateCachePolicyRequestFilterSensitiveLog = (obj: CreateCachePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCachePolicyResultFilterSensitiveLog = (obj: CreateCachePolicyResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFrontOriginAccessIdentityConfigFilterSensitiveLog = (
+  obj: CloudFrontOriginAccessIdentityConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFrontOriginAccessIdentityRequestFilterSensitiveLog = (
+  obj: CreateCloudFrontOriginAccessIdentityRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CloudFrontOriginAccessIdentityFilterSensitiveLog = (obj: CloudFrontOriginAccessIdentity): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateCloudFrontOriginAccessIdentityResultFilterSensitiveLog = (
+  obj: CreateCloudFrontOriginAccessIdentityResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StagingDistributionDnsNamesFilterSensitiveLog = (obj: StagingDistributionDnsNames): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentSingleHeaderConfigFilterSensitiveLog = (
+  obj: ContinuousDeploymentSingleHeaderConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SessionStickinessConfigFilterSensitiveLog = (obj: SessionStickinessConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentSingleWeightConfigFilterSensitiveLog = (
+  obj: ContinuousDeploymentSingleWeightConfig
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TrafficConfigFilterSensitiveLog = (obj: TrafficConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentPolicyConfigFilterSensitiveLog = (obj: ContinuousDeploymentPolicyConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContinuousDeploymentPolicyRequestFilterSensitiveLog = (
+  obj: CreateContinuousDeploymentPolicyRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ContinuousDeploymentPolicyFilterSensitiveLog = (obj: ContinuousDeploymentPolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateContinuousDeploymentPolicyResultFilterSensitiveLog = (
+  obj: CreateContinuousDeploymentPolicyResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateDistributionRequestFilterSensitiveLog = (obj: CreateDistributionRequest): any => ({
   ...obj,
   ...(obj.DistributionConfig && { DistributionConfig: DistributionConfigFilterSensitiveLog(obj.DistributionConfig) }),
 });
@@ -8584,74 +8667,5 @@ export const CreateResponseHeadersPolicyResultFilterSensitiveLog = (obj: CreateR
  * @internal
  */
 export const StreamingLoggingConfigFilterSensitiveLog = (obj: StreamingLoggingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3OriginFilterSensitiveLog = (obj: S3Origin): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionConfigFilterSensitiveLog = (obj: StreamingDistributionConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionRequestFilterSensitiveLog = (obj: CreateStreamingDistributionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionFilterSensitiveLog = (obj: StreamingDistribution): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionResultFilterSensitiveLog = (obj: CreateStreamingDistributionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StreamingDistributionConfigWithTagsFilterSensitiveLog = (
-  obj: StreamingDistributionConfigWithTags
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionWithTagsRequestFilterSensitiveLog = (
-  obj: CreateStreamingDistributionWithTagsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStreamingDistributionWithTagsResultFilterSensitiveLog = (
-  obj: CreateStreamingDistributionWithTagsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteCachePolicyRequestFilterSensitiveLog = (obj: DeleteCachePolicyRequest): any => ({
   ...obj,
 });

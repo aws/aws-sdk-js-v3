@@ -15,39 +15,42 @@ import {
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import {
-  CreateDistributionRequest,
-  CreateDistributionRequestFilterSensitiveLog,
-  CreateDistributionResult,
-  CreateDistributionResultFilterSensitiveLog,
-} from "../models/models_0";
+  GetContinuousDeploymentPolicyRequest,
+  GetContinuousDeploymentPolicyRequestFilterSensitiveLog,
+  GetContinuousDeploymentPolicyResult,
+  GetContinuousDeploymentPolicyResultFilterSensitiveLog,
+} from "../models/models_1";
 import {
-  deserializeAws_restXmlCreateDistributionCommand,
-  serializeAws_restXmlCreateDistributionCommand,
+  deserializeAws_restXmlGetContinuousDeploymentPolicyCommand,
+  serializeAws_restXmlGetContinuousDeploymentPolicyCommand,
 } from "../protocols/Aws_restXml";
 
-export interface CreateDistributionCommandInput extends CreateDistributionRequest {}
-export interface CreateDistributionCommandOutput extends CreateDistributionResult, __MetadataBearer {}
+export interface GetContinuousDeploymentPolicyCommandInput extends GetContinuousDeploymentPolicyRequest {}
+export interface GetContinuousDeploymentPolicyCommandOutput
+  extends GetContinuousDeploymentPolicyResult,
+    __MetadataBearer {}
 
 /**
- * <p>Creates a CloudFront distribution.</p>
+ * <p>Gets a continuous deployment policy, including metadata (the policy’s identifier and
+ * 			the date and time when the policy was last modified).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudFrontClient, CreateDistributionCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
- * // const { CloudFrontClient, CreateDistributionCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
+ * import { CloudFrontClient, GetContinuousDeploymentPolicyCommand } from "@aws-sdk/client-cloudfront"; // ES Modules import
+ * // const { CloudFrontClient, GetContinuousDeploymentPolicyCommand } = require("@aws-sdk/client-cloudfront"); // CommonJS import
  * const client = new CloudFrontClient(config);
- * const command = new CreateDistributionCommand(input);
+ * const command = new GetContinuousDeploymentPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateDistributionCommandInput} for command's `input` shape.
- * @see {@link CreateDistributionCommandOutput} for command's `response` shape.
+ * @see {@link GetContinuousDeploymentPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetContinuousDeploymentPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  */
-export class CreateDistributionCommand extends $Command<
-  CreateDistributionCommandInput,
-  CreateDistributionCommandOutput,
+export class GetContinuousDeploymentPolicyCommand extends $Command<
+  GetContinuousDeploymentPolicyCommandInput,
+  GetContinuousDeploymentPolicyCommandOutput,
   CloudFrontClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class CreateDistributionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateDistributionCommandInput) {
+  constructor(readonly input: GetContinuousDeploymentPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +78,23 @@ export class CreateDistributionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudFrontClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateDistributionCommandInput, CreateDistributionCommandOutput> {
+  ): Handler<GetContinuousDeploymentPolicyCommandInput, GetContinuousDeploymentPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateDistributionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetContinuousDeploymentPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudFrontClient";
-    const commandName = "CreateDistributionCommand";
+    const commandName = "GetContinuousDeploymentPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateDistributionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: CreateDistributionResultFilterSensitiveLog,
+      inputFilterSensitiveLog: GetContinuousDeploymentPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetContinuousDeploymentPolicyResultFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +104,15 @@ export class CreateDistributionCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateDistributionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restXmlCreateDistributionCommand(input, context);
+  private serialize(input: GetContinuousDeploymentPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restXmlGetContinuousDeploymentPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateDistributionCommandOutput> {
-    return deserializeAws_restXmlCreateDistributionCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetContinuousDeploymentPolicyCommandOutput> {
+    return deserializeAws_restXmlGetContinuousDeploymentPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

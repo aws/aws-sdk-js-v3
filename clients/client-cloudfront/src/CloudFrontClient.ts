@@ -48,11 +48,16 @@ import {
 } from "@aws-sdk/types";
 
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "./commands/AssociateAliasCommand";
+import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "./commands/CopyDistributionCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "./commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CreateContinuousDeploymentPolicyCommandInput,
+  CreateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/CreateContinuousDeploymentPolicyCommand";
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "./commands/CreateDistributionCommand";
 import {
   CreateDistributionWithTagsCommandInput,
@@ -103,6 +108,10 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteContinuousDeploymentPolicyCommandInput,
+  DeleteContinuousDeploymentPolicyCommandOutput,
+} from "./commands/DeleteContinuousDeploymentPolicyCommand";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "./commands/DeleteDistributionCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
@@ -153,6 +162,14 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetContinuousDeploymentPolicyCommandInput,
+  GetContinuousDeploymentPolicyCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyCommand";
+import {
+  GetContinuousDeploymentPolicyConfigCommandInput,
+  GetContinuousDeploymentPolicyConfigCommandOutput,
+} from "./commands/GetContinuousDeploymentPolicyConfigCommand";
 import { GetDistributionCommandInput, GetDistributionCommandOutput } from "./commands/GetDistributionCommand";
 import {
   GetDistributionConfigCommandInput,
@@ -230,6 +247,10 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  ListContinuousDeploymentPoliciesCommandInput,
+  ListContinuousDeploymentPoliciesCommandOutput,
+} from "./commands/ListContinuousDeploymentPoliciesCommand";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
@@ -299,6 +320,10 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateContinuousDeploymentPolicyCommandInput,
+  UpdateContinuousDeploymentPolicyCommandOutput,
+} from "./commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
@@ -341,8 +366,10 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AssociateAliasCommandInput
+  | CopyDistributionCommandInput
   | CreateCachePolicyCommandInput
   | CreateCloudFrontOriginAccessIdentityCommandInput
+  | CreateContinuousDeploymentPolicyCommandInput
   | CreateDistributionCommandInput
   | CreateDistributionWithTagsCommandInput
   | CreateFieldLevelEncryptionConfigCommandInput
@@ -360,6 +387,7 @@ export type ServiceInputTypes =
   | CreateStreamingDistributionWithTagsCommandInput
   | DeleteCachePolicyCommandInput
   | DeleteCloudFrontOriginAccessIdentityCommandInput
+  | DeleteContinuousDeploymentPolicyCommandInput
   | DeleteDistributionCommandInput
   | DeleteFieldLevelEncryptionConfigCommandInput
   | DeleteFieldLevelEncryptionProfileCommandInput
@@ -377,6 +405,8 @@ export type ServiceInputTypes =
   | GetCachePolicyConfigCommandInput
   | GetCloudFrontOriginAccessIdentityCommandInput
   | GetCloudFrontOriginAccessIdentityConfigCommandInput
+  | GetContinuousDeploymentPolicyCommandInput
+  | GetContinuousDeploymentPolicyConfigCommandInput
   | GetDistributionCommandInput
   | GetDistributionConfigCommandInput
   | GetFieldLevelEncryptionCommandInput
@@ -402,6 +432,7 @@ export type ServiceInputTypes =
   | ListCachePoliciesCommandInput
   | ListCloudFrontOriginAccessIdentitiesCommandInput
   | ListConflictingAliasesCommandInput
+  | ListContinuousDeploymentPoliciesCommandInput
   | ListDistributionsByCachePolicyIdCommandInput
   | ListDistributionsByKeyGroupCommandInput
   | ListDistributionsByOriginRequestPolicyIdCommandInput
@@ -427,6 +458,7 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCachePolicyCommandInput
   | UpdateCloudFrontOriginAccessIdentityCommandInput
+  | UpdateContinuousDeploymentPolicyCommandInput
   | UpdateDistributionCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
@@ -441,8 +473,10 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AssociateAliasCommandOutput
+  | CopyDistributionCommandOutput
   | CreateCachePolicyCommandOutput
   | CreateCloudFrontOriginAccessIdentityCommandOutput
+  | CreateContinuousDeploymentPolicyCommandOutput
   | CreateDistributionCommandOutput
   | CreateDistributionWithTagsCommandOutput
   | CreateFieldLevelEncryptionConfigCommandOutput
@@ -460,6 +494,7 @@ export type ServiceOutputTypes =
   | CreateStreamingDistributionWithTagsCommandOutput
   | DeleteCachePolicyCommandOutput
   | DeleteCloudFrontOriginAccessIdentityCommandOutput
+  | DeleteContinuousDeploymentPolicyCommandOutput
   | DeleteDistributionCommandOutput
   | DeleteFieldLevelEncryptionConfigCommandOutput
   | DeleteFieldLevelEncryptionProfileCommandOutput
@@ -477,6 +512,8 @@ export type ServiceOutputTypes =
   | GetCachePolicyConfigCommandOutput
   | GetCloudFrontOriginAccessIdentityCommandOutput
   | GetCloudFrontOriginAccessIdentityConfigCommandOutput
+  | GetContinuousDeploymentPolicyCommandOutput
+  | GetContinuousDeploymentPolicyConfigCommandOutput
   | GetDistributionCommandOutput
   | GetDistributionConfigCommandOutput
   | GetFieldLevelEncryptionCommandOutput
@@ -502,6 +539,7 @@ export type ServiceOutputTypes =
   | ListCachePoliciesCommandOutput
   | ListCloudFrontOriginAccessIdentitiesCommandOutput
   | ListConflictingAliasesCommandOutput
+  | ListContinuousDeploymentPoliciesCommandOutput
   | ListDistributionsByCachePolicyIdCommandOutput
   | ListDistributionsByKeyGroupCommandOutput
   | ListDistributionsByOriginRequestPolicyIdCommandOutput
@@ -527,6 +565,7 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCachePolicyCommandOutput
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
+  | UpdateContinuousDeploymentPolicyCommandOutput
   | UpdateDistributionCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput

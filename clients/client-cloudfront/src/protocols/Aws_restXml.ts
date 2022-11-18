@@ -26,11 +26,16 @@ import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder
 import { XMLParser } from "fast-xml-parser";
 
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "../commands/AssociateAliasCommand";
+import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "../commands/CopyDistributionCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "../commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/CreateCloudFrontOriginAccessIdentityCommand";
+import {
+  CreateContinuousDeploymentPolicyCommandInput,
+  CreateContinuousDeploymentPolicyCommandOutput,
+} from "../commands/CreateContinuousDeploymentPolicyCommand";
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "../commands/CreateDistributionCommand";
 import {
   CreateDistributionWithTagsCommandInput,
@@ -81,6 +86,10 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/DeleteCloudFrontOriginAccessIdentityCommand";
+import {
+  DeleteContinuousDeploymentPolicyCommandInput,
+  DeleteContinuousDeploymentPolicyCommandOutput,
+} from "../commands/DeleteContinuousDeploymentPolicyCommand";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "../commands/DeleteDistributionCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
@@ -131,6 +140,14 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandInput,
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "../commands/GetCloudFrontOriginAccessIdentityConfigCommand";
+import {
+  GetContinuousDeploymentPolicyCommandInput,
+  GetContinuousDeploymentPolicyCommandOutput,
+} from "../commands/GetContinuousDeploymentPolicyCommand";
+import {
+  GetContinuousDeploymentPolicyConfigCommandInput,
+  GetContinuousDeploymentPolicyConfigCommandOutput,
+} from "../commands/GetContinuousDeploymentPolicyConfigCommand";
 import { GetDistributionCommandInput, GetDistributionCommandOutput } from "../commands/GetDistributionCommand";
 import {
   GetDistributionConfigCommandInput,
@@ -208,6 +225,10 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "../commands/ListConflictingAliasesCommand";
 import {
+  ListContinuousDeploymentPoliciesCommandInput,
+  ListContinuousDeploymentPoliciesCommandOutput,
+} from "../commands/ListContinuousDeploymentPoliciesCommand";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "../commands/ListDistributionsByCachePolicyIdCommand";
@@ -277,6 +298,10 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandInput,
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/UpdateCloudFrontOriginAccessIdentityCommand";
+import {
+  UpdateContinuousDeploymentPolicyCommandInput,
+  UpdateContinuousDeploymentPolicyCommandOutput,
+} from "../commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "../commands/UpdateDistributionCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
@@ -338,6 +363,10 @@ import {
   ContentTypeProfile,
   ContentTypeProfileConfig,
   ContentTypeProfiles,
+  ContinuousDeploymentPolicy,
+  ContinuousDeploymentPolicyConfig,
+  ContinuousDeploymentSingleHeaderConfig,
+  ContinuousDeploymentSingleWeightConfig,
   CookieNames,
   CookiePreference,
   CustomErrorResponse,
@@ -370,7 +399,6 @@ import {
   FunctionSummary,
   GeoRestriction,
   Headers,
-  IllegalDelete,
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
   IllegalOriginAccessConfiguration,
   IllegalUpdate,
@@ -480,15 +508,13 @@ import {
   ResponseHeadersPolicyStrictTransportSecurity,
   ResponseHeadersPolicyXSSProtection,
   Restrictions,
-  S3Origin,
   S3OriginConfig,
+  SessionStickinessConfig,
   Signer,
   SslProtocol,
+  StagingDistributionDnsNames,
+  StagingDistributionInUse,
   StatusCodes,
-  StreamingDistribution,
-  StreamingDistributionAlreadyExists,
-  StreamingDistributionConfig,
-  StreamingDistributionConfigWithTags,
   StreamingLoggingConfig,
   Tag,
   Tags,
@@ -539,9 +565,8 @@ import {
   TooManyQueryStringsInOriginRequestPolicy,
   TooManyRealtimeLogConfigs,
   TooManyResponseHeadersPolicies,
-  TooManyStreamingDistributionCNAMEs,
-  TooManyStreamingDistributions,
   TooManyTrustedSigners,
+  TrafficConfig,
   TrustedKeyGroupDoesNotExist,
   TrustedKeyGroups,
   TrustedSignerDoesNotExist,
@@ -555,6 +580,8 @@ import {
   CloudFrontOriginAccessIdentitySummary,
   ConflictingAlias,
   ConflictingAliasesList,
+  ContinuousDeploymentPolicyList,
+  ContinuousDeploymentPolicySummary,
   DistributionIdList,
   DistributionList,
   DistributionNotDisabled,
@@ -567,6 +594,7 @@ import {
   FieldLevelEncryptionSummary,
   FunctionInUse,
   FunctionList,
+  IllegalDelete,
   InvalidationList,
   InvalidationSummary,
   KeyGroupList,
@@ -593,12 +621,19 @@ import {
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicySummary,
+  S3Origin,
+  StreamingDistribution,
+  StreamingDistributionAlreadyExists,
+  StreamingDistributionConfig,
+  StreamingDistributionConfigWithTags,
   StreamingDistributionList,
   StreamingDistributionNotDisabled,
   StreamingDistributionSummary,
   TagKeys,
   TestFunctionFailed,
   TestResult,
+  TooManyStreamingDistributionCNAMEs,
+  TooManyStreamingDistributions,
 } from "../models/models_1";
 
 export const serializeAws_restXmlAssociateAliasCommand = async (
@@ -630,6 +665,47 @@ export const serializeAws_restXmlAssociateAliasCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlCopyDistributionCommand = async (
+  input: CopyDistributionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    staging: [() => isSerializableHeaderValue(input.Staging), () => input.Staging!.toString()],
+    "if-match": input.IfMatch!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/distribution/{PrimaryDistributionId}/copy";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "PrimaryDistributionId",
+    () => input.PrimaryDistributionId!,
+    "{PrimaryDistributionId}",
+    false
+  );
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("CopyDistributionRequest");
+  bodyNode.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input.CallerReference !== undefined) {
+    const node = __XmlNode.of("string", input.CallerReference).withName("CallerReference");
+    bodyNode.addChildNode(node);
+  }
+  body += bodyNode.toString();
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -690,6 +766,38 @@ export const serializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommand = a
       input.CloudFrontOriginAccessIdentityConfig,
       context
     );
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlCreateContinuousDeploymentPolicyCommand = async (
+  input: CreateContinuousDeploymentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/continuous-deployment-policy";
+  let body: any;
+  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
+    body = serializeAws_restXmlContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
+  }
+  let contents: any;
+  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
+    contents = serializeAws_restXmlContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
     body = '<?xml version="1.0" encoding="UTF-8"?>';
     contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
@@ -1283,6 +1391,30 @@ export const serializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommand = a
   });
 };
 
+export const serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand = async (
+  input: DeleteContinuousDeploymentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "if-match": input.IfMatch!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/continuous-deployment-policy/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlDeleteDistributionCommand = async (
   input: DeleteDistributionCommandInput,
   context: __SerdeContext
@@ -1675,6 +1807,50 @@ export const serializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommand 
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/origin-access-identity/cloudfront/{Id}/config";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetContinuousDeploymentPolicyCommand = async (
+  input: GetContinuousDeploymentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/continuous-deployment-policy/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand = async (
+  input: GetContinuousDeploymentPolicyConfigCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/continuous-deployment-policy/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   let body: any;
   return new __HttpRequest({
@@ -2254,6 +2430,31 @@ export const serializeAws_restXmlListConflictingAliasesCommand = async (
   const query: any = map({
     DistributionId: [, input.DistributionId!],
     Alias: [, input.Alias!],
+    Marker: [, input.Marker!],
+    MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restXmlListContinuousDeploymentPoliciesCommand = async (
+  input: ListContinuousDeploymentPoliciesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/continuous-deployment-policy";
+  const query: any = map({
     Marker: [, input.Marker!],
     MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
   });
@@ -3008,6 +3209,41 @@ export const serializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommand = a
   });
 };
 
+export const serializeAws_restXmlUpdateContinuousDeploymentPolicyCommand = async (
+  input: UpdateContinuousDeploymentPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "if-match": input.IfMatch!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-05-31/continuous-deployment-policy/{Id}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
+    body = serializeAws_restXmlContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
+  }
+  let contents: any;
+  if (input.ContinuousDeploymentPolicyConfig !== undefined) {
+    contents = serializeAws_restXmlContinuousDeploymentPolicyConfig(input.ContinuousDeploymentPolicyConfig, context);
+    body = '<?xml version="1.0" encoding="UTF-8"?>';
+    contents.addAttribute("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restXmlUpdateDistributionCommand = async (
   input: UpdateDistributionCommandInput,
   context: __SerdeContext
@@ -3458,6 +3694,245 @@ const deserializeAws_restXmlAssociateAliasCommandError = async (
   }
 };
 
+export const deserializeAws_restXmlCopyDistributionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDistributionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCopyDistributionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.Distribution = deserializeAws_restXmlDistribution(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlCopyDistributionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyDistributionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    case "CNAMEAlreadyExists":
+    case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
+      throw await deserializeAws_restXmlCNAMEAlreadyExistsResponse(parsedOutput, context);
+    case "DistributionAlreadyExists":
+    case "com.amazonaws.cloudfront#DistributionAlreadyExists":
+      throw await deserializeAws_restXmlDistributionAlreadyExistsResponse(parsedOutput, context);
+    case "IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
+    case "com.amazonaws.cloudfront#IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior":
+      throw await deserializeAws_restXmlIllegalFieldLevelEncryptionConfigAssociationWithCacheBehaviorResponse(
+        parsedOutput,
+        context
+      );
+    case "InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
+      throw await deserializeAws_restXmlInconsistentQuantitiesResponse(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
+    case "InvalidDefaultRootObject":
+    case "com.amazonaws.cloudfront#InvalidDefaultRootObject":
+      throw await deserializeAws_restXmlInvalidDefaultRootObjectResponse(parsedOutput, context);
+    case "InvalidErrorCode":
+    case "com.amazonaws.cloudfront#InvalidErrorCode":
+      throw await deserializeAws_restXmlInvalidErrorCodeResponse(parsedOutput, context);
+    case "InvalidForwardCookies":
+    case "com.amazonaws.cloudfront#InvalidForwardCookies":
+      throw await deserializeAws_restXmlInvalidForwardCookiesResponse(parsedOutput, context);
+    case "InvalidFunctionAssociation":
+    case "com.amazonaws.cloudfront#InvalidFunctionAssociation":
+      throw await deserializeAws_restXmlInvalidFunctionAssociationResponse(parsedOutput, context);
+    case "InvalidGeoRestrictionParameter":
+    case "com.amazonaws.cloudfront#InvalidGeoRestrictionParameter":
+      throw await deserializeAws_restXmlInvalidGeoRestrictionParameterResponse(parsedOutput, context);
+    case "InvalidHeadersForS3Origin":
+    case "com.amazonaws.cloudfront#InvalidHeadersForS3Origin":
+      throw await deserializeAws_restXmlInvalidHeadersForS3OriginResponse(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await deserializeAws_restXmlInvalidIfMatchVersionResponse(parsedOutput, context);
+    case "InvalidLambdaFunctionAssociation":
+    case "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation":
+      throw await deserializeAws_restXmlInvalidLambdaFunctionAssociationResponse(parsedOutput, context);
+    case "InvalidLocationCode":
+    case "com.amazonaws.cloudfront#InvalidLocationCode":
+      throw await deserializeAws_restXmlInvalidLocationCodeResponse(parsedOutput, context);
+    case "InvalidMinimumProtocolVersion":
+    case "com.amazonaws.cloudfront#InvalidMinimumProtocolVersion":
+      throw await deserializeAws_restXmlInvalidMinimumProtocolVersionResponse(parsedOutput, context);
+    case "InvalidOrigin":
+    case "com.amazonaws.cloudfront#InvalidOrigin":
+      throw await deserializeAws_restXmlInvalidOriginResponse(parsedOutput, context);
+    case "InvalidOriginAccessControl":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessControl":
+      throw await deserializeAws_restXmlInvalidOriginAccessControlResponse(parsedOutput, context);
+    case "InvalidOriginAccessIdentity":
+    case "com.amazonaws.cloudfront#InvalidOriginAccessIdentity":
+      throw await deserializeAws_restXmlInvalidOriginAccessIdentityResponse(parsedOutput, context);
+    case "InvalidOriginKeepaliveTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginKeepaliveTimeout":
+      throw await deserializeAws_restXmlInvalidOriginKeepaliveTimeoutResponse(parsedOutput, context);
+    case "InvalidOriginReadTimeout":
+    case "com.amazonaws.cloudfront#InvalidOriginReadTimeout":
+      throw await deserializeAws_restXmlInvalidOriginReadTimeoutResponse(parsedOutput, context);
+    case "InvalidProtocolSettings":
+    case "com.amazonaws.cloudfront#InvalidProtocolSettings":
+      throw await deserializeAws_restXmlInvalidProtocolSettingsResponse(parsedOutput, context);
+    case "InvalidQueryStringParameters":
+    case "com.amazonaws.cloudfront#InvalidQueryStringParameters":
+      throw await deserializeAws_restXmlInvalidQueryStringParametersResponse(parsedOutput, context);
+    case "InvalidRelativePath":
+    case "com.amazonaws.cloudfront#InvalidRelativePath":
+      throw await deserializeAws_restXmlInvalidRelativePathResponse(parsedOutput, context);
+    case "InvalidRequiredProtocol":
+    case "com.amazonaws.cloudfront#InvalidRequiredProtocol":
+      throw await deserializeAws_restXmlInvalidRequiredProtocolResponse(parsedOutput, context);
+    case "InvalidResponseCode":
+    case "com.amazonaws.cloudfront#InvalidResponseCode":
+      throw await deserializeAws_restXmlInvalidResponseCodeResponse(parsedOutput, context);
+    case "InvalidTTLOrder":
+    case "com.amazonaws.cloudfront#InvalidTTLOrder":
+      throw await deserializeAws_restXmlInvalidTTLOrderResponse(parsedOutput, context);
+    case "InvalidViewerCertificate":
+    case "com.amazonaws.cloudfront#InvalidViewerCertificate":
+      throw await deserializeAws_restXmlInvalidViewerCertificateResponse(parsedOutput, context);
+    case "InvalidWebACLId":
+    case "com.amazonaws.cloudfront#InvalidWebACLId":
+      throw await deserializeAws_restXmlInvalidWebACLIdResponse(parsedOutput, context);
+    case "MissingBody":
+    case "com.amazonaws.cloudfront#MissingBody":
+      throw await deserializeAws_restXmlMissingBodyResponse(parsedOutput, context);
+    case "NoSuchCachePolicy":
+    case "com.amazonaws.cloudfront#NoSuchCachePolicy":
+      throw await deserializeAws_restXmlNoSuchCachePolicyResponse(parsedOutput, context);
+    case "NoSuchDistribution":
+    case "com.amazonaws.cloudfront#NoSuchDistribution":
+      throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
+    case "NoSuchFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#NoSuchFieldLevelEncryptionConfig":
+      throw await deserializeAws_restXmlNoSuchFieldLevelEncryptionConfigResponse(parsedOutput, context);
+    case "NoSuchOrigin":
+    case "com.amazonaws.cloudfront#NoSuchOrigin":
+      throw await deserializeAws_restXmlNoSuchOriginResponse(parsedOutput, context);
+    case "NoSuchOriginRequestPolicy":
+    case "com.amazonaws.cloudfront#NoSuchOriginRequestPolicy":
+      throw await deserializeAws_restXmlNoSuchOriginRequestPolicyResponse(parsedOutput, context);
+    case "NoSuchRealtimeLogConfig":
+    case "com.amazonaws.cloudfront#NoSuchRealtimeLogConfig":
+      throw await deserializeAws_restXmlNoSuchRealtimeLogConfigResponse(parsedOutput, context);
+    case "NoSuchResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
+      throw await deserializeAws_restXmlNoSuchResponseHeadersPolicyResponse(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
+    case "RealtimeLogConfigOwnerMismatch":
+    case "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch":
+      throw await deserializeAws_restXmlRealtimeLogConfigOwnerMismatchResponse(parsedOutput, context);
+    case "TooManyCacheBehaviors":
+    case "com.amazonaws.cloudfront#TooManyCacheBehaviors":
+      throw await deserializeAws_restXmlTooManyCacheBehaviorsResponse(parsedOutput, context);
+    case "TooManyCertificates":
+    case "com.amazonaws.cloudfront#TooManyCertificates":
+      throw await deserializeAws_restXmlTooManyCertificatesResponse(parsedOutput, context);
+    case "TooManyCookieNamesInWhiteList":
+    case "com.amazonaws.cloudfront#TooManyCookieNamesInWhiteList":
+      throw await deserializeAws_restXmlTooManyCookieNamesInWhiteListResponse(parsedOutput, context);
+    case "TooManyDistributionCNAMEs":
+    case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
+      throw await deserializeAws_restXmlTooManyDistributionCNAMEsResponse(parsedOutput, context);
+    case "TooManyDistributions":
+    case "com.amazonaws.cloudfront#TooManyDistributions":
+      throw await deserializeAws_restXmlTooManyDistributionsResponse(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToCachePolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToCachePolicy":
+      throw await deserializeAws_restXmlTooManyDistributionsAssociatedToCachePolicyResponse(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToFieldLevelEncryptionConfig":
+      throw await deserializeAws_restXmlTooManyDistributionsAssociatedToFieldLevelEncryptionConfigResponse(
+        parsedOutput,
+        context
+      );
+    case "TooManyDistributionsAssociatedToKeyGroup":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToKeyGroup":
+      throw await deserializeAws_restXmlTooManyDistributionsAssociatedToKeyGroupResponse(parsedOutput, context);
+    case "TooManyDistributionsAssociatedToOriginRequestPolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToOriginRequestPolicy":
+      throw await deserializeAws_restXmlTooManyDistributionsAssociatedToOriginRequestPolicyResponse(
+        parsedOutput,
+        context
+      );
+    case "TooManyDistributionsAssociatedToResponseHeadersPolicy":
+    case "com.amazonaws.cloudfront#TooManyDistributionsAssociatedToResponseHeadersPolicy":
+      throw await deserializeAws_restXmlTooManyDistributionsAssociatedToResponseHeadersPolicyResponse(
+        parsedOutput,
+        context
+      );
+    case "TooManyDistributionsWithFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithFunctionAssociations":
+      throw await deserializeAws_restXmlTooManyDistributionsWithFunctionAssociationsResponse(parsedOutput, context);
+    case "TooManyDistributionsWithLambdaAssociations":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithLambdaAssociations":
+      throw await deserializeAws_restXmlTooManyDistributionsWithLambdaAssociationsResponse(parsedOutput, context);
+    case "TooManyDistributionsWithSingleFunctionARN":
+    case "com.amazonaws.cloudfront#TooManyDistributionsWithSingleFunctionARN":
+      throw await deserializeAws_restXmlTooManyDistributionsWithSingleFunctionARNResponse(parsedOutput, context);
+    case "TooManyFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyFunctionAssociations":
+      throw await deserializeAws_restXmlTooManyFunctionAssociationsResponse(parsedOutput, context);
+    case "TooManyHeadersInForwardedValues":
+    case "com.amazonaws.cloudfront#TooManyHeadersInForwardedValues":
+      throw await deserializeAws_restXmlTooManyHeadersInForwardedValuesResponse(parsedOutput, context);
+    case "TooManyKeyGroupsAssociatedToDistribution":
+    case "com.amazonaws.cloudfront#TooManyKeyGroupsAssociatedToDistribution":
+      throw await deserializeAws_restXmlTooManyKeyGroupsAssociatedToDistributionResponse(parsedOutput, context);
+    case "TooManyLambdaFunctionAssociations":
+    case "com.amazonaws.cloudfront#TooManyLambdaFunctionAssociations":
+      throw await deserializeAws_restXmlTooManyLambdaFunctionAssociationsResponse(parsedOutput, context);
+    case "TooManyOriginCustomHeaders":
+    case "com.amazonaws.cloudfront#TooManyOriginCustomHeaders":
+      throw await deserializeAws_restXmlTooManyOriginCustomHeadersResponse(parsedOutput, context);
+    case "TooManyOriginGroupsPerDistribution":
+    case "com.amazonaws.cloudfront#TooManyOriginGroupsPerDistribution":
+      throw await deserializeAws_restXmlTooManyOriginGroupsPerDistributionResponse(parsedOutput, context);
+    case "TooManyOrigins":
+    case "com.amazonaws.cloudfront#TooManyOrigins":
+      throw await deserializeAws_restXmlTooManyOriginsResponse(parsedOutput, context);
+    case "TooManyQueryStringParameters":
+    case "com.amazonaws.cloudfront#TooManyQueryStringParameters":
+      throw await deserializeAws_restXmlTooManyQueryStringParametersResponse(parsedOutput, context);
+    case "TooManyTrustedSigners":
+    case "com.amazonaws.cloudfront#TooManyTrustedSigners":
+      throw await deserializeAws_restXmlTooManyTrustedSignersResponse(parsedOutput, context);
+    case "TrustedKeyGroupDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedKeyGroupDoesNotExist":
+      throw await deserializeAws_restXmlTrustedKeyGroupDoesNotExistResponse(parsedOutput, context);
+    case "TrustedSignerDoesNotExist":
+    case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
+      throw await deserializeAws_restXmlTrustedSignerDoesNotExistResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restXmlCreateCachePolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3562,6 +4037,56 @@ const deserializeAws_restXmlCreateCloudFrontOriginAccessIdentityCommandError = a
     case "TooManyCloudFrontOriginAccessIdentities":
     case "com.amazonaws.cloudfront#TooManyCloudFrontOriginAccessIdentities":
       throw await deserializeAws_restXmlTooManyCloudFrontOriginAccessIdentitiesResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restXmlCreateContinuousDeploymentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContinuousDeploymentPolicyCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restXmlCreateContinuousDeploymentPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    Location: [, output.headers["location"]],
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ContinuousDeploymentPolicy = deserializeAws_restXmlContinuousDeploymentPolicy(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlCreateContinuousDeploymentPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateContinuousDeploymentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    case "InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
+      throw await deserializeAws_restXmlInconsistentQuantitiesResponse(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
+    case "StagingDistributionInUse":
+    case "com.amazonaws.cloudfront#StagingDistributionInUse":
+      throw await deserializeAws_restXmlStagingDistributionInUseResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4909,6 +5434,53 @@ const deserializeAws_restXmlDeleteCloudFrontOriginAccessIdentityCommandError = a
   }
 };
 
+export const deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContinuousDeploymentPolicyCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteContinuousDeploymentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await deserializeAws_restXmlInvalidIfMatchVersionResponse(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restXmlDeleteDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5713,6 +6285,86 @@ const deserializeAws_restXmlGetCloudFrontOriginAccessIdentityConfigCommandError 
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       throw await deserializeAws_restXmlNoSuchCloudFrontOriginAccessIdentityResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restXmlGetContinuousDeploymentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContinuousDeploymentPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetContinuousDeploymentPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ContinuousDeploymentPolicy = deserializeAws_restXmlContinuousDeploymentPolicy(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlGetContinuousDeploymentPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContinuousDeploymentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContinuousDeploymentPolicyConfigCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ContinuousDeploymentPolicyConfig = deserializeAws_restXmlContinuousDeploymentPolicyConfig(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlGetContinuousDeploymentPolicyConfigCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetContinuousDeploymentPolicyConfigCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -6791,6 +7443,48 @@ const deserializeAws_restXmlListConflictingAliasesCommandError = async (
     case "NoSuchDistribution":
     case "com.amazonaws.cloudfront#NoSuchDistribution":
       throw await deserializeAws_restXmlNoSuchDistributionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restXmlListContinuousDeploymentPoliciesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContinuousDeploymentPoliciesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlListContinuousDeploymentPoliciesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ContinuousDeploymentPolicyList = deserializeAws_restXmlContinuousDeploymentPolicyList(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlListContinuousDeploymentPoliciesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListContinuousDeploymentPoliciesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -7930,6 +8624,61 @@ const deserializeAws_restXmlUpdateCloudFrontOriginAccessIdentityCommandError = a
   }
 };
 
+export const deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContinuousDeploymentPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    ETag: [, output.headers["etag"]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ContinuousDeploymentPolicy = deserializeAws_restXmlContinuousDeploymentPolicy(data, context);
+  return contents;
+};
+
+const deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateContinuousDeploymentPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDenied":
+    case "com.amazonaws.cloudfront#AccessDenied":
+      throw await deserializeAws_restXmlAccessDeniedResponse(parsedOutput, context);
+    case "InconsistentQuantities":
+    case "com.amazonaws.cloudfront#InconsistentQuantities":
+      throw await deserializeAws_restXmlInconsistentQuantitiesResponse(parsedOutput, context);
+    case "InvalidArgument":
+    case "com.amazonaws.cloudfront#InvalidArgument":
+      throw await deserializeAws_restXmlInvalidArgumentResponse(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await deserializeAws_restXmlInvalidIfMatchVersionResponse(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await deserializeAws_restXmlPreconditionFailedResponse(parsedOutput, context);
+    case "StagingDistributionInUse":
+    case "com.amazonaws.cloudfront#StagingDistributionInUse":
+      throw await deserializeAws_restXmlStagingDistributionInUseResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restXmlUpdateDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -8076,6 +8825,9 @@ const deserializeAws_restXmlUpdateDistributionCommandError = async (
     case "RealtimeLogConfigOwnerMismatch":
     case "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch":
       throw await deserializeAws_restXmlRealtimeLogConfigOwnerMismatchResponse(parsedOutput, context);
+    case "StagingDistributionInUse":
+    case "com.amazonaws.cloudfront#StagingDistributionInUse":
+      throw await deserializeAws_restXmlStagingDistributionInUseResponse(parsedOutput, context);
     case "TooManyCacheBehaviors":
     case "com.amazonaws.cloudfront#TooManyCacheBehaviors":
       throw await deserializeAws_restXmlTooManyCacheBehaviorsResponse(parsedOutput, context);
@@ -10110,6 +10862,22 @@ const deserializeAws_restXmlResponseHeadersPolicyInUseResponse = async (
   return __decorateServiceException(exception, parsedOutput.body.Error);
 };
 
+const deserializeAws_restXmlStagingDistributionInUseResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<StagingDistributionInUse> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data["Message"] !== undefined) {
+    contents.Message = __expectString(data["Message"]);
+  }
+  const exception = new StagingDistributionInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
 const deserializeAws_restXmlStreamingDistributionAlreadyExistsResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11386,6 +12154,62 @@ const serializeAws_restXmlContentTypeProfiles = (input: ContentTypeProfiles, con
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlContinuousDeploymentPolicyConfig = (
+  input: ContinuousDeploymentPolicyConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ContinuousDeploymentPolicyConfig");
+  if (input.StagingDistributionDnsNames != null) {
+    const node = serializeAws_restXmlStagingDistributionDnsNames(input.StagingDistributionDnsNames, context).withName(
+      "StagingDistributionDnsNames"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.Enabled != null) {
+    const node = __XmlNode.of("boolean", String(input.Enabled)).withName("Enabled");
+    bodyNode.addChildNode(node);
+  }
+  if (input.TrafficConfig != null) {
+    const node = serializeAws_restXmlTrafficConfig(input.TrafficConfig, context).withName("TrafficConfig");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlContinuousDeploymentSingleHeaderConfig = (
+  input: ContinuousDeploymentSingleHeaderConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ContinuousDeploymentSingleHeaderConfig");
+  if (input.Header != null) {
+    const node = __XmlNode.of("string", input.Header).withName("Header");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Value != null) {
+    const node = __XmlNode.of("string", input.Value).withName("Value");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlContinuousDeploymentSingleWeightConfig = (
+  input: ContinuousDeploymentSingleWeightConfig,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("ContinuousDeploymentSingleWeightConfig");
+  if (input.Weight != null) {
+    const node = __XmlNode.of("float", String(input.Weight)).withName("Weight");
+    bodyNode.addChildNode(node);
+  }
+  if (input.SessionStickinessConfig != null) {
+    const node = serializeAws_restXmlSessionStickinessConfig(input.SessionStickinessConfig, context).withName(
+      "SessionStickinessConfig"
+    );
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
@@ -13092,6 +13916,19 @@ const serializeAws_restXmlS3OriginConfig = (input: S3OriginConfig, context: __Se
   return bodyNode;
 };
 
+const serializeAws_restXmlSessionStickinessConfig = (input: SessionStickinessConfig, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("SessionStickinessConfig");
+  if (input.IdleTTL != null) {
+    const node = __XmlNode.of("integer", String(input.IdleTTL)).withName("IdleTTL");
+    bodyNode.addChildNode(node);
+  }
+  if (input.MaximumTTL != null) {
+    const node = __XmlNode.of("integer", String(input.MaximumTTL)).withName("MaximumTTL");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlSslProtocolsList = (input: (SslProtocol | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -13099,6 +13936,35 @@ const serializeAws_restXmlSslProtocolsList = (input: (SslProtocol | string)[], c
       const node = __XmlNode.of("SslProtocol", entry);
       return node.withName("SslProtocol");
     });
+};
+
+const serializeAws_restXmlStagingDistributionDnsNameList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = __XmlNode.of("string", entry);
+      return node.withName("DnsName");
+    });
+};
+
+const serializeAws_restXmlStagingDistributionDnsNames = (
+  input: StagingDistributionDnsNames,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("StagingDistributionDnsNames");
+  if (input.Quantity != null) {
+    const node = __XmlNode.of("integer", String(input.Quantity)).withName("Quantity");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Items != null) {
+    const nodes = serializeAws_restXmlStagingDistributionDnsNameList(input.Items, context);
+    const containerNode = new __XmlNode("Items");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
 };
 
 const serializeAws_restXmlStatusCodeList = (input: number[], context: __SerdeContext): any => {
@@ -13255,6 +14121,27 @@ const serializeAws_restXmlTags = (input: Tags, context: __SerdeContext): any => 
       containerNode.addChildNode(node);
     });
     bodyNode.addChildNode(containerNode);
+  }
+  return bodyNode;
+};
+
+const serializeAws_restXmlTrafficConfig = (input: TrafficConfig, context: __SerdeContext): any => {
+  const bodyNode = new __XmlNode("TrafficConfig");
+  if (input.SingleWeightConfig != null) {
+    const node = serializeAws_restXmlContinuousDeploymentSingleWeightConfig(input.SingleWeightConfig, context).withName(
+      "SingleWeightConfig"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.SingleHeaderConfig != null) {
+    const node = serializeAws_restXmlContinuousDeploymentSingleHeaderConfig(input.SingleHeaderConfig, context).withName(
+      "SingleHeaderConfig"
+    );
+    bodyNode.addChildNode(node);
+  }
+  if (input.Type != null) {
+    const node = __XmlNode.of("ContinuousDeploymentPolicyType", input.Type).withName("Type");
+    bodyNode.addChildNode(node);
   }
   return bodyNode;
 };
@@ -13998,6 +14885,148 @@ const deserializeAws_restXmlContentTypeProfiles = (output: any, context: __Serde
   } else if (output["Items"] !== undefined && output["Items"]["ContentTypeProfile"] !== undefined) {
     contents.Items = deserializeAws_restXmlContentTypeProfileList(
       __getArrayIfSingleItem(output["Items"]["ContentTypeProfile"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentPolicy = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentPolicy => {
+  const contents: any = {
+    Id: undefined,
+    LastModifiedTime: undefined,
+    ContinuousDeploymentPolicyConfig: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["LastModifiedTime"] !== undefined) {
+    contents.LastModifiedTime = __expectNonNull(__parseRfc3339DateTime(output["LastModifiedTime"]));
+  }
+  if (output["ContinuousDeploymentPolicyConfig"] !== undefined) {
+    contents.ContinuousDeploymentPolicyConfig = deserializeAws_restXmlContinuousDeploymentPolicyConfig(
+      output["ContinuousDeploymentPolicyConfig"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentPolicyConfig = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentPolicyConfig => {
+  const contents: any = {
+    StagingDistributionDnsNames: undefined,
+    Enabled: undefined,
+    TrafficConfig: undefined,
+  };
+  if (output["StagingDistributionDnsNames"] !== undefined) {
+    contents.StagingDistributionDnsNames = deserializeAws_restXmlStagingDistributionDnsNames(
+      output["StagingDistributionDnsNames"],
+      context
+    );
+  }
+  if (output["Enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["Enabled"]);
+  }
+  if (output["TrafficConfig"] !== undefined) {
+    contents.TrafficConfig = deserializeAws_restXmlTrafficConfig(output["TrafficConfig"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentPolicyList = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentPolicyList => {
+  const contents: any = {
+    NextMarker: undefined,
+    MaxItems: undefined,
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["NextMarker"] !== undefined) {
+    contents.NextMarker = __expectString(output["NextMarker"]);
+  }
+  if (output["MaxItems"] !== undefined) {
+    contents.MaxItems = __strictParseInt32(output["MaxItems"]) as number;
+  }
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  } else if (output["Items"] !== undefined && output["Items"]["ContinuousDeploymentPolicySummary"] !== undefined) {
+    contents.Items = deserializeAws_restXmlContinuousDeploymentPolicySummaryList(
+      __getArrayIfSingleItem(output["Items"]["ContinuousDeploymentPolicySummary"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentPolicySummary = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentPolicySummary => {
+  const contents: any = {
+    ContinuousDeploymentPolicy: undefined,
+  };
+  if (output["ContinuousDeploymentPolicy"] !== undefined) {
+    contents.ContinuousDeploymentPolicy = deserializeAws_restXmlContinuousDeploymentPolicy(
+      output["ContinuousDeploymentPolicy"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentPolicySummaryList = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentPolicySummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_restXmlContinuousDeploymentPolicySummary(entry, context);
+    });
+};
+
+const deserializeAws_restXmlContinuousDeploymentSingleHeaderConfig = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentSingleHeaderConfig => {
+  const contents: any = {
+    Header: undefined,
+    Value: undefined,
+  };
+  if (output["Header"] !== undefined) {
+    contents.Header = __expectString(output["Header"]);
+  }
+  if (output["Value"] !== undefined) {
+    contents.Value = __expectString(output["Value"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlContinuousDeploymentSingleWeightConfig = (
+  output: any,
+  context: __SerdeContext
+): ContinuousDeploymentSingleWeightConfig => {
+  const contents: any = {
+    Weight: undefined,
+    SessionStickinessConfig: undefined,
+  };
+  if (output["Weight"] !== undefined) {
+    contents.Weight = __strictParseFloat(output["Weight"]) as number;
+  }
+  if (output["SessionStickinessConfig"] !== undefined) {
+    contents.SessionStickinessConfig = deserializeAws_restXmlSessionStickinessConfig(
+      output["SessionStickinessConfig"],
       context
     );
   }
@@ -16831,6 +17860,23 @@ const deserializeAws_restXmlS3OriginConfig = (output: any, context: __SerdeConte
   return contents;
 };
 
+const deserializeAws_restXmlSessionStickinessConfig = (
+  output: any,
+  context: __SerdeContext
+): SessionStickinessConfig => {
+  const contents: any = {
+    IdleTTL: undefined,
+    MaximumTTL: undefined,
+  };
+  if (output["IdleTTL"] !== undefined) {
+    contents.IdleTTL = __strictParseInt32(output["IdleTTL"]) as number;
+  }
+  if (output["MaximumTTL"] !== undefined) {
+    contents.MaximumTTL = __strictParseInt32(output["MaximumTTL"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlSigner = (output: any, context: __SerdeContext): Signer => {
   const contents: any = {
     AwsAccountNumber: undefined,
@@ -16859,6 +17905,36 @@ const deserializeAws_restXmlSslProtocolsList = (output: any, context: __SerdeCon
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_restXmlStagingDistributionDnsNameList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlStagingDistributionDnsNames = (
+  output: any,
+  context: __SerdeContext
+): StagingDistributionDnsNames => {
+  const contents: any = {
+    Quantity: undefined,
+    Items: undefined,
+  };
+  if (output["Quantity"] !== undefined) {
+    contents.Quantity = __strictParseInt32(output["Quantity"]) as number;
+  }
+  if (output.Items === "") {
+    contents.Items = [];
+  } else if (output["Items"] !== undefined && output["Items"]["DnsName"] !== undefined) {
+    contents.Items = deserializeAws_restXmlStagingDistributionDnsNameList(
+      __getArrayIfSingleItem(output["Items"]["DnsName"]),
+      context
+    );
+  }
+  return contents;
 };
 
 const deserializeAws_restXmlStatusCodeList = (output: any, context: __SerdeContext): number[] => {
@@ -17147,6 +18223,30 @@ const deserializeAws_restXmlTestResult = (output: any, context: __SerdeContext):
   }
   if (output["FunctionOutput"] !== undefined) {
     contents.FunctionOutput = __expectString(output["FunctionOutput"]);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlTrafficConfig = (output: any, context: __SerdeContext): TrafficConfig => {
+  const contents: any = {
+    SingleWeightConfig: undefined,
+    SingleHeaderConfig: undefined,
+    Type: undefined,
+  };
+  if (output["SingleWeightConfig"] !== undefined) {
+    contents.SingleWeightConfig = deserializeAws_restXmlContinuousDeploymentSingleWeightConfig(
+      output["SingleWeightConfig"],
+      context
+    );
+  }
+  if (output["SingleHeaderConfig"] !== undefined) {
+    contents.SingleHeaderConfig = deserializeAws_restXmlContinuousDeploymentSingleHeaderConfig(
+      output["SingleHeaderConfig"],
+      context
+    );
+  }
+  if (output["Type"] !== undefined) {
+    contents.Type = __expectString(output["Type"]);
   }
   return contents;
 };
