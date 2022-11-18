@@ -1,4 +1,4 @@
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { fromImdsCredentials, ImdsCredentials, isImdsCredentials } from "./ImdsCredentials";
 
@@ -39,7 +39,7 @@ describe("isImdsCredentials", () => {
 
 describe("fromImdsCredentials", () => {
   it("should convert IMDS credentials to a credentials object", () => {
-    const converted: Credentials = fromImdsCredentials(creds);
+    const converted: AwsCredentialIdentity = fromImdsCredentials(creds);
     expect(converted.accessKeyId).toEqual(creds.AccessKeyId);
     expect(converted.secretAccessKey).toEqual(creds.SecretAccessKey);
     expect(converted.sessionToken).toEqual(creds.Token);

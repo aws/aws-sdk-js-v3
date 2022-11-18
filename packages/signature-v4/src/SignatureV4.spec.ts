@@ -1,6 +1,6 @@
 import { Sha256 } from "@aws-crypto/sha256-js";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import {
   ALGORITHM_IDENTIFIER,
@@ -42,7 +42,7 @@ const minimalRequest = new HttpRequest({
   hostname: "foo.us-bar-1.amazonaws.com",
 });
 
-const credentials: Credentials = {
+const credentials: AwsCredentialIdentity = {
   accessKeyId: "foo",
   secretAccessKey: "bar",
 };

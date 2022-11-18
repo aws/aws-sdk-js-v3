@@ -1,5 +1,5 @@
 import {
-  Credentials,
+  AwsCredentialIdentity,
   DateInput,
   EventSigner,
   EventSigningArguments,
@@ -59,7 +59,7 @@ export interface SignatureV4Init {
    * The credentials with which the request should be signed or a function
    * that returns a promise that will be resolved with credentials.
    */
-  credentials: Credentials | Provider<Credentials>;
+  credentials: AwsCredentialIdentity | Provider<AwsCredentialIdentity>;
 
   /**
    * A constructor function for a hash object that will calculate SHA-256 HMAC
@@ -94,7 +94,7 @@ export interface SignatureV4CryptoInit {
 export class SignatureV4 implements RequestPresigner, RequestSigner, StringSigner, EventSigner {
   private readonly service: string;
   private readonly regionProvider: Provider<string>;
-  private readonly credentialProvider: Provider<Credentials>;
+  private readonly credentialProvider: Provider<AwsCredentialIdentity>;
   private readonly sha256: HashConstructor;
   private readonly uriEscapePath: boolean;
   private readonly applyChecksum: boolean;
@@ -323,7 +323,7 @@ ${toHex(hashedRequest)}`;
   }
 
   private getSigningKey(
-    credentials: Credentials,
+    credentials: AwsCredentialIdentity,
     region: string,
     shortDate: string,
     service?: string

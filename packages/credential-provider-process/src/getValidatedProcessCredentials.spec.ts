@@ -1,4 +1,4 @@
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { getValidatedProcessCredentials } from "./getValidatedProcessCredentials";
 import { ProcessCredentials } from "./ProcessCredentials";
@@ -47,7 +47,7 @@ describe(getValidatedProcessCredentials.name, () => {
   });
 
   describe("returns validated Process credentials", () => {
-    const getValidatedCredentials = (data: ProcessCredentials): Credentials => ({
+    const getValidatedCredentials = (data: ProcessCredentials): AwsCredentialIdentity => ({
       accessKeyId: data.AccessKeyId,
       secretAccessKey: data.SecretAccessKey,
       ...(data.SessionToken && { sessionToken: data.SessionToken }),

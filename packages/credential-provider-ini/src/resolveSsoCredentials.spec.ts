@@ -1,5 +1,5 @@
 import { fromSSO, isSsoProfile as origIsSsoProfile, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
-import { Credentials } from "@aws-sdk/types";
+import { AwsCredentialIdentity } from "@aws-sdk/types";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 
@@ -79,7 +79,7 @@ describe(resolveSsoCredentials.name, () => {
     const mockProfile = getMockOriginalSsoProfile();
     const mockValidatedProfile = getMockValidatedSsoProfile();
 
-    const mockCreds: Credentials = {
+    const mockCreds: AwsCredentialIdentity = {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };
@@ -104,7 +104,7 @@ describe(resolveSsoCredentials.name, () => {
       sso_session: "test-session",
     });
 
-    const mockCreds: Credentials = {
+    const mockCreds: AwsCredentialIdentity = {
       accessKeyId: "mockAccessKeyId",
       secretAccessKey: "mockSecretAccessKey",
     };

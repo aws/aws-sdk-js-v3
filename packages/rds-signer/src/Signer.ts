@@ -1,6 +1,6 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { SignatureV4 } from "@aws-sdk/signature-v4";
-import { CredentialProvider, Credentials, HashConstructor, Provider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider, HashConstructor, Provider } from "@aws-sdk/types";
 import { formatUrl } from "@aws-sdk/util-format-url";
 
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
@@ -9,7 +9,7 @@ export interface SignerConfig {
   /**
    * The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
    */
-  credentials?: Credentials | CredentialProvider;
+  credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   /**
    * The hostname of the database to connect to.
    */
@@ -36,7 +36,7 @@ export interface SignerConfig {
  * The signer class that generates an auth token to a database.
  */
 export class Signer {
-  private readonly credentials: Credentials | CredentialProvider;
+  private readonly credentials: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   private readonly hostname: string;
   private readonly port: number;
   private readonly protocol: string = "https:";

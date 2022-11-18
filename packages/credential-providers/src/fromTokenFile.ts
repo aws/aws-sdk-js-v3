@@ -3,7 +3,7 @@ import {
   fromTokenFile as _fromTokenFile,
   FromTokenFileInit as _FromTokenFileInit,
 } from "@aws-sdk/credential-provider-web-identity";
-import { CredentialProvider, Pluggable } from "@aws-sdk/types";
+import { AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromTokenFileInit extends _FromTokenFileInit {
   clientConfig?: STSClientConfig;
@@ -38,7 +38,7 @@ export interface FromTokenFileInit extends _FromTokenFileInit {
  * });
  * ```
  */
-export const fromTokenFile = (init: FromTokenFileInit = {}): CredentialProvider =>
+export const fromTokenFile = (init: FromTokenFileInit = {}): AwsCredentialIdentityProvider =>
   _fromTokenFile({
     ...init,
     roleAssumerWithWebIdentity:

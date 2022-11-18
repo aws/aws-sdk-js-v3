@@ -62,7 +62,7 @@ const client = new FooClient({
 
 ## `fromCognitoIdentityPool()`
 
-The function `fromCognitoIdentityPool()` returns `CredentialProvider` that calls [GetId API][getid_api]
+The function `fromCognitoIdentityPool()` returns `AwsCredentialIdentityProvider` that calls [GetId API][getid_api]
 to obtain an `identityId`, then generates temporary AWS credentials with
 [GetCredentialsForIdentity API][getcredentialsforidentity_api], see
 [`fromCognitoIdentity()`](#fromcognitoidentity).
@@ -107,7 +107,7 @@ const client = new FooClient({
 
 ## `fromTemporaryCredentials()`
 
-The function `fromTemporaryCredentials` returns `CredentialProvider` that retrieves temporary
+The function `fromTemporaryCredentials` returns `AwsCredentialIdentityProvider` that retrieves temporary
 credentials from [STS AssumeRole API][assumerole_api].
 
 ```javascript
@@ -146,7 +146,7 @@ const client = new FooClient({
 
 ## `fromWebToken()`
 
-The function `fromWebToken` returns `CredentialProvider` that gets credentials calling
+The function `fromWebToken` returns `AwsCredentialIdentityProvider` that gets credentials calling
 [STS AssumeRoleWithWebIdentity API][assumerolewithwebidentity_api]
 
 ```javascript
@@ -209,7 +209,7 @@ provider, see the documentation for the identity provider.
 
 ## `fromContainerMetadata()` and `fromInstanceMetadata()`
 
-`fromContainerMetadata` and `fromInstanceMetadata` will create `CredentialProvider` functions that
+`fromContainerMetadata` and `fromInstanceMetadata` will create `AwsCredentialIdentityProvider` functions that
 read from the ECS container metadata service and the EC2 instance metadata service, respectively.
 
 ```javascript
@@ -244,12 +244,12 @@ const client = new FooClient({
 });
 ```
 
-A `CredentialProvider` function created with `fromContainerMetadata` will return a promise that will
+A `AwsCredentialIdentityProvider` function created with `fromContainerMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with containers in an Amazon ECS task. Please
 see [IAM Roles for Tasks][iam_roles_for_tasks] for more information on using IAM roles with Amazon
 ECS.
 
-A `CredentialProvider` function created with `fromInstanceMetadata` will return a promise that will
+A `AwsCredentialIdentityProvider` function created with `fromInstanceMetadata` will return a promise that will
 resolve with credentials for the IAM role associated with an EC2 instance.
 Please see [IAM Roles for Amazon EC2][iam_roles_for_ec2] for more information on using IAM roles
 with Amazon EC2. Both IMDSv1 (a request/response method) and IMDSv2 (a session-oriented method) are
@@ -259,7 +259,7 @@ Please see [Configure the instance metadata service][config_instance_metadata] f
 
 ## `fromIni()`
 
-`fromIni` creates `CredentialProvider` functions that read from a shared credentials file at
+`fromIni` creates `AwsCredentialIdentityProvider` functions that read from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
 be INI formatted with section names corresponding to profiles. Sections in the credentials file are
 treated as profile names, whereas profile sections in the config file must have the format of
@@ -394,7 +394,7 @@ const client = new FooClient({
 });
 ```
 
-`fromEnv` returns a `CredentialProvider` function, that reads credentials from the following
+`fromEnv` returns a `AwsCredentialIdentityProvider` function, that reads credentials from the following
 environment variables:
 
 - `AWS_ACCESS_KEY_ID` - The access key for your AWS account.
@@ -430,7 +430,7 @@ const client = new FooClient({
 });
 ```
 
-`fromSharedConfigFiles` creates a `CredentialProvider` functions that executes a given process and
+`fromSharedConfigFiles` creates a `AwsCredentialIdentityProvider` functions that executes a given process and
 attempt to read its standard output to receive a JSON payload containing the credentials. The
 process command is read from a shared credentials file at `~/.aws/credentials` and a shared
 configuration file at `~/.aws/config`. Both files are expected to be INI formatted with section
@@ -466,7 +466,7 @@ credential_process = /usr/local/bin/awscreds dev
 
 ## `fromTokenFile()`
 
-The function `fromTokenFile` returns `CredentialProvider` that reads credentials as follows:
+The function `fromTokenFile` returns `AwsCredentialIdentityProvider` that reads credentials as follows:
 
 - Reads file location of where the OIDC token is stored from either provided option  
   `webIdentityTokenFile` or environment variable `AWS_WEB_IDENTITY_TOKEN_FILE`.
@@ -502,11 +502,11 @@ const client = new FooClient({
 > profile that assumes a role which derived from the SSO credential, you should use the
 > [`fromIni()`](#fromini), or `@aws-sdk/credential-provider-node` package.
 
-`fromSSO`, that creates `CredentialProvider` functions that read from the _resolved_ access token
+`fromSSO`, that creates `AwsCredentialIdentityProvider` functions that read from the _resolved_ access token
 from local disk then requests temporary AWS credentials. For guidance on the AWS Single Sign-On
 service, please refer to [AWS's Single Sign-On documentation][sso_api].
 
-You can create the `CredentialProvider` functions using the inline SSO parameters(`ssoStartUrl`,
+You can create the `AwsCredentialIdentityProvider` functions using the inline SSO parameters(`ssoStartUrl`,
 `ssoAccountId`, `ssoRegion`, `ssoRoleName`) or load them from
 [AWS SDKs and Tools shared configuration and credentials files][shared_config_files].
 Profiles in the `credentials` file are given precedence over profiles in the `config` file.

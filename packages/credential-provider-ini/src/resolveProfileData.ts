@@ -1,5 +1,5 @@
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { Credentials, ParsedIniData } from "@aws-sdk/types";
+import { AwsCredentialIdentity, ParsedIniData } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
@@ -12,7 +12,7 @@ export const resolveProfileData = async (
   profiles: ParsedIniData,
   options: FromIniInit,
   visitedProfiles: Record<string, true> = {}
-): Promise<Credentials> => {
+): Promise<AwsCredentialIdentity> => {
   const data = profiles[profileName];
 
   // If this is not the first profile visited, static credentials should be

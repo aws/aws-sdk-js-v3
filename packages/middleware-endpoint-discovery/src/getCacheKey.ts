@@ -1,11 +1,11 @@
-import { Credentials, Provider } from "@aws-sdk/types";
+import { AwsCredentialIdentity, Provider } from "@aws-sdk/types";
 
 /**
  * Generate key to index the endpoints in the cache
  */
 export const getCacheKey = async (
   commandName: string,
-  config: { credentials: Provider<Credentials> },
+  config: { credentials: Provider<AwsCredentialIdentity>; },
   options: {
     identifiers?: Record<string, string>;
   }

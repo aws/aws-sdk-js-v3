@@ -1,10 +1,10 @@
 import { AssumeRoleCommand, AssumeRoleCommandInput, STSClient, STSClientConfig } from "@aws-sdk/client-sts";
 import { CredentialsProviderError } from "@aws-sdk/property-provider";
-import { CredentialProvider, Credentials, Pluggable } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@aws-sdk/types";
 
 export interface FromTemporaryCredentialsOptions {
-  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string };
-  masterCredentials?: Credentials | CredentialProvider;
+  params: Omit<AssumeRoleCommandInput, "RoleSessionName"> & { RoleSessionName?: string; };
+  masterCredentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   clientConfig?: STSClientConfig;
   clientPlugins?: Pluggable<any, any>[];
   mfaCodeProvider?: (mfaSerial: string) => Promise<string>;
@@ -50,9 +50,9 @@ export interface FromTemporaryCredentialsOptions {
  * });
  * ```
  */
-export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): CredentialProvider => {
+export const fromTemporaryCredentials = (options: FromTemporaryCredentialsOptions): AwsCredentialIdentityProvider => {
   let stsClient: STSClient;
-  return async (): Promise<Credentials> => {
+  return async (): Promise<AwsCredentialIdentity> => {
     const params = { ...options.params, RoleSessionName: options.params.RoleSessionName ?? "aws-sdk-js-" + Date.now() };
     if (params?.SerialNumber) {
       if (!options.mfaCodeProvider) {
