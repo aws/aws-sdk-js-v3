@@ -153,6 +153,7 @@ import {
   Tag,
   TagResourceInput,
   TagResourceOutput,
+  TaskCredentials,
   TaskDoesNotExist,
   TaskFailedEventDetails,
   TaskScheduledEventDetails,
@@ -2750,6 +2751,10 @@ const deserializeAws_json1_0LambdaFunctionScheduledEventDetails = (
         ? deserializeAws_json1_0HistoryEventExecutionDataDetails(output.inputDetails, context)
         : undefined,
     resource: __expectString(output.resource),
+    taskCredentials:
+      output.taskCredentials != null
+        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
+        : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };
@@ -3074,6 +3079,12 @@ const deserializeAws_json1_0TagResourceOutput = (output: any, context: __SerdeCo
   return {} as any;
 };
 
+const deserializeAws_json1_0TaskCredentials = (output: any, context: __SerdeContext): TaskCredentials => {
+  return {
+    roleArn: __expectString(output.roleArn),
+  } as any;
+};
+
 const deserializeAws_json1_0TaskDoesNotExist = (output: any, context: __SerdeContext): TaskDoesNotExist => {
   return {
     message: __expectString(output.message),
@@ -3099,6 +3110,10 @@ const deserializeAws_json1_0TaskScheduledEventDetails = (
     region: __expectString(output.region),
     resource: __expectString(output.resource),
     resourceType: __expectString(output.resourceType),
+    taskCredentials:
+      output.taskCredentials != null
+        ? deserializeAws_json1_0TaskCredentials(output.taskCredentials, context)
+        : undefined,
     timeoutInSeconds: __expectLong(output.timeoutInSeconds),
   } as any;
 };

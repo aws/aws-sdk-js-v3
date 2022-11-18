@@ -32,7 +32,7 @@ export interface DeleteStateMachineCommandOutput extends DeleteStateMachineOutpu
  * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
  *       status to <code>DELETING</code> and begins the deletion process. </p>
  *          <note>
- *             <p>For <code>EXPRESS</code>state machines, the deletion will happen eventually (usually
+ *             <p>For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually
  *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
  *         API is called.</p>
  *          </note>

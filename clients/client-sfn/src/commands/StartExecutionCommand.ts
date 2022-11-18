@@ -32,11 +32,13 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * <p>Starts a state machine execution.</p>
  *          <note>
  *             <p>
- *                <code>StartExecution</code> is idempotent. If <code>StartExecution</code> is called with
- *         the same name and input as a running execution, the call will succeed and return the same
- *         response as the original request. If the execution is closed or if the input is different,
- *         it will return a 400 <code>ExecutionAlreadyExists</code> error. Names can be reused after 90
- *         days. </p>
+ *                <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For a
+ *           <code>STANDARD</code> workflow, if <code>StartExecution</code> is called with the same
+ *         name and input as a running execution, the call will succeed and return the same response as
+ *         the original request. If the execution is closed or if the input is different, it will
+ *         return a <code>400 ExecutionAlreadyExists</code> error. Names can be reused after 90 days. </p>
+ *             <p>
+ *                <code>StartExecution</code> is not idempotent for <code>EXPRESS</code> workflows. </p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

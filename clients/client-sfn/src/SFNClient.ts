@@ -290,8 +290,8 @@ type SFNClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOp
 export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
 
 /**
- * <fullname>AWS Step Functions</fullname>
- *          <p>AWS Step Functions is a service that lets you coordinate the components of distributed applications
+ * <fullname>Step Functions</fullname>
+ *          <p>Step Functions is a service that lets you coordinate the components of distributed applications
  *       and microservices using visual workflows.</p>
  *          <p>You can use Step Functions to build applications from individual components, each of which performs
  *       a discrete function, or <i>task</i>, allowing you to scale and change
@@ -301,10 +301,10 @@ export interface SFNClientResolvedConfig extends SFNClientResolvedConfigType {}
  *       order every time. Step Functions logs the state of each step, so you can quickly diagnose and debug any
  *       issues.</p>
  *          <p>Step Functions manages operations and underlying infrastructure to ensure your application is
- *       available at any scale. You can run tasks on AWS, your own servers, or any system that has
- *       access to AWS. You can access and use Step Functions using the console, the AWS SDKs, or an HTTP API.
+ *       available at any scale. You can run tasks on Amazon Web Services, your own servers, or any system that has
+ *       access to Amazon Web Services. You can access and use Step Functions using the console, the Amazon Web Services SDKs, or an HTTP API.
  *       For more information about Step Functions, see the <i>
- *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">AWS Step Functions Developer Guide</a>
+ *                <a href="https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html">Step Functions Developer Guide</a>
  *             </i>.</p>
  */
 export class SFNClient extends __Client<

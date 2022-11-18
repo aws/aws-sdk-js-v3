@@ -104,8 +104,8 @@ export interface ActivityListItem {
  */
 export interface HistoryEventExecutionDataDetails {
   /**
-   * <p>Indicates whether input or output was truncated in the response. Always
-   *       <code>false</code> for API calls.</p>
+   * <p>Indicates whether input or output was truncated in the response. Always <code>false</code>
+   *       for API calls.</p>
    */
   truncated?: boolean;
 }
@@ -222,7 +222,7 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
  *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
- *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+ *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
  *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
  *           Tags</a>.</p>
  *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -241,9 +241,9 @@ export interface Tag {
 
 export interface CreateActivityInput {
   /**
-   * <p>The name of the activity to create. This name must be unique for your AWS account and region for 90 days. For more information,
+   * <p>The name of the activity to create. This name must be unique for your Amazon Web Services account and region for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-   *     Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p>
+   *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -272,7 +272,7 @@ export interface CreateActivityInput {
   /**
    * <p>The list of tags to add to a resource.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-   *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+   *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
    *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -313,7 +313,7 @@ export class InvalidName extends __BaseException {
 
 /**
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
- *       AWS Step Functions Developer Guide.</p>
+ *       Step Functions Developer Guide.</p>
  */
 export class TooManyTags extends __BaseException {
   readonly name: "TooManyTags" = "TooManyTags";
@@ -350,12 +350,17 @@ export interface CloudWatchLogsLogGroup {
  */
 export interface LogDestination {
   /**
-   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the AWS CloudFormation User Guide.</p>
+   * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the CloudFormation User Guide.</p>
    */
   cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
 }
 
-export type LogLevel = "ALL" | "ERROR" | "FATAL" | "OFF";
+export enum LogLevel {
+  ALL = "ALL",
+  ERROR = "ERROR",
+  FATAL = "FATAL",
+  OFF = "OFF",
+}
 
 /**
  * <p>The <code>LoggingConfiguration</code> data type is used to set CloudWatch Logs
@@ -381,17 +386,21 @@ export interface LoggingConfiguration {
 }
 
 /**
- * <p>Selects whether or not the state machine's AWS X-Ray tracing is enabled. Default is <code>false</code>
+ * <p>Selects whether or not the state machine's X-Ray tracing is enabled. Default is
+ *         <code>false</code>
  *          </p>
  */
 export interface TracingConfiguration {
   /**
-   * <p>When set to <code>true</code>, AWS X-Ray tracing is enabled.</p>
+   * <p>When set to <code>true</code>, X-Ray tracing is enabled.</p>
    */
   enabled?: boolean;
 }
 
-export type StateMachineType = "EXPRESS" | "STANDARD";
+export enum StateMachineType {
+  EXPRESS = "EXPRESS",
+  STANDARD = "STANDARD",
+}
 
 export interface CreateStateMachineInput {
   /**
@@ -443,7 +452,7 @@ export interface CreateStateMachineInput {
    *          <note>
    *             <p>By default, the <code>level</code> is set to <code>OFF</code>. For more information see
    *           <a href="https://docs.aws.amazon.com/step-functions/latest/dg/cloudwatch-log-level.html">Log
-   *           Levels</a> in the AWS Step Functions User Guide.</p>
+   *           Levels</a> in the Step Functions User Guide.</p>
    *          </note>
    */
   loggingConfiguration?: LoggingConfiguration;
@@ -451,7 +460,7 @@ export interface CreateStateMachineInput {
   /**
    * <p>Tags to be added when creating a state machine.</p>
    *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
-   *       Cost Allocation Tags</a> in the <i>AWS Billing and Cost Management User
+   *       Cost Allocation Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
    *         Guide</i>, and <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html">Controlling Access Using IAM
    *           Tags</a>.</p>
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
@@ -459,7 +468,7 @@ export interface CreateStateMachineInput {
   tags?: Tag[];
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -534,7 +543,8 @@ export class InvalidLoggingConfiguration extends __BaseException {
 }
 
 /**
- * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not been set to <code>true</code> or <code>false</code>.</p>
+ * <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
+ *       been set to <code>true</code> or <code>false</code>.</p>
  */
 export class InvalidTracingConfiguration extends __BaseException {
   readonly name: "InvalidTracingConfiguration" = "InvalidTracingConfiguration";
@@ -712,7 +722,13 @@ export interface CloudWatchEventsExecutionDataDetails {
   included?: boolean;
 }
 
-export type ExecutionStatus = "ABORTED" | "FAILED" | "RUNNING" | "SUCCEEDED" | "TIMED_OUT";
+export enum ExecutionStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT",
+}
 
 export interface DescribeExecutionOutput {
   /**
@@ -792,7 +808,7 @@ export interface DescribeExecutionOutput {
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
-   * <p>The AWS X-Ray trace header that was passed to the execution.</p>
+   * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
 }
@@ -823,7 +839,10 @@ export interface DescribeStateMachineInput {
   stateMachineArn: string | undefined;
 }
 
-export type StateMachineStatus = "ACTIVE" | "DELETING";
+export enum StateMachineStatus {
+  ACTIVE = "ACTIVE",
+  DELETING = "DELETING",
+}
 
 export interface DescribeStateMachineOutput {
   /**
@@ -870,7 +889,7 @@ export interface DescribeStateMachineOutput {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used when creating this state machine. (The IAM role
-   *       maintains security by granting Step Functions access to AWS resources.)</p>
+   *       maintains security by granting Step Functions access to Amazon Web Services resources.)</p>
    */
   roleArn: string | undefined;
 
@@ -892,7 +911,7 @@ export interface DescribeStateMachineOutput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -957,7 +976,7 @@ export interface DescribeStateMachineForExecutionOutput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -1067,7 +1086,7 @@ export interface ExecutionStartedEventDetails {
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing AWS Lambda tasks.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>
    */
   roleArn?: string;
 }
@@ -1103,7 +1122,7 @@ export interface ExecutionTimedOutEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function that failed during an execution.</p>
+ * <p>Contains details about a Lambda function that failed during an execution.</p>
  */
 export interface LambdaFunctionFailedEventDetails {
   /**
@@ -1118,16 +1137,26 @@ export interface LambdaFunctionFailedEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function scheduled during an execution.</p>
+ * <p>Contains details about the credentials that Step Functions uses for a task.</p>
+ */
+export interface TaskCredentials {
+  /**
+   * <p>The ARN of an IAM role that Step Functions assumes for the task. The role can allow cross-account access to resources.</p>
+   */
+  roleArn?: string;
+}
+
+/**
+ * <p>Contains details about a Lambda function scheduled during an execution.</p>
  */
 export interface LambdaFunctionScheduledEventDetails {
   /**
-   * <p>The Amazon Resource Name (ARN) of the scheduled lambda function.</p>
+   * <p>The Amazon Resource Name (ARN) of the scheduled Lambda function.</p>
    */
   resource: string | undefined;
 
   /**
-   * <p>The JSON data input to the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   * <p>The JSON data input to the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   input?: string;
 
@@ -1137,13 +1166,18 @@ export interface LambdaFunctionScheduledEventDetails {
   inputDetails?: HistoryEventExecutionDataDetails;
 
   /**
-   * <p>The maximum allowed duration of the lambda function.</p>
+   * <p>The maximum allowed duration of the Lambda function.</p>
    */
   timeoutInSeconds?: number;
+
+  /**
+   * <p>The credentials that Step Functions uses for the task.</p>
+   */
+  taskCredentials?: TaskCredentials;
 }
 
 /**
- * <p>Contains details about a failed lambda function schedule event that occurred during an
+ * <p>Contains details about a failed Lambda function schedule event that occurred during an
  *       execution.</p>
  */
 export interface LambdaFunctionScheduleFailedEventDetails {
@@ -1174,12 +1208,12 @@ export interface LambdaFunctionStartFailedEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function that successfully terminated during an
+ * <p>Contains details about a Lambda function that successfully terminated during an
  *       execution.</p>
  */
 export interface LambdaFunctionSucceededEventDetails {
   /**
-   * <p>The JSON data output by the lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
+   * <p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    */
   output?: string;
 
@@ -1190,7 +1224,7 @@ export interface LambdaFunctionSucceededEventDetails {
 }
 
 /**
- * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+ * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
  */
 export interface LambdaFunctionTimedOutEventDetails {
   /**
@@ -1296,12 +1330,12 @@ export interface StateExitedEventDetails {
  */
 export interface TaskFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1321,12 +1355,12 @@ export interface TaskFailedEventDetails {
  */
 export interface TaskScheduledEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1350,6 +1384,11 @@ export interface TaskScheduledEventDetails {
    * <p>The maximum allowed duration between two heartbeats for the task.</p>
    */
   heartbeatInSeconds?: number;
+
+  /**
+   * <p>The credentials that Step Functions uses for the task.</p>
+   */
+  taskCredentials?: TaskCredentials;
 }
 
 /**
@@ -1357,12 +1396,12 @@ export interface TaskScheduledEventDetails {
  */
 export interface TaskStartedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 }
@@ -1372,12 +1411,12 @@ export interface TaskStartedEventDetails {
  */
 export interface TaskStartFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1397,12 +1436,12 @@ export interface TaskStartFailedEventDetails {
  */
 export interface TaskSubmitFailedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1422,12 +1461,12 @@ export interface TaskSubmitFailedEventDetails {
  */
 export interface TaskSubmittedEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1447,12 +1486,12 @@ export interface TaskSubmittedEventDetails {
  */
 export interface TaskSucceededEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1473,12 +1512,12 @@ export interface TaskSucceededEventDetails {
  */
 export interface TaskTimedOutEventDetails {
   /**
-   * <p>The action of the resource called by a task state.</p>
+   * <p>The service name of the resource in a task state.</p>
    */
   resourceType: string | undefined;
 
   /**
-   * <p>The service name of the resource in a task state.</p>
+   * <p>The action of the resource called by a task state.</p>
    */
   resource: string | undefined;
 
@@ -1493,62 +1532,63 @@ export interface TaskTimedOutEventDetails {
   cause?: string;
 }
 
-export type HistoryEventType =
-  | "ActivityFailed"
-  | "ActivityScheduleFailed"
-  | "ActivityScheduled"
-  | "ActivityStarted"
-  | "ActivitySucceeded"
-  | "ActivityTimedOut"
-  | "ChoiceStateEntered"
-  | "ChoiceStateExited"
-  | "ExecutionAborted"
-  | "ExecutionFailed"
-  | "ExecutionStarted"
-  | "ExecutionSucceeded"
-  | "ExecutionTimedOut"
-  | "FailStateEntered"
-  | "LambdaFunctionFailed"
-  | "LambdaFunctionScheduleFailed"
-  | "LambdaFunctionScheduled"
-  | "LambdaFunctionStartFailed"
-  | "LambdaFunctionStarted"
-  | "LambdaFunctionSucceeded"
-  | "LambdaFunctionTimedOut"
-  | "MapIterationAborted"
-  | "MapIterationFailed"
-  | "MapIterationStarted"
-  | "MapIterationSucceeded"
-  | "MapStateAborted"
-  | "MapStateEntered"
-  | "MapStateExited"
-  | "MapStateFailed"
-  | "MapStateStarted"
-  | "MapStateSucceeded"
-  | "ParallelStateAborted"
-  | "ParallelStateEntered"
-  | "ParallelStateExited"
-  | "ParallelStateFailed"
-  | "ParallelStateStarted"
-  | "ParallelStateSucceeded"
-  | "PassStateEntered"
-  | "PassStateExited"
-  | "SucceedStateEntered"
-  | "SucceedStateExited"
-  | "TaskFailed"
-  | "TaskScheduled"
-  | "TaskStartFailed"
-  | "TaskStarted"
-  | "TaskStateAborted"
-  | "TaskStateEntered"
-  | "TaskStateExited"
-  | "TaskSubmitFailed"
-  | "TaskSubmitted"
-  | "TaskSucceeded"
-  | "TaskTimedOut"
-  | "WaitStateAborted"
-  | "WaitStateEntered"
-  | "WaitStateExited";
+export enum HistoryEventType {
+  ActivityFailed = "ActivityFailed",
+  ActivityScheduleFailed = "ActivityScheduleFailed",
+  ActivityScheduled = "ActivityScheduled",
+  ActivityStarted = "ActivityStarted",
+  ActivitySucceeded = "ActivitySucceeded",
+  ActivityTimedOut = "ActivityTimedOut",
+  ChoiceStateEntered = "ChoiceStateEntered",
+  ChoiceStateExited = "ChoiceStateExited",
+  ExecutionAborted = "ExecutionAborted",
+  ExecutionFailed = "ExecutionFailed",
+  ExecutionStarted = "ExecutionStarted",
+  ExecutionSucceeded = "ExecutionSucceeded",
+  ExecutionTimedOut = "ExecutionTimedOut",
+  FailStateEntered = "FailStateEntered",
+  LambdaFunctionFailed = "LambdaFunctionFailed",
+  LambdaFunctionScheduleFailed = "LambdaFunctionScheduleFailed",
+  LambdaFunctionScheduled = "LambdaFunctionScheduled",
+  LambdaFunctionStartFailed = "LambdaFunctionStartFailed",
+  LambdaFunctionStarted = "LambdaFunctionStarted",
+  LambdaFunctionSucceeded = "LambdaFunctionSucceeded",
+  LambdaFunctionTimedOut = "LambdaFunctionTimedOut",
+  MapIterationAborted = "MapIterationAborted",
+  MapIterationFailed = "MapIterationFailed",
+  MapIterationStarted = "MapIterationStarted",
+  MapIterationSucceeded = "MapIterationSucceeded",
+  MapStateAborted = "MapStateAborted",
+  MapStateEntered = "MapStateEntered",
+  MapStateExited = "MapStateExited",
+  MapStateFailed = "MapStateFailed",
+  MapStateStarted = "MapStateStarted",
+  MapStateSucceeded = "MapStateSucceeded",
+  ParallelStateAborted = "ParallelStateAborted",
+  ParallelStateEntered = "ParallelStateEntered",
+  ParallelStateExited = "ParallelStateExited",
+  ParallelStateFailed = "ParallelStateFailed",
+  ParallelStateStarted = "ParallelStateStarted",
+  ParallelStateSucceeded = "ParallelStateSucceeded",
+  PassStateEntered = "PassStateEntered",
+  PassStateExited = "PassStateExited",
+  SucceedStateEntered = "SucceedStateEntered",
+  SucceedStateExited = "SucceedStateExited",
+  TaskFailed = "TaskFailed",
+  TaskScheduled = "TaskScheduled",
+  TaskStartFailed = "TaskStartFailed",
+  TaskStarted = "TaskStarted",
+  TaskStateAborted = "TaskStateAborted",
+  TaskStateEntered = "TaskStateEntered",
+  TaskStateExited = "TaskStateExited",
+  TaskSubmitFailed = "TaskSubmitFailed",
+  TaskSubmitted = "TaskSubmitted",
+  TaskSucceeded = "TaskSucceeded",
+  TaskTimedOut = "TaskTimedOut",
+  WaitStateAborted = "WaitStateAborted",
+  WaitStateEntered = "WaitStateEntered",
+  WaitStateExited = "WaitStateExited",
+}
 
 /**
  * <p>Contains details about the events of an execution.</p>
@@ -1696,18 +1736,18 @@ export interface HistoryEvent {
   mapIterationAbortedEventDetails?: MapIterationEventDetails;
 
   /**
-   * <p>Contains details about a lambda function that failed during an execution.</p>
+   * <p>Contains details about a Lambda function that failed during an execution.</p>
    */
   lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
 
   /**
-   * <p>Contains details about a failed lambda function schedule event that occurred during an
+   * <p>Contains details about a failed Lambda function schedule event that occurred during an
    *       execution.</p>
    */
   lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
 
   /**
-   * <p>Contains details about a lambda function scheduled during an execution.</p>
+   * <p>Contains details about a Lambda function scheduled during an execution.</p>
    */
   lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
 
@@ -1717,13 +1757,13 @@ export interface HistoryEvent {
   lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
 
   /**
-   * <p>Contains details about a lambda function that terminated successfully during an
+   * <p>Contains details about a Lambda function that terminated successfully during an
    *       execution.</p>
    */
   lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
 
   /**
-   * <p>Contains details about a lambda function timeout that occurred during an execution.</p>
+   * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
    */
   lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
 
@@ -2170,9 +2210,9 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
-   * <p>The name of the execution. This name must be unique for your AWS account, region, and state machine for 90 days. For more information,
+   * <p>The name of the execution. This name must be unique for your Amazon Web Services account, region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
-   *     Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer Guide</i>.</p>
+   *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>A name must <i>not</i> contain:</p>
    *          <ul>
    *             <li>
@@ -2213,7 +2253,8 @@ export interface StartExecutionInput {
   input?: string;
 
   /**
-   * <p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>
+   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
+   *       payload.</p>
    */
   traceHeader?: string;
 }
@@ -2248,7 +2289,7 @@ export interface StartSyncExecutionInput {
    *          </p>
    *          <note>
    *             <p>If you don't include any JSON input data, you still must include the two braces, for
-   *          example: <code>"input": "{}"</code>
+   *         example: <code>"input": "{}"</code>
    *             </p>
    *          </note>
    *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
@@ -2256,7 +2297,8 @@ export interface StartSyncExecutionInput {
   input?: string;
 
   /**
-   * <p>Passes the AWS X-Ray trace header. The trace header can also be passed in the request payload.</p>
+   * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
+   *       payload.</p>
    */
   traceHeader?: string;
 }
@@ -2276,7 +2318,11 @@ export interface BillingDetails {
   billedDurationInMilliseconds?: number;
 }
 
-export type SyncExecutionStatus = "FAILED" | "SUCCEEDED" | "TIMED_OUT";
+export enum SyncExecutionStatus {
+  FAILED = "FAILED",
+  SUCCEEDED = "SUCCEEDED",
+  TIMED_OUT = "TIMED_OUT",
+}
 
 export interface StartSyncExecutionOutput {
   /**
@@ -2333,7 +2379,7 @@ export interface StartSyncExecutionOutput {
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    *          <note>
    *             <p>This field is set only if the execution succeeds. If the execution fails, this field is
-   *          null.</p>
+   *         null.</p>
    *          </note>
    */
   output?: string;
@@ -2344,13 +2390,13 @@ export interface StartSyncExecutionOutput {
   outputDetails?: CloudWatchEventsExecutionDataDetails;
 
   /**
-   * <p>The AWS X-Ray trace header that was passed to the execution.</p>
+   * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
 
   /**
-   * <p>An object that describes workflow billing details, including billed duration
-   *       and memory use.</p>
+   * <p>An object that describes workflow billing details, including billed duration and memory
+   *       use.</p>
    */
   billingDetails?: BillingDetails;
 }
@@ -2451,7 +2497,7 @@ export interface UpdateStateMachineInput {
   loggingConfiguration?: LoggingConfiguration;
 
   /**
-   * <p>Selects whether AWS X-Ray tracing is enabled.</p>
+   * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
 }
@@ -2764,6 +2810,13 @@ export const LambdaFunctionFailedEventDetailsFilterSensitiveLog = (obj: LambdaFu
   ...obj,
   ...(obj.error && { error: SENSITIVE_STRING }),
   ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const TaskCredentialsFilterSensitiveLog = (obj: TaskCredentials): any => ({
+  ...obj,
 });
 
 /**
