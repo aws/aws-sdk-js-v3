@@ -233,9 +233,9 @@ import { DynamoDBClient } from "./DynamoDBClient";
 export class DynamoDB extends DynamoDBClient {
   /**
    * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
-   *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify an equality
-   *             condition on all key attributes. This enforces that each <code>SELECT</code> statement in a
-   *             batch returns at most a single item.</p>
+   *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
+   *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
+   *             statement in a batch returns at most a single item.</p>
    *         <note>
    *             <p>The entire batch must consist of either read statements or write statements, you
    *                 cannot mix both in one batch.</p>
@@ -359,8 +359,10 @@ export class DynamoDB extends DynamoDBClient {
    *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
    *         <note>
    *             <p>
-   *                 <code>BatchWriteItem</code> cannot update items. To update items, use the
-   *                     <code>UpdateItem</code> action.</p>
+   *                 <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
+   *                 operation on an existing item, that item's values will be overwritten by the
+   *                 operation and it will appear like it was updated. To update items, we recommend you
+   *                 use the <code>UpdateItem</code> action.</p>
    *         </note>
    *         <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
    *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
@@ -1005,9 +1007,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>
-   *                 Represents the properties of the import.
-   *                 </p>
+   * <p> Represents the properties of the import. </p>
    */
   public describeImport(
     args: DescribeImportCommandInput,
@@ -1502,10 +1502,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>
-   *                 Imports table data from an S3 bucket.
-   *
-   *             </p>
+   * <p> Imports table data from an S3 bucket. </p>
    */
   public importTable(args: ImportTableCommandInput, options?: __HttpHandlerOptions): Promise<ImportTableCommandOutput>;
   public importTable(args: ImportTableCommandInput, cb: (err: any, data?: ImportTableCommandOutput) => void): void;
@@ -1658,9 +1655,7 @@ export class DynamoDB extends DynamoDBClient {
   }
 
   /**
-   * <p>
-   *                 Lists completed imports within the past 90 days.
-   *                 </p>
+   * <p> Lists completed imports within the past 90 days. </p>
    */
   public listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   public listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
@@ -1757,7 +1752,7 @@ export class DynamoDB extends DynamoDBClient {
    *             the same operation, using the <code>ReturnValues</code> parameter.</p>
    *
    *         <p>When you add an item, the primary key attributes are the only required attributes.
-   *             Attribute values cannot be null.</p>
+   *             </p>
    *         <p>Empty String and Binary attribute values are allowed. Attribute values of type String
    *             and Binary must have a length greater than zero if the attribute is used as a key
    *             attribute for a table or index. Set type attributes cannot be empty. </p>

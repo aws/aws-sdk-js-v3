@@ -29,10 +29,7 @@ export interface ImportTableCommandInput extends ImportTableInput {}
 export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataBearer {}
 
 /**
- * <p>
- *                 Imports table data from an S3 bucket.
- *
- *             </p>
+ * <p> Imports table data from an S3 bucket. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -29,9 +29,7 @@ export interface ListImportsCommandInput extends ListImportsInput {}
 export interface ListImportsCommandOutput extends ListImportsOutput, __MetadataBearer {}
 
 /**
- * <p>
- *                 Lists completed imports within the past 90 days.
- *                 </p>
+ * <p> Lists completed imports within the past 90 days. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

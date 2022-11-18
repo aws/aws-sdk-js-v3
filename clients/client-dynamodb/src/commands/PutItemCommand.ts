@@ -34,7 +34,7 @@ export interface PutItemCommandOutput extends PutItemOutput, __MetadataBearer {}
  *             the same operation, using the <code>ReturnValues</code> parameter.</p>
  *
  *         <p>When you add an item, the primary key attributes are the only required attributes.
- *             Attribute values cannot be null.</p>
+ *             </p>
  *         <p>Empty String and Binary attribute values are allowed. Attribute values of type String
  *             and Binary must have a length greater than zero if the attribute is used as a key
  *             attribute for a table or index. Set type attributes cannot be empty. </p>
