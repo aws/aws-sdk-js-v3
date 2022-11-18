@@ -13,12 +13,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import {
-  DescribeTemplateRequest,
-  DescribeTemplateRequestFilterSensitiveLog,
-  DescribeTemplateResponse,
-  DescribeTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { DescribeTemplateRequest, DescribeTemplateRequestFilterSensitiveLog } from "../models/models_0";
+import { DescribeTemplateResponse, DescribeTemplateResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1DescribeTemplateCommand,
   serializeAws_restJson1DescribeTemplateCommand,

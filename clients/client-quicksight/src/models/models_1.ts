@@ -18,7 +18,9 @@ import {
   DashboardSummary,
   DashboardVersionSummary,
   DashboardVisualId,
+  DataSetConfiguration,
   DataSetImportMode,
+  DataSetSearchFilter,
   DataSetSummary,
   DataSetUsageConfiguration,
   DataSource,
@@ -26,6 +28,8 @@ import {
   DataSourceFilterSensitiveLog,
   DataSourceParameters,
   DataSourceParametersFilterSensitiveLog,
+  DataSourceSearchFilter,
+  DataSourceSummary,
   FieldFolder,
   FilterOperator,
   FolderType,
@@ -43,16 +47,238 @@ import {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
+  Sheet,
   SslProperties,
   Tag,
   TemplateAlias,
+  TemplateError,
   TemplateSourceEntity,
   ThemeAlias,
   ThemeConfiguration,
-  ThemeType,
   VpcConnectionProperties,
 } from "./models_0";
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * <p>A version of a template.</p>
+ */
+export interface TemplateVersion {
+  /**
+   * <p>The time that this template version was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>Errors associated with this template version.</p>
+   */
+  Errors?: TemplateError[];
+
+  /**
+   * <p>The version number of the template version.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: ResourceStatus | string;
+
+  /**
+   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
+   *             template should be bound to new datasets matching the same schema described through this
+   *             API operation.</p>
+   */
+  DataSetConfigurations?: DataSetConfiguration[];
+
+  /**
+   * <p>The description of the template.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
+   *             template.</p>
+   */
+  SourceEntityArn?: string;
+
+  /**
+   * <p>The ARN of the theme associated with this version of the template.</p>
+   */
+  ThemeArn?: string;
+
+  /**
+   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
+   */
+  Sheets?: Sheet[];
+}
+
+/**
+ * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
+ *             encapsulates the metadata required to create an analysis and that you can use to create
+ *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
+ *             dataset associated with an analysis. You can use templates to create dashboards by
+ *             replacing dataset placeholders with datasets that follow the same schema that was used
+ *             to create the source analysis and template.</p>
+ *         <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
+ *             create a template or a dashboard from an existing template.</p>
+ */
+export interface Template {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The display name of the template.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A structure describing the versions of the template.</p>
+   */
+  Version?: TemplateVersion;
+
+  /**
+   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>Time when this was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * <p>Time when this was created.</p>
+   */
+  CreatedTime?: Date;
+}
+
+export interface DescribeTemplateResponse {
+  /**
+   * <p>The template structure for the object you want to describe.</p>
+   */
+  Template?: Template;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface DescribeTemplateAliasRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
+   * 			describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+
+  /**
+   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
+   */
+  AliasName: string | undefined;
+}
+
+export interface DescribeTemplateAliasResponse {
+  /**
+   * <p>Information about the template alias.</p>
+   */
+  TemplateAlias?: TemplateAlias;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface DescribeTemplatePermissionsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId: string | undefined;
+}
+
+export interface DescribeTemplatePermissionsResponse {
+  /**
+   * <p>The ID for the template.</p>
+   */
+  TemplateId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the template.</p>
+   */
+  TemplateArn?: string;
+
+  /**
+   * <p>A list of resource permissions to be set on the template. </p>
+   */
+  Permissions?: ResourcePermission[];
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export interface DescribeThemeRequest {
+  /**
+   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The ID for the theme.</p>
+   */
+  ThemeId: string | undefined;
+
+  /**
+   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
+   * 			value isn't provided, the latest version of the theme is described.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
+   * 			describe the version that the alias points to. You can specify the latest version of the
+   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
+   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
+   */
+  AliasName?: string;
+}
+
+export enum ThemeType {
+  ALL = "ALL",
+  CUSTOM = "CUSTOM",
+  QUICKSIGHT = "QUICKSIGHT",
+}
 
 export enum ThemeErrorType {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
@@ -435,7 +661,13 @@ export enum EmbeddingIdentityType {
 }
 
 export enum FolderFilterAttribute {
+  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  FOLDER_NAME = "FOLDER_NAME",
   PARENT_FOLDER_ARN = "PARENT_FOLDER_ARN",
+  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
 }
 
 /**
@@ -454,16 +686,49 @@ export interface MemberIdArnPair {
 }
 
 /**
- * <p>A filter to use to search a Amazon QuickSight folder.</p>
+ * <p>A filter to use to search an Amazon QuickSight folder.</p>
  */
 export interface FolderSearchFilter {
   /**
-   * <p>The comparison operator that you want to use in the filter. For example, <code>"Operator": "StringEquals"</code>.</p>
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"FOLDER_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>FOLDER_NAME</code>.</p>
    */
   Operator?: FilterOperator | string;
 
   /**
-   * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "PARENT_FOLDER_ARN"</code>.</p>
+   * <p>The name of a value that you want to use in the filter. For example, <code>"Name": "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the folder's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners of the folders are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as the only owner of the folder are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners of the folders are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any folders with that ARN listed as one of the owners or viewers of the folders are returned. Implicit permissions from folders or groups are not considered. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FOLDER_NAME</code>: Any folders whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PARENT_FOLDER_ARN</code>: Provide an ARN of a folder, and any folders that are directly under that parent folder are returned. If you choose to use this option and leave the value blank, all root-level folders in the account are returned. </p>
+   *             </li>
+   *          </ul>
    */
   Name?: FolderFilterAttribute | string;
 
@@ -587,6 +852,11 @@ export interface GenerateEmbedUrlForAnonymousUserResponse {
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
   RequestId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) to use for the anonymous Amazon QuickSight user.</p>
+   */
+  AnonymousUserArn: string | undefined;
 }
 
 /**
@@ -1133,6 +1403,32 @@ export interface IAMPolicyAssignmentSummary {
    * <p>Assignment status.</p>
    */
   AssignmentStatus?: AssignmentStatus | string;
+}
+
+/**
+ * <p>You don't have this feature activated for your account. To fix this issue, contact Amazon Web Services support.</p>
+ */
+export class InvalidRequestException extends __BaseException {
+  readonly name: "InvalidRequestException" = "InvalidRequestException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The Amazon Web Services request ID for this request.</p>
+   */
+  RequestId?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidRequestException, __BaseException>) {
+    super({
+      name: "InvalidRequestException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidRequestException.prototype);
+    this.Message = opts.Message;
+    this.RequestId = opts.RequestId;
+  }
 }
 
 export interface ListAnalysesRequest {
@@ -2525,6 +2821,94 @@ export interface SearchDashboardsResponse {
   RequestId?: string;
 }
 
+export interface SearchDataSetsRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search.</p>
+   */
+  Filters: DataSetSearchFilter[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface SearchDataSetsResponse {
+  /**
+   * <p>A <code>DataSetSummaries</code> object that returns a summary of a dataset.</p>
+   */
+  DataSetSummaries?: DataSetSummary[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+export interface SearchDataSourcesRequest {
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * <p>The filters to apply to the search.</p>
+   */
+  Filters: DataSourceSearchFilter[] | undefined;
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to be returned per request.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface SearchDataSourcesResponse {
+  /**
+   * <p>A <code>DataSourceSummaries</code> object that returns a summary of a data source.</p>
+   */
+  DataSourceSummaries?: DataSourceSummary[];
+
+  /**
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
 export interface SearchFoldersRequest {
   /**
    * <p>The ID for the Amazon Web Services account that contains the folder.</p>
@@ -2739,6 +3123,11 @@ export interface UpdateAccountSettingsRequest {
    *             Amazon Web Services account or Amazon QuickSight subscription.</p>
    */
   NotificationEmail?: string;
+
+  /**
+   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubscription</code> request. A <code>False</code> value will allow the account to be deleted.</p>
+   */
+  TerminationProtectionEnabled?: boolean;
 }
 
 export interface UpdateAccountSettingsResponse {
@@ -4093,6 +4482,64 @@ export interface UpdateUserResponse {
 /**
  * @internal
  */
+export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateFilterSensitiveLog = (obj: Template): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateAliasRequestFilterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplateAliasResponseFilterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplatePermissionsRequestFilterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeTemplatePermissionsResponseFilterSensitiveLog = (
+  obj: DescribeTemplatePermissionsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeThemeRequestFilterSensitiveLog = (obj: DescribeThemeRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ThemeErrorFilterSensitiveLog = (obj: ThemeError): any => ({
   ...obj,
 });
@@ -4718,6 +5165,34 @@ export const SearchDashboardsRequestFilterSensitiveLog = (obj: SearchDashboardsR
  * @internal
  */
 export const SearchDashboardsResponseFilterSensitiveLog = (obj: SearchDashboardsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDataSetsRequestFilterSensitiveLog = (obj: SearchDataSetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDataSetsResponseFilterSensitiveLog = (obj: SearchDataSetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDataSourcesRequestFilterSensitiveLog = (obj: SearchDataSourcesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SearchDataSourcesResponseFilterSensitiveLog = (obj: SearchDataSourcesResponse): any => ({
   ...obj,
 });
 

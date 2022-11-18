@@ -87,6 +87,10 @@ import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
+import {
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
+} from "./commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "./commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "./commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "./commands/DeleteDataSetCommand";
@@ -250,6 +254,8 @@ import { RegisterUserCommandInput, RegisterUserCommandOutput } from "./commands/
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "./commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "./commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "./commands/SearchDashboardsCommand";
+import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "./commands/SearchDataSetsCommand";
+import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "./commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "./commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "./commands/SearchGroupsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
@@ -348,6 +354,7 @@ export type ServiceInputTypes =
   | CreateThemeAliasCommandInput
   | CreateThemeCommandInput
   | DeleteAccountCustomizationCommandInput
+  | DeleteAccountSubscriptionCommandInput
   | DeleteAnalysisCommandInput
   | DeleteDashboardCommandInput
   | DeleteDataSetCommandInput
@@ -421,6 +428,8 @@ export type ServiceInputTypes =
   | RestoreAnalysisCommandInput
   | SearchAnalysesCommandInput
   | SearchDashboardsCommandInput
+  | SearchDataSetsCommandInput
+  | SearchDataSourcesCommandInput
   | SearchFoldersCommandInput
   | SearchGroupsCommandInput
   | TagResourceCommandInput
@@ -470,6 +479,7 @@ export type ServiceOutputTypes =
   | CreateThemeAliasCommandOutput
   | CreateThemeCommandOutput
   | DeleteAccountCustomizationCommandOutput
+  | DeleteAccountSubscriptionCommandOutput
   | DeleteAnalysisCommandOutput
   | DeleteDashboardCommandOutput
   | DeleteDataSetCommandOutput
@@ -543,6 +553,8 @@ export type ServiceOutputTypes =
   | RestoreAnalysisCommandOutput
   | SearchAnalysesCommandOutput
   | SearchDashboardsCommandOutput
+  | SearchDataSetsCommandOutput
+  | SearchDataSourcesCommandOutput
   | SearchFoldersCommandOutput
   | SearchGroupsCommandOutput
   | TagResourceCommandOutput

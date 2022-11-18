@@ -14,3 +14,5 @@ export * from "./ListThemeVersionsPaginator";
 export * from "./ListThemesPaginator";
 export * from "./SearchAnalysesPaginator";
 export * from "./SearchDashboardsPaginator";
+export * from "./SearchDataSetsPaginator";
+export * from "./SearchDataSourcesPaginator";

@@ -14,42 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeTemplatePermissionsRequest,
-  DescribeTemplatePermissionsRequestFilterSensitiveLog,
-  DescribeTemplatePermissionsResponse,
-  DescribeTemplatePermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+  DeleteAccountSubscriptionRequest,
+  DeleteAccountSubscriptionRequestFilterSensitiveLog,
+  DeleteAccountSubscriptionResponse,
+  DeleteAccountSubscriptionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_restJson1DescribeTemplatePermissionsCommand,
-  serializeAws_restJson1DescribeTemplatePermissionsCommand,
+  deserializeAws_restJson1DeleteAccountSubscriptionCommand,
+  serializeAws_restJson1DeleteAccountSubscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
-export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplatePermissionsRequest {}
-export interface DescribeTemplatePermissionsCommandOutput
-  extends DescribeTemplatePermissionsResponse,
-    __MetadataBearer {}
+export interface DeleteAccountSubscriptionCommandInput extends DeleteAccountSubscriptionRequest {}
+export interface DeleteAccountSubscriptionCommandOutput extends DeleteAccountSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes read and write permissions on a template.</p>
+ * <p>Use the <code>DeleteAccountSubscription</code> operation to delete an Amazon QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeTemplatePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeTemplatePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DeleteAccountSubscriptionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DeleteAccountSubscriptionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const command = new DescribeTemplatePermissionsCommand(input);
+ * const command = new DeleteAccountSubscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeTemplatePermissionsCommandInput} for command's `input` shape.
- * @see {@link DescribeTemplatePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link DeleteAccountSubscriptionCommandInput} for command's `input` shape.
+ * @see {@link DeleteAccountSubscriptionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
-export class DescribeTemplatePermissionsCommand extends $Command<
-  DescribeTemplatePermissionsCommandInput,
-  DescribeTemplatePermissionsCommandOutput,
+export class DeleteAccountSubscriptionCommand extends $Command<
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
   QuickSightClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeTemplatePermissionsCommandInput) {
+  constructor(readonly input: DeleteAccountSubscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,23 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeTemplatePermissionsCommandInput, DescribeTemplatePermissionsCommandOutput> {
+  ): Handler<DeleteAccountSubscriptionCommandInput, DeleteAccountSubscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeTemplatePermissionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteAccountSubscriptionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "DescribeTemplatePermissionsCommand";
+    const commandName = "DeleteAccountSubscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplatePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTemplatePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteAccountSubscriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteAccountSubscriptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +101,15 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeTemplatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplatePermissionsCommand(input, context);
+  private serialize(input: DeleteAccountSubscriptionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DeleteAccountSubscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeTemplatePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplatePermissionsCommand(output, context);
+  ): Promise<DeleteAccountSubscriptionCommandOutput> {
+    return deserializeAws_restJson1DeleteAccountSubscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

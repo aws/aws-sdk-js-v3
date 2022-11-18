@@ -14,42 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeTemplatePermissionsRequest,
-  DescribeTemplatePermissionsRequestFilterSensitiveLog,
-  DescribeTemplatePermissionsResponse,
-  DescribeTemplatePermissionsResponseFilterSensitiveLog,
+  SearchDataSourcesRequest,
+  SearchDataSourcesRequestFilterSensitiveLog,
+  SearchDataSourcesResponse,
+  SearchDataSourcesResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1DescribeTemplatePermissionsCommand,
-  serializeAws_restJson1DescribeTemplatePermissionsCommand,
+  deserializeAws_restJson1SearchDataSourcesCommand,
+  serializeAws_restJson1SearchDataSourcesCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
-export interface DescribeTemplatePermissionsCommandInput extends DescribeTemplatePermissionsRequest {}
-export interface DescribeTemplatePermissionsCommandOutput
-  extends DescribeTemplatePermissionsResponse,
-    __MetadataBearer {}
+export interface SearchDataSourcesCommandInput extends SearchDataSourcesRequest {}
+export interface SearchDataSourcesCommandOutput extends SearchDataSourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Describes read and write permissions on a template.</p>
+ * <p>Use the <code>SearchDataSources</code> operation to search for data sources that belong to an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, DescribeTemplatePermissionsCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, DescribeTemplatePermissionsCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, SearchDataSourcesCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, SearchDataSourcesCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const command = new DescribeTemplatePermissionsCommand(input);
+ * const command = new SearchDataSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeTemplatePermissionsCommandInput} for command's `input` shape.
- * @see {@link DescribeTemplatePermissionsCommandOutput} for command's `response` shape.
+ * @see {@link SearchDataSourcesCommandInput} for command's `input` shape.
+ * @see {@link SearchDataSourcesCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
-export class DescribeTemplatePermissionsCommand extends $Command<
-  DescribeTemplatePermissionsCommandInput,
-  DescribeTemplatePermissionsCommandOutput,
+export class SearchDataSourcesCommand extends $Command<
+  SearchDataSourcesCommandInput,
+  SearchDataSourcesCommandOutput,
   QuickSightClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeTemplatePermissionsCommandInput) {
+  constructor(readonly input: SearchDataSourcesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,23 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeTemplatePermissionsCommandInput, DescribeTemplatePermissionsCommandOutput> {
+  ): Handler<SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeTemplatePermissionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, SearchDataSourcesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "DescribeTemplatePermissionsCommand";
+    const commandName = "SearchDataSourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeTemplatePermissionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeTemplatePermissionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: SearchDataSourcesRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: SearchDataSourcesResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +101,12 @@ export class DescribeTemplatePermissionsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeTemplatePermissionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DescribeTemplatePermissionsCommand(input, context);
+  private serialize(input: SearchDataSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1SearchDataSourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeTemplatePermissionsCommandOutput> {
-    return deserializeAws_restJson1DescribeTemplatePermissionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<SearchDataSourcesCommandOutput> {
+    return deserializeAws_restJson1SearchDataSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

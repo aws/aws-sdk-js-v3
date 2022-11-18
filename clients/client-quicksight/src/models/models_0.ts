@@ -135,6 +135,11 @@ export interface AccountSettings {
    * <p>A Boolean value that indicates whether public sharing is turned on for an Amazon QuickSight account. For more information about turning on public sharing, see <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdatePublicSharingSettings.html">UpdatePublicSharingSettings</a>.</p>
    */
   PublicSharingEnabled?: boolean;
+
+  /**
+   * <p>A boolean value that determines whether or not an Amazon QuickSight account can be deleted. A <code>True</code> value doesn't allow the account to be deleted and results in an error message if a user tries to make a <code>DeleteAccountSubsctiption</code> request. A <code>False</code> value will allow the ccount to be deleted. </p>
+   */
+  TerminationProtectionEnabled?: boolean;
 }
 
 /**
@@ -301,11 +306,18 @@ export interface Analysis {
 }
 
 export enum AnalysisFilterAttribute {
+  ANALYSIS_NAME = "ANALYSIS_NAME",
+  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
   QUICKSIGHT_USER = "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
 }
 
 export enum FilterOperator {
   StringEquals = "StringEquals",
+  StringLike = "StringLike",
 }
 
 /**
@@ -313,14 +325,42 @@ export enum FilterOperator {
  */
 export interface AnalysisSearchFilter {
   /**
-   * <p>The comparison operator that you want to use as a filter, for example
-   *                 <code>"Operator": "StringEquals"</code>.</p>
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
    */
   Operator?: FilterOperator | string;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example <code>"Name":
-   *                 "QUICKSIGHT_USER"</code>.</p>
+   *                 "QUICKSIGHT_OWNER"</code>.</p>
+   *         <p>Valid values are defined as follows:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the analysis' owners or viewers are returned. Implicit permissions from folders or groups are considered. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ANALYSIS_NAME</code>: Any analyses whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
    */
   Name?: AnalysisFilterAttribute | string;
 
@@ -463,6 +503,17 @@ export interface AnonymousUserDashboardVisualEmbeddingConfiguration {
 }
 
 /**
+ * <p>The settings that you want to use with the Q search bar.</p>
+ */
+export interface AnonymousUserQSearchBarEmbeddingConfiguration {
+  /**
+   * <p>The QuickSight Q topic ID of the topic that you want the anonymous user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders the Q search bar with this topic pre-selected.</p>
+   *         <p>The Amazon Resource Name (ARN) of this Q topic must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialTopicId: string | undefined;
+}
+
+/**
  * <p>The type of experience you want to embed. For anonymous users, you can embed Amazon QuickSight dashboards.</p>
  */
 export interface AnonymousUserEmbeddingExperienceConfiguration {
@@ -475,6 +526,11 @@ export interface AnonymousUserEmbeddingExperienceConfiguration {
    * <p>The type of embedding experience. In this case, Amazon QuickSight visuals.</p>
    */
   DashboardVisual?: AnonymousUserDashboardVisualEmbeddingConfiguration;
+
+  /**
+   * <p>The Q search bar that you want to use for anonymous user embedding.</p>
+   */
+  QSearchBar?: AnonymousUserQSearchBarEmbeddingConfiguration;
 }
 
 export enum AssignmentStatus {
@@ -491,6 +547,11 @@ export interface AthenaParameters {
    * <p>The workgroup that Amazon Athena uses.</p>
    */
   WorkGroup?: string;
+
+  /**
+   * <p>Use the <code>RoleArn</code> structure to override an account-wide role for a specific Athena data source. For example, say an account administrator has turned off all Athena access with an account-wide role. The administrator can then use <code>RoleArn</code> to bypass the account-wide role and allow Athena access for the single Athena data source that is specified in the structure, even if the account-wide role forbidding Athena access is still active.</p>
+   */
+  RoleArn?: string;
 }
 
 /**
@@ -2534,6 +2595,26 @@ export class LimitExceededException extends __BaseException {
 }
 
 /**
+ * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+ */
+export interface DatabricksParameters {
+  /**
+   * <p>The host name of the Databricks data source.</p>
+   */
+  Host: string | undefined;
+
+  /**
+   * <p>The port for the Databricks data source.</p>
+   */
+  Port: number | undefined;
+
+  /**
+   * <p>The HTTP path of the Databricks data source.</p>
+   */
+  SqlEndpointPath: string | undefined;
+}
+
+/**
  * <p>The required parameters for connecting to an Exasol data source.</p>
  */
 export interface ExasolParameters {
@@ -2839,6 +2920,7 @@ export type DataSourceParameters =
   | DataSourceParameters.AuroraParametersMember
   | DataSourceParameters.AuroraPostgreSqlParametersMember
   | DataSourceParameters.AwsIotAnalyticsParametersMember
+  | DataSourceParameters.DatabricksParametersMember
   | DataSourceParameters.ExasolParametersMember
   | DataSourceParameters.JiraParametersMember
   | DataSourceParameters.MariaDbParametersMember
@@ -2884,6 +2966,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -2913,6 +2996,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -2942,6 +3026,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -2971,6 +3056,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3000,6 +3086,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3029,6 +3116,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3058,6 +3146,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3087,6 +3176,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3116,6 +3206,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3145,6 +3236,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3174,6 +3266,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3203,6 +3296,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3232,6 +3326,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3261,6 +3356,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3290,6 +3386,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3319,6 +3416,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3348,6 +3446,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3377,6 +3476,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3406,6 +3506,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3435,6 +3536,7 @@ export namespace DataSourceParameters {
     TwitterParameters: TwitterParameters;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3464,6 +3566,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters: AmazonOpenSearchParameters;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown?: never;
   }
 
@@ -3493,6 +3596,37 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters: ExasolParameters;
+    DatabricksParameters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The required parameters that are needed to connect to a Databricks data source.</p>
+   */
+  export interface DatabricksParametersMember {
+    AmazonElasticsearchParameters?: never;
+    AthenaParameters?: never;
+    AuroraParameters?: never;
+    AuroraPostgreSqlParameters?: never;
+    AwsIotAnalyticsParameters?: never;
+    JiraParameters?: never;
+    MariaDbParameters?: never;
+    MySqlParameters?: never;
+    OracleParameters?: never;
+    PostgreSqlParameters?: never;
+    PrestoParameters?: never;
+    RdsParameters?: never;
+    RedshiftParameters?: never;
+    S3Parameters?: never;
+    ServiceNowParameters?: never;
+    SnowflakeParameters?: never;
+    SparkParameters?: never;
+    SqlServerParameters?: never;
+    TeradataParameters?: never;
+    TwitterParameters?: never;
+    AmazonOpenSearchParameters?: never;
+    ExasolParameters?: never;
+    DatabricksParameters: DatabricksParameters;
     $unknown?: never;
   }
 
@@ -3519,6 +3653,7 @@ export namespace DataSourceParameters {
     TwitterParameters?: never;
     AmazonOpenSearchParameters?: never;
     ExasolParameters?: never;
+    DatabricksParameters?: never;
     $unknown: [string, any];
   }
 
@@ -3545,6 +3680,7 @@ export namespace DataSourceParameters {
     TwitterParameters: (value: TwitterParameters) => T;
     AmazonOpenSearchParameters: (value: AmazonOpenSearchParameters) => T;
     ExasolParameters: (value: ExasolParameters) => T;
+    DatabricksParameters: (value: DatabricksParameters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -3575,6 +3711,7 @@ export namespace DataSourceParameters {
     if (value.AmazonOpenSearchParameters !== undefined)
       return visitor.AmazonOpenSearchParameters(value.AmazonOpenSearchParameters);
     if (value.ExasolParameters !== undefined) return visitor.ExasolParameters(value.ExasolParameters);
+    if (value.DatabricksParameters !== undefined) return visitor.DatabricksParameters(value.DatabricksParameters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -3653,6 +3790,7 @@ export enum DataSourceType {
   AURORA = "AURORA",
   AURORA_POSTGRESQL = "AURORA_POSTGRESQL",
   AWS_IOT_ANALYTICS = "AWS_IOT_ANALYTICS",
+  DATABRICKS = "DATABRICKS",
   EXASOL = "EXASOL",
   GITHUB = "GITHUB",
   JIRA = "JIRA",
@@ -4923,7 +5061,13 @@ export interface Dashboard {
 }
 
 export enum DashboardFilterAttribute {
+  DASHBOARD_NAME = "DASHBOARD_NAME",
+  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
   QUICKSIGHT_USER = "QUICKSIGHT_USER",
+  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
 }
 
 /**
@@ -4931,14 +5075,42 @@ export enum DashboardFilterAttribute {
  */
 export interface DashboardSearchFilter {
   /**
-   * <p>The comparison operator that you want to use as a filter, for example,
-   *             <code>"Operator": "StringEquals"</code>.</p>
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and  <code>"StringLike"</code>.</p>
+   *         <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *         <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"DASHBOARD_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DASHBOARD_NAME</code>.</p>
    */
   Operator: FilterOperator | string | undefined;
 
   /**
    * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
-   *             "QUICKSIGHT_USER"</code>. </p>
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *         <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the dashboards's owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as the only owner of the dashboard are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any dashboards with that ARN listed as one of the owners or viewers of the dashboards are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DASHBOARD_NAME</code>: Any dashboards whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
    */
   Name?: DashboardFilterAttribute | string;
 
@@ -5166,6 +5338,67 @@ export interface DataSetConfiguration {
   ColumnGroupSchemaList?: ColumnGroupSchema[];
 }
 
+export enum DataSetFilterAttribute {
+  DATASET_NAME = "DATASET_NAME",
+  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+  QUICKSIGHT_OWNER = "QUICKSIGHT_OWNER",
+  QUICKSIGHT_VIEWER_OR_OWNER = "QUICKSIGHT_VIEWER_OR_OWNER",
+}
+
+/**
+ * <p>A filter that you apply when searching for datasets.</p>
+ */
+export interface DataSetSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose datasets you want to search in the <code>"Value"</code> field. For example, <code>"Name":"QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east- 1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the datasets you are searching for. For example, <code>"Name":"DATASET_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASET_NAME</code>.</p>
+   */
+  Operator: FilterOperator | string | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the dataset owners or viewers are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners of the dataset are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as the only owner of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners if the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any datasets with that ARN listed as one of the owners or viewers of the dataset are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DATASET_NAME</code>: Any datasets whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: DataSetFilterAttribute | string | undefined;
+
+  /**
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value: string | undefined;
+}
+
 /**
  * <p>Dataset summary.</p>
  */
@@ -5326,6 +5559,92 @@ export interface DataSource {
   SecretArn?: string;
 }
 
+export enum DataSourceFilterAttribute {
+  DATASOURCE_NAME = "DATASOURCE_NAME",
+  DIRECT_QUICKSIGHT_OWNER = "DIRECT_QUICKSIGHT_OWNER",
+  DIRECT_QUICKSIGHT_SOLE_OWNER = "DIRECT_QUICKSIGHT_SOLE_OWNER",
+  DIRECT_QUICKSIGHT_VIEWER_OR_OWNER = "DIRECT_QUICKSIGHT_VIEWER_OR_OWNER",
+}
+
+/**
+ * <p>A filter that you apply when searching for data sources.</p>
+ */
+export interface DataSourceSearchFilter {
+  /**
+   * <p>The comparison operator that you want to use as a filter, for example <code>"Operator": "StringEquals"</code>. Valid values are <code>"StringEquals"</code> and <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose data sources you want to search in the <code>"Value"</code> field. For example, <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the data sources you are searching for. For example, <code>"Name":"DATASOURCE_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>DATASOURCE_NAME</code>.</p>
+   */
+  Operator: FilterOperator | string | undefined;
+
+  /**
+   * <p>The name of the value that you want to use as a filter, for example, <code>"Name":
+   *             "DIRECT_QUICKSIGHT_OWNER"</code>.</p>
+   *         <p>Valid values are defined as follows:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners or viewers of the data sources are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as one of the owners if the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any data sources with that ARN listed as the only owner of the data source are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DATASOURCE_NAME</code>: Any data sources whose names have a substring match to the provided value are returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: DataSourceFilterAttribute | string | undefined;
+
+  /**
+   * <p>The value of the named item, for example <code>DIRECT_QUICKSIGHT_OWNER</code>, that you want
+   *             to use as a filter, for example, <code>"Value":
+   *             "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * <p>A <code>DataSourceSummary</code> object that returns a summary of a data source.</p>
+ */
+export interface DataSourceSummary {
+  /**
+   * <p>The arn of the datasource.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The unique ID of the data source.</p>
+   */
+  DataSourceId?: string;
+
+  /**
+   * <p>The name of the data source.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The type of the data source.</p>
+   */
+  Type?: DataSourceType | string;
+
+  /**
+   * <p>The date and time that the data source was created. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The date and time the data source was last updated. This value is expressed in MM-DD-YYYY HH:MM:SS format.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
 export interface DeleteAccountCustomizationRequest {
   /**
    * <p>The ID for the Amazon Web Services account that you want to delete Amazon QuickSight customizations from in
@@ -5340,6 +5659,25 @@ export interface DeleteAccountCustomizationRequest {
 }
 
 export interface DeleteAccountCustomizationResponse {
+  /**
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
+
+export interface DeleteAccountSubscriptionRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the account that you want to delete.</p>
+   */
+  AwsAccountId: string | undefined;
+}
+
+export interface DeleteAccountSubscriptionResponse {
   /**
    * <p>The Amazon Web Services request ID for this operation.</p>
    */
@@ -7072,227 +7410,6 @@ export interface TemplateError {
 }
 
 /**
- * <p>A version of a template.</p>
- */
-export interface TemplateVersion {
-  /**
-   * <p>The time that this template version was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * <p>Errors associated with this template version.</p>
-   */
-  Errors?: TemplateError[];
-
-  /**
-   * <p>The version number of the template version.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: ResourceStatus | string;
-
-  /**
-   * <p>Schema of the dataset identified by the placeholder. Any dashboard created from this
-   *             template should be bound to new datasets matching the same schema described through this
-   *             API operation.</p>
-   */
-  DataSetConfigurations?: DataSetConfiguration[];
-
-  /**
-   * <p>The description of the template.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of an analysis or template that was used to create this
-   *             template.</p>
-   */
-  SourceEntityArn?: string;
-
-  /**
-   * <p>The ARN of the theme associated with this version of the template.</p>
-   */
-  ThemeArn?: string;
-
-  /**
-   * <p>A list of the associated sheets with the unique identifier and name of each sheet.</p>
-   */
-  Sheets?: Sheet[];
-}
-
-/**
- * <p>A template object. A <i>template</i> is an entity in Amazon QuickSight that
- *             encapsulates the metadata required to create an analysis and that you can use to create
- *             a dashboard. A template adds a layer of abstraction by using placeholders to replace the
- *             dataset associated with an analysis. You can use templates to create dashboards by
- *             replacing dataset placeholders with datasets that follow the same schema that was used
- *             to create the source analysis and template.</p>
- *         <p>You can share templates across Amazon Web Services accounts by allowing users in other Amazon Web Services accounts to
- *             create a template or a dashboard from an existing template.</p>
- */
-export interface Template {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The display name of the template.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A structure describing the versions of the template.</p>
-   */
-  Version?: TemplateVersion;
-
-  /**
-   * <p>The ID for the template. This is unique per Amazon Web Services Region for each Amazon Web Services account.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>Time when this was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-
-  /**
-   * <p>Time when this was created.</p>
-   */
-  CreatedTime?: Date;
-}
-
-export interface DescribeTemplateResponse {
-  /**
-   * <p>The template structure for the object you want to describe.</p>
-   */
-  Template?: Template;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export interface DescribeTemplateAliasRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template alias that you're
-   * 			describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-
-  /**
-   * <p>The name of the template alias that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			template by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to templates.</p>
-   */
-  AliasName: string | undefined;
-}
-
-export interface DescribeTemplateAliasResponse {
-  /**
-   * <p>Information about the template alias.</p>
-   */
-  TemplateAlias?: TemplateAlias;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-}
-
-export interface DescribeTemplatePermissionsRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the template that you're describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId: string | undefined;
-}
-
-export interface DescribeTemplatePermissionsResponse {
-  /**
-   * <p>The ID for the template.</p>
-   */
-  TemplateId?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the template.</p>
-   */
-  TemplateArn?: string;
-
-  /**
-   * <p>A list of resource permissions to be set on the template. </p>
-   */
-  Permissions?: ResourcePermission[];
-
-  /**
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
-
-export interface DescribeThemeRequest {
-  /**
-   * <p>The ID of the Amazon Web Services account that contains the theme that you're describing.</p>
-   */
-  AwsAccountId: string | undefined;
-
-  /**
-   * <p>The ID for the theme.</p>
-   */
-  ThemeId: string | undefined;
-
-  /**
-   * <p>The version number for the version to describe. If a <code>VersionNumber</code> parameter
-   * 			value isn't provided, the latest version of the theme is described.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The alias of the theme that you want to describe. If you name a specific alias, you
-   * 			describe the version that the alias points to. You can specify the latest version of the
-   * 			theme by providing the keyword <code>$LATEST</code> in the <code>AliasName</code>
-   * 			parameter. The keyword <code>$PUBLISHED</code> doesn't apply to themes.</p>
-   */
-  AliasName?: string;
-}
-
-export enum ThemeType {
-  ALL = "ALL",
-  CUSTOM = "CUSTOM",
-  QUICKSIGHT = "QUICKSIGHT",
-}
-
-/**
  * @internal
  */
 export const AccountCustomizationFilterSensitiveLog = (obj: AccountCustomization): any => ({
@@ -7418,6 +7535,15 @@ export const DashboardVisualIdFilterSensitiveLog = (obj: DashboardVisualId): any
  */
 export const AnonymousUserDashboardVisualEmbeddingConfigurationFilterSensitiveLog = (
   obj: AnonymousUserDashboardVisualEmbeddingConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AnonymousUserQSearchBarEmbeddingConfigurationFilterSensitiveLog = (
+  obj: AnonymousUserQSearchBarEmbeddingConfiguration
 ): any => ({
   ...obj,
 });
@@ -7908,6 +8034,13 @@ export const CreateDataSetResponseFilterSensitiveLog = (obj: CreateDataSetRespon
 /**
  * @internal
  */
+export const DatabricksParametersFilterSensitiveLog = (obj: DatabricksParameters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ExasolParametersFilterSensitiveLog = (obj: ExasolParameters): any => ({
   ...obj,
 });
@@ -8071,6 +8204,8 @@ export const DataSourceParametersFilterSensitiveLog = (obj: DataSourceParameters
     return { AmazonOpenSearchParameters: AmazonOpenSearchParametersFilterSensitiveLog(obj.AmazonOpenSearchParameters) };
   if (obj.ExasolParameters !== undefined)
     return { ExasolParameters: ExasolParametersFilterSensitiveLog(obj.ExasolParameters) };
+  if (obj.DatabricksParameters !== undefined)
+    return { DatabricksParameters: DatabricksParametersFilterSensitiveLog(obj.DatabricksParameters) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -8482,6 +8617,13 @@ export const DataSetConfigurationFilterSensitiveLog = (obj: DataSetConfiguration
 /**
  * @internal
  */
+export const DataSetSearchFilterFilterSensitiveLog = (obj: DataSetSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DataSetSummaryFilterSensitiveLog = (obj: DataSetSummary): any => ({
   ...obj,
 });
@@ -8511,6 +8653,20 @@ export const DataSourceFilterSensitiveLog = (obj: DataSource): any => ({
 /**
  * @internal
  */
+export const DataSourceSearchFilterFilterSensitiveLog = (obj: DataSourceSearchFilter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DataSourceSummaryFilterSensitiveLog = (obj: DataSourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteAccountCustomizationRequestFilterSensitiveLog = (obj: DeleteAccountCustomizationRequest): any => ({
   ...obj,
 });
@@ -8519,6 +8675,20 @@ export const DeleteAccountCustomizationRequestFilterSensitiveLog = (obj: DeleteA
  * @internal
  */
 export const DeleteAccountCustomizationResponseFilterSensitiveLog = (obj: DeleteAccountCustomizationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountSubscriptionRequestFilterSensitiveLog = (obj: DeleteAccountSubscriptionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteAccountSubscriptionResponseFilterSensitiveLog = (obj: DeleteAccountSubscriptionResponse): any => ({
   ...obj,
 });
 
@@ -9124,63 +9294,5 @@ export const DescribeTemplateRequestFilterSensitiveLog = (obj: DescribeTemplateR
  * @internal
  */
 export const TemplateErrorFilterSensitiveLog = (obj: TemplateError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateVersionFilterSensitiveLog = (obj: TemplateVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TemplateFilterSensitiveLog = (obj: Template): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateResponseFilterSensitiveLog = (obj: DescribeTemplateResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateAliasRequestFilterSensitiveLog = (obj: DescribeTemplateAliasRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplateAliasResponseFilterSensitiveLog = (obj: DescribeTemplateAliasResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplatePermissionsRequestFilterSensitiveLog = (obj: DescribeTemplatePermissionsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeTemplatePermissionsResponseFilterSensitiveLog = (
-  obj: DescribeTemplatePermissionsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeThemeRequestFilterSensitiveLog = (obj: DescribeThemeRequest): any => ({
   ...obj,
 });

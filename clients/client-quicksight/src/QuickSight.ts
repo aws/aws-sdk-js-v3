@@ -89,6 +89,11 @@ import {
   DeleteAccountCustomizationCommandOutput,
 } from "./commands/DeleteAccountCustomizationCommand";
 import {
+  DeleteAccountSubscriptionCommand,
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
+} from "./commands/DeleteAccountSubscriptionCommand";
+import {
   DeleteAnalysisCommand,
   DeleteAnalysisCommandInput,
   DeleteAnalysisCommandOutput,
@@ -425,6 +430,16 @@ import {
   SearchDashboardsCommandInput,
   SearchDashboardsCommandOutput,
 } from "./commands/SearchDashboardsCommand";
+import {
+  SearchDataSetsCommand,
+  SearchDataSetsCommandInput,
+  SearchDataSetsCommandOutput,
+} from "./commands/SearchDataSetsCommand";
+import {
+  SearchDataSourcesCommand,
+  SearchDataSourcesCommandInput,
+  SearchDataSourcesCommandOutput,
+} from "./commands/SearchDataSourcesCommand";
 import {
   SearchFoldersCommand,
   SearchFoldersCommandInput,
@@ -1242,6 +1257,38 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
+   * <p>Use the <code>DeleteAccountSubscription</code> operation to delete an Amazon QuickSight account. This operation will result in an error message if you have configured your account termination protection settings to <code>True</code>. To change this setting and delete your account, call the <code>UpdateAccountSettings</code> API and set the value of the <code>TerminationProtectionEnabled</code> parameter to <code>False</code>, then make another call to the <code>DeleteAccountSubscription</code> API.</p>
+   */
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccountSubscriptionCommandOutput>;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): void;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): void;
+  public deleteAccountSubscription(
+    args: DeleteAccountSubscriptionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteAccountSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DeleteAccountSubscriptionCommandOutput) => void
+  ): Promise<DeleteAccountSubscriptionCommandOutput> | void {
+    const command = new DeleteAccountSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes an analysis from Amazon QuickSight. You can optionally include a recovery window during
    *             which you can restore the analysis. If you don't specify a recovery window value, the
    *             operation defaults to 30 days. Amazon QuickSight attaches a <code>DeletionTime</code> stamp to
@@ -1873,7 +1920,7 @@ export class QuickSight extends QuickSightClient {
   }
 
   /**
-   * <p>Use the DescribeAccountSubscription operation to receive a description of a Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
+   * <p>Use the DescribeAccountSubscription operation to receive a description of an Amazon QuickSight account's subscription. A successful API call returns an <code>AccountInfo</code> object that includes an account's name, subscription status, authentication type, edition, and notification email address.</p>
    */
   public describeAccountSubscription(
     args: DescribeAccountSubscriptionCommandInput,
@@ -3681,6 +3728,70 @@ export class QuickSight extends QuickSightClient {
     cb?: (err: any, data?: SearchDashboardsCommandOutput) => void
   ): Promise<SearchDashboardsCommandOutput> | void {
     const command = new SearchDashboardsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>SearchDataSets</code> operation to search for datasets that belong to an account.</p>
+   */
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDataSetsCommandOutput>;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    cb: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): void;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): void;
+  public searchDataSets(
+    args: SearchDataSetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDataSetsCommandOutput) => void),
+    cb?: (err: any, data?: SearchDataSetsCommandOutput) => void
+  ): Promise<SearchDataSetsCommandOutput> | void {
+    const command = new SearchDataSetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Use the <code>SearchDataSources</code> operation to search for data sources that belong to an account.</p>
+   */
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchDataSourcesCommandOutput>;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): void;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): void;
+  public searchDataSources(
+    args: SearchDataSourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SearchDataSourcesCommandOutput) => void),
+    cb?: (err: any, data?: SearchDataSourcesCommandOutput) => void
+  ): Promise<SearchDataSourcesCommandOutput> | void {
+    const command = new SearchDataSourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

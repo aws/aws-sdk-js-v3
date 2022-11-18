@@ -63,6 +63,10 @@ import {
   DeleteAccountCustomizationCommandInput,
   DeleteAccountCustomizationCommandOutput,
 } from "../commands/DeleteAccountCustomizationCommand";
+import {
+  DeleteAccountSubscriptionCommandInput,
+  DeleteAccountSubscriptionCommandOutput,
+} from "../commands/DeleteAccountSubscriptionCommand";
 import { DeleteAnalysisCommandInput, DeleteAnalysisCommandOutput } from "../commands/DeleteAnalysisCommand";
 import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import { DeleteDataSetCommandInput, DeleteDataSetCommandOutput } from "../commands/DeleteDataSetCommand";
@@ -226,6 +230,8 @@ import { RegisterUserCommandInput, RegisterUserCommandOutput } from "../commands
 import { RestoreAnalysisCommandInput, RestoreAnalysisCommandOutput } from "../commands/RestoreAnalysisCommand";
 import { SearchAnalysesCommandInput, SearchAnalysesCommandOutput } from "../commands/SearchAnalysesCommand";
 import { SearchDashboardsCommandInput, SearchDashboardsCommandOutput } from "../commands/SearchDashboardsCommand";
+import { SearchDataSetsCommandInput, SearchDataSetsCommandOutput } from "../commands/SearchDataSetsCommand";
+import { SearchDataSourcesCommandInput, SearchDataSourcesCommandOutput } from "../commands/SearchDataSourcesCommand";
 import { SearchFoldersCommandInput, SearchFoldersCommandOutput } from "../commands/SearchFoldersCommand";
 import { SearchGroupsCommandInput, SearchGroupsCommandOutput } from "../commands/SearchGroupsCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
@@ -315,6 +321,7 @@ import {
   AnonymousUserDashboardEmbeddingConfiguration,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
+  AnonymousUserQSearchBarEmbeddingConfiguration,
   AthenaParameters,
   AuroraParameters,
   AuroraPostgreSqlParameters,
@@ -345,17 +352,21 @@ import {
   DashboardVersion,
   DashboardVersionSummary,
   DashboardVisualId,
+  DatabricksParameters,
   DataColorPalette,
   DataSet,
   DataSetConfiguration,
   DataSetReference,
   DataSetSchema,
+  DataSetSearchFilter,
   DataSetSummary,
   DataSetUsageConfiguration,
   DataSource,
   DataSourceCredentials,
   DataSourceErrorInfo,
   DataSourceParameters,
+  DataSourceSearchFilter,
+  DataSourceSummary,
   DateTimeParameter,
   DecimalParameter,
   ErrorInfo,
@@ -423,13 +434,11 @@ import {
   StringParameter,
   Tag,
   TagColumnOperation,
-  Template,
   TemplateAlias,
   TemplateError,
   TemplateSourceAnalysis,
   TemplateSourceEntity,
   TemplateSourceTemplate,
-  TemplateVersion,
   TeradataParameters,
   ThemeAlias,
   ThemeConfiguration,
@@ -451,6 +460,7 @@ import {
   GroupSearchFilter,
   IAMPolicyAssignmentSummary,
   IdentityTypeNotSupportedException,
+  InvalidRequestException,
   MemberIdArnPair,
   QuickSightUserNotFoundException,
   RegisteredUserDashboardEmbeddingConfiguration,
@@ -460,7 +470,9 @@ import {
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
+  Template,
   TemplateSummary,
+  TemplateVersion,
   TemplateVersionSummary,
   Theme,
   ThemeError,
@@ -1241,6 +1253,33 @@ export const serializeAws_restJson1DeleteAccountCustomizationCommand = async (
     headers,
     path: resolvedPath,
     query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteAccountSubscriptionCommand = async (
+  input: DeleteAccountSubscriptionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/account/{AwsAccountId}";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
     body,
   });
 };
@@ -3698,6 +3737,77 @@ export const serializeAws_restJson1SearchDashboardsCommand = async (
   });
 };
 
+export const serializeAws_restJson1SearchDataSetsCommand = async (
+  input: SearchDataSetsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/accounts/{AwsAccountId}/search/data-sets";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters != null && { Filters: serializeAws_restJson1DataSetSearchFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1SearchDataSourcesCommand = async (
+  input: SearchDataSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/accounts/{AwsAccountId}/search/data-sources";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "AwsAccountId",
+    () => input.AwsAccountId!,
+    "{AwsAccountId}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Filters != null && { Filters: serializeAws_restJson1DataSourceSearchFilterList(input.Filters, context) }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1SearchFoldersCommand = async (
   input: SearchFoldersCommandInput,
   context: __SerdeContext
@@ -3885,6 +3995,9 @@ export const serializeAws_restJson1UpdateAccountSettingsCommand = async (
   body = JSON.stringify({
     ...(input.DefaultNamespace != null && { DefaultNamespace: input.DefaultNamespace }),
     ...(input.NotificationEmail != null && { NotificationEmail: input.NotificationEmail }),
+    ...(input.TerminationProtectionEnabled != null && {
+      TerminationProtectionEnabled: input.TerminationProtectionEnabled,
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -6176,6 +6289,68 @@ const deserializeAws_restJson1DeleteAccountCustomizationCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ResourceUnavailableException":
+    case "com.amazonaws.quicksight#ResourceUnavailableException":
+      throw await deserializeAws_restJson1ResourceUnavailableExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteAccountSubscriptionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountSubscriptionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteAccountSubscriptionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteAccountSubscriptionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAccountSubscriptionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "PreconditionNotMetException":
+    case "com.amazonaws.quicksight#PreconditionNotMetException":
+      throw await deserializeAws_restJson1PreconditionNotMetExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -8972,6 +9147,9 @@ export const deserializeAws_restJson1GenerateEmbedUrlForAnonymousUserCommand = a
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.AnonymousUserArn != null) {
+    contents.AnonymousUserArn = __expectString(data.AnonymousUserArn);
+  }
   if (data.EmbedUrl != null) {
     contents.EmbedUrl = __expectString(data.EmbedUrl);
   }
@@ -10983,6 +11161,136 @@ const deserializeAws_restJson1SearchDashboardsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1SearchDataSetsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSetsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchDataSetsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DataSetSummaries != null) {
+    contents.DataSetSummaries = deserializeAws_restJson1DataSetSummaryList(data.DataSetSummaries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1SearchDataSetsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSetsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1SearchDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1SearchDataSourcesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DataSourceSummaries != null) {
+    contents.DataSourceSummaries = deserializeAws_restJson1DataSourceSummaryList(data.DataSourceSummaries, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  map(contents, {
+    Status: [, output.statusCode],
+  });
+  return contents;
+};
+
+const deserializeAws_restJson1SearchDataSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchDataSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.quicksight#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.quicksight#InternalFailureException":
+      throw await deserializeAws_restJson1InternalFailureExceptionResponse(parsedOutput, context);
+    case "InvalidNextTokenException":
+    case "com.amazonaws.quicksight#InvalidNextTokenException":
+      throw await deserializeAws_restJson1InvalidNextTokenExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.quicksight#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.quicksight#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.quicksight#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1SearchFoldersCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -11031,6 +11339,9 @@ const deserializeAws_restJson1SearchFoldersCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.quicksight#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.quicksight#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.quicksight#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -13034,6 +13345,25 @@ const deserializeAws_restJson1InvalidParameterValueExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1InvalidRequestExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidRequestException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.RequestId != null) {
+    contents.RequestId = __expectString(data.RequestId);
+  }
+  const exception = new InvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1LimitExceededExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -13347,6 +13677,18 @@ const serializeAws_restJson1AnonymousUserEmbeddingExperienceConfiguration = (
         context
       ),
     }),
+    ...(input.QSearchBar != null && {
+      QSearchBar: serializeAws_restJson1AnonymousUserQSearchBarEmbeddingConfiguration(input.QSearchBar, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1AnonymousUserQSearchBarEmbeddingConfiguration = (
+  input: AnonymousUserQSearchBarEmbeddingConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.InitialTopicId != null && { InitialTopicId: input.InitialTopicId }),
   };
 };
 
@@ -13360,6 +13702,7 @@ const serializeAws_restJson1ArnList = (input: string[], context: __SerdeContext)
 
 const serializeAws_restJson1AthenaParameters = (input: AthenaParameters, context: __SerdeContext): any => {
   return {
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
     ...(input.WorkGroup != null && { WorkGroup: input.WorkGroup }),
   };
 };
@@ -13609,6 +13952,14 @@ const serializeAws_restJson1DashboardVisualId = (input: DashboardVisualId, conte
   };
 };
 
+const serializeAws_restJson1DatabricksParameters = (input: DatabricksParameters, context: __SerdeContext): any => {
+  return {
+    ...(input.Host != null && { Host: input.Host }),
+    ...(input.Port != null && { Port: input.Port }),
+    ...(input.SqlEndpointPath != null && { SqlEndpointPath: input.SqlEndpointPath }),
+  };
+};
+
 const serializeAws_restJson1DataColorPalette = (input: DataColorPalette, context: __SerdeContext): any => {
   return {
     ...(input.Colors != null && { Colors: serializeAws_restJson1ColorList(input.Colors, context) }),
@@ -13631,6 +13982,22 @@ const serializeAws_restJson1DataSetReferenceList = (input: DataSetReference[], c
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1DataSetReference(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataSetSearchFilter = (input: DataSetSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operator != null && { Operator: input.Operator }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1DataSetSearchFilterList = (input: DataSetSearchFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSetSearchFilter(entry, context);
     });
 };
 
@@ -13672,6 +14039,9 @@ const serializeAws_restJson1DataSourceParameters = (input: DataSourceParameters,
     AwsIotAnalyticsParameters: (value) => ({
       AwsIotAnalyticsParameters: serializeAws_restJson1AwsIotAnalyticsParameters(value, context),
     }),
+    DatabricksParameters: (value) => ({
+      DatabricksParameters: serializeAws_restJson1DatabricksParameters(value, context),
+    }),
     ExasolParameters: (value) => ({ ExasolParameters: serializeAws_restJson1ExasolParameters(value, context) }),
     JiraParameters: (value) => ({ JiraParameters: serializeAws_restJson1JiraParameters(value, context) }),
     MariaDbParameters: (value) => ({ MariaDbParameters: serializeAws_restJson1MariaDbParameters(value, context) }),
@@ -13708,6 +14078,25 @@ const serializeAws_restJson1DataSourceParametersList = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1DataSourceParameters(entry, context);
+    });
+};
+
+const serializeAws_restJson1DataSourceSearchFilter = (input: DataSourceSearchFilter, context: __SerdeContext): any => {
+  return {
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Operator != null && { Operator: input.Operator }),
+    ...(input.Value != null && { Value: input.Value }),
+  };
+};
+
+const serializeAws_restJson1DataSourceSearchFilterList = (
+  input: DataSourceSearchFilter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1DataSourceSearchFilter(entry, context);
     });
 };
 
@@ -14566,6 +14955,7 @@ const deserializeAws_restJson1AccountSettings = (output: any, context: __SerdeCo
     Edition: __expectString(output.Edition),
     NotificationEmail: __expectString(output.NotificationEmail),
     PublicSharingEnabled: __expectBoolean(output.PublicSharingEnabled),
+    TerminationProtectionEnabled: __expectBoolean(output.TerminationProtectionEnabled),
   } as any;
 };
 
@@ -14696,6 +15086,7 @@ const deserializeAws_restJson1AnalysisSummaryList = (output: any, context: __Ser
 
 const deserializeAws_restJson1AthenaParameters = (output: any, context: __SerdeContext): AthenaParameters => {
   return {
+    RoleArn: __expectString(output.RoleArn),
     WorkGroup: __expectString(output.WorkGroup),
   } as any;
 };
@@ -15097,6 +15488,14 @@ const deserializeAws_restJson1DashboardVersionSummaryList = (
   return retVal;
 };
 
+const deserializeAws_restJson1DatabricksParameters = (output: any, context: __SerdeContext): DatabricksParameters => {
+  return {
+    Host: __expectString(output.Host),
+    Port: __expectInt32(output.Port),
+    SqlEndpointPath: __expectString(output.SqlEndpointPath),
+  } as any;
+};
+
 const deserializeAws_restJson1DataColorPalette = (output: any, context: __SerdeContext): DataColorPalette => {
   return {
     Colors: output.Colors != null ? deserializeAws_restJson1ColorList(output.Colors, context) : undefined,
@@ -15346,6 +15745,11 @@ const deserializeAws_restJson1DataSourceParameters = (output: any, context: __Se
       ),
     };
   }
+  if (output.DatabricksParameters != null) {
+    return {
+      DatabricksParameters: deserializeAws_restJson1DatabricksParameters(output.DatabricksParameters, context),
+    };
+  }
   if (output.ExasolParameters != null) {
     return {
       ExasolParameters: deserializeAws_restJson1ExasolParameters(output.ExasolParameters, context),
@@ -15440,6 +15844,35 @@ const deserializeAws_restJson1DataSourceParametersList = (
         return null as any;
       }
       return deserializeAws_restJson1DataSourceParameters(__expectUnion(entry), context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1DataSourceSummary = (output: any, context: __SerdeContext): DataSourceSummary => {
+  return {
+    Arn: __expectString(output.Arn),
+    CreatedTime:
+      output.CreatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreatedTime)))
+        : undefined,
+    DataSourceId: __expectString(output.DataSourceId),
+    LastUpdatedTime:
+      output.LastUpdatedTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedTime)))
+        : undefined,
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_restJson1DataSourceSummaryList = (output: any, context: __SerdeContext): DataSourceSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1DataSourceSummary(entry, context);
     });
   return retVal;
 };
