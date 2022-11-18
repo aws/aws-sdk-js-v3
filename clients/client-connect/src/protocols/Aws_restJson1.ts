@@ -1267,11 +1267,17 @@ export const serializeAws_restJson1CreateSecurityProfileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedAccessControlTags != null && {
+      AllowedAccessControlTags: serializeAws_restJson1AllowedAccessControlTags(input.AllowedAccessControlTags, context),
+    }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Permissions != null && {
       Permissions: serializeAws_restJson1PermissionsList(input.Permissions, context),
     }),
     ...(input.SecurityProfileName != null && { SecurityProfileName: input.SecurityProfileName }),
+    ...(input.TagRestrictedResources != null && {
+      TagRestrictedResources: serializeAws_restJson1TagRestrictedResourceList(input.TagRestrictedResources, context),
+    }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
   });
   return new __HttpRequest({
@@ -5244,9 +5250,15 @@ export const serializeAws_restJson1UpdateSecurityProfileCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   let body: any;
   body = JSON.stringify({
+    ...(input.AllowedAccessControlTags != null && {
+      AllowedAccessControlTags: serializeAws_restJson1AllowedAccessControlTags(input.AllowedAccessControlTags, context),
+    }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.Permissions != null && {
       Permissions: serializeAws_restJson1PermissionsList(input.Permissions, context),
+    }),
+    ...(input.TagRestrictedResources != null && {
+      TagRestrictedResources: serializeAws_restJson1TagRestrictedResourceList(input.TagRestrictedResources, context),
     }),
   });
   return new __HttpRequest({
@@ -14823,6 +14835,19 @@ const deserializeAws_restJson1UserNotFoundExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1AllowedAccessControlTags = (
+  input: Record<string, string>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
 const serializeAws_restJson1AllowedMonitorCapabilities = (
   input: (MonitorCapability | string)[],
   context: __SerdeContext
@@ -15493,6 +15518,14 @@ const serializeAws_restJson1TagOrConditionList = (input: TagCondition[][], conte
     });
 };
 
+const serializeAws_restJson1TagRestrictedResourceList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1TaskTemplateConstraints = (
   input: TaskTemplateConstraints,
   context: __SerdeContext
@@ -15744,6 +15777,19 @@ const deserializeAws_restJson1AgentStatusSummaryList = (output: any, context: __
       return deserializeAws_restJson1AgentStatusSummary(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1AllowedAccessControlTags = (
+  output: any,
+  context: __SerdeContext
+): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectString(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1AttachmentReference = (output: any, context: __SerdeContext): AttachmentReference => {
@@ -17087,11 +17133,19 @@ const deserializeAws_restJson1SecurityKeysList = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SecurityProfile = (output: any, context: __SerdeContext): SecurityProfile => {
   return {
+    AllowedAccessControlTags:
+      output.AllowedAccessControlTags != null
+        ? deserializeAws_restJson1AllowedAccessControlTags(output.AllowedAccessControlTags, context)
+        : undefined,
     Arn: __expectString(output.Arn),
     Description: __expectString(output.Description),
     Id: __expectString(output.Id),
     OrganizationResourceId: __expectString(output.OrganizationResourceId),
     SecurityProfileName: __expectString(output.SecurityProfileName),
+    TagRestrictedResources:
+      output.TagRestrictedResources != null
+        ? deserializeAws_restJson1TagRestrictedResourceList(output.TagRestrictedResources, context)
+        : undefined,
     Tags: output.Tags != null ? deserializeAws_restJson1TagMap(output.Tags, context) : undefined,
   } as any;
 };
@@ -17190,6 +17244,18 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     acc[key] = __expectString(value) as any;
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1TagRestrictedResourceList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1TaskTemplateConstraints = (

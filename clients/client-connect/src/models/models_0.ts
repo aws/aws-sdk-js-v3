@@ -1582,6 +1582,16 @@ export interface CreateSecurityProfileRequest {
    * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   */
+  AllowedAccessControlTags?: Record<string, string>;
+
+  /**
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   */
+  TagRestrictedResources?: string[];
 }
 
 export interface CreateSecurityProfileResponse {
@@ -3560,6 +3570,16 @@ export interface SecurityProfile {
    * <p>The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.</p>
    */
   Tags?: Record<string, string>;
+
+  /**
+   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   */
+  AllowedAccessControlTags?: Record<string, string>;
+
+  /**
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   */
+  TagRestrictedResources?: string[];
 }
 
 export interface DescribeSecurityProfileResponse {

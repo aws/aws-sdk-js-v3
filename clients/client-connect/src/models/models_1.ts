@@ -2873,6 +2873,16 @@ export interface UpdateSecurityProfileRequest {
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
    */
   InstanceId: string | undefined;
+
+  /**
+   * <p>The list of tags that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   */
+  AllowedAccessControlTags?: Record<string, string>;
+
+  /**
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   */
+  TagRestrictedResources?: string[];
 }
 
 export interface UpdateTaskTemplateRequest {
