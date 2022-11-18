@@ -128,61 +128,79 @@
       }
     },
     "com.amazonaws.auditmanager#AccountStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "PENDING_ACTIVATION",
-            "name": "PENDING_ACTIVATION"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "PENDING_ACTIVATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PENDING_ACTIVATION"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ActionEnum": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE",
-            "name": "CREATE"
-          },
-          {
-            "value": "UPDATE_METADATA",
-            "name": "UPDATE_METADATA"
-          },
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "DELETE",
-            "name": "DELETE"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
-          },
-          {
-            "value": "IMPORT_EVIDENCE",
-            "name": "IMPORT_EVIDENCE"
+      "type": "enum",
+      "members": {
+        "CREATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE"
           }
-        ]
+        },
+        "UPDATE_METADATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_METADATA"
+          }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        },
+        "DELETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE"
+          }
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        },
+        "IMPORT_EVIDENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMPORT_EVIDENCE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ActionPlanInstructions": {
@@ -960,14 +978,14 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportDestinationType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "S3",
-            "name": "S3"
+      "type": "enum",
+      "members": {
+        "S3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "S3"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportEvidenceError": {
@@ -982,18 +1000,18 @@
         "errorCode": {
           "target": "com.amazonaws.auditmanager#ErrorCode",
           "traits": {
-            "smithy.api#documentation": "<p> The error code that the <code>AssessmentReportEvidence</code> API returned. </p>"
+            "smithy.api#documentation": "<p> The error code that was returned. </p>"
           }
         },
         "errorMessage": {
           "target": "com.amazonaws.auditmanager#ErrorMessage",
           "traits": {
-            "smithy.api#documentation": "<p> The error message that the <code>AssessmentReportEvidence</code> API returned. </p>"
+            "smithy.api#documentation": "<p> The error message that was returned. </p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p> An error entity for the <code>AssessmentReportEvidence</code> API. This is used to\n         provide more meaningful errors than a simple string message. </p>"
+        "smithy.api#documentation": "<p> An error entity for assessment report evidence errors. This is used to provide more\n         meaningful errors than a simple string message. </p>"
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportEvidenceErrors": {
@@ -1069,22 +1087,26 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#AssessmentReportsDestination": {
@@ -1114,18 +1136,20 @@
       }
     },
     "com.amazonaws.auditmanager#AssessmentStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#AssociateAssessmentReportEvidenceFolder": {
@@ -1560,7 +1584,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Uploads one or more pieces of evidence to a control in an Audit Manager\n         assessment. </p>",
+        "smithy.api#documentation": "<p>Uploads one or more pieces of evidence to a control in an Audit Manager assessment. You can upload manual evidence from any Amazon Simple Storage Service (Amazon S3) bucket by specifying\n         the S3 URI of the evidence. </p>\n         <p>You must upload manual evidence to your S3 bucket before you can upload it to your\n         assessment. For instructions, see <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateBucket.html\">CreateBucket</a> and <a href=\"https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutObject.html\">PutObject</a> in\n         the <i>Amazon Simple Storage Service API Reference.</i>\n         </p>\n         <p>The following restrictions apply to this action:</p>\n         <ul>\n            <li>\n               <p>Maximum size of an individual evidence file: 100 MB</p>\n            </li>\n            <li>\n               <p>Number of daily manual evidence uploads per control: 100</p>\n            </li>\n            <li>\n               <p>Supported file formats: See <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/upload-evidence.html#supported-manual-evidence-files\">Supported file types for manual evidence</a> in the <i>Audit Manager User Guide</i>\n               </p>\n            </li>\n         </ul>\n         <p>For more information about Audit Manager service restrictions, see <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html\">Quotas and\n            restrictions for Audit Manager</a>.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/assessments/{assessmentId}/controlSets/{controlSetId}/controls/{controlId}/evidence",
@@ -2174,9 +2198,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2187,9 +2211,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2200,9 +2224,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2213,9 +2237,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2226,9 +2250,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2239,9 +2263,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2252,9 +2276,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2265,9 +2289,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2278,9 +2302,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2291,9 +2315,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2304,9 +2328,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2317,9 +2341,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2330,9 +2354,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2343,9 +2367,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2356,9 +2380,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2369,9 +2393,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2382,9 +2406,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2395,9 +2419,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2408,9 +2432,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2421,9 +2445,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2434,9 +2458,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2447,9 +2471,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2460,9 +2484,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2473,9 +2497,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2486,9 +2510,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2499,9 +2523,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2512,9 +2536,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2525,9 +2549,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2538,9 +2562,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2551,9 +2575,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2564,9 +2588,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2577,9 +2601,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2590,9 +2614,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2603,9 +2627,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2616,9 +2640,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2629,9 +2653,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2642,9 +2666,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2655,9 +2679,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2668,9 +2692,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2681,9 +2705,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2694,9 +2718,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2707,9 +2731,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2720,9 +2744,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2733,9 +2757,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2746,9 +2770,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2759,9 +2783,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2772,9 +2796,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2785,9 +2809,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2798,9 +2822,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2810,9 +2834,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2822,9 +2846,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -2878,6 +2902,16 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.auditmanager#ChangeLog"
+      }
+    },
+    "com.amazonaws.auditmanager#CloudTrailArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:.*:cloudtrail:"
       }
     },
     "com.amazonaws.auditmanager#ComplianceType": {
@@ -2944,7 +2978,7 @@
         "controlSources": {
           "target": "com.amazonaws.auditmanager#ControlSources",
           "traits": {
-            "smithy.api#documentation": "<p> The data source that determines where Audit Manager collects evidence from for\n         the control. </p>"
+            "smithy.api#documentation": "<p> The data source types that determine where Audit Manager collects evidence from\n         for the control. </p>"
           }
         },
         "controlMappingSources": {
@@ -3297,26 +3331,32 @@
       }
     },
     "com.amazonaws.auditmanager#ControlResponse": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MANUAL",
-            "name": "MANUAL"
-          },
-          {
-            "value": "AUTOMATE",
-            "name": "AUTOMATE"
-          },
-          {
-            "value": "DEFER",
-            "name": "DEFER"
-          },
-          {
-            "value": "IGNORE",
-            "name": "IGNORE"
+      "type": "enum",
+      "members": {
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANUAL"
           }
-        ]
+        },
+        "AUTOMATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTOMATE"
+          }
+        },
+        "DEFER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFER"
+          }
+        },
+        "IGNORE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IGNORE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlSet": {
@@ -3366,22 +3406,26 @@
       }
     },
     "com.amazonaws.auditmanager#ControlSetStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlSets": {
@@ -3412,37 +3456,43 @@
       }
     },
     "com.amazonaws.auditmanager#ControlStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "REVIEWED",
-            "name": "REVIEWED"
-          },
-          {
-            "value": "INACTIVE",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
           }
-        ]
+        },
+        "REVIEWED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVIEWED"
+          }
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INACTIVE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ControlType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Standard",
-            "name": "STANDARD"
-          },
-          {
-            "value": "Custom",
-            "name": "CUSTOM"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
           }
-        ]
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Custom"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Controls": {
@@ -3689,6 +3739,12 @@
             "smithy.api#documentation": "<p> The identifier for the assessment. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "queryStatement": {
+          "target": "com.amazonaws.auditmanager#QueryStatement",
+          "traits": {
+            "smithy.api#documentation": "<p>A SQL statement that represents an evidence finder query.</p>\n         <p>Provide this parameter when you want to generate an assessment report from the results\n         of an evidence finder search query. When you use this parameter, Audit Manager\n         generates a one-time report using only the evidence from the query output. This report does\n         not include any assessment evidence that was manually <a href=\"https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence\">added to a report using the console</a>, or <a href=\"https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html\">associated with a report using the API</a>. </p>\n         <p>To use this parameter, the <a href=\"https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus\">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p>\n         <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see\n            <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions\">Troubleshooting evidence finder issues</a> in the AWS Audit\n         Manager User Guide. </p>"
           }
         }
       }
@@ -4122,22 +4178,26 @@
       }
     },
     "com.amazonaws.auditmanager#DelegationStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "IN_PROGRESS",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "UNDER_REVIEW",
-            "name": "UNDER_REVIEW"
-          },
-          {
-            "value": "COMPLETE",
-            "name": "COMPLETE"
+      "type": "enum",
+      "members": {
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
           }
-        ]
+        },
+        "UNDER_REVIEW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UNDER_REVIEW"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Delegations": {
@@ -4471,7 +4531,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified Amazon Web Services account as a delegated administrator for\n            Audit Manager. </p>\n         <important>\n            <p>When you remove a delegated administrator from your Audit Manager settings, you\n            continue to have access to the evidence that you previously collected under that\n            account. This is also the case when you deregister a delegated administrator from\n               Organizations. However, Audit Manager will stop collecting and attaching\n            evidence to that delegated administrator account moving forward.</p>\n         </important>\n         <note>\n            <p>When you deregister a delegated administrator account for Audit Manager, the data\n            for that account isn’t deleted. If you want to delete resource data for a delegated\n            administrator account, you must perform that task separately before you deregister the\n            account. Either, you can do this in the Audit Manager console. Or, you can use one\n            of the delete API operations that are provided by Audit Manager. </p>\n            <p>To delete your Audit Manager resource data, see the following instructions: </p>\n            <ul>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an\n                     assessment</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a\n                     custom framework</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager\n                     User Guide</i>)</p>\n               </li>\n               <li>\n                  <p>\n                     <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom\n                     control</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n               </li>\n            </ul>\n            <p>At this time, Audit Manager doesn't provide an option to delete evidence. All\n            available delete operations are listed above.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Removes the specified Amazon Web Services account as a delegated administrator for\n            Audit Manager. </p>\n     \n         <p>When you remove a delegated administrator from your Audit Manager settings, you\n            continue to have access to the evidence that you previously collected under that\n            account. This is also the case when you deregister a delegated administrator from\n               Organizations. However, Audit Manager will stop collecting and attaching\n            evidence to that delegated administrator account moving forward.</p>\n         <important>\n            <p>Keep in mind the following cleanup task if you use evidence finder:</p>\n            <p>Before you use your management account to remove a delegated administrator, make sure\n            that the current delegated administrator account signs in to Audit Manager and\n            disables evidence finder first. Disabling evidence finder automatically deletes the\n            event data store that was created in their account when they enabled evidence finder. If\n            this task isn’t completed, the event data store remains in their account. In this case,\n            we recommend that the original delegated administrator goes to CloudTrail Lake\n            and manually <a href=\"https://docs.aws.amazon.com/userguide/awscloudtrail/latest/userguide/query-eds-disable-termination.html\">deletes the event data store</a>.</p>\n            <p>This cleanup task is necessary to ensure that you don't end up with multiple event\n            data stores. Audit Manager will ignore an unused event data store after you remove\n            or change a delegated administrator account. However, the unused event data store\n            continues to incur storage costs from CloudTrail Lake if you don't delete\n            it.</p>\n         </important>   \n   \n         <p>When you deregister a delegated administrator account for Audit Manager, the data\n            for that account isn’t deleted. If you want to delete resource data for a delegated\n            administrator account, you must perform that task separately before you deregister the\n            account. Either, you can do this in the Audit Manager console. Or, you can use one\n            of the delete API operations that are provided by Audit Manager. </p>\n         <p>To delete your Audit Manager resource data, see the following instructions: </p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessment.html\">DeleteAssessment</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-assessment.html\">Deleting an\n                     assessment</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFramework.html\">DeleteAssessmentFramework</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-custom-framework.html\">Deleting a\n                     custom framework</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentFrameworkShare.html\">DeleteAssessmentFrameworkShare</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/deleting-shared-framework-requests.html\">Deleting a share request</a> in the <i>Audit Manager User\n                     Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteAssessmentReport.html\">DeleteAssessmentReport</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/generate-assessment-report.html#delete-assessment-report-steps\">Deleting an assessment report</a> in the <i>Audit Manager\n                     User Guide</i>)</p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeleteControl.html\">DeleteControl</a> (see also: <a href=\"https://docs.aws.amazon.com/audit-manager/latest/userguide/delete-controls.html\">Deleting a custom\n                     control</a> in the <i>Audit Manager User\n                  Guide</i>)</p>\n            </li>\n         </ul>\n         <p>At this time, Audit Manager doesn't provide an option to delete evidence. All\n            available delete operations are listed above.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/account/deregisterOrganizationAdminAccount",
@@ -4649,7 +4709,7 @@
         "complianceCheck": {
           "target": "com.amazonaws.auditmanager#String",
           "traits": {
-            "smithy.api#documentation": "<p> The evaluation status for evidence that falls under the compliance check category. For\n         evidence collected from Security Hub, a <i>Pass</i> or\n            <i>Fail</i> result is shown. For evidence collected from Config, a <i>Compliant</i> or <i>Noncompliant</i>\n         result is shown. </p>"
+            "smithy.api#documentation": "<p>The evaluation status for automated evidence that falls under the compliance check\n         category.</p>\n         <ul>\n            <li>\n               <p>Audit Manager classes evidence as non-compliant if Security Hub reports a\n                  <i>Fail</i> result, or if Config reports a\n                  <i>Non-compliant</i> result.</p>\n            </li>\n            <li>\n               <p>Audit Manager classes evidence as compliant if Security Hub reports a\n                  <i>Pass</i> result, or if Config reports a\n                  <i>Compliant</i> result.</p>\n            </li>\n            <li>\n               <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made\n               for that evidence. This is the case if the evidence uses Config or\n                  Security Hub as the underlying data source type, but those services aren't\n               enabled. This is also the case if the evidence uses an underlying data source type\n               that doesn't support compliance checks (such as manual evidence, Amazon Web Services\n               API calls, or CloudTrail). </p>\n            </li>\n         </ul>"
           }
         },
         "awsOrganization": {
@@ -4714,6 +4774,90 @@
       },
       "value": {
         "target": "com.amazonaws.auditmanager#EvidenceAttributeValue"
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderBackfillStatus": {
+      "type": "enum",
+      "members": {
+        "NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_STARTED"
+          }
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IN_PROGRESS"
+          }
+        },
+        "COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "COMPLETED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderEnablement": {
+      "type": "structure",
+      "members": {
+        "eventDataStoreArn": {
+          "target": "com.amazonaws.auditmanager#CloudTrailArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the CloudTrail Lake event data store that’s\n         used by evidence finder. The event data store is the lake of evidence data that evidence\n         finder runs queries against.</p>"
+          }
+        },
+        "enablementStatus": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderEnablementStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the evidence finder feature and the related event data store. </p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENABLE_IN_PROGRESS</code> means that you requested to enable evidence\n               finder. An event data store is currently being created to support evidence finder\n               queries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ENABLED</code> means that an event data store was successfully created and\n               evidence finder is enabled. We recommend that you wait 24 hours until the event data\n               store is backfilled with your past evidence data. You can use evidence finder in the\n               meantime, but not all data might be available until the backfill is complete.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLE_IN_PROGRESS</code> means that you requested to disable evidence finder, and your\n               request is pending the deletion of the event data store.</p>\n            </li>\n            <li>\n               <p>\n                  <code>DISABLED</code> means that you have permanently disabled evidence finder and the event\n               data store has been deleted. You can't re-enable evidence finder after this\n               point.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "backfillStatus": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderBackfillStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The current status of the evidence data backfill process. </p>\n         <p>The backfill starts after you enable evidence finder. During this task, Audit Manager populates an event data store with your past evidence data so that your evidence can be\n         queried.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>NOT_STARTED</code> means that the backfill hasn’t started yet. </p>\n            </li>\n            <li>\n               <p>\n                  <code>IN_PROGRESS</code> means that the backfill is in progress. This can take up to 24 hours\n               to complete, depending on the amount of evidence data. </p>\n            </li>\n            <li>\n               <p>\n                  <code>COMPLETED</code> means that the backfill is complete. All of your past\n               evidence is now queryable. </p>\n            </li>\n         </ul>"
+          }
+        },
+        "error": {
+          "target": "com.amazonaws.auditmanager#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>Represents any errors that occurred when enabling or disabling evidence finder. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The settings object that specifies whether evidence finder is enabled. This object also\n         describes the related event data store, and the backfill status for populating the event\n         data store with evidence data.</p>"
+      }
+    },
+    "com.amazonaws.auditmanager#EvidenceFinderEnablementStatus": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLE_IN_PROGRESS"
+          }
+        },
+        "DISABLE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLE_IN_PROGRESS"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#EvidenceIds": {
@@ -4927,18 +5071,20 @@
       }
     },
     "com.amazonaws.auditmanager#FrameworkType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Standard",
-            "name": "STANDARD"
-          },
-          {
-            "value": "Custom",
-            "name": "CUSTOM"
+      "type": "enum",
+      "members": {
+        "STANDARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Standard"
           }
-        ]
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Custom"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#GenericArn": {
@@ -5965,7 +6111,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p> Returns a list of the in-scope Amazon Web Services for the specified\n         assessment. </p>",
+        "smithy.api#documentation": "<p>Returns a list of all of the Amazon Web Services that you can choose to include\n         in your assessment. When you <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_CreateAssessment.html\">create an assessment</a>, specify which of these services you want to include to\n         narrow the assessment's <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_Scope.html\">scope</a>.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/services",
@@ -6174,14 +6320,14 @@
       }
     },
     "com.amazonaws.auditmanager#KeywordInputType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SELECT_FROM_LIST",
-            "name": "SELECT_FROM_LIST"
+      "type": "enum",
+      "members": {
+        "SELECT_FROM_LIST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SELECT_FROM_LIST"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.auditmanager#KeywordValue": {
@@ -7232,30 +7378,48 @@
       "type": "integer"
     },
     "com.amazonaws.auditmanager#ObjectTypeEnum": {
+      "type": "enum",
+      "members": {
+        "ASSESSMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSESSMENT"
+          }
+        },
+        "CONTROL_SET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTROL_SET"
+          }
+        },
+        "CONTROL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTROL"
+          }
+        },
+        "DELEGATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELEGATION"
+          }
+        },
+        "ASSESSMENT_REPORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSESSMENT_REPORT"
+          }
+        }
+      }
+    },
+    "com.amazonaws.auditmanager#QueryStatement": {
       "type": "string",
       "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ASSESSMENT",
-            "name": "ASSESSMENT"
-          },
-          {
-            "value": "CONTROL_SET",
-            "name": "CONTROL_SET"
-          },
-          {
-            "value": "CONTROL",
-            "name": "CONTROL"
-          },
-          {
-            "value": "DELEGATION",
-            "name": "DELEGATION"
-          },
-          {
-            "value": "ASSESSMENT_REPORT",
-            "name": "ASSESSMENT_REPORT"
-          }
-        ]
+        "smithy.api#length": {
+          "min": 1,
+          "max": 10000
+        },
+        "smithy.api#pattern": "^(?s)"
       }
     },
     "com.amazonaws.auditmanager#Region": {
@@ -7400,6 +7564,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The value of the resource. </p>"
           }
+        },
+        "complianceCheck": {
+          "target": "com.amazonaws.auditmanager#String",
+          "traits": {
+            "smithy.api#documentation": "<p> The evaluation status for a resource that was assessed when collecting compliance check\n         evidence. </p>\n         <ul>\n            <li>\n               <p>Audit Manager classes the resource as non-compliant if Security Hub reports a\n                  <i>Fail</i> result, or if Config reports a\n                  <i>Non-compliant</i> result.</p>\n            </li>\n            <li>\n               <p>Audit Manager classes the resource as compliant if Security Hub reports a\n                  <i>Pass</i> result, or if Config reports a\n                  <i>Compliant</i> result.</p>\n            </li>\n            <li>\n               <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made\n               for that resource. This is the case if a resource assessment uses Config or Security Hub as the underlying data source type, but those services\n               aren't enabled. This is also the case if the resource assessment uses an underlying\n               data source type that doesn't support compliance checks (such as manual evidence,\n                  Amazon Web Services API calls, or CloudTrail). </p>\n            </li>\n         </ul>"
+          }
         }
       },
       "traits": {
@@ -7465,18 +7635,20 @@
       }
     },
     "com.amazonaws.auditmanager#RoleType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROCESS_OWNER",
-            "name": "PROCESS_OWNER"
-          },
-          {
-            "value": "RESOURCE_OWNER",
-            "name": "RESOURCE_OWNER"
+      "type": "enum",
+      "members": {
+        "PROCESS_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROCESS_OWNER"
           }
-        ]
+        },
+        "RESOURCE_OWNER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RESOURCE_OWNER"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Roles": {
@@ -7580,30 +7752,44 @@
       }
     },
     "com.amazonaws.auditmanager#SettingAttribute": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ALL",
-            "name": "ALL"
-          },
-          {
-            "value": "IS_AWS_ORG_ENABLED",
-            "name": "IS_AWS_ORG_ENABLED"
-          },
-          {
-            "value": "SNS_TOPIC",
-            "name": "SNS_TOPIC"
-          },
-          {
-            "value": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
-            "name": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
-          },
-          {
-            "value": "DEFAULT_PROCESS_OWNERS",
-            "name": "DEFAULT_PROCESS_OWNERS"
+      "type": "enum",
+      "members": {
+        "ALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALL"
           }
-        ]
+        },
+        "IS_AWS_ORG_ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IS_AWS_ORG_ENABLED"
+          }
+        },
+        "SNS_TOPIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SNS_TOPIC"
+          }
+        },
+        "DEFAULT_ASSESSMENT_REPORTS_DESTINATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_ASSESSMENT_REPORTS_DESTINATION"
+          }
+        },
+        "DEFAULT_PROCESS_OWNERS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_PROCESS_OWNERS"
+          }
+        },
+        "EVIDENCE_FINDER_ENABLEMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EVIDENCE_FINDER_ENABLEMENT"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#Settings": {
@@ -7638,6 +7824,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The KMS key details. </p>"
           }
+        },
+        "evidenceFinderEnablement": {
+          "target": "com.amazonaws.auditmanager#EvidenceFinderEnablement",
+          "traits": {
+            "smithy.api#documentation": "<p>The current evidence finder status and event data store details.</p>"
+          }
         }
       },
       "traits": {
@@ -7645,22 +7837,26 @@
       }
     },
     "com.amazonaws.auditmanager#ShareRequestAction": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACCEPT",
-            "name": "ACCEPT"
-          },
-          {
-            "value": "DECLINE",
-            "name": "DECLINE"
-          },
-          {
-            "value": "REVOKE",
-            "name": "REVOKE"
+      "type": "enum",
+      "members": {
+        "ACCEPT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCEPT"
           }
-        ]
+        },
+        "DECLINE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DECLINE"
+          }
+        },
+        "REVOKE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVOKE"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ShareRequestComment": {
@@ -7674,57 +7870,73 @@
       }
     },
     "com.amazonaws.auditmanager#ShareRequestStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ACTIVE",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "REPLICATING",
-            "name": "REPLICATING"
-          },
-          {
-            "value": "SHARED",
-            "name": "SHARED"
-          },
-          {
-            "value": "EXPIRING",
-            "name": "EXPIRING"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
-          },
-          {
-            "value": "EXPIRED",
-            "name": "EXPIRED"
-          },
-          {
-            "value": "DECLINED",
-            "name": "DECLINED"
-          },
-          {
-            "value": "REVOKED",
-            "name": "REVOKED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
           }
-        ]
+        },
+        "REPLICATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REPLICATING"
+          }
+        },
+        "SHARED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SHARED"
+          }
+        },
+        "EXPIRING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRING"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        },
+        "EXPIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EXPIRED"
+          }
+        },
+        "DECLINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DECLINED"
+          }
+        },
+        "REVOKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVOKED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#ShareRequestType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "SENT",
-            "name": "SENT"
-          },
-          {
-            "value": "RECEIVED",
-            "name": "RECEIVED"
+      "type": "enum",
+      "members": {
+        "SENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SENT"
           }
-        ]
+        },
+        "RECEIVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RECEIVED"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SnsArn": {
@@ -7748,22 +7960,26 @@
       }
     },
     "com.amazonaws.auditmanager#SourceFrequency": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "DAILY",
-            "name": "DAILY"
-          },
-          {
-            "value": "WEEKLY",
-            "name": "WEEKLY"
-          },
-          {
-            "value": "MONTHLY",
-            "name": "MONTHLY"
+      "type": "enum",
+      "members": {
+        "DAILY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DAILY"
           }
-        ]
+        },
+        "WEEKLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WEEKLY"
+          }
+        },
+        "MONTHLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MONTHLY"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SourceKeyword": {
@@ -7778,7 +7994,7 @@
         "keywordValue": {
           "target": "com.amazonaws.auditmanager#KeywordValue",
           "traits": {
-            "smithy.api#documentation": "<p> The value of the keyword that's used when mapping a control data source. For example,\n         this can be a CloudTrail event name, a rule name for Config, a\n            Security Hub control, or the name of an Amazon Web Services API call. </p>\n         <p>If you’re mapping a data source to a rule in Config, the\n            <code>keywordValue</code> that you specify depends on the type of rule:</p>\n         <ul>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">managed rules</a>, you can use the rule identifier as the\n                  <code>keywordValue</code>. You can find the rule identifier from the <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html\">list of Config managed rules</a>.</p>\n               <ul>\n                  <li>\n                     <p>Managed rule name: <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html\">s3-bucket-acl-prohibited</a>\n                     </p>\n                     <p>\n                        <code>keywordValue</code>: <code>S3_BUCKET_ACL_PROHIBITED</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html\">custom rules</a>, you form the <code>keywordValue</code>\n               by adding the <code>Custom_</code> prefix to the rule name. This prefix distinguishes\n               the rule from a managed rule.</p>\n               <ul>\n                  <li>\n                     <p>Custom rule name: my-custom-config-rule</p>\n                     <p>\n                        <code>keywordValue</code>: <code>Custom_my-custom-config-rule</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html\">service-linked rules</a>, you form the\n                  <code>keywordValue</code> by adding the <code>Custom_</code> prefix to the rule\n               name. In addition, you remove the suffix ID that appears at the end of the rule\n               name.</p>\n               <ul>\n                  <li>\n                     <p>Service-linked rule name:\n                     CustomRuleForAccount-conformance-pack-szsm1uv0w</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_CustomRuleForAccount-conformance-pack</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name: securityhub-api-gw-cache-encrypted-101104e1</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_securityhub-api-gw-cache-encrypted</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name:\n                     OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_OrgConfigRule-s3-bucket-versioning-enabled</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p> The value of the keyword that's used when mapping a control data source. For example,\n         this can be a CloudTrail event name, a rule name for Config, a\n            Security Hub control, or the name of an Amazon Web Services API call. </p>\n         <p>If you’re mapping a data source to a rule in Config, the\n            <code>keywordValue</code> that you specify depends on the type of rule:</p>\n         <ul>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html\">managed rules</a>, you can use the rule identifier as the\n                  <code>keywordValue</code>. You can find the rule identifier from the <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html\">list of Config managed rules</a>.</p>\n               <ul>\n                  <li>\n                     <p>Managed rule name: <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-acl-prohibited.html\">s3-bucket-acl-prohibited</a>\n                     </p>\n                     <p>\n                        <code>keywordValue</code>: <code>S3_BUCKET_ACL_PROHIBITED</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html\">custom rules</a>, you form the <code>keywordValue</code>\n               by adding the <code>Custom_</code> prefix to the rule name. This prefix distinguishes\n               the rule from a managed rule.</p>\n               <ul>\n                  <li>\n                     <p>Custom rule name: my-custom-config-rule</p>\n                     <p>\n                        <code>keywordValue</code>: <code>Custom_my-custom-config-rule</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>For <a href=\"https://docs.aws.amazon.com/config/latest/developerguide/service-linked-awsconfig-rules.html\">service-linked rules</a>, you form the\n                  <code>keywordValue</code> by adding the <code>Custom_</code> prefix to the rule\n               name. In addition, you remove the suffix ID that appears at the end of the rule\n               name.</p>\n               <ul>\n                  <li>\n                     <p>Service-linked rule name:\n                     CustomRuleForAccount-conformance-pack-szsm1uv0w</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_CustomRuleForAccount-conformance-pack</code>\n                     </p>\n                  </li>\n                  <li>\n                     <p>Service-linked rule name:\n                     OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba</p>\n                     <p>\n                        <code>keywordValue</code>:\n                        <code>Custom_OrgConfigRule-s3-bucket-versioning-enabled</code>\n                     </p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
           }
         }
       },
@@ -7796,45 +8012,55 @@
       }
     },
     "com.amazonaws.auditmanager#SourceSetUpOption": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "System_Controls_Mapping",
-            "name": "SYSTEM_CONTROLS_MAPPING"
-          },
-          {
-            "value": "Procedural_Controls_Mapping",
-            "name": "PROCEDURAL_CONTROLS_MAPPING"
+      "type": "enum",
+      "members": {
+        "SYSTEM_CONTROLS_MAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "System_Controls_Mapping"
           }
-        ]
+        },
+        "PROCEDURAL_CONTROLS_MAPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Procedural_Controls_Mapping"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#SourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWS_Cloudtrail",
-            "name": "AWS_CLOUDTRAIL"
-          },
-          {
-            "value": "AWS_Config",
-            "name": "AWS_CONFIG"
-          },
-          {
-            "value": "AWS_Security_Hub",
-            "name": "AWS_SECURITY_HUB"
-          },
-          {
-            "value": "AWS_API_Call",
-            "name": "AWS_API_CALL"
-          },
-          {
-            "value": "MANUAL",
-            "name": "MANUAL"
+      "type": "enum",
+      "members": {
+        "AWS_CLOUDTRAIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Cloudtrail"
           }
-        ]
+        },
+        "AWS_CONFIG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Config"
+          }
+        },
+        "AWS_SECURITY_HUB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_Security_Hub"
+          }
+        },
+        "AWS_API_CALL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_API_Call"
+          }
+        },
+        "MANUAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MANUAL"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#StartAssessmentFrameworkShare": {
@@ -8810,6 +9036,12 @@
           "traits": {
             "smithy.api#documentation": "<p> The KMS key details. </p>"
           }
+        },
+        "evidenceFinderEnabled": {
+          "target": "com.amazonaws.auditmanager#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the evidence finder feature is enabled. Change this attribute to\n         enable or disable evidence finder.</p>\n         <important>\n            <p>When you use this attribute to disable evidence finder, Audit Manager deletes the\n            event data store that’s used to query your evidence data. As a result, you can’t\n            re-enable evidence finder and use the feature again. Your only alternative is to <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html\">deregister</a> and then <a href=\"https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html\">re-register</a>\n            Audit Manager. </p>\n            <p>Disabling evidence finder is permanent, so consider this decision carefully before\n            you proceed. If you’re using Audit Manager as a delegated administrator, keep in\n            mind that this action applies to all member accounts in your organization.</p>\n         </important>"
+          }
         }
       }
     },
@@ -8985,26 +9217,32 @@
       }
     },
     "com.amazonaws.auditmanager#ValidationExceptionReason": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "unknownOperation",
-            "name": "UNKNOWN_OPERATION"
-          },
-          {
-            "value": "cannotParse",
-            "name": "CANNOT_PARSE"
-          },
-          {
-            "value": "fieldValidationFailed",
-            "name": "FIELD_VALIDATION_FAILED"
-          },
-          {
-            "value": "other",
-            "name": "OTHER"
+      "type": "enum",
+      "members": {
+        "UNKNOWN_OPERATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknownOperation"
           }
-        ]
+        },
+        "CANNOT_PARSE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cannotParse"
+          }
+        },
+        "FIELD_VALIDATION_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fieldValidationFailed"
+          }
+        },
+        "OTHER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "other"
+          }
+        }
       }
     },
     "com.amazonaws.auditmanager#organizationId": {

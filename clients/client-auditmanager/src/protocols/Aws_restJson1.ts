@@ -229,6 +229,7 @@ import {
   Delegation,
   DelegationMetadata,
   Evidence,
+  EvidenceFinderEnablement,
   EvidenceInsights,
   Framework,
   FrameworkMetadata,
@@ -558,6 +559,7 @@ export const serializeAws_restJson1CreateAssessmentReportCommand = async (
   body = JSON.stringify({
     ...(input.description != null && { description: input.description }),
     ...(input.name != null && { name: input.name }),
+    ...(input.queryStatement != null && { queryStatement: input.queryStatement }),
   });
   return new __HttpRequest({
     protocol,
@@ -2036,6 +2038,7 @@ export const serializeAws_restJson1UpdateSettingsCommand = async (
     ...(input.defaultProcessOwners != null && {
       defaultProcessOwners: serializeAws_restJson1Roles(input.defaultProcessOwners, context),
     }),
+    ...(input.evidenceFinderEnabled != null && { evidenceFinderEnabled: input.evidenceFinderEnabled }),
     ...(input.kmsKey != null && { kmsKey: input.kmsKey }),
     ...(input.snsTopic != null && { snsTopic: input.snsTopic }),
   });
@@ -6325,6 +6328,18 @@ const deserializeAws_restJson1EvidenceAttributes = (output: any, context: __Serd
   }, {});
 };
 
+const deserializeAws_restJson1EvidenceFinderEnablement = (
+  output: any,
+  context: __SerdeContext
+): EvidenceFinderEnablement => {
+  return {
+    backfillStatus: __expectString(output.backfillStatus),
+    enablementStatus: __expectString(output.enablementStatus),
+    error: __expectString(output.error),
+    eventDataStoreArn: __expectString(output.eventDataStoreArn),
+  } as any;
+};
+
 const deserializeAws_restJson1EvidenceIds = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -6508,6 +6523,7 @@ const deserializeAws_restJson1Notifications = (output: any, context: __SerdeCont
 const deserializeAws_restJson1Resource = (output: any, context: __SerdeContext): Resource => {
   return {
     arn: __expectString(output.arn),
+    complianceCheck: __expectString(output.complianceCheck),
     value: __expectString(output.value),
   } as any;
 };
@@ -6582,6 +6598,10 @@ const deserializeAws_restJson1Settings = (output: any, context: __SerdeContext):
     defaultProcessOwners:
       output.defaultProcessOwners != null
         ? deserializeAws_restJson1Roles(output.defaultProcessOwners, context)
+        : undefined,
+    evidenceFinderEnablement:
+      output.evidenceFinderEnablement != null
+        ? deserializeAws_restJson1EvidenceFinderEnablement(output.evidenceFinderEnablement, context)
         : undefined,
     isAwsOrgEnabled: __expectBoolean(output.isAwsOrgEnabled),
     kmsKey: __expectString(output.kmsKey),

@@ -870,8 +870,8 @@ export interface AssessmentReport {
 }
 
 /**
- * <p> An error entity for the <code>AssessmentReportEvidence</code> API. This is used to
- *          provide more meaningful errors than a simple string message. </p>
+ * <p> An error entity for assessment report evidence errors. This is used to provide more
+ *          meaningful errors than a simple string message. </p>
  */
 export interface AssessmentReportEvidenceError {
   /**
@@ -880,12 +880,12 @@ export interface AssessmentReportEvidenceError {
   evidenceId?: string;
 
   /**
-   * <p> The error code that the <code>AssessmentReportEvidence</code> API returned. </p>
+   * <p> The error code that was returned. </p>
    */
   errorCode?: string;
 
   /**
-   * <p> The error message that the <code>AssessmentReportEvidence</code> API returned. </p>
+   * <p> The error message that was returned. </p>
    */
   errorMessage?: string;
 }
@@ -1520,13 +1520,6 @@ export interface SourceKeyword {
    *                      </p>
    *                   </li>
    *                   <li>
-   *                      <p>Service-linked rule name: securityhub-api-gw-cache-encrypted-101104e1</p>
-   *                      <p>
-   *                         <code>keywordValue</code>:
-   *                         <code>Custom_securityhub-api-gw-cache-encrypted</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
    *                      <p>Service-linked rule name:
    *                      OrgConfigRule-s3-bucket-versioning-enabled-dbgzf8ba</p>
    *                      <p>
@@ -1679,8 +1672,8 @@ export interface Control {
   actionPlanInstructions?: string;
 
   /**
-   * <p> The data source that determines where Audit Manager collects evidence from for
-   *          the control. </p>
+   * <p> The data source types that determine where Audit Manager collects evidence from
+   *          for the control. </p>
    */
   controlSources?: string;
 
@@ -1836,6 +1829,19 @@ export interface CreateAssessmentReportRequest {
    * <p> The identifier for the assessment. </p>
    */
   assessmentId: string | undefined;
+
+  /**
+   * <p>A SQL statement that represents an evidence finder query.</p>
+   *          <p>Provide this parameter when you want to generate an assessment report from the results
+   *          of an evidence finder search query. When you use this parameter, Audit Manager
+   *          generates a one-time report using only the evidence from the query output. This report does
+   *          not include any assessment evidence that was manually <a href="https://docs.aws.amazon.com/userguide/generate-assessment-report.html#generate-assessment-report-include-evidence">added to a report using the console</a>, or <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_BatchAssociateAssessmentReportEvidence.html">associated with a report using the API</a>. </p>
+   *          <p>To use this parameter, the <a href="https://docs.aws.amazon.com/APIReference-evidenceFinder/API_EvidenceFinderSetup.html#auditmanager-Type-EvidenceFinderSetup-enablementStatus">enablementStatus</a> of evidence finder must be <code>ENABLED</code>. </p>
+   *          <p> For examples and help resolving <code>queryStatement</code> validation exceptions, see
+   *             <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/evidence-finder-issues.html#querystatement-exceptions">Troubleshooting evidence finder issues</a> in the AWS Audit
+   *          Manager User Guide. </p>
+   */
+  queryStatement?: string;
 }
 
 export interface CreateAssessmentReportResponse {
@@ -2326,6 +2332,31 @@ export interface Resource {
    * <p> The value of the resource. </p>
    */
   value?: string;
+
+  /**
+   * <p> The evaluation status for a resource that was assessed when collecting compliance check
+   *          evidence. </p>
+   *          <ul>
+   *             <li>
+   *                <p>Audit Manager classes the resource as non-compliant if Security Hub reports a
+   *                   <i>Fail</i> result, or if Config reports a
+   *                   <i>Non-compliant</i> result.</p>
+   *             </li>
+   *             <li>
+   *                <p>Audit Manager classes the resource as compliant if Security Hub reports a
+   *                   <i>Pass</i> result, or if Config reports a
+   *                   <i>Compliant</i> result.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made
+   *                for that resource. This is the case if a resource assessment uses Config or Security Hub as the underlying data source type, but those services
+   *                aren't enabled. This is also the case if the resource assessment uses an underlying
+   *                data source type that doesn't support compliance checks (such as manual evidence,
+   *                   Amazon Web Services API calls, or CloudTrail). </p>
+   *             </li>
+   *          </ul>
+   */
+  complianceCheck?: string;
 }
 
 /**
@@ -2383,10 +2414,28 @@ export interface Evidence {
   iamId?: string;
 
   /**
-   * <p> The evaluation status for evidence that falls under the compliance check category. For
-   *          evidence collected from Security Hub, a <i>Pass</i> or
-   *             <i>Fail</i> result is shown. For evidence collected from Config, a <i>Compliant</i> or <i>Noncompliant</i>
-   *          result is shown. </p>
+   * <p>The evaluation status for automated evidence that falls under the compliance check
+   *          category.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Audit Manager classes evidence as non-compliant if Security Hub reports a
+   *                   <i>Fail</i> result, or if Config reports a
+   *                   <i>Non-compliant</i> result.</p>
+   *             </li>
+   *             <li>
+   *                <p>Audit Manager classes evidence as compliant if Security Hub reports a
+   *                   <i>Pass</i> result, or if Config reports a
+   *                   <i>Compliant</i> result.</p>
+   *             </li>
+   *             <li>
+   *                <p>If a compliance check isn't available or applicable, then no compliance evaluation can be made
+   *                for that evidence. This is the case if the evidence uses Config or
+   *                   Security Hub as the underlying data source type, but those services aren't
+   *                enabled. This is also the case if the evidence uses an underlying data source type
+   *                that doesn't support compliance checks (such as manual evidence, Amazon Web Services
+   *                API calls, or CloudTrail). </p>
+   *             </li>
+   *          </ul>
    */
   complianceCheck?: string;
 
@@ -2796,6 +2845,7 @@ export enum SettingAttribute {
   ALL = "ALL",
   DEFAULT_ASSESSMENT_REPORTS_DESTINATION = "DEFAULT_ASSESSMENT_REPORTS_DESTINATION",
   DEFAULT_PROCESS_OWNERS = "DEFAULT_PROCESS_OWNERS",
+  EVIDENCE_FINDER_ENABLEMENT = "EVIDENCE_FINDER_ENABLEMENT",
   IS_AWS_ORG_ENABLED = "IS_AWS_ORG_ENABLED",
   SNS_TOPIC = "SNS_TOPIC",
 }
@@ -2805,6 +2855,92 @@ export interface GetSettingsRequest {
    * <p> The list of <code>SettingAttribute</code> enum values. </p>
    */
   attribute: SettingAttribute | string | undefined;
+}
+
+export enum EvidenceFinderBackfillStatus {
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+}
+
+export enum EvidenceFinderEnablementStatus {
+  DISABLED = "DISABLED",
+  DISABLE_IN_PROGRESS = "DISABLE_IN_PROGRESS",
+  ENABLED = "ENABLED",
+  ENABLE_IN_PROGRESS = "ENABLE_IN_PROGRESS",
+}
+
+/**
+ * <p>The settings object that specifies whether evidence finder is enabled. This object also
+ *          describes the related event data store, and the backfill status for populating the event
+ *          data store with evidence data.</p>
+ */
+export interface EvidenceFinderEnablement {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the CloudTrail Lake event data store that’s
+   *          used by evidence finder. The event data store is the lake of evidence data that evidence
+   *          finder runs queries against.</p>
+   */
+  eventDataStoreArn?: string;
+
+  /**
+   * <p>The current status of the evidence finder feature and the related event data store. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLE_IN_PROGRESS</code> means that you requested to enable evidence
+   *                finder. An event data store is currently being created to support evidence finder
+   *                queries.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED</code> means that an event data store was successfully created and
+   *                evidence finder is enabled. We recommend that you wait 24 hours until the event data
+   *                store is backfilled with your past evidence data. You can use evidence finder in the
+   *                meantime, but not all data might be available until the backfill is complete.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLE_IN_PROGRESS</code> means that you requested to disable evidence finder, and your
+   *                request is pending the deletion of the event data store.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> means that you have permanently disabled evidence finder and the event
+   *                data store has been deleted. You can't re-enable evidence finder after this
+   *                point.</p>
+   *             </li>
+   *          </ul>
+   */
+  enablementStatus?: EvidenceFinderEnablementStatus | string;
+
+  /**
+   * <p>The current status of the evidence data backfill process. </p>
+   *          <p>The backfill starts after you enable evidence finder. During this task, Audit Manager populates an event data store with your past evidence data so that your evidence can be
+   *          queried.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code> means that the backfill hasn’t started yet. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>IN_PROGRESS</code> means that the backfill is in progress. This can take up to 24 hours
+   *                to complete, depending on the amount of evidence data. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLETED</code> means that the backfill is complete. All of your past
+   *                evidence is now queryable. </p>
+   *             </li>
+   *          </ul>
+   */
+  backfillStatus?: EvidenceFinderBackfillStatus | string;
+
+  /**
+   * <p>Represents any errors that occurred when enabling or disabling evidence finder. </p>
+   */
+  error?: string;
 }
 
 /**
@@ -2835,6 +2971,11 @@ export interface Settings {
    * <p> The KMS key details. </p>
    */
   kmsKey?: string;
+
+  /**
+   * <p>The current evidence finder status and event data store details.</p>
+   */
+  evidenceFinderEnablement?: EvidenceFinderEnablement;
 }
 
 export interface GetSettingsResponse {
@@ -3786,6 +3927,21 @@ export interface UpdateSettingsRequest {
    * <p> The KMS key details. </p>
    */
   kmsKey?: string;
+
+  /**
+   * <p>Specifies whether the evidence finder feature is enabled. Change this attribute to
+   *          enable or disable evidence finder.</p>
+   *          <important>
+   *             <p>When you use this attribute to disable evidence finder, Audit Manager deletes the
+   *             event data store that’s used to query your evidence data. As a result, you can’t
+   *             re-enable evidence finder and use the feature again. Your only alternative is to <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_DeregisterAccount.html">deregister</a> and then <a href="https://docs.aws.amazon.com/audit-manager/latest/APIReference/API_RegisterAccount.html">re-register</a>
+   *             Audit Manager. </p>
+   *             <p>Disabling evidence finder is permanent, so consider this decision carefully before
+   *             you proceed. If you’re using Audit Manager as a delegated administrator, keep in
+   *             mind that this action applies to all member accounts in your organization.</p>
+   *          </important>
+   */
+  evidenceFinderEnabled?: boolean;
 }
 
 export interface UpdateSettingsResponse {
@@ -4661,6 +4817,13 @@ export const GetServicesInScopeResponseFilterSensitiveLog = (obj: GetServicesInS
  * @internal
  */
 export const GetSettingsRequestFilterSensitiveLog = (obj: GetSettingsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvidenceFinderEnablementFilterSensitiveLog = (obj: EvidenceFinderEnablement): any => ({
   ...obj,
 });
 
