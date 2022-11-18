@@ -45,6 +45,33 @@ import {
   WorkflowRun,
 } from "./models_0";
 
+export interface CreateWorkflowRequest {
+  /**
+   * <p>The name to be assigned to the workflow. It should be unique within your account.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A description of the workflow.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
+   */
+  DefaultRunProperties?: Record<string, string>;
+
+  /**
+   * <p>The tags to be used with this workflow.</p>
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
+   */
+  MaxConcurrentRuns?: number;
+}
+
 export interface CreateWorkflowResponse {
   /**
    * <p>The name of the workflow which was provided as part of the request.</p>
@@ -5707,7 +5734,12 @@ export interface PutWorkflowRunPropertiesRequest {
   RunProperties: Record<string, string> | undefined;
 }
 
-export interface PutWorkflowRunPropertiesResponse {}
+/**
+ * @internal
+ */
+export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7658,12 +7690,5 @@ export const PutSchemaVersionMetadataResponseFilterSensitiveLog = (obj: PutSchem
  * @internal
  */
 export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
   ...obj,
 });

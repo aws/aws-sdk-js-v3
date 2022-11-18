@@ -14,12 +14,11 @@ import {
 } from "@aws-sdk/types";
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
+import { PutWorkflowRunPropertiesRequest, PutWorkflowRunPropertiesRequestFilterSensitiveLog } from "../models/models_1";
 import {
-  PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesRequestFilterSensitiveLog,
   PutWorkflowRunPropertiesResponse,
   PutWorkflowRunPropertiesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1PutWorkflowRunPropertiesCommand,
   serializeAws_json1_1PutWorkflowRunPropertiesCommand,

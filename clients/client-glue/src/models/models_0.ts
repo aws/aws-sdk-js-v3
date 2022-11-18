@@ -1266,6 +1266,11 @@ export interface DynamoDBTarget {
   scanRate?: number;
 }
 
+export enum JdbcMetadataEntry {
+  COMMENTS = "COMMENTS",
+  RAWTYPES = "RAWTYPES",
+}
+
 /**
  * <p>Specifies a JDBC data store to crawl.</p>
  */
@@ -1285,6 +1290,13 @@ export interface JdbcTarget {
    *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html">Catalog Tables with a Crawler</a>.</p>
    */
   Exclusions?: string[];
+
+  /**
+   * <p>Specify a value of <code>RAWTYPES</code> or <code>COMMENTS</code> to enable additional metadata in table responses. <code>RAWTYPES</code> provides the native-level datatype. <code>COMMENTS</code> provides comments associated with a column or table in the database.</p>
+   *
+   * 	        <p>If you do not need additional metadata, keep the field empty.</p>
+   */
+  EnableAdditionalMetadata?: (JdbcMetadataEntry | string)[];
 }
 
 /**
@@ -1477,8 +1489,7 @@ export interface Crawler {
 
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users to specify
-   *       aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/define-crawler.html#crawler-data-stores-exclude">Include and Exclude
-   *         Patterns</a>.</p>
+   *       aspects of a crawler's behavior. For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
    */
   Configuration?: string;
 
@@ -5478,7 +5489,7 @@ export interface CreateCrawlerRequest {
   /**
    * <p>Crawler configuration information. This versioned JSON
    *       string allows users to specify aspects of a crawler's behavior.
-   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
    */
   Configuration?: string;
 
@@ -7190,33 +7201,6 @@ export interface CreateUserDefinedFunctionRequest {
 
 export interface CreateUserDefinedFunctionResponse {}
 
-export interface CreateWorkflowRequest {
-  /**
-   * <p>The name to be assigned to the workflow. It should be unique within your account.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>A description of the workflow.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A collection of properties to be used as part of each execution of the workflow.</p>
-   */
-  DefaultRunProperties?: Record<string, string>;
-
-  /**
-   * <p>The tags to be used with this workflow.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>You can use this parameter to prevent unwanted multiple updates to data, to control costs, or in some cases, to prevent exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.</p>
-   */
-  MaxConcurrentRuns?: number;
-}
-
 /**
  * @internal
  */
@@ -8835,12 +8819,5 @@ export const CreateUserDefinedFunctionRequestFilterSensitiveLog = (obj: CreateUs
  * @internal
  */
 export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateWorkflowRequestFilterSensitiveLog = (obj: CreateWorkflowRequest): any => ({
   ...obj,
 });

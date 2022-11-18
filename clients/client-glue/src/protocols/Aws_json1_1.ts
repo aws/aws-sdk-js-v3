@@ -487,7 +487,6 @@ import {
   CreateTriggerResponse,
   CreateUserDefinedFunctionRequest,
   CreateUserDefinedFunctionResponse,
-  CreateWorkflowRequest,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -532,6 +531,7 @@ import {
   JDBCConnectorSource,
   JDBCConnectorTarget,
   JDBCDataType,
+  JdbcMetadataEntry,
   JdbcTarget,
   JobBookmarksEncryption,
   JobCommand,
@@ -652,6 +652,7 @@ import {
   CrawlerMetrics,
   CrawlerRunningException,
   CrawlsFilter,
+  CreateWorkflowRequest,
   CreateWorkflowResponse,
   CsvClassifier,
   Database,
@@ -887,7 +888,6 @@ import {
   PutSchemaVersionMetadataInput,
   PutSchemaVersionMetadataResponse,
   PutWorkflowRunPropertiesRequest,
-  PutWorkflowRunPropertiesResponse,
   RegistryListItem,
   SchedulerTransitioningException,
   SchemaColumn,
@@ -935,6 +935,7 @@ import {
   NoScheduleException,
   OtherMetadataValueListItem,
   PropertyPredicate,
+  PutWorkflowRunPropertiesResponse,
   QuerySchemaVersionMetadataInput,
   QuerySchemaVersionMetadataResponse,
   RegisterSchemaVersionInput,
@@ -15197,6 +15198,17 @@ const serializeAws_json1_1DynamoDBTargetList = (input: DynamoDBTarget[], context
     });
 };
 
+const serializeAws_json1_1EnableAdditionalMetadata = (
+  input: (JdbcMetadataEntry | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1EnclosedInStringProperties = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -16066,6 +16078,9 @@ const serializeAws_json1_1JDBCDataTypeMapping = (
 const serializeAws_json1_1JdbcTarget = (input: JdbcTarget, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
+    ...(input.EnableAdditionalMetadata != null && {
+      EnableAdditionalMetadata: serializeAws_json1_1EnableAdditionalMetadata(input.EnableAdditionalMetadata, context),
+    }),
     ...(input.Exclusions != null && { Exclusions: serializeAws_json1_1PathList(input.Exclusions, context) }),
     ...(input.Path != null && { Path: input.Path }),
   };
@@ -20407,6 +20422,21 @@ const deserializeAws_json1_1EdgeList = (output: any, context: __SerdeContext): E
   return retVal;
 };
 
+const deserializeAws_json1_1EnableAdditionalMetadata = (
+  output: any,
+  context: __SerdeContext
+): (JdbcMetadataEntry | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1EnclosedInStringProperties = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -21559,6 +21589,10 @@ const deserializeAws_json1_1JDBCDataTypeMapping = (
 const deserializeAws_json1_1JdbcTarget = (output: any, context: __SerdeContext): JdbcTarget => {
   return {
     ConnectionName: __expectString(output.ConnectionName),
+    EnableAdditionalMetadata:
+      output.EnableAdditionalMetadata != null
+        ? deserializeAws_json1_1EnableAdditionalMetadata(output.EnableAdditionalMetadata, context)
+        : undefined,
     Exclusions: output.Exclusions != null ? deserializeAws_json1_1PathList(output.Exclusions, context) : undefined,
     Path: __expectString(output.Path),
   } as any;

@@ -92,6 +92,8 @@ import {
   Table,
 } from "./models_1";
 
+export interface PutWorkflowRunPropertiesResponse {}
+
 export interface QuerySchemaVersionMetadataInput {
   /**
    * <p>A wrapper structure that may contain the schema name and Amazon Resource Name (ARN).</p>
@@ -1404,7 +1406,7 @@ export interface UpdateCrawlerRequest {
   /**
    * <p>Crawler configuration information. This versioned JSON string allows users
    *         to specify aspects of a crawler's behavior.
-   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Configuring a Crawler</a>.</p>
+   *         For more information, see <a href="https://docs.aws.amazon.com/glue/latest/dg/crawler-configuration.html">Setting crawler configuration options</a>.</p>
    */
   Configuration?: string;
 
@@ -2900,6 +2902,13 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const PutWorkflowRunPropertiesResponseFilterSensitiveLog = (obj: PutWorkflowRunPropertiesResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
