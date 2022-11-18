@@ -38,6 +38,7 @@ export enum EncryptionAlg {
   AES128_CBC = "AES128_CBC",
   AES192_CBC = "AES192_CBC",
   AES256_CBC = "AES256_CBC",
+  NONE = "NONE",
 }
 
 export enum MdnResponse {
@@ -89,6 +90,10 @@ export interface As2ConnectorConfig {
 
   /**
    * <p>The algorithm that is used to encrypt the file.</p>
+   *          <note>
+   *             <p>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This ensures that
+   *         no traffic is sent in clear text.</p>
+   *          </note>
    */
   EncryptionAlgorithm?: EncryptionAlg | string;
 
@@ -100,7 +105,7 @@ export interface As2ConnectorConfig {
   /**
    * <p>The signing algorithm for the MDN response.</p>
    *          <note>
-   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code> is used.</p>
+   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code> is used.</p>
    *          </note>
    */
   MdnSigningAlgorithm?: MdnSigningAlg | string;
@@ -967,7 +972,7 @@ export enum Protocol {
 
 /**
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
- *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+ *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
  *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
  *     the session disconnects.</p>
  */
@@ -1272,7 +1277,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -1379,7 +1384,23 @@ export interface CreateUserRequest {
   /**
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
+   *          <p>The three standard SSH public key format elements are <code><key type></code>,
+   *         <code><body base64></code>, and  an optional <code><comment></code>, with spaces
+   *       between each element.</p>
    *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,
+   *             <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the
+   *           size of the key you generated.</p>
+   *             </li>
+   *          </ul>
    */
   SshPublicKeyBody?: string;
 
@@ -2777,7 +2798,7 @@ export interface DescribedServer {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -4761,7 +4782,7 @@ export interface UpdateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
+   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
