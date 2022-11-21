@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.215.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.214.0...v3.215.0) (2022-11-21)
+
+
+### Features
+
+* **client-route-53:** Amazon Route 53 now supports the Asia Pacific (Hyderabad) Region (ap-south-2) for latency records, geoproximity records, and private DNS for Amazon VPCs in that region. ([94e5777](https://github.com/aws/aws-sdk-js-v3/commit/94e577702f12609e8f2f227e29c7cc1b2f6b3784))
+* **module:** create util-utf8 package ([#4206](https://github.com/aws/aws-sdk-js-v3/issues/4206)) ([6b5a56b](https://github.com/aws/aws-sdk-js-v3/commit/6b5a56bdaab05a188e59745b5cccb6a2c0a28ac1))
+* **types:** update identity types ([#4189](https://github.com/aws/aws-sdk-js-v3/issues/4189)) ([aa73203](https://github.com/aws/aws-sdk-js-v3/commit/aa73203585d4b13367bd482c41fb48053bb9e628))
+
+
+
+
+
 # [3.214.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.213.0...v3.214.0) (2022-11-18)
 
 
