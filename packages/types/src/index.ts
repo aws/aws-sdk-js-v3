@@ -1,5 +1,6 @@
 export * from "./abort";
 export * from "./auth";
+export * from "./checksum";
 export * from "./client";
 export * from "./command";
 export * from "./credentials";
