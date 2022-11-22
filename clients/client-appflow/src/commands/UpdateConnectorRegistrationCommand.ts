@@ -31,7 +31,8 @@ export interface UpdateConnectorRegistrationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates a custom connector that you've previously registered. This operation updates the connector with one of the following:</p>
+ * <p>Updates a custom connector that you've previously registered. This operation updates the
+ *       connector with one of the following:</p>
  *          <ul>
  *             <li>
  *                <p>The latest version of the AWS Lambda function that's assigned to the connector</p>

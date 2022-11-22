@@ -579,8 +579,9 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>Registers a new custom connector with your Amazon Web Services account. Before you can register
-   *       the connector, you must deploy the associated AWS lambda function in your account.</p>
+   * <p>Registers a new custom connector with your Amazon Web Services account. Before you can
+   *       register the connector, you must deploy the associated AWS lambda function in your
+   *       account.</p>
    */
   public registerConnector(
     args: RegisterConnectorCommandInput,
@@ -693,8 +694,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>Unregisters the custom connector registered in your account that matches the
-   *       connector label provided in the request.</p>
+   * <p>Unregisters the custom connector registered in your account that matches the connector
+   *       label provided in the request.</p>
    */
   public unregisterConnector(
     args: UnregisterConnectorCommandInput,
@@ -790,7 +791,8 @@ export class Appflow extends AppflowClient {
   }
 
   /**
-   * <p>Updates a custom connector that you've previously registered. This operation updates the connector with one of the following:</p>
+   * <p>Updates a custom connector that you've previously registered. This operation updates the
+   *       connector with one of the following:</p>
    *          <ul>
    *             <li>
    *                <p>The latest version of the AWS Lambda function that's assigned to the connector</p>

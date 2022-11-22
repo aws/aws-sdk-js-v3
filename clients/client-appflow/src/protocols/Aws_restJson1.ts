@@ -3046,8 +3046,13 @@ const serializeAws_restJson1RedshiftConnectorProfileProperties = (
   return {
     ...(input.bucketName != null && { bucketName: input.bucketName }),
     ...(input.bucketPrefix != null && { bucketPrefix: input.bucketPrefix }),
+    ...(input.clusterIdentifier != null && { clusterIdentifier: input.clusterIdentifier }),
+    ...(input.dataApiRoleArn != null && { dataApiRoleArn: input.dataApiRoleArn }),
+    ...(input.databaseName != null && { databaseName: input.databaseName }),
     ...(input.databaseUrl != null && { databaseUrl: input.databaseUrl }),
+    ...(input.isRedshiftServerless != null && { isRedshiftServerless: input.isRedshiftServerless }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
+    ...(input.workgroupName != null && { workgroupName: input.workgroupName }),
   };
 };
 
@@ -4952,8 +4957,13 @@ const deserializeAws_restJson1RedshiftConnectorProfileProperties = (
   return {
     bucketName: __expectString(output.bucketName),
     bucketPrefix: __expectString(output.bucketPrefix),
+    clusterIdentifier: __expectString(output.clusterIdentifier),
+    dataApiRoleArn: __expectString(output.dataApiRoleArn),
+    databaseName: __expectString(output.databaseName),
     databaseUrl: __expectString(output.databaseUrl),
+    isRedshiftServerless: __expectBoolean(output.isRedshiftServerless),
     roleArn: __expectString(output.roleArn),
+    workgroupName: __expectString(output.workgroupName),
   } as any;
 };
 

@@ -1641,7 +1641,7 @@ export interface RedshiftConnectorProfileProperties {
   /**
    * <p> The JDBC URL of the Amazon Redshift cluster. </p>
    */
-  databaseUrl: string | undefined;
+  databaseUrl?: string;
 
   /**
    * <p> A name for the associated Amazon S3 bucket. </p>
@@ -1655,9 +1655,39 @@ export interface RedshiftConnectorProfileProperties {
   bucketPrefix?: string;
 
   /**
-   * <p> The Amazon Resource Name (ARN) of the IAM role. </p>
+   * <p> The Amazon Resource Name (ARN) of IAM role that grants Amazon Redshift
+   *       read-only access to Amazon S3. For more information, and for the polices that you
+   *       attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#redshift-access-s3">Allow Amazon Redshift to access your Amazon AppFlow data in Amazon S3</a>.</p>
    */
   roleArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of an IAM role that permits Amazon AppFlow to access your Amazon Redshift database through the Data API. For more
+   *       information, and for the polices that you attach to this role, see <a href="https://docs.aws.amazon.com/appflow/latest/userguide/security_iam_service-role-policies.html#access-redshift">Allow Amazon AppFlow to access Amazon Redshift databases with the Data
+   *         API</a>.</p>
+   */
+  dataApiRoleArn?: string;
+
+  /**
+   * <p>Indicates whether the connector profile defines a connection to an Amazon Redshift
+   *       Serverless data warehouse.</p>
+   */
+  isRedshiftServerless?: boolean;
+
+  /**
+   * <p>The unique ID that's assigned to an Amazon Redshift cluster.</p>
+   */
+  clusterIdentifier?: string;
+
+  /**
+   * <p>The name of an Amazon Redshift workgroup.</p>
+   */
+  workgroupName?: string;
+
+  /**
+   * <p>The name of an Amazon Redshift database.</p>
+   */
+  databaseName?: string;
 }
 
 /**
@@ -2241,12 +2271,12 @@ export interface RedshiftConnectorProfileCredentials {
   /**
    * <p> The name of the user. </p>
    */
-  username: string | undefined;
+  username?: string;
 
   /**
    * <p> The password that corresponds to the user name. </p>
    */
-  password: string | undefined;
+  password?: string;
 }
 
 /**
@@ -2552,7 +2582,7 @@ export interface ConnectorProfileConfig {
   /**
    * <p> The connector-specific credentials required by each connector. </p>
    */
-  connectorProfileCredentials: ConnectorProfileCredentials | undefined;
+  connectorProfileCredentials?: ConnectorProfileCredentials;
 }
 
 /**
@@ -2889,7 +2919,8 @@ export interface PrefixConfig {
   prefixType?: PrefixType | string;
 
   /**
-   * <p>Determines the level of granularity for the date and time that's included in the prefix. </p>
+   * <p>Determines the level of granularity for the date and time that's included in the prefix.
+   *     </p>
    */
   prefixFormat?: PrefixFormat | string;
 
@@ -3365,8 +3396,8 @@ export interface GlueDataCatalogConfig {
  */
 export interface MetadataCatalogConfig {
   /**
-   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with the
-   *         Glue Data Catalog.</p>
+   * <p>Specifies the configuration that Amazon AppFlow uses when it catalogs your data with
+   *       the Glue Data Catalog.</p>
    */
   glueDataCatalog?: GlueDataCatalogConfig;
 }
@@ -4278,7 +4309,7 @@ export interface MetadataCatalogDetail {
   /**
    * <p>Describes the status of the attempt from Amazon AppFlow to register the data
    *       partitions with the metadata catalog. The data partitions organize the flow output into a
-   *       hierarchical path, such as a folder path in an  S3 bucket. Amazon AppFlow creates the
+   *       hierarchical path, such as a folder path in an S3 bucket. Amazon AppFlow creates the
    *       partitions (if they don't already exist) based on your flow configuration.</p>
    */
   partitionRegistrationOutput?: RegistrationOutput;
