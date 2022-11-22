@@ -1509,6 +1509,9 @@ const deserializeAws_json1_1DeleteApplicationSnapshotCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConcurrentModificationException":
+    case "com.amazonaws.kinesisanalyticsv2#ConcurrentModificationException":
+      throw await deserializeAws_json1_1ConcurrentModificationExceptionResponse(parsedOutput, context);
     case "InvalidArgumentException":
     case "com.amazonaws.kinesisanalyticsv2#InvalidArgumentException":
       throw await deserializeAws_json1_1InvalidArgumentExceptionResponse(parsedOutput, context);
