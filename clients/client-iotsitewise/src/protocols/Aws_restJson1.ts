@@ -347,9 +347,9 @@ export const serializeAws_restJson1AssociateTimeSeriesToAssetPropertyCommand = a
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/associate";
   const query: any = map({
-    alias: [, input.alias!],
-    assetId: [, input.assetId!],
-    propertyId: [, input.propertyId!],
+    alias: [, __expectNonNull(input.alias!, `alias`)],
+    assetId: [, __expectNonNull(input.assetId!, `assetId`)],
+    propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1632,9 +1632,9 @@ export const serializeAws_restJson1DisassociateTimeSeriesFromAssetPropertyComman
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/timeseries/disassociate";
   const query: any = map({
-    alias: [, input.alias!],
-    assetId: [, input.assetId!],
-    propertyId: [, input.propertyId!],
+    alias: [, __expectNonNull(input.alias!, `alias`)],
+    assetId: [, __expectNonNull(input.assetId!, `assetId`)],
+    propertyId: [, __expectNonNull(input.propertyId!, `propertyId`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -1671,16 +1671,19 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
     aggregateTypes: [
-      () => input.aggregateTypes !== void 0,
+      __expectNonNull(input.aggregateTypes, `aggregateTypes`) != null,
       () => (input.aggregateTypes! || []).map((_entry) => _entry as any),
     ],
-    resolution: [, input.resolution!],
+    resolution: [, __expectNonNull(input.resolution!, `resolution`)],
     qualities: [() => input.qualities !== void 0, () => (input.qualities! || []).map((_entry) => _entry as any)],
     startDate: [
-      () => input.startDate !== void 0,
+      __expectNonNull(input.startDate, `startDate`) != null,
       () => (input.startDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endDate: [() => input.endDate !== void 0, () => (input.endDate!.toISOString().split(".")[0] + "Z").toString()],
+    endDate: [
+      __expectNonNull(input.endDate, `endDate`) != null,
+      () => (input.endDate!.toISOString().split(".")[0] + "Z").toString(),
+    ],
     timeOrdering: [, input.timeOrdering!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -1790,18 +1793,27 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
     assetId: [, input.assetId!],
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
-    startTimeInSeconds: [() => input.startTimeInSeconds !== void 0, () => input.startTimeInSeconds!.toString()],
+    startTimeInSeconds: [
+      __expectNonNull(input.startTimeInSeconds, `startTimeInSeconds`) != null,
+      () => input.startTimeInSeconds!.toString(),
+    ],
     startTimeOffsetInNanos: [
       () => input.startTimeOffsetInNanos !== void 0,
       () => input.startTimeOffsetInNanos!.toString(),
     ],
-    endTimeInSeconds: [() => input.endTimeInSeconds !== void 0, () => input.endTimeInSeconds!.toString()],
+    endTimeInSeconds: [
+      __expectNonNull(input.endTimeInSeconds, `endTimeInSeconds`) != null,
+      () => input.endTimeInSeconds!.toString(),
+    ],
     endTimeOffsetInNanos: [() => input.endTimeOffsetInNanos !== void 0, () => input.endTimeOffsetInNanos!.toString()],
-    quality: [, input.quality!],
-    intervalInSeconds: [() => input.intervalInSeconds !== void 0, () => input.intervalInSeconds!.toString()],
+    quality: [, __expectNonNull(input.quality!, `quality`)],
+    intervalInSeconds: [
+      __expectNonNull(input.intervalInSeconds, `intervalInSeconds`) != null,
+      () => input.intervalInSeconds!.toString(),
+    ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    type: [, input.type!],
+    type: [, __expectNonNull(input.type!, `type`)],
     intervalWindowInSeconds: [
       () => input.intervalWindowInSeconds !== void 0,
       () => input.intervalWindowInSeconds!.toString(),
@@ -1979,7 +1991,7 @@ export const serializeAws_restJson1ListAssetRelationshipsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}/assetRelationships";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   const query: any = map({
-    traversalType: [, input.traversalType!],
+    traversalType: [, __expectNonNull(input.traversalType!, `traversalType`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2111,7 +2123,7 @@ export const serializeAws_restJson1ListDashboardsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards";
   const query: any = map({
-    projectId: [, input.projectId!],
+    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2238,7 +2250,7 @@ export const serializeAws_restJson1ListProjectsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects";
   const query: any = map({
-    portalId: [, input.portalId!],
+    portalId: [, __expectNonNull(input.portalId!, `portalId`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -2270,7 +2282,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2441,7 +2453,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   body = JSON.stringify({
@@ -2474,8 +2486,11 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, input.resourceArn!],
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();

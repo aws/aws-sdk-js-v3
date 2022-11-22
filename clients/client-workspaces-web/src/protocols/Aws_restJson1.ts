@@ -208,7 +208,7 @@ export const serializeAws_restJson1AssociateBrowserSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/browserSettings";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    browserSettingsArn: [, input.browserSettingsArn!],
+    browserSettingsArn: [, __expectNonNull(input.browserSettingsArn!, `browserSettingsArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -233,7 +233,7 @@ export const serializeAws_restJson1AssociateNetworkSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/networkSettings";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    networkSettingsArn: [, input.networkSettingsArn!],
+    networkSettingsArn: [, __expectNonNull(input.networkSettingsArn!, `networkSettingsArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -258,7 +258,7 @@ export const serializeAws_restJson1AssociateTrustStoreCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/trustStores";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    trustStoreArn: [, input.trustStoreArn!],
+    trustStoreArn: [, __expectNonNull(input.trustStoreArn!, `trustStoreArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -284,7 +284,10 @@ export const serializeAws_restJson1AssociateUserAccessLoggingSettingsCommand = a
     "/portals/{portalArn+}/userAccessLoggingSettings";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    userAccessLoggingSettingsArn: [, input.userAccessLoggingSettingsArn!],
+    userAccessLoggingSettingsArn: [
+      ,
+      __expectNonNull(input.userAccessLoggingSettingsArn!, `userAccessLoggingSettingsArn`),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -309,7 +312,7 @@ export const serializeAws_restJson1AssociateUserSettingsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalArn+}/userSettings";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalArn", () => input.portalArn!, "{portalArn+}", true);
   const query: any = map({
-    userSettingsArn: [, input.userSettingsArn!],
+    userSettingsArn: [, __expectNonNull(input.userSettingsArn!, `userSettingsArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1003,7 +1006,7 @@ export const serializeAws_restJson1GetTrustStoreCertificateCommand = async (
     true
   );
   const query: any = map({
-    thumbprint: [, input.thumbprint!],
+    thumbprint: [, __expectNonNull(input.thumbprint!, `thumbprint`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1335,7 +1338,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn+}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn+}", true);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({

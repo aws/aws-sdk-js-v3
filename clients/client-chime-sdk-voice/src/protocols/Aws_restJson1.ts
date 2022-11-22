@@ -1791,7 +1791,7 @@ export const serializeAws_restJson1ListSupportedPhoneNumberCountriesCommand = as
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/phone-number-countries";
   const query: any = map({
-    "product-type": [, input.ProductType!],
+    "product-type": [, __expectNonNull(input.ProductType!, `ProductType`)],
   });
   let body: any;
   return new __HttpRequest({
