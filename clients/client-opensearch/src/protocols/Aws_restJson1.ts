@@ -1228,7 +1228,7 @@ export const serializeAws_restJson1ListTagsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2021-01-01/tags";
   const query: any = map({
-    arn: [, input.ARN!],
+    arn: [, __expectNonNull(input.ARN!, `ARN`)],
   });
   let body: any;
   return new __HttpRequest({

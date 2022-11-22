@@ -43,7 +43,7 @@ export const serializeAws_restJson1GetLatestConfigurationCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
   const query: any = map({
-    configuration_token: [, input.ConfigurationToken!],
+    configuration_token: [, __expectNonNull(input.ConfigurationToken!, `ConfigurationToken`)],
   });
   let body: any;
   return new __HttpRequest({

@@ -92,7 +92,7 @@ export const serializeAws_restJson1GetSnapshotBlockCommand = async (
     false
   );
   const query: any = map({
-    blockToken: [, input.BlockToken!],
+    blockToken: [, __expectNonNull(input.BlockToken!, `BlockToken`)],
   });
   let body: any;
   return new __HttpRequest({

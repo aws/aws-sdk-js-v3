@@ -148,10 +148,10 @@ export const serializeAws_restJson1BatchDeleteRumMetricDefinitionsCommand = asyn
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
     metricDefinitionIds: [
-      () => input.MetricDefinitionIds !== void 0,
+      __expectNonNull(input.MetricDefinitionIds, `MetricDefinitionIds`) != null,
       () => (input.MetricDefinitionIds! || []).map((_entry) => _entry as any),
     ],
   });
@@ -185,7 +185,7 @@ export const serializeAws_restJson1BatchGetRumMetricDefinitionsCommand = async (
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
@@ -274,7 +274,7 @@ export const serializeAws_restJson1DeleteRumMetricsDestinationCommand = async (
     false
   );
   const query: any = map({
-    destination: [, input.Destination!],
+    destination: [, __expectNonNull(input.Destination!, `Destination`)],
     destinationArn: [, input.DestinationArn!],
   });
   let body: any;
@@ -523,7 +523,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({

@@ -575,7 +575,7 @@ export const serializeAws_restJson1GetProgrammaticAccessCredentialsCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/credentials/programmatic";
   const query: any = map({
     durationInMinutes: [() => input.durationInMinutes !== void 0, () => input.durationInMinutes!.toString()],
-    environmentId: [, input.environmentId!],
+    environmentId: [, __expectNonNull(input.environmentId!, `environmentId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -719,7 +719,7 @@ export const serializeAws_restJson1ListPermissionGroupsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -745,7 +745,7 @@ export const serializeAws_restJson1ListPermissionGroupsByUserCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -769,7 +769,7 @@ export const serializeAws_restJson1ListUsersCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -803,7 +803,7 @@ export const serializeAws_restJson1ListUsersByPermissionGroupCommand = async (
   );
   const query: any = map({
     nextToken: [, input.nextToken!],
-    maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
+    maxResults: [__expectNonNull(input.maxResults, `maxResults`) != null, () => input.maxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({

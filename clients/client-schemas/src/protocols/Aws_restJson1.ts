@@ -481,7 +481,7 @@ export const serializeAws_restJson1ExportSchemaCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "SchemaName", () => input.SchemaName!, "{SchemaName}", false);
   const query: any = map({
     schemaVersion: [, input.SchemaVersion!],
-    type: [, input.Type!],
+    type: [, __expectNonNull(input.Type!, `Type`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -805,7 +805,7 @@ export const serializeAws_restJson1SearchSchemasCommand = async (
     false
   );
   const query: any = map({
-    keywords: [, input.Keywords!],
+    keywords: [, __expectNonNull(input.Keywords!, `Keywords`)],
     limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],
     nextToken: [, input.NextToken!],
   });
@@ -912,7 +912,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
