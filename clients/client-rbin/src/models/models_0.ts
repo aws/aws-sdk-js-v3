@@ -3,6 +3,39 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { RbinServiceException as __BaseException } from "./RbinServiceException";
 
+export enum UnlockDelayUnit {
+  DAYS = "DAYS",
+}
+
+/**
+ * <p>Information about the retention rule unlock delay. The unlock delay is the period after which
+ *       a retention rule can be modified or edited after it has been unlocked by a user with the required
+ *       permissions. The retention rule can't be modified or deleted during the unlock delay.</p>
+ */
+export interface UnlockDelay {
+  /**
+   * <p>The unlock delay period, measured in the unit specified for <b>
+   *       UnlockDelayUnit</b>.</p>
+   */
+  UnlockDelayValue: number | undefined;
+
+  /**
+   * <p>The unit of time in which to measure the unlock delay. Currently, the unlock delay can
+   *       be measure only in days.</p>
+   */
+  UnlockDelayUnit: UnlockDelayUnit | string | undefined;
+}
+
+/**
+ * <p>Information about a retention rule lock configuration.</p>
+ */
+export interface LockConfiguration {
+  /**
+   * <p>Information about the retention rule unlock delay.</p>
+   */
+  UnlockDelay: UnlockDelay | undefined;
+}
+
 /**
  * <p>Information about the resource tags used to identify resources that are retained by the retention
  *       rule.</p>
@@ -94,6 +127,17 @@ export interface CreateRuleRequest {
    *       resource type in the Region in which the rule is created, even if the resources are not tagged.</p>
    */
   ResourceTags?: ResourceTag[];
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration?: LockConfiguration;
+}
+
+export enum LockState {
+  LOCKED = "locked",
+  PENDING_UNLOCK = "pending_unlock",
+  UNLOCKED = "unlocked",
 }
 
 export enum RuleStatus {
@@ -138,6 +182,39 @@ export interface CreateRuleResponse {
    *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration?: LockConfiguration;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
 }
 
 /**
@@ -222,6 +299,36 @@ export class ValidationException extends __BaseException {
   }
 }
 
+export enum ConflictExceptionReason {
+  INVALID_RULE_STATE = "INVALID_RULE_STATE",
+}
+
+/**
+ * <p>The specified retention rule lock request can't be completed.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>The reason for the exception.</p>
+   */
+  Reason?: ConflictExceptionReason | string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+    this.Message = opts.Message;
+    this.Reason = opts.Reason;
+  }
+}
+
 export interface DeleteRuleRequest {
   /**
    * <p>The unique ID of the retention rule.</p>
@@ -300,6 +407,46 @@ export interface GetRuleResponse {
    *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration?: LockConfiguration;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
+
+  /**
+   * <p>The date and time at which the unlock delay is set to expire. Only returned
+   *       for retention rules that have been unlocked and that are still within the unlock
+   *       delay period.</p>
+   */
+  LockEndTime?: Date;
 }
 
 export interface ListRulesRequest {
@@ -328,6 +475,12 @@ export interface ListRulesRequest {
    *       rule.</p>
    */
   ResourceTags?: ResourceTag[];
+
+  /**
+   * <p>The lock state of the retention rules to list. Only retention rules with the specified
+   *       lock state are returned.</p>
+   */
+  LockState?: LockState | string;
 }
 
 /**
@@ -348,6 +501,34 @@ export interface RuleSummary {
    * <p>Information about the retention period for which the retention rule is to retain resources.</p>
    */
   RetentionPeriod?: RetentionPeriod;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
 }
 
 export interface ListRulesResponse {
@@ -376,6 +557,85 @@ export interface ListTagsForResourceResponse {
   Tags?: Tag[];
 }
 
+export interface LockRuleRequest {
+  /**
+   * <p>The unique ID of the retention rule.</p>
+   */
+  Identifier: string | undefined;
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration: LockConfiguration | undefined;
+}
+
+export interface LockRuleResponse {
+  /**
+   * <p>The unique ID of the retention rule.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The retention rule description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The resource type retained by the retention rule.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   */
+  RetentionPeriod?: RetentionPeriod;
+
+  /**
+   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   *       rule.</p>
+   */
+  ResourceTags?: ResourceTag[];
+
+  /**
+   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
+   *       state retain resources.</p>
+   */
+  Status?: RuleStatus | string;
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration?: LockConfiguration;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
+}
+
 export interface TagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the retention rule.</p>
@@ -389,6 +649,87 @@ export interface TagResourceRequest {
 }
 
 export interface TagResourceResponse {}
+
+export interface UnlockRuleRequest {
+  /**
+   * <p>The unique ID of the retention rule.</p>
+   */
+  Identifier: string | undefined;
+}
+
+export interface UnlockRuleResponse {
+  /**
+   * <p>The unique ID of the retention rule.</p>
+   */
+  Identifier?: string;
+
+  /**
+   * <p>The retention rule description.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The resource type retained by the retention rule.</p>
+   */
+  ResourceType?: ResourceType | string;
+
+  /**
+   * <p>Information about the retention period for which the retention rule is to retain resources.</p>
+   */
+  RetentionPeriod?: RetentionPeriod;
+
+  /**
+   * <p>Information about the resource tags used to identify resources that are retained by the retention
+   *       rule.</p>
+   */
+  ResourceTags?: ResourceTag[];
+
+  /**
+   * <p>The state of the retention rule. Only retention rules that are in the <code>available</code>
+   *       state retain resources.</p>
+   */
+  Status?: RuleStatus | string;
+
+  /**
+   * <p>Information about the retention rule lock configuration.</p>
+   */
+  LockConfiguration?: LockConfiguration;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
+
+  /**
+   * <p>The date and time at which the unlock delay is set to expire. Only returned
+   *       for retention rules that have been unlocked and that are still within the unlock
+   *       delay period.</p>
+   */
+  LockEndTime?: Date;
+}
 
 export interface UntagResourceRequest {
   /**
@@ -421,9 +762,10 @@ export interface UpdateRuleRequest {
   Description?: string;
 
   /**
-   * <p>The resource type to be retained by the retention rule. Currently, only Amazon EBS snapshots
-   *       and EBS-backed AMIs are supported. To retain snapshots, specify <code>EBS_SNAPSHOT</code>. To
-   *       retain EBS-backed AMIs, specify <code>EC2_IMAGE</code>.</p>
+   * <note>
+   *             <p>This parameter is currently not supported. You can't update a retention rule's resource type
+   *       after creation.</p>
+   *          </note>
    */
   ResourceType?: ResourceType | string;
 
@@ -472,7 +814,56 @@ export interface UpdateRuleResponse {
    *       state retain resources.</p>
    */
   Status?: RuleStatus | string;
+
+  /**
+   * <p>The lock state for the retention rule.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>locked</code> - The retention rule is locked and can't be modified or deleted.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>pending_unlock</code> - The retention rule has been unlocked but it is still within
+   *           the unlock delay period. The retention rule can be modified or deleted only after the unlock
+   *           delay period has expired.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>unlocked</code> - The retention rule is unlocked and it can be modified or deleted by
+   *           any user with the required permissions.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>null</code> - The retention rule has never been locked. Once a retention rule has
+   *         been locked, it can transition between the <code>locked</code> and <code>unlocked</code> states
+   *         only; it can never transition back to <code>null</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  LockState?: LockState | string;
+
+  /**
+   * <p>The date and time at which the unlock delay is set to expire. Only returned
+   *       for retention rules that have been unlocked and that are still within the unlock
+   *       delay period.</p>
+   */
+  LockEndTime?: Date;
 }
+
+/**
+ * @internal
+ */
+export const UnlockDelayFilterSensitiveLog = (obj: UnlockDelay): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LockConfigurationFilterSensitiveLog = (obj: LockConfiguration): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -575,6 +966,20 @@ export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForRe
 /**
  * @internal
  */
+export const LockRuleRequestFilterSensitiveLog = (obj: LockRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LockRuleResponseFilterSensitiveLog = (obj: LockRuleResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
 });
@@ -583,6 +988,20 @@ export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): a
  * @internal
  */
 export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlockRuleRequestFilterSensitiveLog = (obj: UnlockRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UnlockRuleResponseFilterSensitiveLog = (obj: UnlockRuleResponse): any => ({
   ...obj,
 });
 
