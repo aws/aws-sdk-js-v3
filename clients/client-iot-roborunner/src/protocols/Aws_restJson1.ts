@@ -281,7 +281,7 @@ export const serializeAws_restJson1GetDestinationCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getDestination";
   const query: any = map({
-    id: [, __expectNonNull(input.id!, `id`)],
+    id: [, input.id!],
   });
   let body: any;
   return new __HttpRequest({
@@ -304,7 +304,7 @@ export const serializeAws_restJson1GetSiteCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getSite";
   const query: any = map({
-    id: [, __expectNonNull(input.id!, `id`)],
+    id: [, input.id!],
   });
   let body: any;
   return new __HttpRequest({
@@ -327,7 +327,7 @@ export const serializeAws_restJson1GetWorkerCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getWorker";
   const query: any = map({
-    id: [, __expectNonNull(input.id!, `id`)],
+    id: [, input.id!],
   });
   let body: any;
   return new __HttpRequest({
@@ -350,7 +350,7 @@ export const serializeAws_restJson1GetWorkerFleetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getWorkerFleet";
   const query: any = map({
-    id: [, __expectNonNull(input.id!, `id`)],
+    id: [, input.id!],
   });
   let body: any;
   return new __HttpRequest({
@@ -373,7 +373,7 @@ export const serializeAws_restJson1ListDestinationsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listDestinations";
   const query: any = map({
-    site: [, __expectNonNull(input.site!, `site`)],
+    site: [, input.site!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     state: [, input.state!],
@@ -423,7 +423,7 @@ export const serializeAws_restJson1ListWorkerFleetsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorkerFleets";
   const query: any = map({
-    site: [, __expectNonNull(input.site!, `site`)],
+    site: [, input.site!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -448,7 +448,7 @@ export const serializeAws_restJson1ListWorkersCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/listWorkers";
   const query: any = map({
-    site: [, __expectNonNull(input.site!, `site`)],
+    site: [, input.site!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     fleet: [, input.fleet!],

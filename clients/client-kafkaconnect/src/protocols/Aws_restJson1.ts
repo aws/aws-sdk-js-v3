@@ -452,7 +452,7 @@ export const serializeAws_restJson1UpdateConnectorCommand = async (
     false
   );
   const query: any = map({
-    currentVersion: [, __expectNonNull(input.currentVersion!, `currentVersion`)],
+    currentVersion: [, input.currentVersion!],
   });
   let body: any;
   body = JSON.stringify({

@@ -997,10 +997,7 @@ export const serializeAws_restJson1DeleteTagsCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/prod/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1322,7 +1319,7 @@ export const serializeAws_restJson1ListInputDeviceTransfersCommand = async (
   const query: any = map({
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
-    transferType: [, __expectNonNull(input.TransferType!, `TransferType`)],
+    transferType: [, input.TransferType!],
   });
   let body: any;
   return new __HttpRequest({

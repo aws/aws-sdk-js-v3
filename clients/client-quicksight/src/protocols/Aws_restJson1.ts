@@ -2770,7 +2770,7 @@ export const serializeAws_restJson1GetDashboardEmbedUrlCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "DashboardId", () => input.DashboardId!, "{DashboardId}", false);
   const query: any = map({
-    "creds-type": [, __expectNonNull(input.IdentityType!, `IdentityType`)],
+    "creds-type": [, input.IdentityType!],
     "session-lifetime": [
       () => input.SessionLifetimeInMinutes !== void 0,
       () => input.SessionLifetimeInMinutes!.toString(),
@@ -3919,10 +3919,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/resources/{ResourceArn}/tags";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    keys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    keys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

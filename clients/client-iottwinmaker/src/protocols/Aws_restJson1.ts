@@ -958,11 +958,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceARN: [, __expectNonNull(input.resourceARN!, `resourceARN`)],
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    resourceARN: [, input.resourceARN!],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();

@@ -261,7 +261,7 @@ export const serializeAws_restJson1DeleteResourceShareCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteresourceshare";
   const query: any = map({
-    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
+    resourceShareArn: [, input.resourceShareArn!],
     clientToken: [, input.clientToken!],
   });
   let body: any;
@@ -726,7 +726,7 @@ export const serializeAws_restJson1PromoteResourceShareCreatedFromPolicyCommand 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/promoteresourcesharecreatedfrompolicy";
   const query: any = map({
-    resourceShareArn: [, __expectNonNull(input.resourceShareArn!, `resourceShareArn`)],
+    resourceShareArn: [, input.resourceShareArn!],
   });
   let body: any;
   return new __HttpRequest({

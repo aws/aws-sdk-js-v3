@@ -169,10 +169,10 @@ export const serializeAws_restJson1AssociateExternalConnectionCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    "external-connection": [, __expectNonNull(input.externalConnection!, `externalConnection`)],
+    repository: [, input.repository!],
+    "external-connection": [, input.externalConnection!],
   });
   let body: any;
   return new __HttpRequest({
@@ -198,13 +198,13 @@ export const serializeAws_restJson1CopyPackageVersionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/copy";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    "source-repository": [, __expectNonNull(input.sourceRepository!, `sourceRepository`)],
-    "destination-repository": [, __expectNonNull(input.destinationRepository!, `destinationRepository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    "source-repository": [, input.sourceRepository!],
+    "destination-repository": [, input.destinationRepository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   body = JSON.stringify({
@@ -237,7 +237,7 @@ export const serializeAws_restJson1CreateDomainCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
   });
   let body: any;
   body = JSON.stringify({
@@ -266,9 +266,9 @@ export const serializeAws_restJson1CreateRepositoryCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   body = JSON.stringify({
@@ -298,7 +298,7 @@ export const serializeAws_restJson1DeleteDomainCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
   });
   let body: any;
@@ -323,7 +323,7 @@ export const serializeAws_restJson1DeleteDomainPermissionsPolicyCommand = async 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
     "policy-revision": [, input.policyRevision!],
   });
@@ -351,12 +351,12 @@ export const serializeAws_restJson1DeletePackageVersionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/delete";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   body = JSON.stringify({
@@ -383,9 +383,9 @@ export const serializeAws_restJson1DeleteRepositoryCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   return new __HttpRequest({
@@ -409,9 +409,9 @@ export const serializeAws_restJson1DeleteRepositoryPermissionsPolicyCommand = as
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policies";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
     "policy-revision": [, input.policyRevision!],
   });
   let body: any;
@@ -435,7 +435,7 @@ export const serializeAws_restJson1DescribeDomainCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
   });
   let body: any;
@@ -459,12 +459,12 @@ export const serializeAws_restJson1DescribePackageCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   return new __HttpRequest({
@@ -487,13 +487,13 @@ export const serializeAws_restJson1DescribePackageVersionCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    package: [, input.package!],
+    version: [, input.packageVersion!],
   });
   let body: any;
   return new __HttpRequest({
@@ -516,9 +516,9 @@ export const serializeAws_restJson1DescribeRepositoryCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   return new __HttpRequest({
@@ -542,10 +542,10 @@ export const serializeAws_restJson1DisassociateExternalConnectionCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/external-connection";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    "external-connection": [, __expectNonNull(input.externalConnection!, `externalConnection`)],
+    repository: [, input.repository!],
+    "external-connection": [, input.externalConnection!],
   });
   let body: any;
   return new __HttpRequest({
@@ -571,12 +571,12 @@ export const serializeAws_restJson1DisposePackageVersionsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/dispose";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   body = JSON.stringify({
@@ -607,7 +607,7 @@ export const serializeAws_restJson1GetAuthorizationTokenCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/authorization-token";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
     duration: [() => input.durationSeconds !== void 0, () => input.durationSeconds!.toString()],
   });
@@ -633,7 +633,7 @@ export const serializeAws_restJson1GetDomainPermissionsPolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/permissions/policy";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
   });
   let body: any;
@@ -658,14 +658,14 @@ export const serializeAws_restJson1GetPackageVersionAssetCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/asset";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
-    asset: [, __expectNonNull(input.asset!, `asset`)],
+    package: [, input.package!],
+    version: [, input.packageVersion!],
+    asset: [, input.asset!],
     revision: [, input.packageVersionRevision!],
   });
   let body: any;
@@ -690,13 +690,13 @@ export const serializeAws_restJson1GetPackageVersionReadmeCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/readme";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    package: [, input.package!],
+    version: [, input.packageVersion!],
   });
   let body: any;
   return new __HttpRequest({
@@ -720,10 +720,10 @@ export const serializeAws_restJson1GetRepositoryEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/endpoint";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
   });
   let body: any;
   return new __HttpRequest({
@@ -747,9 +747,9 @@ export const serializeAws_restJson1GetRepositoryPermissionsPolicyCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   return new __HttpRequest({
@@ -797,9 +797,9 @@ export const serializeAws_restJson1ListPackagesCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/packages";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
     format: [, input.format!],
     namespace: [, input.namespace!],
     "package-prefix": [, input.packagePrefix!],
@@ -830,13 +830,13 @@ export const serializeAws_restJson1ListPackageVersionAssetsCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/assets";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    package: [, input.package!],
+    version: [, input.packageVersion!],
     "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     "next-token": [, input.nextToken!],
   });
@@ -862,13 +862,13 @@ export const serializeAws_restJson1ListPackageVersionDependenciesCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/version/dependencies";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
-    version: [, __expectNonNull(input.packageVersion!, `packageVersion`)],
+    package: [, input.package!],
+    version: [, input.packageVersion!],
     "next-token": [, input.nextToken!],
   });
   let body: any;
@@ -892,12 +892,12 @@ export const serializeAws_restJson1ListPackageVersionsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
     status: [, input.status!],
     sortBy: [, input.sortBy!],
     "max-results": [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -951,7 +951,7 @@ export const serializeAws_restJson1ListRepositoriesInDomainCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/domain/repositories";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
     "administrator-account": [, input.administratorAccount!],
     "repository-prefix": [, input.repositoryPrefix!],
@@ -979,7 +979,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1032,12 +1032,12 @@ export const serializeAws_restJson1PutPackageOriginConfigurationCommand = async 
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1068,9 +1068,9 @@ export const serializeAws_restJson1PutRepositoryPermissionsPolicyCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository/permissions/policy";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1099,7 +1099,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tag";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1127,7 +1127,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/untag";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1156,12 +1156,12 @@ export const serializeAws_restJson1UpdatePackageVersionsStatusCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/package/versions/update_status";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
-    format: [, __expectNonNull(input.format!, `format`)],
+    repository: [, input.repository!],
+    format: [, input.format!],
     namespace: [, input.namespace!],
-    package: [, __expectNonNull(input.package!, `package`)],
+    package: [, input.package!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1194,9 +1194,9 @@ export const serializeAws_restJson1UpdateRepositoryCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/repository";
   const query: any = map({
-    domain: [, __expectNonNull(input.domain!, `domain`)],
+    domain: [, input.domain!],
     "domain-owner": [, input.domainOwner!],
-    repository: [, __expectNonNull(input.repository!, `repository`)],
+    repository: [, input.repository!],
   });
   let body: any;
   body = JSON.stringify({

@@ -1091,7 +1091,7 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
     "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = map({
     BlacklistItemNames: [
-      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
+      () => input.BlacklistItemNames !== void 0,
       () => (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
     ],
   });
@@ -1407,13 +1407,10 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Domain", () => input.Domain!, "{Domain}", false);
   const query: any = map({
     StartDate: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
+      () => input.StartDate !== void 0,
       () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -1748,13 +1745,10 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   );
   const query: any = map({
     StartDate: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
+      () => input.StartDate !== void 0,
       () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    EndDate: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    EndDate: [() => input.EndDate !== void 0, () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString()],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
   });
@@ -1914,7 +1908,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   const query: any = map({
-    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    ResourceArn: [, input.ResourceArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2738,11 +2732,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/tags";
   const query: any = map({
-    ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
-    TagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    ResourceArn: [, input.ResourceArn!],
+    TagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

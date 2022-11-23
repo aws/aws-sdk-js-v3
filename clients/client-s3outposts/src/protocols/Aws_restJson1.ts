@@ -73,8 +73,8 @@ export const serializeAws_restJson1DeleteEndpointCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/S3Outposts/DeleteEndpoint";
   const query: any = map({
-    endpointId: [, __expectNonNull(input.EndpointId!, `EndpointId`)],
-    outpostId: [, __expectNonNull(input.OutpostId!, `OutpostId`)],
+    endpointId: [, input.EndpointId!],
+    outpostId: [, input.OutpostId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -125,7 +125,7 @@ export const serializeAws_restJson1ListSharedEndpointsCommand = async (
   const query: any = map({
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    outpostId: [, __expectNonNull(input.OutpostId!, `OutpostId`)],
+    outpostId: [, input.OutpostId!],
   });
   let body: any;
   return new __HttpRequest({

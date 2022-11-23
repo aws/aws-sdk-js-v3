@@ -57,8 +57,8 @@ export const serializeAws_restJson1CancelChangeSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CancelChangeSet";
   const query: any = map({
-    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
-    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
+    catalog: [, input.Catalog!],
+    changeSetId: [, input.ChangeSetId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -81,8 +81,8 @@ export const serializeAws_restJson1DescribeChangeSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeChangeSet";
   const query: any = map({
-    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
-    changeSetId: [, __expectNonNull(input.ChangeSetId!, `ChangeSetId`)],
+    catalog: [, input.Catalog!],
+    changeSetId: [, input.ChangeSetId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -105,8 +105,8 @@ export const serializeAws_restJson1DescribeEntityCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DescribeEntity";
   const query: any = map({
-    catalog: [, __expectNonNull(input.Catalog!, `Catalog`)],
-    entityId: [, __expectNonNull(input.EntityId!, `EntityId`)],
+    catalog: [, input.Catalog!],
+    entityId: [, input.EntityId!],
   });
   let body: any;
   return new __HttpRequest({

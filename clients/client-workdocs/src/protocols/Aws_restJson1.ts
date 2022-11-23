@@ -557,10 +557,7 @@ export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DocumentId", () => input.DocumentId!, "{DocumentId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   const query: any = map({
-    deletePriorVersions: [
-      __expectNonNull(input.DeletePriorVersions, `DeletePriorVersions`) != null,
-      () => input.DeletePriorVersions!.toString(),
-    ],
+    deletePriorVersions: [() => input.DeletePriorVersions !== void 0, () => input.DeletePriorVersions!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -849,7 +846,7 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/groups";
   const query: any = map({
-    searchQuery: [, __expectNonNull(input.SearchQuery!, `SearchQuery`)],
+    searchQuery: [, input.SearchQuery!],
     organizationId: [, input.OrganizationId!],
     marker: [, input.Marker!],
     limit: [() => input.Limit !== void 0, () => input.Limit!.toString()],

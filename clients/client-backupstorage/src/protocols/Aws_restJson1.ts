@@ -223,8 +223,8 @@ export const serializeAws_restJson1NotifyObjectCompleteCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "BackupJobId", () => input.BackupJobId!, "{BackupJobId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "UploadId", () => input.UploadId!, "{UploadId}", false);
   const query: any = map({
-    checksum: [, __expectNonNull(input.ObjectChecksum!, `ObjectChecksum`)],
-    "checksum-algorithm": [, __expectNonNull(input.ObjectChecksumAlgorithm!, `ObjectChecksumAlgorithm`)],
+    checksum: [, input.ObjectChecksum!],
+    "checksum-algorithm": [, input.ObjectChecksumAlgorithm!],
     "metadata-string": [, input.MetadataString!],
     "metadata-blob-length": [() => input.MetadataBlobLength !== void 0, () => input.MetadataBlobLength!.toString()],
     "metadata-checksum": [, input.MetadataBlobChecksum!],
@@ -269,9 +269,9 @@ export const serializeAws_restJson1PutChunkCommand = async (
     false
   );
   const query: any = map({
-    length: [__expectNonNull(input.Length, `Length`) != null, () => input.Length!.toString()],
-    checksum: [, __expectNonNull(input.Checksum!, `Checksum`)],
-    "checksum-algorithm": [, __expectNonNull(input.ChecksumAlgorithm!, `ChecksumAlgorithm`)],
+    length: [() => input.Length !== void 0, () => input.Length!.toString()],
+    checksum: [, input.Checksum!],
+    "checksum-algorithm": [, input.ChecksumAlgorithm!],
   });
   let body: any;
   if (input.Data !== undefined) {

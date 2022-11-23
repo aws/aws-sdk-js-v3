@@ -1061,7 +1061,7 @@ export const serializeAws_restJson1DeleteQueuedMessagesCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Id}/data";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
   const query: any = map({
-    messageId: [, __expectNonNull(input.MessageId!, `MessageId`)],
+    messageId: [, input.MessageId!],
     WirelessDeviceType: [, input.WirelessDeviceType!],
   });
   let body: any;
@@ -1196,7 +1196,7 @@ export const serializeAws_restJson1DisassociateAwsAccountFromPartnerAccountComma
     false
   );
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    partnerType: [, input.PartnerType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1556,7 +1556,7 @@ export const serializeAws_restJson1GetPartnerAccountCommand = async (
     false
   );
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    partnerType: [, input.PartnerType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1588,7 +1588,7 @@ export const serializeAws_restJson1GetPositionCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1621,7 +1621,7 @@ export const serializeAws_restJson1GetPositionConfigurationCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1646,7 +1646,7 @@ export const serializeAws_restJson1GetResourceEventConfigurationCommand = async 
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    identifierType: [, input.IdentifierType!],
     partnerType: [, input.PartnerType!],
   });
   let body: any;
@@ -1679,7 +1679,7 @@ export const serializeAws_restJson1GetResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1747,7 +1747,7 @@ export const serializeAws_restJson1GetWirelessDeviceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-devices/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    identifierType: [, input.IdentifierType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1801,7 +1801,7 @@ export const serializeAws_restJson1GetWirelessGatewayCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/wireless-gateways/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    identifierType: [, input.IdentifierType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1986,7 +1986,7 @@ export const serializeAws_restJson1ListEventConfigurationsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations";
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
   });
@@ -2211,7 +2211,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    resourceArn: [, input.ResourceArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2326,7 +2326,7 @@ export const serializeAws_restJson1PutPositionConfigurationCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   body = JSON.stringify({
@@ -2366,7 +2366,7 @@ export const serializeAws_restJson1PutResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   body = JSON.stringify({
@@ -2423,7 +2423,7 @@ export const serializeAws_restJson1ResetResourceLogLevelCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2612,7 +2612,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
+    resourceArn: [, input.ResourceArn!],
   });
   let body: any;
   body = JSON.stringify({
@@ -2659,11 +2659,8 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
-    tagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    resourceArn: [, input.ResourceArn!],
+    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2912,7 +2909,7 @@ export const serializeAws_restJson1UpdatePartnerAccountCommand = async (
     false
   );
   const query: any = map({
-    partnerType: [, __expectNonNull(input.PartnerType!, `PartnerType`)],
+    partnerType: [, input.PartnerType!],
   });
   let body: any;
   body = JSON.stringify({
@@ -2949,7 +2946,7 @@ export const serializeAws_restJson1UpdatePositionCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
+    resourceType: [, input.ResourceType!],
   });
   let body: any;
   body = JSON.stringify({
@@ -2979,7 +2976,7 @@ export const serializeAws_restJson1UpdateResourceEventConfigurationCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/event-configurations/{Identifier}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Identifier", () => input.Identifier!, "{Identifier}", false);
   const query: any = map({
-    identifierType: [, __expectNonNull(input.IdentifierType!, `IdentifierType`)],
+    identifierType: [, input.IdentifierType!],
     partnerType: [, input.PartnerType!],
   });
   let body: any;

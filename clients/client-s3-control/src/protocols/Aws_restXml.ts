@@ -2582,7 +2582,7 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/priority";
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    priority: [__expectNonNull(input.Priority, `Priority`) != null, () => input.Priority!.toString()],
+    priority: [() => input.Priority !== void 0, () => input.Priority!.toString()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2620,7 +2620,7 @@ export const serializeAws_restXmlUpdateJobStatusCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/status";
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    requestedJobStatus: [, __expectNonNull(input.RequestedJobStatus!, `RequestedJobStatus`)],
+    requestedJobStatus: [, input.RequestedJobStatus!],
     statusUpdateReason: [, input.StatusUpdateReason!],
   });
   let body: any;

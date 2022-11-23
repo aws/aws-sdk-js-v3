@@ -226,8 +226,8 @@ export const serializeAws_restJson1DeleteWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    stepGroupId: [, input.stepGroupId!],
+    workflowId: [, input.workflowId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -251,7 +251,7 @@ export const serializeAws_restJson1DeleteWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    workflowId: [, input.workflowId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -296,8 +296,8 @@ export const serializeAws_restJson1GetTemplateStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/templatestep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    templateId: [, __expectNonNull(input.templateId!, `templateId`)],
-    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
+    templateId: [, input.templateId!],
+    stepGroupId: [, input.stepGroupId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -363,8 +363,8 @@ export const serializeAws_restJson1GetWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
-    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
+    workflowId: [, input.workflowId!],
+    stepGroupId: [, input.stepGroupId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -388,7 +388,7 @@ export const serializeAws_restJson1GetWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    workflowId: [, input.workflowId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -509,8 +509,8 @@ export const serializeAws_restJson1ListTemplateStepsCommand = async (
   const query: any = map({
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
-    templateId: [, __expectNonNull(input.templateId!, `templateId`)],
-    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
+    templateId: [, input.templateId!],
+    stepGroupId: [, input.stepGroupId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -563,7 +563,7 @@ export const serializeAws_restJson1ListWorkflowStepGroupsCommand = async (
   const query: any = map({
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    workflowId: [, input.workflowId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -615,8 +615,8 @@ export const serializeAws_restJson1RetryWorkflowStepCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/retryworkflowstep/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
-    stepGroupId: [, __expectNonNull(input.stepGroupId!, `stepGroupId`)],
+    workflowId: [, input.workflowId!],
+    stepGroupId: [, input.stepGroupId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -707,10 +707,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -806,7 +803,7 @@ export const serializeAws_restJson1UpdateWorkflowStepGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workflowstepgroup/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    workflowId: [, __expectNonNull(input.workflowId!, `workflowId`)],
+    workflowId: [, input.workflowId!],
   });
   let body: any;
   body = JSON.stringify({

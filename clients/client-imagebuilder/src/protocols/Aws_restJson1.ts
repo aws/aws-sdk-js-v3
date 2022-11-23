@@ -528,7 +528,7 @@ export const serializeAws_restJson1DeleteComponentCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteComponent";
   const query: any = map({
-    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
+    componentBuildVersionArn: [, input.componentBuildVersionArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -551,7 +551,7 @@ export const serializeAws_restJson1DeleteContainerRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteContainerRecipe";
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    containerRecipeArn: [, input.containerRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -575,10 +575,7 @@ export const serializeAws_restJson1DeleteDistributionConfigurationCommand = asyn
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteDistributionConfiguration";
   const query: any = map({
-    distributionConfigurationArn: [
-      ,
-      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
-    ],
+    distributionConfigurationArn: [, input.distributionConfigurationArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -601,7 +598,7 @@ export const serializeAws_restJson1DeleteImageCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImage";
   const query: any = map({
-    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
+    imageBuildVersionArn: [, input.imageBuildVersionArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -624,7 +621,7 @@ export const serializeAws_restJson1DeleteImagePipelineCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImagePipeline";
   const query: any = map({
-    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
+    imagePipelineArn: [, input.imagePipelineArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -647,7 +644,7 @@ export const serializeAws_restJson1DeleteImageRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteImageRecipe";
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    imageRecipeArn: [, input.imageRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -671,10 +668,7 @@ export const serializeAws_restJson1DeleteInfrastructureConfigurationCommand = as
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteInfrastructureConfiguration";
   const query: any = map({
-    infrastructureConfigurationArn: [
-      ,
-      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
-    ],
+    infrastructureConfigurationArn: [, input.infrastructureConfigurationArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -697,7 +691,7 @@ export const serializeAws_restJson1GetComponentCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponent";
   const query: any = map({
-    componentBuildVersionArn: [, __expectNonNull(input.componentBuildVersionArn!, `componentBuildVersionArn`)],
+    componentBuildVersionArn: [, input.componentBuildVersionArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -720,7 +714,7 @@ export const serializeAws_restJson1GetComponentPolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetComponentPolicy";
   const query: any = map({
-    componentArn: [, __expectNonNull(input.componentArn!, `componentArn`)],
+    componentArn: [, input.componentArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -743,7 +737,7 @@ export const serializeAws_restJson1GetContainerRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipe";
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    containerRecipeArn: [, input.containerRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -767,7 +761,7 @@ export const serializeAws_restJson1GetContainerRecipePolicyCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetContainerRecipePolicy";
   const query: any = map({
-    containerRecipeArn: [, __expectNonNull(input.containerRecipeArn!, `containerRecipeArn`)],
+    containerRecipeArn: [, input.containerRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -791,10 +785,7 @@ export const serializeAws_restJson1GetDistributionConfigurationCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetDistributionConfiguration";
   const query: any = map({
-    distributionConfigurationArn: [
-      ,
-      __expectNonNull(input.distributionConfigurationArn!, `distributionConfigurationArn`),
-    ],
+    distributionConfigurationArn: [, input.distributionConfigurationArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -817,7 +808,7 @@ export const serializeAws_restJson1GetImageCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImage";
   const query: any = map({
-    imageBuildVersionArn: [, __expectNonNull(input.imageBuildVersionArn!, `imageBuildVersionArn`)],
+    imageBuildVersionArn: [, input.imageBuildVersionArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -840,7 +831,7 @@ export const serializeAws_restJson1GetImagePipelineCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePipeline";
   const query: any = map({
-    imagePipelineArn: [, __expectNonNull(input.imagePipelineArn!, `imagePipelineArn`)],
+    imagePipelineArn: [, input.imagePipelineArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -863,7 +854,7 @@ export const serializeAws_restJson1GetImagePolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImagePolicy";
   const query: any = map({
-    imageArn: [, __expectNonNull(input.imageArn!, `imageArn`)],
+    imageArn: [, input.imageArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -886,7 +877,7 @@ export const serializeAws_restJson1GetImageRecipeCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipe";
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    imageRecipeArn: [, input.imageRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -909,7 +900,7 @@ export const serializeAws_restJson1GetImageRecipePolicyCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetImageRecipePolicy";
   const query: any = map({
-    imageRecipeArn: [, __expectNonNull(input.imageRecipeArn!, `imageRecipeArn`)],
+    imageRecipeArn: [, input.imageRecipeArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -933,10 +924,7 @@ export const serializeAws_restJson1GetInfrastructureConfigurationCommand = async
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/GetInfrastructureConfiguration";
   const query: any = map({
-    infrastructureConfigurationArn: [
-      ,
-      __expectNonNull(input.infrastructureConfigurationArn!, `infrastructureConfigurationArn`),
-    ],
+    infrastructureConfigurationArn: [, input.infrastructureConfigurationArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1498,10 +1486,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

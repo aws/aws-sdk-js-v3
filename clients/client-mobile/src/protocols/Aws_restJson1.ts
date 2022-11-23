@@ -122,7 +122,7 @@ export const serializeAws_restJson1DescribeProjectCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/project";
   const query: any = map({
-    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
+    projectId: [, input.projectId!],
     syncFromResources: [() => input.syncFromResources !== void 0, () => input.syncFromResources!.toString()],
   });
   let body: any;
@@ -241,7 +241,7 @@ export const serializeAws_restJson1UpdateProjectCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/update";
   const query: any = map({
-    projectId: [, __expectNonNull(input.projectId!, `projectId`)],
+    projectId: [, input.projectId!],
   });
   let body: any;
   if (input.contents !== undefined) {

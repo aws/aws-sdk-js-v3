@@ -1948,8 +1948,8 @@ export const serializeAws_restXmlListHostedZonesByVPCCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/hostedzonesbyvpc";
   const query: any = map({
-    vpcid: [, __expectNonNull(input.VPCId!, `VPCId`)],
-    vpcregion: [, __expectNonNull(input.VPCRegion!, `VPCRegion`)],
+    vpcid: [, input.VPCId!],
+    vpcregion: [, input.VPCRegion!],
     maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
     nexttoken: [, input.NextToken!],
   });
@@ -2187,7 +2187,7 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByHostedZoneCommand =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2013-04-01/trafficpolicyinstances/hostedzone";
   const query: any = map({
-    id: [, __expectNonNull(input.HostedZoneId!, `HostedZoneId`)],
+    id: [, input.HostedZoneId!],
     trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],
     trafficpolicyinstancetype: [, input.TrafficPolicyInstanceTypeMarker!],
     maxitems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
@@ -2215,11 +2215,8 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2013-04-01/trafficpolicyinstances/trafficpolicy";
   const query: any = map({
-    id: [, __expectNonNull(input.TrafficPolicyId!, `TrafficPolicyId`)],
-    version: [
-      __expectNonNull(input.TrafficPolicyVersion, `TrafficPolicyVersion`) != null,
-      () => input.TrafficPolicyVersion!.toString(),
-    ],
+    id: [, input.TrafficPolicyId!],
+    version: [() => input.TrafficPolicyVersion !== void 0, () => input.TrafficPolicyVersion!.toString()],
     hostedzoneid: [, input.HostedZoneIdMarker!],
     trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],
     trafficpolicyinstancetype: [, input.TrafficPolicyInstanceTypeMarker!],
@@ -2307,9 +2304,9 @@ export const serializeAws_restXmlTestDNSAnswerCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2013-04-01/testdnsanswer";
   const query: any = map({
-    hostedzoneid: [, __expectNonNull(input.HostedZoneId!, `HostedZoneId`)],
-    recordname: [, __expectNonNull(input.RecordName!, `RecordName`)],
-    recordtype: [, __expectNonNull(input.RecordType!, `RecordType`)],
+    hostedzoneid: [, input.HostedZoneId!],
+    recordname: [, input.RecordName!],
+    recordtype: [, input.RecordType!],
     resolverip: [, input.ResolverIP!],
     edns0clientsubnetip: [, input.EDNS0ClientSubnetIP!],
     edns0clientsubnetmask: [, input.EDNS0ClientSubnetMask!],

@@ -654,7 +654,7 @@ export const serializeAws_restXmlAssociateAliasCommand = async (
     false
   );
   const query: any = map({
-    Alias: [, __expectNonNull(input.Alias!, `Alias`)],
+    Alias: [, input.Alias!],
   });
   let body: any;
   return new __HttpRequest({
@@ -2428,8 +2428,8 @@ export const serializeAws_restXmlListConflictingAliasesCommand = async (
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/conflicting-alias";
   const query: any = map({
-    DistributionId: [, __expectNonNull(input.DistributionId!, `DistributionId`)],
-    Alias: [, __expectNonNull(input.Alias!, `Alias`)],
+    DistributionId: [, input.DistributionId!],
+    Alias: [, input.Alias!],
     Marker: [, input.Marker!],
     MaxItems: [() => input.MaxItems !== void 0, () => input.MaxItems!.toString()],
   });
@@ -2988,7 +2988,7 @@ export const serializeAws_restXmlListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = map({
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    Resource: [, input.Resource!],
   });
   let body: any;
   return new __HttpRequest({
@@ -3037,7 +3037,7 @@ export const serializeAws_restXmlTagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = map({
     Operation: [, "Tag"],
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    Resource: [, input.Resource!],
   });
   let body: any;
   if (input.Tags !== undefined) {
@@ -3109,7 +3109,7 @@ export const serializeAws_restXmlUntagResourceCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/tagging";
   const query: any = map({
     Operation: [, "Untag"],
-    Resource: [, __expectNonNull(input.Resource!, `Resource`)],
+    Resource: [, input.Resource!],
   });
   let body: any;
   if (input.TagKeys !== undefined) {

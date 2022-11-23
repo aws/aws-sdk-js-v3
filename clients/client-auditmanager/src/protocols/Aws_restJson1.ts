@@ -664,7 +664,7 @@ export const serializeAws_restJson1DeleteAssessmentFrameworkShareCommand = async
     "/assessmentFrameworkShareRequests/{requestId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "requestId", () => input.requestId!, "{requestId}", false);
   const query: any = map({
-    requestType: [, __expectNonNull(input.requestType!, `requestType`)],
+    requestType: [, input.requestType!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1348,8 +1348,8 @@ export const serializeAws_restJson1ListAssessmentControlInsightsByControlDomainC
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/controls-by-assessment";
   const query: any = map({
-    controlDomainId: [, __expectNonNull(input.controlDomainId!, `controlDomainId`)],
-    assessmentId: [, __expectNonNull(input.assessmentId!, `assessmentId`)],
+    controlDomainId: [, input.controlDomainId!],
+    assessmentId: [, input.assessmentId!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1374,7 +1374,7 @@ export const serializeAws_restJson1ListAssessmentFrameworksCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworks";
   const query: any = map({
-    frameworkType: [, __expectNonNull(input.frameworkType!, `frameworkType`)],
+    frameworkType: [, input.frameworkType!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1400,7 +1400,7 @@ export const serializeAws_restJson1ListAssessmentFrameworkShareRequestsCommand =
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assessmentFrameworkShareRequests";
   const query: any = map({
-    requestType: [, __expectNonNull(input.requestType!, `requestType`)],
+    requestType: [, input.requestType!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1500,7 +1500,7 @@ export const serializeAws_restJson1ListControlDomainInsightsByAssessmentCommand 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/control-domains-by-assessment";
   const query: any = map({
-    assessmentId: [, __expectNonNull(input.assessmentId!, `assessmentId`)],
+    assessmentId: [, input.assessmentId!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1525,7 +1525,7 @@ export const serializeAws_restJson1ListControlInsightsByControlDomainCommand = a
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/insights/controls";
   const query: any = map({
-    controlDomainId: [, __expectNonNull(input.controlDomainId!, `controlDomainId`)],
+    controlDomainId: [, input.controlDomainId!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1550,7 +1550,7 @@ export const serializeAws_restJson1ListControlsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/controls";
   const query: any = map({
-    controlType: [, __expectNonNull(input.controlType!, `controlType`)],
+    controlType: [, input.controlType!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1575,7 +1575,7 @@ export const serializeAws_restJson1ListKeywordsForDataSourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataSourceKeywords";
   const query: any = map({
-    source: [, __expectNonNull(input.source!, `source`)],
+    source: [, input.source!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1750,10 +1750,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

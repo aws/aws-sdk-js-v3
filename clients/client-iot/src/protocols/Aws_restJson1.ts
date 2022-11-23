@@ -1103,7 +1103,7 @@ export const serializeAws_restJson1AttachSecurityProfileCommand = async (
     false
   );
   const query: any = map({
-    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
+    securityProfileTargetArn: [, input.securityProfileTargetArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -3142,8 +3142,8 @@ export const serializeAws_restJson1DeleteV2LoggingLevelCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2LoggingLevel";
   const query: any = map({
-    targetType: [, __expectNonNull(input.targetType!, `targetType`)],
-    targetName: [, __expectNonNull(input.targetName!, `targetName`)],
+    targetType: [, input.targetType!],
+    targetName: [, input.targetName!],
   });
   let body: any;
   return new __HttpRequest({
@@ -4068,7 +4068,7 @@ export const serializeAws_restJson1DetachSecurityProfileCommand = async (
     false
   );
   const query: any = map({
-    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
+    securityProfileTargetArn: [, input.securityProfileTargetArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -4632,9 +4632,9 @@ export const serializeAws_restJson1ListAuditMitigationActionsExecutionsCommand =
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/mitigationactions/executions";
   const query: any = map({
-    taskId: [, __expectNonNull(input.taskId!, `taskId`)],
+    taskId: [, input.taskId!],
     actionStatus: [, input.actionStatus!],
-    findingId: [, __expectNonNull(input.findingId!, `findingId`)],
+    findingId: [, input.findingId!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -4666,13 +4666,10 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -4727,13 +4724,10 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/tasks";
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     taskType: [, input.taskType!],
     taskStatus: [, input.taskStatus!],
     nextToken: [, input.nextToken!],
@@ -4957,13 +4951,10 @@ export const serializeAws_restJson1ListDetectMitigationActionsTasksCommand = asy
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -5215,18 +5206,15 @@ export const serializeAws_restJson1ListMetricValuesCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/metric-values";
   const query: any = map({
-    thingName: [, __expectNonNull(input.thingName!, `thingName`)],
-    metricName: [, __expectNonNull(input.metricName!, `metricName`)],
+    thingName: [, input.thingName!],
+    metricName: [, input.metricName!],
     dimensionName: [, input.dimensionName!],
     dimensionValueOperator: [, input.dimensionValueOperator!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
   });
@@ -5514,7 +5502,7 @@ export const serializeAws_restJson1ListRelatedResourcesForAuditFindingCommand = 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/relatedResources";
   const query: any = map({
-    findingId: [, __expectNonNull(input.findingId!, `findingId`)],
+    findingId: [, input.findingId!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -5618,7 +5606,7 @@ export const serializeAws_restJson1ListSecurityProfilesForTargetCommand = async 
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     recursive: [() => input.recursive !== void 0, () => input.recursive!.toString()],
-    securityProfileTargetArn: [, __expectNonNull(input.securityProfileTargetArn!, `securityProfileTargetArn`)],
+    securityProfileTargetArn: [, input.securityProfileTargetArn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -5666,7 +5654,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
     nextToken: [, input.nextToken!],
   });
   let body: any;
@@ -5832,7 +5820,7 @@ export const serializeAws_restJson1ListThingRegistrationTaskReportsCommand = asy
     "/thing-registration-tasks/{taskId}/reports";
   resolvedPath = __resolvedPath(resolvedPath, input, "taskId", () => input.taskId!, "{taskId}", false);
   const query: any = map({
-    reportType: [, __expectNonNull(input.reportType!, `reportType`)],
+    reportType: [, input.reportType!],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -6082,13 +6070,10 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/violation-events";
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     thingName: [, input.thingName!],
     securityProfileName: [, input.securityProfileName!],
     behaviorCriteriaType: [, input.behaviorCriteriaType!],
@@ -6809,7 +6794,7 @@ export const serializeAws_restJson1TransferCertificateCommand = async (
     false
   );
   const query: any = map({
-    targetAwsAccount: [, __expectNonNull(input.targetAwsAccount!, `targetAwsAccount`)],
+    targetAwsAccount: [, input.targetAwsAccount!],
   });
   let body: any;
   body = JSON.stringify({
@@ -7049,7 +7034,7 @@ export const serializeAws_restJson1UpdateCertificateCommand = async (
     false
   );
   const query: any = map({
-    newStatus: [, __expectNonNull(input.newStatus!, `newStatus`)],
+    newStatus: [, input.newStatus!],
   });
   let body: any;
   return new __HttpRequest({

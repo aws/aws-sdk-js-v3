@@ -263,7 +263,7 @@ export const serializeAws_restJson1DeleteReplicationSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/deleteReplicationSet";
   const query: any = map({
-    arn: [, __expectNonNull(input.arn!, `arn`)],
+    arn: [, input.arn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -360,7 +360,7 @@ export const serializeAws_restJson1GetIncidentRecordCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getIncidentRecord";
   const query: any = map({
-    arn: [, __expectNonNull(input.arn!, `arn`)],
+    arn: [, input.arn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -383,7 +383,7 @@ export const serializeAws_restJson1GetReplicationSetCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getReplicationSet";
   const query: any = map({
-    arn: [, __expectNonNull(input.arn!, `arn`)],
+    arn: [, input.arn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -408,7 +408,7 @@ export const serializeAws_restJson1GetResourcePoliciesCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getResourcePolicies";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   body = JSON.stringify({
@@ -435,7 +435,7 @@ export const serializeAws_restJson1GetResponsePlanCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getResponsePlan";
   const query: any = map({
-    arn: [, __expectNonNull(input.arn!, `arn`)],
+    arn: [, input.arn!],
   });
   let body: any;
   return new __HttpRequest({
@@ -458,8 +458,8 @@ export const serializeAws_restJson1GetTimelineEventCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/getTimelineEvent";
   const query: any = map({
-    incidentRecordArn: [, __expectNonNull(input.incidentRecordArn!, `incidentRecordArn`)],
-    eventId: [, __expectNonNull(input.eventId!, `eventId`)],
+    incidentRecordArn: [, input.incidentRecordArn!],
+    eventId: [, input.eventId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -717,10 +717,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

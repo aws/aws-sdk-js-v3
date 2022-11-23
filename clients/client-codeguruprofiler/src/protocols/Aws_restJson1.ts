@@ -237,7 +237,7 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    clientToken: [, input.clientToken!],
   });
   let body: any;
   body = JSON.stringify({
@@ -460,13 +460,10 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     locale: [, input.locale!],
   });
   let body: any;
@@ -501,13 +498,10 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     dailyReportsOnly: [() => input.dailyReportsOnly !== void 0, () => input.dailyReportsOnly!.toString()],
@@ -544,14 +538,11 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
+      () => input.startTime !== void 0,
       () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
-    ],
-    period: [, __expectNonNull(input.period!, `period`)],
+    endTime: [() => input.endTime !== void 0, () => (input.endTime!.toISOString().split(".")[0] + "Z").toString()],
+    period: [, input.period!],
     orderBy: [, input.orderBy!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -737,7 +728,7 @@ export const serializeAws_restJson1RemovePermissionCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "actionGroup", () => input.actionGroup!, "{actionGroup}", false);
   const query: any = map({
-    revisionId: [, __expectNonNull(input.revisionId!, `revisionId`)],
+    revisionId: [, input.revisionId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -829,10 +820,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({

@@ -1092,7 +1092,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tags";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
     nextToken: [, input.nextToken!],
     limit: [() => input.limit !== void 0, () => input.limit!.toString()],
   });
@@ -1230,7 +1230,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/tag";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   body = JSON.stringify({
@@ -1258,7 +1258,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20190125/untag";
   const query: any = map({
-    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
+    resourceArn: [, input.resourceArn!],
   });
   let body: any;
   body = JSON.stringify({

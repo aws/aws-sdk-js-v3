@@ -202,7 +202,7 @@ export const serializeAws_restJson1DescribeRecommendationFeedbackCommand = async
     false
   );
   const query: any = map({
-    RecommendationId: [, __expectNonNull(input.RecommendationId!, `RecommendationId`)],
+    RecommendationId: [, input.RecommendationId!],
     UserId: [, input.UserId!],
   });
   let body: any;
@@ -291,7 +291,7 @@ export const serializeAws_restJson1ListCodeReviewsCommand = async (
       () => input.RepositoryNames !== void 0,
       () => (input.RepositoryNames! || []).map((_entry) => _entry as any),
     ],
-    Type: [, __expectNonNull(input.Type!, `Type`)],
+    Type: [, input.Type!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     NextToken: [, input.NextToken!],
   });
@@ -492,10 +492,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
-    ],
+    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
