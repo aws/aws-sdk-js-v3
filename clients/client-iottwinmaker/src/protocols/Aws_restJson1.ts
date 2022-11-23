@@ -960,8 +960,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const query: any = map({
     resourceARN: [, __expectNonNull(input.resourceARN!, `resourceARN`)],
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

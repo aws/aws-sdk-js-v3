@@ -3004,8 +3004,12 @@ export const serializeAws_restJson1ListContactReferencesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
   const query: any = map({
     referenceTypes: [
-      __expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null,
-      () => (input.ReferenceTypes! || []).map((_entry) => _entry as any),
+      () => input.ReferenceTypes !== void 0,
+      () =>
+        __expectNonNull(
+          (input.ReferenceTypes! || []).map((_entry) => _entry as any),
+          `ReferenceTypes`
+        ),
     ],
     nextToken: [, input.NextToken!],
   });
@@ -4407,8 +4411,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

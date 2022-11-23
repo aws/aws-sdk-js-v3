@@ -460,12 +460,12 @@ export const serializeAws_restJson1GetRecommendationsCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     locale: [, input.locale!],
   });
@@ -501,12 +501,12 @@ export const serializeAws_restJson1ListFindingsReportsCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -544,12 +544,12 @@ export const serializeAws_restJson1ListProfileTimesCommand = async (
   );
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     period: [, __expectNonNull(input.period!, `period`)],
     orderBy: [, input.orderBy!],
@@ -830,8 +830,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

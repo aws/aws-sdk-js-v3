@@ -269,7 +269,7 @@ export const serializeAws_restJson1PutChunkCommand = async (
     false
   );
   const query: any = map({
-    length: [__expectNonNull(input.Length, `Length`) != null, () => input.Length!.toString()],
+    length: [() => input.Length !== void 0, () => __expectNonNull(input.Length!.toString(), `Length`)],
     checksum: [, __expectNonNull(input.Checksum!, `Checksum`)],
     "checksum-algorithm": [, __expectNonNull(input.ChecksumAlgorithm!, `ChecksumAlgorithm`)],
   });

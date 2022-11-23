@@ -558,8 +558,8 @@ export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "VersionId", () => input.VersionId!, "{VersionId}", false);
   const query: any = map({
     deletePriorVersions: [
-      __expectNonNull(input.DeletePriorVersions, `DeletePriorVersions`) != null,
-      () => input.DeletePriorVersions!.toString(),
+      () => input.DeletePriorVersions !== void 0,
+      () => __expectNonNull(input.DeletePriorVersions!.toString(), `DeletePriorVersions`),
     ],
   });
   let body: any;

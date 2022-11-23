@@ -1671,18 +1671,22 @@ export const serializeAws_restJson1GetAssetPropertyAggregatesCommand = async (
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
     aggregateTypes: [
-      __expectNonNull(input.aggregateTypes, `aggregateTypes`) != null,
-      () => (input.aggregateTypes! || []).map((_entry) => _entry as any),
+      () => input.aggregateTypes !== void 0,
+      () =>
+        __expectNonNull(
+          (input.aggregateTypes! || []).map((_entry) => _entry as any),
+          `aggregateTypes`
+        ),
     ],
     resolution: [, __expectNonNull(input.resolution!, `resolution`)],
     qualities: [() => input.qualities !== void 0, () => (input.qualities! || []).map((_entry) => _entry as any)],
     startDate: [
-      __expectNonNull(input.startDate, `startDate`) != null,
-      () => (input.startDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startDate !== void 0,
+      () => __expectNonNull((input.startDate!.toISOString().split(".")[0] + "Z").toString(), `startDate`),
     ],
     endDate: [
-      __expectNonNull(input.endDate, `endDate`) != null,
-      () => (input.endDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endDate !== void 0,
+      () => __expectNonNull((input.endDate!.toISOString().split(".")[0] + "Z").toString(), `endDate`),
     ],
     timeOrdering: [, input.timeOrdering!],
     nextToken: [, input.nextToken!],
@@ -1794,22 +1798,22 @@ export const serializeAws_restJson1GetInterpolatedAssetPropertyValuesCommand = a
     propertyId: [, input.propertyId!],
     propertyAlias: [, input.propertyAlias!],
     startTimeInSeconds: [
-      __expectNonNull(input.startTimeInSeconds, `startTimeInSeconds`) != null,
-      () => input.startTimeInSeconds!.toString(),
+      () => input.startTimeInSeconds !== void 0,
+      () => __expectNonNull(input.startTimeInSeconds!.toString(), `startTimeInSeconds`),
     ],
     startTimeOffsetInNanos: [
       () => input.startTimeOffsetInNanos !== void 0,
       () => input.startTimeOffsetInNanos!.toString(),
     ],
     endTimeInSeconds: [
-      __expectNonNull(input.endTimeInSeconds, `endTimeInSeconds`) != null,
-      () => input.endTimeInSeconds!.toString(),
+      () => input.endTimeInSeconds !== void 0,
+      () => __expectNonNull(input.endTimeInSeconds!.toString(), `endTimeInSeconds`),
     ],
     endTimeOffsetInNanos: [() => input.endTimeOffsetInNanos !== void 0, () => input.endTimeOffsetInNanos!.toString()],
     quality: [, __expectNonNull(input.quality!, `quality`)],
     intervalInSeconds: [
-      __expectNonNull(input.intervalInSeconds, `intervalInSeconds`) != null,
-      () => input.intervalInSeconds!.toString(),
+      () => input.intervalInSeconds !== void 0,
+      () => __expectNonNull(input.intervalInSeconds!.toString(), `intervalInSeconds`),
     ],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
@@ -2488,8 +2492,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const query: any = map({
     resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

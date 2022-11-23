@@ -2217,8 +2217,8 @@ export const serializeAws_restXmlListTrafficPolicyInstancesByPolicyCommand = asy
   const query: any = map({
     id: [, __expectNonNull(input.TrafficPolicyId!, `TrafficPolicyId`)],
     version: [
-      __expectNonNull(input.TrafficPolicyVersion, `TrafficPolicyVersion`) != null,
-      () => input.TrafficPolicyVersion!.toString(),
+      () => input.TrafficPolicyVersion !== void 0,
+      () => __expectNonNull(input.TrafficPolicyVersion!.toString(), `TrafficPolicyVersion`),
     ],
     hostedzoneid: [, input.HostedZoneIdMarker!],
     trafficpolicyinstancename: [, input.TrafficPolicyInstanceNameMarker!],

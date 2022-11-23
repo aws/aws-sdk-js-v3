@@ -4666,12 +4666,12 @@ export const serializeAws_restJson1ListAuditMitigationActionsTasksCommand = asyn
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
   });
   let body: any;
@@ -4727,12 +4727,12 @@ export const serializeAws_restJson1ListAuditTasksCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/audit/tasks";
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     taskType: [, input.taskType!],
     taskStatus: [, input.taskStatus!],
@@ -4957,12 +4957,12 @@ export const serializeAws_restJson1ListDetectMitigationActionsTasksCommand = asy
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
   });
   let body: any;
@@ -5220,12 +5220,12 @@ export const serializeAws_restJson1ListMetricValuesCommand = async (
     dimensionName: [, input.dimensionName!],
     dimensionValueOperator: [, input.dimensionValueOperator!],
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
@@ -6082,12 +6082,12 @@ export const serializeAws_restJson1ListViolationEventsCommand = async (
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/violation-events";
   const query: any = map({
     startTime: [
-      __expectNonNull(input.startTime, `startTime`) != null,
-      () => (input.startTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.startTime !== void 0,
+      () => __expectNonNull((input.startTime!.toISOString().split(".")[0] + "Z").toString(), `startTime`),
     ],
     endTime: [
-      __expectNonNull(input.endTime, `endTime`) != null,
-      () => (input.endTime!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.endTime !== void 0,
+      () => __expectNonNull((input.endTime!.toISOString().split(".")[0] + "Z").toString(), `endTime`),
     ],
     thingName: [, input.thingName!],
     securityProfileName: [, input.securityProfileName!],

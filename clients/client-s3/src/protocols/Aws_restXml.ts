@@ -3518,7 +3518,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPart"],
-    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    partNumber: [() => input.PartNumber !== void 0, () => __expectNonNull(input.PartNumber!.toString(), `PartNumber`)],
     uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;
@@ -3575,7 +3575,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Key", () => input.Key!, "{Key+}", true);
   const query: any = map({
     "x-id": [, "UploadPartCopy"],
-    partNumber: [__expectNonNull(input.PartNumber, `PartNumber`) != null, () => input.PartNumber!.toString()],
+    partNumber: [() => input.PartNumber !== void 0, () => __expectNonNull(input.PartNumber!.toString(), `PartNumber`)],
     uploadId: [, __expectNonNull(input.UploadId!, `UploadId`)],
   });
   let body: any;

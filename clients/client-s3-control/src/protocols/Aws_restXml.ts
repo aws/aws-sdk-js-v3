@@ -2582,7 +2582,7 @@ export const serializeAws_restXmlUpdateJobPriorityCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/jobs/{JobId}/priority";
   resolvedPath = __resolvedPath(resolvedPath, input, "JobId", () => input.JobId!, "{JobId}", false);
   const query: any = map({
-    priority: [__expectNonNull(input.Priority, `Priority`) != null, () => input.Priority!.toString()],
+    priority: [() => input.Priority !== void 0, () => __expectNonNull(input.Priority!.toString(), `Priority`)],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();

@@ -208,14 +208,14 @@ export const serializeAws_restJson1ListDeviceEventsCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "DeviceId", () => input.DeviceId!, "{DeviceId}", false);
   const query: any = map({
     fromTimeStamp: [
-      __expectNonNull(input.FromTimeStamp, `FromTimeStamp`) != null,
-      () => (input.FromTimeStamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.FromTimeStamp !== void 0,
+      () => __expectNonNull((input.FromTimeStamp!.toISOString().split(".")[0] + "Z").toString(), `FromTimeStamp`),
     ],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     nextToken: [, input.NextToken!],
     toTimeStamp: [
-      __expectNonNull(input.ToTimeStamp, `ToTimeStamp`) != null,
-      () => (input.ToTimeStamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.ToTimeStamp !== void 0,
+      () => __expectNonNull((input.ToTimeStamp!.toISOString().split(".")[0] + "Z").toString(), `ToTimeStamp`),
     ],
   });
   let body: any;
@@ -332,8 +332,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => input.TagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.TagKeys! || []).map((_entry) => _entry as any),
+          `TagKeys`
+        ),
     ],
   });
   let body: any;

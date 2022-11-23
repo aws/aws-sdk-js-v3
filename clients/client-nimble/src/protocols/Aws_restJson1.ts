@@ -754,8 +754,12 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   const query: any = map({
     launchProfileProtocolVersions: [
-      __expectNonNull(input.launchProfileProtocolVersions, `launchProfileProtocolVersions`) != null,
-      () => (input.launchProfileProtocolVersions! || []).map((_entry) => _entry as any),
+      () => input.launchProfileProtocolVersions !== void 0,
+      () =>
+        __expectNonNull(
+          (input.launchProfileProtocolVersions! || []).map((_entry) => _entry as any),
+          `launchProfileProtocolVersions`
+        ),
     ],
     launchPurpose: [, __expectNonNull(input.launchPurpose!, `launchPurpose`)],
     platform: [, __expectNonNull(input.platform!, `platform`)],
@@ -1401,8 +1405,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

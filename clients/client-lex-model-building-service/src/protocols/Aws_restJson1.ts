@@ -916,8 +916,12 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   const query: any = map({
     view: [, "aggregation"],
     bot_versions: [
-      __expectNonNull(input.botVersions, `botVersions`) != null,
-      () => (input.botVersions! || []).map((_entry) => _entry as any),
+      () => input.botVersions !== void 0,
+      () =>
+        __expectNonNull(
+          (input.botVersions! || []).map((_entry) => _entry as any),
+          `botVersions`
+        ),
     ],
     status_type: [, __expectNonNull(input.statusType!, `statusType`)],
   });
@@ -1219,8 +1223,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+      () => input.tagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.tagKeys! || []).map((_entry) => _entry as any),
+          `tagKeys`
+        ),
     ],
   });
   let body: any;

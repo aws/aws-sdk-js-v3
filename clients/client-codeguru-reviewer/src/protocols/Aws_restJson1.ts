@@ -493,8 +493,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
     tagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => input.TagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.TagKeys! || []).map((_entry) => _entry as any),
+          `TagKeys`
+        ),
     ],
   });
   let body: any;

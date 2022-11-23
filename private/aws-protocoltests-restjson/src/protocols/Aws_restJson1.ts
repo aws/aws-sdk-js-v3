@@ -2132,8 +2132,8 @@ export const serializeAws_restJson1MalformedTimestampQueryDefaultCommand = async
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryDefault";
   const query: any = map({
     timestamp: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => (input.timestamp!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.timestamp !== void 0,
+      () => __expectNonNull((input.timestamp!.toISOString().split(".")[0] + "Z").toString(), `timestamp`),
     ],
   });
   let body: any;
@@ -2159,8 +2159,8 @@ export const serializeAws_restJson1MalformedTimestampQueryEpochCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryEpoch";
   const query: any = map({
     timestamp: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => Math.round(input.timestamp!.getTime() / 1000).toString(),
+      () => input.timestamp !== void 0,
+      () => __expectNonNull(Math.round(input.timestamp!.getTime() / 1000).toString(), `timestamp`),
     ],
   });
   let body: any;
@@ -2186,8 +2186,8 @@ export const serializeAws_restJson1MalformedTimestampQueryHttpDateCommand = asyn
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/MalformedTimestampQueryHttpDate";
   const query: any = map({
     timestamp: [
-      __expectNonNull(input.timestamp, `timestamp`) != null,
-      () => __dateToUtcString(input.timestamp!).toString(),
+      () => input.timestamp !== void 0,
+      () => __expectNonNull(__dateToUtcString(input.timestamp!).toString(), `timestamp`),
     ],
   });
   let body: any;

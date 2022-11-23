@@ -1091,8 +1091,12 @@ export const serializeAws_restJson1GetBlacklistReportsCommand = async (
     "/v2/email/deliverability-dashboard/blacklist-report";
   const query: any = map({
     BlacklistItemNames: [
-      __expectNonNull(input.BlacklistItemNames, `BlacklistItemNames`) != null,
-      () => (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
+      () => input.BlacklistItemNames !== void 0,
+      () =>
+        __expectNonNull(
+          (input.BlacklistItemNames! || []).map((_entry) => _entry as any),
+          `BlacklistItemNames`
+        ),
     ],
   });
   let body: any;
@@ -1407,12 +1411,12 @@ export const serializeAws_restJson1GetDomainStatisticsReportCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Domain", () => input.Domain!, "{Domain}", false);
   const query: any = map({
     StartDate: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.StartDate !== void 0,
+      () => __expectNonNull((input.StartDate!.toISOString().split(".")[0] + "Z").toString(), `StartDate`),
     ],
     EndDate: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.EndDate !== void 0,
+      () => __expectNonNull((input.EndDate!.toISOString().split(".")[0] + "Z").toString(), `EndDate`),
     ],
   });
   let body: any;
@@ -1748,12 +1752,12 @@ export const serializeAws_restJson1ListDomainDeliverabilityCampaignsCommand = as
   );
   const query: any = map({
     StartDate: [
-      __expectNonNull(input.StartDate, `StartDate`) != null,
-      () => (input.StartDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.StartDate !== void 0,
+      () => __expectNonNull((input.StartDate!.toISOString().split(".")[0] + "Z").toString(), `StartDate`),
     ],
     EndDate: [
-      __expectNonNull(input.EndDate, `EndDate`) != null,
-      () => (input.EndDate!.toISOString().split(".")[0] + "Z").toString(),
+      () => input.EndDate !== void 0,
+      () => __expectNonNull((input.EndDate!.toISOString().split(".")[0] + "Z").toString(), `EndDate`),
     ],
     NextToken: [, input.NextToken!],
     PageSize: [() => input.PageSize !== void 0, () => input.PageSize!.toString()],
@@ -2740,8 +2744,12 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const query: any = map({
     ResourceArn: [, __expectNonNull(input.ResourceArn!, `ResourceArn`)],
     TagKeys: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+      () => input.TagKeys !== void 0,
+      () =>
+        __expectNonNull(
+          (input.TagKeys! || []).map((_entry) => _entry as any),
+          `TagKeys`
+        ),
     ],
   });
   let body: any;
