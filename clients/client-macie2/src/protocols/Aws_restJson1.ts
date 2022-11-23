@@ -843,7 +843,7 @@ export const serializeAws_restJson1DisableOrganizationAdminAccountCommand = asyn
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/admin";
   const query: any = map({
-    adminAccountId: [, input.adminAccountId!],
+    adminAccountId: [, __expectNonNull(input.adminAccountId!, `adminAccountId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1796,7 +1796,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({

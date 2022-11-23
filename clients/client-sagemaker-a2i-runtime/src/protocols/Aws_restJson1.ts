@@ -109,7 +109,7 @@ export const serializeAws_restJson1ListHumanLoopsCommand = async (
       () => input.CreationTimeBefore !== void 0,
       () => (input.CreationTimeBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
-    FlowDefinitionArn: [, input.FlowDefinitionArn!],
+    FlowDefinitionArn: [, __expectNonNull(input.FlowDefinitionArn!, `FlowDefinitionArn`)],
     SortOrder: [, input.SortOrder!],
     NextToken: [, input.NextToken!],
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],

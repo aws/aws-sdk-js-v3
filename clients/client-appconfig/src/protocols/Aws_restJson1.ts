@@ -686,7 +686,7 @@ export const serializeAws_restJson1GetConfigurationCommand = async (
     false
   );
   const query: any = map({
-    client_id: [, input.ClientId!],
+    client_id: [, __expectNonNull(input.ClientId!, `ClientId`)],
     client_configuration_version: [, input.ClientConfigurationVersion!],
   });
   let body: any;
@@ -1357,7 +1357,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{ResourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -1631,7 +1634,7 @@ export const serializeAws_restJson1ValidateConfigurationCommand = async (
     false
   );
   const query: any = map({
-    configuration_version: [, input.ConfigurationVersion!],
+    configuration_version: [, __expectNonNull(input.ConfigurationVersion!, `ConfigurationVersion`)],
   });
   let body: any;
   return new __HttpRequest({

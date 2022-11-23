@@ -2070,7 +2070,7 @@ export const serializeAws_restJson1DescribeInstanceStorageConfigCommand = async 
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2366,7 +2366,7 @@ export const serializeAws_restJson1DisassociateApprovedOriginCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/approved-origin";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    origin: [, input.Origin!],
+    origin: [, __expectNonNull(input.Origin!, `Origin`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2427,7 +2427,7 @@ export const serializeAws_restJson1DisassociateInstanceStorageConfigCommand = as
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2452,7 +2452,7 @@ export const serializeAws_restJson1DisassociateLambdaFunctionCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lambda-function";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    functionArn: [, input.FunctionArn!],
+    functionArn: [, __expectNonNull(input.FunctionArn!, `FunctionArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2477,8 +2477,8 @@ export const serializeAws_restJson1DisassociateLexBotCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/lex-bot";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    botName: [, input.BotName!],
-    lexRegion: [, input.LexRegion!],
+    botName: [, __expectNonNull(input.BotName!, `BotName`)],
+    lexRegion: [, __expectNonNull(input.LexRegion!, `LexRegion`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2511,7 +2511,7 @@ export const serializeAws_restJson1DisassociatePhoneNumberContactFlowCommand = a
     false
   );
   const query: any = map({
-    instanceId: [, input.InstanceId!],
+    instanceId: [, __expectNonNull(input.InstanceId!, `InstanceId`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -2918,7 +2918,7 @@ export const serializeAws_restJson1ListBotsCommand = async (
   const query: any = map({
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
-    lexVersion: [, input.LexVersion!],
+    lexVersion: [, __expectNonNull(input.LexVersion!, `LexVersion`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -3004,7 +3004,7 @@ export const serializeAws_restJson1ListContactReferencesCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ContactId", () => input.ContactId!, "{ContactId}", false);
   const query: any = map({
     referenceTypes: [
-      () => input.ReferenceTypes !== void 0,
+      __expectNonNull(input.ReferenceTypes, `ReferenceTypes`) != null,
       () => (input.ReferenceTypes! || []).map((_entry) => _entry as any),
     ],
     nextToken: [, input.NextToken!],
@@ -3136,7 +3136,7 @@ export const serializeAws_restJson1ListInstanceStorageConfigsCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/instance/{InstanceId}/storage-configs";
   resolvedPath = __resolvedPath(resolvedPath, input, "InstanceId", () => input.InstanceId!, "{InstanceId}", false);
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
     nextToken: [, input.NextToken!],
     maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
@@ -4406,7 +4406,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -4815,7 +4818,7 @@ export const serializeAws_restJson1UpdateInstanceStorageConfigCommand = async (
     false
   );
   const query: any = map({
-    resourceType: [, input.ResourceType!],
+    resourceType: [, __expectNonNull(input.ResourceType!, `ResourceType`)],
   });
   let body: any;
   body = JSON.stringify({

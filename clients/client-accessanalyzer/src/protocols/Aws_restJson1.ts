@@ -365,7 +365,7 @@ export const serializeAws_restJson1GetAccessPreviewCommand = async (
     false
   );
   const query: any = map({
-    analyzerArn: [, input.analyzerArn!],
+    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -388,8 +388,8 @@ export const serializeAws_restJson1GetAnalyzedResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/analyzed-resource";
   const query: any = map({
-    analyzerArn: [, input.analyzerArn!],
-    resourceArn: [, input.resourceArn!],
+    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
+    resourceArn: [, __expectNonNull(input.resourceArn!, `resourceArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -470,7 +470,7 @@ export const serializeAws_restJson1GetFindingCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/finding/{id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    analyzerArn: [, input.analyzerArn!],
+    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -561,7 +561,7 @@ export const serializeAws_restJson1ListAccessPreviewsCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/access-preview";
   const query: any = map({
-    analyzerArn: [, input.analyzerArn!],
+    analyzerArn: [, __expectNonNull(input.analyzerArn!, `analyzerArn`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -826,7 +826,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({

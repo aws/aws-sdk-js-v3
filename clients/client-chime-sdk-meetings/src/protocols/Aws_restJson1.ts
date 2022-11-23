@@ -386,7 +386,7 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
-    arn: [, input.ResourceARN!],
+    arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
   });
   let body: any;
   return new __HttpRequest({

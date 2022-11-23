@@ -854,7 +854,7 @@ export const serializeAws_restJson1GetIntrospectionSchemaCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/schema";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
     includeDirectives: [() => input.includeDirectives !== void 0, () => input.includeDirectives!.toString()],
   });
   let body: any;
@@ -926,7 +926,7 @@ export const serializeAws_restJson1GetTypeCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "typeName", () => input.typeName!, "{typeName}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1151,7 +1151,7 @@ export const serializeAws_restJson1ListTypesCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/apis/{apiId}/types";
   resolvedPath = __resolvedPath(resolvedPath, input, "apiId", () => input.apiId!, "{apiId}", false);
   const query: any = map({
-    format: [, input.format!],
+    format: [, __expectNonNull(input.format!, `format`)],
     nextToken: [, input.nextToken!],
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
   });
@@ -1228,7 +1228,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({

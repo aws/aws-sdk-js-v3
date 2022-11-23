@@ -672,10 +672,10 @@ export const serializeAws_restJson1GetExportCommand = async (
   const headers: any = {};
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/exports";
   const query: any = map({
-    name: [, input.name!],
-    version: [, input.version!],
-    resourceType: [, input.resourceType!],
-    exportType: [, input.exportType!],
+    name: [, __expectNonNull(input.name!, `name`)],
+    version: [, __expectNonNull(input.version!, `version`)],
+    resourceType: [, __expectNonNull(input.resourceType!, `resourceType`)],
+    exportType: [, __expectNonNull(input.exportType!, `exportType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -915,8 +915,11 @@ export const serializeAws_restJson1GetUtterancesViewCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "botName", () => input.botName!, "{botName}", false);
   const query: any = map({
     view: [, "aggregation"],
-    bot_versions: [() => input.botVersions !== void 0, () => (input.botVersions! || []).map((_entry) => _entry as any)],
-    status_type: [, input.statusType!],
+    bot_versions: [
+      __expectNonNull(input.botVersions, `botVersions`) != null,
+      () => (input.botVersions! || []).map((_entry) => _entry as any),
+    ],
+    status_type: [, __expectNonNull(input.statusType!, `statusType`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1215,7 +1218,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{resourceArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    tagKeys: [() => input.tagKeys !== void 0, () => (input.tagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input.tagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
