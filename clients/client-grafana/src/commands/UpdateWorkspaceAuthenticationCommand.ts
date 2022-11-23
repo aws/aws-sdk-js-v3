@@ -32,9 +32,9 @@ export interface UpdateWorkspaceAuthenticationCommandOutput
 
 /**
  * <p>Use this operation to define the identity provider (IdP) that this workspace
- *          authenticates users from, using SAML. You can also map SAML assertion attributes to
- *          workspace user information and define which groups in the assertion attribute are to have
- *          the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
+ *             authenticates users from, using SAML. You can also map SAML assertion attributes to
+ *             workspace user information and define which groups in the assertion attribute are to have
+ *             the <code>Admin</code> and <code>Editor</code> roles in the workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,7 +30,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>The <code>UntagResource</code> operation removes the association of the tag with the Amazon Managed Grafana resource.
- *          </p>
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

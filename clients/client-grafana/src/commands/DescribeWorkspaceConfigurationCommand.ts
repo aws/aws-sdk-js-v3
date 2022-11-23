@@ -15,39 +15,41 @@ import {
 
 import { GrafanaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GrafanaClient";
 import {
-  DeleteWorkspaceApiKeyRequest,
-  DeleteWorkspaceApiKeyRequestFilterSensitiveLog,
-  DeleteWorkspaceApiKeyResponse,
-  DeleteWorkspaceApiKeyResponseFilterSensitiveLog,
+  DescribeWorkspaceConfigurationRequest,
+  DescribeWorkspaceConfigurationRequestFilterSensitiveLog,
+  DescribeWorkspaceConfigurationResponse,
+  DescribeWorkspaceConfigurationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteWorkspaceApiKeyCommand,
-  serializeAws_restJson1DeleteWorkspaceApiKeyCommand,
+  deserializeAws_restJson1DescribeWorkspaceConfigurationCommand,
+  serializeAws_restJson1DescribeWorkspaceConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DeleteWorkspaceApiKeyCommandInput extends DeleteWorkspaceApiKeyRequest {}
-export interface DeleteWorkspaceApiKeyCommandOutput extends DeleteWorkspaceApiKeyResponse, __MetadataBearer {}
+export interface DescribeWorkspaceConfigurationCommandInput extends DescribeWorkspaceConfigurationRequest {}
+export interface DescribeWorkspaceConfigurationCommandOutput
+  extends DescribeWorkspaceConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Deletes a Grafana API key for the workspace.</p>
+ * <p>Gets the current configuration string for the given workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GrafanaClient, DeleteWorkspaceApiKeyCommand } from "@aws-sdk/client-grafana"; // ES Modules import
- * // const { GrafanaClient, DeleteWorkspaceApiKeyCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
+ * import { GrafanaClient, DescribeWorkspaceConfigurationCommand } from "@aws-sdk/client-grafana"; // ES Modules import
+ * // const { GrafanaClient, DescribeWorkspaceConfigurationCommand } = require("@aws-sdk/client-grafana"); // CommonJS import
  * const client = new GrafanaClient(config);
- * const command = new DeleteWorkspaceApiKeyCommand(input);
+ * const command = new DescribeWorkspaceConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteWorkspaceApiKeyCommandInput} for command's `input` shape.
- * @see {@link DeleteWorkspaceApiKeyCommandOutput} for command's `response` shape.
+ * @see {@link DescribeWorkspaceConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeWorkspaceConfigurationCommandOutput} for command's `response` shape.
  * @see {@link GrafanaClientResolvedConfig | config} for GrafanaClient's `config` shape.
  *
  */
-export class DeleteWorkspaceApiKeyCommand extends $Command<
-  DeleteWorkspaceApiKeyCommandInput,
-  DeleteWorkspaceApiKeyCommandOutput,
+export class DescribeWorkspaceConfigurationCommand extends $Command<
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
   GrafanaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class DeleteWorkspaceApiKeyCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteWorkspaceApiKeyCommandInput) {
+  constructor(readonly input: DescribeWorkspaceConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +77,23 @@ export class DeleteWorkspaceApiKeyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GrafanaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteWorkspaceApiKeyCommandInput, DeleteWorkspaceApiKeyCommandOutput> {
+  ): Handler<DescribeWorkspaceConfigurationCommandInput, DescribeWorkspaceConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteWorkspaceApiKeyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeWorkspaceConfigurationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GrafanaClient";
-    const commandName = "DeleteWorkspaceApiKeyCommand";
+    const commandName = "DescribeWorkspaceConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteWorkspaceApiKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteWorkspaceApiKeyResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeWorkspaceConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeWorkspaceConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +103,18 @@ export class DeleteWorkspaceApiKeyCommand extends $Command<
     );
   }
 
-  private serialize(input: DeleteWorkspaceApiKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteWorkspaceApiKeyCommand(input, context);
+  private serialize(
+    input: DescribeWorkspaceConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeWorkspaceConfigurationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DeleteWorkspaceApiKeyCommandOutput> {
-    return deserializeAws_restJson1DeleteWorkspaceApiKeyCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeWorkspaceConfigurationCommandOutput> {
+    return deserializeAws_restJson1DescribeWorkspaceConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -64,6 +64,10 @@ import {
 } from "./commands/DescribeWorkspaceAuthenticationCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
 import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "./commands/DescribeWorkspaceConfigurationCommand";
+import {
   DisassociateLicenseCommandInput,
   DisassociateLicenseCommandOutput,
 } from "./commands/DisassociateLicenseCommand";
@@ -82,6 +86,10 @@ import {
 } from "./commands/UpdateWorkspaceAuthenticationCommand";
 import { UpdateWorkspaceCommandInput, UpdateWorkspaceCommandOutput } from "./commands/UpdateWorkspaceCommand";
 import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "./commands/UpdateWorkspaceConfigurationCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -97,6 +105,7 @@ export type ServiceInputTypes =
   | DeleteWorkspaceCommandInput
   | DescribeWorkspaceAuthenticationCommandInput
   | DescribeWorkspaceCommandInput
+  | DescribeWorkspaceConfigurationCommandInput
   | DisassociateLicenseCommandInput
   | ListPermissionsCommandInput
   | ListTagsForResourceCommandInput
@@ -105,7 +114,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdatePermissionsCommandInput
   | UpdateWorkspaceAuthenticationCommandInput
-  | UpdateWorkspaceCommandInput;
+  | UpdateWorkspaceCommandInput
+  | UpdateWorkspaceConfigurationCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateLicenseCommandOutput
@@ -115,6 +125,7 @@ export type ServiceOutputTypes =
   | DeleteWorkspaceCommandOutput
   | DescribeWorkspaceAuthenticationCommandOutput
   | DescribeWorkspaceCommandOutput
+  | DescribeWorkspaceConfigurationCommandOutput
   | DisassociateLicenseCommandOutput
   | ListPermissionsCommandOutput
   | ListTagsForResourceCommandOutput
@@ -123,7 +134,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdatePermissionsCommandOutput
   | UpdateWorkspaceAuthenticationCommandOutput
-  | UpdateWorkspaceCommandOutput;
+  | UpdateWorkspaceCommandOutput
+  | UpdateWorkspaceConfigurationCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
