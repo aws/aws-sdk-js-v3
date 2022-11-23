@@ -76,8 +76,11 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
     false
   );
   const query: any = map({
-    RecordIdentifierValueAsString: [, input.RecordIdentifierValueAsString!],
-    EventTime: [, input.EventTime!],
+    RecordIdentifierValueAsString: [
+      ,
+      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
+    ],
+    EventTime: [, __expectNonNull(input.EventTime!, `EventTime`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -109,7 +112,10 @@ export const serializeAws_restJson1GetRecordCommand = async (
     false
   );
   const query: any = map({
-    RecordIdentifierValueAsString: [, input.RecordIdentifierValueAsString!],
+    RecordIdentifierValueAsString: [
+      ,
+      __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
+    ],
     FeatureName: [
       () => input.FeatureNames !== void 0,
       () => (input.FeatureNames! || []).map((_entry) => _entry as any),

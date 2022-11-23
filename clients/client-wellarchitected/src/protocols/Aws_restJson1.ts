@@ -337,8 +337,8 @@ export const serializeAws_restJson1DeleteLensCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}";
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
-    LensStatus: [, input.LensStatus!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
+    LensStatus: [, __expectNonNull(input.LensStatus!, `LensStatus`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -364,7 +364,7 @@ export const serializeAws_restJson1DeleteLensShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -388,7 +388,7 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -414,7 +414,7 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [, input.ClientRequestToken!],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -1083,7 +1083,10 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags/{WorkloadArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadArn", () => input.WorkloadArn!, "{WorkloadArn}", false);
   const query: any = map({
-    tagKeys: [() => input.TagKeys !== void 0, () => (input.TagKeys! || []).map((_entry) => _entry as any)],
+    tagKeys: [
+      __expectNonNull(input.TagKeys, `TagKeys`) != null,
+      () => (input.TagKeys! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
