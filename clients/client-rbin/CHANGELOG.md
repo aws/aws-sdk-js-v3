@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.217.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.216.0...v3.217.0) (2022-11-23)
+
+
+### Bug Fixes
+
+* **codegen:** add check for required query parameters ([#4220](https://github.com/aws/aws-sdk-js-v3/issues/4220)) ([0441081](https://github.com/aws/aws-sdk-js-v3/commit/0441081ea898ad7b2c91455f911216b1a60dd754))
+* **codegen:** revert check for required query parameters ([3a5313a](https://github.com/aws/aws-sdk-js-v3/commit/3a5313a7eb2ebcb7ff32453d4d652340930364a6))
+
+
+### Features
+
+* **client-rbin:** This release adds support for Rule Lock for Recycle Bin, which allows you to lock retention rules so that they can no longer be modified or deleted. ([cf212da](https://github.com/aws/aws-sdk-js-v3/commit/cf212da9becbf00661312dc96a0473fa316c8e85))
+
+
+
+
+
 # [3.216.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.215.0...v3.216.0) (2022-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-rbin
