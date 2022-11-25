@@ -1,15 +1,15 @@
 import { HeaderBag } from "@aws-sdk/types";
 import { IncomingHttpHeaders } from "http2";
 
-const getTransformedHeaders = (headers: IncomingHttpHeaders) => {
-  const transformedHeaders: HeaderBag = {};
+export const getTransformedHeaders = (headers: IncomingHttpHeaders): HeaderBag => {
+  const init: HeaderBag = {};
+  const transformedHeaders = Object.keys(headers).reduce((acc, name) => {
+    const headerValues = headers[name];
+    if (!headerValues) return acc;
 
-  for (const name of Object.keys(headers)) {
-    const headerValues = <string>headers[name];
-    transformedHeaders[name] = Array.isArray(headerValues) ? headerValues.join(",") : headerValues;
-  }
+    acc[name] = Array.isArray(headerValues) ? headerValues.join(",") : headerValues
+    return acc;
+  }, init);
 
   return transformedHeaders;
 };
-
-export { getTransformedHeaders };
