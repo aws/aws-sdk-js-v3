@@ -31,8 +31,8 @@ export interface DeleteCallAnalyticsCategoryCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a Call Analytics category. To use this operation, specify the name of the category
- *             you want to delete using <code>CategoryName</code>. Category names are case
+ * <p>Deletes a Call Analytics category. To use this operation, specify the name of the
+ *             category you want to delete using <code>CategoryName</code>. Category names are case
  *             sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

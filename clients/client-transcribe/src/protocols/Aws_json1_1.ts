@@ -2814,6 +2814,7 @@ const serializeAws_json1_1CreateCallAnalyticsCategoryRequest = (
 ): any => {
   return {
     ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
+    ...(input.InputType != null && { InputType: input.InputType }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
   };
 };
@@ -3460,6 +3461,7 @@ const serializeAws_json1_1UpdateCallAnalyticsCategoryRequest = (
 ): any => {
   return {
     ...(input.CategoryName != null && { CategoryName: input.CategoryName }),
+    ...(input.InputType != null && { InputType: input.InputType }),
     ...(input.Rules != null && { Rules: serializeAws_json1_1RuleList(input.Rules, context) }),
   };
 };
@@ -3615,6 +3617,7 @@ const deserializeAws_json1_1CategoryProperties = (output: any, context: __SerdeC
     CategoryName: __expectString(output.CategoryName),
     CreateTime:
       output.CreateTime != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreateTime))) : undefined,
+    InputType: __expectString(output.InputType),
     LastUpdateTime:
       output.LastUpdateTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdateTime)))

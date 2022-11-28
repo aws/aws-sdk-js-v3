@@ -27,9 +27,9 @@ export interface DeleteMedicalTranscriptionJobCommandInput extends DeleteMedical
 export interface DeleteMedicalTranscriptionJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a medical transcription job. To use this operation, specify the name of the job you
- *             want to delete using <code>MedicalTranscriptionJobName</code>. Job names are case
- *             sensitive.</p>
+ * <p>Deletes a medical transcription job. To use this operation, specify the name of the
+ *             job you want to delete using <code>MedicalTranscriptionJobName</code>. Job names are
+ *             case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

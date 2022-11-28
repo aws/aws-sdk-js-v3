@@ -29,8 +29,9 @@ export interface UpdateVocabularyCommandInput extends UpdateVocabularyRequest {}
 export interface UpdateVocabularyCommandOutput extends UpdateVocabularyResponse, __MetadataBearer {}
 
 /**
- * <p>Updates an existing custom vocabulary with new values. This operation overwrites all existing
- *             information with your new values; you cannot append new terms onto an existing vocabulary.</p>
+ * <p>Updates an existing custom vocabulary with new values. This operation overwrites all
+ *             existing information with your new values; you cannot append new terms onto an existing
+ *             custom vocabulary.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

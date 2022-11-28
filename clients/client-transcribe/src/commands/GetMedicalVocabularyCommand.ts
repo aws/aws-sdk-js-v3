@@ -30,12 +30,11 @@ export interface GetMedicalVocabularyCommandOutput extends GetMedicalVocabularyR
 
 /**
  * <p>Provides information about the specified custom medical vocabulary.</p>
- *         <p>To view the status of the specified medical vocabulary, check the
- *             <code>VocabularyState</code> field. If the status is <code>READY</code>, your vocabulary
- *             is available to use. If the status is <code>FAILED</code>, <code>FailureReason</code> provides
- *             details on why your vocabulary failed.</p>
- *         <p>To get a list of your custom medical vocabularies, use the
- *              operation.</p>
+ *         <p>To view the status of the specified custom medical vocabulary, check the
+ *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
+ *             vocabulary is available to use. If the status is <code>FAILED</code>,
+ *                 <code>FailureReason</code> provides details on why your vocabulary failed.</p>
+ *         <p>To get a list of your custom medical vocabularies, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
