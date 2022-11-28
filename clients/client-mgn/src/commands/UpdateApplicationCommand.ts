@@ -15,41 +15,39 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
-  DeleteLaunchConfigurationTemplateRequest,
-  DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
-  DeleteLaunchConfigurationTemplateResponse,
-  DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
+  Application,
+  ApplicationFilterSensitiveLog,
+  UpdateApplicationRequest,
+  UpdateApplicationRequestFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
+  deserializeAws_restJson1UpdateApplicationCommand,
+  serializeAws_restJson1UpdateApplicationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLaunchConfigurationTemplateRequest {}
-export interface DeleteLaunchConfigurationTemplateCommandOutput
-  extends DeleteLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface UpdateApplicationCommandInput extends UpdateApplicationRequest {}
+export interface UpdateApplicationCommandOutput extends Application, __MetadataBearer {}
 
 /**
- * <p>Deletes a single Launch Configuration Template by ID.</p>
+ * <p>Update application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UpdateApplicationCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, UpdateApplicationCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const command = new DeleteLaunchConfigurationTemplateCommand(input);
+ * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteLaunchConfigurationTemplateCommandInput} for command's `input` shape.
- * @see {@link DeleteLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link UpdateApplicationCommandInput} for command's `input` shape.
+ * @see {@link UpdateApplicationCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
-export class DeleteLaunchConfigurationTemplateCommand extends $Command<
-  DeleteLaunchConfigurationTemplateCommandInput,
-  DeleteLaunchConfigurationTemplateCommandOutput,
+export class UpdateApplicationCommand extends $Command<
+  UpdateApplicationCommandInput,
+  UpdateApplicationCommandOutput,
   MgnClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteLaunchConfigurationTemplateCommandInput) {
+  constructor(readonly input: UpdateApplicationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,23 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MgnClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteLaunchConfigurationTemplateCommandInput, DeleteLaunchConfigurationTemplateCommandOutput> {
+  ): Handler<UpdateApplicationCommandInput, UpdateApplicationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteLaunchConfigurationTemplateCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, UpdateApplicationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MgnClient";
-    const commandName = "DeleteLaunchConfigurationTemplateCommand";
+    const commandName = "UpdateApplicationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateApplicationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ApplicationFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +101,12 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLaunchConfigurationTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(input, context);
+  private serialize(input: UpdateApplicationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateApplicationCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateApplicationCommandOutput> {
+    return deserializeAws_restJson1UpdateApplicationCommand(output, context);
   }
 
   // Start section: command_body_extra

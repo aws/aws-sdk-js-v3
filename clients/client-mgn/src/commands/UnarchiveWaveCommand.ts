@@ -15,41 +15,39 @@ import {
 
 import { MgnClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MgnClient";
 import {
-  DeleteLaunchConfigurationTemplateRequest,
-  DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
-  DeleteLaunchConfigurationTemplateResponse,
-  DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
+  UnarchiveWaveRequest,
+  UnarchiveWaveRequestFilterSensitiveLog,
+  Wave,
+  WaveFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
-  serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand,
+  deserializeAws_restJson1UnarchiveWaveCommand,
+  serializeAws_restJson1UnarchiveWaveCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface DeleteLaunchConfigurationTemplateCommandInput extends DeleteLaunchConfigurationTemplateRequest {}
-export interface DeleteLaunchConfigurationTemplateCommandOutput
-  extends DeleteLaunchConfigurationTemplateResponse,
-    __MetadataBearer {}
+export interface UnarchiveWaveCommandInput extends UnarchiveWaveRequest {}
+export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
 
 /**
- * <p>Deletes a single Launch Configuration Template by ID.</p>
+ * <p>Unarchive wave.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MgnClient, DeleteLaunchConfigurationTemplateCommand } from "@aws-sdk/client-mgn"; // ES Modules import
- * // const { MgnClient, DeleteLaunchConfigurationTemplateCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
+ * import { MgnClient, UnarchiveWaveCommand } from "@aws-sdk/client-mgn"; // ES Modules import
+ * // const { MgnClient, UnarchiveWaveCommand } = require("@aws-sdk/client-mgn"); // CommonJS import
  * const client = new MgnClient(config);
- * const command = new DeleteLaunchConfigurationTemplateCommand(input);
+ * const command = new UnarchiveWaveCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DeleteLaunchConfigurationTemplateCommandInput} for command's `input` shape.
- * @see {@link DeleteLaunchConfigurationTemplateCommandOutput} for command's `response` shape.
+ * @see {@link UnarchiveWaveCommandInput} for command's `input` shape.
+ * @see {@link UnarchiveWaveCommandOutput} for command's `response` shape.
  * @see {@link MgnClientResolvedConfig | config} for MgnClient's `config` shape.
  *
  */
-export class DeleteLaunchConfigurationTemplateCommand extends $Command<
-  DeleteLaunchConfigurationTemplateCommandInput,
-  DeleteLaunchConfigurationTemplateCommandOutput,
+export class UnarchiveWaveCommand extends $Command<
+  UnarchiveWaveCommandInput,
+  UnarchiveWaveCommandOutput,
   MgnClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DeleteLaunchConfigurationTemplateCommandInput) {
+  constructor(readonly input: UnarchiveWaveCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,21 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: MgnClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DeleteLaunchConfigurationTemplateCommandInput, DeleteLaunchConfigurationTemplateCommandOutput> {
+  ): Handler<UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DeleteLaunchConfigurationTemplateCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, UnarchiveWaveCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "MgnClient";
-    const commandName = "DeleteLaunchConfigurationTemplateCommand";
+    const commandName = "UnarchiveWaveCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DeleteLaunchConfigurationTemplateRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DeleteLaunchConfigurationTemplateResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UnarchiveWaveRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: WaveFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,18 +99,12 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: DeleteLaunchConfigurationTemplateCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(input, context);
+  private serialize(input: UnarchiveWaveCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1UnarchiveWaveCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DeleteLaunchConfigurationTemplateCommandOutput> {
-    return deserializeAws_restJson1DeleteLaunchConfigurationTemplateCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UnarchiveWaveCommandOutput> {
+    return deserializeAws_restJson1UnarchiveWaveCommand(output, context);
   }
 
   // Start section: command_body_extra

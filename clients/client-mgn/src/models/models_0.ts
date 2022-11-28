@@ -24,63 +24,100 @@ export class AccessDeniedException extends __BaseException {
   }
 }
 
-export interface InitializeServiceRequest {}
+export enum ApplicationHealthStatus {
+  ERROR = "ERROR",
+  HEALTHY = "HEALTHY",
+  LAGGING = "LAGGING",
+}
 
-export interface InitializeServiceResponse {}
+export enum ApplicationProgressStatus {
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+}
 
 /**
- * <p>Validate exception field.</p>
+ * <p>Application aggregated status.</p>
  */
-export interface ValidationExceptionField {
+export interface ApplicationAggregatedStatus {
   /**
-   * <p>Validate exception field name.</p>
+   * <p>Application aggregated status last update dateTime.</p>
+   */
+  lastUpdateDateTime?: string;
+
+  /**
+   * <p>Application aggregated status health status.</p>
+   */
+  healthStatus?: ApplicationHealthStatus | string;
+
+  /**
+   * <p>Application aggregated status progress status.</p>
+   */
+  progressStatus?: ApplicationProgressStatus | string;
+
+  /**
+   * <p>Application aggregated status total source servers amount.</p>
+   */
+  totalSourceServers?: number;
+}
+
+export interface Application {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID?: string;
+
+  /**
+   * <p>Application ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Application name.</p>
    */
   name?: string;
 
   /**
-   * <p>Validate exception field message.</p>
+   * <p>Application description.</p>
    */
-  message?: string;
+  description?: string;
+
+  /**
+   * <p>Application archival status.</p>
+   */
+  isArchived?: boolean;
+
+  /**
+   * <p>Application aggregated status.</p>
+   */
+  applicationAggregatedStatus?: ApplicationAggregatedStatus;
+
+  /**
+   * <p>Application creation dateTime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Application last modified dateTime.</p>
+   */
+  lastModifiedDateTime?: string;
+
+  /**
+   * <p>Application tags.</p>
+   */
+  tags?: Record<string, string>;
+
+  /**
+   * <p>Application wave ID.</p>
+   */
+  waveID?: string;
 }
 
-export enum ValidationExceptionReason {
-  CANNOT_PARSE = "cannotParse",
-  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
-  OTHER = "other",
-  UNKNOWN_OPERATION = "unknownOperation",
-}
-
-/**
- * <p>Validate exception.</p>
- */
-export class ValidationException extends __BaseException {
-  readonly name: "ValidationException" = "ValidationException";
-  readonly $fault: "client" = "client";
-  code?: string;
+export interface ArchiveApplicationRequest {
   /**
-   * <p>Validate exception reason.</p>
+   * <p>Application ID.</p>
    */
-  reason?: ValidationExceptionReason | string;
-
-  /**
-   * <p>Validate exception field list.</p>
-   */
-  fieldList?: ValidationExceptionField[];
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
-    super({
-      name: "ValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ValidationException.prototype);
-    this.code = opts.code;
-    this.reason = opts.reason;
-    this.fieldList = opts.fieldList;
-  }
+  applicationID: string | undefined;
 }
 
 /**
@@ -147,15 +184,6 @@ export class ConflictException extends __BaseException {
   }
 }
 
-export interface DeleteJobRequest {
-  /**
-   * <p>Request to delete Job from service by Job ID.</p>
-   */
-  jobID: string | undefined;
-}
-
-export interface DeleteJobResponse {}
-
 /**
  * <p>Resource not found exception.</p>
  */
@@ -190,6 +218,57 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>The request could not be completed because its exceeded the service quota.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>Exceeded the service quota resource ID.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>Exceeded the service quota resource type.</p>
+   */
+  resourceType?: string;
+
+  /**
+   * <p>Exceeded the service quota service code.</p>
+   */
+  serviceCode?: string;
+
+  /**
+   * <p>Exceeded the service quota code.</p>
+   */
+  quotaCode?: string;
+
+  /**
+   * <p>Exceeded the service quota value.</p>
+   */
+  quotaValue?: number;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.code = opts.code;
+    this.resourceId = opts.resourceId;
+    this.resourceType = opts.resourceType;
+    this.serviceCode = opts.serviceCode;
+    this.quotaCode = opts.quotaCode;
+    this.quotaValue = opts.quotaValue;
+  }
+}
+
+/**
  * <p>Uninitialized account exception.</p>
  */
 export class UninitializedAccountException extends __BaseException {
@@ -209,6 +288,201 @@ export class UninitializedAccountException extends __BaseException {
     this.code = opts.code;
   }
 }
+
+export interface AssociateSourceServersRequest {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID: string | undefined;
+
+  /**
+   * <p>Source server IDs list.</p>
+   */
+  sourceServerIDs: string[] | undefined;
+}
+
+export interface AssociateSourceServersResponse {}
+
+export interface CreateApplicationRequest {
+  /**
+   * <p>Application name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Application description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Application tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface DeleteApplicationRequest {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID: string | undefined;
+}
+
+export interface DeleteApplicationResponse {}
+
+export interface DisassociateSourceServersRequest {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID: string | undefined;
+
+  /**
+   * <p>Source server IDs list.</p>
+   */
+  sourceServerIDs: string[] | undefined;
+}
+
+export interface DisassociateSourceServersResponse {}
+
+/**
+ * <p>Applications list filters.</p>
+ */
+export interface ListApplicationsRequestFilters {
+  /**
+   * <p>Filter applications list by application ID.</p>
+   */
+  applicationIDs?: string[];
+
+  /**
+   * <p>Filter applications list by archival status.</p>
+   */
+  isArchived?: boolean;
+
+  /**
+   * <p>Filter applications list by wave ID.</p>
+   */
+  waveIDs?: string[];
+}
+
+export interface ListApplicationsRequest {
+  /**
+   * <p>Applications list filters.</p>
+   */
+  filters?: ListApplicationsRequestFilters;
+
+  /**
+   * <p>Maximum results to return when listing applications.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Request next token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListApplicationsResponse {
+  /**
+   * <p>Applications list.</p>
+   */
+  items?: Application[];
+
+  /**
+   * <p>Response next token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface UnarchiveApplicationRequest {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID: string | undefined;
+}
+
+export interface UpdateApplicationRequest {
+  /**
+   * <p>Application ID.</p>
+   */
+  applicationID: string | undefined;
+
+  /**
+   * <p>Application name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Application description.</p>
+   */
+  description?: string;
+}
+
+export interface InitializeServiceRequest {}
+
+export interface InitializeServiceResponse {}
+
+/**
+ * <p>Validate exception field.</p>
+ */
+export interface ValidationExceptionField {
+  /**
+   * <p>Validate exception field name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Validate exception field message.</p>
+   */
+  message?: string;
+}
+
+export enum ValidationExceptionReason {
+  CANNOT_PARSE = "cannotParse",
+  FIELD_VALIDATION_FAILED = "fieldValidationFailed",
+  OTHER = "other",
+  UNKNOWN_OPERATION = "unknownOperation",
+}
+
+/**
+ * <p>Validate exception.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  code?: string;
+  /**
+   * <p>Validate exception reason.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * <p>Validate exception field list.</p>
+   */
+  fieldList?: ValidationExceptionField[];
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.code = opts.code;
+    this.reason = opts.reason;
+    this.fieldList = opts.fieldList;
+  }
+}
+
+export interface DeleteJobRequest {
+  /**
+   * <p>Request to delete Job from service by Job ID.</p>
+   */
+  jobID: string | undefined;
+}
+
+export interface DeleteJobResponse {}
 
 export interface DescribeJobLogItemsRequest {
   /**
@@ -366,46 +640,46 @@ export enum SsmParameterStoreParameterType {
 }
 
 /**
- * <p>Source server replication type.</p>
+ * <p>AWS Systems Manager Parameter Store parameter.</p>
  */
 export interface SsmParameterStoreParameter {
   /**
-   * <p>Source server replication type.</p>
+   * <p>AWS Systems Manager Parameter Store parameter type.</p>
    */
   parameterType: SsmParameterStoreParameterType | string | undefined;
 
   /**
-   * <p>Source server replication type.</p>
+   * <p>AWS Systems Manager Parameter Store parameter name.</p>
    */
   parameterName: string | undefined;
 }
 
 /**
- * <p>Source server replication type.</p>
+ * <p>AWS Systems Manager Document.</p>
  */
 export interface SsmDocument {
   /**
-   * <p>Source server replication type.</p>
+   * <p>User-friendly name for the AWS Systems Manager Document.</p>
    */
   actionName: string | undefined;
 
   /**
-   * <p>Source server replication type.</p>
+   * <p>AWS Systems Manager Document name or full ARN.</p>
    */
   ssmDocumentName: string | undefined;
 
   /**
-   * <p>Source server replication type.</p>
+   * <p>AWS Systems Manager Document timeout seconds.</p>
    */
   timeoutSeconds?: number;
 
   /**
-   * <p>Source server replication type.</p>
+   * <p>If true, Cutover will not be enabled if the document has failed.</p>
    */
   mustSucceedForCutover?: boolean;
 
   /**
-   * <p>Source server replication type.</p>
+   * <p>AWS Systems Manager Document parameters.</p>
    */
   parameters?: Record<string, SsmParameterStoreParameter[]>;
 }
@@ -416,46 +690,46 @@ export enum SsmDocumentType {
 }
 
 /**
- * <p>Job type.</p>
+ * <p>Launch Status of the Job Post Launch Actions.</p>
  */
 export interface JobPostLaunchActionsLaunchStatus {
   /**
-   * <p>Job type.</p>
+   * <p>AWS Systems Manager's Document of the of the Job Post Launch Actions.</p>
    */
   ssmDocument?: SsmDocument;
 
   /**
-   * <p>Job type.</p>
+   * <p>AWS Systems Manager Document type.</p>
    */
   ssmDocumentType?: SsmDocumentType | string;
 
   /**
-   * <p>Job type.</p>
+   * <p>AWS Systems Manager Document's execution ID of the of the Job Post Launch Actions.</p>
    */
   executionID?: string;
 
   /**
-   * <p>Job type.</p>
+   * <p>AWS Systems Manager Document's execution status.</p>
    */
   executionStatus?: PostLaunchActionExecutionStatus | string;
 
   /**
-   * <p>Job type.</p>
+   * <p>AWS Systems Manager Document's failure reason.</p>
    */
   failureReason?: string;
 }
 
 /**
- * <p>Server participating in Job.</p>
+ * <p>Status of the Post Launch Actions running on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActionsStatus {
   /**
-   * <p>Server participating in Job.</p>
+   * <p>Time where the AWS Systems Manager was detected as running on the Test or Cutover instance.</p>
    */
   ssmAgentDiscoveryDatetime?: string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>List of Post Launch Action status.</p>
    */
   postLaunchActionsLaunchStatusList?: JobPostLaunchActionsLaunchStatus[];
 }
@@ -475,12 +749,12 @@ export interface ParticipatingServer {
   launchStatus?: LaunchStatus | string;
 
   /**
-   * <p>Participating server Source Server ID.</p>
+   * <p>Participating server's launched ec2 instance ID.</p>
    */
   launchedEc2InstanceID?: string;
 
   /**
-   * <p>Participating server Source Server ID.</p>
+   * <p>Participating server's Post Launch Actions Status.</p>
    */
   postLaunchActionsStatus?: PostLaunchActionsStatus;
 }
@@ -558,73 +832,254 @@ export interface DescribeJobsResponse {
   nextToken?: string;
 }
 
-export enum PostLaunchActionsDeploymentType {
-  CUTOVER_ONLY = "CUTOVER_ONLY",
-  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
+export enum BootMode {
+  LEGACY_BIOS = "LEGACY_BIOS",
+  UEFI = "UEFI",
+}
+
+export enum VolumeType {
+  gp2 = "gp2",
+  gp3 = "gp3",
+  io1 = "io1",
+  io2 = "io2",
+  sc1 = "sc1",
+  st1 = "st1",
+  standard = "standard",
 }
 
 /**
- * <p>Server participating in Job.</p>
+ * <p>Launch template disk configuration.</p>
+ */
+export interface LaunchTemplateDiskConf {
+  /**
+   * <p>Launch template disk volume type configuration.</p>
+   */
+  volumeType?: VolumeType | string;
+
+  /**
+   * <p>Launch template disk iops configuration.</p>
+   */
+  iops?: number;
+
+  /**
+   * <p>Launch template disk throughput configuration.</p>
+   */
+  throughput?: number;
+}
+
+export enum LaunchDisposition {
+  STARTED = "STARTED",
+  STOPPED = "STOPPED",
+}
+
+/**
+ * <p>Configure Licensing.</p>
+ */
+export interface Licensing {
+  /**
+   * <p>Configure BYOL OS licensing.</p>
+   */
+  osByol?: boolean;
+}
+
+export enum PostLaunchActionsDeploymentType {
+  CUTOVER_ONLY = "CUTOVER_ONLY",
+  TEST_AND_CUTOVER = "TEST_AND_CUTOVER",
+  TEST_ONLY = "TEST_ONLY",
+}
+
+/**
+ * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
  */
 export interface PostLaunchActions {
   /**
-   * <p>Server participating in Job.</p>
+   * <p>Deployment type in which AWS Systems Manager Documents will be executed.</p>
    */
   deployment?: PostLaunchActionsDeploymentType | string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>AWS Systems Manager Command's logs S3 log bucket.</p>
    */
   s3LogBucket?: string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>AWS Systems Manager Command's logs S3 output key prefix.</p>
    */
   s3OutputKeyPrefix?: string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>AWS Systems Manager Command's CloudWatch log group name.</p>
    */
   cloudWatchLogGroupName?: string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>AWS Systems Manager Documents.</p>
    */
   ssmDocuments?: SsmDocument[];
 }
 
+export enum TargetInstanceTypeRightSizingMethod {
+  BASIC = "BASIC",
+  NONE = "NONE",
+}
+
 export interface CreateLaunchConfigurationTemplateRequest {
   /**
-   * <p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>
+   * <p>Launch configuration template post launch actions.</p>
    */
   postLaunchActions?: PostLaunchActions;
 
   /**
-   * <p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>
+   * <p>Enable map auto tagging.</p>
+   */
+  enableMapAutoTagging?: boolean;
+
+  /**
+   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   */
+  mapAutoTaggingMpeID?: string;
+
+  /**
+   * <p>Request to associate tags during creation of a Launch Configuration Template.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private Ip.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Associate public Ip address.</p>
+   */
+  associatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Configure Licensing.</p>
+   */
+  licensing?: Licensing;
+
+  /**
+   * <p>Launch configuration template boot mode.</p>
+   */
+  bootMode?: BootMode | string;
+
+  /**
+   * <p>Small volume maximum size.</p>
+   */
+  smallVolumeMaxSize?: number;
+
+  /**
+   * <p>Small volume config.</p>
+   */
+  smallVolumeConf?: LaunchTemplateDiskConf;
+
+  /**
+   * <p>Large volume config.</p>
+   */
+  largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
 export interface LaunchConfigurationTemplate {
   /**
-   * <p>Copy Private IP during Launch Configuration.</p>
+   * <p>ID of the Launch Configuration Template.</p>
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Copy Private IP during Launch Configuration.</p>
+   * <p>ARN of the Launch Configuration Template.</p>
    */
   arn?: string;
 
   /**
-   * <p>Copy Private IP during Launch Configuration.</p>
+   * <p>Post Launch Actions of the Launch Configuration Template.</p>
    */
   postLaunchActions?: PostLaunchActions;
 
   /**
-   * <p>Copy Private IP during Launch Configuration.</p>
+   * <p>Enable map auto tagging.</p>
+   */
+  enableMapAutoTagging?: boolean;
+
+  /**
+   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   */
+  mapAutoTaggingMpeID?: string;
+
+  /**
+   * <p>Tags of the Launch Configuration Template.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>EC2 launch template ID.</p>
+   */
+  ec2LaunchTemplateID?: string;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private Ip.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Associate public Ip address.</p>
+   */
+  associatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Configure Licensing.</p>
+   */
+  licensing?: Licensing;
+
+  /**
+   * <p>Launch configuration template boot mode.</p>
+   */
+  bootMode?: BootMode | string;
+
+  /**
+   * <p>Small volume maximum size.</p>
+   */
+  smallVolumeMaxSize?: number;
+
+  /**
+   * <p>Small volume config.</p>
+   */
+  smallVolumeConf?: LaunchTemplateDiskConf;
+
+  /**
+   * <p>Large volume config.</p>
+   */
+  largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
 export interface DeleteLaunchConfigurationTemplateRequest {
@@ -638,43 +1093,270 @@ export interface DeleteLaunchConfigurationTemplateResponse {}
 
 export interface DescribeLaunchConfigurationTemplatesRequest {
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * <p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>
    */
   launchConfigurationTemplateIDs?: string[];
 
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * <p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>
    */
   maxResults?: number;
 
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
    */
   nextToken?: string;
 }
 
 export interface DescribeLaunchConfigurationTemplatesResponse {
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * <p>List of items returned by DescribeLaunchConfigurationTemplates.</p>
    */
   items?: LaunchConfigurationTemplate[];
 
   /**
-   * <p>Request to disconnect Source Server from service by Server ID.</p>
+   * <p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>
    */
   nextToken?: string;
 }
 
-export interface UpdateLaunchConfigurationTemplateRequest {
+/**
+ * <p>Template post migration custom action filters.</p>
+ */
+export interface TemplateActionsRequestFilters {
   /**
-   * <p>Update Launch configuration Target instance right sizing request.</p>
+   * <p>Action IDs to filter template post migration custom actions by.</p>
+   */
+  actionIDs?: string[];
+}
+
+export interface ListTemplateActionsRequest {
+  /**
+   * <p>Launch configuration template ID.</p>
    */
   launchConfigurationTemplateID: string | undefined;
 
   /**
-   * <p>Update Launch configuration Target instance right sizing request.</p>
+   * <p>Filters to apply when listing template post migration custom actions.</p>
+   */
+  filters?: TemplateActionsRequestFilters;
+
+  /**
+   * <p>Maximum amount of items to return when listing template post migration custom actions.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Next token to use when listing template post migration custom actions.</p>
+   */
+  nextToken?: string;
+}
+
+export interface TemplateActionDocument {
+  /**
+   * <p>Template post migration custom action ID.</p>
+   */
+  actionID?: string;
+
+  /**
+   * <p>Template post migration custom action name.</p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>Template post migration custom action document identifier.</p>
+   */
+  documentIdentifier?: string;
+
+  /**
+   * <p>Template post migration custom action order.</p>
+   */
+  order?: number;
+
+  /**
+   * <p>Template post migration custom action document version.</p>
+   */
+  documentVersion?: string;
+
+  /**
+   * <p>Template post migration custom action active status.</p>
+   */
+  active?: boolean;
+
+  /**
+   * <p>Template post migration custom action timeout in seconds.</p>
+   */
+  timeoutSeconds?: number;
+
+  /**
+   * <p>Template post migration custom action must succeed for cutover.</p>
+   */
+  mustSucceedForCutover?: boolean;
+
+  /**
+   * <p>Template post migration custom action parameters.</p>
+   */
+  parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Operating system eligible for this template post migration custom action.</p>
+   */
+  operatingSystem?: string;
+}
+
+export interface ListTemplateActionsResponse {
+  /**
+   * <p>List of template post migration custom actions.</p>
+   */
+  items?: TemplateActionDocument[];
+
+  /**
+   * <p>Next token returned when listing template post migration custom actions.</p>
+   */
+  nextToken?: string;
+}
+
+export interface PutTemplateActionRequest {
+  /**
+   * <p>Launch configuration template ID.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Template post migration custom action name.</p>
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Template post migration custom action document identifier.</p>
+   */
+  documentIdentifier: string | undefined;
+
+  /**
+   * <p>Template post migration custom action order.</p>
+   */
+  order: number | undefined;
+
+  /**
+   * <p>Template post migration custom action ID.</p>
+   */
+  actionID: string | undefined;
+
+  /**
+   * <p>Template post migration custom action document version.</p>
+   */
+  documentVersion?: string;
+
+  /**
+   * <p>Template post migration custom action active status.</p>
+   */
+  active?: boolean;
+
+  /**
+   * <p>Template post migration custom action timeout in seconds.</p>
+   */
+  timeoutSeconds?: number;
+
+  /**
+   * <p>Template post migration custom action must succeed for cutover.</p>
+   */
+  mustSucceedForCutover?: boolean;
+
+  /**
+   * <p>Template post migration custom action parameters.</p>
+   */
+  parameters?: Record<string, SsmParameterStoreParameter[]>;
+
+  /**
+   * <p>Operating system eligible for this template post migration custom action.</p>
+   */
+  operatingSystem?: string;
+}
+
+export interface RemoveTemplateActionRequest {
+  /**
+   * <p>Launch configuration template ID of the post migration custom action to remove.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Template post migration custom action ID to remove.</p>
+   */
+  actionID: string | undefined;
+}
+
+export interface RemoveTemplateActionResponse {}
+
+export interface UpdateLaunchConfigurationTemplateRequest {
+  /**
+   * <p>Launch Configuration Template ID.</p>
+   */
+  launchConfigurationTemplateID: string | undefined;
+
+  /**
+   * <p>Post Launch Action to execute on the Test or Cutover instance.</p>
    */
   postLaunchActions?: PostLaunchActions;
+
+  /**
+   * <p>Enable map auto tagging.</p>
+   */
+  enableMapAutoTagging?: boolean;
+
+  /**
+   * <p>Launch configuration template map auto tagging MPE ID.</p>
+   */
+  mapAutoTaggingMpeID?: string;
+
+  /**
+   * <p>Launch disposition.</p>
+   */
+  launchDisposition?: LaunchDisposition | string;
+
+  /**
+   * <p>Target instance type right-sizing method.</p>
+   */
+  targetInstanceTypeRightSizingMethod?: TargetInstanceTypeRightSizingMethod | string;
+
+  /**
+   * <p>Copy private Ip.</p>
+   */
+  copyPrivateIp?: boolean;
+
+  /**
+   * <p>Associate public Ip address.</p>
+   */
+  associatePublicIpAddress?: boolean;
+
+  /**
+   * <p>Copy tags.</p>
+   */
+  copyTags?: boolean;
+
+  /**
+   * <p>Configure Licensing.</p>
+   */
+  licensing?: Licensing;
+
+  /**
+   * <p>Launch configuration template boot mode.</p>
+   */
+  bootMode?: BootMode | string;
+
+  /**
+   * <p>Small volume maximum size.</p>
+   */
+  smallVolumeMaxSize?: number;
+
+  /**
+   * <p>Small volume config.</p>
+   */
+  smallVolumeConf?: LaunchTemplateDiskConf;
+
+  /**
+   * <p>Large volume config.</p>
+   */
+  largeVolumeConf?: LaunchTemplateDiskConf;
 }
 
 /**
@@ -1606,6 +2288,11 @@ export interface SourceServer {
    * <p>Source server vCenter client id.</p>
    */
   vcenterClientID?: string;
+
+  /**
+   * <p>Source server application ID.</p>
+   */
+  applicationID?: string;
 }
 
 export interface DeleteSourceServerRequest {
@@ -1640,6 +2327,11 @@ export interface DescribeSourceServersRequestFilters {
    * <p>Request to filter Source Servers list by life cycle states.</p>
    */
   lifeCycleStates?: (LifeCycleState | string)[];
+
+  /**
+   * <p>Request to filter Source Servers list by application IDs.</p>
+   */
+  applicationIDs?: string[];
 }
 
 export interface DescribeSourceServersRequest {
@@ -1692,31 +2384,6 @@ export interface GetLaunchConfigurationRequest {
   sourceServerID: string | undefined;
 }
 
-export enum BootMode {
-  LEGACY_BIOS = "LEGACY_BIOS",
-  UEFI = "UEFI",
-}
-
-export enum LaunchDisposition {
-  STARTED = "STARTED",
-  STOPPED = "STOPPED",
-}
-
-/**
- * <p>Configure Licensing.</p>
- */
-export interface Licensing {
-  /**
-   * <p>Configure BYOL OS licensing.</p>
-   */
-  osByol?: boolean;
-}
-
-export enum TargetInstanceTypeRightSizingMethod {
-  BASIC = "BASIC",
-  NONE = "NONE",
-}
-
 export interface LaunchConfiguration {
   /**
    * <p>Launch configuration Source Server ID.</p>
@@ -1764,9 +2431,19 @@ export interface LaunchConfiguration {
   bootMode?: BootMode | string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
    */
   postLaunchActions?: PostLaunchActions;
+
+  /**
+   * <p>Enable map auto tagging.</p>
+   */
+  enableMapAutoTagging?: boolean;
+
+  /**
+   * <p>Map auto tagging MPE ID.</p>
+   */
+  mapAutoTaggingMpeID?: string;
 }
 
 export interface GetReplicationConfigurationRequest {
@@ -1894,12 +2571,169 @@ export interface ReplicationConfiguration {
   stagingAreaTags?: Record<string, string>;
 }
 
+/**
+ * <p>Source server post migration custom action filters.</p>
+ */
+export interface SourceServerActionsRequestFilters {
+  /**
+   * <p>Action IDs to filter source server post migration custom actions by.</p>
+   */
+  actionIDs?: string[];
+}
+
+export interface ListSourceServerActionsRequest {
+  /**
+   * <p>Source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Filters to apply when listing source server post migration custom actions.</p>
+   */
+  filters?: SourceServerActionsRequestFilters;
+
+  /**
+   * <p>Maximum amount of items to return when listing source server post migration custom actions.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Next token to use when listing source server post migration custom actions.</p>
+   */
+  nextToken?: string;
+}
+
+export interface SourceServerActionDocument {
+  /**
+   * <p>Source server post migration custom action ID.</p>
+   */
+  actionID?: string;
+
+  /**
+   * <p>Source server post migration custom action name.</p>
+   */
+  actionName?: string;
+
+  /**
+   * <p>Source server post migration custom action document identifier.</p>
+   */
+  documentIdentifier?: string;
+
+  /**
+   * <p>Source server post migration custom action order.</p>
+   */
+  order?: number;
+
+  /**
+   * <p>Source server post migration custom action document version.</p>
+   */
+  documentVersion?: string;
+
+  /**
+   * <p>Source server post migration custom action active status.</p>
+   */
+  active?: boolean;
+
+  /**
+   * <p>Source server post migration custom action timeout in seconds.</p>
+   */
+  timeoutSeconds?: number;
+
+  /**
+   * <p>Source server post migration custom action must succeed for cutover.</p>
+   */
+  mustSucceedForCutover?: boolean;
+
+  /**
+   * <p>Source server post migration custom action parameters.</p>
+   */
+  parameters?: Record<string, SsmParameterStoreParameter[]>;
+}
+
+export interface ListSourceServerActionsResponse {
+  /**
+   * <p>List of source server post migration custom actions.</p>
+   */
+  items?: SourceServerActionDocument[];
+
+  /**
+   * <p>Next token returned when listing source server post migration custom actions.</p>
+   */
+  nextToken?: string;
+}
+
 export interface MarkAsArchivedRequest {
   /**
    * <p>Mark as archived by Source Server ID.</p>
    */
   sourceServerID: string | undefined;
 }
+
+export interface PutSourceServerActionRequest {
+  /**
+   * <p>Source server ID.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Source server post migration custom action name.</p>
+   */
+  actionName: string | undefined;
+
+  /**
+   * <p>Source server post migration custom action document identifier.</p>
+   */
+  documentIdentifier: string | undefined;
+
+  /**
+   * <p>Source server post migration custom action order.</p>
+   */
+  order: number | undefined;
+
+  /**
+   * <p>Source server post migration custom action ID.</p>
+   */
+  actionID: string | undefined;
+
+  /**
+   * <p>Source server post migration custom action document version.</p>
+   */
+  documentVersion?: string;
+
+  /**
+   * <p>Source server post migration custom action active status.</p>
+   */
+  active?: boolean;
+
+  /**
+   * <p>Source server post migration custom action timeout in seconds.</p>
+   */
+  timeoutSeconds?: number;
+
+  /**
+   * <p>Source server post migration custom action must succeed for cutover.</p>
+   */
+  mustSucceedForCutover?: boolean;
+
+  /**
+   * <p>Source server post migration custom action parameters.</p>
+   */
+  parameters?: Record<string, SsmParameterStoreParameter[]>;
+}
+
+export interface RemoveSourceServerActionRequest {
+  /**
+   * <p>Source server ID of the post migration custom action to remove.</p>
+   */
+  sourceServerID: string | undefined;
+
+  /**
+   * <p>Source server post migration custom action ID to remove.</p>
+   */
+  actionID: string | undefined;
+}
+
+export interface RemoveSourceServerActionResponse {}
 
 export interface RetryDataReplicationRequest {
   /**
@@ -1925,57 +2759,6 @@ export interface StartCutoverResponse {
    * <p>Start Cutover Job response.</p>
    */
   job?: Job;
-}
-
-/**
- * <p>The request could not be completed because its exceeded the service quota.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  code?: string;
-  /**
-   * <p>Exceeded the service quota resource ID.</p>
-   */
-  resourceId?: string;
-
-  /**
-   * <p>Exceeded the service quota resource type.</p>
-   */
-  resourceType?: string;
-
-  /**
-   * <p>Exceeded the service quota service code.</p>
-   */
-  serviceCode?: string;
-
-  /**
-   * <p>Exceeded the service quota code.</p>
-   */
-  quotaCode?: string;
-
-  /**
-   * <p>Exceeded the service quota value.</p>
-   */
-  quotaValue?: number;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-    this.code = opts.code;
-    this.resourceId = opts.resourceId;
-    this.resourceType = opts.resourceType;
-    this.serviceCode = opts.serviceCode;
-    this.quotaCode = opts.quotaCode;
-    this.quotaValue = opts.quotaValue;
-  }
 }
 
 export interface StartReplicationRequest {
@@ -2065,9 +2848,19 @@ export interface UpdateLaunchConfigurationRequest {
   bootMode?: BootMode | string;
 
   /**
-   * <p>Server participating in Job.</p>
+   * <p>Post Launch Actions to executed on the Test or Cutover instance.</p>
    */
   postLaunchActions?: PostLaunchActions;
+
+  /**
+   * <p>Enable map auto tagging.</p>
+   */
+  enableMapAutoTagging?: boolean;
+
+  /**
+   * <p>Launch configuration map auto tagging MPE ID.</p>
+   */
+  mapAutoTaggingMpeID?: string;
 }
 
 export interface UpdateReplicationConfigurationRequest {
@@ -2259,6 +3052,339 @@ export interface DescribeVcenterClientsResponse {
   nextToken?: string;
 }
 
+export interface ArchiveWaveRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+}
+
+export enum WaveHealthStatus {
+  ERROR = "ERROR",
+  HEALTHY = "HEALTHY",
+  LAGGING = "LAGGING",
+}
+
+export enum WaveProgressStatus {
+  COMPLETED = "COMPLETED",
+  IN_PROGRESS = "IN_PROGRESS",
+  NOT_STARTED = "NOT_STARTED",
+}
+
+/**
+ * <p>Wave aggregated status.</p>
+ */
+export interface WaveAggregatedStatus {
+  /**
+   * <p>Wave aggregated status last update dateTime.</p>
+   */
+  lastUpdateDateTime?: string;
+
+  /**
+   * <p>DateTime marking when the first source server in the wave started replication.</p>
+   */
+  replicationStartedDateTime?: string;
+
+  /**
+   * <p>Wave aggregated status health status.</p>
+   */
+  healthStatus?: WaveHealthStatus | string;
+
+  /**
+   * <p>Wave aggregated status progress status.</p>
+   */
+  progressStatus?: WaveProgressStatus | string;
+
+  /**
+   * <p>Wave aggregated status total applications amount.</p>
+   */
+  totalApplications?: number;
+}
+
+export interface Wave {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID?: string;
+
+  /**
+   * <p>Wave ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>Wave name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Wave description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Wave archival status.</p>
+   */
+  isArchived?: boolean;
+
+  /**
+   * <p>Wave aggregated status.</p>
+   */
+  waveAggregatedStatus?: WaveAggregatedStatus;
+
+  /**
+   * <p>Wave creation dateTime.</p>
+   */
+  creationDateTime?: string;
+
+  /**
+   * <p>Wave last modified dateTime.</p>
+   */
+  lastModifiedDateTime?: string;
+
+  /**
+   * <p>Wave tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface AssociateApplicationsRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+
+  /**
+   * <p>Application IDs list.</p>
+   */
+  applicationIDs: string[] | undefined;
+}
+
+export interface AssociateApplicationsResponse {}
+
+export interface CreateWaveRequest {
+  /**
+   * <p>Wave name.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Wave description.</p>
+   */
+  description?: string;
+
+  /**
+   * <p>Wave tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface DeleteWaveRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+}
+
+export interface DeleteWaveResponse {}
+
+export interface DisassociateApplicationsRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+
+  /**
+   * <p>Application IDs list.</p>
+   */
+  applicationIDs: string[] | undefined;
+}
+
+export interface DisassociateApplicationsResponse {}
+
+/**
+ * <p>Waves list filters.</p>
+ */
+export interface ListWavesRequestFilters {
+  /**
+   * <p>Filter waves list by wave ID.</p>
+   */
+  waveIDs?: string[];
+
+  /**
+   * <p>Filter waves list by archival status.</p>
+   */
+  isArchived?: boolean;
+}
+
+export interface ListWavesRequest {
+  /**
+   * <p>Waves list filters.</p>
+   */
+  filters?: ListWavesRequestFilters;
+
+  /**
+   * <p>Maximum results to return when listing waves.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>Request next token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListWavesResponse {
+  /**
+   * <p>Waves list.</p>
+   */
+  items?: Wave[];
+
+  /**
+   * <p>Response next token.</p>
+   */
+  nextToken?: string;
+}
+
+export interface UnarchiveWaveRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+}
+
+export interface UpdateWaveRequest {
+  /**
+   * <p>Wave ID.</p>
+   */
+  waveID: string | undefined;
+
+  /**
+   * <p>Wave name.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>Wave description.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @internal
+ */
+export const ApplicationAggregatedStatusFilterSensitiveLog = (obj: ApplicationAggregatedStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationFilterSensitiveLog = (obj: Application): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ArchiveApplicationRequestFilterSensitiveLog = (obj: ArchiveApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSourceServersRequestFilterSensitiveLog = (obj: AssociateSourceServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateSourceServersResponseFilterSensitiveLog = (obj: AssociateSourceServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateApplicationRequestFilterSensitiveLog = (obj: CreateApplicationRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationRequestFilterSensitiveLog = (obj: DeleteApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteApplicationResponseFilterSensitiveLog = (obj: DeleteApplicationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSourceServersRequestFilterSensitiveLog = (obj: DisassociateSourceServersRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateSourceServersResponseFilterSensitiveLog = (obj: DisassociateSourceServersResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFiltersFilterSensitiveLog = (obj: ListApplicationsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsRequestFilterSensitiveLog = (obj: ListApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListApplicationsResponseFilterSensitiveLog = (obj: ListApplicationsResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => ApplicationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UnarchiveApplicationRequestFilterSensitiveLog = (obj: UnarchiveApplicationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateApplicationRequestFilterSensitiveLog = (obj: UpdateApplicationRequest): any => ({
+  ...obj,
+});
+
 /**
  * @internal
  */
@@ -2277,13 +3403,6 @@ export const InitializeServiceResponseFilterSensitiveLog = (obj: InitializeServi
  * @internal
  */
 export const ValidationExceptionFieldFilterSensitiveLog = (obj: ValidationExceptionField): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ErrorDetailsFilterSensitiveLog = (obj: ErrorDetails): any => ({
   ...obj,
 });
 
@@ -2397,6 +3516,20 @@ export const DescribeJobsResponseFilterSensitiveLog = (obj: DescribeJobsResponse
 /**
  * @internal
  */
+export const LaunchTemplateDiskConfFilterSensitiveLog = (obj: LaunchTemplateDiskConf): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PostLaunchActionsFilterSensitiveLog = (obj: PostLaunchActions): any => ({
   ...obj,
 });
@@ -2454,6 +3587,55 @@ export const DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => LaunchConfigurationTemplateFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const TemplateActionsRequestFiltersFilterSensitiveLog = (obj: TemplateActionsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateActionsRequestFilterSensitiveLog = (obj: ListTemplateActionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TemplateActionDocumentFilterSensitiveLog = (obj: TemplateActionDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListTemplateActionsResponseFilterSensitiveLog = (obj: ListTemplateActionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutTemplateActionRequestFilterSensitiveLog = (obj: PutTemplateActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTemplateActionRequestFilterSensitiveLog = (obj: RemoveTemplateActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveTemplateActionResponseFilterSensitiveLog = (obj: RemoveTemplateActionResponse): any => ({
+  ...obj,
 });
 
 /**
@@ -2780,13 +3962,6 @@ export const GetLaunchConfigurationRequestFilterSensitiveLog = (obj: GetLaunchCo
 /**
  * @internal
  */
-export const LicensingFilterSensitiveLog = (obj: Licensing): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const LaunchConfigurationFilterSensitiveLog = (obj: LaunchConfiguration): any => ({
   ...obj,
 });
@@ -2818,7 +3993,56 @@ export const ReplicationConfigurationFilterSensitiveLog = (obj: ReplicationConfi
 /**
  * @internal
  */
+export const SourceServerActionsRequestFiltersFilterSensitiveLog = (obj: SourceServerActionsRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceServerActionsRequestFilterSensitiveLog = (obj: ListSourceServerActionsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SourceServerActionDocumentFilterSensitiveLog = (obj: SourceServerActionDocument): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSourceServerActionsResponseFilterSensitiveLog = (obj: ListSourceServerActionsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const MarkAsArchivedRequestFilterSensitiveLog = (obj: MarkAsArchivedRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSourceServerActionRequestFilterSensitiveLog = (obj: PutSourceServerActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveSourceServerActionRequestFilterSensitiveLog = (obj: RemoveSourceServerActionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoveSourceServerActionResponseFilterSensitiveLog = (obj: RemoveSourceServerActionResponse): any => ({
   ...obj,
 });
 
@@ -2955,4 +4179,112 @@ export const VcenterClientFilterSensitiveLog = (obj: VcenterClient): any => ({
 export const DescribeVcenterClientsResponseFilterSensitiveLog = (obj: DescribeVcenterClientsResponse): any => ({
   ...obj,
   ...(obj.items && { items: obj.items.map((item) => VcenterClientFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const ArchiveWaveRequestFilterSensitiveLog = (obj: ArchiveWaveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WaveAggregatedStatusFilterSensitiveLog = (obj: WaveAggregatedStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WaveFilterSensitiveLog = (obj: Wave): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationsRequestFilterSensitiveLog = (obj: AssociateApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssociateApplicationsResponseFilterSensitiveLog = (obj: AssociateApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateWaveRequestFilterSensitiveLog = (obj: CreateWaveRequest): any => ({
+  ...obj,
+  ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteWaveRequestFilterSensitiveLog = (obj: DeleteWaveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteWaveResponseFilterSensitiveLog = (obj: DeleteWaveResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationsRequestFilterSensitiveLog = (obj: DisassociateApplicationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisassociateApplicationsResponseFilterSensitiveLog = (obj: DisassociateApplicationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWavesRequestFiltersFilterSensitiveLog = (obj: ListWavesRequestFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWavesRequestFilterSensitiveLog = (obj: ListWavesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListWavesResponseFilterSensitiveLog = (obj: ListWavesResponse): any => ({
+  ...obj,
+  ...(obj.items && { items: obj.items.map((item) => WaveFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const UnarchiveWaveRequestFilterSensitiveLog = (obj: UnarchiveWaveRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateWaveRequestFilterSensitiveLog = (obj: UpdateWaveRequest): any => ({
+  ...obj,
 });
