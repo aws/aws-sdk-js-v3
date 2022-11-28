@@ -29,9 +29,9 @@ export interface DescribeQueriesCommandInput extends DescribeQueriesRequest {}
 export interface DescribeQueriesCommandOutput extends DescribeQueriesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, executing, or have
- *       been executed recently in this account. You can request all queries or limit it to queries of
- *       a specific log group or queries with a certain status.</p>
+ * <p>Returns a list of CloudWatch Logs Insights queries that are scheduled, running, or have
+ *       been run recently in this account. You can request all queries or limit it to queries of a
+ *       specific log group or queries with a certain status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

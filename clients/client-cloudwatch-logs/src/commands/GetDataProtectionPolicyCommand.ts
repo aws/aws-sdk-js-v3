@@ -14,40 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DisassociateKmsKeyRequest, DisassociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateKmsKeyCommand,
-  serializeAws_json1_1DisassociateKmsKeyCommand,
+  GetDataProtectionPolicyRequest,
+  GetDataProtectionPolicyRequestFilterSensitiveLog,
+  GetDataProtectionPolicyResponse,
+  GetDataProtectionPolicyResponseFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_json1_1GetDataProtectionPolicyCommand,
+  serializeAws_json1_1GetDataProtectionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyRequest {}
-export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
+export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPolicyRequest {}
+export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Disassociates the associated KMS key from the specified log
- *       group.</p>
- *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
- *       remains encrypted, and CloudWatch Logs requires permissions for the KMS key
- *       whenever the encrypted data is requested.</p>
- *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ * <p>Returns information about a log group data protection policy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DisassociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DisassociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, GetDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, GetDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const command = new DisassociateKmsKeyCommand(input);
+ * const command = new GetDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisassociateKmsKeyCommandInput} for command's `input` shape.
- * @see {@link DisassociateKmsKeyCommandOutput} for command's `response` shape.
+ * @see {@link GetDataProtectionPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
-export class DisassociateKmsKeyCommand extends $Command<
-  DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput,
+export class GetDataProtectionPolicyCommand extends $Command<
+  GetDataProtectionPolicyCommandInput,
+  GetDataProtectionPolicyCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +62,7 @@ export class DisassociateKmsKeyCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DisassociateKmsKeyCommandInput) {
+  constructor(readonly input: GetDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,23 +75,23 @@ export class DisassociateKmsKeyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput> {
+  ): Handler<GetDataProtectionPolicyCommandInput, GetDataProtectionPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateKmsKeyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetDataProtectionPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudWatchLogsClient";
-    const commandName = "DisassociateKmsKeyCommand";
+    const commandName = "GetDataProtectionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateKmsKeyRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: GetDataProtectionPolicyRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetDataProtectionPolicyResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -101,12 +101,12 @@ export class DisassociateKmsKeyCommand extends $Command<
     );
   }
 
-  private serialize(input: DisassociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateKmsKeyCommand(input, context);
+  private serialize(input: GetDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetDataProtectionPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1DisassociateKmsKeyCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetDataProtectionPolicyCommandOutput> {
+    return deserializeAws_json1_1GetDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

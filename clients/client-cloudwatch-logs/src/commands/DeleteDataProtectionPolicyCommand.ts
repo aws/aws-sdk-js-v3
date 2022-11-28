@@ -14,40 +14,39 @@ import {
 } from "@aws-sdk/types";
 
 import { CloudWatchLogsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudWatchLogsClient";
-import { DisassociateKmsKeyRequest, DisassociateKmsKeyRequestFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_json1_1DisassociateKmsKeyCommand,
-  serializeAws_json1_1DisassociateKmsKeyCommand,
+  DeleteDataProtectionPolicyRequest,
+  DeleteDataProtectionPolicyRequestFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_json1_1DeleteDataProtectionPolicyCommand,
+  serializeAws_json1_1DeleteDataProtectionPolicyCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface DisassociateKmsKeyCommandInput extends DisassociateKmsKeyRequest {}
-export interface DisassociateKmsKeyCommandOutput extends __MetadataBearer {}
+export interface DeleteDataProtectionPolicyCommandInput extends DeleteDataProtectionPolicyRequest {}
+export interface DeleteDataProtectionPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disassociates the associated KMS key from the specified log
- *       group.</p>
- *          <p>After the KMS key is disassociated from the log group, CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data
- *       remains encrypted, and CloudWatch Logs requires permissions for the KMS key
- *       whenever the encrypted data is requested.</p>
- *          <p>Note that it can take up to 5 minutes for this operation to take effect.</p>
+ * <p>Deletes the data protection policy from the specified log group. </p>
+ *          <p>For more information about data protection policies, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDataProtectionPolicy.html">PutDataProtectionPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CloudWatchLogsClient, DisassociateKmsKeyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
- * // const { CloudWatchLogsClient, DisassociateKmsKeyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
+ * import { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } from "@aws-sdk/client-cloudwatch-logs"; // ES Modules import
+ * // const { CloudWatchLogsClient, DeleteDataProtectionPolicyCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
- * const command = new DisassociateKmsKeyCommand(input);
+ * const command = new DeleteDataProtectionPolicyCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DisassociateKmsKeyCommandInput} for command's `input` shape.
- * @see {@link DisassociateKmsKeyCommandOutput} for command's `response` shape.
+ * @see {@link DeleteDataProtectionPolicyCommandInput} for command's `input` shape.
+ * @see {@link DeleteDataProtectionPolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
  *
  */
-export class DisassociateKmsKeyCommand extends $Command<
-  DisassociateKmsKeyCommandInput,
-  DisassociateKmsKeyCommandOutput,
+export class DeleteDataProtectionPolicyCommand extends $Command<
+  DeleteDataProtectionPolicyCommandInput,
+  DeleteDataProtectionPolicyCommandOutput,
   CloudWatchLogsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +61,7 @@ export class DisassociateKmsKeyCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DisassociateKmsKeyCommandInput) {
+  constructor(readonly input: DeleteDataProtectionPolicyCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,22 +74,22 @@ export class DisassociateKmsKeyCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CloudWatchLogsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DisassociateKmsKeyCommandInput, DisassociateKmsKeyCommandOutput> {
+  ): Handler<DeleteDataProtectionPolicyCommandInput, DeleteDataProtectionPolicyCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DisassociateKmsKeyCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteDataProtectionPolicyCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CloudWatchLogsClient";
-    const commandName = "DisassociateKmsKeyCommand";
+    const commandName = "DeleteDataProtectionPolicyCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DisassociateKmsKeyRequestFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteDataProtectionPolicyRequestFilterSensitiveLog,
       outputFilterSensitiveLog: (output: any) => output,
     };
     const { requestHandler } = configuration;
@@ -101,12 +100,15 @@ export class DisassociateKmsKeyCommand extends $Command<
     );
   }
 
-  private serialize(input: DisassociateKmsKeyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1DisassociateKmsKeyCommand(input, context);
+  private serialize(input: DeleteDataProtectionPolicyCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1DeleteDataProtectionPolicyCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DisassociateKmsKeyCommandOutput> {
-    return deserializeAws_json1_1DisassociateKmsKeyCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DeleteDataProtectionPolicyCommandOutput> {
+    return deserializeAws_json1_1DeleteDataProtectionPolicyCommand(output, context);
   }
 
   // Start section: command_body_extra

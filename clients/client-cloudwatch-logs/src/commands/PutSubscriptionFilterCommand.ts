@@ -25,27 +25,26 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Creates or updates a subscription filter and associates it with the specified log
- *       group. Subscription filters allow you to subscribe to a real-time stream of log events
- *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific
- *       destination. When log events are sent to the
- *       receiving service, they are Base64 encoded
- *       and compressed with the gzip format.</p>
+ *       group. With subscription filters, you can subscribe to a real-time stream of log events
+ *       ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>
+ *       and have them delivered to a specific destination. When log events are sent to the receiving
+ *       service, they are Base64 encoded and compressed with the GZIP format.</p>
  *          <p>The following destinations are supported for subscription filters:</p>
  *          <ul>
  *             <li>
- *                <p>An Amazon Kinesis stream belonging to the same account as the subscription filter,
- *           for same-account delivery.</p>
+ *                <p>An Amazon Kinesis data stream belonging to the same account as the subscription
+ *           filter, for same-account delivery.</p>
  *             </li>
  *             <li>
  *                <p>A logical destination that belongs to a different account, for cross-account delivery.</p>
  *             </li>
  *             <li>
- *                <p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the
- *           subscription filter, for same-account delivery.</p>
+ *                <p>An Amazon Kinesis Data Firehose delivery stream that belongs to the same account as
+ *           the subscription filter, for same-account delivery.</p>
  *             </li>
  *             <li>
- *                <p>An Lambda function that belongs to the same account as the subscription filter,
- *           for same-account delivery.</p>
+ *                <p>An Lambda function that belongs to the same account as the
+ *           subscription filter, for same-account delivery.</p>
  *             </li>
  *          </ul>
  *          <p>Each log group can have up to two subscription filters associated with it. If you are
