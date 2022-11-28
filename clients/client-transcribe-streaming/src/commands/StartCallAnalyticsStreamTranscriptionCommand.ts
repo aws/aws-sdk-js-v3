@@ -16,14 +16,14 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  StartMedicalStreamTranscriptionRequest,
-  StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
-  StartMedicalStreamTranscriptionResponse,
-  StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
+  StartCallAnalyticsStreamTranscriptionRequest,
+  StartCallAnalyticsStreamTranscriptionRequestFilterSensitiveLog,
+  StartCallAnalyticsStreamTranscriptionResponse,
+  StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1StartMedicalStreamTranscriptionCommand,
-  serializeAws_restJson1StartMedicalStreamTranscriptionCommand,
+  deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand,
+  serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand,
 } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
@@ -31,54 +31,53 @@ import {
   TranscribeStreamingClientResolvedConfig,
 } from "../TranscribeStreamingClient";
 
-export interface StartMedicalStreamTranscriptionCommandInput extends StartMedicalStreamTranscriptionRequest {}
-export interface StartMedicalStreamTranscriptionCommandOutput
-  extends StartMedicalStreamTranscriptionResponse,
+export interface StartCallAnalyticsStreamTranscriptionCommandInput
+  extends StartCallAnalyticsStreamTranscriptionRequest {}
+export interface StartCallAnalyticsStreamTranscriptionCommandOutput
+  extends StartCallAnalyticsStreamTranscriptionResponse,
     __MetadataBearer {}
 
 /**
  * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
- *             Amazon Transcribe Medical and the transcription results are streamed to your
- *             application.</p>
- *         <p>The following parameters are required:</p>
- *         <ul>
+ *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
+ *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
+ *          <p>The following parameters are required:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>language-code</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>media-encoding</code>
  *                </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>sample-rate</code>
  *                </p>
  *             </li>
  *          </ul>
- *         <p>For more information on streaming with Amazon Transcribe Medical, see
- *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing
- *                 streaming audio</a>.</p>
+ *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
- * // const { TranscribeStreamingClient, StartMedicalStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
+ * import { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } from "@aws-sdk/client-transcribe-streaming"; // ES Modules import
+ * // const { TranscribeStreamingClient, StartCallAnalyticsStreamTranscriptionCommand } = require("@aws-sdk/client-transcribe-streaming"); // CommonJS import
  * const client = new TranscribeStreamingClient(config);
- * const command = new StartMedicalStreamTranscriptionCommand(input);
+ * const command = new StartCallAnalyticsStreamTranscriptionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StartMedicalStreamTranscriptionCommandInput} for command's `input` shape.
- * @see {@link StartMedicalStreamTranscriptionCommandOutput} for command's `response` shape.
+ * @see {@link StartCallAnalyticsStreamTranscriptionCommandInput} for command's `input` shape.
+ * @see {@link StartCallAnalyticsStreamTranscriptionCommandOutput} for command's `response` shape.
  * @see {@link TranscribeStreamingClientResolvedConfig | config} for TranscribeStreamingClient's `config` shape.
  *
  */
-export class StartMedicalStreamTranscriptionCommand extends $Command<
-  StartMedicalStreamTranscriptionCommandInput,
-  StartMedicalStreamTranscriptionCommandOutput,
+export class StartCallAnalyticsStreamTranscriptionCommand extends $Command<
+  StartCallAnalyticsStreamTranscriptionCommandInput,
+  StartCallAnalyticsStreamTranscriptionCommandOutput,
   TranscribeStreamingClientResolvedConfig
 > {
   // Start section: command_properties
@@ -93,7 +92,7 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StartMedicalStreamTranscriptionCommandInput) {
+  constructor(readonly input: StartCallAnalyticsStreamTranscriptionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -106,10 +105,10 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: TranscribeStreamingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StartMedicalStreamTranscriptionCommandInput, StartMedicalStreamTranscriptionCommandOutput> {
+  ): Handler<StartCallAnalyticsStreamTranscriptionCommandInput, StartCallAnalyticsStreamTranscriptionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, StartMedicalStreamTranscriptionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartCallAnalyticsStreamTranscriptionCommand.getEndpointParameterInstructions())
     );
     this.middlewareStack.use(getEventStreamPlugin(configuration));
 
@@ -117,13 +116,13 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
 
     const { logger } = configuration;
     const clientName = "TranscribeStreamingClient";
-    const commandName = "StartMedicalStreamTranscriptionCommand";
+    const commandName = "StartCallAnalyticsStreamTranscriptionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StartMedicalStreamTranscriptionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: StartMedicalStreamTranscriptionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: StartCallAnalyticsStreamTranscriptionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartCallAnalyticsStreamTranscriptionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -134,17 +133,17 @@ export class StartMedicalStreamTranscriptionCommand extends $Command<
   }
 
   private serialize(
-    input: StartMedicalStreamTranscriptionCommandInput,
+    input: StartCallAnalyticsStreamTranscriptionCommandInput,
     context: __SerdeContext & __EventStreamSerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_restJson1StartMedicalStreamTranscriptionCommand(input, context);
+    return serializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext & __EventStreamSerdeContext
-  ): Promise<StartMedicalStreamTranscriptionCommandOutput> {
-    return deserializeAws_restJson1StartMedicalStreamTranscriptionCommand(output, context);
+  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> {
+    return deserializeAws_restJson1StartCallAnalyticsStreamTranscriptionCommand(output, context);
   }
 
   // Start section: command_body_extra

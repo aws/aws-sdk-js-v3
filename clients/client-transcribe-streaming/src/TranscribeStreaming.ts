@@ -2,6 +2,11 @@
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@aws-sdk/types";
 
 import {
+  StartCallAnalyticsStreamTranscriptionCommand,
+  StartCallAnalyticsStreamTranscriptionCommandInput,
+  StartCallAnalyticsStreamTranscriptionCommandOutput,
+} from "./commands/StartCallAnalyticsStreamTranscriptionCommand";
+import {
   StartMedicalStreamTranscriptionCommand,
   StartMedicalStreamTranscriptionCommandInput,
   StartMedicalStreamTranscriptionCommandOutput,
@@ -14,8 +19,9 @@ import {
 import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
 
 /**
- * <p>Amazon Transcribe streaming offers two types of real-time transcription:
- *       <b>Standard</b> and <b>Medical</b>.</p>
+ * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
+ *       <b>Standard</b>, <b>Medical</b>, and
+ *       <b>Call Analytics</b>.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -29,13 +35,92 @@ import { TranscribeStreamingClient } from "./TranscribeStreamingClient";
  *       dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to
  *        for details.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Call Analytics transcriptions</b> are designed for use with call
+ *           center audio on two different channels; if you're looking for insight into customer service calls, use this
+ *           option. Refer to  for details.</p>
+ *             </li>
  *          </ul>
  */
 export class TranscribeStreaming extends TranscribeStreamingClient {
   /**
    * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
+   *       Amazon Transcribe and the transcription results are streamed to your application. Use this operation
+   *       for <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Call Analytics</a> transcriptions.</p>
+   *          <p>The following parameters are required:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>language-code</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>media-encoding</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>sample-rate</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
+   */
+  public startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput>;
+  public startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
+  ): void;
+  public startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
+  ): void;
+  public startCallAnalyticsStreamTranscription(
+    args: StartCallAnalyticsStreamTranscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void),
+    cb?: (err: any, data?: StartCallAnalyticsStreamTranscriptionCommandOutput) => void
+  ): Promise<StartCallAnalyticsStreamTranscriptionCommandOutput> | void {
+    const command = new StartCallAnalyticsStreamTranscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
    *             Amazon Transcribe Medical and the transcription results are streamed to your
    *             application.</p>
+   *         <p>The following parameters are required:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>language-code</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>media-encoding</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>sample-rate</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    *         <p>For more information on streaming with Amazon Transcribe Medical, see
    *             <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing
    *                 streaming audio</a>.</p>
@@ -72,19 +157,22 @@ export class TranscribeStreaming extends TranscribeStreamingClient {
   /**
    * <p>Starts a bidirectional HTTP/2 or WebSocket stream where audio is streamed to
    *       Amazon Transcribe and the transcription results are streamed to your application.</p>
-   *          <p>The following are encoded as headers:</p>
+   *          <p>The following parameters are required:</p>
    *          <ul>
    *             <li>
-   *                <p>language-code</p>
+   *                <p>
+   *                   <code>language-code</code> or <code>identify-language</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>media-encoding</p>
+   *                <p>
+   *                   <code>media-encoding</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                <p>sample-rate</p>
-   *             </li>
-   *             <li>
-   *                <p>session-id</p>
+   *                <p>
+   *                   <code>sample-rate</code>
+   *                </p>
    *             </li>
    *          </ul>
    *          <p>For more information on streaming with Amazon Transcribe, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/streaming.html">Transcribing streaming audio</a>.</p>
