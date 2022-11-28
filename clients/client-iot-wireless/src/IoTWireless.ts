@@ -233,6 +233,11 @@ import {
   GetPositionConfigurationCommandOutput,
 } from "./commands/GetPositionConfigurationCommand";
 import {
+  GetPositionEstimateCommand,
+  GetPositionEstimateCommandInput,
+  GetPositionEstimateCommandOutput,
+} from "./commands/GetPositionEstimateCommand";
+import {
   GetResourceEventConfigurationCommand,
   GetResourceEventConfigurationCommandInput,
   GetResourceEventConfigurationCommandOutput,
@@ -242,6 +247,11 @@ import {
   GetResourceLogLevelCommandInput,
   GetResourceLogLevelCommandOutput,
 } from "./commands/GetResourceLogLevelCommand";
+import {
+  GetResourcePositionCommand,
+  GetResourcePositionCommandInput,
+  GetResourcePositionCommandOutput,
+} from "./commands/GetResourcePositionCommand";
 import {
   GetServiceEndpointCommand,
   GetServiceEndpointCommandInput,
@@ -473,6 +483,11 @@ import {
   UpdateResourceEventConfigurationCommandInput,
   UpdateResourceEventConfigurationCommandOutput,
 } from "./commands/UpdateResourceEventConfigurationCommand";
+import {
+  UpdateResourcePositionCommand,
+  UpdateResourcePositionCommandInput,
+  UpdateResourcePositionCommandOutput,
+} from "./commands/UpdateResourcePositionCommand";
 import {
   UpdateWirelessDeviceCommand,
   UpdateWirelessDeviceCommandInput,
@@ -1954,7 +1969,14 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Get the position information for a given resource.</p>
+   *         <important>
+   *             <p>This action is no longer supported. Calls to retrieve the position information
+   *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
+   *                 API operation instead.</p>
+   *         </important>
    */
   public getPosition(args: GetPositionCommandInput, options?: __HttpHandlerOptions): Promise<GetPositionCommandOutput>;
   public getPosition(args: GetPositionCommandInput, cb: (err: any, data?: GetPositionCommandOutput) => void): void;
@@ -1980,7 +2002,14 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Get position configuration for a given resource.</p>
+   *         <important>
+   *             <p>This action is no longer supported. Calls to retrieve the position configuration
+   *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
+   *                 API operation instead.</p>
+   *         </important>
    */
   public getPositionConfiguration(
     args: GetPositionConfigurationCommandInput,
@@ -2001,6 +2030,39 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: GetPositionConfigurationCommandOutput) => void
   ): Promise<GetPositionConfigurationCommandOutput> | void {
     const command = new GetPositionConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get estimated position information as a payload in GeoJSON format. The payload measurement data is
+   *           resolved using solvers that are provided by third-party vendors.</p>
+   */
+  public getPositionEstimate(
+    args: GetPositionEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPositionEstimateCommandOutput>;
+  public getPositionEstimate(
+    args: GetPositionEstimateCommandInput,
+    cb: (err: any, data?: GetPositionEstimateCommandOutput) => void
+  ): void;
+  public getPositionEstimate(
+    args: GetPositionEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPositionEstimateCommandOutput) => void
+  ): void;
+  public getPositionEstimate(
+    args: GetPositionEstimateCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetPositionEstimateCommandOutput) => void),
+    cb?: (err: any, data?: GetPositionEstimateCommandOutput) => void
+  ): Promise<GetPositionEstimateCommandOutput> | void {
+    const command = new GetPositionEstimateCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2066,6 +2128,40 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: GetResourceLogLevelCommandOutput) => void
   ): Promise<GetResourceLogLevelCommandOutput> | void {
     const command = new GetResourceLogLevelCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Get the position information for a given wireless device or a wireless gateway resource. The postion
+   *           information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
+   *           World Geodetic System (WGS84)</a>.</p>
+   */
+  public getResourcePosition(
+    args: GetResourcePositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePositionCommandOutput>;
+  public getResourcePosition(
+    args: GetResourcePositionCommandInput,
+    cb: (err: any, data?: GetResourcePositionCommandOutput) => void
+  ): void;
+  public getResourcePosition(
+    args: GetResourcePositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePositionCommandOutput) => void
+  ): void;
+  public getResourcePosition(
+    args: GetResourcePositionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourcePositionCommandOutput) => void),
+    cb?: (err: any, data?: GetResourcePositionCommandOutput) => void
+  ): Promise<GetResourcePositionCommandOutput> | void {
+    const command = new GetResourcePositionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2655,7 +2751,14 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>List position configurations for a given resource, such as positioning solvers.</p>
+   *         <important>
+   *             <p>This action is no longer supported. Calls to retrieve position information
+   *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_GetResourcePosition.html">GetResourcePosition</a>
+   *                 API operation instead.</p>
+   *         </important>
    */
   public listPositionConfigurations(
     args: ListPositionConfigurationsCommandInput,
@@ -2879,7 +2982,13 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Put position configuration for a given resource.</p>
+   *         <important>
+   *             <p>This action is no longer supported. Calls to update the position configuration
+   *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
+   *         </important>
    */
   public putPositionConfiguration(
     args: PutPositionConfigurationCommandInput,
@@ -3522,7 +3631,13 @@ export class IoTWireless extends IoTWirelessClient {
   }
 
   /**
+   * @deprecated
+   *
    * <p>Update the position information of a resource.</p>
+   *         <important>
+   *             <p>This action is no longer supported. Calls to update the position information
+   *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
+   *         </important>
    */
   public updatePosition(
     args: UpdatePositionCommandInput,
@@ -3575,6 +3690,40 @@ export class IoTWireless extends IoTWirelessClient {
     cb?: (err: any, data?: UpdateResourceEventConfigurationCommandOutput) => void
   ): Promise<UpdateResourceEventConfigurationCommandOutput> | void {
     const command = new UpdateResourceEventConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Update the position information of a given wireless device or a wireless gateway resource. The postion
+   *            coordinates are based on the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
+   *            World Geodetic System (WGS84)</a>.</p>
+   */
+  public updateResourcePosition(
+    args: UpdateResourcePositionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateResourcePositionCommandOutput>;
+  public updateResourcePosition(
+    args: UpdateResourcePositionCommandInput,
+    cb: (err: any, data?: UpdateResourcePositionCommandOutput) => void
+  ): void;
+  public updateResourcePosition(
+    args: UpdateResourcePositionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateResourcePositionCommandOutput) => void
+  ): void;
+  public updateResourcePosition(
+    args: UpdateResourcePositionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateResourcePositionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateResourcePositionCommandOutput) => void
+  ): Promise<UpdateResourcePositionCommandOutput> | void {
+    const command = new UpdateResourcePositionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

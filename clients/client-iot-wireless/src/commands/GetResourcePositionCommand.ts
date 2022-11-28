@@ -15,45 +15,41 @@ import {
 
 import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTWirelessClient";
 import {
-  UpdatePositionRequest,
-  UpdatePositionRequestFilterSensitiveLog,
-  UpdatePositionResponse,
-  UpdatePositionResponseFilterSensitiveLog,
-} from "../models/models_1";
+  GetResourcePositionRequest,
+  GetResourcePositionRequestFilterSensitiveLog,
+  GetResourcePositionResponse,
+  GetResourcePositionResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_restJson1UpdatePositionCommand,
-  serializeAws_restJson1UpdatePositionCommand,
+  deserializeAws_restJson1GetResourcePositionCommand,
+  serializeAws_restJson1GetResourcePositionCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UpdatePositionCommandInput extends UpdatePositionRequest {}
-export interface UpdatePositionCommandOutput extends UpdatePositionResponse, __MetadataBearer {}
+export interface GetResourcePositionCommandInput extends GetResourcePositionRequest {}
+export interface GetResourcePositionCommandOutput extends GetResourcePositionResponse, __MetadataBearer {}
 
 /**
- * @deprecated
- *
- * <p>Update the position information of a resource.</p>
- *         <important>
- *             <p>This action is no longer supported. Calls to update the position information
- *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
- *         </important>
+ * <p>Get the position information for a given wireless device or a wireless gateway resource. The postion
+ *           information uses the <a href="https://gisgeography.com/wgs84-world-geodetic-system/">
+ *           World Geodetic System (WGS84)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { IoTWirelessClient, UpdatePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
- * // const { IoTWirelessClient, UpdatePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
+ * import { IoTWirelessClient, GetResourcePositionCommand } from "@aws-sdk/client-iot-wireless"; // ES Modules import
+ * // const { IoTWirelessClient, GetResourcePositionCommand } = require("@aws-sdk/client-iot-wireless"); // CommonJS import
  * const client = new IoTWirelessClient(config);
- * const command = new UpdatePositionCommand(input);
+ * const command = new GetResourcePositionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdatePositionCommandInput} for command's `input` shape.
- * @see {@link UpdatePositionCommandOutput} for command's `response` shape.
+ * @see {@link GetResourcePositionCommandInput} for command's `input` shape.
+ * @see {@link GetResourcePositionCommandOutput} for command's `response` shape.
  * @see {@link IoTWirelessClientResolvedConfig | config} for IoTWirelessClient's `config` shape.
  *
  */
-export class UpdatePositionCommand extends $Command<
-  UpdatePositionCommandInput,
-  UpdatePositionCommandOutput,
+export class GetResourcePositionCommand extends $Command<
+  GetResourcePositionCommandInput,
+  GetResourcePositionCommandOutput,
   IoTWirelessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +64,7 @@ export class UpdatePositionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdatePositionCommandInput) {
+  constructor(readonly input: GetResourcePositionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +77,23 @@ export class UpdatePositionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: IoTWirelessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdatePositionCommandInput, UpdatePositionCommandOutput> {
+  ): Handler<GetResourcePositionCommandInput, GetResourcePositionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdatePositionCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetResourcePositionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "IoTWirelessClient";
-    const commandName = "UpdatePositionCommand";
+    const commandName = "GetResourcePositionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdatePositionRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdatePositionResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetResourcePositionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourcePositionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -107,12 +103,12 @@ export class UpdatePositionCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdatePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UpdatePositionCommand(input, context);
+  private serialize(input: GetResourcePositionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetResourcePositionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdatePositionCommandOutput> {
-    return deserializeAws_restJson1UpdatePositionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetResourcePositionCommandOutput> {
+    return deserializeAws_restJson1GetResourcePositionCommand(output, context);
   }
 
   // Start section: command_body_extra

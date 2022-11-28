@@ -19,7 +19,7 @@ import {
   SendDataToMulticastGroupRequestFilterSensitiveLog,
   SendDataToMulticastGroupResponse,
   SendDataToMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1SendDataToMulticastGroupCommand,
   serializeAws_restJson1SendDataToMulticastGroupCommand,

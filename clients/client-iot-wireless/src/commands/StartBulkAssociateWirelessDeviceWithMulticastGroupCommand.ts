@@ -19,7 +19,7 @@ import {
   StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog,
   StartBulkAssociateWirelessDeviceWithMulticastGroupResponse,
   StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
   serializeAws_restJson1StartBulkAssociateWirelessDeviceWithMulticastGroupCommand,
