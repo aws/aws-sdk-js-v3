@@ -108,6 +108,11 @@ import {
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
 import {
+  ReverseReplicationCommand,
+  ReverseReplicationCommandInput,
+  ReverseReplicationCommandOutput,
+} from "./commands/ReverseReplicationCommand";
+import {
   StartFailbackLaunchCommand,
   StartFailbackLaunchCommandInput,
   StartFailbackLaunchCommandOutput,
@@ -118,10 +123,20 @@ import {
   StartRecoveryCommandOutput,
 } from "./commands/StartRecoveryCommand";
 import {
+  StartReplicationCommand,
+  StartReplicationCommandInput,
+  StartReplicationCommandOutput,
+} from "./commands/StartReplicationCommand";
+import {
   StopFailbackCommand,
   StopFailbackCommandInput,
   StopFailbackCommandOutput,
 } from "./commands/StopFailbackCommand";
+import {
+  StopReplicationCommand,
+  StopReplicationCommandInput,
+  StopReplicationCommandOutput,
+} from "./commands/StopReplicationCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommand,
@@ -864,6 +879,41 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * <p>Start replication to origin / target region - applies only to protected instances that originated in EC2.
+   *             For recovery instances on target region - starts replication back to origin region.
+   *             For failback instances on origin region - starts replication to target region to re-protect them.
+   *         </p>
+   */
+  public reverseReplication(
+    args: ReverseReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ReverseReplicationCommandOutput>;
+  public reverseReplication(
+    args: ReverseReplicationCommandInput,
+    cb: (err: any, data?: ReverseReplicationCommandOutput) => void
+  ): void;
+  public reverseReplication(
+    args: ReverseReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ReverseReplicationCommandOutput) => void
+  ): void;
+  public reverseReplication(
+    args: ReverseReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ReverseReplicationCommandOutput) => void),
+    cb?: (err: any, data?: ReverseReplicationCommandOutput) => void
+  ): Promise<ReverseReplicationCommandOutput> | void {
+    const command = new ReverseReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Initiates a Job for launching the machine that is being failed back to from the specified Recovery Instance. This will run conversion on the failback client and will reboot your machine, thus completing the failback process.</p>
    */
   public startFailbackLaunch(
@@ -928,6 +978,38 @@ export class Drs extends DrsClient {
   }
 
   /**
+   * <p>Starts replication for a stopped Source Server. This action would make the Source Server protected again and restart billing for it.</p>
+   */
+  public startReplication(
+    args: StartReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartReplicationCommandOutput>;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartReplicationCommandOutput) => void
+  ): void;
+  public startReplication(
+    args: StartReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StartReplicationCommandOutput) => void
+  ): Promise<StartReplicationCommandOutput> | void {
+    const command = new StartReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Stops the failback process for a specified Recovery Instance. This changes the Failback State of the Recovery Instance back to FAILBACK_NOT_STARTED.</p>
    */
   public stopFailback(
@@ -946,6 +1028,38 @@ export class Drs extends DrsClient {
     cb?: (err: any, data?: StopFailbackCommandOutput) => void
   ): Promise<StopFailbackCommandOutput> | void {
     const command = new StopFailbackCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Stops replication for a Source Server. This action would make the Source Server unprotected, delete its existing snapshots and stop billing for it.</p>
+   */
+  public stopReplication(
+    args: StopReplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopReplicationCommandOutput>;
+  public stopReplication(
+    args: StopReplicationCommandInput,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
+  public stopReplication(
+    args: StopReplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopReplicationCommandOutput) => void
+  ): void;
+  public stopReplication(
+    args: StopReplicationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StopReplicationCommandOutput) => void),
+    cb?: (err: any, data?: StopReplicationCommandOutput) => void
+  ): Promise<StopReplicationCommandOutput> | void {
+    const command = new StopReplicationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

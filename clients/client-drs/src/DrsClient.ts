@@ -123,12 +123,15 @@ import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
 } from "./commands/RetryDataReplicationCommand";
+import { ReverseReplicationCommandInput, ReverseReplicationCommandOutput } from "./commands/ReverseReplicationCommand";
 import {
   StartFailbackLaunchCommandInput,
   StartFailbackLaunchCommandOutput,
 } from "./commands/StartFailbackLaunchCommand";
 import { StartRecoveryCommandInput, StartRecoveryCommandOutput } from "./commands/StartRecoveryCommand";
+import { StartReplicationCommandInput, StartReplicationCommandOutput } from "./commands/StartReplicationCommand";
 import { StopFailbackCommandInput, StopFailbackCommandOutput } from "./commands/StopFailbackCommand";
+import { StopReplicationCommandInput, StopReplicationCommandOutput } from "./commands/StopReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TerminateRecoveryInstancesCommandInput,
@@ -182,9 +185,12 @@ export type ServiceInputTypes =
   | ListStagingAccountsCommandInput
   | ListTagsForResourceCommandInput
   | RetryDataReplicationCommandInput
+  | ReverseReplicationCommandInput
   | StartFailbackLaunchCommandInput
   | StartRecoveryCommandInput
+  | StartReplicationCommandInput
   | StopFailbackCommandInput
+  | StopReplicationCommandInput
   | TagResourceCommandInput
   | TerminateRecoveryInstancesCommandInput
   | UntagResourceCommandInput
@@ -216,9 +222,12 @@ export type ServiceOutputTypes =
   | ListStagingAccountsCommandOutput
   | ListTagsForResourceCommandOutput
   | RetryDataReplicationCommandOutput
+  | ReverseReplicationCommandOutput
   | StartFailbackLaunchCommandOutput
   | StartRecoveryCommandOutput
+  | StartReplicationCommandOutput
   | StopFailbackCommandOutput
+  | StopReplicationCommandOutput
   | TagResourceCommandOutput
   | TerminateRecoveryInstancesCommandOutput
   | UntagResourceCommandOutput
