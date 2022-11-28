@@ -4,9 +4,12 @@
 import { tokenDefaultProvider } from "./tokenDefaultProvider.browser";
 
 describe(tokenDefaultProvider.name, () => {
-  it("should throw error", () => {
-    expect(() => {
-      tokenDefaultProvider({})();
-    }).toThrow(new Error("Token is missing"));
+  it("should throw error", async () => {
+    try {
+      await tokenDefaultProvider({})();
+      fail("Expected error");
+    } catch (error) {
+      expect(error.message).toEqual("Token is missing");
+    }
   });
 });
