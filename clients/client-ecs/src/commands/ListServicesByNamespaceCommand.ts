@@ -15,43 +15,43 @@ import {
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import {
-  ExecuteCommandRequest,
-  ExecuteCommandRequestFilterSensitiveLog,
-  ExecuteCommandResponse,
-  ExecuteCommandResponseFilterSensitiveLog,
+  ListServicesByNamespaceRequest,
+  ListServicesByNamespaceRequestFilterSensitiveLog,
+  ListServicesByNamespaceResponse,
+  ListServicesByNamespaceResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1ExecuteCommandCommand,
-  serializeAws_json1_1ExecuteCommandCommand,
+  deserializeAws_json1_1ListServicesByNamespaceCommand,
+  serializeAws_json1_1ListServicesByNamespaceCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface ExecuteCommandCommandInput extends ExecuteCommandRequest {}
-export interface ExecuteCommandCommandOutput extends ExecuteCommandResponse, __MetadataBearer {}
+export interface ListServicesByNamespaceCommandInput extends ListServicesByNamespaceRequest {}
+export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>Runs a command remotely on a container within a task.</p>
- * 		       <p>If you use a condition key in your IAM policy to refine the conditions for the policy
- * 			statement, for example limit the actions to a specific cluster, you receive an
- * 				<code>AccessDeniedException</code> when there is a mismatch between the condition
- * 			key value and the corresponding parameter value.</p>
+ * <p>This operation lists all of the services that are associated with a Cloud Map namespace. This list
+ * 			might include services in different clusters. In contrast, <code>ListServices</code> can
+ * 			only list services in one cluster at a time. If you need to filter the list of
+ * 			services in a single cluster by various parameters, use <code>ListServices</code>.
+ * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ECSClient, ExecuteCommandCommand } from "@aws-sdk/client-ecs"; // ES Modules import
- * // const { ECSClient, ExecuteCommandCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
+ * import { ECSClient, ListServicesByNamespaceCommand } from "@aws-sdk/client-ecs"; // ES Modules import
+ * // const { ECSClient, ListServicesByNamespaceCommand } = require("@aws-sdk/client-ecs"); // CommonJS import
  * const client = new ECSClient(config);
- * const command = new ExecuteCommandCommand(input);
+ * const command = new ListServicesByNamespaceCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ExecuteCommandCommandInput} for command's `input` shape.
- * @see {@link ExecuteCommandCommandOutput} for command's `response` shape.
+ * @see {@link ListServicesByNamespaceCommandInput} for command's `input` shape.
+ * @see {@link ListServicesByNamespaceCommandOutput} for command's `response` shape.
  * @see {@link ECSClientResolvedConfig | config} for ECSClient's `config` shape.
  *
  */
-export class ExecuteCommandCommand extends $Command<
-  ExecuteCommandCommandInput,
-  ExecuteCommandCommandOutput,
+export class ListServicesByNamespaceCommand extends $Command<
+  ListServicesByNamespaceCommandInput,
+  ListServicesByNamespaceCommandOutput,
   ECSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +66,7 @@ export class ExecuteCommandCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ExecuteCommandCommandInput) {
+  constructor(readonly input: ListServicesByNamespaceCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +79,23 @@ export class ExecuteCommandCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ECSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ExecuteCommandCommandInput, ExecuteCommandCommandOutput> {
+  ): Handler<ListServicesByNamespaceCommandInput, ListServicesByNamespaceCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ExecuteCommandCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListServicesByNamespaceCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ECSClient";
-    const commandName = "ExecuteCommandCommand";
+    const commandName = "ListServicesByNamespaceCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ExecuteCommandRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ExecuteCommandResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListServicesByNamespaceRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListServicesByNamespaceResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +105,12 @@ export class ExecuteCommandCommand extends $Command<
     );
   }
 
-  private serialize(input: ExecuteCommandCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ExecuteCommandCommand(input, context);
+  private serialize(input: ListServicesByNamespaceCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListServicesByNamespaceCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ExecuteCommandCommandOutput> {
-    return deserializeAws_json1_1ExecuteCommandCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListServicesByNamespaceCommandOutput> {
+    return deserializeAws_json1_1ListServicesByNamespaceCommand(output, context);
   }
 
   // Start section: command_body_extra

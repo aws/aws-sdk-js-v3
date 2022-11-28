@@ -106,9 +106,8 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
  * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>When the service scheduler launches new tasks, it determines task placement. For
- * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
- * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 		       <p>When the service scheduler launches new tasks, it determines task placement. For information
+ * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -132,6 +132,11 @@ import {
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
 import {
+  ListServicesByNamespaceCommand,
+  ListServicesByNamespaceCommandInput,
+  ListServicesByNamespaceCommandOutput,
+} from "./commands/ListServicesByNamespaceCommand";
+import {
   ListServicesCommand,
   ListServicesCommandInput,
   ListServicesCommandOutput,
@@ -428,9 +433,8 @@ export class ECS extends ECSClient {
    * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
    * 			can specify only parameters that aren't controlled at the task set level. The only
    * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For
-   * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
-   * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For information
+   * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -1094,7 +1098,7 @@ export class ECS extends ECSClient {
   /**
    * <p>Runs a command remotely on a container within a task.</p>
    * 		       <p>If you use a condition key in your IAM policy to refine the conditions for the policy
-   * 			statement, for example limit the actions to a specific cluster, you recevie an
+   * 			statement, for example limit the actions to a specific cluster, you receive an
    * 				<code>AccessDeniedException</code> when there is a mismatch between the condition
    * 			key value and the corresponding parameter value.</p>
    */
@@ -1313,6 +1317,42 @@ export class ECS extends ECSClient {
     cb?: (err: any, data?: ListServicesCommandOutput) => void
   ): Promise<ListServicesCommandOutput> | void {
     const command = new ListServicesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This operation lists all of the services that are associated with a Cloud Map namespace. This list
+   * 			might include services in different clusters. In contrast, <code>ListServices</code> can
+   * 			only list services in one cluster at a time. If you need to filter the list of
+   * 			services in a single cluster by various parameters, use <code>ListServices</code>.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  public listServicesByNamespace(
+    args: ListServicesByNamespaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServicesByNamespaceCommandOutput>;
+  public listServicesByNamespace(
+    args: ListServicesByNamespaceCommandInput,
+    cb: (err: any, data?: ListServicesByNamespaceCommandOutput) => void
+  ): void;
+  public listServicesByNamespace(
+    args: ListServicesByNamespaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServicesByNamespaceCommandOutput) => void
+  ): void;
+  public listServicesByNamespace(
+    args: ListServicesByNamespaceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListServicesByNamespaceCommandOutput) => void),
+    cb?: (err: any, data?: ListServicesByNamespaceCommandOutput) => void
+  ): Promise<ListServicesByNamespaceCommandOutput> | void {
+    const command = new ListServicesByNamespaceCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2109,6 +2149,11 @@ export class ECS extends ECSClient {
    * 					Amazon ECS container agent</a> in the
    * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </note>
+   * 		       <note>
+   * 			         <p>Agent updates with the <code>UpdateContainerAgent</code> API operation do not
+   * 				apply to Windows container instances. We recommend that you launch new container
+   * 				instances to update the agent version in your Windows clusters.</p>
+   * 		       </note>
    * 		       <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
    * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
    * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the
@@ -2430,17 +2475,18 @@ export class ECS extends ECSClient {
    * 				<code>protectionEnabled</code> set to <code>true</code>. You can keep extending the
    * 			protection expiration period of a task by invoking this operation repeatedly.</p>
    * 		       <p>To learn more about Amazon ECS task protection, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html">Task scale-in
-   * 				protection</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				protection</a> in the <i>
+   *                <i>Amazon Elastic Container Service Developer Guide</i>
+   *             </i>.</p>
    * 		       <note>
    * 			         <p>This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
    * 				this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
-   * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html">API
-   * 					failure reasons</a>.</p>
+   * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
+   * 					reasons</a>.</p>
    * 		       </note>
    * 		       <important>
    * 			         <p>If you prefer to set task protection from within the container, we recommend using
-   * 				the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html">Amazon ECS container
-   * 					agent endpoint</a>.</p>
+   * 				the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection-endpoint.html">Task scale-in protection endpoint</a>.</p>
    * 		       </important>
    */
   public updateTaskProtection(

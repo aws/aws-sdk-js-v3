@@ -106,6 +106,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServicesByNamespaceCommandInput,
+  ListServicesByNamespaceCommandOutput,
+} from "./commands/ListServicesByNamespaceCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "./commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -217,6 +221,7 @@ export type ServiceInputTypes =
   | ListAttributesCommandInput
   | ListClustersCommandInput
   | ListContainerInstancesCommandInput
+  | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskDefinitionFamiliesCommandInput
@@ -273,6 +278,7 @@ export type ServiceOutputTypes =
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
   | ListContainerInstancesCommandOutput
+  | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskDefinitionFamiliesCommandOutput
