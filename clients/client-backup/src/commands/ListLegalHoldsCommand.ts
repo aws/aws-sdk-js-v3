@@ -14,39 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StopBackupJobInput, StopBackupJobInputFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_restJson1StopBackupJobCommand,
-  serializeAws_restJson1StopBackupJobCommand,
+  ListLegalHoldsInput,
+  ListLegalHoldsInputFilterSensitiveLog,
+  ListLegalHoldsOutput,
+  ListLegalHoldsOutputFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1ListLegalHoldsCommand,
+  serializeAws_restJson1ListLegalHoldsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface StopBackupJobCommandInput extends StopBackupJobInput {}
-export interface StopBackupJobCommandOutput extends __MetadataBearer {}
+export interface ListLegalHoldsCommandInput extends ListLegalHoldsInput {}
+export interface ListLegalHoldsCommandOutput extends ListLegalHoldsOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
- *          <p>This action is not supported for the following services:
- *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
- *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
- *          and Amazon Neptune.</p>
+ * <p>This action returns metadata about active and previous legal holds.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListLegalHoldsCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListLegalHoldsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const command = new StopBackupJobCommand(input);
+ * const command = new ListLegalHoldsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StopBackupJobCommandInput} for command's `input` shape.
- * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
+ * @see {@link ListLegalHoldsCommandInput} for command's `input` shape.
+ * @see {@link ListLegalHoldsCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
-export class StopBackupJobCommand extends $Command<
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput,
+export class ListLegalHoldsCommand extends $Command<
+  ListLegalHoldsCommandInput,
+  ListLegalHoldsCommandOutput,
   BackupClientResolvedConfig
 > {
   // Start section: command_properties
@@ -61,7 +62,7 @@ export class StopBackupJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StopBackupJobCommandInput) {
+  constructor(readonly input: ListLegalHoldsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -74,21 +75,23 @@ export class StopBackupJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopBackupJobCommandInput, StopBackupJobCommandOutput> {
+  ): Handler<ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StopBackupJobCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListLegalHoldsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "StopBackupJobCommand";
+    const commandName = "ListLegalHoldsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBackupJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: ListLegalHoldsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListLegalHoldsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +101,12 @@ export class StopBackupJobCommand extends $Command<
     );
   }
 
-  private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBackupJobCommand(input, context);
+  private serialize(input: ListLegalHoldsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListLegalHoldsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1StopBackupJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListLegalHoldsCommandOutput> {
+    return deserializeAws_restJson1ListLegalHoldsCommand(output, context);
   }
 
   // Start section: command_body_extra

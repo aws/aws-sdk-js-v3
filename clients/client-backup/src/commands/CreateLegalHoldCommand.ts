@@ -14,39 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StopBackupJobInput, StopBackupJobInputFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_restJson1StopBackupJobCommand,
-  serializeAws_restJson1StopBackupJobCommand,
+  CreateLegalHoldInput,
+  CreateLegalHoldInputFilterSensitiveLog,
+  CreateLegalHoldOutput,
+  CreateLegalHoldOutputFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1CreateLegalHoldCommand,
+  serializeAws_restJson1CreateLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface StopBackupJobCommandInput extends StopBackupJobInput {}
-export interface StopBackupJobCommandOutput extends __MetadataBearer {}
+export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
+export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
- *          <p>This action is not supported for the following services:
- *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
- *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
- *          and Amazon Neptune.</p>
+ * <p>This action creates a legal hold on a recovery point (backup). A legal hold
+ *          is a restraint on altering or deleting a backup until an authorized user cancels the
+ *          legal hold. Any actions to delete or disassociate a recovery point will fail with
+ *          an error if one or more active legal holds are on the recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, CreateLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, CreateLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const command = new StopBackupJobCommand(input);
+ * const command = new CreateLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StopBackupJobCommandInput} for command's `input` shape.
- * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
+ * @see {@link CreateLegalHoldCommandInput} for command's `input` shape.
+ * @see {@link CreateLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
-export class StopBackupJobCommand extends $Command<
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput,
+export class CreateLegalHoldCommand extends $Command<
+  CreateLegalHoldCommandInput,
+  CreateLegalHoldCommandOutput,
   BackupClientResolvedConfig
 > {
   // Start section: command_properties
@@ -61,7 +65,7 @@ export class StopBackupJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StopBackupJobCommandInput) {
+  constructor(readonly input: CreateLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -74,21 +78,23 @@ export class StopBackupJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopBackupJobCommandInput, StopBackupJobCommandOutput> {
+  ): Handler<CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StopBackupJobCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, CreateLegalHoldCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "StopBackupJobCommand";
+    const commandName = "CreateLegalHoldCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBackupJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: CreateLegalHoldInputFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateLegalHoldOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +104,12 @@ export class StopBackupJobCommand extends $Command<
     );
   }
 
-  private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBackupJobCommand(input, context);
+  private serialize(input: CreateLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateLegalHoldCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1StopBackupJobCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateLegalHoldCommandOutput> {
+    return deserializeAws_restJson1CreateLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

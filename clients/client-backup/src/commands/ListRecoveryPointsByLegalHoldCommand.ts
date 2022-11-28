@@ -14,39 +14,43 @@ import {
 } from "@aws-sdk/types";
 
 import { BackupClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BackupClient";
-import { StopBackupJobInput, StopBackupJobInputFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_restJson1StopBackupJobCommand,
-  serializeAws_restJson1StopBackupJobCommand,
+  ListRecoveryPointsByLegalHoldInput,
+  ListRecoveryPointsByLegalHoldInputFilterSensitiveLog,
+  ListRecoveryPointsByLegalHoldOutput,
+  ListRecoveryPointsByLegalHoldOutputFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
+  serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface StopBackupJobCommandInput extends StopBackupJobInput {}
-export interface StopBackupJobCommandOutput extends __MetadataBearer {}
+export interface ListRecoveryPointsByLegalHoldCommandInput extends ListRecoveryPointsByLegalHoldInput {}
+export interface ListRecoveryPointsByLegalHoldCommandOutput
+  extends ListRecoveryPointsByLegalHoldOutput,
+    __MetadataBearer {}
 
 /**
- * <p>Attempts to cancel a job to create a one-time backup of a resource.</p>
- *          <p>This action is not supported for the following services:
- *          Amazon FSx for Windows File Server, Amazon FSx for Lustre, FSx for ONTAP
- *          , Amazon FSx for OpenZFS, Amazon DocumentDB (with MongoDB compatibility), Amazon RDS, Amazon Aurora,
- *          and Amazon Neptune.</p>
+ * <p>This action returns recovery point ARNs (Amazon Resource Names) of the
+ *          specified legal hold.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { BackupClient, StopBackupJobCommand } from "@aws-sdk/client-backup"; // ES Modules import
- * // const { BackupClient, StopBackupJobCommand } = require("@aws-sdk/client-backup"); // CommonJS import
+ * import { BackupClient, ListRecoveryPointsByLegalHoldCommand } from "@aws-sdk/client-backup"; // ES Modules import
+ * // const { BackupClient, ListRecoveryPointsByLegalHoldCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
- * const command = new StopBackupJobCommand(input);
+ * const command = new ListRecoveryPointsByLegalHoldCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link StopBackupJobCommandInput} for command's `input` shape.
- * @see {@link StopBackupJobCommandOutput} for command's `response` shape.
+ * @see {@link ListRecoveryPointsByLegalHoldCommandInput} for command's `input` shape.
+ * @see {@link ListRecoveryPointsByLegalHoldCommandOutput} for command's `response` shape.
  * @see {@link BackupClientResolvedConfig | config} for BackupClient's `config` shape.
  *
  */
-export class StopBackupJobCommand extends $Command<
-  StopBackupJobCommandInput,
-  StopBackupJobCommandOutput,
+export class ListRecoveryPointsByLegalHoldCommand extends $Command<
+  ListRecoveryPointsByLegalHoldCommandInput,
+  ListRecoveryPointsByLegalHoldCommandOutput,
   BackupClientResolvedConfig
 > {
   // Start section: command_properties
@@ -61,7 +65,7 @@ export class StopBackupJobCommand extends $Command<
     };
   }
 
-  constructor(readonly input: StopBackupJobCommandInput) {
+  constructor(readonly input: ListRecoveryPointsByLegalHoldCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -74,21 +78,23 @@ export class StopBackupJobCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: BackupClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<StopBackupJobCommandInput, StopBackupJobCommandOutput> {
+  ): Handler<ListRecoveryPointsByLegalHoldCommandInput, ListRecoveryPointsByLegalHoldCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, StopBackupJobCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListRecoveryPointsByLegalHoldCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "BackupClient";
-    const commandName = "StopBackupJobCommand";
+    const commandName = "ListRecoveryPointsByLegalHoldCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: StopBackupJobInputFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: ListRecoveryPointsByLegalHoldInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListRecoveryPointsByLegalHoldOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -98,12 +104,15 @@ export class StopBackupJobCommand extends $Command<
     );
   }
 
-  private serialize(input: StopBackupJobCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1StopBackupJobCommand(input, context);
+  private serialize(input: ListRecoveryPointsByLegalHoldCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StopBackupJobCommandOutput> {
-    return deserializeAws_restJson1StopBackupJobCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListRecoveryPointsByLegalHoldCommandOutput> {
+    return deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand(output, context);
   }
 
   // Start section: command_body_extra

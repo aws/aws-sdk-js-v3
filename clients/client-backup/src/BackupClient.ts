@@ -47,6 +47,7 @@ import {
   UserAgent as __UserAgent,
 } from "@aws-sdk/types";
 
+import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
 import {
   CreateBackupSelectionCommandInput,
@@ -54,6 +55,7 @@ import {
 } from "./commands/CreateBackupSelectionCommand";
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "./commands/CreateBackupVaultCommand";
 import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "./commands/CreateFrameworkCommand";
+import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "./commands/CreateLegalHoldCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "./commands/DeleteBackupPlanCommand";
 import {
@@ -110,6 +112,10 @@ import {
   DisassociateRecoveryPointCommandOutput,
 } from "./commands/DisassociateRecoveryPointCommand";
 import {
+  DisassociateRecoveryPointFromParentCommandInput,
+  DisassociateRecoveryPointFromParentCommandOutput,
+} from "./commands/DisassociateRecoveryPointFromParentCommand";
+import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "./commands/ExportBackupPlanTemplateCommand";
@@ -131,6 +137,7 @@ import {
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
+import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
 import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -156,6 +163,7 @@ import {
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "./commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "./commands/ListCopyJobsCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
+import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -164,6 +172,10 @@ import {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "./commands/ListRecoveryPointsByBackupVaultCommand";
+import {
+  ListRecoveryPointsByLegalHoldCommandInput,
+  ListRecoveryPointsByLegalHoldCommandOutput,
+} from "./commands/ListRecoveryPointsByLegalHoldCommand";
 import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
@@ -215,10 +227,12 @@ import {
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
+  | CancelLegalHoldCommandInput
   | CreateBackupPlanCommandInput
   | CreateBackupSelectionCommandInput
   | CreateBackupVaultCommandInput
   | CreateFrameworkCommandInput
+  | CreateLegalHoldCommandInput
   | CreateReportPlanCommandInput
   | DeleteBackupPlanCommandInput
   | DeleteBackupSelectionCommandInput
@@ -241,6 +255,7 @@ export type ServiceInputTypes =
   | DescribeReportPlanCommandInput
   | DescribeRestoreJobCommandInput
   | DisassociateRecoveryPointCommandInput
+  | DisassociateRecoveryPointFromParentCommandInput
   | ExportBackupPlanTemplateCommandInput
   | GetBackupPlanCommandInput
   | GetBackupPlanFromJSONCommandInput
@@ -248,6 +263,7 @@ export type ServiceInputTypes =
   | GetBackupSelectionCommandInput
   | GetBackupVaultAccessPolicyCommandInput
   | GetBackupVaultNotificationsCommandInput
+  | GetLegalHoldCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
   | GetSupportedResourceTypesCommandInput
   | ListBackupJobsCommandInput
@@ -258,8 +274,10 @@ export type ServiceInputTypes =
   | ListBackupVaultsCommandInput
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
+  | ListLegalHoldsCommandInput
   | ListProtectedResourcesCommandInput
   | ListRecoveryPointsByBackupVaultCommandInput
+  | ListRecoveryPointsByLegalHoldCommandInput
   | ListRecoveryPointsByResourceCommandInput
   | ListReportJobsCommandInput
   | ListReportPlansCommandInput
@@ -283,10 +301,12 @@ export type ServiceInputTypes =
   | UpdateReportPlanCommandInput;
 
 export type ServiceOutputTypes =
+  | CancelLegalHoldCommandOutput
   | CreateBackupPlanCommandOutput
   | CreateBackupSelectionCommandOutput
   | CreateBackupVaultCommandOutput
   | CreateFrameworkCommandOutput
+  | CreateLegalHoldCommandOutput
   | CreateReportPlanCommandOutput
   | DeleteBackupPlanCommandOutput
   | DeleteBackupSelectionCommandOutput
@@ -309,6 +329,7 @@ export type ServiceOutputTypes =
   | DescribeReportPlanCommandOutput
   | DescribeRestoreJobCommandOutput
   | DisassociateRecoveryPointCommandOutput
+  | DisassociateRecoveryPointFromParentCommandOutput
   | ExportBackupPlanTemplateCommandOutput
   | GetBackupPlanCommandOutput
   | GetBackupPlanFromJSONCommandOutput
@@ -316,6 +337,7 @@ export type ServiceOutputTypes =
   | GetBackupSelectionCommandOutput
   | GetBackupVaultAccessPolicyCommandOutput
   | GetBackupVaultNotificationsCommandOutput
+  | GetLegalHoldCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
   | GetSupportedResourceTypesCommandOutput
   | ListBackupJobsCommandOutput
@@ -326,8 +348,10 @@ export type ServiceOutputTypes =
   | ListBackupVaultsCommandOutput
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
+  | ListLegalHoldsCommandOutput
   | ListProtectedResourcesCommandOutput
   | ListRecoveryPointsByBackupVaultCommandOutput
+  | ListRecoveryPointsByLegalHoldCommandOutput
   | ListRecoveryPointsByResourceCommandOutput
   | ListReportJobsCommandOutput
   | ListReportPlansCommandOutput

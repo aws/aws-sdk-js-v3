@@ -22,6 +22,7 @@ import {
 } from "@aws-sdk/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "../commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "../commands/CreateBackupPlanCommand";
 import {
   CreateBackupSelectionCommandInput,
@@ -29,6 +30,7 @@ import {
 } from "../commands/CreateBackupSelectionCommand";
 import { CreateBackupVaultCommandInput, CreateBackupVaultCommandOutput } from "../commands/CreateBackupVaultCommand";
 import { CreateFrameworkCommandInput, CreateFrameworkCommandOutput } from "../commands/CreateFrameworkCommand";
+import { CreateLegalHoldCommandInput, CreateLegalHoldCommandOutput } from "../commands/CreateLegalHoldCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "../commands/CreateReportPlanCommand";
 import { DeleteBackupPlanCommandInput, DeleteBackupPlanCommandOutput } from "../commands/DeleteBackupPlanCommand";
 import {
@@ -85,6 +87,10 @@ import {
   DisassociateRecoveryPointCommandOutput,
 } from "../commands/DisassociateRecoveryPointCommand";
 import {
+  DisassociateRecoveryPointFromParentCommandInput,
+  DisassociateRecoveryPointFromParentCommandOutput,
+} from "../commands/DisassociateRecoveryPointFromParentCommand";
+import {
   ExportBackupPlanTemplateCommandInput,
   ExportBackupPlanTemplateCommandOutput,
 } from "../commands/ExportBackupPlanTemplateCommand";
@@ -106,6 +112,7 @@ import {
   GetBackupVaultNotificationsCommandInput,
   GetBackupVaultNotificationsCommandOutput,
 } from "../commands/GetBackupVaultNotificationsCommand";
+import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "../commands/GetLegalHoldCommand";
 import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -131,6 +138,7 @@ import {
 import { ListBackupVaultsCommandInput, ListBackupVaultsCommandOutput } from "../commands/ListBackupVaultsCommand";
 import { ListCopyJobsCommandInput, ListCopyJobsCommandOutput } from "../commands/ListCopyJobsCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "../commands/ListFrameworksCommand";
+import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "../commands/ListLegalHoldsCommand";
 import {
   ListProtectedResourcesCommandInput,
   ListProtectedResourcesCommandOutput,
@@ -139,6 +147,10 @@ import {
   ListRecoveryPointsByBackupVaultCommandInput,
   ListRecoveryPointsByBackupVaultCommandOutput,
 } from "../commands/ListRecoveryPointsByBackupVaultCommand";
+import {
+  ListRecoveryPointsByLegalHoldCommandInput,
+  ListRecoveryPointsByLegalHoldCommandOutput,
+} from "../commands/ListRecoveryPointsByLegalHoldCommand";
 import {
   ListRecoveryPointsByResourceCommandInput,
   ListRecoveryPointsByResourceCommandOutput,
@@ -186,6 +198,7 @@ import {
   AdvancedBackupSetting,
   AlreadyExistsException,
   BackupJob,
+  BackupJobState,
   BackupPlan,
   BackupPlanInput,
   BackupPlansListMember,
@@ -205,12 +218,15 @@ import {
   ControlScope,
   CopyAction,
   CopyJob,
+  CopyJobState,
+  DateRange,
   DependencyFailureException,
   Framework,
   FrameworkControl,
   InvalidParameterValueException,
   InvalidRequestException,
   InvalidResourceStateException,
+  LegalHold,
   Lifecycle,
   LimitExceededException,
   MissingParameterValueException,
@@ -218,6 +234,8 @@ import {
   RecoveryPointByBackupVault,
   RecoveryPointByResource,
   RecoveryPointCreator,
+  RecoveryPointMember,
+  RecoveryPointSelection,
   ReportDeliveryChannel,
   ReportDestination,
   ReportJob,
@@ -227,6 +245,32 @@ import {
   RestoreJobsListMember,
   ServiceUnavailableException,
 } from "../models/models_0";
+
+export const serializeAws_restJson1CancelLegalHoldCommand = async (
+  input: CancelLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  const query: any = map({
+    cancelDescription: [, __expectNonNull(input.CancelDescription!, `CancelDescription`)],
+    retainRecordInDays: [() => input.RetainRecordInDays !== void 0, () => input.RetainRecordInDays!.toString()],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
 
 export const serializeAws_restJson1CreateBackupPlanCommand = async (
   input: CreateBackupPlanCommandInput,
@@ -347,6 +391,36 @@ export const serializeAws_restJson1CreateFrameworkCommand = async (
       FrameworkTags: serializeAws_restJson1stringMap(input.FrameworkTags, context),
     }),
     IdempotencyToken: input.IdempotencyToken ?? generateIdempotencyToken(),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateLegalHoldCommand = async (
+  input: CreateLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.Description != null && { Description: input.Description }),
+    ...(input.IdempotencyToken != null && { IdempotencyToken: input.IdempotencyToken }),
+    ...(input.RecoveryPointSelection != null && {
+      RecoveryPointSelection: serializeAws_restJson1RecoveryPointSelection(input.RecoveryPointSelection, context),
+    }),
+    ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
+    ...(input.Title != null && { Title: input.Title }),
   });
   return new __HttpRequest({
     protocol,
@@ -972,6 +1046,43 @@ export const serializeAws_restJson1DisassociateRecoveryPointCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateRecoveryPointFromParentCommand = async (
+  input: DisassociateRecoveryPointFromParentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/backup-vaults/{BackupVaultName}/recovery-points/{RecoveryPointArn}/parentAssociation";
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "BackupVaultName",
+    () => input.BackupVaultName!,
+    "{BackupVaultName}",
+    false
+  );
+  resolvedPath = __resolvedPath(
+    resolvedPath,
+    input,
+    "RecoveryPointArn",
+    () => input.RecoveryPointArn!,
+    "{RecoveryPointArn}",
+    false
+  );
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "DELETE",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ExportBackupPlanTemplateCommand = async (
   input: ExportBackupPlanTemplateCommandInput,
   context: __SerdeContext
@@ -1174,6 +1285,27 @@ export const serializeAws_restJson1GetBackupVaultNotificationsCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetLegalHoldCommand = async (
+  input: GetLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds/{LegalHoldId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetRecoveryPointRestoreMetadataCommand = async (
   input: GetRecoveryPointRestoreMetadataCommandInput,
   context: __SerdeContext
@@ -1265,6 +1397,7 @@ export const serializeAws_restJson1ListBackupJobsCommand = async (
       () => input.ByCompleteBefore !== void 0,
       () => (input.ByCompleteBefore!.toISOString().split(".")[0] + "Z").toString(),
     ],
+    parentJobId: [, input.ByParentJobId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1449,6 +1582,7 @@ export const serializeAws_restJson1ListCopyJobsCommand = async (
       () => input.ByCompleteAfter !== void 0,
       () => (input.ByCompleteAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
+    parentJobId: [, input.ByParentJobId!],
   });
   let body: any;
   return new __HttpRequest({
@@ -1473,6 +1607,30 @@ export const serializeAws_restJson1ListFrameworksCommand = async (
   const query: any = map({
     MaxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
     NextToken: [, input.NextToken!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListLegalHoldsCommand = async (
+  input: ListLegalHoldsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/legal-holds";
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -1542,6 +1700,34 @@ export const serializeAws_restJson1ListRecoveryPointsByBackupVaultCommand = asyn
       () => input.ByCreatedAfter !== void 0,
       () => (input.ByCreatedAfter!.toISOString().split(".")[0] + "Z").toString(),
     ],
+    parentRecoveryPointArn: [, input.ByParentRecoveryPointArn!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListRecoveryPointsByLegalHoldCommand = async (
+  input: ListRecoveryPointsByLegalHoldCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/legal-holds/{LegalHoldId}/recovery-points";
+  resolvedPath = __resolvedPath(resolvedPath, input, "LegalHoldId", () => input.LegalHoldId!, "{LegalHoldId}", false);
+  const query: any = map({
+    nextToken: [, input.NextToken!],
+    maxResults: [() => input.MaxResults !== void 0, () => input.MaxResults!.toString()],
   });
   let body: any;
   return new __HttpRequest({
@@ -2224,6 +2410,56 @@ export const serializeAws_restJson1UpdateReportPlanCommand = async (
   });
 };
 
+export const deserializeAws_restJson1CancelLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLegalHoldCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CancelLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1CancelLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.backup#InvalidResourceStateException":
+      throw await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateBackupPlanCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2443,6 +2679,77 @@ const deserializeAws_restJson1CreateFrameworkCommandError = async (
     case "AlreadyExistsException":
     case "com.amazonaws.backup#AlreadyExistsException":
       throw await deserializeAws_restJson1AlreadyExistsExceptionResponse(parsedOutput, context);
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.backup#LimitExceededException":
+      throw await deserializeAws_restJson1LimitExceededExceptionResponse(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CreationDate != null) {
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
+  }
+  if (data.Description != null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.LegalHoldArn != null) {
+    contents.LegalHoldArn = __expectString(data.LegalHoldArn);
+  }
+  if (data.LegalHoldId != null) {
+    contents.LegalHoldId = __expectString(data.LegalHoldId);
+  }
+  if (data.RecoveryPointSelection != null) {
+    contents.RecoveryPointSelection = deserializeAws_restJson1RecoveryPointSelection(
+      data.RecoveryPointSelection,
+      context
+    );
+  }
+  if (data.Status != null) {
+    contents.Status = __expectString(data.Status);
+  }
+  if (data.Title != null) {
+    contents.Title = __expectString(data.Title);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
@@ -3016,6 +3323,9 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   if (data.BytesTransferred != null) {
     contents.BytesTransferred = __expectLong(data.BytesTransferred);
   }
+  if (data.ChildJobsInState != null) {
+    contents.ChildJobsInState = deserializeAws_restJson1BackupJobChildJobsInState(data.ChildJobsInState, context);
+  }
   if (data.CompletionDate != null) {
     contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
   }
@@ -3032,6 +3342,15 @@ export const deserializeAws_restJson1DescribeBackupJobCommand = async (
   }
   if (data.IamRoleArn != null) {
     contents.IamRoleArn = __expectString(data.IamRoleArn);
+  }
+  if (data.IsParent != null) {
+    contents.IsParent = __expectBoolean(data.IsParent);
+  }
+  if (data.NumberOfChildJobs != null) {
+    contents.NumberOfChildJobs = __expectLong(data.NumberOfChildJobs);
+  }
+  if (data.ParentJobId != null) {
+    contents.ParentJobId = __expectString(data.ParentJobId);
   }
   if (data.PercentDone != null) {
     contents.PercentDone = __expectString(data.PercentDone);
@@ -3420,6 +3739,9 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   if (data.CompletionDate != null) {
     contents.CompletionDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CompletionDate)));
   }
+  if (data.CompositeMemberIdentifier != null) {
+    contents.CompositeMemberIdentifier = __expectString(data.CompositeMemberIdentifier);
+  }
   if (data.CreatedBy != null) {
     contents.CreatedBy = deserializeAws_restJson1RecoveryPointCreator(data.CreatedBy, context);
   }
@@ -3435,11 +3757,17 @@ export const deserializeAws_restJson1DescribeRecoveryPointCommand = async (
   if (data.IsEncrypted != null) {
     contents.IsEncrypted = __expectBoolean(data.IsEncrypted);
   }
+  if (data.IsParent != null) {
+    contents.IsParent = __expectBoolean(data.IsParent);
+  }
   if (data.LastRestoreTime != null) {
     contents.LastRestoreTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.LastRestoreTime)));
   }
   if (data.Lifecycle != null) {
     contents.Lifecycle = deserializeAws_restJson1Lifecycle(data.Lifecycle, context);
+  }
+  if (data.ParentRecoveryPointArn != null) {
+    contents.ParentRecoveryPointArn = __expectString(data.ParentRecoveryPointArn);
   }
   if (data.RecoveryPointArn != null) {
     contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
@@ -3767,6 +4095,56 @@ const deserializeAws_restJson1DisassociateRecoveryPointCommandError = async (
     case "InvalidResourceStateException":
     case "com.amazonaws.backup#InvalidResourceStateException":
       throw await deserializeAws_restJson1InvalidResourceStateExceptionResponse(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DisassociateRecoveryPointFromParentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateRecoveryPointFromParentCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DisassociateRecoveryPointFromParentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateRecoveryPointFromParentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.backup#InvalidRequestException":
+      throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
     case "MissingParameterValueException":
     case "com.amazonaws.backup#MissingParameterValueException":
       throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
@@ -4165,6 +4543,86 @@ const deserializeAws_restJson1GetBackupVaultNotificationsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<GetBackupVaultNotificationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1GetLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.CancelDescription != null) {
+    contents.CancelDescription = __expectString(data.CancelDescription);
+  }
+  if (data.CancellationDate != null) {
+    contents.CancellationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CancellationDate)));
+  }
+  if (data.CreationDate != null) {
+    contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
+  }
+  if (data.Description != null) {
+    contents.Description = __expectString(data.Description);
+  }
+  if (data.LegalHoldArn != null) {
+    contents.LegalHoldArn = __expectString(data.LegalHoldArn);
+  }
+  if (data.LegalHoldId != null) {
+    contents.LegalHoldId = __expectString(data.LegalHoldId);
+  }
+  if (data.RecoveryPointSelection != null) {
+    contents.RecoveryPointSelection = deserializeAws_restJson1RecoveryPointSelection(
+      data.RecoveryPointSelection,
+      context
+    );
+  }
+  if (data.RetainRecordUntil != null) {
+    contents.RetainRecordUntil = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.RetainRecordUntil)));
+  }
+  if (data.Status != null) {
+    contents.Status = __expectString(data.Status);
+  }
+  if (data.Title != null) {
+    contents.Title = __expectString(data.Title);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetLegalHoldCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4703,6 +5161,53 @@ const deserializeAws_restJson1ListFrameworksCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListLegalHoldsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLegalHoldsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListLegalHoldsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.LegalHolds != null) {
+    contents.LegalHolds = deserializeAws_restJson1LegalHoldsList(data.LegalHolds, context);
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListLegalHoldsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLegalHoldsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListProtectedResourcesCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4803,6 +5308,56 @@ const deserializeAws_restJson1ListRecoveryPointsByBackupVaultCommandError = asyn
   }
 };
 
+export const deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  if (data.RecoveryPoints != null) {
+    contents.RecoveryPoints = deserializeAws_restJson1RecoveryPointsList(data.RecoveryPoints, context);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListRecoveryPointsByLegalHoldCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecoveryPointsByLegalHoldCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterValueException":
+    case "com.amazonaws.backup#InvalidParameterValueException":
+      throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "MissingParameterValueException":
+    case "com.amazonaws.backup#MissingParameterValueException":
+      throw await deserializeAws_restJson1MissingParameterValueExceptionResponse(parsedOutput, context);
+    case "ServiceUnavailableException":
+    case "com.amazonaws.backup#ServiceUnavailableException":
+      throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListRecoveryPointsByResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4889,6 +5444,9 @@ const deserializeAws_restJson1ListReportJobsCommandError = async (
     case "InvalidParameterValueException":
     case "com.amazonaws.backup#InvalidParameterValueException":
       throw await deserializeAws_restJson1InvalidParameterValueExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.backup#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ServiceUnavailableException":
     case "com.amazonaws.backup#ServiceUnavailableException":
       throw await deserializeAws_restJson1ServiceUnavailableExceptionResponse(parsedOutput, context);
@@ -5217,6 +5775,9 @@ export const deserializeAws_restJson1StartBackupJobCommand = async (
   if (data.CreationDate != null) {
     contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
   }
+  if (data.IsParent != null) {
+    contents.IsParent = __expectBoolean(data.IsParent);
+  }
   if (data.RecoveryPointArn != null) {
     contents.RecoveryPointArn = __expectString(data.RecoveryPointArn);
   }
@@ -5278,6 +5839,9 @@ export const deserializeAws_restJson1StartCopyJobCommand = async (
   }
   if (data.CreationDate != null) {
     contents.CreationDate = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.CreationDate)));
+  }
+  if (data.IsParent != null) {
+    contents.IsParent = __expectBoolean(data.IsParent);
   }
   return contents;
 };
@@ -6342,6 +6906,13 @@ const serializeAws_restJson1CopyActions = (input: CopyAction[], context: __Serde
     });
 };
 
+const serializeAws_restJson1DateRange = (input: DateRange, context: __SerdeContext): any => {
+  return {
+    ...(input.FromDate != null && { FromDate: Math.round(input.FromDate.getTime() / 1000) }),
+    ...(input.ToDate != null && { ToDate: Math.round(input.ToDate.getTime() / 1000) }),
+  };
+};
+
 const serializeAws_restJson1FormatList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -6405,6 +6976,16 @@ const serializeAws_restJson1Metadata = (input: Record<string, string>, context: 
   }, {});
 };
 
+const serializeAws_restJson1RecoveryPointSelection = (input: RecoveryPointSelection, context: __SerdeContext): any => {
+  return {
+    ...(input.DateRange != null && { DateRange: serializeAws_restJson1DateRange(input.DateRange, context) }),
+    ...(input.ResourceIdentifiers != null && {
+      ResourceIdentifiers: serializeAws_restJson1ResourceIdentifiers(input.ResourceIdentifiers, context),
+    }),
+    ...(input.VaultNames != null && { VaultNames: serializeAws_restJson1VaultNames(input.VaultNames, context) }),
+  };
+};
+
 const serializeAws_restJson1ReportDeliveryChannel = (input: ReportDeliveryChannel, context: __SerdeContext): any => {
   return {
     ...(input.Formats != null && { Formats: serializeAws_restJson1FormatList(input.Formats, context) }),
@@ -6415,15 +6996,28 @@ const serializeAws_restJson1ReportDeliveryChannel = (input: ReportDeliveryChanne
 
 const serializeAws_restJson1ReportSetting = (input: ReportSetting, context: __SerdeContext): any => {
   return {
+    ...(input.Accounts != null && { Accounts: serializeAws_restJson1stringList(input.Accounts, context) }),
     ...(input.FrameworkArns != null && {
       FrameworkArns: serializeAws_restJson1stringList(input.FrameworkArns, context),
     }),
     ...(input.NumberOfFrameworks != null && { NumberOfFrameworks: input.NumberOfFrameworks }),
+    ...(input.OrganizationUnits != null && {
+      OrganizationUnits: serializeAws_restJson1stringList(input.OrganizationUnits, context),
+    }),
+    ...(input.Regions != null && { Regions: serializeAws_restJson1stringList(input.Regions, context) }),
     ...(input.ReportTemplate != null && { ReportTemplate: input.ReportTemplate }),
   };
 };
 
 const serializeAws_restJson1ResourceArns = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ResourceIdentifiers = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -6501,6 +7095,14 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
   }, {});
 };
 
+const serializeAws_restJson1VaultNames = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const deserializeAws_restJson1AdvancedBackupSetting = (output: any, context: __SerdeContext): AdvancedBackupSetting => {
   return {
     BackupOptions:
@@ -6550,6 +7152,8 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpectedCompletionDate)))
         : undefined,
     IamRoleArn: __expectString(output.IamRoleArn),
+    IsParent: __expectBoolean(output.IsParent),
+    ParentJobId: __expectString(output.ParentJobId),
     PercentDone: __expectString(output.PercentDone),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     ResourceArn: __expectString(output.ResourceArn),
@@ -6559,6 +7163,19 @@ const deserializeAws_restJson1BackupJob = (output: any, context: __SerdeContext)
     State: __expectString(output.State),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
+};
+
+const deserializeAws_restJson1BackupJobChildJobsInState = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [BackupJobState | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectLong(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1BackupJobsList = (output: any, context: __SerdeContext): BackupJob[] => {
@@ -6919,10 +7536,15 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
   return {
     AccountId: __expectString(output.AccountId),
     BackupSizeInBytes: __expectLong(output.BackupSizeInBytes),
+    ChildJobsInState:
+      output.ChildJobsInState != null
+        ? deserializeAws_restJson1CopyJobChildJobsInState(output.ChildJobsInState, context)
+        : undefined,
     CompletionDate:
       output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
+    CompositeMemberIdentifier: __expectString(output.CompositeMemberIdentifier),
     CopyJobId: __expectString(output.CopyJobId),
     CreatedBy:
       output.CreatedBy != null ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context) : undefined,
@@ -6933,6 +7555,9 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
     DestinationBackupVaultArn: __expectString(output.DestinationBackupVaultArn),
     DestinationRecoveryPointArn: __expectString(output.DestinationRecoveryPointArn),
     IamRoleArn: __expectString(output.IamRoleArn),
+    IsParent: __expectBoolean(output.IsParent),
+    NumberOfChildJobs: __expectLong(output.NumberOfChildJobs),
+    ParentJobId: __expectString(output.ParentJobId),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
     SourceBackupVaultArn: __expectString(output.SourceBackupVaultArn),
@@ -6940,6 +7565,19 @@ const deserializeAws_restJson1CopyJob = (output: any, context: __SerdeContext): 
     State: __expectString(output.State),
     StatusMessage: __expectString(output.StatusMessage),
   } as any;
+};
+
+const deserializeAws_restJson1CopyJobChildJobsInState = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [CopyJobState | string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __expectLong(value) as any;
+    return acc;
+  }, {});
 };
 
 const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeContext): CopyJob[] => {
@@ -6952,6 +7590,14 @@ const deserializeAws_restJson1CopyJobsList = (output: any, context: __SerdeConte
       return deserializeAws_restJson1CopyJob(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1DateRange = (output: any, context: __SerdeContext): DateRange => {
+  return {
+    FromDate:
+      output.FromDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.FromDate))) : undefined,
+    ToDate: output.ToDate != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ToDate))) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1FormatList = (output: any, context: __SerdeContext): string[] => {
@@ -7026,6 +7672,36 @@ const deserializeAws_restJson1GlobalSettings = (output: any, context: __SerdeCon
   }, {});
 };
 
+const deserializeAws_restJson1LegalHold = (output: any, context: __SerdeContext): LegalHold => {
+  return {
+    CancellationDate:
+      output.CancellationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CancellationDate)))
+        : undefined,
+    CreationDate:
+      output.CreationDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
+        : undefined,
+    Description: __expectString(output.Description),
+    LegalHoldArn: __expectString(output.LegalHoldArn),
+    LegalHoldId: __expectString(output.LegalHoldId),
+    Status: __expectString(output.Status),
+    Title: __expectString(output.Title),
+  } as any;
+};
+
+const deserializeAws_restJson1LegalHoldsList = (output: any, context: __SerdeContext): LegalHold[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LegalHold(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1Lifecycle = (output: any, context: __SerdeContext): Lifecycle => {
   return {
     DeleteAfterDays: __expectLong(output.DeleteAfterDays),
@@ -7094,6 +7770,7 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
       output.CompletionDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CompletionDate)))
         : undefined,
+    CompositeMemberIdentifier: __expectString(output.CompositeMemberIdentifier),
     CreatedBy:
       output.CreatedBy != null ? deserializeAws_restJson1RecoveryPointCreator(output.CreatedBy, context) : undefined,
     CreationDate:
@@ -7103,11 +7780,13 @@ const deserializeAws_restJson1RecoveryPointByBackupVault = (
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
     IamRoleArn: __expectString(output.IamRoleArn),
     IsEncrypted: __expectBoolean(output.IsEncrypted),
+    IsParent: __expectBoolean(output.IsParent),
     LastRestoreTime:
       output.LastRestoreTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastRestoreTime)))
         : undefined,
     Lifecycle: output.Lifecycle != null ? deserializeAws_restJson1Lifecycle(output.Lifecycle, context) : undefined,
+    ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     ResourceArn: __expectString(output.ResourceArn),
     ResourceType: __expectString(output.ResourceType),
@@ -7144,6 +7823,8 @@ const deserializeAws_restJson1RecoveryPointByResource = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     EncryptionKeyArn: __expectString(output.EncryptionKeyArn),
+    IsParent: __expectBoolean(output.IsParent),
+    ParentRecoveryPointArn: __expectString(output.ParentRecoveryPointArn),
     RecoveryPointArn: __expectString(output.RecoveryPointArn),
     Status: __expectString(output.Status),
     StatusMessage: __expectString(output.StatusMessage),
@@ -7172,6 +7853,38 @@ const deserializeAws_restJson1RecoveryPointCreator = (output: any, context: __Se
     BackupPlanVersion: __expectString(output.BackupPlanVersion),
     BackupRuleId: __expectString(output.BackupRuleId),
   } as any;
+};
+
+const deserializeAws_restJson1RecoveryPointMember = (output: any, context: __SerdeContext): RecoveryPointMember => {
+  return {
+    RecoveryPointArn: __expectString(output.RecoveryPointArn),
+  } as any;
+};
+
+const deserializeAws_restJson1RecoveryPointSelection = (
+  output: any,
+  context: __SerdeContext
+): RecoveryPointSelection => {
+  return {
+    DateRange: output.DateRange != null ? deserializeAws_restJson1DateRange(output.DateRange, context) : undefined,
+    ResourceIdentifiers:
+      output.ResourceIdentifiers != null
+        ? deserializeAws_restJson1ResourceIdentifiers(output.ResourceIdentifiers, context)
+        : undefined,
+    VaultNames: output.VaultNames != null ? deserializeAws_restJson1VaultNames(output.VaultNames, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1RecoveryPointsList = (output: any, context: __SerdeContext): RecoveryPointMember[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1RecoveryPointMember(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ReportDeliveryChannel = (output: any, context: __SerdeContext): ReportDeliveryChannel => {
@@ -7264,14 +7977,32 @@ const deserializeAws_restJson1ReportPlanList = (output: any, context: __SerdeCon
 
 const deserializeAws_restJson1ReportSetting = (output: any, context: __SerdeContext): ReportSetting => {
   return {
+    Accounts: output.Accounts != null ? deserializeAws_restJson1stringList(output.Accounts, context) : undefined,
     FrameworkArns:
       output.FrameworkArns != null ? deserializeAws_restJson1stringList(output.FrameworkArns, context) : undefined,
     NumberOfFrameworks: __expectInt32(output.NumberOfFrameworks),
+    OrganizationUnits:
+      output.OrganizationUnits != null
+        ? deserializeAws_restJson1stringList(output.OrganizationUnits, context)
+        : undefined,
+    Regions: output.Regions != null ? deserializeAws_restJson1stringList(output.Regions, context) : undefined,
     ReportTemplate: __expectString(output.ReportTemplate),
   } as any;
 };
 
 const deserializeAws_restJson1ResourceArns = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ResourceIdentifiers = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {
@@ -7399,6 +8130,18 @@ const deserializeAws_restJson1Tags = (output: any, context: __SerdeContext): Rec
     acc[key] = __expectString(value) as any;
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1VaultNames = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
