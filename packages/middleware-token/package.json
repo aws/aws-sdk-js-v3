@@ -55,6 +55,12 @@
   "files": [
     "dist-*"
   ],
+  "browser": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
+  },
+  "react-native": {
+    "./dist-es/tokenDefaultProvider": "./dist-es/tokenDefaultProvider.browser"
+  },
   "homepage": "https://github.com/aws/aws-sdk-js-v3/tree/main/packages/middleware-token",
   "repository": {
     "type": "git",
