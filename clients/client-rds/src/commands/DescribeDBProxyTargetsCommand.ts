@@ -18,7 +18,7 @@ import {
   DescribeDBProxyTargetsRequestFilterSensitiveLog,
   DescribeDBProxyTargetsResponse,
   DescribeDBProxyTargetsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_queryDescribeDBProxyTargetsCommand,
   serializeAws_queryDescribeDBProxyTargetsCommand,

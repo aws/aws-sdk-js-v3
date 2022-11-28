@@ -498,6 +498,9 @@ export class SubscriptionNotFoundFault extends __BaseException {
 
 /**
  * <p>Metadata assigned to an Amazon RDS resource consisting of a key-value pair.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging
+ *             Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+ *          </p>
  */
 export interface Tag {
   /**
@@ -2649,6 +2652,372 @@ export class OptionGroupQuotaExceededFault extends __BaseException {
   }
 }
 
+/**
+ * <p>A blue/green deployment with the specified name already exists.</p>
+ */
+export class BlueGreenDeploymentAlreadyExistsFault extends __BaseException {
+  readonly name: "BlueGreenDeploymentAlreadyExistsFault" = "BlueGreenDeploymentAlreadyExistsFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentAlreadyExistsFault, __BaseException>) {
+    super({
+      name: "BlueGreenDeploymentAlreadyExistsFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlueGreenDeploymentAlreadyExistsFault.prototype);
+  }
+}
+
+export interface CreateBlueGreenDeploymentRequest {
+  /**
+   * <p>The name of the blue/green deployment.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Can't be the same as an existing blue/green deployment name in the same account and Amazon Web Services Region.</p>
+   *             </li>
+   *          </ul>
+   */
+  BlueGreenDeploymentName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source production database.</p>
+   *         <p>Specify the database that you want to clone. The blue/green deployment creates this database in
+   *            the green environment. You can make updates to the database in the green environment, such as an engine
+   *            version upgrade. When you are ready, you can switch the database in the green environment to be the
+   *            production database.</p>
+   */
+  Source: string | undefined;
+
+  /**
+   * <p>The engine version of the database in the green environment.</p>
+   *         <p>Specify the engine version to upgrade to in the green environment.</p>
+   */
+  TargetEngineVersion?: string;
+
+  /**
+   * <p>The DB parameter group associated with the DB instance in the green environment.</p>
+   *         <p>To test parameter changes, specify a DB parameter group that is different from the one associated
+   *             with the source DB instance.</p>
+   */
+  TargetDBParameterGroupName?: string;
+
+  /**
+   * <p>The DB cluster parameter group associated with the Aurora DB cluster in the green environment.</p>
+   *         <p>To test parameter changes, specify a DB cluster parameter group that is different from the one associated
+   *             with the source DB cluster.</p>
+   */
+  TargetDBClusterParameterGroupName?: string;
+
+  /**
+   * <p>Tags to assign to the blue/green deployment.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>Contains the details about a blue/green deployment.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+ *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface SwitchoverDetail {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource in the blue environment.</p>
+   */
+  SourceMember?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a resource in the green environment.</p>
+   */
+  TargetMember?: string;
+
+  /**
+   * <p>The switchover status of a resource in a blue/green deployment.</p>
+   *         <p>Values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>preparing-for-switchover</code> - The resource is being prepared to switch over.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>ready-for-switchover</code> - The resource is ready to switch
+   *                     over.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>switchover-in-progress</code> - The resource is being switched over.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>switchover-completed</code> - The resource has been switched over.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>switchover-failed</code> - The resource attempted to switch over but failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+}
+
+/**
+ * <p>Contains the details about a task for a blue/green deployment.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+ *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface BlueGreenDeploymentTask {
+  /**
+   * <p>The name of the blue/green deployment task.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The status of the blue/green deployment task.</p>
+   *         <p>Values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PENDING</code> - The resources are being prepared for deployment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>IN_PROGRESS</code> - The resource is being deployed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>COMPLETED</code> - The resource has been deployed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>FAILED</code> - Deployment of the resource failed.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+}
+
+/**
+ * <p>Contains the details about a blue/green deployment.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+ *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface BlueGreenDeployment {
+  /**
+   * <p>The system-generated identifier of the blue/green deployment.</p>
+   */
+  BlueGreenDeploymentIdentifier?: string;
+
+  /**
+   * <p>The user-supplied name of the blue/green deployment.</p>
+   */
+  BlueGreenDeploymentName?: string;
+
+  /**
+   * <p>The source database for the blue/green deployment.</p>
+   *         <p>Before switchover, the source database is the production database in the blue environment.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The target database for the blue/green deployment.</p>
+   *         <p>Before switchover, the target database is the clone database in the green environment.</p>
+   */
+  Target?: string;
+
+  /**
+   * <p>The details about each source and target resource in the blue/green deployment.</p>
+   */
+  SwitchoverDetails?: SwitchoverDetail[];
+
+  /**
+   * <p>Either tasks to be performed or tasks that have been completed on the target database before switchover.</p>
+   */
+  Tasks?: BlueGreenDeploymentTask[];
+
+  /**
+   * <p>The status of the blue/green deployment.</p>
+   *         <p>Values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>PROVISIONING</code> - Resources are being created in the green environment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>AVAILABLE</code> - Resources are available in the green environment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SWITCHOVER_IN_PROGRESS</code> - The deployment is being switched from the blue environment to the
+   *                     green environment.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SWITCHOVER_COMPLETED</code> - Switchover from the blue environment to the green environment is complete.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>INVALID_CONFIGURATION</code> - Resources in the green environment are invalid, so switchover isn't possible.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>SWITCHOVER_FAILED</code> - Switchover was attempted but failed.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>DELETING</code> - The blue/green deployment is being deleted.</p>
+   *             </li>
+   *          </ul>
+   */
+  Status?: string;
+
+  /**
+   * <p>Additional information about the status of the blue/green deployment.</p>
+   */
+  StatusDetails?: string;
+
+  /**
+   * <p>Specifies the time when the blue/green deployment was created, in Universal Coordinated Time (UTC).</p>
+   */
+  CreateTime?: Date;
+
+  /**
+   * <p>Specifies the time when the blue/green deployment was deleted, in Universal Coordinated Time (UTC).</p>
+   */
+  DeleteTime?: Date;
+
+  /**
+   * <p>A list of tags.
+   *           For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   */
+  TagList?: Tag[];
+}
+
+export interface CreateBlueGreenDeploymentResponse {
+  /**
+   * <p>Contains the details about a blue/green deployment.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  BlueGreenDeployment?: BlueGreenDeployment;
+}
+
+/**
+ * <p>
+ *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
+ *             cluster parameter group.</p>
+ */
+export class DBClusterParameterGroupNotFoundFault extends __BaseException {
+  readonly name: "DBClusterParameterGroupNotFoundFault" = "DBClusterParameterGroupNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterParameterGroupNotFoundFault, __BaseException>) {
+    super({
+      name: "DBClusterParameterGroupNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterParameterGroupNotFoundFault.prototype);
+  }
+}
+
+/**
+ * <p>The user attempted to create a new DB cluster and the user has already reached the
+ *             maximum allowed DB cluster quota.</p>
+ */
+export class DBClusterQuotaExceededFault extends __BaseException {
+  readonly name: "DBClusterQuotaExceededFault" = "DBClusterQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DBClusterQuotaExceededFault, __BaseException>) {
+    super({
+      name: "DBClusterQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DBClusterQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * <p>The request would result in the user exceeding the allowed number of DB
+ *             instances.</p>
+ */
+export class InstanceQuotaExceededFault extends __BaseException {
+  readonly name: "InstanceQuotaExceededFault" = "InstanceQuotaExceededFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InstanceQuotaExceededFault, __BaseException>) {
+    super({
+      name: "InstanceQuotaExceededFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InstanceQuotaExceededFault.prototype);
+  }
+}
+
+/**
+ * <p>The source DB cluster isn't supported for a blue/green deployment.</p>
+ */
+export class SourceClusterNotSupportedFault extends __BaseException {
+  readonly name: "SourceClusterNotSupportedFault" = "SourceClusterNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceClusterNotSupportedFault, __BaseException>) {
+    super({
+      name: "SourceClusterNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceClusterNotSupportedFault.prototype);
+  }
+}
+
+/**
+ * <p>The source DB instance isn't supported for a blue/green deployment.</p>
+ */
+export class SourceDatabaseNotSupportedFault extends __BaseException {
+  readonly name: "SourceDatabaseNotSupportedFault" = "SourceDatabaseNotSupportedFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SourceDatabaseNotSupportedFault, __BaseException>) {
+    super({
+      name: "SourceDatabaseNotSupportedFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SourceDatabaseNotSupportedFault.prototype);
+  }
+}
+
 export interface CreateCustomDBEngineVersionMessage {
   /**
    * <p>The database engine to use for your custom engine version (CEV). The only supported value is
@@ -2657,10 +3026,10 @@ export interface CreateCustomDBEngineVersionMessage {
   Engine: string | undefined;
 
   /**
-   * <p>The name of your CEV. The name format is <code>19.<i>customized_string</i>
-   *             </code>. For example,
-   *             a valid name is <code>19.my_cev1</code>. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS.
-   *             The combination of <code>Engine</code> and <code>EngineVersion</code> is unique per customer per Region.</p>
+   * <p>The name of your CEV. The name format is 19.<i>customized_string</i>.
+   *             For example, a valid CEV name is <code>19.my_cev1</code>. This setting is required for RDS
+   *             Custom for Oracle, but optional for Amazon RDS. The combination of <code>Engine</code>
+   *             and <code>EngineVersion</code> is unique per customer per Region.</p>
    */
   EngineVersion: string | undefined;
 
@@ -4587,47 +4956,6 @@ export class DBClusterAlreadyExistsFault extends __BaseException {
 }
 
 /**
- * <p>
- *             <code>DBClusterParameterGroupName</code> doesn't refer to an existing DB
- *             cluster parameter group.</p>
- */
-export class DBClusterParameterGroupNotFoundFault extends __BaseException {
-  readonly name: "DBClusterParameterGroupNotFoundFault" = "DBClusterParameterGroupNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterParameterGroupNotFoundFault, __BaseException>) {
-    super({
-      name: "DBClusterParameterGroupNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterParameterGroupNotFoundFault.prototype);
-  }
-}
-
-/**
- * <p>The user attempted to create a new DB cluster and the user has already reached the
- *             maximum allowed DB cluster quota.</p>
- */
-export class DBClusterQuotaExceededFault extends __BaseException {
-  readonly name: "DBClusterQuotaExceededFault" = "DBClusterQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DBClusterQuotaExceededFault, __BaseException>) {
-    super({
-      name: "DBClusterQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DBClusterQuotaExceededFault.prototype);
-  }
-}
-
-/**
  * <p>Subnets in the DB subnet group should cover at least two Availability Zones unless there is only one Availability Zone.</p>
  */
 export class DBSubnetGroupDoesNotCoverEnoughAZs extends __BaseException {
@@ -5820,8 +6148,7 @@ export interface CreateDBInstanceMessage {
    *             <b>Amazon RDS Custom for Oracle</b>
    *          </p>
    *         <p>A custom engine version (CEV) that you have previously created. This setting is required for RDS Custom for Oracle. The CEV
-   *           name has the following format: <code>19.<i>customized_string</i>
-   *             </code>. An example identifier is
+   *           name has the following format: 19.<i>customized_string</i>. A valid CEV name is
    *           <code>19.my_cev1</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-creating.html#custom-creating.create">
    *               Creating an RDS Custom for Oracle DB instance</a> in the <i>Amazon RDS User Guide</i>.</p>
    *         <p>
@@ -7331,26 +7658,6 @@ export class DBInstanceAlreadyExistsFault extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, DBInstanceAlreadyExistsFault.prototype);
-  }
-}
-
-/**
- * <p>The request would result in the user exceeding the allowed number of DB
- *             instances.</p>
- */
-export class InstanceQuotaExceededFault extends __BaseException {
-  readonly name: "InstanceQuotaExceededFault" = "InstanceQuotaExceededFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InstanceQuotaExceededFault, __BaseException>) {
-    super({
-      name: "InstanceQuotaExceededFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InstanceQuotaExceededFault.prototype);
   }
 }
 
@@ -9410,6 +9717,77 @@ export interface CreateOptionGroupResult {
 }
 
 /**
+ * <p>
+ *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ */
+export class BlueGreenDeploymentNotFoundFault extends __BaseException {
+  readonly name: "BlueGreenDeploymentNotFoundFault" = "BlueGreenDeploymentNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentNotFoundFault, __BaseException>) {
+    super({
+      name: "BlueGreenDeploymentNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlueGreenDeploymentNotFoundFault.prototype);
+  }
+}
+
+export interface DeleteBlueGreenDeploymentRequest {
+  /**
+   * <p>The blue/green deployment identifier of the deployment to be deleted. This parameter isn't case-sensitive.</p>
+   *         <p>Constraints:
+   *         </p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must match an existing blue/green deployment identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  BlueGreenDeploymentIdentifier: string | undefined;
+
+  /**
+   * <p>A value that indicates whether to delete the resources in the green environment.</p>
+   */
+  DeleteTarget?: boolean;
+}
+
+export interface DeleteBlueGreenDeploymentResponse {
+  /**
+   * <p>Contains the details about a blue/green deployment.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  BlueGreenDeployment?: BlueGreenDeployment;
+}
+
+/**
+ * <p>The blue/green deployment can't be switched over or deleted because there is an invalid configuration in
+ *             the green environment.</p>
+ */
+export class InvalidBlueGreenDeploymentStateFault extends __BaseException {
+  readonly name: "InvalidBlueGreenDeploymentStateFault" = "InvalidBlueGreenDeploymentStateFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidBlueGreenDeploymentStateFault, __BaseException>) {
+    super({
+      name: "InvalidBlueGreenDeploymentStateFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidBlueGreenDeploymentStateFault.prototype);
+  }
+}
+
+/**
  * <p>The specified CEV was not found.</p>
  */
 export class CustomDBEngineVersionNotFoundFault extends __BaseException {
@@ -10290,6 +10668,130 @@ export interface DeregisterDBProxyTargetsResponse {}
 export interface DescribeAccountAttributesMessage {}
 
 /**
+ * <p>A filter name and value pair that is used to return a more specific list of results
+ *             from a describe operation. Filters can be used to match a set of resources by specific
+ *             criteria, such as IDs. The filters supported by a describe operation are documented
+ *             with the describe operation.</p>
+ *         <note>
+ *             <p>Currently, wildcards are not supported in filters.</p>
+ *         </note>
+ *         <p>The following actions can be filtered:</p>
+ *         <ul>
+ *             <li>
+ *                 <p>
+ *                   <code>DescribeDBClusterBacktracks</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>DescribeDBClusterEndpoints</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>DescribeDBClusters</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>DescribeDBInstances</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                 <p>
+ *                   <code>DescribePendingMaintenanceActions</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ */
+export interface Filter {
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>One or more filter values. Filter values are case-sensitive.</p>
+   */
+  Values: string[] | undefined;
+}
+
+export interface DescribeBlueGreenDeploymentsRequest {
+  /**
+   * <p>The blue/green deployment identifier. If this parameter is specified, information from only the
+   *             specific blue/green deployment is returned. This parameter isn't case-sensitive.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>If supplied, must match an existing blue/green deployment identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  BlueGreenDeploymentIdentifier?: string;
+
+  /**
+   * <p>A filter that specifies one or more blue/green deployments to describe.</p>
+   *         <p>Supported filters:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>blue-green-deployment-identifier</code> - Accepts system-generated
+   *                     identifiers for blue/green deployments. The results list only includes
+   *                     information about the blue/green deployments with the specified
+   *                     identifiers.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>blue-green-deployment-name</code> - Accepts user-supplied names for blue/green deployments.
+   *                     The results list only includes information about the blue/green deployments with the
+   *                     specified names.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>source</code> - Accepts source databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified source databases.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>target</code> - Accepts target databases for a blue/green deployment.
+   *                     The results list only includes information about the blue/green deployments with
+   *                     the specified target databases.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous <code>DescribeBlueGreenDeployments</code> request.
+   *             If this parameter is specified, the response includes only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *             If more records exist than the specified <code>MaxRecords</code> value,
+   *             a pagination token called a marker is included in the response so you can retrieve the remaining results.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export interface DescribeBlueGreenDeploymentsResponse {
+  /**
+   * <p>Contains a list of blue/green deployments for the user.</p>
+   */
+  BlueGreenDeployments?: BlueGreenDeployment[];
+
+  /**
+   * <p>A pagination token that can be used in a later DescribeBlueGreenDeployments request.</p>
+   */
+  Marker?: string;
+}
+
+/**
  * <p>A CA certificate for an Amazon Web Services account.</p>
  */
 export interface Certificate {
@@ -10373,55 +10875,6 @@ export class CertificateNotFoundFault extends __BaseException {
     });
     Object.setPrototypeOf(this, CertificateNotFoundFault.prototype);
   }
-}
-
-/**
- * <p>A filter name and value pair that is used to return a more specific list of results
- *             from a describe operation. Filters can be used to match a set of resources by specific
- *             criteria, such as IDs. The filters supported by a describe operation are documented
- *             with the describe operation.</p>
- *         <note>
- *             <p>Currently, wildcards are not supported in filters.</p>
- *         </note>
- *         <p>The following actions can be filtered:</p>
- *         <ul>
- *             <li>
- *                 <p>
- *                   <code>DescribeDBClusterBacktracks</code>
- *                </p>
- *             </li>
- *             <li>
- *                 <p>
- *                   <code>DescribeDBClusterEndpoints</code>
- *                </p>
- *             </li>
- *             <li>
- *                 <p>
- *                   <code>DescribeDBClusters</code>
- *                </p>
- *             </li>
- *             <li>
- *                 <p>
- *                   <code>DescribeDBInstances</code>
- *                </p>
- *             </li>
- *             <li>
- *                 <p>
- *                   <code>DescribePendingMaintenanceActions</code>
- *                </p>
- *             </li>
- *          </ul>
- */
-export interface Filter {
-  /**
-   * <p>The name of the filter. Filter names are case-sensitive.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more filter values. Filter values are case-sensitive.</p>
-   */
-  Values: string[] | undefined;
 }
 
 /**
@@ -11870,346 +12323,6 @@ export interface DescribeDBProxyEndpointsResponse {
   Marker?: string;
 }
 
-export interface DescribeDBProxyTargetGroupsRequest {
-  /**
-   * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
-   */
-  DBProxyName: string | undefined;
-
-  /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
-   */
-  TargetGroupName?: string;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that the remaining
-   *         results can be retrieved.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-/**
- * <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
- */
-export interface ConnectionPoolConfigurationInfo {
-  /**
-   * <p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the
-   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
-   */
-  MaxConnectionsPercent?: number;
-
-  /**
-   * <p>Controls how actively the proxy closes idle database connections in the connection pool.
-   *         The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
-   *         With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.</p>
-   */
-  MaxIdleConnectionsPercent?: number;
-
-  /**
-   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
-   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
-   */
-  ConnectionBorrowTimeout?: number;
-
-  /**
-   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
-   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
-   *         in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases.
-   *         Currently, the only allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
-   */
-  SessionPinningFilters?: string[];
-
-  /**
-   * <p>One or more SQL statements for the proxy to run when opening each new database connection.
-   *         Typically used with <code>SET</code> statements to make sure that each connection has identical
-   *         settings such as time zone and character set. This setting is empty by default.
-   *         For multiple statements, use semicolons as the separator.
-   *         You can also include multiple variables in a single <code>SET</code> statement, such as
-   *         <code>SET x=1, y=2</code>.</p>
-   */
-  InitQuery?: string;
-}
-
-/**
- * <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
- *         is associated with exactly one RDS DB instance or Aurora DB cluster.</p>
- *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargetGroups</code> action.</p>
- */
-export interface DBProxyTargetGroup {
-  /**
-   * <p>The identifier for the RDS proxy associated with this target group.</p>
-   */
-  DBProxyName?: string;
-
-  /**
-   * <p>The identifier for the target group. This name must be unique for all target groups owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
-   */
-  TargetGroupName?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) representing the target group.</p>
-   */
-  TargetGroupArn?: string;
-
-  /**
-   * <p>Whether this target group is the first one used for connection requests by the associated proxy.
-   *         Because each proxy is currently associated with a single target group, currently this setting
-   *         is always <code>true</code>.</p>
-   */
-  IsDefault?: boolean;
-
-  /**
-   * <p>The current status of this target group. A status of <code>available</code> means the
-   *         target group is correctly associated with a database. Other values indicate that you must wait for
-   *         the target group to be ready, or take some action to resolve an issue.</p>
-   */
-  Status?: string;
-
-  /**
-   * <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
-   */
-  ConnectionPoolConfig?: ConnectionPoolConfigurationInfo;
-
-  /**
-   * <p>The date and time when the target group was first created.</p>
-   */
-  CreatedDate?: Date;
-
-  /**
-   * <p>The date and time when the target group was last updated.</p>
-   */
-  UpdatedDate?: Date;
-}
-
-export interface DescribeDBProxyTargetGroupsResponse {
-  /**
-   * <p>An arbitrary number of <code>DBProxyTargetGroup</code> objects, containing details of the corresponding target groups.</p>
-   */
-  TargetGroups?: DBProxyTargetGroup[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-export interface DescribeDBProxyTargetsRequest {
-  /**
-   * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
-   */
-  DBProxyName: string | undefined;
-
-  /**
-   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
-   */
-  TargetGroupName?: string;
-
-  /**
-   * <p>This parameter is not currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that the remaining
-   *         results can be retrieved.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-}
-
-export enum TargetRole {
-  READ_ONLY = "READ_ONLY",
-  READ_WRITE = "READ_WRITE",
-  UNKNOWN = "UNKNOWN",
-}
-
-export enum TargetHealthReason {
-  AUTH_FAILURE = "AUTH_FAILURE",
-  CONNECTION_FAILED = "CONNECTION_FAILED",
-  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
-  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
-  UNREACHABLE = "UNREACHABLE",
-}
-
-export enum TargetState {
-  available = "AVAILABLE",
-  registering = "REGISTERING",
-  unavailable = "UNAVAILABLE",
-}
-
-/**
- * <p>Information about the connection health of an RDS Proxy target.</p>
- */
-export interface TargetHealth {
-  /**
-   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
-   *            The following is a typical lifecycle example for the states of an RDS Proxy target:</p>
-   *         <p>
-   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
-   *          </p>
-   */
-  State?: TargetState | string;
-
-  /**
-   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
-   */
-  Reason?: TargetHealthReason | string;
-
-  /**
-   * <p>A description of the health of the RDS Proxy target.
-   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
-   */
-  Description?: string;
-}
-
-export enum TargetType {
-  RDS_INSTANCE = "RDS_INSTANCE",
-  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
-  TRACKED_CLUSTER = "TRACKED_CLUSTER",
-}
-
-/**
- * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
- *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
- *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
- */
-export interface DBProxyTarget {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  TargetArn?: string;
-
-  /**
-   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
-   */
-  Endpoint?: string;
-
-  /**
-   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
-   */
-  TrackedClusterId?: string;
-
-  /**
-   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
-   *         or the cluster identifier for an Aurora DB cluster.</p>
-   */
-  RdsResourceId?: string;
-
-  /**
-   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
-   */
-  Port?: number;
-
-  /**
-   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
-   */
-  Type?: TargetType | string;
-
-  /**
-   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
-   */
-  Role?: TargetRole | string;
-
-  /**
-   * <p>Information about the connection health of the RDS Proxy target.</p>
-   */
-  TargetHealth?: TargetHealth;
-}
-
-export interface DescribeDBProxyTargetsResponse {
-  /**
-   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
-   */
-  Targets?: DBProxyTarget[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
-/**
- * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
- */
-export interface DBSecurityGroupMessage {
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *             If this parameter is specified, the response includes
-   *             only records beyond the marker,
-   *             up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-
-  /**
-   * <p>A list of <code>DBSecurityGroup</code> instances.</p>
-   */
-  DBSecurityGroups?: DBSecurityGroup[];
-}
-
-/**
- * <p></p>
- */
-export interface DescribeDBSecurityGroupsMessage {
-  /**
-   * <p>The name of the DB security group to return details for.</p>
-   */
-  DBSecurityGroupName?: string;
-
-  /**
-   * <p>This parameter isn't currently supported.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of records to include in the response.
-   *         If more records exist than the specified <code>MaxRecords</code> value,
-   *         a pagination token called a marker is included in the response so that
-   *         you can retrieve the remaining results.</p>
-   *         <p>Default: 100</p>
-   *         <p>Constraints: Minimum 20, maximum 100.</p>
-   */
-  MaxRecords?: number;
-
-  /**
-   * <p>An optional pagination token provided by a previous
-   *         <code>DescribeDBSecurityGroups</code> request.
-   *         If this parameter is specified, the response includes
-   *         only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
 /**
  * @internal
  */
@@ -12513,6 +12626,41 @@ export const OptionGroupFilterSensitiveLog = (obj: OptionGroup): any => ({
  * @internal
  */
 export const CopyOptionGroupResultFilterSensitiveLog = (obj: CopyOptionGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBlueGreenDeploymentRequestFilterSensitiveLog = (obj: CreateBlueGreenDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwitchoverDetailFilterSensitiveLog = (obj: SwitchoverDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueGreenDeploymentTaskFilterSensitiveLog = (obj: BlueGreenDeploymentTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const BlueGreenDeploymentFilterSensitiveLog = (obj: BlueGreenDeployment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateBlueGreenDeploymentResponseFilterSensitiveLog = (obj: CreateBlueGreenDeploymentResponse): any => ({
   ...obj,
 });
 
@@ -12982,6 +13130,20 @@ export const CreateOptionGroupResultFilterSensitiveLog = (obj: CreateOptionGroup
 /**
  * @internal
  */
+export const DeleteBlueGreenDeploymentRequestFilterSensitiveLog = (obj: DeleteBlueGreenDeploymentRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteBlueGreenDeploymentResponseFilterSensitiveLog = (obj: DeleteBlueGreenDeploymentResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DeleteCustomDBEngineVersionMessageFilterSensitiveLog = (obj: DeleteCustomDBEngineVersionMessage): any => ({
   ...obj,
 });
@@ -13198,6 +13360,31 @@ export const DescribeAccountAttributesMessageFilterSensitiveLog = (obj: Describe
 /**
  * @internal
  */
+export const FilterFilterSensitiveLog = (obj: Filter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBlueGreenDeploymentsRequestFilterSensitiveLog = (
+  obj: DescribeBlueGreenDeploymentsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeBlueGreenDeploymentsResponseFilterSensitiveLog = (
+  obj: DescribeBlueGreenDeploymentsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
   ...obj,
 });
@@ -13206,13 +13393,6 @@ export const CertificateFilterSensitiveLog = (obj: Certificate): any => ({
  * @internal
  */
 export const CertificateMessageFilterSensitiveLog = (obj: CertificateMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FilterFilterSensitiveLog = (obj: Filter): any => ({
   ...obj,
 });
 
@@ -13466,77 +13646,5 @@ export const DescribeDBProxyEndpointsRequestFilterSensitiveLog = (obj: DescribeD
  * @internal
  */
 export const DescribeDBProxyEndpointsResponseFilterSensitiveLog = (obj: DescribeDBProxyEndpointsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxyTargetGroupsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetGroupsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ConnectionPoolConfigurationInfoFilterSensitiveLog = (obj: ConnectionPoolConfigurationInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DBProxyTargetGroupFilterSensitiveLog = (obj: DBProxyTargetGroup): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxyTargetGroupsResponseFilterSensitiveLog = (
-  obj: DescribeDBProxyTargetGroupsResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxyTargetsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const TargetHealthFilterSensitiveLog = (obj: TargetHealth): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DBProxyTargetFilterSensitiveLog = (obj: DBProxyTarget): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxyTargetsResponseFilterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DBSecurityGroupMessageFilterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBSecurityGroupsMessageFilterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
   ...obj,
 });

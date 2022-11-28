@@ -1,3 +1,5 @@
+export * from "./DescribeBlueGreenDeploymentsPaginator";
+
 export * from "./DescribeCertificatesPaginator";
 
 export * from "./DescribeDBClusterBacktracksPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeDBClustersPaginator";
 export * from "./DescribeDBEngineVersionsPaginator";
 
 export * from "./DescribeDBInstanceAutomatedBackupsPaginator";
-
-export * from "./DescribeDBInstancesPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeDBInstancesPaginator";
 export * from "./DescribeDBLogFilesPaginator";
 export * from "./DescribeDBParameterGroupsPaginator";
 export * from "./DescribeDBParametersPaginator";

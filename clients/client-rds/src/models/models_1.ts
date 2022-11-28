@@ -7,6 +7,7 @@ import {
   ActivityStreamStatus,
   AutomationMode,
   AvailabilityZone,
+  BlueGreenDeployment,
   Certificate,
   DBCluster,
   DBClusterSnapshotAttributesResult,
@@ -14,8 +15,6 @@ import {
   DBInstanceAutomatedBackup,
   DBProxy,
   DBProxyEndpoint,
-  DBProxyTarget,
-  DBProxyTargetGroup,
   DBSecurityGroup,
   DBSnapshot,
   DBSubnetGroup,
@@ -36,6 +35,346 @@ import {
   UserAuthConfig,
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
+
+export interface DescribeDBProxyTargetGroupsRequest {
+  /**
+   * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that the remaining
+   *         results can be retrieved.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+/**
+ * <p>Displays the settings that control the size and behavior of the connection pool associated with a <code>DBProxyTarget</code>.</p>
+ */
+export interface ConnectionPoolConfigurationInfo {
+  /**
+   * <p>The maximum size of the connection pool for each target in a target group. The value is expressed as a percentage of the
+   *         <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.</p>
+   */
+  MaxConnectionsPercent?: number;
+
+  /**
+   * <p>Controls how actively the proxy closes idle database connections in the connection pool.
+   *         The value is expressed as a percentage of the <code>max_connections</code> setting for the RDS DB instance or Aurora DB cluster used by the target group.
+   *         With a high value, the proxy leaves a high percentage of idle database connections open. A low value causes the proxy to close more idle connections and return them to the database.</p>
+   */
+  MaxIdleConnectionsPercent?: number;
+
+  /**
+   * <p>The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the
+   *         proxy has opened its maximum number of connections and all connections are busy with client sessions.</p>
+   */
+  ConnectionBorrowTimeout?: number;
+
+  /**
+   * <p>Each item in the list represents a class of SQL operations that normally cause all later statements
+   *         in a session using a proxy to be pinned to the same underlying database connection. Including an item
+   *         in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases.
+   *         Currently, the only allowed value is <code>EXCLUDE_VARIABLE_SETS</code>.</p>
+   */
+  SessionPinningFilters?: string[];
+
+  /**
+   * <p>One or more SQL statements for the proxy to run when opening each new database connection.
+   *         Typically used with <code>SET</code> statements to make sure that each connection has identical
+   *         settings such as time zone and character set. This setting is empty by default.
+   *         For multiple statements, use semicolons as the separator.
+   *         You can also include multiple variables in a single <code>SET</code> statement, such as
+   *         <code>SET x=1, y=2</code>.</p>
+   */
+  InitQuery?: string;
+}
+
+/**
+ * <p>Represents a set of RDS DB instances, Aurora DB clusters, or both that a proxy can connect to. Currently, each target group
+ *         is associated with exactly one RDS DB instance or Aurora DB cluster.</p>
+ *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargetGroups</code> action.</p>
+ */
+export interface DBProxyTargetGroup {
+  /**
+   * <p>The identifier for the RDS proxy associated with this target group.</p>
+   */
+  DBProxyName?: string;
+
+  /**
+   * <p>The identifier for the target group. This name must be unique for all target groups owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) representing the target group.</p>
+   */
+  TargetGroupArn?: string;
+
+  /**
+   * <p>Whether this target group is the first one used for connection requests by the associated proxy.
+   *         Because each proxy is currently associated with a single target group, currently this setting
+   *         is always <code>true</code>.</p>
+   */
+  IsDefault?: boolean;
+
+  /**
+   * <p>The current status of this target group. A status of <code>available</code> means the
+   *         target group is correctly associated with a database. Other values indicate that you must wait for
+   *         the target group to be ready, or take some action to resolve an issue.</p>
+   */
+  Status?: string;
+
+  /**
+   * <p>The settings that determine the size and behavior of the connection pool for the target group.</p>
+   */
+  ConnectionPoolConfig?: ConnectionPoolConfigurationInfo;
+
+  /**
+   * <p>The date and time when the target group was first created.</p>
+   */
+  CreatedDate?: Date;
+
+  /**
+   * <p>The date and time when the target group was last updated.</p>
+   */
+  UpdatedDate?: Date;
+}
+
+export interface DescribeDBProxyTargetGroupsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTargetGroup</code> objects, containing details of the corresponding target groups.</p>
+   */
+  TargetGroups?: DBProxyTargetGroup[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+export interface DescribeDBProxyTargetsRequest {
+  /**
+   * <p>The identifier of the <code>DBProxyTarget</code> to describe.</p>
+   */
+  DBProxyName: string | undefined;
+
+  /**
+   * <p>The identifier of the <code>DBProxyTargetGroup</code> to describe.</p>
+   */
+  TargetGroupName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that the remaining
+   *         results can be retrieved.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
+export enum TargetRole {
+  READ_ONLY = "READ_ONLY",
+  READ_WRITE = "READ_WRITE",
+  UNKNOWN = "UNKNOWN",
+}
+
+export enum TargetHealthReason {
+  AUTH_FAILURE = "AUTH_FAILURE",
+  CONNECTION_FAILED = "CONNECTION_FAILED",
+  INVALID_REPLICATION_STATE = "INVALID_REPLICATION_STATE",
+  PENDING_PROXY_CAPACITY = "PENDING_PROXY_CAPACITY",
+  UNREACHABLE = "UNREACHABLE",
+}
+
+export enum TargetState {
+  available = "AVAILABLE",
+  registering = "REGISTERING",
+  unavailable = "UNAVAILABLE",
+}
+
+/**
+ * <p>Information about the connection health of an RDS Proxy target.</p>
+ */
+export interface TargetHealth {
+  /**
+   * <p>The current state of the connection health lifecycle for the RDS Proxy target.
+   *            The following is a typical lifecycle example for the states of an RDS Proxy target:</p>
+   *         <p>
+   *             <code>registering</code> > <code>unavailable</code> > <code>available</code> > <code>unavailable</code> > <code>available</code>
+   *          </p>
+   */
+  State?: TargetState | string;
+
+  /**
+   * <p>The reason for the current health <code>State</code> of the RDS Proxy target.</p>
+   */
+  Reason?: TargetHealthReason | string;
+
+  /**
+   * <p>A description of the health of the RDS Proxy target.
+   *             If the <code>State</code> is <code>AVAILABLE</code>, a description is not included.</p>
+   */
+  Description?: string;
+}
+
+export enum TargetType {
+  RDS_INSTANCE = "RDS_INSTANCE",
+  RDS_SERVERLESS_ENDPOINT = "RDS_SERVERLESS_ENDPOINT",
+  TRACKED_CLUSTER = "TRACKED_CLUSTER",
+}
+
+/**
+ * <p>Contains the details for an RDS Proxy target. It represents an RDS DB instance or Aurora DB cluster
+ *         that the proxy can connect to. One or more targets are associated with an RDS Proxy target group.</p>
+ *         <p>This data type is used as a response element in the <code>DescribeDBProxyTargets</code> action.</p>
+ */
+export interface DBProxyTarget {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  TargetArn?: string;
+
+  /**
+   * <p>The writer endpoint for the RDS DB instance or Aurora DB cluster.</p>
+   */
+  Endpoint?: string;
+
+  /**
+   * <p>The DB cluster identifier when the target represents an Aurora DB cluster. This field is blank when the target represents an RDS DB instance.</p>
+   */
+  TrackedClusterId?: string;
+
+  /**
+   * <p>The identifier representing the target. It can be the instance identifier for an RDS DB instance,
+   *         or the cluster identifier for an Aurora DB cluster.</p>
+   */
+  RdsResourceId?: string;
+
+  /**
+   * <p>The port that the RDS Proxy uses to connect to the target RDS DB instance or Aurora DB cluster.</p>
+   */
+  Port?: number;
+
+  /**
+   * <p>Specifies the kind of database, such as an RDS DB instance or an Aurora DB cluster, that the target represents.</p>
+   */
+  Type?: TargetType | string;
+
+  /**
+   * <p>A value that indicates whether the target of the proxy can be used for read/write or read-only operations.</p>
+   */
+  Role?: TargetRole | string;
+
+  /**
+   * <p>Information about the connection health of the RDS Proxy target.</p>
+   */
+  TargetHealth?: TargetHealth;
+}
+
+export interface DescribeDBProxyTargetsResponse {
+  /**
+   * <p>An arbitrary number of <code>DBProxyTarget</code> objects, containing details of the corresponding targets.</p>
+   */
+  Targets?: DBProxyTarget[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
+/**
+ * <p>Contains the result of a successful invocation of the <code>DescribeDBSecurityGroups</code> action.</p>
+ */
+export interface DBSecurityGroupMessage {
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *             If this parameter is specified, the response includes
+   *             only records beyond the marker,
+   *             up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>A list of <code>DBSecurityGroup</code> instances.</p>
+   */
+  DBSecurityGroups?: DBSecurityGroup[];
+}
+
+/**
+ * <p></p>
+ */
+export interface DescribeDBSecurityGroupsMessage {
+  /**
+   * <p>The name of the DB security group to return details for.</p>
+   */
+  DBSecurityGroupName?: string;
+
+  /**
+   * <p>This parameter isn't currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of records to include in the response.
+   *         If more records exist than the specified <code>MaxRecords</code> value,
+   *         a pagination token called a marker is included in the response so that
+   *         you can retrieve the remaining results.</p>
+   *         <p>Default: 100</p>
+   *         <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * <p>An optional pagination token provided by a previous
+   *         <code>DescribeDBSecurityGroups</code> request.
+   *         If this parameter is specified, the response includes
+   *         only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
 
 /**
  * <p></p>
@@ -8602,6 +8941,38 @@ export interface StopDBInstanceAutomatedBackupsReplicationResult {
   DBInstanceAutomatedBackup?: DBInstanceAutomatedBackup;
 }
 
+export interface SwitchoverBlueGreenDeploymentRequest {
+  /**
+   * <p>The blue/green deployment identifier.</p>
+   *         <p>Constraints:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>Must match an existing blue/green deployment identifier.</p>
+   *             </li>
+   *          </ul>
+   */
+  BlueGreenDeploymentIdentifier: string | undefined;
+
+  /**
+   * <p>The amount of time, in seconds, for the switchover to complete. The default is 300.</p>
+   *         <p>If the switchover takes longer than the specified duration, then any changes are rolled back,
+   *            and no changes are made to the environments.</p>
+   */
+  SwitchoverTimeout?: number;
+}
+
+export interface SwitchoverBlueGreenDeploymentResponse {
+  /**
+   * <p>Contains the details about a blue/green deployment.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *                 Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  BlueGreenDeployment?: BlueGreenDeployment;
+}
+
 export interface SwitchoverReadReplicaMessage {
   /**
    * <p>The DB instance identifier of the current standby database. This value is stored as a lowercase string.</p>
@@ -8626,6 +8997,78 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetGroupsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetGroupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConnectionPoolConfigurationInfoFilterSensitiveLog = (obj: ConnectionPoolConfigurationInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyTargetGroupFilterSensitiveLog = (obj: DBProxyTargetGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetGroupsResponseFilterSensitiveLog = (
+  obj: DescribeDBProxyTargetGroupsResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetsRequestFilterSensitiveLog = (obj: DescribeDBProxyTargetsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TargetHealthFilterSensitiveLog = (obj: TargetHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBProxyTargetFilterSensitiveLog = (obj: DBProxyTarget): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyTargetsResponseFilterSensitiveLog = (obj: DescribeDBProxyTargetsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DBSecurityGroupMessageFilterSensitiveLog = (obj: DBSecurityGroupMessage): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeDBSecurityGroupsMessageFilterSensitiveLog = (obj: DescribeDBSecurityGroupsMessage): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9767,6 +10210,24 @@ export const StopDBInstanceAutomatedBackupsReplicationMessageFilterSensitiveLog 
  */
 export const StopDBInstanceAutomatedBackupsReplicationResultFilterSensitiveLog = (
   obj: StopDBInstanceAutomatedBackupsReplicationResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwitchoverBlueGreenDeploymentRequestFilterSensitiveLog = (
+  obj: SwitchoverBlueGreenDeploymentRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SwitchoverBlueGreenDeploymentResponseFilterSensitiveLog = (
+  obj: SwitchoverBlueGreenDeploymentResponse
 ): any => ({
   ...obj,
 });

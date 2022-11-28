@@ -14,42 +14,45 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
+  DeleteBlueGreenDeploymentRequest,
+  DeleteBlueGreenDeploymentRequestFilterSensitiveLog,
+  DeleteBlueGreenDeploymentResponse,
+  DeleteBlueGreenDeploymentResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDBProxyTargetGroupsCommand,
-  serializeAws_queryDescribeDBProxyTargetGroupsCommand,
+  deserializeAws_queryDeleteBlueGreenDeploymentCommand,
+  serializeAws_queryDeleteBlueGreenDeploymentCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
-export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
-export interface DescribeDBProxyTargetGroupsCommandOutput
-  extends DescribeDBProxyTargetGroupsResponse,
-    __MetadataBearer {}
+export interface DeleteBlueGreenDeploymentCommandInput extends DeleteBlueGreenDeploymentRequest {}
+export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenDeploymentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+ * <p>Deletes a blue/green deployment.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+ *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DeleteBlueGreenDeploymentCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DeleteBlueGreenDeploymentCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const command = new DescribeDBProxyTargetGroupsCommand(input);
+ * const command = new DeleteBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
- * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DeleteBlueGreenDeploymentCommandInput} for command's `input` shape.
+ * @see {@link DeleteBlueGreenDeploymentCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
-export class DescribeDBProxyTargetGroupsCommand extends $Command<
-  DescribeDBProxyTargetGroupsCommandInput,
-  DescribeDBProxyTargetGroupsCommandOutput,
+export class DeleteBlueGreenDeploymentCommand extends $Command<
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
   RDSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +67,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeDBProxyTargetGroupsCommandInput) {
+  constructor(readonly input: DeleteBlueGreenDeploymentCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +80,23 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDBProxyTargetGroupsCommandInput, DescribeDBProxyTargetGroupsCommandOutput> {
+  ): Handler<DeleteBlueGreenDeploymentCommandInput, DeleteBlueGreenDeploymentCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDBProxyTargetGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DeleteBlueGreenDeploymentCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RDSClient";
-    const commandName = "DescribeDBProxyTargetGroupsCommand";
+    const commandName = "DeleteBlueGreenDeploymentCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DeleteBlueGreenDeploymentRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DeleteBlueGreenDeploymentResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +106,15 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeDBProxyTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyTargetGroupsCommand(input, context);
+  private serialize(input: DeleteBlueGreenDeploymentCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDeleteBlueGreenDeploymentCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeDBProxyTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(output, context);
+  ): Promise<DeleteBlueGreenDeploymentCommandOutput> {
+    return deserializeAws_queryDeleteBlueGreenDeploymentCommand(output, context);
   }
 
   // Start section: command_body_extra

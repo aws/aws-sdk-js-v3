@@ -14,42 +14,47 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
+  DescribeBlueGreenDeploymentsRequest,
+  DescribeBlueGreenDeploymentsRequestFilterSensitiveLog,
+  DescribeBlueGreenDeploymentsResponse,
+  DescribeBlueGreenDeploymentsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_queryDescribeDBProxyTargetGroupsCommand,
-  serializeAws_queryDescribeDBProxyTargetGroupsCommand,
+  deserializeAws_queryDescribeBlueGreenDeploymentsCommand,
+  serializeAws_queryDescribeBlueGreenDeploymentsCommand,
 } from "../protocols/Aws_query";
 import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RDSClient";
 
-export interface DescribeDBProxyTargetGroupsCommandInput extends DescribeDBProxyTargetGroupsRequest {}
-export interface DescribeDBProxyTargetGroupsCommandOutput
-  extends DescribeDBProxyTargetGroupsResponse,
+export interface DescribeBlueGreenDeploymentsCommandInput extends DescribeBlueGreenDeploymentsRequest {}
+export interface DescribeBlueGreenDeploymentsCommandOutput
+  extends DescribeBlueGreenDeploymentsResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns information about DB proxy target groups, represented by <code>DBProxyTargetGroup</code> data structures.</p>
+ * <p>Returns information about blue/green deployments.</p>
+ *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+ *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RDSClient, DescribeDBProxyTargetGroupsCommand } from "@aws-sdk/client-rds"; // ES Modules import
- * // const { RDSClient, DescribeDBProxyTargetGroupsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
+ * import { RDSClient, DescribeBlueGreenDeploymentsCommand } from "@aws-sdk/client-rds"; // ES Modules import
+ * // const { RDSClient, DescribeBlueGreenDeploymentsCommand } = require("@aws-sdk/client-rds"); // CommonJS import
  * const client = new RDSClient(config);
- * const command = new DescribeDBProxyTargetGroupsCommand(input);
+ * const command = new DescribeBlueGreenDeploymentsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeDBProxyTargetGroupsCommandInput} for command's `input` shape.
- * @see {@link DescribeDBProxyTargetGroupsCommandOutput} for command's `response` shape.
+ * @see {@link DescribeBlueGreenDeploymentsCommandInput} for command's `input` shape.
+ * @see {@link DescribeBlueGreenDeploymentsCommandOutput} for command's `response` shape.
  * @see {@link RDSClientResolvedConfig | config} for RDSClient's `config` shape.
  *
  */
-export class DescribeDBProxyTargetGroupsCommand extends $Command<
-  DescribeDBProxyTargetGroupsCommandInput,
-  DescribeDBProxyTargetGroupsCommandOutput,
+export class DescribeBlueGreenDeploymentsCommand extends $Command<
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
   RDSClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +69,7 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeDBProxyTargetGroupsCommandInput) {
+  constructor(readonly input: DescribeBlueGreenDeploymentsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +82,23 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RDSClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeDBProxyTargetGroupsCommandInput, DescribeDBProxyTargetGroupsCommandOutput> {
+  ): Handler<DescribeBlueGreenDeploymentsCommandInput, DescribeBlueGreenDeploymentsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeDBProxyTargetGroupsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeBlueGreenDeploymentsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RDSClient";
-    const commandName = "DescribeDBProxyTargetGroupsCommand";
+    const commandName = "DescribeBlueGreenDeploymentsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeDBProxyTargetGroupsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeDBProxyTargetGroupsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeBlueGreenDeploymentsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeBlueGreenDeploymentsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,15 +108,15 @@ export class DescribeDBProxyTargetGroupsCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeDBProxyTargetGroupsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeDBProxyTargetGroupsCommand(input, context);
+  private serialize(input: DescribeBlueGreenDeploymentsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDescribeBlueGreenDeploymentsCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<DescribeDBProxyTargetGroupsCommandOutput> {
-    return deserializeAws_queryDescribeDBProxyTargetGroupsCommand(output, context);
+  ): Promise<DescribeBlueGreenDeploymentsCommandOutput> {
+    return deserializeAws_queryDescribeBlueGreenDeploymentsCommand(output, context);
   }
 
   // Start section: command_body_extra

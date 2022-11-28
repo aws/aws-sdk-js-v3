@@ -58,6 +58,10 @@ import {
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "../commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "../commands/CopyOptionGroupCommand";
 import {
+  CreateBlueGreenDeploymentCommandInput,
+  CreateBlueGreenDeploymentCommandOutput,
+} from "../commands/CreateBlueGreenDeploymentCommand";
+import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
 } from "../commands/CreateCustomDBEngineVersionCommand";
@@ -106,6 +110,10 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "../commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "../commands/CreateOptionGroupCommand";
+import {
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
+} from "../commands/DeleteBlueGreenDeploymentCommand";
 import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
@@ -163,6 +171,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "../commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
+} from "../commands/DescribeBlueGreenDeploymentsCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -460,6 +472,10 @@ import {
 } from "../commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "../commands/StopDBInstanceCommand";
 import {
+  SwitchoverBlueGreenDeploymentCommandInput,
+  SwitchoverBlueGreenDeploymentCommandOutput,
+} from "../commands/SwitchoverBlueGreenDeploymentCommand";
+import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "../commands/SwitchoverReadReplicaCommand";
@@ -481,13 +497,16 @@ import {
   AvailabilityZone,
   BacktrackDBClusterMessage,
   BackupPolicyNotFoundFault,
+  BlueGreenDeployment,
+  BlueGreenDeploymentAlreadyExistsFault,
+  BlueGreenDeploymentNotFoundFault,
+  BlueGreenDeploymentTask,
   CancelExportTaskMessage,
   Certificate,
   CertificateMessage,
   CertificateNotFoundFault,
   CharacterSet,
   ClusterPendingModifiedValues,
-  ConnectionPoolConfigurationInfo,
   CopyDBClusterParameterGroupMessage,
   CopyDBClusterParameterGroupResult,
   CopyDBClusterSnapshotMessage,
@@ -498,6 +517,8 @@ import {
   CopyDBSnapshotResult,
   CopyOptionGroupMessage,
   CopyOptionGroupResult,
+  CreateBlueGreenDeploymentRequest,
+  CreateBlueGreenDeploymentResponse,
   CreateCustomDBEngineVersionMessage,
   CreateDBClusterEndpointMessage,
   CreateDBClusterMessage,
@@ -590,14 +611,11 @@ import {
   DBProxyEndpointQuotaExceededFault,
   DBProxyNotFoundFault,
   DBProxyQuotaExceededFault,
-  DBProxyTarget,
-  DBProxyTargetGroup,
   DBProxyTargetGroupNotFoundFault,
   DBProxyTargetNotFoundFault,
   DBSecurityGroup,
   DBSecurityGroupAlreadyExistsFault,
   DBSecurityGroupMembership,
-  DBSecurityGroupMessage,
   DBSecurityGroupNotFoundFault,
   DBSecurityGroupNotSupportedFault,
   DBSecurityGroupQuotaExceededFault,
@@ -611,6 +629,8 @@ import {
   DBSubnetGroupNotFoundFault,
   DBSubnetGroupQuotaExceededFault,
   DBSubnetQuotaExceededFault,
+  DeleteBlueGreenDeploymentRequest,
+  DeleteBlueGreenDeploymentResponse,
   DeleteCustomDBEngineVersionMessage,
   DeleteDBClusterEndpointMessage,
   DeleteDBClusterMessage,
@@ -639,6 +659,8 @@ import {
   DeregisterDBProxyTargetsRequest,
   DeregisterDBProxyTargetsResponse,
   DescribeAccountAttributesMessage,
+  DescribeBlueGreenDeploymentsRequest,
+  DescribeBlueGreenDeploymentsResponse,
   DescribeCertificatesMessage,
   DescribeDBClusterBacktracksMessage,
   DescribeDBClusterEndpointsMessage,
@@ -660,11 +682,6 @@ import {
   DescribeDBProxiesResponse,
   DescribeDBProxyEndpointsRequest,
   DescribeDBProxyEndpointsResponse,
-  DescribeDBProxyTargetGroupsRequest,
-  DescribeDBProxyTargetGroupsResponse,
-  DescribeDBProxyTargetsRequest,
-  DescribeDBProxyTargetsResponse,
-  DescribeDBSecurityGroupsMessage,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -683,6 +700,7 @@ import {
   InstanceQuotaExceededFault,
   InsufficientDBInstanceCapacityFault,
   InsufficientStorageClusterCapacityFault,
+  InvalidBlueGreenDeploymentStateFault,
   InvalidCustomDBEngineVersionStateFault,
   InvalidDBClusterEndpointStateFault,
   InvalidDBClusterSnapshotStateFault,
@@ -731,6 +749,8 @@ import {
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
+  SourceClusterNotSupportedFault,
+  SourceDatabaseNotSupportedFault,
   SourceNotFoundFault,
   StorageQuotaExceededFault,
   StorageTypeNotSupportedFault,
@@ -738,8 +758,8 @@ import {
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
+  SwitchoverDetail,
   Tag,
-  TargetHealth,
   Timezone,
   UpgradeTarget,
   UserAuthConfig,
@@ -750,18 +770,27 @@ import {
   AvailableProcessorFeature,
   CloudwatchLogsExportConfiguration,
   ConnectionPoolConfiguration,
+  ConnectionPoolConfigurationInfo,
   DBClusterCapacityInfo,
   DBClusterParameterGroupNameMessage,
   DBClusterRoleNotFoundFault,
   DBInstanceRoleNotFoundFault,
   DBLogFileNotFoundFault,
   DBParameterGroupNameMessage,
+  DBProxyTarget,
   DBProxyTargetAlreadyRegisteredFault,
+  DBProxyTargetGroup,
+  DBSecurityGroupMessage,
   DBSnapshotAttribute,
   DBSnapshotAttributesResult,
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxyTargetGroupsRequest,
+  DescribeDBProxyTargetGroupsResponse,
+  DescribeDBProxyTargetsRequest,
+  DescribeDBProxyTargetsResponse,
+  DescribeDBSecurityGroupsMessage,
   DescribeDBSnapshotAttributesMessage,
   DescribeDBSnapshotAttributesResult,
   DescribeDBSnapshotsMessage,
@@ -920,9 +949,12 @@ import {
   StopDBInstanceMessage,
   StopDBInstanceResult,
   SubnetAlreadyInUse,
+  SwitchoverBlueGreenDeploymentRequest,
+  SwitchoverBlueGreenDeploymentResponse,
   SwitchoverReadReplicaMessage,
   SwitchoverReadReplicaResult,
   TagListMessage,
+  TargetHealth,
   ValidDBInstanceModificationsMessage,
   ValidStorageOptions,
 } from "../models/models_1";
@@ -1131,6 +1163,22 @@ export const serializeAws_queryCopyOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCopyOptionGroupMessage(input, context),
     Action: "CopyOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  input: CreateBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryCreateBlueGreenDeploymentRequest(input, context),
+    Action: "CreateBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1387,6 +1435,22 @@ export const serializeAws_queryCreateOptionGroupCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryCreateOptionGroupMessage(input, context),
     Action: "CreateOptionGroup",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  input: DeleteBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDeleteBlueGreenDeploymentRequest(input, context),
+    Action: "DeleteBlueGreenDeployment",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1675,6 +1739,22 @@ export const serializeAws_queryDescribeAccountAttributesCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDescribeAccountAttributesMessage(input, context),
     Action: "DescribeAccountAttributes",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  input: DescribeBlueGreenDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeBlueGreenDeploymentsRequest(input, context),
+    Action: "DescribeBlueGreenDeployments",
     Version: "2014-10-31",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3104,6 +3184,22 @@ export const serializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommand 
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  input: SwitchoverBlueGreenDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_querySwitchoverBlueGreenDeploymentRequest(input, context),
+    Action: "SwitchoverBlueGreenDeployment",
+    Version: "2014-10-31",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_querySwitchoverReadReplicaCommand = async (
   input: SwitchoverReadReplicaCommandInput,
   context: __SerdeContext
@@ -3741,6 +3837,77 @@ const deserializeAws_queryCopyOptionGroupCommandError = async (
     case "OptionGroupQuotaExceededFault":
     case "com.amazonaws.rds#OptionGroupQuotaExceededFault":
       throw await deserializeAws_queryOptionGroupQuotaExceededFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryCreateBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryCreateBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryCreateBlueGreenDeploymentResponse(data.CreateBlueGreenDeploymentResult, context);
+  const response: CreateBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentAlreadyExistsFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentAlreadyExistsFault":
+      throw await deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse(parsedOutput, context);
+    case "DBClusterNotFoundFault":
+    case "com.amazonaws.rds#DBClusterNotFoundFault":
+      throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterParameterGroupNotFound":
+    case "com.amazonaws.rds#DBClusterParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBClusterParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "DBClusterQuotaExceededFault":
+    case "com.amazonaws.rds#DBClusterQuotaExceededFault":
+      throw await deserializeAws_queryDBClusterQuotaExceededFaultResponse(parsedOutput, context);
+    case "DBInstanceNotFound":
+    case "com.amazonaws.rds#DBInstanceNotFoundFault":
+      throw await deserializeAws_queryDBInstanceNotFoundFaultResponse(parsedOutput, context);
+    case "DBParameterGroupNotFound":
+    case "com.amazonaws.rds#DBParameterGroupNotFoundFault":
+      throw await deserializeAws_queryDBParameterGroupNotFoundFaultResponse(parsedOutput, context);
+    case "InstanceQuotaExceeded":
+    case "com.amazonaws.rds#InstanceQuotaExceededFault":
+      throw await deserializeAws_queryInstanceQuotaExceededFaultResponse(parsedOutput, context);
+    case "InvalidDBClusterStateFault":
+    case "com.amazonaws.rds#InvalidDBClusterStateFault":
+      throw await deserializeAws_queryInvalidDBClusterStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
+    case "SourceClusterNotSupportedFault":
+    case "com.amazonaws.rds#SourceClusterNotSupportedFault":
+      throw await deserializeAws_querySourceClusterNotSupportedFaultResponse(parsedOutput, context);
+    case "SourceDatabaseNotSupportedFault":
+    case "com.amazonaws.rds#SourceDatabaseNotSupportedFault":
+      throw await deserializeAws_querySourceDatabaseNotSupportedFaultResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4687,6 +4854,50 @@ const deserializeAws_queryCreateOptionGroupCommandError = async (
   }
 };
 
+export const deserializeAws_queryDeleteBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDeleteBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDeleteBlueGreenDeploymentResponse(data.DeleteBlueGreenDeploymentResult, context);
+  const response: DeleteBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDeleteBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_queryDeleteCustomDBEngineVersionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5489,6 +5700,47 @@ const deserializeAws_queryDescribeAccountAttributesCommandError = async (
     exceptionCtor: __BaseException,
     errorCode,
   });
+};
+
+export const deserializeAws_queryDescribeBlueGreenDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeBlueGreenDeploymentsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeBlueGreenDeploymentsResponse(data.DescribeBlueGreenDeploymentsResult, context);
+  const response: DescribeBlueGreenDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBlueGreenDeploymentsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
 };
 
 export const deserializeAws_queryDescribeCertificatesCommand = async (
@@ -9908,6 +10160,53 @@ const deserializeAws_queryStopDBInstanceAutomatedBackupsReplicationCommandError 
   }
 };
 
+export const deserializeAws_querySwitchoverBlueGreenDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_querySwitchoverBlueGreenDeploymentCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_querySwitchoverBlueGreenDeploymentResponse(
+    data.SwitchoverBlueGreenDeploymentResult,
+    context
+  );
+  const response: SwitchoverBlueGreenDeploymentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_querySwitchoverBlueGreenDeploymentCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverBlueGreenDeploymentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
+    case "InvalidBlueGreenDeploymentStateFault":
+    case "com.amazonaws.rds#InvalidBlueGreenDeploymentStateFault":
+      throw await deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_querySwitchoverReadReplicaCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -9998,6 +10297,32 @@ const deserializeAws_queryBackupPolicyNotFoundFaultResponse = async (
   const body = parsedOutput.body;
   const deserialized: any = deserializeAws_queryBackupPolicyNotFoundFault(body.Error, context);
   const exception = new BackupPolicyNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault(body.Error, context);
+  const exception = new BlueGreenDeploymentAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<BlueGreenDeploymentNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryBlueGreenDeploymentNotFoundFault(body.Error, context);
+  const exception = new BlueGreenDeploymentNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -10849,6 +11174,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFaultResponse = asyn
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidBlueGreenDeploymentStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_queryInvalidBlueGreenDeploymentStateFault(body.Error, context);
+  const exception = new InvalidBlueGreenDeploymentStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_queryInvalidCustomDBEngineVersionStateFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11395,6 +11733,32 @@ const deserializeAws_querySNSTopicArnNotFoundFaultResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_querySourceClusterNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceClusterNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceClusterNotSupportedFault(body.Error, context);
+  const exception = new SourceClusterNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFaultResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SourceDatabaseNotSupportedFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_querySourceDatabaseNotSupportedFault(body.Error, context);
+  const exception = new SourceDatabaseNotSupportedFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_querySourceNotFoundFaultResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -11837,6 +12201,39 @@ const serializeAws_queryCopyOptionGroupMessage = (input: CopyOptionGroupMessage,
   }
   if (input.TargetOptionGroupDescription != null) {
     entries["TargetOptionGroupDescription"] = input.TargetOptionGroupDescription;
+  }
+  if (input.Tags != null) {
+    const memberEntries = serializeAws_queryTagList(input.Tags, context);
+    if (input.Tags?.length === 0) {
+      entries.Tags = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Tags.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryCreateBlueGreenDeploymentRequest = (
+  input: CreateBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentName != null) {
+    entries["BlueGreenDeploymentName"] = input.BlueGreenDeploymentName;
+  }
+  if (input.Source != null) {
+    entries["Source"] = input.Source;
+  }
+  if (input.TargetEngineVersion != null) {
+    entries["TargetEngineVersion"] = input.TargetEngineVersion;
+  }
+  if (input.TargetDBParameterGroupName != null) {
+    entries["TargetDBParameterGroupName"] = input.TargetDBParameterGroupName;
+  }
+  if (input.TargetDBClusterParameterGroupName != null) {
+    entries["TargetDBClusterParameterGroupName"] = input.TargetDBClusterParameterGroupName;
   }
   if (input.Tags != null) {
     const memberEntries = serializeAws_queryTagList(input.Tags, context);
@@ -12845,6 +13242,20 @@ const serializeAws_queryDBSecurityGroupNameList = (input: string[], context: __S
   return entries;
 };
 
+const serializeAws_queryDeleteBlueGreenDeploymentRequest = (
+  input: DeleteBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.DeleteTarget != null) {
+    entries["DeleteTarget"] = input.DeleteTarget;
+  }
+  return entries;
+};
+
 const serializeAws_queryDeleteCustomDBEngineVersionMessage = (
   input: DeleteCustomDBEngineVersionMessage,
   context: __SerdeContext
@@ -13066,6 +13477,33 @@ const serializeAws_queryDescribeAccountAttributesMessage = (
   context: __SerdeContext
 ): any => {
   const entries: any = {};
+  return entries;
+};
+
+const serializeAws_queryDescribeBlueGreenDeploymentsRequest = (
+  input: DescribeBlueGreenDeploymentsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_queryFilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Marker != null) {
+    entries["Marker"] = input.Marker;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
   return entries;
 };
 
@@ -16634,6 +17072,20 @@ const serializeAws_querySubnetIdentifierList = (input: string[], context: __Serd
   return entries;
 };
 
+const serializeAws_querySwitchoverBlueGreenDeploymentRequest = (
+  input: SwitchoverBlueGreenDeploymentRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.BlueGreenDeploymentIdentifier != null) {
+    entries["BlueGreenDeploymentIdentifier"] = input.BlueGreenDeploymentIdentifier;
+  }
+  if (input.SwitchoverTimeout != null) {
+    entries["SwitchoverTimeout"] = input.SwitchoverTimeout;
+  }
+  return entries;
+};
+
 const serializeAws_querySwitchoverReadReplicaMessage = (
   input: SwitchoverReadReplicaMessage,
   context: __SerdeContext
@@ -16933,6 +17385,127 @@ const deserializeAws_queryBackupPolicyNotFoundFault = (
   return contents;
 };
 
+const deserializeAws_queryBlueGreenDeployment = (output: any, context: __SerdeContext): BlueGreenDeployment => {
+  const contents: any = {
+    BlueGreenDeploymentIdentifier: undefined,
+    BlueGreenDeploymentName: undefined,
+    Source: undefined,
+    Target: undefined,
+    SwitchoverDetails: undefined,
+    Tasks: undefined,
+    Status: undefined,
+    StatusDetails: undefined,
+    CreateTime: undefined,
+    DeleteTime: undefined,
+    TagList: undefined,
+  };
+  if (output["BlueGreenDeploymentIdentifier"] !== undefined) {
+    contents.BlueGreenDeploymentIdentifier = __expectString(output["BlueGreenDeploymentIdentifier"]);
+  }
+  if (output["BlueGreenDeploymentName"] !== undefined) {
+    contents.BlueGreenDeploymentName = __expectString(output["BlueGreenDeploymentName"]);
+  }
+  if (output["Source"] !== undefined) {
+    contents.Source = __expectString(output["Source"]);
+  }
+  if (output["Target"] !== undefined) {
+    contents.Target = __expectString(output["Target"]);
+  }
+  if (output.SwitchoverDetails === "") {
+    contents.SwitchoverDetails = [];
+  } else if (output["SwitchoverDetails"] !== undefined && output["SwitchoverDetails"]["member"] !== undefined) {
+    contents.SwitchoverDetails = deserializeAws_querySwitchoverDetailList(
+      __getArrayIfSingleItem(output["SwitchoverDetails"]["member"]),
+      context
+    );
+  }
+  if (output.Tasks === "") {
+    contents.Tasks = [];
+  } else if (output["Tasks"] !== undefined && output["Tasks"]["member"] !== undefined) {
+    contents.Tasks = deserializeAws_queryBlueGreenDeploymentTaskList(
+      __getArrayIfSingleItem(output["Tasks"]["member"]),
+      context
+    );
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  if (output["StatusDetails"] !== undefined) {
+    contents.StatusDetails = __expectString(output["StatusDetails"]);
+  }
+  if (output["CreateTime"] !== undefined) {
+    contents.CreateTime = __expectNonNull(__parseRfc3339DateTime(output["CreateTime"]));
+  }
+  if (output["DeleteTime"] !== undefined) {
+    contents.DeleteTime = __expectNonNull(__parseRfc3339DateTime(output["DeleteTime"]));
+  }
+  if (output.TagList === "") {
+    contents.TagList = [];
+  } else if (output["TagList"] !== undefined && output["TagList"]["Tag"] !== undefined) {
+    contents.TagList = deserializeAws_queryTagList(__getArrayIfSingleItem(output["TagList"]["Tag"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentAlreadyExistsFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentAlreadyExistsFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentList = (output: any, context: __SerdeContext): BlueGreenDeployment[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeployment(entry, context);
+    });
+};
+
+const deserializeAws_queryBlueGreenDeploymentNotFoundFault = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentNotFoundFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTask = (output: any, context: __SerdeContext): BlueGreenDeploymentTask => {
+  const contents: any = {
+    Name: undefined,
+    Status: undefined,
+  };
+  if (output["Name"] !== undefined) {
+    contents.Name = __expectString(output["Name"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryBlueGreenDeploymentTaskList = (
+  output: any,
+  context: __SerdeContext
+): BlueGreenDeploymentTask[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryBlueGreenDeploymentTask(entry, context);
+    });
+};
+
 const deserializeAws_queryCertificate = (output: any, context: __SerdeContext): Certificate => {
   const contents: any = {
     CertificateIdentifier: undefined,
@@ -17161,6 +17734,19 @@ const deserializeAws_queryCopyOptionGroupResult = (output: any, context: __Serde
   };
   if (output["OptionGroup"] !== undefined) {
     contents.OptionGroup = deserializeAws_queryOptionGroup(output["OptionGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_queryCreateBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): CreateBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
   }
   return contents;
 };
@@ -20532,6 +21118,19 @@ const deserializeAws_queryDBUpgradeDependencyFailureFault = (
   return contents;
 };
 
+const deserializeAws_queryDeleteBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): DeleteBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDeleteDBClusterResult = (output: any, context: __SerdeContext): DeleteDBClusterResult => {
   const contents: any = {
     DBCluster: undefined,
@@ -20645,6 +21244,28 @@ const deserializeAws_queryDeregisterDBProxyTargetsResponse = (
   context: __SerdeContext
 ): DeregisterDBProxyTargetsResponse => {
   const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryDescribeBlueGreenDeploymentsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeBlueGreenDeploymentsResponse => {
+  const contents: any = {
+    BlueGreenDeployments: undefined,
+    Marker: undefined,
+  };
+  if (output.BlueGreenDeployments === "") {
+    contents.BlueGreenDeployments = [];
+  } else if (output["BlueGreenDeployments"] !== undefined && output["BlueGreenDeployments"]["member"] !== undefined) {
+    contents.BlueGreenDeployments = deserializeAws_queryBlueGreenDeploymentList(
+      __getArrayIfSingleItem(output["BlueGreenDeployments"]["member"]),
+      context
+    );
+  }
+  if (output["Marker"] !== undefined) {
+    contents.Marker = __expectString(output["Marker"]);
+  }
   return contents;
 };
 
@@ -21652,6 +22273,19 @@ const deserializeAws_queryInsufficientStorageClusterCapacityFault = (
   output: any,
   context: __SerdeContext
 ): InsufficientStorageClusterCapacityFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryInvalidBlueGreenDeploymentStateFault = (
+  output: any,
+  context: __SerdeContext
+): InvalidBlueGreenDeploymentStateFault => {
   const contents: any = {
     message: undefined,
   };
@@ -23958,6 +24592,32 @@ const deserializeAws_querySNSTopicArnNotFoundFault = (
   return contents;
 };
 
+const deserializeAws_querySourceClusterNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceClusterNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySourceDatabaseNotSupportedFault = (
+  output: any,
+  context: __SerdeContext
+): SourceDatabaseNotSupportedFault => {
+  const contents: any = {
+    message: undefined,
+  };
+  if (output["message"] !== undefined) {
+    contents.message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
 const deserializeAws_querySourceIdsList = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -24279,6 +24939,45 @@ const deserializeAws_querySupportedTimezonesList = (output: any, context: __Serd
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_queryTimezone(entry, context);
+    });
+};
+
+const deserializeAws_querySwitchoverBlueGreenDeploymentResponse = (
+  output: any,
+  context: __SerdeContext
+): SwitchoverBlueGreenDeploymentResponse => {
+  const contents: any = {
+    BlueGreenDeployment: undefined,
+  };
+  if (output["BlueGreenDeployment"] !== undefined) {
+    contents.BlueGreenDeployment = deserializeAws_queryBlueGreenDeployment(output["BlueGreenDeployment"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetail = (output: any, context: __SerdeContext): SwitchoverDetail => {
+  const contents: any = {
+    SourceMember: undefined,
+    TargetMember: undefined,
+    Status: undefined,
+  };
+  if (output["SourceMember"] !== undefined) {
+    contents.SourceMember = __expectString(output["SourceMember"]);
+  }
+  if (output["TargetMember"] !== undefined) {
+    contents.TargetMember = __expectString(output["TargetMember"]);
+  }
+  if (output["Status"] !== undefined) {
+    contents.Status = __expectString(output["Status"]);
+  }
+  return contents;
+};
+
+const deserializeAws_querySwitchoverDetailList = (output: any, context: __SerdeContext): SwitchoverDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_querySwitchoverDetail(entry, context);
     });
 };
 
