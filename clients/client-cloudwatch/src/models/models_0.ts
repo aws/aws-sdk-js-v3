@@ -9,9 +9,16 @@ export enum ActionsSuppressedBy {
   WaitPeriod = "WaitPeriod",
 }
 
-export type AlarmType = "CompositeAlarm" | "MetricAlarm";
+export enum AlarmType {
+  CompositeAlarm = "CompositeAlarm",
+  MetricAlarm = "MetricAlarm",
+}
 
-export type HistoryItemType = "Action" | "ConfigurationUpdate" | "StateUpdate";
+export enum HistoryItemType {
+  Action = "Action",
+  ConfigurationUpdate = "ConfigurationUpdate",
+  StateUpdate = "StateUpdate",
+}
 
 /**
  * <p>Represents the history of a specific alarm.</p>
@@ -131,34 +138,35 @@ export interface Metric {
   Dimensions?: Dimension[];
 }
 
-export type StandardUnit =
-  | "Bits"
-  | "Bits/Second"
-  | "Bytes"
-  | "Bytes/Second"
-  | "Count"
-  | "Count/Second"
-  | "Gigabits"
-  | "Gigabits/Second"
-  | "Gigabytes"
-  | "Gigabytes/Second"
-  | "Kilobits"
-  | "Kilobits/Second"
-  | "Kilobytes"
-  | "Kilobytes/Second"
-  | "Megabits"
-  | "Megabits/Second"
-  | "Megabytes"
-  | "Megabytes/Second"
-  | "Microseconds"
-  | "Milliseconds"
-  | "None"
-  | "Percent"
-  | "Seconds"
-  | "Terabits"
-  | "Terabits/Second"
-  | "Terabytes"
-  | "Terabytes/Second";
+export enum StandardUnit {
+  Bits = "Bits",
+  Bits_Second = "Bits/Second",
+  Bytes = "Bytes",
+  Bytes_Second = "Bytes/Second",
+  Count = "Count",
+  Count_Second = "Count/Second",
+  Gigabits = "Gigabits",
+  Gigabits_Second = "Gigabits/Second",
+  Gigabytes = "Gigabytes",
+  Gigabytes_Second = "Gigabytes/Second",
+  Kilobits = "Kilobits",
+  Kilobits_Second = "Kilobits/Second",
+  Kilobytes = "Kilobytes",
+  Kilobytes_Second = "Kilobytes/Second",
+  Megabits = "Megabits",
+  Megabits_Second = "Megabits/Second",
+  Megabytes = "Megabytes",
+  Megabytes_Second = "Megabytes/Second",
+  Microseconds = "Microseconds",
+  Milliseconds = "Milliseconds",
+  None = "None",
+  Percent = "Percent",
+  Seconds = "Seconds",
+  Terabits = "Terabits",
+  Terabits_Second = "Terabits/Second",
+  Terabytes = "Terabytes",
+  Terabytes_Second = "Terabytes/Second",
+}
 
 /**
  * <p>This structure defines the metric to be returned, along with the statistics, period, and units.</p>
@@ -218,7 +226,7 @@ export interface MetricStat {
  * 				<code>MetricDataQuery</code> structures in the array. The 20 structures can include
  * 			as many as 10 structures that contain a <code>MetricStat</code> parameter to retrieve a
  * 			metric, and as many as 10 structures that contain the <code>Expression</code> parameter
- * 			to perform a math expression. Of those <code>Expression</code> structures, one must have <code>True</code>
+ * 			to perform a math expression. Of those <code>Expression</code> structures, one must have <code>true</code>
  * 		as the value for <code>ReturnData</code>. The result of this expression is the value the alarm watches.</p>
  *
  * 		       <p>Any expression used in a <code>PutMetricAlarm</code>
@@ -277,9 +285,9 @@ export interface MetricDataQuery {
    * <p>When used in <code>GetMetricData</code>, this option indicates whether to return the
    * 			timestamps and raw data values of this metric. If you are performing this call just to
    * 			do math expressions and do not also need the raw data returned, you can specify
-   * 				<code>False</code>. If you omit this, the default of <code>True</code> is
+   * 				<code>false</code>. If you omit this, the default of <code>true</code> is
    * 			used.</p>
-   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>True</code> for the one expression result to use as the alarm. For all
+   * 		       <p>When used in <code>PutMetricAlarm</code>, specify <code>true</code> for the one expression result to use as the alarm. For all
    * 		other metrics and expressions in the same <code>PutMetricAlarm</code> operation, specify <code>ReturnData</code> as False.</p>
    */
   ReturnData?: boolean;
@@ -294,9 +302,11 @@ export interface MetricDataQuery {
   Period?: number;
 
   /**
-   * <p>The ID of the account where the metrics are located, if this is a cross-account alarm.</p>
-   * 		       <p>Use this field only for <code>PutMetricAlarm</code> operations. It is not used in
-   * 		<code>GetMetricData</code> operations.</p>
+   * <p>The ID of the account where the metrics are located.</p>
+   * 		       <p>If you are performing a <code>GetMetricData</code> operation in a monitoring account, use this to specify
+   * 			which account to retrieve this metric from.</p>
+   * 		       <p>If you are performing a <code>PutMetricAlarm</code> operation, use this to specify
+   * 			which account contains the metric that the alarm is watching.</p>
    */
   AccountId?: string;
 }
@@ -315,9 +325,9 @@ export interface MetricMathAnomalyDetector {
    * 			One item in <code>MetricDataQueries</code> is the expression
    * 			that provides the time series
    * 			that the anomaly detector uses as input.
-   * 			Designate the expression by setting <code>ReturnData</code> to <code>True</code>
+   * 			Designate the expression by setting <code>ReturnData</code> to <code>true</code>
    * 			for this object in the array.
-   * 			For all other expressions and metrics, set <code>ReturnData</code> to <code>False</code>.
+   * 			For all other expressions and metrics, set <code>ReturnData</code> to <code>false</code>.
    * 			The designated expression must return
    * 			a single time series.</p>
    */
@@ -350,7 +360,11 @@ export interface SingleMetricAnomalyDetector {
   Stat?: string;
 }
 
-export type AnomalyDetectorStateValue = "PENDING_TRAINING" | "TRAINED" | "TRAINED_INSUFFICIENT_DATA";
+export enum AnomalyDetectorStateValue {
+  PENDING_TRAINING = "PENDING_TRAINING",
+  TRAINED = "TRAINED",
+  TRAINED_INSUFFICIENT_DATA = "TRAINED_INSUFFICIENT_DATA",
+}
 
 /**
  * <p>An anomaly detection model associated with a particular CloudWatch metric, statistic, or metric math expression.
@@ -442,16 +456,21 @@ export interface PartialFailure {
   FailureDescription?: string;
 }
 
-export type ComparisonOperator =
-  | "GreaterThanOrEqualToThreshold"
-  | "GreaterThanThreshold"
-  | "GreaterThanUpperThreshold"
-  | "LessThanLowerOrGreaterThanUpperThreshold"
-  | "LessThanLowerThreshold"
-  | "LessThanOrEqualToThreshold"
-  | "LessThanThreshold";
+export enum ComparisonOperator {
+  GreaterThanOrEqualToThreshold = "GreaterThanOrEqualToThreshold",
+  GreaterThanThreshold = "GreaterThanThreshold",
+  GreaterThanUpperThreshold = "GreaterThanUpperThreshold",
+  LessThanLowerOrGreaterThanUpperThreshold = "LessThanLowerOrGreaterThanUpperThreshold",
+  LessThanLowerThreshold = "LessThanLowerThreshold",
+  LessThanOrEqualToThreshold = "LessThanOrEqualToThreshold",
+  LessThanThreshold = "LessThanThreshold",
+}
 
-export type StateValue = "ALARM" | "INSUFFICIENT_DATA" | "OK";
+export enum StateValue {
+  ALARM = "ALARM",
+  INSUFFICIENT_DATA = "INSUFFICIENT_DATA",
+  OK = "OK",
+}
 
 /**
  * <p>The details about a composite alarm.</p>
@@ -1203,7 +1222,13 @@ export interface DescribeAlarmsInput {
   NextToken?: string;
 }
 
-export type Statistic = "Average" | "Maximum" | "Minimum" | "SampleCount" | "Sum";
+export enum Statistic {
+  Average = "Average",
+  Maximum = "Maximum",
+  Minimum = "Minimum",
+  SampleCount = "SampleCount",
+  Sum = "Sum",
+}
 
 /**
  * <p>The details about a metric alarm.</p>
@@ -1984,6 +2009,7 @@ export interface MessageData {
 
 export enum StatusCode {
   COMPLETE = "Complete",
+  FORBIDDEN = "Forbidden",
   INTERNAL_ERROR = "InternalError",
   PARTIAL_DATA = "PartialData",
 }
@@ -2269,8 +2295,8 @@ export interface GetMetricStreamOutput {
   ExcludeFilters?: MetricStreamFilter[];
 
   /**
-   * <p>The ARN of the Amazon Kinesis Firehose delivery stream that is used by
-   * 		this metric stream.</p>
+   * <p>The ARN of the Amazon Kinesis Data Firehose delivery stream that is used by this metric
+   * 			stream.</p>
    */
   FirehoseArn?: string;
 
@@ -2546,7 +2572,7 @@ export interface ListMetricsInput {
   Namespace?: string;
 
   /**
-   * <p>The name of the metric to filter against.  Only the metrics with names that match exactly
+   * <p>The name of the metric to filter against. Only the metrics with names that match exactly
    * 			will be returned.</p>
    */
   MetricName?: string;
@@ -2573,6 +2599,20 @@ export interface ListMetricsInput {
    * 		data as much as 40 minutes more than the specified time interval.</p>
    */
   RecentlyActive?: RecentlyActive | string;
+
+  /**
+   * <p>If you are using this operation in a monitoring account,
+   * 			specify <code>true</code> to include metrics from source accounts in the returned data.</p>
+   * 		       <p>The default is <code>false</code>.</p>
+   */
+  IncludeLinkedAccounts?: boolean;
+
+  /**
+   * <p>When you use this operation in a monitoring account, use this field to return metrics only from one source account.
+   * 			To do so, specify that source account ID in this field, and also
+   * 		specify <code>true</code> for <code>IncludeLinkedAccounts</code>.</p>
+   */
+  OwningAccount?: string;
 }
 
 export interface ListMetricsOutput {
@@ -2585,6 +2625,14 @@ export interface ListMetricsOutput {
    * <p>The token that marks the start of the next batch of returned results. </p>
    */
   NextToken?: string;
+
+  /**
+   * <p>If you are using this operation in a monitoring account, this array contains the account IDs of the source
+   * 			accounts where the metrics in the returned data
+   * 		are from.</p>
+   * 		       <p>This field is a 1:1 mapping between each metric that is returned and the ID of the owning account.</p>
+   */
+  OwningAccounts?: string[];
 }
 
 export interface ListMetricStreamsInput {
@@ -3551,16 +3599,16 @@ export interface PutMetricStreamInput {
   ExcludeFilters?: MetricStreamFilter[];
 
   /**
-   * <p>The ARN of the Amazon Kinesis Firehose delivery stream to use for this metric stream.
-   * 		This Amazon Kinesis Firehose delivery stream must already exist and must be in the same
-   * 		account as the metric stream.</p>
+   * <p>The ARN of the Amazon Kinesis Data Firehose delivery stream to use for this metric stream.
+   * 			This Amazon Kinesis Data Firehose delivery stream must already exist and must be in the
+   * 			same account as the metric stream.</p>
    */
   FirehoseArn: string | undefined;
 
   /**
-   * <p>The ARN of an IAM role that this metric stream will use to access
-   * 			Amazon Kinesis Firehose resources. This IAM role must already
-   * 		exist and must be in the same account as the metric stream. This IAM role must include the following permissions:</p>
+   * <p>The ARN of an IAM role that this metric stream will use to access Amazon Kinesis Data
+   * 			Firehose resources. This IAM role must already exist and must be in the same account as
+   * 			the metric stream. This IAM role must include the following permissions:</p>
    * 		       <ul>
    *             <li>
    *                <p>firehose:PutRecord</p>
@@ -3599,13 +3647,14 @@ export interface PutMetricStreamInput {
    * 			and <code>SAMPLECOUNT</code> statistics for each metric that is streamed. You can use this parameter to have
    * 			the metric stream also send additional statistics in the stream. This
    * 			array can have up to 100 members.</p>
-   * 		       <p>For each entry in this array, you specify one or more metrics and the list of additional statistics to stream
-   * 			for those metrics. The additional statistics that you can stream depend on the stream's <code>OutputFormat</code>.
-   * 			If the <code>OutputFormat</code> is <code>json</code>, you can stream any additional statistic that is supported
-   * 			by CloudWatch, listed in
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
-   * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code> is
-   * 			<code>opentelemetry0.7</code>, you can stream percentile statistics such as p95, p99.9 and so on.</p>
+   * 		       <p>For each entry in this array, you specify one or more metrics and the list of additional
+   * 			statistics to stream for those metrics. The additional statistics that you can stream
+   * 			depend on the stream's <code>OutputFormat</code>. If the <code>OutputFormat</code> is
+   * 				<code>json</code>, you can stream any additional statistic that is supported by
+   * 				CloudWatch, listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html.html">
+   * 				CloudWatch statistics definitions</a>. If the <code>OutputFormat</code>
+   * 			is <code>opentelemetry0.7</code>, you can stream percentile statistics such as p95,
+   * 			p99.9, and so on.</p>
    */
   StatisticsConfigurations?: MetricStreamStatisticsConfiguration[];
 }

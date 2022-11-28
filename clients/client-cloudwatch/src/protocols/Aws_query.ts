@@ -3439,6 +3439,12 @@ const serializeAws_queryListMetricsInput = (input: ListMetricsInput, context: __
   if (input.RecentlyActive != null) {
     entries["RecentlyActive"] = input.RecentlyActive;
   }
+  if (input.IncludeLinkedAccounts != null) {
+    entries["IncludeLinkedAccounts"] = input.IncludeLinkedAccounts;
+  }
+  if (input.OwningAccount != null) {
+    entries["OwningAccount"] = input.OwningAccount;
+  }
   return entries;
 };
 
@@ -5501,6 +5507,7 @@ const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeCont
   const contents: any = {
     Metrics: undefined,
     NextToken: undefined,
+    OwningAccounts: undefined,
   };
   if (output.Metrics === "") {
     contents.Metrics = [];
@@ -5509,6 +5516,14 @@ const deserializeAws_queryListMetricsOutput = (output: any, context: __SerdeCont
   }
   if (output["NextToken"] !== undefined) {
     contents.NextToken = __expectString(output["NextToken"]);
+  }
+  if (output.OwningAccounts === "") {
+    contents.OwningAccounts = [];
+  } else if (output["OwningAccounts"] !== undefined && output["OwningAccounts"]["member"] !== undefined) {
+    contents.OwningAccounts = deserializeAws_queryOwningAccounts(
+      __getArrayIfSingleItem(output["OwningAccounts"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -6075,6 +6090,14 @@ const deserializeAws_queryMissingRequiredParameterException = (
     contents.message = __expectString(output["message"]);
   }
   return contents;
+};
+
+const deserializeAws_queryOwningAccounts = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_queryPartialFailure = (output: any, context: __SerdeContext): PartialFailure => {
