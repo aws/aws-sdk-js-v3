@@ -11,6 +11,8 @@ export interface CloudfrontSignInputBase {
   keyPairId: string;
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
+  /** The passphrase of RSA-SHA1 key*/
+  passphrase: string;
   /** The date string for when the signed URL or cookie can no longer be accessed. */
   dateLessThan?: string;
   /** The IP address string to restrict signed URL access to. */
@@ -66,6 +68,7 @@ export function getSignedUrl({
   privateKey,
   ipAddress,
   policy,
+  passphrase,
 }: CloudfrontSignInput): string {
   const parsedUrl = parseUrl(url);
   const queryParams: string[] = [];
@@ -75,6 +78,7 @@ export function getSignedUrl({
   const cloudfrontSignBuilder = new CloudfrontSignBuilder({
     keyPairId,
     privateKey,
+    passphrase,
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
@@ -115,10 +119,12 @@ export function getSignedCookies({
   dateLessThan,
   dateGreaterThan,
   policy,
+  passphrase,
 }: CloudfrontSignInput): CloudfrontSignedCookiesOutput {
   const cloudfrontSignBuilder = new CloudfrontSignBuilder({
     keyPairId,
     privateKey,
+    passphrase,
   });
   if (policy) {
     cloudfrontSignBuilder.setCustomPolicy(policy);
@@ -207,14 +213,24 @@ class CloudfrontURLParser {
 class CloudfrontSignBuilder {
   private keyPairId: string;
   private privateKey: string | Buffer;
+  private passphrase: string;
   private policy: string;
   private customPolicy = false;
   private dateLessThan?: number | undefined;
   private urlParser = new CloudfrontURLParser();
-  constructor({ privateKey, keyPairId }: { keyPairId: string; privateKey: string | Buffer }) {
+  constructor({
+    privateKey,
+    keyPairId,
+    passphrase,
+  }: {
+    keyPairId: string;
+    privateKey: string | Buffer;
+    passphrase: string;
+  }) {
     this.keyPairId = keyPairId;
     this.privateKey = privateKey;
     this.policy = "";
+    this.passphrase = passphrase;
   }
 
   private buildPolicy(args: BuildPolicyInput): Policy {
@@ -327,14 +343,20 @@ class CloudfrontSignBuilder {
     };
   }
 
-  private signData(data: string, privateKey: string | Buffer): string {
+  private signData(data: string, privateKey: string | Buffer, passphrase: string): string {
     const sign = createSign("RSA-SHA1");
     sign.update(data);
-    return sign.sign(privateKey, "base64");
+    return sign.sign(
+      {
+        key: privateKey,
+        passphrase: passphrase,
+      },
+      "base64"
+    );
   }
 
-  private signPolicy(policy: string, privateKey: string | Buffer): string {
-    return this.normalizeBase64(this.signData(policy, privateKey));
+  private signPolicy(policy: string, privateKey: string | Buffer, passphrase: string): string {
+    return this.normalizeBase64(this.signData(policy, privateKey, passphrase));
   }
 
   setCustomPolicy(policy: string) {
@@ -374,7 +396,7 @@ class CloudfrontSignBuilder {
     if (!Boolean(this.policy)) {
       throw new Error("Invalid policy");
     }
-    const signature = this.signPolicy(this.policy, this.privateKey);
+    const signature = this.signPolicy(this.policy, this.privateKey, this.passphrase);
     return {
       Expires: this.customPolicy ? undefined : this.dateLessThan,
       Policy: this.customPolicy ? this.encodeToBase64(this.policy) : undefined,
