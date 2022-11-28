@@ -332,6 +332,7 @@ export enum InvalidInputExceptionReason {
   INVALID_PARTY_TYPE_TARGET = "INVALID_PARTY_TYPE_TARGET",
   INVALID_PATTERN = "INVALID_PATTERN",
   INVALID_PATTERN_TARGET_ID = "INVALID_PATTERN_TARGET_ID",
+  INVALID_RESOURCE_POLICY_JSON = "INVALID_RESOURCE_POLICY_JSON",
   INVALID_ROLE_NAME = "INVALID_ROLE_NAME",
   INVALID_SYNTAX_ORGANIZATION = "INVALID_SYNTAX_ORGANIZATION_ARN",
   INVALID_SYNTAX_POLICY = "INVALID_SYNTAX_POLICY_ID",
@@ -344,6 +345,9 @@ export enum InvalidInputExceptionReason {
   MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS = "MOVING_ACCOUNT_BETWEEN_DIFFERENT_ROOTS",
   TARGET_NOT_SUPPORTED = "TARGET_NOT_SUPPORTED",
   UNRECOGNIZED_SERVICE_PRINCIPAL = "UNRECOGNIZED_SERVICE_PRINCIPAL",
+  UNSUPPORTED_ACTION_IN_RESOURCE_POLICY = "UNSUPPORTED_ACTION_IN_RESOURCE_POLICY",
+  UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY = "UNSUPPORTED_POLICY_TYPE_IN_RESOURCE_POLICY",
+  UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY = "UNSUPPORTED_RESOURCE_IN_RESOURCE_POLICY",
 }
 
 /**
@@ -1255,8 +1259,7 @@ export interface CreateAccountRequest {
   AccountName: string | undefined;
 
   /**
-   * <p>(Optional)</p>
-   *         <p>The name of an IAM role that Organizations automatically preconfigures in the new member
+   * <p>The name of an IAM role that Organizations automatically preconfigures in the new member
    *             account. This role trusts the management account, allowing users in the management
    *             account to assume the role, as permitted by the management account administrator. The
    *             role has administrator permissions in the new member account.</p>
@@ -1327,6 +1330,7 @@ export enum CreateAccountFailureReason {
   MISSING_PAYMENT_INSTRUMENT = "MISSING_PAYMENT_INSTRUMENT",
   PENDING_BUSINESS_VALIDATIONv = "PENDING_BUSINESS_VALIDATION",
   UNKNOWN_BUSINESS_VALIDATION = "UNKNOWN_BUSINESS_VALIDATION",
+  UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED = "UPDATE_EXISTING_RESOURCE_POLICY_WITH_TAGS_NOT_SUPPORTED",
 }
 
 export enum CreateAccountState {
@@ -2175,6 +2179,27 @@ export class PolicyInUseException extends __BaseException {
   }
 }
 
+/**
+ * <p>We can't find a resource policy request with the parameter that you specified.</p>
+ */
+export class ResourcePolicyNotFoundException extends __BaseException {
+  readonly name: "ResourcePolicyNotFoundException" = "ResourcePolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyNotFoundException, __BaseException>) {
+    super({
+      name: "ResourcePolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
 export interface DeregisterDelegatedAdministratorRequest {
   /**
    * <p>The account ID number of the member account in the organization that you want to
@@ -2408,6 +2433,43 @@ export interface DescribePolicyResponse {
    * <p>A structure that contains details about the specified policy.</p>
    */
   Policy?: Policy;
+}
+
+/**
+ * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
+ */
+export interface ResourcePolicySummary {
+  /**
+   * <p>The unique identifier (ID) of the resource policy.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the resource policy.</p>
+   */
+  Arn?: string;
+}
+
+/**
+ * <p>A structure that contains details about a resource policy.</p>
+ */
+export interface ResourcePolicy {
+  /**
+   * <p>A structure that contains resource policy ID and Amazon Resource Name (ARN).</p>
+   */
+  ResourcePolicySummary?: ResourcePolicySummary;
+
+  /**
+   * <p>The policy text of the resource policy.</p>
+   */
+  Content?: string;
+}
+
+export interface DescribeResourcePolicyResponse {
+  /**
+   * <p>A structure that contains details about the resource policy.</p>
+   */
+  ResourcePolicy?: ResourcePolicy;
 }
 
 export interface DetachPolicyRequest {
@@ -3941,6 +4003,36 @@ export class SourceParentNotFoundException extends __BaseException {
   }
 }
 
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>If provided, the new content for the resource policy. The text must be correctly formatted JSON
+   *             that complies with the syntax for the resource policy's type. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_scp-syntax.html">Service
+   *                 Control Policy Syntax</a> in the <i>Organizations User Guide.</i>
+   *          </p>
+   */
+  Content: string | undefined;
+
+  /**
+   * <p>Updates the list of tags that you want to attach to the newly-created resource policy. For each tag in
+   *             the list, you must specify both a tag key and a value. You can set the value to an empty
+   *             string, but you can't set it to <code>null</code>. For more information about tagging,
+   *             see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html">Tagging Organizations
+   *                 resources</a> in the Organizations User Guide.</p>
+   *         <note>
+   *             <p>Calls with tags apply to the initial creation of the resource policy, otherwise an exception is thrown. If any one of the tags is invalid or if you exceed the allowed number of tags for
+   *                 the resource policy, then the entire request fails and the resource policy is not created. </p>
+   *         </note>
+   */
+  Tags?: Tag[];
+}
+
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>A structure that contains details about the resource policy.</p>
+   */
+  ResourcePolicy?: ResourcePolicy;
+}
+
 export interface RegisterDelegatedAdministratorRequest {
   /**
    * <p>The account ID number of the member account in the organization to register as a
@@ -4671,6 +4763,27 @@ export const DescribePolicyResponseFilterSensitiveLog = (obj: DescribePolicyResp
 /**
  * @internal
  */
+export const ResourcePolicySummaryFilterSensitiveLog = (obj: ResourcePolicySummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourcePolicyFilterSensitiveLog = (obj: ResourcePolicy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeResourcePolicyResponseFilterSensitiveLog = (obj: DescribeResourcePolicyResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DetachPolicyRequestFilterSensitiveLog = (obj: DetachPolicyRequest): any => ({
   ...obj,
 });
@@ -5029,6 +5142,20 @@ export const ListTargetsForPolicyResponseFilterSensitiveLog = (obj: ListTargetsF
  * @internal
  */
 export const MoveAccountRequestFilterSensitiveLog = (obj: MoveAccountRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyRequestFilterSensitiveLog = (obj: PutResourcePolicyRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePolicyResponse): any => ({
   ...obj,
 });
 

@@ -60,9 +60,9 @@ export interface CloseAccountCommandOutput extends __MetadataBearer {}
  *                         grace period while the account is in SUSPENDED status. </p>
  *                 </li>
  *                <li>
- *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud (US)
- *                         account, the <code>CloseAccount</code> request will close both accounts. To
- *                         learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
+ *                     <p>If the Amazon Web Services account you attempt to close is linked to an Amazon Web Services GovCloud
+ *                         (US) account, the <code>CloseAccount</code> request will close both
+ *                         accounts. To learn important pre-closure details, see <a href="https://docs.aws.amazon.com/govcloud-us/latest/UserGuide/Closing-govcloud-account.html">
  *                             Closing an Amazon Web Services GovCloud (US) account</a> in the <i>
  *                             Amazon Web Services GovCloud User Guide</i>.</p>
  *                 </li>
