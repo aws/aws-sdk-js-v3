@@ -19,7 +19,7 @@ import {
   DeleteProvisioningTemplateVersionRequestFilterSensitiveLog,
   DeleteProvisioningTemplateVersionResponse,
   DeleteProvisioningTemplateVersionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1DeleteProvisioningTemplateVersionCommand,
   serializeAws_restJson1DeleteProvisioningTemplateVersionCommand,

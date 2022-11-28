@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import {
-  ListStreamsRequest,
-  ListStreamsRequestFilterSensitiveLog,
-  ListStreamsResponse,
-  ListStreamsResponseFilterSensitiveLog,
-} from "../models/models_1";
+import { ListStreamsRequest, ListStreamsRequestFilterSensitiveLog } from "../models/models_1";
+import { ListStreamsResponse, ListStreamsResponseFilterSensitiveLog } from "../models/models_2";
 import {
   deserializeAws_restJson1ListStreamsCommand,
   serializeAws_restJson1ListStreamsCommand,
