@@ -1,9 +1,8 @@
-import { TokenInputConfig, TokenPreviouslyResolved, TokenResolvedConfig } from "./configurations";
+import { TokenInputConfig, TokenResolvedConfig } from "./configurations";
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
+import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
-export const resolveTokenConfig = <T>(
-  input: T & TokenInputConfig & TokenPreviouslyResolved
-): T & TokenResolvedConfig => ({
+export const resolveTokenConfig = <T>(input: T & TokenInputConfig): T & TokenResolvedConfig => ({
   ...input,
-  token: input.token ? normalizeTokenProvider(input.token) : input.tokenDefaultProvider(input as any),
+  token: input.token ? normalizeTokenProvider(input.token) : tokenDefaultProvider(input),
 });
