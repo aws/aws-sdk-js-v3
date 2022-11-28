@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
+
+
+### Bug Fixes
+
+* **codegen:** add check for required query parameters ([#4223](https://github.com/aws/aws-sdk-js-v3/issues/4223)) ([b941f46](https://github.com/aws/aws-sdk-js-v3/commit/b941f4646518aacec2d7709eb673e5b2d90f0b04))
+
+
+### Features
+
+* **client-backup:** AWS Backup introduces support for legal hold and application stack backups. AWS Backup Audit Manager introduces support for cross-Region, cross-account reports. ([501931e](https://github.com/aws/aws-sdk-js-v3/commit/501931e3a9818f93442bd89e1d5216d69f07ba36))
+* **client-cloudwatch-logs:** Updates to support CloudWatch Logs data protection and CloudWatch cross-account observability ([cf73137](https://github.com/aws/aws-sdk-js-v3/commit/cf73137950411df4ffff938dafdb2db4ef095dea))
+* **client-cloudwatch:** Adds cross-account support to the GetMetricData API. Adds cross-account support to the ListMetrics API through the usage of the IncludeLinkedAccounts flag and the new OwningAccounts field. ([0ac256b](https://github.com/aws/aws-sdk-js-v3/commit/0ac256b01ca9fcd8fb26c27bae171979115d4a65))
+* **client-drs:** Non breaking changes to existing APIs, and additional APIs added to support in-AWS failing back using AWS Elastic Disaster Recovery. ([d3daca7](https://github.com/aws/aws-sdk-js-v3/commit/d3daca7c9a646c21816dd91347577fe6d7e9f567))
+* **client-ecs:** This release adds support for ECS Service Connect, a new capability that simplifies writing and operating resilient distributed applications. This release updates the TaskDefinition, Cluster, Service mutation APIs with Service connect constructs and also adds a new ListServicesByNamespace API. ([fabc6b1](https://github.com/aws/aws-sdk-js-v3/commit/fabc6b15af7b1fe696600a114d95241d3c4ef4e8))
+* **client-efs:** This release adds elastic as a new ThroughputMode value for EFS file systems and adds AFTER_1_DAY as a value for TransitionToIARules. ([6d5410c](https://github.com/aws/aws-sdk-js-v3/commit/6d5410c65fb53640f94f3b90cda215cf8a6056c3))
+* **client-iot-data-plane:** This release adds support for MQTT5 properties to AWS IoT HTTP Publish API. ([6d1217b](https://github.com/aws/aws-sdk-js-v3/commit/6d1217b0e7f2af86871a12655b0709b4ab497a57))
+* **client-iot-wireless:** This release includes a new feature for customers to calculate the position of their devices by adding three new APIs: UpdateResourcePosition, GetResourcePosition, and GetPositionEstimate. ([94b6569](https://github.com/aws/aws-sdk-js-v3/commit/94b6569ca49f4aae3dcec4a9f1e15760f9206711))
+* **client-iot:** Job scheduling enables the scheduled rollout of a Job with start and end times and a customizable end behavior when end time is reached. This is available for continuous and snapshot jobs. Added support for MQTT5 properties to AWS IoT TopicRule Republish Action. ([ccd70b0](https://github.com/aws/aws-sdk-js-v3/commit/ccd70b08c4c27447e3a23777361047346a0628d4))
+* **client-kendra:** Amazon Kendra now supports preview of table information from HTML tables in the search results. The most relevant cells with their corresponding rows, columns are displayed as a preview in the search result. The most relevant table cell or cells are also highlighted in table preview. ([340955b](https://github.com/aws/aws-sdk-js-v3/commit/340955bd2cfc38dcbfa17b1902a8f1935dc3995e))
+* **client-mgn:** This release adds support for Application and Wave management. We also now support custom post-launch actions. ([e573378](https://github.com/aws/aws-sdk-js-v3/commit/e573378a34c7bd32849b130a12f43873811587ef))
+* **client-oam:** Amazon CloudWatch Observability Access Manager is a new service that allows configuration of the CloudWatch cross-account observability feature. ([7df2a9d](https://github.com/aws/aws-sdk-js-v3/commit/7df2a9dbb9d317f9d71e627f6e6f60e1d878d4a3))
+* **client-organizations:** This release introduces delegated administrator for AWS Organizations, a new feature to help you delegate the management of your Organizations policies, enabling you to govern your AWS organization in a decentralized way. You can now allow member accounts to manage Organizations policies. ([95ff1b2](https://github.com/aws/aws-sdk-js-v3/commit/95ff1b2b9432a095661d5de18ba02eb6d98c491e))
+* **client-rds:** This release enables new Aurora and RDS feature called Blue/Green Deployments that makes updates to databases safer, simpler and faster. ([92c3eef](https://github.com/aws/aws-sdk-js-v3/commit/92c3eef27b9edf94a665a65dbea4e9300ec0a53c))
+* **client-textract:** This release adds support for classifying and splitting lending documents by type, and extracting information by using the Analyze Lending APIs. This release also includes support for summarized information of the processed lending document package, in addition to per document results. ([be0312b](https://github.com/aws/aws-sdk-js-v3/commit/be0312bf59290fe1eafdb5802b4b3999cd4ce072))
+* **client-transcribe-streaming:** This release adds support for real-time (streaming) and post-call Call Analytics within Amazon Transcribe. ([30cd918](https://github.com/aws/aws-sdk-js-v3/commit/30cd918161797ddfc1d37d2348f66d0a59fcf117))
+* **client-transcribe:** This release adds support for 'inputType' for post-call and real-time (streaming) Call Analytics within Amazon Transcribe. ([7ee98f5](https://github.com/aws/aws-sdk-js-v3/commit/7ee98f5404ce21b54814dbc48aebbefc78e0e564))
+* **clients:** update client endpoints as of 2022-11-28 ([8e9d210](https://github.com/aws/aws-sdk-js-v3/commit/8e9d210066a545bb975a6e09969b1cfbd4efdb16))
+
+
+
+
+
 # [3.217.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.216.0...v3.217.0) (2022-11-23)
 
 

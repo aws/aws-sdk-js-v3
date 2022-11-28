@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
+
+
+### Bug Fixes
+
+* **codegen:** add check for required query parameters ([#4223](https://github.com/aws/aws-sdk-js-v3/issues/4223)) ([b941f46](https://github.com/aws/aws-sdk-js-v3/commit/b941f4646518aacec2d7709eb673e5b2d90f0b04))
+
+
+### Features
+
+* **client-efs:** This release adds elastic as a new ThroughputMode value for EFS file systems and adds AFTER_1_DAY as a value for TransitionToIARules. ([6d5410c](https://github.com/aws/aws-sdk-js-v3/commit/6d5410c65fb53640f94f3b90cda215cf8a6056c3))
+
+
+
+
+
 # [3.216.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.215.0...v3.216.0) (2022-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-efs
