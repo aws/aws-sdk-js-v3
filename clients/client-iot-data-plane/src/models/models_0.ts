@@ -1,5 +1,8 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-client";
+import {
+  ExceptionOptionType as __ExceptionOptionType,
+  LazyJsonString as __LazyJsonString,
+} from "@aws-sdk/smithy-client";
 
 import { IoTDataPlaneServiceException as __BaseException } from "./IoTDataPlaneServiceException";
 
@@ -345,6 +348,11 @@ export interface ListRetainedMessagesResponse {
   nextToken?: string;
 }
 
+export enum PayloadFormatIndicator {
+  UNSPECIFIED_BYTES = "UNSPECIFIED_BYTES",
+  UTF8_DATA = "UTF8_DATA",
+}
+
 /**
  * <p>The input for the Publish operation.</p>
  */
@@ -355,7 +363,7 @@ export interface PublishRequest {
   topic: string | undefined;
 
   /**
-   * <p>The Quality of Service (QoS) level.</p>
+   * <p>The Quality of Service (QoS) level. The default QoS level is 0.</p>
    */
   qos?: number;
 
@@ -375,6 +383,51 @@ export interface PublishRequest {
    *         <code>true</code> deletes the retained message identified by <b>topic</b> from Amazon Web Services IoT Core.</p>
    */
   payload?: Uint8Array;
+
+  /**
+   * <p>A JSON string that contains an array of JSON objects. If you don’t use Amazon Web Services SDK or CLI,
+   *       you must encode the JSON string to base64 format before adding it to the HTTP header.
+   *         <code>userProperties</code> is an HTTP header value in the API.</p>
+   *          <p>The following example <code>userProperties</code> parameter is a JSON string which
+   *       represents two User Properties. Note that it needs to be base64-encoded:</p>
+   *         <p>
+   *             <code>[{"deviceName": "alpha"}, {"deviceCnt": "45"}]</code>
+   *          </p>
+   */
+  userProperties?: __LazyJsonString | string;
+
+  /**
+   * <p>An <code>Enum</code> string value that indicates whether the payload is formatted as
+   *       UTF-8. <code>payloadFormatIndicator</code> is an HTTP header value in the API.</p>
+   */
+  payloadFormatIndicator?: PayloadFormatIndicator | string;
+
+  /**
+   * <p>A UTF-8 encoded string that describes the content of the publishing message.</p>
+   */
+  contentType?: string;
+
+  /**
+   * <p>A UTF-8 encoded string that's used as the topic name for a response message. The response
+   *       topic is used to describe the topic which the receiver should publish to as part of the
+   *       request-response flow. The topic must not contain wildcard characters.</p>
+   */
+  responseTopic?: string;
+
+  /**
+   * <p>The base64-encoded binary data used by the sender of the request message to identify which
+   *       request the response message is for when it's received. <code>correlationData</code> is an
+   *       HTTP header value in the API.</p>
+   */
+  correlationData?: string;
+
+  /**
+   * <p>A user-defined integer value that represents the message expiry interval in seconds. If
+   *       absent, the message doesn't expire. For more information about the limits of
+   *         <code>messageExpiry</code>, see <a href="https://docs.aws.amazon.com/general/latest/gr/iot-core.html#message-broker-limits">Amazon Web Services IoT Core message broker and
+   *         protocol limits and quotas </a> from the Amazon Web Services Reference Guide.</p>
+   */
+  messageExpiry?: number;
 }
 
 /**

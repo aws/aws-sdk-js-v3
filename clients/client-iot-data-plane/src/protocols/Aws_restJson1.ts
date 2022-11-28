@@ -8,6 +8,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  LazyJsonString as __LazyJsonString,
   map as __map,
   resolvedPath as __resolvedPath,
   throwDefaultError,
@@ -172,14 +173,23 @@ export const serializeAws_restJson1PublishCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
-  };
+    "x-amz-mqtt5-user-properties": [
+      () => isSerializableHeaderValue(input.userProperties),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.userProperties!))),
+    ],
+    "x-amz-mqtt5-payload-format-indicator": input.payloadFormatIndicator!,
+    "x-amz-mqtt5-correlation-data": input.correlationData!,
+  });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/topics/{topic}";
   resolvedPath = __resolvedPath(resolvedPath, input, "topic", () => input.topic!, "{topic}", false);
   const query: any = map({
     qos: [() => input.qos !== void 0, () => input.qos!.toString()],
     retain: [() => input.retain !== void 0, () => input.retain!.toString()],
+    contentType: [, input.contentType!],
+    responseTopic: [, input.responseTopic!],
+    messageExpiry: [() => input.messageExpiry !== void 0, () => input.messageExpiry!.toString()],
   });
   let body: any;
   if (input.payload !== undefined) {
@@ -572,6 +582,9 @@ const deserializeAws_restJson1PublishCommandError = async (
     case "MethodNotAllowedException":
     case "com.amazonaws.iotdataplane#MethodNotAllowedException":
       throw await deserializeAws_restJson1MethodNotAllowedExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.iotdataplane#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.iotdataplane#UnauthorizedException":
       throw await deserializeAws_restJson1UnauthorizedExceptionResponse(parsedOutput, context);
