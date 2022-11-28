@@ -26,16 +26,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `MgnClient` and
-the commands you need, for example `ChangeServerLifeCycleStateCommand`:
+the commands you need, for example `ArchiveApplicationCommand`:
 
 ```js
 // ES5 example
-const { MgnClient, ChangeServerLifeCycleStateCommand } = require("@aws-sdk/client-mgn");
+const { MgnClient, ArchiveApplicationCommand } = require("@aws-sdk/client-mgn");
 ```
 
 ```ts
 // ES6+ example
-import { MgnClient, ChangeServerLifeCycleStateCommand } from "@aws-sdk/client-mgn";
+import { MgnClient, ArchiveApplicationCommand } from "@aws-sdk/client-mgn";
 ```
 
 ### Usage
@@ -54,7 +54,7 @@ const client = new MgnClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ChangeServerLifeCycleStateCommand(params);
+const command = new ArchiveApplicationCommand(params);
 ```
 
 #### Async/await
@@ -133,7 +133,7 @@ const client = new AWS.Mgn({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.changeServerLifeCycleState(params);
+  const data = await client.archiveApplication(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -141,7 +141,7 @@ try {
 
 // Promises.
 client
-  .changeServerLifeCycleState(params)
+  .archiveApplication(params)
   .then((data) => {
     // process data.
   })
@@ -150,7 +150,7 @@ client
   });
 
 // callbacks.
-client.changeServerLifeCycleState(params, (err, data) => {
+client.archiveApplication(params, (err, data) => {
   // process err and data.
 });
 ```

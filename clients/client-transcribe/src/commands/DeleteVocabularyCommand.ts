@@ -24,9 +24,9 @@ export interface DeleteVocabularyCommandInput extends DeleteVocabularyRequest {}
 export interface DeleteVocabularyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a custom vocabulary. To use this operation, specify the name of the vocabulary you
- *             want to delete using <code>VocabularyName</code>. Vocabulary names are case
- *             sensitive.</p>
+ * <p>Deletes a custom vocabulary. To use this operation, specify the name of the custom
+ *             vocabulary you want to delete using <code>VocabularyName</code>. Custom vocabulary names
+ *             are case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

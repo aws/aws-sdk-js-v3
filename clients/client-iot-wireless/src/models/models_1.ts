@@ -1,24 +1,335 @@
 // smithy-typescript generated code
-import { SENSITIVE_STRING } from "@aws-sdk/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@aws-sdk/smithy-client";
 
+import { IoTWirelessServiceException as __BaseException } from "./IoTWirelessServiceException";
 import {
+  ApplicationConfig,
   ConnectionStatusEventConfiguration,
+  ConnectionStatusResourceTypeEventConfiguration,
   DeviceRegistrationStateEventConfiguration,
+  DeviceRegistrationStateResourceTypeEventConfiguration,
   EventNotificationPartnerType,
+  ExpressionType,
   IdentifierType,
   JoinEventConfiguration,
+  JoinResourceTypeEventConfiguration,
   LogLevel,
   LoRaWANFuotaTask,
   LoRaWANMulticast,
+  LoRaWANMulticastSession,
+  LoRaWANSendDataToDevice,
   MessageDeliveryStatusEventConfiguration,
+  MessageDeliveryStatusResourceTypeEventConfiguration,
+  MulticastWirelessMetadata,
   PartnerType,
   Positioning,
+  PositioningConfigStatus,
   PositionResourceType,
   ProximityEventConfiguration,
+  ProximityResourceTypeEventConfiguration,
+  Tag,
   TraceContent,
   WirelessDeviceLogOption,
   WirelessGatewayLogOption,
 } from "./models_0";
+
+export interface SendDataToMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The binary to be sent to the end device, encoded in base64.</p>
+   */
+  PayloadData: string | undefined;
+
+  /**
+   * <p>Wireless metadata that is to be sent to multicast group.</p>
+   */
+  WirelessMetadata: MulticastWirelessMetadata | undefined;
+}
+
+export interface SendDataToMulticastGroupResponse {
+  /**
+   * <p>ID of a multicast group message.</p>
+   */
+  MessageId?: string;
+}
+
+export enum MessageType {
+  CUSTOM_COMMAND_ID_GET = "CUSTOM_COMMAND_ID_GET",
+  CUSTOM_COMMAND_ID_NOTIFY = "CUSTOM_COMMAND_ID_NOTIFY",
+  CUSTOM_COMMAND_ID_RESP = "CUSTOM_COMMAND_ID_RESP",
+  CUSTOM_COMMAND_ID_SET = "CUSTOM_COMMAND_ID_SET",
+}
+
+/**
+ * <p>Information about a Sidewalk router.</p>
+ */
+export interface SidewalkSendDataToDevice {
+  /**
+   * <p>The sequence number.</p>
+   */
+  Seq?: number;
+
+  /**
+   * <p>Sidewalk device message type. Default value is <code>CUSTOM_COMMAND_ID_NOTIFY</code>.</p>
+   */
+  MessageType?: MessageType | string;
+
+  /**
+   * <p>The duration of time in seconds to retry sending the ACK.</p>
+   */
+  AckModeRetryDurationSecs?: number;
+}
+
+/**
+ * <p>WirelessMetadata object.</p>
+ */
+export interface WirelessMetadata {
+  /**
+   * <p>LoRaWAN device info.</p>
+   */
+  LoRaWAN?: LoRaWANSendDataToDevice;
+
+  /**
+   * <p>The Sidewalk account credentials.</p>
+   */
+  Sidewalk?: SidewalkSendDataToDevice;
+}
+
+export interface SendDataToWirelessDeviceRequest {
+  /**
+   * <p>The ID of the wireless device to receive the data.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The transmit mode to use to send data to the wireless device. Can be: <code>0</code> for UM (unacknowledge mode) or <code>1</code> for AM (acknowledge mode).</p>
+   */
+  TransmitMode: number | undefined;
+
+  /**
+   * <p>The binary to be sent to the end device, encoded in base64.</p>
+   */
+  PayloadData: string | undefined;
+
+  /**
+   * <p>Metadata about the message request.</p>
+   */
+  WirelessMetadata?: WirelessMetadata;
+}
+
+export interface SendDataToWirelessDeviceResponse {
+  /**
+   * <p>The ID of the message sent to the wireless device.</p>
+   */
+  MessageId?: string;
+}
+
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   */
+  QueryString?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface StartBulkAssociateWirelessDeviceWithMulticastGroupResponse {}
+
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>Query string used to search for wireless devices as part of the bulk associate and disassociate process.</p>
+   */
+  QueryString?: string;
+
+  /**
+   * <p>The tag to attach to the specified resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse {}
+
+/**
+ * <p>The LoRaWAN information used to start a FUOTA task.</p>
+ */
+export interface LoRaWANStartFuotaTask {
+  /**
+   * <p>Start time of a FUOTA task.</p>
+   */
+  StartTime?: Date;
+}
+
+export interface StartFuotaTaskRequest {
+  /**
+   * <p>The ID of a FUOTA task.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The LoRaWAN information used to start a FUOTA task.</p>
+   */
+  LoRaWAN?: LoRaWANStartFuotaTask;
+}
+
+export interface StartFuotaTaskResponse {}
+
+export interface StartMulticastGroupSessionRequest {
+  /**
+   * <p>The ID of the multicast group.</p>
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The LoRaWAN information used with the multicast session.</p>
+   */
+  LoRaWAN: LoRaWANMulticastSession | undefined;
+}
+
+export interface StartMulticastGroupSessionResponse {}
+
+export interface TagResourceRequest {
+  /**
+   * <p>The ARN of the resource to add tags to.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>Adds to or modifies the tags of the given resource. Tags are metadata that you can use to manage a resource.</p>
+   */
+  Tags: Tag[] | undefined;
+}
+
+export interface TagResourceResponse {}
+
+/**
+ * <p>The request was denied because the resource can't have any more tags.</p>
+ */
+export class TooManyTagsException extends __BaseException {
+  readonly name: "TooManyTagsException" = "TooManyTagsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * <p>Name of the resource that exceeds maximum number of tags allowed.</p>
+   */
+  ResourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyTagsException, __BaseException>) {
+    super({
+      name: "TooManyTagsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyTagsException.prototype);
+    this.Message = opts.Message;
+    this.ResourceName = opts.ResourceName;
+  }
+}
+
+export interface TestWirelessDeviceRequest {
+  /**
+   * <p>The ID of the wireless device to test.</p>
+   */
+  Id: string | undefined;
+}
+
+export interface TestWirelessDeviceResponse {
+  /**
+   * <p>The result returned by the test.</p>
+   */
+  Result?: string;
+}
+
+export interface UntagResourceRequest {
+  /**
+   * <p>The ARN of the resource to remove tags from.</p>
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>A list of the keys of the tags to remove from the resource.</p>
+   */
+  TagKeys: string[] | undefined;
+}
+
+export interface UntagResourceResponse {}
+
+export interface UpdateDestinationRequest {
+  /**
+   * <p>The new name of the resource.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The type of value in <code>Expression</code>.</p>
+   */
+  ExpressionType?: ExpressionType | string;
+
+  /**
+   * <p>The new rule name or topic rule to send messages to.</p>
+   */
+  Expression?: string;
+
+  /**
+   * <p>A new description of the resource.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the IAM Role that authorizes the destination.</p>
+   */
+  RoleArn?: string;
+}
+
+export interface UpdateDestinationResponse {}
+
+export interface UpdateEventConfigurationByResourceTypesRequest {
+  /**
+   * <p>Device registration state resource type event configuration object for enabling and disabling wireless
+   *             gateway topic.</p>
+   */
+  DeviceRegistrationState?: DeviceRegistrationStateResourceTypeEventConfiguration;
+
+  /**
+   * <p>Proximity resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   */
+  Proximity?: ProximityResourceTypeEventConfiguration;
+
+  /**
+   * <p>Join resource type event configuration object for enabling and disabling wireless device topic.</p>
+   */
+  Join?: JoinResourceTypeEventConfiguration;
+
+  /**
+   * <p>Connection status resource type event configuration object for enabling and disabling wireless gateway topic.</p>
+   */
+  ConnectionStatus?: ConnectionStatusResourceTypeEventConfiguration;
+
+  /**
+   * <p>Message delivery status resource type event configuration object for enabling and disabling wireless device topic.</p>
+   */
+  MessageDeliveryStatus?: MessageDeliveryStatusResourceTypeEventConfiguration;
+}
+
+export interface UpdateEventConfigurationByResourceTypesResponse {}
 
 export interface UpdateFuotaTaskRequest {
   /**
@@ -234,6 +545,28 @@ export interface UpdateResourceEventConfigurationRequest {
 
 export interface UpdateResourceEventConfigurationResponse {}
 
+export interface UpdateResourcePositionRequest {
+  /**
+   * <p>The identifier of the resource for which position information is updated. It can be the wireless
+   *            device ID or the wireless gateway ID depending on the resource type.</p>
+   */
+  ResourceIdentifier: string | undefined;
+
+  /**
+   * <p>The type of resource for which position information is updated, which can be a wireless device or a
+   *            wireless gateway.</p>
+   */
+  ResourceType: PositionResourceType | string | undefined;
+
+  /**
+   * <p>The position information of the resource, displayed as a JSON payload. The payload uses the GeoJSON format,
+   *            which a format that's used to encode geographic data structures. For more information, see <a href="https://geojson.org/">GeoJSON</a>.</p>
+   */
+  GeoJsonPayload?: Uint8Array;
+}
+
+export interface UpdateResourcePositionResponse {}
+
 /**
  * <p>ABP device object for LoRaWAN specification v1.0.x</p>
  */
@@ -262,6 +595,11 @@ export interface UpdateFPorts {
    * <p>Positioning FPorts for the ClockSync, Stream, and GNSS functions.</p>
    */
   Positioning?: Positioning;
+
+  /**
+   * <p>LoRaWAN application, which can be used for geolocation by activating positioning.</p>
+   */
+  Applications?: ApplicationConfig[];
 }
 
 /**
@@ -319,6 +657,11 @@ export interface UpdateWirelessDeviceRequest {
    * <p>The updated wireless device's configuration.</p>
    */
   LoRaWAN?: LoRaWANUpdateDevice;
+
+  /**
+   * <p>FPort values for the GNSS, stream, and ClockSync functions of the positioning information.</p>
+   */
+  Positioning?: PositioningConfigStatus | string;
 }
 
 export interface UpdateWirelessDeviceResponse {}
@@ -351,6 +694,193 @@ export interface UpdateWirelessGatewayRequest {
 }
 
 export interface UpdateWirelessGatewayResponse {}
+
+/**
+ * @internal
+ */
+export const SendDataToMulticastGroupRequestFilterSensitiveLog = (obj: SendDataToMulticastGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToMulticastGroupResponseFilterSensitiveLog = (obj: SendDataToMulticastGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SidewalkSendDataToDeviceFilterSensitiveLog = (obj: SidewalkSendDataToDevice): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const WirelessMetadataFilterSensitiveLog = (obj: WirelessMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToWirelessDeviceRequestFilterSensitiveLog = (obj: SendDataToWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SendDataToWirelessDeviceResponseFilterSensitiveLog = (obj: SendDataToWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkAssociateWirelessDeviceWithMulticastGroupRequestFilterSensitiveLog = (
+  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkAssociateWirelessDeviceWithMulticastGroupResponseFilterSensitiveLog = (
+  obj: StartBulkAssociateWirelessDeviceWithMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDisassociateWirelessDeviceFromMulticastGroupRequestFilterSensitiveLog = (
+  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartBulkDisassociateWirelessDeviceFromMulticastGroupResponseFilterSensitiveLog = (
+  obj: StartBulkDisassociateWirelessDeviceFromMulticastGroupResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LoRaWANStartFuotaTaskFilterSensitiveLog = (obj: LoRaWANStartFuotaTask): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFuotaTaskRequestFilterSensitiveLog = (obj: StartFuotaTaskRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartFuotaTaskResponseFilterSensitiveLog = (obj: StartFuotaTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMulticastGroupSessionRequestFilterSensitiveLog = (obj: StartMulticastGroupSessionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMulticastGroupSessionResponseFilterSensitiveLog = (obj: StartMulticastGroupSessionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TagResourceResponseFilterSensitiveLog = (obj: TagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestWirelessDeviceRequestFilterSensitiveLog = (obj: TestWirelessDeviceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TestWirelessDeviceResponseFilterSensitiveLog = (obj: TestWirelessDeviceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceRequestFilterSensitiveLog = (obj: UntagResourceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UntagResourceResponseFilterSensitiveLog = (obj: UntagResourceResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationRequestFilterSensitiveLog = (obj: UpdateDestinationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateDestinationResponseFilterSensitiveLog = (obj: UpdateDestinationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventConfigurationByResourceTypesRequestFilterSensitiveLog = (
+  obj: UpdateEventConfigurationByResourceTypesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateEventConfigurationByResourceTypesResponseFilterSensitiveLog = (
+  obj: UpdateEventConfigurationByResourceTypesResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -468,6 +998,20 @@ export const UpdateResourceEventConfigurationRequestFilterSensitiveLog = (
 export const UpdateResourceEventConfigurationResponseFilterSensitiveLog = (
   obj: UpdateResourceEventConfigurationResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePositionRequestFilterSensitiveLog = (obj: UpdateResourcePositionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateResourcePositionResponseFilterSensitiveLog = (obj: UpdateResourcePositionResponse): any => ({
   ...obj,
 });
 

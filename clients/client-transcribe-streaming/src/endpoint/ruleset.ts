@@ -279,12 +279,12 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
-                            "transcribestreaming-us-west-2",
+                            "transcribestreaming-us-east-2",
                           ],
                         },
                       ],
                       endpoint: {
-                        url: "https://transcribestreaming-fips.us-west-2.amazonaws.com",
+                        url: "https://transcribestreaming-fips.us-east-2.amazonaws.com",
                         properties: {},
                         headers: {},
                       },
@@ -298,12 +298,12 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
-                            "transcribestreaming-us-east-2",
+                            "transcribestreaming-us-west-2",
                           ],
                         },
                       ],
                       endpoint: {
-                        url: "https://transcribestreaming-fips.us-east-2.amazonaws.com",
+                        url: "https://transcribestreaming-fips.us-west-2.amazonaws.com",
                         properties: {},
                         headers: {},
                       },

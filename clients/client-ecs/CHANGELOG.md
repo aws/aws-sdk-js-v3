@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
+
+
+### Features
+
+* **client-ecs:** This release adds support for ECS Service Connect, a new capability that simplifies writing and operating resilient distributed applications. This release updates the TaskDefinition, Cluster, Service mutation APIs with Service connect constructs and also adds a new ListServicesByNamespace API. ([fabc6b1](https://github.com/aws/aws-sdk-js-v3/commit/fabc6b15af7b1fe696600a114d95241d3c4ef4e8))
+
+
+
+
+
 # [3.216.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.215.0...v3.216.0) (2022-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-ecs

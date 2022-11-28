@@ -19,7 +19,7 @@ import {
   StartFuotaTaskRequestFilterSensitiveLog,
   StartFuotaTaskResponse,
   StartFuotaTaskResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1StartFuotaTaskCommand,
   serializeAws_restJson1StartFuotaTaskCommand,

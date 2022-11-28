@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: false,
+      required: true,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -205,8 +205,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-east-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -265,8 +265,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-east-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -325,8 +325,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-east-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -351,8 +351,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "us-east-1",
+                      signingName: "organizations",
                     },
                   ],
                 },
@@ -448,8 +448,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "cn-northwest-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -508,8 +508,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "cn-northwest-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -568,8 +568,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "cn-northwest-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -594,8 +594,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "cn-northwest-1",
+                      signingName: "organizations",
                     },
                   ],
                 },
@@ -691,8 +691,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-gov-west-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -751,8 +751,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-gov-west-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -811,8 +811,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "organizations",
                               signingRegion: "us-gov-west-1",
+                              signingName: "organizations",
                             },
                           ],
                         },
@@ -837,8 +837,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "us-gov-west-1",
+                      signingName: "organizations",
                     },
                   ],
                 },
@@ -1094,8 +1094,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "us-east-1",
+                      signingName: "organizations",
                     },
                   ],
                 },
@@ -1121,8 +1121,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "cn-northwest-1",
+                      signingName: "organizations",
                     },
                   ],
                 },
@@ -1148,8 +1148,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "organizations",
                       signingRegion: "us-gov-west-1",
+                      signingName: "organizations",
                     },
                   ],
                 },

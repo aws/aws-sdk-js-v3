@@ -66,6 +66,10 @@ import {
 } from "@aws-sdk/types";
 
 import {
+  StartCallAnalyticsStreamTranscriptionCommandInput,
+  StartCallAnalyticsStreamTranscriptionCommandOutput,
+} from "./commands/StartCallAnalyticsStreamTranscriptionCommand";
+import {
   StartMedicalStreamTranscriptionCommandInput,
   StartMedicalStreamTranscriptionCommandOutput,
 } from "./commands/StartMedicalStreamTranscriptionCommand";
@@ -81,9 +85,15 @@ import {
 } from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
-export type ServiceInputTypes = StartMedicalStreamTranscriptionCommandInput | StartStreamTranscriptionCommandInput;
+export type ServiceInputTypes =
+  | StartCallAnalyticsStreamTranscriptionCommandInput
+  | StartMedicalStreamTranscriptionCommandInput
+  | StartStreamTranscriptionCommandInput;
 
-export type ServiceOutputTypes = StartMedicalStreamTranscriptionCommandOutput | StartStreamTranscriptionCommandOutput;
+export type ServiceOutputTypes =
+  | StartCallAnalyticsStreamTranscriptionCommandOutput
+  | StartMedicalStreamTranscriptionCommandOutput
+  | StartStreamTranscriptionCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -252,8 +262,9 @@ type TranscribeStreamingClientResolvedConfigType = __SmithyResolvedConfiguration
 export interface TranscribeStreamingClientResolvedConfig extends TranscribeStreamingClientResolvedConfigType {}
 
 /**
- * <p>Amazon Transcribe streaming offers two types of real-time transcription:
- *       <b>Standard</b> and <b>Medical</b>.</p>
+ * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
+ *       <b>Standard</b>, <b>Medical</b>, and
+ *       <b>Call Analytics</b>.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -266,6 +277,12 @@ export interface TranscribeStreamingClientResolvedConfig extends TranscribeStrea
  *       and incorporate medical terms. A common use case for this service is transcribing doctor-patient
  *       dialogue in real time, so doctors can focus on their patient instead of taking notes. Refer to
  *        for details.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Call Analytics transcriptions</b> are designed for use with call
+ *           center audio on two different channels; if you're looking for insight into customer service calls, use this
+ *           option. Refer to  for details.</p>
  *             </li>
  *          </ul>
  */

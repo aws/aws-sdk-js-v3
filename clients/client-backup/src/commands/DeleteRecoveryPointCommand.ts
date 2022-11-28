@@ -27,6 +27,16 @@ export interface DeleteRecoveryPointCommandOutput extends __MetadataBearer {}
  * <p>Deletes the recovery point specified by a recovery point ID.</p>
  *          <p>If the recovery point ID belongs to a continuous backup, calling this endpoint deletes
  *          the existing continuous backup and stops future continuous backup.</p>
+ *          <p>When an IAM role's permissions are insufficient to call this API, the service sends back
+ *       an HTTP 200 response with an empty HTTP body, but the recovery point is not deleted.
+ *       Instead, it enters an <code>EXPIRED</code> state.</p>
+ *          <p>
+ *             <code>EXPIRED</code> recovery points can be deleted with this API once the IAM role
+ *       has the <code>iam:CreateServiceLinkedRole</code> action. To learn more about adding this role, see
+ *       <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/deleting-backups.html#deleting-backups-troubleshooting">
+ *          Troubleshooting manual deletions</a>.</p>
+ *          <p>If the user or role is deleted or the permission within the role is removed,
+ *       the deletion will not be successful and will enter an <code>EXPIRED</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

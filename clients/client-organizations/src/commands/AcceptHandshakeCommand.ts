@@ -31,7 +31,7 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
 /**
  * <p>Sends a response to the originator of a handshake agreeing to the action proposed by
  *             the handshake request.</p>
- *         <p>This operation can be called only by the following principals when they also have the
+ *         <p>You can only call this operation by the following principals when they also have the
  *             relevant IAM permissions:</p>
  *         <ul>
  *             <li>

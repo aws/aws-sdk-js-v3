@@ -24,9 +24,9 @@ export interface DeleteLanguageModelCommandInput extends DeleteLanguageModelRequ
 export interface DeleteLanguageModelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a custom language model. To use this operation, specify the name of the language
- *             model you want to delete using <code>ModelName</code>. Language model names are case
- *             sensitive.</p>
+ * <p>Deletes a custom language model. To use this operation, specify the name of the
+ *             language model you want to delete using <code>ModelName</code>. custom language model
+ *             names are case sensitive.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

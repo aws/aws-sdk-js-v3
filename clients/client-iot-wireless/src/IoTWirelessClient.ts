@@ -206,6 +206,10 @@ import {
   GetPositionConfigurationCommandOutput,
 } from "./commands/GetPositionConfigurationCommand";
 import {
+  GetPositionEstimateCommandInput,
+  GetPositionEstimateCommandOutput,
+} from "./commands/GetPositionEstimateCommand";
+import {
   GetResourceEventConfigurationCommandInput,
   GetResourceEventConfigurationCommandOutput,
 } from "./commands/GetResourceEventConfigurationCommand";
@@ -213,6 +217,10 @@ import {
   GetResourceLogLevelCommandInput,
   GetResourceLogLevelCommandOutput,
 } from "./commands/GetResourceLogLevelCommand";
+import {
+  GetResourcePositionCommandInput,
+  GetResourcePositionCommandOutput,
+} from "./commands/GetResourcePositionCommand";
 import { GetServiceEndpointCommandInput, GetServiceEndpointCommandOutput } from "./commands/GetServiceEndpointCommand";
 import { GetServiceProfileCommandInput, GetServiceProfileCommandOutput } from "./commands/GetServiceProfileCommand";
 import { GetWirelessDeviceCommandInput, GetWirelessDeviceCommandOutput } from "./commands/GetWirelessDeviceCommand";
@@ -357,6 +365,10 @@ import {
   UpdateResourceEventConfigurationCommandOutput,
 } from "./commands/UpdateResourceEventConfigurationCommand";
 import {
+  UpdateResourcePositionCommandInput,
+  UpdateResourcePositionCommandOutput,
+} from "./commands/UpdateResourcePositionCommand";
+import {
   UpdateWirelessDeviceCommandInput,
   UpdateWirelessDeviceCommandOutput,
 } from "./commands/UpdateWirelessDeviceCommand";
@@ -420,8 +432,10 @@ export type ServiceInputTypes =
   | GetPartnerAccountCommandInput
   | GetPositionCommandInput
   | GetPositionConfigurationCommandInput
+  | GetPositionEstimateCommandInput
   | GetResourceEventConfigurationCommandInput
   | GetResourceLogLevelCommandInput
+  | GetResourcePositionCommandInput
   | GetServiceEndpointCommandInput
   | GetServiceProfileCommandInput
   | GetWirelessDeviceCommandInput
@@ -469,6 +483,7 @@ export type ServiceInputTypes =
   | UpdatePartnerAccountCommandInput
   | UpdatePositionCommandInput
   | UpdateResourceEventConfigurationCommandInput
+  | UpdateResourcePositionCommandInput
   | UpdateWirelessDeviceCommandInput
   | UpdateWirelessGatewayCommandInput;
 
@@ -520,8 +535,10 @@ export type ServiceOutputTypes =
   | GetPartnerAccountCommandOutput
   | GetPositionCommandOutput
   | GetPositionConfigurationCommandOutput
+  | GetPositionEstimateCommandOutput
   | GetResourceEventConfigurationCommandOutput
   | GetResourceLogLevelCommandOutput
+  | GetResourcePositionCommandOutput
   | GetServiceEndpointCommandOutput
   | GetServiceProfileCommandOutput
   | GetWirelessDeviceCommandOutput
@@ -569,6 +586,7 @@ export type ServiceOutputTypes =
   | UpdatePartnerAccountCommandOutput
   | UpdatePositionCommandOutput
   | UpdateResourceEventConfigurationCommandOutput
+  | UpdateResourcePositionCommandOutput
   | UpdateWirelessDeviceCommandOutput
   | UpdateWirelessGatewayCommandOutput;
 

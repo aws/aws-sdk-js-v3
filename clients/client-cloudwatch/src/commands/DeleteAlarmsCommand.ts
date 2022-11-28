@@ -33,7 +33,7 @@ export interface DeleteAlarmsCommandOutput extends __MetadataBearer {}
  * 			because there is always still a composite alarm that depends on that alarm that you want to delete.</p>
  * 			         <p>To get out of such a situation, you must
  * 				break the cycle by changing the rule of one of the composite alarms in the cycle to remove a dependency that creates the cycle. The simplest
- * 				change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>False</code>. </p>
+ * 				change to make to break a cycle is to change the <code>AlarmRule</code> of one of the alarms to <code>false</code>. </p>
  * 			         <p>Additionally, the evaluation of composite alarms stops if CloudWatch detects a cycle in the evaluation path.
  * 			</p>
  *          </note>

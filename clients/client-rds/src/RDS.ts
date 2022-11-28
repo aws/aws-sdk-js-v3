@@ -67,6 +67,11 @@ import {
   CopyOptionGroupCommandOutput,
 } from "./commands/CopyOptionGroupCommand";
 import {
+  CreateBlueGreenDeploymentCommand,
+  CreateBlueGreenDeploymentCommandInput,
+  CreateBlueGreenDeploymentCommandOutput,
+} from "./commands/CreateBlueGreenDeploymentCommand";
+import {
   CreateCustomDBEngineVersionCommand,
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
@@ -146,6 +151,11 @@ import {
   CreateOptionGroupCommandInput,
   CreateOptionGroupCommandOutput,
 } from "./commands/CreateOptionGroupCommand";
+import {
+  DeleteBlueGreenDeploymentCommand,
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
+} from "./commands/DeleteBlueGreenDeploymentCommand";
 import {
   DeleteCustomDBEngineVersionCommand,
   DeleteCustomDBEngineVersionCommandInput,
@@ -236,6 +246,11 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBlueGreenDeploymentsCommand,
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
+} from "./commands/DescribeBlueGreenDeploymentsCommand";
 import {
   DescribeCertificatesCommand,
   DescribeCertificatesCommandInput,
@@ -681,6 +696,11 @@ import {
   StopDBInstanceCommandInput,
   StopDBInstanceCommandOutput,
 } from "./commands/StopDBInstanceCommand";
+import {
+  SwitchoverBlueGreenDeploymentCommand,
+  SwitchoverBlueGreenDeploymentCommandInput,
+  SwitchoverBlueGreenDeploymentCommandOutput,
+} from "./commands/SwitchoverBlueGreenDeploymentCommand";
 import {
   SwitchoverReadReplicaCommand,
   SwitchoverReadReplicaCommandInput,
@@ -1222,6 +1242,52 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: CopyOptionGroupCommandOutput) => void
   ): Promise<CopyOptionGroupCommandOutput> | void {
     const command = new CopyOptionGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a blue/green deployment.</p>
+   *         <p>A blue/green deployment creates a staging environment that copies the production environment.
+   *             In a blue/green deployment, the blue environment is the current production environment.
+   *             The green environment is the staging environment. The staging environment stays in sync
+   *             with the current production environment using logical replication.</p>
+   *         <p>You can make changes to the databases in the green environment without affecting
+   *             production workloads. For example, you can upgrade the major or minor DB engine version, change
+   *             database parameters, or make schema changes in the staging environment. You can thoroughly test
+   *             changes in the green environment. When ready, you can switch over the environments to promote the
+   *             green environment to be the new production environment. The switchover typically takes under a minute.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  public createBlueGreenDeployment(
+    args: CreateBlueGreenDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBlueGreenDeploymentCommandOutput>;
+  public createBlueGreenDeployment(
+    args: CreateBlueGreenDeploymentCommandInput,
+    cb: (err: any, data?: CreateBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public createBlueGreenDeployment(
+    args: CreateBlueGreenDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public createBlueGreenDeployment(
+    args: CreateBlueGreenDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateBlueGreenDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: CreateBlueGreenDeploymentCommandOutput) => void
+  ): Promise<CreateBlueGreenDeploymentCommandOutput> | void {
+    const command = new CreateBlueGreenDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1906,6 +1972,43 @@ export class RDS extends RDSClient {
   }
 
   /**
+   * <p>Deletes a blue/green deployment.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  public deleteBlueGreenDeployment(
+    args: DeleteBlueGreenDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBlueGreenDeploymentCommandOutput>;
+  public deleteBlueGreenDeployment(
+    args: DeleteBlueGreenDeploymentCommandInput,
+    cb: (err: any, data?: DeleteBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public deleteBlueGreenDeployment(
+    args: DeleteBlueGreenDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public deleteBlueGreenDeployment(
+    args: DeleteBlueGreenDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteBlueGreenDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: DeleteBlueGreenDeploymentCommandOutput) => void
+  ): Promise<DeleteBlueGreenDeploymentCommandOutput> | void {
+    const command = new DeleteBlueGreenDeploymentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Deletes a custom engine version. To run this command, make sure you meet the following prerequisites:</p>
    *         <ul>
    *             <li>
@@ -2562,6 +2665,43 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: DescribeAccountAttributesCommandOutput) => void
   ): Promise<DescribeAccountAttributesCommandOutput> | void {
     const command = new DescribeAccountAttributesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns information about blue/green deployments.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  public describeBlueGreenDeployments(
+    args: DescribeBlueGreenDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBlueGreenDeploymentsCommandOutput>;
+  public describeBlueGreenDeployments(
+    args: DescribeBlueGreenDeploymentsCommandInput,
+    cb: (err: any, data?: DescribeBlueGreenDeploymentsCommandOutput) => void
+  ): void;
+  public describeBlueGreenDeployments(
+    args: DescribeBlueGreenDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBlueGreenDeploymentsCommandOutput) => void
+  ): void;
+  public describeBlueGreenDeployments(
+    args: DescribeBlueGreenDeploymentsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeBlueGreenDeploymentsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeBlueGreenDeploymentsCommandOutput) => void
+  ): Promise<DescribeBlueGreenDeploymentsCommandOutput> | void {
+    const command = new DescribeBlueGreenDeploymentsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -5932,6 +6072,45 @@ export class RDS extends RDSClient {
     cb?: (err: any, data?: StopDBInstanceAutomatedBackupsReplicationCommandOutput) => void
   ): Promise<StopDBInstanceAutomatedBackupsReplicationCommandOutput> | void {
     const command = new StopDBInstanceAutomatedBackupsReplicationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Switches over a blue/green deployment.</p>
+   *         <p>Before you switch over, production traffic is routed to the databases in the blue environment.
+   *             After you switch over, production traffic is routed to the databases in the green environment.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+   *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
+   *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  public switchoverBlueGreenDeployment(
+    args: SwitchoverBlueGreenDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SwitchoverBlueGreenDeploymentCommandOutput>;
+  public switchoverBlueGreenDeployment(
+    args: SwitchoverBlueGreenDeploymentCommandInput,
+    cb: (err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public switchoverBlueGreenDeployment(
+    args: SwitchoverBlueGreenDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void
+  ): void;
+  public switchoverBlueGreenDeployment(
+    args: SwitchoverBlueGreenDeploymentCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void),
+    cb?: (err: any, data?: SwitchoverBlueGreenDeploymentCommandOutput) => void
+  ): Promise<SwitchoverBlueGreenDeploymentCommandOutput> | void {
+    const command = new SwitchoverBlueGreenDeploymentCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

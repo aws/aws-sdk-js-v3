@@ -20,10 +20,21 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
+import { ArchiveApplicationCommandInput, ArchiveApplicationCommandOutput } from "../commands/ArchiveApplicationCommand";
+import { ArchiveWaveCommandInput, ArchiveWaveCommandOutput } from "../commands/ArchiveWaveCommand";
+import {
+  AssociateApplicationsCommandInput,
+  AssociateApplicationsCommandOutput,
+} from "../commands/AssociateApplicationsCommand";
+import {
+  AssociateSourceServersCommandInput,
+  AssociateSourceServersCommandOutput,
+} from "../commands/AssociateSourceServersCommand";
 import {
   ChangeServerLifeCycleStateCommandInput,
   ChangeServerLifeCycleStateCommandOutput,
 } from "../commands/ChangeServerLifeCycleStateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
   CreateLaunchConfigurationTemplateCommandInput,
   CreateLaunchConfigurationTemplateCommandOutput,
@@ -32,6 +43,8 @@ import {
   CreateReplicationConfigurationTemplateCommandInput,
   CreateReplicationConfigurationTemplateCommandOutput,
 } from "../commands/CreateReplicationConfigurationTemplateCommand";
+import { CreateWaveCommandInput, CreateWaveCommandOutput } from "../commands/CreateWaveCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "../commands/DeleteJobCommand";
 import {
   DeleteLaunchConfigurationTemplateCommandInput,
@@ -46,6 +59,7 @@ import {
   DeleteVcenterClientCommandInput,
   DeleteVcenterClientCommandOutput,
 } from "../commands/DeleteVcenterClientCommand";
+import { DeleteWaveCommandInput, DeleteWaveCommandOutput } from "../commands/DeleteWaveCommand";
 import {
   DescribeJobLogItemsCommandInput,
   DescribeJobLogItemsCommandOutput,
@@ -68,6 +82,14 @@ import {
   DescribeVcenterClientsCommandOutput,
 } from "../commands/DescribeVcenterClientsCommand";
 import {
+  DisassociateApplicationsCommandInput,
+  DisassociateApplicationsCommandOutput,
+} from "../commands/DisassociateApplicationsCommand";
+import {
+  DisassociateSourceServersCommandInput,
+  DisassociateSourceServersCommandOutput,
+} from "../commands/DisassociateSourceServersCommand";
+import {
   DisconnectFromServiceCommandInput,
   DisconnectFromServiceCommandOutput,
 } from "../commands/DisconnectFromServiceCommand";
@@ -81,11 +103,34 @@ import {
   GetReplicationConfigurationCommandOutput,
 } from "../commands/GetReplicationConfigurationCommand";
 import { InitializeServiceCommandInput, InitializeServiceCommandOutput } from "../commands/InitializeServiceCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
+import {
+  ListSourceServerActionsCommandInput,
+  ListSourceServerActionsCommandOutput,
+} from "../commands/ListSourceServerActionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ListTemplateActionsCommandInput,
+  ListTemplateActionsCommandOutput,
+} from "../commands/ListTemplateActionsCommand";
+import { ListWavesCommandInput, ListWavesCommandOutput } from "../commands/ListWavesCommand";
 import { MarkAsArchivedCommandInput, MarkAsArchivedCommandOutput } from "../commands/MarkAsArchivedCommand";
+import {
+  PutSourceServerActionCommandInput,
+  PutSourceServerActionCommandOutput,
+} from "../commands/PutSourceServerActionCommand";
+import { PutTemplateActionCommandInput, PutTemplateActionCommandOutput } from "../commands/PutTemplateActionCommand";
+import {
+  RemoveSourceServerActionCommandInput,
+  RemoveSourceServerActionCommandOutput,
+} from "../commands/RemoveSourceServerActionCommand";
+import {
+  RemoveTemplateActionCommandInput,
+  RemoveTemplateActionCommandOutput,
+} from "../commands/RemoveTemplateActionCommand";
 import {
   RetryDataReplicationCommandInput,
   RetryDataReplicationCommandOutput,
@@ -98,7 +143,13 @@ import {
   TerminateTargetInstancesCommandInput,
   TerminateTargetInstancesCommandOutput,
 } from "../commands/TerminateTargetInstancesCommand";
+import {
+  UnarchiveApplicationCommandInput,
+  UnarchiveApplicationCommandOutput,
+} from "../commands/UnarchiveApplicationCommand";
+import { UnarchiveWaveCommandInput, UnarchiveWaveCommandOutput } from "../commands/UnarchiveWaveCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
   UpdateLaunchConfigurationCommandInput,
   UpdateLaunchConfigurationCommandOutput,
@@ -119,9 +170,12 @@ import {
   UpdateSourceServerReplicationTypeCommandInput,
   UpdateSourceServerReplicationTypeCommandOutput,
 } from "../commands/UpdateSourceServerReplicationTypeCommand";
+import { UpdateWaveCommandInput, UpdateWaveCommandOutput } from "../commands/UpdateWaveCommand";
 import { MgnServiceException as __BaseException } from "../models/MgnServiceException";
 import {
   AccessDeniedException,
+  Application,
+  ApplicationAggregatedStatus,
   ChangeServerLifeCycleStateSourceServerLifecycle,
   ConflictException,
   CPU,
@@ -142,6 +196,7 @@ import {
   JobPostLaunchActionsLaunchStatus,
   LaunchConfigurationTemplate,
   LaunchedInstance,
+  LaunchTemplateDiskConf,
   Licensing,
   LifeCycle,
   LifeCycleLastCutover,
@@ -153,6 +208,8 @@ import {
   LifeCycleLastTestInitiated,
   LifeCycleLastTestReverted,
   LifeCycleState,
+  ListApplicationsRequestFilters,
+  ListWavesRequestFilters,
   NetworkInterface,
   OS,
   ParticipatingServer,
@@ -165,14 +222,126 @@ import {
   ServiceQuotaExceededException,
   SourceProperties,
   SourceServer,
+  SourceServerActionDocument,
+  SourceServerActionsRequestFilters,
   SsmDocument,
   SsmParameterStoreParameter,
+  TemplateActionDocument,
+  TemplateActionsRequestFilters,
   ThrottlingException,
   UninitializedAccountException,
   ValidationException,
   ValidationExceptionField,
   VcenterClient,
+  Wave,
+  WaveAggregatedStatus,
 } from "../models/models_0";
+
+export const serializeAws_restJson1ArchiveApplicationCommand = async (
+  input: ArchiveApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ArchiveApplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ArchiveWaveCommand = async (
+  input: ArchiveWaveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ArchiveWave";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.waveID != null && { waveID: input.waveID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateApplicationsCommand = async (
+  input: AssociateApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssociateApplications";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationIDs != null && {
+      applicationIDs: serializeAws_restJson1ApplicationIDs(input.applicationIDs, context),
+    }),
+    ...(input.waveID != null && { waveID: input.waveID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1AssociateSourceServersCommand = async (
+  input: AssociateSourceServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/AssociateSourceServers";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
+    ...(input.sourceServerIDs != null && {
+      sourceServerIDs: serializeAws_restJson1AssociateSourceServersRequestSourceServerIDs(
+        input.sourceServerIDs,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
 
 export const serializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   input: ChangeServerLifeCycleStateCommandInput,
@@ -202,6 +371,32 @@ export const serializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   });
 };
 
+export const serializeAws_restJson1CreateApplicationCommand = async (
+  input: CreateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateApplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1CreateLaunchConfigurationTemplateCommand = async (
   input: CreateLaunchConfigurationTemplateCommandInput,
   context: __SerdeContext
@@ -214,10 +409,28 @@ export const serializeAws_restJson1CreateLaunchConfigurationTemplateCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateLaunchConfigurationTemplate";
   let body: any;
   body = JSON.stringify({
+    ...(input.associatePublicIpAddress != null && { associatePublicIpAddress: input.associatePublicIpAddress }),
+    ...(input.bootMode != null && { bootMode: input.bootMode }),
+    ...(input.copyPrivateIp != null && { copyPrivateIp: input.copyPrivateIp }),
+    ...(input.copyTags != null && { copyTags: input.copyTags }),
+    ...(input.enableMapAutoTagging != null && { enableMapAutoTagging: input.enableMapAutoTagging }),
+    ...(input.largeVolumeConf != null && {
+      largeVolumeConf: serializeAws_restJson1LaunchTemplateDiskConf(input.largeVolumeConf, context),
+    }),
+    ...(input.launchDisposition != null && { launchDisposition: input.launchDisposition }),
+    ...(input.licensing != null && { licensing: serializeAws_restJson1Licensing(input.licensing, context) }),
+    ...(input.mapAutoTaggingMpeID != null && { mapAutoTaggingMpeID: input.mapAutoTaggingMpeID }),
     ...(input.postLaunchActions != null && {
       postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
     }),
+    ...(input.smallVolumeConf != null && {
+      smallVolumeConf: serializeAws_restJson1LaunchTemplateDiskConf(input.smallVolumeConf, context),
+    }),
+    ...(input.smallVolumeMaxSize != null && { smallVolumeMaxSize: input.smallVolumeMaxSize }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+    ...(input.targetInstanceTypeRightSizingMethod != null && {
+      targetInstanceTypeRightSizingMethod: input.targetInstanceTypeRightSizingMethod,
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -270,6 +483,56 @@ export const serializeAws_restJson1CreateReplicationConfigurationTemplateCommand
     ...(input.useDedicatedReplicationServer != null && {
       useDedicatedReplicationServer: input.useDedicatedReplicationServer,
     }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1CreateWaveCommand = async (
+  input: CreateWaveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/CreateWave";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.tags != null && { tags: serializeAws_restJson1TagsMap(input.tags, context) }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteApplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
   });
   return new __HttpRequest({
     protocol,
@@ -396,6 +659,30 @@ export const serializeAws_restJson1DeleteVcenterClientCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.vcenterClientID != null && { vcenterClientID: input.vcenterClientID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DeleteWaveCommand = async (
+  input: DeleteWaveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DeleteWave";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.waveID != null && { waveID: input.waveID }),
   });
   return new __HttpRequest({
     protocol,
@@ -578,6 +865,65 @@ export const serializeAws_restJson1DescribeVcenterClientsCommand = async (
   });
 };
 
+export const serializeAws_restJson1DisassociateApplicationsCommand = async (
+  input: DisassociateApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DisassociateApplications";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationIDs != null && {
+      applicationIDs: serializeAws_restJson1ApplicationIDs(input.applicationIDs, context),
+    }),
+    ...(input.waveID != null && { waveID: input.waveID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DisassociateSourceServersCommand = async (
+  input: DisassociateSourceServersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/DisassociateSourceServers";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
+    ...(input.sourceServerIDs != null && {
+      sourceServerIDs: serializeAws_restJson1DisassociateSourceServersRequestSourceServerIDs(
+        input.sourceServerIDs,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1DisconnectFromServiceCommand = async (
   input: DisconnectFromServiceCommandInput,
   context: __SerdeContext
@@ -698,6 +1044,64 @@ export const serializeAws_restJson1InitializeServiceCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListApplicationsCommand = async (
+  input: ListApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListApplications";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && {
+      filters: serializeAws_restJson1ListApplicationsRequestFilters(input.filters, context),
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListSourceServerActionsCommand = async (
+  input: ListSourceServerActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListSourceServerActions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && {
+      filters: serializeAws_restJson1SourceServerActionsRequestFilters(input.filters, context),
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+    ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListTagsForResourceCommand = async (
   input: ListTagsForResourceCommandInput,
   context: __SerdeContext
@@ -718,6 +1122,63 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListTemplateActionsCommand = async (
+  input: ListTemplateActionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListTemplateActions";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && {
+      filters: serializeAws_restJson1TemplateActionsRequestFilters(input.filters, context),
+    }),
+    ...(input.launchConfigurationTemplateID != null && {
+      launchConfigurationTemplateID: input.launchConfigurationTemplateID,
+    }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1ListWavesCommand = async (
+  input: ListWavesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/ListWaves";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.filters != null && { filters: serializeAws_restJson1ListWavesRequestFilters(input.filters, context) }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1MarkAsArchivedCommand = async (
   input: MarkAsArchivedCommandInput,
   context: __SerdeContext
@@ -730,6 +1191,132 @@ export const serializeAws_restJson1MarkAsArchivedCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutSourceServerActionCommand = async (
+  input: PutSourceServerActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutSourceServerAction";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.actionID != null && { actionID: input.actionID }),
+    ...(input.actionName != null && { actionName: input.actionName }),
+    ...(input.active != null && { active: input.active }),
+    ...(input.documentIdentifier != null && { documentIdentifier: input.documentIdentifier }),
+    ...(input.documentVersion != null && { documentVersion: input.documentVersion }),
+    ...(input.mustSucceedForCutover != null && { mustSucceedForCutover: input.mustSucceedForCutover }),
+    ...(input.order != null && { order: input.order }),
+    ...(input.parameters != null && {
+      parameters: serializeAws_restJson1SsmDocumentParameters(input.parameters, context),
+    }),
+    ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
+    ...(input.timeoutSeconds != null && { timeoutSeconds: input.timeoutSeconds }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1PutTemplateActionCommand = async (
+  input: PutTemplateActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/PutTemplateAction";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.actionID != null && { actionID: input.actionID }),
+    ...(input.actionName != null && { actionName: input.actionName }),
+    ...(input.active != null && { active: input.active }),
+    ...(input.documentIdentifier != null && { documentIdentifier: input.documentIdentifier }),
+    ...(input.documentVersion != null && { documentVersion: input.documentVersion }),
+    ...(input.launchConfigurationTemplateID != null && {
+      launchConfigurationTemplateID: input.launchConfigurationTemplateID,
+    }),
+    ...(input.mustSucceedForCutover != null && { mustSucceedForCutover: input.mustSucceedForCutover }),
+    ...(input.operatingSystem != null && { operatingSystem: input.operatingSystem }),
+    ...(input.order != null && { order: input.order }),
+    ...(input.parameters != null && {
+      parameters: serializeAws_restJson1SsmDocumentParameters(input.parameters, context),
+    }),
+    ...(input.timeoutSeconds != null && { timeoutSeconds: input.timeoutSeconds }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveSourceServerActionCommand = async (
+  input: RemoveSourceServerActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RemoveSourceServerAction";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.actionID != null && { actionID: input.actionID }),
+    ...(input.sourceServerID != null && { sourceServerID: input.sourceServerID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1RemoveTemplateActionCommand = async (
+  input: RemoveTemplateActionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/RemoveTemplateAction";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.actionID != null && { actionID: input.actionID }),
+    ...(input.launchConfigurationTemplateID != null && {
+      launchConfigurationTemplateID: input.launchConfigurationTemplateID,
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -900,6 +1487,54 @@ export const serializeAws_restJson1TerminateTargetInstancesCommand = async (
   });
 };
 
+export const serializeAws_restJson1UnarchiveApplicationCommand = async (
+  input: UnarchiveApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UnarchiveApplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1UnarchiveWaveCommand = async (
+  input: UnarchiveWaveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UnarchiveWave";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.waveID != null && { waveID: input.waveID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UntagResourceCommand = async (
   input: UntagResourceCommandInput,
   context: __SerdeContext
@@ -927,6 +1562,32 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   });
 };
 
+export const serializeAws_restJson1UpdateApplicationCommand = async (
+  input: UpdateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateApplication";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.applicationID != null && { applicationID: input.applicationID }),
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateLaunchConfigurationCommand = async (
   input: UpdateLaunchConfigurationCommandInput,
   context: __SerdeContext
@@ -942,8 +1603,10 @@ export const serializeAws_restJson1UpdateLaunchConfigurationCommand = async (
     ...(input.bootMode != null && { bootMode: input.bootMode }),
     ...(input.copyPrivateIp != null && { copyPrivateIp: input.copyPrivateIp }),
     ...(input.copyTags != null && { copyTags: input.copyTags }),
+    ...(input.enableMapAutoTagging != null && { enableMapAutoTagging: input.enableMapAutoTagging }),
     ...(input.launchDisposition != null && { launchDisposition: input.launchDisposition }),
     ...(input.licensing != null && { licensing: serializeAws_restJson1Licensing(input.licensing, context) }),
+    ...(input.mapAutoTaggingMpeID != null && { mapAutoTaggingMpeID: input.mapAutoTaggingMpeID }),
     ...(input.name != null && { name: input.name }),
     ...(input.postLaunchActions != null && {
       postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
@@ -976,11 +1639,29 @@ export const serializeAws_restJson1UpdateLaunchConfigurationTemplateCommand = as
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateLaunchConfigurationTemplate";
   let body: any;
   body = JSON.stringify({
+    ...(input.associatePublicIpAddress != null && { associatePublicIpAddress: input.associatePublicIpAddress }),
+    ...(input.bootMode != null && { bootMode: input.bootMode }),
+    ...(input.copyPrivateIp != null && { copyPrivateIp: input.copyPrivateIp }),
+    ...(input.copyTags != null && { copyTags: input.copyTags }),
+    ...(input.enableMapAutoTagging != null && { enableMapAutoTagging: input.enableMapAutoTagging }),
+    ...(input.largeVolumeConf != null && {
+      largeVolumeConf: serializeAws_restJson1LaunchTemplateDiskConf(input.largeVolumeConf, context),
+    }),
     ...(input.launchConfigurationTemplateID != null && {
       launchConfigurationTemplateID: input.launchConfigurationTemplateID,
     }),
+    ...(input.launchDisposition != null && { launchDisposition: input.launchDisposition }),
+    ...(input.licensing != null && { licensing: serializeAws_restJson1Licensing(input.licensing, context) }),
+    ...(input.mapAutoTaggingMpeID != null && { mapAutoTaggingMpeID: input.mapAutoTaggingMpeID }),
     ...(input.postLaunchActions != null && {
       postLaunchActions: serializeAws_restJson1PostLaunchActions(input.postLaunchActions, context),
+    }),
+    ...(input.smallVolumeConf != null && {
+      smallVolumeConf: serializeAws_restJson1LaunchTemplateDiskConf(input.smallVolumeConf, context),
+    }),
+    ...(input.smallVolumeMaxSize != null && { smallVolumeMaxSize: input.smallVolumeMaxSize }),
+    ...(input.targetInstanceTypeRightSizingMethod != null && {
+      targetInstanceTypeRightSizingMethod: input.targetInstanceTypeRightSizingMethod,
     }),
   });
   return new __HttpRequest({
@@ -1131,6 +1812,280 @@ export const serializeAws_restJson1UpdateSourceServerReplicationTypeCommand = as
   });
 };
 
+export const serializeAws_restJson1UpdateWaveCommand = async (
+  input: UpdateWaveCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/UpdateWave";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.description != null && { description: input.description }),
+    ...(input.name != null && { name: input.name }),
+    ...(input.waveID != null && { waveID: input.waveID }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const deserializeAws_restJson1ArchiveApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ArchiveApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ArchiveApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationAggregatedStatus != null) {
+    contents.applicationAggregatedStatus = deserializeAws_restJson1ApplicationAggregatedStatus(
+      data.applicationAggregatedStatus,
+      context
+    );
+  }
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ArchiveApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ArchiveApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ArchiveWaveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ArchiveWaveCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ArchiveWaveCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveAggregatedStatus != null) {
+    contents.waveAggregatedStatus = deserializeAws_restJson1WaveAggregatedStatus(data.waveAggregatedStatus, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ArchiveWaveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ArchiveWaveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1AssociateApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateApplicationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1AssociateApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1AssociateSourceServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceServersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1AssociateSourceServersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1AssociateSourceServersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateSourceServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1142,6 +2097,9 @@ export const deserializeAws_restJson1ChangeServerLifeCycleStateCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1208,6 +2166,83 @@ const deserializeAws_restJson1ChangeServerLifeCycleStateCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationAggregatedStatus != null) {
+    contents.applicationAggregatedStatus = deserializeAws_restJson1ApplicationAggregatedStatus(
+      data.applicationAggregatedStatus,
+      context
+    );
+  }
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1222,14 +2257,53 @@ export const deserializeAws_restJson1CreateLaunchConfigurationTemplateCommand = 
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
+  if (data.associatePublicIpAddress != null) {
+    contents.associatePublicIpAddress = __expectBoolean(data.associatePublicIpAddress);
+  }
+  if (data.bootMode != null) {
+    contents.bootMode = __expectString(data.bootMode);
+  }
+  if (data.copyPrivateIp != null) {
+    contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
+  }
+  if (data.copyTags != null) {
+    contents.copyTags = __expectBoolean(data.copyTags);
+  }
+  if (data.ec2LaunchTemplateID != null) {
+    contents.ec2LaunchTemplateID = __expectString(data.ec2LaunchTemplateID);
+  }
+  if (data.enableMapAutoTagging != null) {
+    contents.enableMapAutoTagging = __expectBoolean(data.enableMapAutoTagging);
+  }
+  if (data.largeVolumeConf != null) {
+    contents.largeVolumeConf = deserializeAws_restJson1LaunchTemplateDiskConf(data.largeVolumeConf, context);
+  }
   if (data.launchConfigurationTemplateID != null) {
     contents.launchConfigurationTemplateID = __expectString(data.launchConfigurationTemplateID);
+  }
+  if (data.launchDisposition != null) {
+    contents.launchDisposition = __expectString(data.launchDisposition);
+  }
+  if (data.licensing != null) {
+    contents.licensing = deserializeAws_restJson1Licensing(data.licensing, context);
+  }
+  if (data.mapAutoTaggingMpeID != null) {
+    contents.mapAutoTaggingMpeID = __expectString(data.mapAutoTaggingMpeID);
   }
   if (data.postLaunchActions != null) {
     contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
   }
+  if (data.smallVolumeConf != null) {
+    contents.smallVolumeConf = deserializeAws_restJson1LaunchTemplateDiskConf(data.smallVolumeConf, context);
+  }
+  if (data.smallVolumeMaxSize != null) {
+    contents.smallVolumeMaxSize = __expectLong(data.smallVolumeMaxSize);
+  }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.targetInstanceTypeRightSizingMethod != null) {
+    contents.targetInstanceTypeRightSizingMethod = __expectString(data.targetInstanceTypeRightSizingMethod);
   }
   return contents;
 };
@@ -1345,6 +2419,121 @@ const deserializeAws_restJson1CreateReplicationConfigurationTemplateCommandError
     case "ValidationException":
     case "com.amazonaws.mgn#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1CreateWaveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWaveCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return deserializeAws_restJson1CreateWaveCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveAggregatedStatus != null) {
+    contents.waveAggregatedStatus = deserializeAws_restJson1WaveAggregatedStatus(data.waveAggregatedStatus, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1CreateWaveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWaveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1565,6 +2754,50 @@ const deserializeAws_restJson1DeleteVcenterClientCommandError = async (
     case "ValidationException":
     case "com.amazonaws.mgn#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DeleteWaveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWaveCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DeleteWaveCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DeleteWaveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWaveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1867,6 +3100,94 @@ const deserializeAws_restJson1DescribeVcenterClientsCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1DisassociateApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateApplicationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DisassociateApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DisassociateSourceServersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceServersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DisassociateSourceServersCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1DisassociateSourceServersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateSourceServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1878,6 +3199,9 @@ export const deserializeAws_restJson1DisconnectFromServiceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -1952,6 +3276,9 @@ export const deserializeAws_restJson1FinalizeCutoverCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2041,11 +3368,17 @@ export const deserializeAws_restJson1GetLaunchConfigurationCommand = async (
   if (data.ec2LaunchTemplateID != null) {
     contents.ec2LaunchTemplateID = __expectString(data.ec2LaunchTemplateID);
   }
+  if (data.enableMapAutoTagging != null) {
+    contents.enableMapAutoTagging = __expectBoolean(data.enableMapAutoTagging);
+  }
   if (data.launchDisposition != null) {
     contents.launchDisposition = __expectString(data.launchDisposition);
   }
   if (data.licensing != null) {
     contents.licensing = deserializeAws_restJson1Licensing(data.licensing, context);
+  }
+  if (data.mapAutoTaggingMpeID != null) {
+    contents.mapAutoTaggingMpeID = __expectString(data.mapAutoTaggingMpeID);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -2222,6 +3555,97 @@ const deserializeAws_restJson1InitializeServiceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListApplicationsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1ApplicationsList(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListApplicationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListSourceServerActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceServerActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListSourceServerActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1SourceServerActionDocuments(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListSourceServerActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListSourceServerActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1ListTagsForResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2275,6 +3699,97 @@ const deserializeAws_restJson1ListTagsForResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1ListTemplateActionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateActionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListTemplateActionsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1TemplateActionDocuments(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListTemplateActionsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTemplateActionsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListWavesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWavesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListWavesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.items != null) {
+    contents.items = deserializeAws_restJson1WavesList(data.items, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListWavesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWavesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1MarkAsArchivedCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2286,6 +3801,9 @@ export const deserializeAws_restJson1MarkAsArchivedCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2349,6 +3867,245 @@ const deserializeAws_restJson1MarkAsArchivedCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1PutSourceServerActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutSourceServerActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutSourceServerActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.actionID != null) {
+    contents.actionID = __expectString(data.actionID);
+  }
+  if (data.actionName != null) {
+    contents.actionName = __expectString(data.actionName);
+  }
+  if (data.active != null) {
+    contents.active = __expectBoolean(data.active);
+  }
+  if (data.documentIdentifier != null) {
+    contents.documentIdentifier = __expectString(data.documentIdentifier);
+  }
+  if (data.documentVersion != null) {
+    contents.documentVersion = __expectString(data.documentVersion);
+  }
+  if (data.mustSucceedForCutover != null) {
+    contents.mustSucceedForCutover = __expectBoolean(data.mustSucceedForCutover);
+  }
+  if (data.order != null) {
+    contents.order = __expectInt32(data.order);
+  }
+  if (data.parameters != null) {
+    contents.parameters = deserializeAws_restJson1SsmDocumentParameters(data.parameters, context);
+  }
+  if (data.timeoutSeconds != null) {
+    contents.timeoutSeconds = __expectInt32(data.timeoutSeconds);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutSourceServerActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutSourceServerActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1PutTemplateActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTemplateActionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1PutTemplateActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.actionID != null) {
+    contents.actionID = __expectString(data.actionID);
+  }
+  if (data.actionName != null) {
+    contents.actionName = __expectString(data.actionName);
+  }
+  if (data.active != null) {
+    contents.active = __expectBoolean(data.active);
+  }
+  if (data.documentIdentifier != null) {
+    contents.documentIdentifier = __expectString(data.documentIdentifier);
+  }
+  if (data.documentVersion != null) {
+    contents.documentVersion = __expectString(data.documentVersion);
+  }
+  if (data.mustSucceedForCutover != null) {
+    contents.mustSucceedForCutover = __expectBoolean(data.mustSucceedForCutover);
+  }
+  if (data.operatingSystem != null) {
+    contents.operatingSystem = __expectString(data.operatingSystem);
+  }
+  if (data.order != null) {
+    contents.order = __expectInt32(data.order);
+  }
+  if (data.parameters != null) {
+    contents.parameters = deserializeAws_restJson1SsmDocumentParameters(data.parameters, context);
+  }
+  if (data.timeoutSeconds != null) {
+    contents.timeoutSeconds = __expectInt32(data.timeoutSeconds);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1PutTemplateActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutTemplateActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1RemoveSourceServerActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceServerActionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RemoveSourceServerActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1RemoveSourceServerActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveSourceServerActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1RemoveTemplateActionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTemplateActionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return deserializeAws_restJson1RemoveTemplateActionCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1RemoveTemplateActionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RemoveTemplateActionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.mgn#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1RetryDataReplicationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2360,6 +4117,9 @@ export const deserializeAws_restJson1RetryDataReplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2481,6 +4241,9 @@ export const deserializeAws_restJson1StartReplicationCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -2694,6 +4457,154 @@ const deserializeAws_restJson1TerminateTargetInstancesCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UnarchiveApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnarchiveApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UnarchiveApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationAggregatedStatus != null) {
+    contents.applicationAggregatedStatus = deserializeAws_restJson1ApplicationAggregatedStatus(
+      data.applicationAggregatedStatus,
+      context
+    );
+  }
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UnarchiveApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnarchiveApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UnarchiveWaveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnarchiveWaveCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UnarchiveWaveCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveAggregatedStatus != null) {
+    contents.waveAggregatedStatus = deserializeAws_restJson1WaveAggregatedStatus(data.waveAggregatedStatus, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UnarchiveWaveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UnarchiveWaveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.mgn#ServiceQuotaExceededException":
+      throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UntagResourceCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2744,6 +4655,83 @@ const deserializeAws_restJson1UntagResourceCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateApplicationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationAggregatedStatus != null) {
+    contents.applicationAggregatedStatus = deserializeAws_restJson1ApplicationAggregatedStatus(
+      data.applicationAggregatedStatus,
+      context
+    );
+  }
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateApplicationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2767,11 +4755,17 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationCommand = async (
   if (data.ec2LaunchTemplateID != null) {
     contents.ec2LaunchTemplateID = __expectString(data.ec2LaunchTemplateID);
   }
+  if (data.enableMapAutoTagging != null) {
+    contents.enableMapAutoTagging = __expectBoolean(data.enableMapAutoTagging);
+  }
   if (data.launchDisposition != null) {
     contents.launchDisposition = __expectString(data.launchDisposition);
   }
   if (data.licensing != null) {
     contents.licensing = deserializeAws_restJson1Licensing(data.licensing, context);
+  }
+  if (data.mapAutoTaggingMpeID != null) {
+    contents.mapAutoTaggingMpeID = __expectString(data.mapAutoTaggingMpeID);
   }
   if (data.name != null) {
     contents.name = __expectString(data.name);
@@ -2835,14 +4829,53 @@ export const deserializeAws_restJson1UpdateLaunchConfigurationTemplateCommand = 
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
+  if (data.associatePublicIpAddress != null) {
+    contents.associatePublicIpAddress = __expectBoolean(data.associatePublicIpAddress);
+  }
+  if (data.bootMode != null) {
+    contents.bootMode = __expectString(data.bootMode);
+  }
+  if (data.copyPrivateIp != null) {
+    contents.copyPrivateIp = __expectBoolean(data.copyPrivateIp);
+  }
+  if (data.copyTags != null) {
+    contents.copyTags = __expectBoolean(data.copyTags);
+  }
+  if (data.ec2LaunchTemplateID != null) {
+    contents.ec2LaunchTemplateID = __expectString(data.ec2LaunchTemplateID);
+  }
+  if (data.enableMapAutoTagging != null) {
+    contents.enableMapAutoTagging = __expectBoolean(data.enableMapAutoTagging);
+  }
+  if (data.largeVolumeConf != null) {
+    contents.largeVolumeConf = deserializeAws_restJson1LaunchTemplateDiskConf(data.largeVolumeConf, context);
+  }
   if (data.launchConfigurationTemplateID != null) {
     contents.launchConfigurationTemplateID = __expectString(data.launchConfigurationTemplateID);
+  }
+  if (data.launchDisposition != null) {
+    contents.launchDisposition = __expectString(data.launchDisposition);
+  }
+  if (data.licensing != null) {
+    contents.licensing = deserializeAws_restJson1Licensing(data.licensing, context);
+  }
+  if (data.mapAutoTaggingMpeID != null) {
+    contents.mapAutoTaggingMpeID = __expectString(data.mapAutoTaggingMpeID);
   }
   if (data.postLaunchActions != null) {
     contents.postLaunchActions = deserializeAws_restJson1PostLaunchActions(data.postLaunchActions, context);
   }
+  if (data.smallVolumeConf != null) {
+    contents.smallVolumeConf = deserializeAws_restJson1LaunchTemplateDiskConf(data.smallVolumeConf, context);
+  }
+  if (data.smallVolumeMaxSize != null) {
+    contents.smallVolumeMaxSize = __expectLong(data.smallVolumeMaxSize);
+  }
   if (data.tags != null) {
     contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.targetInstanceTypeRightSizingMethod != null) {
+    contents.targetInstanceTypeRightSizingMethod = __expectString(data.targetInstanceTypeRightSizingMethod);
   }
   return contents;
 };
@@ -3087,6 +5120,9 @@ export const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommand = 
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.applicationID != null) {
+    contents.applicationID = __expectString(data.applicationID);
+  }
   if (data.arn != null) {
     contents.arn = __expectString(data.arn);
   }
@@ -3142,6 +5178,77 @@ const deserializeAws_restJson1UpdateSourceServerReplicationTypeCommandError = as
     case "ValidationException":
     case "com.amazonaws.mgn#ValidationException":
       throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1UpdateWaveCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWaveCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateWaveCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.arn != null) {
+    contents.arn = __expectString(data.arn);
+  }
+  if (data.creationDateTime != null) {
+    contents.creationDateTime = __expectString(data.creationDateTime);
+  }
+  if (data.description != null) {
+    contents.description = __expectString(data.description);
+  }
+  if (data.isArchived != null) {
+    contents.isArchived = __expectBoolean(data.isArchived);
+  }
+  if (data.lastModifiedDateTime != null) {
+    contents.lastModifiedDateTime = __expectString(data.lastModifiedDateTime);
+  }
+  if (data.name != null) {
+    contents.name = __expectString(data.name);
+  }
+  if (data.tags != null) {
+    contents.tags = deserializeAws_restJson1TagsMap(data.tags, context);
+  }
+  if (data.waveAggregatedStatus != null) {
+    contents.waveAggregatedStatus = deserializeAws_restJson1WaveAggregatedStatus(data.waveAggregatedStatus, context);
+  }
+  if (data.waveID != null) {
+    contents.waveID = __expectString(data.waveID);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateWaveCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWaveCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.mgn#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.mgn#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "UninitializedAccountException":
+    case "com.amazonaws.mgn#UninitializedAccountException":
+      throw await deserializeAws_restJson1UninitializedAccountExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3349,6 +5456,41 @@ const deserializeAws_restJson1ValidationExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const serializeAws_restJson1ActionIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ApplicationIDs = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ApplicationIDsFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1AssociateSourceServersRequestSourceServerIDs = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ChangeServerLifeCycleStateSourceServerLifecycle = (
   input: ChangeServerLifeCycleStateSourceServerLifecycle,
   context: __SerdeContext
@@ -3379,11 +5521,25 @@ const serializeAws_restJson1DescribeJobsRequestFiltersJobIDs = (input: string[],
     });
 };
 
+const serializeAws_restJson1DescribeSourceServersRequestApplicationIDs = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1DescribeSourceServersRequestFilters = (
   input: DescribeSourceServersRequestFilters,
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.applicationIDs != null && {
+      applicationIDs: serializeAws_restJson1DescribeSourceServersRequestApplicationIDs(input.applicationIDs, context),
+    }),
     ...(input.isArchived != null && { isArchived: input.isArchived }),
     ...(input.lifeCycleStates != null && {
       lifeCycleStates: serializeAws_restJson1LifeCycleStates(input.lifeCycleStates, context),
@@ -3408,12 +5564,31 @@ const serializeAws_restJson1DescribeSourceServersRequestFiltersIDs = (
     });
 };
 
+const serializeAws_restJson1DisassociateSourceServersRequestSourceServerIDs = (
+  input: string[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1LaunchConfigurationTemplateIDs = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1LaunchTemplateDiskConf = (input: LaunchTemplateDiskConf, context: __SerdeContext): any => {
+  return {
+    ...(input.iops != null && { iops: input.iops }),
+    ...(input.throughput != null && { throughput: input.throughput }),
+    ...(input.volumeType != null && { volumeType: input.volumeType }),
+  };
 };
 
 const serializeAws_restJson1Licensing = (input: Licensing, context: __SerdeContext): any => {
@@ -3428,6 +5603,29 @@ const serializeAws_restJson1LifeCycleStates = (input: (LifeCycleState | string)[
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1ListApplicationsRequestFilters = (
+  input: ListApplicationsRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.applicationIDs != null && {
+      applicationIDs: serializeAws_restJson1ApplicationIDsFilter(input.applicationIDs, context),
+    }),
+    ...(input.isArchived != null && { isArchived: input.isArchived }),
+    ...(input.waveIDs != null && { waveIDs: serializeAws_restJson1WaveIDsFilter(input.waveIDs, context) }),
+  };
+};
+
+const serializeAws_restJson1ListWavesRequestFilters = (
+  input: ListWavesRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.isArchived != null && { isArchived: input.isArchived }),
+    ...(input.waveIDs != null && { waveIDs: serializeAws_restJson1WaveIDsFilter(input.waveIDs, context) }),
+  };
 };
 
 const serializeAws_restJson1PostLaunchActions = (input: PostLaunchActions, context: __SerdeContext): any => {
@@ -3488,6 +5686,15 @@ const serializeAws_restJson1ReplicationTypes = (input: (ReplicationType | string
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1SourceServerActionsRequestFilters = (
+  input: SourceServerActionsRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.actionIDs != null && { actionIDs: serializeAws_restJson1ActionIDs(input.actionIDs, context) }),
+  };
 };
 
 const serializeAws_restJson1SsmDocument = (input: SsmDocument, context: __SerdeContext): any => {
@@ -3570,6 +5777,15 @@ const serializeAws_restJson1TagsMap = (input: Record<string, string>, context: _
   }, {});
 };
 
+const serializeAws_restJson1TemplateActionsRequestFilters = (
+  input: TemplateActionsRequestFilters,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.actionIDs != null && { actionIDs: serializeAws_restJson1ActionIDs(input.actionIDs, context) }),
+  };
+};
+
 const serializeAws_restJson1TerminateTargetInstancesRequestSourceServerIDs = (
   input: string[],
   context: __SerdeContext
@@ -3579,6 +5795,56 @@ const serializeAws_restJson1TerminateTargetInstancesRequestSourceServerIDs = (
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1WaveIDsFilter = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const deserializeAws_restJson1Application = (output: any, context: __SerdeContext): Application => {
+  return {
+    applicationAggregatedStatus:
+      output.applicationAggregatedStatus != null
+        ? deserializeAws_restJson1ApplicationAggregatedStatus(output.applicationAggregatedStatus, context)
+        : undefined,
+    applicationID: __expectString(output.applicationID),
+    arn: __expectString(output.arn),
+    creationDateTime: __expectString(output.creationDateTime),
+    description: __expectString(output.description),
+    isArchived: __expectBoolean(output.isArchived),
+    lastModifiedDateTime: __expectString(output.lastModifiedDateTime),
+    name: __expectString(output.name),
+    tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
+    waveID: __expectString(output.waveID),
+  } as any;
+};
+
+const deserializeAws_restJson1ApplicationAggregatedStatus = (
+  output: any,
+  context: __SerdeContext
+): ApplicationAggregatedStatus => {
+  return {
+    healthStatus: __expectString(output.healthStatus),
+    lastUpdateDateTime: __expectString(output.lastUpdateDateTime),
+    progressStatus: __expectString(output.progressStatus),
+    totalSourceServers: __expectLong(output.totalSourceServers),
+  } as any;
+};
+
+const deserializeAws_restJson1ApplicationsList = (output: any, context: __SerdeContext): Application[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Application(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1ConflictExceptionErrors = (output: any, context: __SerdeContext): ErrorDetails[] => {
@@ -3834,12 +6100,31 @@ const deserializeAws_restJson1LaunchConfigurationTemplate = (
 ): LaunchConfigurationTemplate => {
   return {
     arn: __expectString(output.arn),
+    associatePublicIpAddress: __expectBoolean(output.associatePublicIpAddress),
+    bootMode: __expectString(output.bootMode),
+    copyPrivateIp: __expectBoolean(output.copyPrivateIp),
+    copyTags: __expectBoolean(output.copyTags),
+    ec2LaunchTemplateID: __expectString(output.ec2LaunchTemplateID),
+    enableMapAutoTagging: __expectBoolean(output.enableMapAutoTagging),
+    largeVolumeConf:
+      output.largeVolumeConf != null
+        ? deserializeAws_restJson1LaunchTemplateDiskConf(output.largeVolumeConf, context)
+        : undefined,
     launchConfigurationTemplateID: __expectString(output.launchConfigurationTemplateID),
+    launchDisposition: __expectString(output.launchDisposition),
+    licensing: output.licensing != null ? deserializeAws_restJson1Licensing(output.licensing, context) : undefined,
+    mapAutoTaggingMpeID: __expectString(output.mapAutoTaggingMpeID),
     postLaunchActions:
       output.postLaunchActions != null
         ? deserializeAws_restJson1PostLaunchActions(output.postLaunchActions, context)
         : undefined,
+    smallVolumeConf:
+      output.smallVolumeConf != null
+        ? deserializeAws_restJson1LaunchTemplateDiskConf(output.smallVolumeConf, context)
+        : undefined,
+    smallVolumeMaxSize: __expectLong(output.smallVolumeMaxSize),
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
+    targetInstanceTypeRightSizingMethod: __expectString(output.targetInstanceTypeRightSizingMethod),
   } as any;
 };
 
@@ -3863,6 +6148,17 @@ const deserializeAws_restJson1LaunchedInstance = (output: any, context: __SerdeC
     ec2InstanceID: __expectString(output.ec2InstanceID),
     firstBoot: __expectString(output.firstBoot),
     jobID: __expectString(output.jobID),
+  } as any;
+};
+
+const deserializeAws_restJson1LaunchTemplateDiskConf = (
+  output: any,
+  context: __SerdeContext
+): LaunchTemplateDiskConf => {
+  return {
+    iops: __expectLong(output.iops),
+    throughput: __expectLong(output.throughput),
+    volumeType: __expectString(output.volumeType),
   } as any;
 };
 
@@ -4173,6 +6469,7 @@ const deserializeAws_restJson1SourceProperties = (output: any, context: __SerdeC
 
 const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeContext): SourceServer => {
   return {
+    applicationID: __expectString(output.applicationID),
     arn: __expectString(output.arn),
     dataReplicationInfo:
       output.dataReplicationInfo != null
@@ -4193,6 +6490,39 @@ const deserializeAws_restJson1SourceServer = (output: any, context: __SerdeConte
     tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
     vcenterClientID: __expectString(output.vcenterClientID),
   } as any;
+};
+
+const deserializeAws_restJson1SourceServerActionDocument = (
+  output: any,
+  context: __SerdeContext
+): SourceServerActionDocument => {
+  return {
+    actionID: __expectString(output.actionID),
+    actionName: __expectString(output.actionName),
+    active: __expectBoolean(output.active),
+    documentIdentifier: __expectString(output.documentIdentifier),
+    documentVersion: __expectString(output.documentVersion),
+    mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
+    order: __expectInt32(output.order),
+    parameters:
+      output.parameters != null ? deserializeAws_restJson1SsmDocumentParameters(output.parameters, context) : undefined,
+    timeoutSeconds: __expectInt32(output.timeoutSeconds),
+  } as any;
+};
+
+const deserializeAws_restJson1SourceServerActionDocuments = (
+  output: any,
+  context: __SerdeContext
+): SourceServerActionDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1SourceServerActionDocument(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1SourceServersList = (output: any, context: __SerdeContext): SourceServer[] => {
@@ -4281,6 +6611,40 @@ const deserializeAws_restJson1TagsMap = (output: any, context: __SerdeContext): 
   }, {});
 };
 
+const deserializeAws_restJson1TemplateActionDocument = (
+  output: any,
+  context: __SerdeContext
+): TemplateActionDocument => {
+  return {
+    actionID: __expectString(output.actionID),
+    actionName: __expectString(output.actionName),
+    active: __expectBoolean(output.active),
+    documentIdentifier: __expectString(output.documentIdentifier),
+    documentVersion: __expectString(output.documentVersion),
+    mustSucceedForCutover: __expectBoolean(output.mustSucceedForCutover),
+    operatingSystem: __expectString(output.operatingSystem),
+    order: __expectInt32(output.order),
+    parameters:
+      output.parameters != null ? deserializeAws_restJson1SsmDocumentParameters(output.parameters, context) : undefined,
+    timeoutSeconds: __expectInt32(output.timeoutSeconds),
+  } as any;
+};
+
+const deserializeAws_restJson1TemplateActionDocuments = (
+  output: any,
+  context: __SerdeContext
+): TemplateActionDocument[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1TemplateActionDocument(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ValidationExceptionField = (
   output: any,
   context: __SerdeContext
@@ -4328,6 +6692,45 @@ const deserializeAws_restJson1VcenterClientList = (output: any, context: __Serde
         return null as any;
       }
       return deserializeAws_restJson1VcenterClient(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1Wave = (output: any, context: __SerdeContext): Wave => {
+  return {
+    arn: __expectString(output.arn),
+    creationDateTime: __expectString(output.creationDateTime),
+    description: __expectString(output.description),
+    isArchived: __expectBoolean(output.isArchived),
+    lastModifiedDateTime: __expectString(output.lastModifiedDateTime),
+    name: __expectString(output.name),
+    tags: output.tags != null ? deserializeAws_restJson1TagsMap(output.tags, context) : undefined,
+    waveAggregatedStatus:
+      output.waveAggregatedStatus != null
+        ? deserializeAws_restJson1WaveAggregatedStatus(output.waveAggregatedStatus, context)
+        : undefined,
+    waveID: __expectString(output.waveID),
+  } as any;
+};
+
+const deserializeAws_restJson1WaveAggregatedStatus = (output: any, context: __SerdeContext): WaveAggregatedStatus => {
+  return {
+    healthStatus: __expectString(output.healthStatus),
+    lastUpdateDateTime: __expectString(output.lastUpdateDateTime),
+    progressStatus: __expectString(output.progressStatus),
+    replicationStartedDateTime: __expectString(output.replicationStartedDateTime),
+    totalApplications: __expectLong(output.totalApplications),
+  } as any;
+};
+
+const deserializeAws_restJson1WavesList = (output: any, context: __SerdeContext): Wave[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1Wave(entry, context);
     });
   return retVal;
 };

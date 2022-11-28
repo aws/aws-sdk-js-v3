@@ -44,6 +44,206 @@
         }
       }
     },
+    "com.amazonaws.mgn#ActionID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 64
+        },
+        "smithy.api#pattern": "[0-9a-zA-Z]$"
+      }
+    },
+    "com.amazonaws.mgn#ActionIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#ActionID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.mgn#ActionName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[^\\s\\x00]( *[^\\s\\x00])*$"
+      }
+    },
+    "com.amazonaws.mgn#Application": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.mgn#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ARN.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.mgn#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Application name.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#ApplicationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Application description.</p>"
+          }
+        },
+        "isArchived": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Application archival status.</p>"
+          }
+        },
+        "applicationAggregatedStatus": {
+          "target": "com.amazonaws.mgn#ApplicationAggregatedStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Application aggregated status.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Application creation dateTime.</p>"
+          }
+        },
+        "lastModifiedDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Application last modified dateTime.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Application tags.</p>"
+          }
+        },
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application wave ID.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.mgn#ApplicationResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#ApplicationAggregatedStatus": {
+      "type": "structure",
+      "members": {
+        "lastUpdateDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Application aggregated status last update dateTime.</p>"
+          }
+        },
+        "healthStatus": {
+          "target": "com.amazonaws.mgn#ApplicationHealthStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Application aggregated status health status.</p>"
+          }
+        },
+        "progressStatus": {
+          "target": "com.amazonaws.mgn#ApplicationProgressStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Application aggregated status progress status.</p>"
+          }
+        },
+        "totalSourceServers": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Application aggregated status total source servers amount.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Application aggregated status.</p>"
+      }
+    },
+    "com.amazonaws.mgn#ApplicationDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 600
+        },
+        "smithy.api#pattern": "^[^\\x00]*$"
+      }
+    },
+    "com.amazonaws.mgn#ApplicationHealthStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "HEALTHY",
+            "value": "HEALTHY"
+          },
+          {
+            "name": "LAGGING",
+            "value": "LAGGING"
+          },
+          {
+            "name": "ERROR",
+            "value": "ERROR"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#ApplicationID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 21,
+          "max": 21
+        },
+        "smithy.api#pattern": "^app-[0-9a-zA-Z]{17}$"
+      }
+    },
+    "com.amazonaws.mgn#ApplicationIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#ApplicationID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.mgn#ApplicationIDsFilter": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#ApplicationID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
     "com.amazonaws.mgn#ApplicationMigrationService": {
       "type": "service",
       "version": "2020-02-26",
@@ -66,6 +266,9 @@
           "target": "com.amazonaws.mgn#AccountResource"
         },
         {
+          "target": "com.amazonaws.mgn#ApplicationResource"
+        },
+        {
           "target": "com.amazonaws.mgn#JobResource"
         },
         {
@@ -79,6 +282,9 @@
         },
         {
           "target": "com.amazonaws.mgn#VcenterClientResource"
+        },
+        {
+          "target": "com.amazonaws.mgn#WaveResource"
         }
       ],
       "traits": {
@@ -93,18 +299,8 @@
         },
         "aws.protocols#restJson1": {},
         "smithy.api#cors": {
-          "additionalAllowedHeaders": [
-            "content-type",
-            "x-amz-content-sha256",
-            "x-amz-user-agent",
-            "x-amzn-trace-id"
-          ],
-          "additionalExposedHeaders": [
-            "x-amzn-errortype",
-            "x-amzn-requestid",
-            "x-amzn-trace-id",
-            "x-amz-apigw-id"
-          ]
+          "additionalAllowedHeaders": ["content-type", "x-amz-content-sha256", "x-amz-user-agent", "x-amzn-trace-id"],
+          "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"]
         },
         "smithy.api#documentation": "<p>The Application Migration Service service.</p>",
         "smithy.api#title": "Application Migration Service",
@@ -434,8 +630,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -447,8 +643,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -460,8 +656,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -473,8 +669,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -486,8 +682,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -499,8 +695,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -512,8 +708,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -525,8 +721,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -538,8 +734,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -551,8 +747,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -564,8 +760,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -577,8 +773,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -590,8 +786,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -603,8 +799,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -616,8 +812,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -629,8 +825,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -642,8 +838,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -655,8 +851,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -668,8 +864,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -681,8 +877,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -694,8 +890,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -707,8 +903,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -720,8 +916,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -733,8 +929,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -746,8 +942,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -759,8 +955,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -772,8 +968,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -785,8 +981,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -798,8 +994,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -811,8 +1007,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -824,8 +1020,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -837,8 +1033,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -850,8 +1046,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -863,8 +1059,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -876,8 +1072,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -889,8 +1085,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -902,8 +1098,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -915,8 +1111,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -928,8 +1124,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -941,8 +1137,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -954,8 +1150,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -967,8 +1163,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -980,8 +1176,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -993,8 +1189,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1006,8 +1202,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1019,8 +1215,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1032,8 +1228,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1045,8 +1241,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1058,8 +1254,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1071,8 +1267,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1084,8 +1280,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1097,8 +1293,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1110,8 +1306,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1123,8 +1319,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1136,8 +1332,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1149,8 +1345,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1162,8 +1358,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1175,8 +1371,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1188,8 +1384,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1201,8 +1397,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1214,8 +1410,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1227,8 +1423,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1240,8 +1436,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1253,8 +1449,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1266,8 +1462,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1279,8 +1475,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1292,8 +1488,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1305,8 +1501,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1318,8 +1514,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1331,8 +1527,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1344,8 +1540,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1357,8 +1553,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1370,8 +1566,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1383,8 +1579,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1396,8 +1592,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1409,8 +1605,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1422,8 +1618,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1435,8 +1631,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1448,8 +1644,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1461,8 +1657,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1474,8 +1670,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1487,8 +1683,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1500,8 +1696,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1513,8 +1709,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1526,8 +1722,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1539,8 +1735,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1552,8 +1748,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1565,8 +1761,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1578,8 +1774,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1590,8 +1786,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -1602,8 +1798,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -1611,6 +1807,288 @@
           "version": "1.0"
         }
       }
+    },
+    "com.amazonaws.mgn#ApplicationName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[^\\s\\x00]( *[^\\s\\x00])*$"
+      }
+    },
+    "com.amazonaws.mgn#ApplicationProgressStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "NOT_STARTED",
+            "value": "NOT_STARTED"
+          },
+          {
+            "name": "IN_PROGRESS",
+            "value": "IN_PROGRESS"
+          },
+          {
+            "name": "COMPLETED",
+            "value": "COMPLETED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#ApplicationResource": {
+      "type": "resource",
+      "identifiers": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.mgn#CreateApplication"
+      },
+      "delete": {
+        "target": "com.amazonaws.mgn#DeleteApplication"
+      },
+      "list": {
+        "target": "com.amazonaws.mgn#ListApplications"
+      },
+      "operations": [
+        {
+          "target": "com.amazonaws.mgn#ArchiveApplication"
+        },
+        {
+          "target": "com.amazonaws.mgn#AssociateSourceServers"
+        },
+        {
+          "target": "com.amazonaws.mgn#DisassociateSourceServers"
+        },
+        {
+          "target": "com.amazonaws.mgn#UnarchiveApplication"
+        },
+        {
+          "target": "com.amazonaws.mgn#UpdateApplication"
+        }
+      ],
+      "traits": {
+        "aws.api#arn": {
+          "template": "application/{applicationID}"
+        }
+      }
+    },
+    "com.amazonaws.mgn#ApplicationsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#Application"
+      }
+    },
+    "com.amazonaws.mgn#ArchiveApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ArchiveApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Application"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Archive application.</p>",
+        "smithy.api#http": {
+          "uri": "/ArchiveApplication",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#ArchiveApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ArchiveWave": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ArchiveWaveRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Wave"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Archive wave.</p>",
+        "smithy.api#http": {
+          "uri": "/ArchiveWave",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#ArchiveWaveRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#AssociateApplications": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#AssociateApplicationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#AssociateApplicationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associate applications to wave.</p>",
+        "smithy.api#http": {
+          "uri": "/AssociateApplications",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#AssociateApplicationsRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "applicationIDs": {
+          "target": "com.amazonaws.mgn#ApplicationIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Application IDs list.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#AssociateApplicationsResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.mgn#AssociateSourceServers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#AssociateSourceServersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#AssociateSourceServersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Associate source servers to application.</p>",
+        "smithy.api#http": {
+          "uri": "/AssociateSourceServers",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#AssociateSourceServersRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sourceServerIDs": {
+          "target": "com.amazonaws.mgn#AssociateSourceServersRequestSourceServerIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server IDs list.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#AssociateSourceServersRequestSourceServerIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#SourceServerID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.mgn#AssociateSourceServersResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.mgn#BootMode": {
       "type": "string",
@@ -1803,6 +2281,59 @@
         }
       }
     },
+    "com.amazonaws.mgn#CreateApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#CreateApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Application"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Create application.</p>",
+        "smithy.api#http": {
+          "uri": "/CreateApplication",
+          "method": "POST",
+          "code": 201
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#CreateApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.mgn#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Application name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#ApplicationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Application description.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Application tags.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#CreateLaunchConfigurationTemplate": {
       "type": "operation",
       "input": {
@@ -1823,7 +2354,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new ReplicationConfigurationTemplate.</p>",
+        "smithy.api#documentation": "<p>Creates a new Launch Configuration Template.</p>",
         "smithy.api#http": {
           "uri": "/CreateLaunchConfigurationTemplate",
           "method": "POST",
@@ -1837,13 +2368,83 @@
         "postLaunchActions": {
           "target": "com.amazonaws.mgn#PostLaunchActions",
           "traits": {
-            "smithy.api#documentation": "<p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>"
+            "smithy.api#documentation": "<p>Launch configuration template post launch actions.</p>"
+          }
+        },
+        "enableMapAutoTagging": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable map auto tagging.</p>"
+          }
+        },
+        "mapAutoTaggingMpeID": {
+          "target": "com.amazonaws.mgn#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template map auto tagging MPE ID.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.mgn#TagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>Request to associate the default Application Migration Service Security group with the Replication Settings template.</p>"
+            "smithy.api#documentation": "<p>Request to associate tags during creation of a Launch Configuration Template.</p>"
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.mgn#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.mgn#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private Ip.</p>"
+          }
+        },
+        "associatePublicIpAddress": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Associate public Ip address.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.mgn#Licensing"
+        },
+        "bootMode": {
+          "target": "com.amazonaws.mgn#BootMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template boot mode.</p>"
+          }
+        },
+        "smallVolumeMaxSize": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Small volume maximum size.</p>"
+          }
+        },
+        "smallVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Small volume config.</p>"
+          }
+        },
+        "largeVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Large volume config.</p>"
           }
         }
       }
@@ -1967,6 +2568,59 @@
           "target": "com.amazonaws.mgn#TagsMap",
           "traits": {
             "smithy.api#documentation": "<p>Request to configure tags during Replication Settings template creation.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#CreateWave": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#CreateWaveRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Wave"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Create wave.</p>",
+        "smithy.api#http": {
+          "uri": "/CreateWave",
+          "method": "POST",
+          "code": 201
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#CreateWaveRequest": {
+      "type": "structure",
+      "members": {
+        "name": {
+          "target": "com.amazonaws.mgn#WaveName",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#WaveDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave description.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave tags.</p>"
           }
         }
       }
@@ -2351,6 +3005,51 @@
         ]
       }
     },
+    "com.amazonaws.mgn#DeleteApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DeleteApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#DeleteApplicationResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Delete application.</p>",
+        "smithy.api#http": {
+          "uri": "/DeleteApplication",
+          "method": "POST",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#DeleteApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DeleteApplicationResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.mgn#DeleteJob": {
       "type": "operation",
       "input": {
@@ -2416,7 +3115,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new ReplicationConfigurationTemplate.</p>",
+        "smithy.api#documentation": "<p>Deletes a single Launch Configuration Template by ID.</p>",
         "smithy.api#http": {
           "uri": "/DeleteLaunchConfigurationTemplate",
           "method": "POST",
@@ -2572,6 +3271,51 @@
         }
       }
     },
+    "com.amazonaws.mgn#DeleteWave": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DeleteWaveRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#DeleteWaveResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Delete wave.</p>",
+        "smithy.api#http": {
+          "uri": "/DeleteWave",
+          "method": "POST",
+          "code": 204
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#DeleteWaveRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DeleteWaveResponse": {
+      "type": "structure",
+      "members": {}
+    },
     "com.amazonaws.mgn#DescribeJobLogItems": {
       "type": "operation",
       "input": {
@@ -2615,7 +3359,7 @@
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe Job log item maximum results.</p>"
@@ -2688,7 +3432,7 @@
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe job log items by max results.</p>"
@@ -2777,7 +3521,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new ReplicationConfigurationTemplate.</p>",
+        "smithy.api#documentation": "<p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>",
         "smithy.api#http": {
           "uri": "/DescribeLaunchConfigurationTemplates",
           "method": "POST",
@@ -2798,20 +3542,20 @@
         "launchConfigurationTemplateIDs": {
           "target": "com.amazonaws.mgn#LaunchConfigurationTemplateIDs",
           "traits": {
-            "smithy.api#documentation": "<p>Request to disconnect Source Server from service by Server ID.</p>"
+            "smithy.api#documentation": "<p>Request to filter Launch Configuration Templates list by Launch Configuration Template ID.</p>"
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>Request to disconnect Source Server from service by Server ID.</p>"
+            "smithy.api#documentation": "<p>Maximum results to be returned in DescribeLaunchConfigurationTemplates.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.mgn#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>Request to disconnect Source Server from service by Server ID.</p>"
+            "smithy.api#documentation": "<p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>"
           }
         }
       }
@@ -2822,13 +3566,13 @@
         "items": {
           "target": "com.amazonaws.mgn#LaunchConfigurationTemplates",
           "traits": {
-            "smithy.api#documentation": "<p>Request to disconnect Source Server from service by Server ID.</p>"
+            "smithy.api#documentation": "<p>List of items returned by DescribeLaunchConfigurationTemplates.</p>"
           }
         },
         "nextToken": {
           "target": "com.amazonaws.mgn#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>Request to disconnect Source Server from service by Server ID.</p>"
+            "smithy.api#documentation": "<p>Next pagination token returned from DescribeLaunchConfigurationTemplates.</p>"
           }
         }
       }
@@ -2878,7 +3622,7 @@
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to describe Replication Configuration template by max results.</p>"
@@ -2951,7 +3695,7 @@
           }
         },
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Request to filter Source Servers list by maximum results.</p>"
@@ -2962,6 +3706,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Request to filter Source Servers list by next token.</p>"
           }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DescribeSourceServersRequestApplicationIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#ApplicationID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
         }
       }
     },
@@ -2990,6 +3746,12 @@
           "target": "com.amazonaws.mgn#LifeCycleStates",
           "traits": {
             "smithy.api#documentation": "<p>Request to filter Source Servers list by life cycle states.</p>"
+          }
+        },
+        "applicationIDs": {
+          "target": "com.amazonaws.mgn#DescribeSourceServersRequestApplicationIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Request to filter Source Servers list by application IDs.</p>"
           }
         }
       },
@@ -3065,7 +3827,7 @@
       "type": "structure",
       "members": {
         "maxResults": {
-          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "target": "com.amazonaws.mgn#MaxResultsType",
           "traits": {
             "smithy.api#default": 0,
             "smithy.api#documentation": "<p>Maximum results to be returned in DescribeVcenterClients.</p>",
@@ -3097,6 +3859,122 @@
           }
         }
       }
+    },
+    "com.amazonaws.mgn#DisassociateApplications": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DisassociateApplicationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#DisassociateApplicationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociate applications from wave.</p>",
+        "smithy.api#http": {
+          "uri": "/DisassociateApplications",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#DisassociateApplicationsRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "applicationIDs": {
+          "target": "com.amazonaws.mgn#ApplicationIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Application IDs list.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DisassociateApplicationsResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.mgn#DisassociateSourceServers": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#DisassociateSourceServersRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#DisassociateSourceServersResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disassociate source servers from application.</p>",
+        "smithy.api#http": {
+          "uri": "/DisassociateSourceServers",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#DisassociateSourceServersRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sourceServerIDs": {
+          "target": "com.amazonaws.mgn#DisassociateSourceServersRequestSourceServerIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server IDs list.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#DisassociateSourceServersRequestSourceServerIDs": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#SourceServerID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
+    "com.amazonaws.mgn#DisassociateSourceServersResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.mgn#DisconnectFromService": {
       "type": "operation",
@@ -3171,6 +4049,12 @@
         }
       }
     },
+    "com.amazonaws.mgn#DocumentVersion": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(\\$DEFAULT|\\$LATEST|[0-9]+)$"
+      }
+    },
     "com.amazonaws.mgn#EC2InstanceID": {
       "type": "string",
       "traits": {
@@ -3188,6 +4072,16 @@
           "min": 0,
           "max": 255
         }
+      }
+    },
+    "com.amazonaws.mgn#EC2LaunchConfigurationTemplateID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 20
+        },
+        "smithy.api#pattern": "^lt-[0-9a-z]{17}$"
       }
     },
     "com.amazonaws.mgn#ErrorDetails": {
@@ -3721,36 +4615,36 @@
         "ssmDocument": {
           "target": "com.amazonaws.mgn#SsmDocument",
           "traits": {
-            "smithy.api#documentation": "<p>Job type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager's Document of the of the Job Post Launch Actions.</p>"
           }
         },
         "ssmDocumentType": {
           "target": "com.amazonaws.mgn#SsmDocumentType",
           "traits": {
-            "smithy.api#documentation": "<p>Job type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document type.</p>"
           }
         },
         "executionID": {
           "target": "com.amazonaws.mgn#BoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Job type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document's execution ID of the of the Job Post Launch Actions.</p>"
           }
         },
         "executionStatus": {
           "target": "com.amazonaws.mgn#PostLaunchActionExecutionStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Job type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document's execution status.</p>"
           }
         },
         "failureReason": {
           "target": "com.amazonaws.mgn#BoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Job type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document's failure reason.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Job type.</p>"
+        "smithy.api#documentation": "<p>Launch Status of the Job Post Launch Actions.</p>"
       }
     },
     "com.amazonaws.mgn#JobResource": {
@@ -3885,6 +4779,18 @@
         },
         "postLaunchActions": {
           "target": "com.amazonaws.mgn#PostLaunchActions"
+        },
+        "enableMapAutoTagging": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable map auto tagging.</p>"
+          }
+        },
+        "mapAutoTaggingMpeID": {
+          "target": "com.amazonaws.mgn#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Map auto tagging MPE ID.</p>"
+          }
         }
       }
     },
@@ -3894,26 +4800,102 @@
         "launchConfigurationTemplateID": {
           "target": "com.amazonaws.mgn#LaunchConfigurationTemplateID",
           "traits": {
-            "smithy.api#documentation": "<p>Copy Private IP during Launch Configuration.</p>",
+            "smithy.api#documentation": "<p>ID of the Launch Configuration Template.</p>",
             "smithy.api#required": {}
           }
         },
         "arn": {
           "target": "com.amazonaws.mgn#ARN",
           "traits": {
-            "smithy.api#documentation": "<p>Copy Private IP during Launch Configuration.</p>"
+            "smithy.api#documentation": "<p>ARN of the Launch Configuration Template.</p>"
           }
         },
         "postLaunchActions": {
           "target": "com.amazonaws.mgn#PostLaunchActions",
           "traits": {
-            "smithy.api#documentation": "<p>Copy Private IP during Launch Configuration.</p>"
+            "smithy.api#documentation": "<p>Post Launch Actions of the Launch Configuration Template.</p>"
+          }
+        },
+        "enableMapAutoTagging": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable map auto tagging.</p>"
+          }
+        },
+        "mapAutoTaggingMpeID": {
+          "target": "com.amazonaws.mgn#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template map auto tagging MPE ID.</p>"
           }
         },
         "tags": {
           "target": "com.amazonaws.mgn#TagsMap",
           "traits": {
-            "smithy.api#documentation": "<p>Copy Private IP during Launch Configuration.</p>"
+            "smithy.api#documentation": "<p>Tags of the Launch Configuration Template.</p>"
+          }
+        },
+        "ec2LaunchTemplateID": {
+          "target": "com.amazonaws.mgn#EC2LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>EC2 launch template ID.</p>"
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.mgn#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.mgn#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private Ip.</p>"
+          }
+        },
+        "associatePublicIpAddress": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Associate public Ip address.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.mgn#Licensing"
+        },
+        "bootMode": {
+          "target": "com.amazonaws.mgn#BootMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template boot mode.</p>"
+          }
+        },
+        "smallVolumeMaxSize": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Small volume maximum size.</p>"
+          }
+        },
+        "smallVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Small volume config.</p>"
+          }
+        },
+        "largeVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Large volume config.</p>"
           }
         }
       }
@@ -3959,6 +4941,17 @@
       "list": {
         "target": "com.amazonaws.mgn#DescribeLaunchConfigurationTemplates"
       },
+      "operations": [
+        {
+          "target": "com.amazonaws.mgn#ListTemplateActions"
+        },
+        {
+          "target": "com.amazonaws.mgn#PutTemplateAction"
+        },
+        {
+          "target": "com.amazonaws.mgn#RemoveTemplateAction"
+        }
+      ],
       "traits": {
         "aws.api#arn": {
           "template": "launch-configuration-template/{launchConfigurationTemplateID}"
@@ -4017,6 +5010,34 @@
             "name": "TERMINATED"
           }
         ]
+      }
+    },
+    "com.amazonaws.mgn#LaunchTemplateDiskConf": {
+      "type": "structure",
+      "members": {
+        "volumeType": {
+          "target": "com.amazonaws.mgn#VolumeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch template disk volume type configuration.</p>"
+          }
+        },
+        "iops": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Launch template disk iops configuration.</p>"
+          }
+        },
+        "throughput": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Launch template disk throughput configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Launch template disk configuration.</p>"
       }
     },
     "com.amazonaws.mgn#LaunchedInstance": {
@@ -4312,6 +5333,182 @@
         }
       }
     },
+    "com.amazonaws.mgn#ListApplications": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ListApplicationsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#ListApplicationsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves all applications or multiple applications by ID.</p>",
+        "smithy.api#http": {
+          "uri": "/ListApplications",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.mgn#ListApplicationsRequest": {
+      "type": "structure",
+      "members": {
+        "filters": {
+          "target": "com.amazonaws.mgn#ListApplicationsRequestFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Applications list filters.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.mgn#MaxResultsType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum results to return when listing applications.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Request next token.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListApplicationsRequestFilters": {
+      "type": "structure",
+      "members": {
+        "applicationIDs": {
+          "target": "com.amazonaws.mgn#ApplicationIDsFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter applications list by application ID.</p>"
+          }
+        },
+        "isArchived": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter applications list by archival status.</p>"
+          }
+        },
+        "waveIDs": {
+          "target": "com.amazonaws.mgn#WaveIDsFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter applications list by wave ID.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Applications list filters.</p>"
+      }
+    },
+    "com.amazonaws.mgn#ListApplicationsResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.mgn#ApplicationsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Applications list.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Response next token.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListSourceServerActions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ListSourceServerActionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#ListSourceServerActionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>List source server post migration custom actions.</p>",
+        "smithy.api#http": {
+          "uri": "/ListSourceServerActions",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.mgn#ListSourceServerActionsRequest": {
+      "type": "structure",
+      "members": {
+        "sourceServerID": {
+          "target": "com.amazonaws.mgn#SourceServerID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.mgn#SourceServerActionsRequestFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to apply when listing source server post migration custom actions.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.mgn#MaxResultsType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum amount of items to return when listing source server post migration custom actions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next token to use when listing source server post migration custom actions.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListSourceServerActionsResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.mgn#SourceServerActionDocuments",
+          "traits": {
+            "smithy.api#documentation": "<p>List of source server post migration custom actions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next token returned when listing source server post migration custom actions.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#ListTagsForResource": {
       "type": "operation",
       "input": {
@@ -4370,6 +5567,176 @@
         }
       }
     },
+    "com.amazonaws.mgn#ListTemplateActions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ListTemplateActionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#ListTemplateActionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>List template post migration custom actions.</p>",
+        "smithy.api#http": {
+          "uri": "/ListTemplateActions",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.mgn#ListTemplateActionsRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.mgn#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "filters": {
+          "target": "com.amazonaws.mgn#TemplateActionsRequestFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Filters to apply when listing template post migration custom actions.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.mgn#MaxResultsType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum amount of items to return when listing template post migration custom actions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next token to use when listing template post migration custom actions.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListTemplateActionsResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.mgn#TemplateActionDocuments",
+          "traits": {
+            "smithy.api#documentation": "<p>List of template post migration custom actions.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Next token returned when listing template post migration custom actions.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListWaves": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#ListWavesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#ListWavesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves all waves or multiple waves by ID.</p>",
+        "smithy.api#http": {
+          "uri": "/ListWaves",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "items"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.mgn#ListWavesRequest": {
+      "type": "structure",
+      "members": {
+        "filters": {
+          "target": "com.amazonaws.mgn#ListWavesRequestFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>Waves list filters.</p>"
+          }
+        },
+        "maxResults": {
+          "target": "com.amazonaws.mgn#MaxResultsType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Maximum results to return when listing waves.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Request next token.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#ListWavesRequestFilters": {
+      "type": "structure",
+      "members": {
+        "waveIDs": {
+          "target": "com.amazonaws.mgn#WaveIDsFilter",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter waves list by wave ID.</p>"
+          }
+        },
+        "isArchived": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Filter waves list by archival status.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Waves list filters.</p>"
+      }
+    },
+    "com.amazonaws.mgn#ListWavesResponse": {
+      "type": "structure",
+      "members": {
+        "items": {
+          "target": "com.amazonaws.mgn#WavesList",
+          "traits": {
+            "smithy.api#documentation": "<p>Waves list.</p>"
+          }
+        },
+        "nextToken": {
+          "target": "com.amazonaws.mgn#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>Response next token.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#MarkAsArchived": {
       "type": "operation",
       "input": {
@@ -4407,6 +5774,16 @@
             "smithy.api#documentation": "<p>Mark as archived by Source Server ID.</p>",
             "smithy.api#required": {}
           }
+        }
+      }
+    },
+    "com.amazonaws.mgn#MaxResultsType": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1,
+          "max": 1000
         }
       }
     },
@@ -4462,6 +5839,22 @@
         "smithy.api#documentation": "<p>Operating System.</p>"
       }
     },
+    "com.amazonaws.mgn#OperatingSystemString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(linux|windows)$"
+      }
+    },
+    "com.amazonaws.mgn#OrderType": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 1001,
+          "max": 10000
+        }
+      }
+    },
     "com.amazonaws.mgn#PaginationToken": {
       "type": "string",
       "traits": {
@@ -4490,13 +5883,13 @@
         "launchedEc2InstanceID": {
           "target": "com.amazonaws.mgn#EC2InstanceID",
           "traits": {
-            "smithy.api#documentation": "<p>Participating server Source Server ID.</p>"
+            "smithy.api#documentation": "<p>Participating server's launched ec2 instance ID.</p>"
           }
         },
         "postLaunchActionsStatus": {
           "target": "com.amazonaws.mgn#PostLaunchActionsStatus",
           "traits": {
-            "smithy.api#documentation": "<p>Participating server Source Server ID.</p>"
+            "smithy.api#documentation": "<p>Participating server's Post Launch Actions Status.</p>"
           }
         }
       },
@@ -4544,36 +5937,36 @@
         "deployment": {
           "target": "com.amazonaws.mgn#PostLaunchActionsDeploymentType",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>Deployment type in which AWS Systems Manager Documents will be executed.</p>"
           }
         },
         "s3LogBucket": {
           "target": "com.amazonaws.mgn#S3LogBucketName",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Command's logs S3 log bucket.</p>"
           }
         },
         "s3OutputKeyPrefix": {
           "target": "com.amazonaws.mgn#BoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Command's logs S3 output key prefix.</p>"
           }
         },
         "cloudWatchLogGroupName": {
           "target": "com.amazonaws.mgn#CloudWatchLogGroupName",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Command's CloudWatch log group name.</p>"
           }
         },
         "ssmDocuments": {
           "target": "com.amazonaws.mgn#SsmDocuments",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Documents.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Server participating in Job.</p>"
+        "smithy.api#documentation": "<p>Post Launch Actions to executed on the Test or Cutover instance.</p>"
       }
     },
     "com.amazonaws.mgn#PostLaunchActionsDeploymentType": {
@@ -4587,6 +5980,10 @@
           {
             "name": "CUTOVER_ONLY",
             "value": "CUTOVER_ONLY"
+          },
+          {
+            "name": "TEST_ONLY",
+            "value": "TEST_ONLY"
           }
         ]
       }
@@ -4603,19 +6000,333 @@
         "ssmAgentDiscoveryDatetime": {
           "target": "com.amazonaws.mgn#ISO8601DatetimeString",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>Time where the AWS Systems Manager was detected as running on the Test or Cutover instance.</p>"
           }
         },
         "postLaunchActionsLaunchStatusList": {
           "target": "com.amazonaws.mgn#PostLaunchActionsLaunchStatusList",
           "traits": {
-            "smithy.api#documentation": "<p>Server participating in Job.</p>"
+            "smithy.api#documentation": "<p>List of Post Launch Action status.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Server participating in Job.</p>"
+        "smithy.api#documentation": "<p>Status of the Post Launch Actions running on the Test or Cutover instance.</p>"
       }
+    },
+    "com.amazonaws.mgn#PutSourceServerAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#PutSourceServerActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#SourceServerActionDocument"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Put source server post migration custom action.</p>",
+        "smithy.api#http": {
+          "uri": "/PutSourceServerAction",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#PutSourceServerActionRequest": {
+      "type": "structure",
+      "members": {
+        "sourceServerID": {
+          "target": "com.amazonaws.mgn#SourceServerID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.mgn#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "documentIdentifier": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action document identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "order": {
+          "target": "com.amazonaws.mgn#OrderType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Source server post migration custom action order.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "documentVersion": {
+          "target": "com.amazonaws.mgn#DocumentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action document version.</p>"
+          }
+        },
+        "active": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action active status.</p>"
+          }
+        },
+        "timeoutSeconds": {
+          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Source server post migration custom action timeout in seconds.</p>"
+          }
+        },
+        "mustSucceedForCutover": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action must succeed for cutover.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.mgn#SsmDocumentParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action parameters.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#PutTemplateAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#PutTemplateActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#TemplateActionDocument"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Put template post migration custom action.</p>",
+        "smithy.api#http": {
+          "uri": "/PutTemplateAction",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#PutTemplateActionRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.mgn#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action name.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "documentIdentifier": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action document identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "order": {
+          "target": "com.amazonaws.mgn#OrderType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Template post migration custom action order.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "documentVersion": {
+          "target": "com.amazonaws.mgn#DocumentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action document version.</p>"
+          }
+        },
+        "active": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action active status.</p>"
+          }
+        },
+        "timeoutSeconds": {
+          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Template post migration custom action timeout in seconds.</p>"
+          }
+        },
+        "mustSucceedForCutover": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action must succeed for cutover.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.mgn#SsmDocumentParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action parameters.</p>"
+          }
+        },
+        "operatingSystem": {
+          "target": "com.amazonaws.mgn#OperatingSystemString",
+          "traits": {
+            "smithy.api#documentation": "<p>Operating system eligible for this template post migration custom action.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#RemoveSourceServerAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#RemoveSourceServerActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#RemoveSourceServerActionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Remove source server post migration custom action.</p>",
+        "smithy.api#http": {
+          "uri": "/RemoveSourceServerAction",
+          "method": "POST",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.mgn#RemoveSourceServerActionRequest": {
+      "type": "structure",
+      "members": {
+        "sourceServerID": {
+          "target": "com.amazonaws.mgn#SourceServerID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server ID of the post migration custom action to remove.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action ID to remove.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#RemoveSourceServerActionResponse": {
+      "type": "structure",
+      "members": {}
+    },
+    "com.amazonaws.mgn#RemoveTemplateAction": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#RemoveTemplateActionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#RemoveTemplateActionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Remove template post migration custom action.</p>",
+        "smithy.api#http": {
+          "uri": "/RemoveTemplateAction",
+          "method": "POST",
+          "code": 204
+        }
+      }
+    },
+    "com.amazonaws.mgn#RemoveTemplateActionRequest": {
+      "type": "structure",
+      "members": {
+        "launchConfigurationTemplateID": {
+          "target": "com.amazonaws.mgn#LaunchConfigurationTemplateID",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template ID of the post migration custom action to remove.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action ID to remove.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#RemoveTemplateActionResponse": {
+      "type": "structure",
+      "members": {}
     },
     "com.amazonaws.mgn#ReplicationConfiguration": {
       "type": "structure",
@@ -5304,6 +7015,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Source server vCenter client id.</p>"
           }
+        },
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server application ID.</p>"
+          }
         }
       },
       "traits": {
@@ -5312,6 +7029,93 @@
             "resource": "com.amazonaws.mgn#SourceServerResource"
           }
         ]
+      }
+    },
+    "com.amazonaws.mgn#SourceServerActionDocument": {
+      "type": "structure",
+      "members": {
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action ID.</p>"
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.mgn#ActionName",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action name.</p>"
+          }
+        },
+        "documentIdentifier": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action document identifier.</p>"
+          }
+        },
+        "order": {
+          "target": "com.amazonaws.mgn#OrderType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Source server post migration custom action order.</p>"
+          }
+        },
+        "documentVersion": {
+          "target": "com.amazonaws.mgn#DocumentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action document version.</p>"
+          }
+        },
+        "active": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action active status.</p>"
+          }
+        },
+        "timeoutSeconds": {
+          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Source server post migration custom action timeout in seconds.</p>"
+          }
+        },
+        "mustSucceedForCutover": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action must succeed for cutover.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.mgn#SsmDocumentParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Source server post migration custom action parameters.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#SourceServerActionDocuments": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#SourceServerActionDocument"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.mgn#SourceServerActionsRequestFilters": {
+      "type": "structure",
+      "members": {
+        "actionIDs": {
+          "target": "com.amazonaws.mgn#ActionIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Action IDs to filter source server post migration custom actions by.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Source server post migration custom action filters.</p>"
       }
     },
     "com.amazonaws.mgn#SourceServerID": {
@@ -5354,7 +7158,16 @@
           "target": "com.amazonaws.mgn#GetReplicationConfiguration"
         },
         {
+          "target": "com.amazonaws.mgn#ListSourceServerActions"
+        },
+        {
           "target": "com.amazonaws.mgn#MarkAsArchived"
+        },
+        {
+          "target": "com.amazonaws.mgn#PutSourceServerAction"
+        },
+        {
+          "target": "com.amazonaws.mgn#RemoveSourceServerAction"
         },
         {
           "target": "com.amazonaws.mgn#RetryDataReplication"
@@ -5401,14 +7214,14 @@
         "actionName": {
           "target": "com.amazonaws.mgn#BoundedString",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>",
+            "smithy.api#documentation": "<p>User-friendly name for the AWS Systems Manager Document.</p>",
             "smithy.api#required": {}
           }
         },
         "ssmDocumentName": {
           "target": "com.amazonaws.mgn#SsmDocumentName",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>",
+            "smithy.api#documentation": "<p>AWS Systems Manager Document name or full ARN.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5416,24 +7229,24 @@
           "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>Source server replication type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document timeout seconds.</p>"
           }
         },
         "mustSucceedForCutover": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>"
+            "smithy.api#documentation": "<p>If true, Cutover will not be enabled if the document has failed.</p>"
           }
         },
         "parameters": {
           "target": "com.amazonaws.mgn#SsmDocumentParameters",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>"
+            "smithy.api#documentation": "<p>AWS Systems Manager Document parameters.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Source server replication type.</p>"
+        "smithy.api#documentation": "<p>AWS Systems Manager Document.</p>"
       }
     },
     "com.amazonaws.mgn#SsmDocumentName": {
@@ -5467,7 +7280,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 10
+          "max": 20
         }
       }
     },
@@ -5504,20 +7317,20 @@
         "parameterType": {
           "target": "com.amazonaws.mgn#SsmParameterStoreParameterType",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>",
+            "smithy.api#documentation": "<p>AWS Systems Manager Parameter Store parameter type.</p>",
             "smithy.api#required": {}
           }
         },
         "parameterName": {
           "target": "com.amazonaws.mgn#SsmParameterStoreParameterName",
           "traits": {
-            "smithy.api#documentation": "<p>Source server replication type.</p>",
+            "smithy.api#documentation": "<p>AWS Systems Manager Parameter Store parameter name.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Source server replication type.</p>"
+        "smithy.api#documentation": "<p>AWS Systems Manager Parameter Store parameter.</p>"
       }
     },
     "com.amazonaws.mgn#SsmParameterStoreParameterName": {
@@ -5864,6 +7677,99 @@
         ]
       }
     },
+    "com.amazonaws.mgn#TemplateActionDocument": {
+      "type": "structure",
+      "members": {
+        "actionID": {
+          "target": "com.amazonaws.mgn#ActionID",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action ID.</p>"
+          }
+        },
+        "actionName": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action name.</p>"
+          }
+        },
+        "documentIdentifier": {
+          "target": "com.amazonaws.mgn#BoundedString",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action document identifier.</p>"
+          }
+        },
+        "order": {
+          "target": "com.amazonaws.mgn#OrderType",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Template post migration custom action order.</p>"
+          }
+        },
+        "documentVersion": {
+          "target": "com.amazonaws.mgn#DocumentVersion",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action document version.</p>"
+          }
+        },
+        "active": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action active status.</p>"
+          }
+        },
+        "timeoutSeconds": {
+          "target": "com.amazonaws.mgn#StrictlyPositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Template post migration custom action timeout in seconds.</p>"
+          }
+        },
+        "mustSucceedForCutover": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action must succeed for cutover.</p>"
+          }
+        },
+        "parameters": {
+          "target": "com.amazonaws.mgn#SsmDocumentParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>Template post migration custom action parameters.</p>"
+          }
+        },
+        "operatingSystem": {
+          "target": "com.amazonaws.mgn#OperatingSystemString",
+          "traits": {
+            "smithy.api#documentation": "<p>Operating system eligible for this template post migration custom action.</p>"
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#TemplateActionDocuments": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#TemplateActionDocument"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.mgn#TemplateActionsRequestFilters": {
+      "type": "structure",
+      "members": {
+        "actionIDs": {
+          "target": "com.amazonaws.mgn#ActionIDs",
+          "traits": {
+            "smithy.api#documentation": "<p>Action IDs to filter template post migration custom actions by.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Template post migration custom action filters.</p>"
+      }
+    },
     "com.amazonaws.mgn#TerminateTargetInstances": {
       "type": "operation",
       "input": {
@@ -5968,6 +7874,86 @@
         "smithy.api#httpError": 429
       }
     },
+    "com.amazonaws.mgn#UnarchiveApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#UnarchiveApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Application"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Unarchive application.</p>",
+        "smithy.api#http": {
+          "uri": "/UnarchiveApplication",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#UnarchiveApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#UnarchiveWave": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#UnarchiveWaveRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Wave"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ServiceQuotaExceededException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Unarchive wave.</p>",
+        "smithy.api#http": {
+          "uri": "/UnarchiveWave",
+          "method": "POST",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#UnarchiveWaveRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#UninitializedAccountException": {
       "type": "structure",
       "members": {
@@ -6035,6 +8021,59 @@
             "smithy.api#documentation": "<p>Untag resource by Keys.</p>",
             "smithy.api#httpQuery": "tagKeys",
             "smithy.api#required": {}
+          }
+        }
+      }
+    },
+    "com.amazonaws.mgn#UpdateApplication": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#UpdateApplicationRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Application"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update application.</p>",
+        "smithy.api#http": {
+          "uri": "/UpdateApplication",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#UpdateApplicationRequest": {
+      "type": "structure",
+      "members": {
+        "applicationID": {
+          "target": "com.amazonaws.mgn#ApplicationID",
+          "traits": {
+            "smithy.api#documentation": "<p>Application ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.mgn#ApplicationName",
+          "traits": {
+            "smithy.api#documentation": "<p>Application name.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#ApplicationDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Application description.</p>"
           }
         }
       }
@@ -6125,6 +8164,18 @@
         },
         "postLaunchActions": {
           "target": "com.amazonaws.mgn#PostLaunchActions"
+        },
+        "enableMapAutoTagging": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable map auto tagging.</p>"
+          }
+        },
+        "mapAutoTaggingMpeID": {
+          "target": "com.amazonaws.mgn#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration map auto tagging MPE ID.</p>"
+          }
         }
       }
     },
@@ -6151,7 +8202,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new ReplicationConfigurationTemplate.</p>",
+        "smithy.api#documentation": "<p>Updates an existing Launch Configuration Template by ID.</p>",
         "smithy.api#http": {
           "uri": "/UpdateLaunchConfigurationTemplate",
           "method": "POST",
@@ -6165,14 +8216,84 @@
         "launchConfigurationTemplateID": {
           "target": "com.amazonaws.mgn#LaunchConfigurationTemplateID",
           "traits": {
-            "smithy.api#documentation": "<p>Update Launch configuration Target instance right sizing request.</p>",
+            "smithy.api#documentation": "<p>Launch Configuration Template ID.</p>",
             "smithy.api#required": {}
           }
         },
         "postLaunchActions": {
           "target": "com.amazonaws.mgn#PostLaunchActions",
           "traits": {
-            "smithy.api#documentation": "<p>Update Launch configuration Target instance right sizing request.</p>"
+            "smithy.api#documentation": "<p>Post Launch Action to execute on the Test or Cutover instance.</p>"
+          }
+        },
+        "enableMapAutoTagging": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Enable map auto tagging.</p>"
+          }
+        },
+        "mapAutoTaggingMpeID": {
+          "target": "com.amazonaws.mgn#TagValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template map auto tagging MPE ID.</p>"
+          }
+        },
+        "launchDisposition": {
+          "target": "com.amazonaws.mgn#LaunchDisposition",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch disposition.</p>"
+          }
+        },
+        "targetInstanceTypeRightSizingMethod": {
+          "target": "com.amazonaws.mgn#TargetInstanceTypeRightSizingMethod",
+          "traits": {
+            "smithy.api#documentation": "<p>Target instance type right-sizing method.</p>"
+          }
+        },
+        "copyPrivateIp": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy private Ip.</p>"
+          }
+        },
+        "associatePublicIpAddress": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Associate public Ip address.</p>"
+          }
+        },
+        "copyTags": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Copy tags.</p>"
+          }
+        },
+        "licensing": {
+          "target": "com.amazonaws.mgn#Licensing"
+        },
+        "bootMode": {
+          "target": "com.amazonaws.mgn#BootMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Launch configuration template boot mode.</p>"
+          }
+        },
+        "smallVolumeMaxSize": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Small volume maximum size.</p>"
+          }
+        },
+        "smallVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Small volume config.</p>"
+          }
+        },
+        "largeVolumeConf": {
+          "target": "com.amazonaws.mgn#LaunchTemplateDiskConf",
+          "traits": {
+            "smithy.api#documentation": "<p>Large volume config.</p>"
           }
         }
       }
@@ -6481,6 +8602,59 @@
         }
       }
     },
+    "com.amazonaws.mgn#UpdateWave": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.mgn#UpdateWaveRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.mgn#Wave"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.mgn#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.mgn#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.mgn#UninitializedAccountException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Update wave.</p>",
+        "smithy.api#http": {
+          "uri": "/UpdateWave",
+          "method": "POST",
+          "code": 200
+        },
+        "smithy.api#idempotent": {}
+      }
+    },
+    "com.amazonaws.mgn#UpdateWaveRequest": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.mgn#WaveName",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave name.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#WaveDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave description.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.mgn#ValidationException": {
       "type": "structure",
       "members": {
@@ -6647,6 +8821,271 @@
         "aws.api#arn": {
           "template": "vcenter-client/{vcenterClientID}"
         }
+      }
+    },
+    "com.amazonaws.mgn#VolumeType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "io1",
+            "value": "io1"
+          },
+          {
+            "name": "io2",
+            "value": "io2"
+          },
+          {
+            "name": "gp3",
+            "value": "gp3"
+          },
+          {
+            "name": "gp2",
+            "value": "gp2"
+          },
+          {
+            "name": "st1",
+            "value": "st1"
+          },
+          {
+            "name": "sc1",
+            "value": "sc1"
+          },
+          {
+            "name": "standard",
+            "value": "standard"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#Wave": {
+      "type": "structure",
+      "members": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ID.</p>"
+          }
+        },
+        "arn": {
+          "target": "com.amazonaws.mgn#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave ARN.</p>"
+          }
+        },
+        "name": {
+          "target": "com.amazonaws.mgn#WaveName",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave name.</p>"
+          }
+        },
+        "description": {
+          "target": "com.amazonaws.mgn#WaveDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave description.</p>"
+          }
+        },
+        "isArchived": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave archival status.</p>"
+          }
+        },
+        "waveAggregatedStatus": {
+          "target": "com.amazonaws.mgn#WaveAggregatedStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave aggregated status.</p>"
+          }
+        },
+        "creationDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave creation dateTime.</p>"
+          }
+        },
+        "lastModifiedDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave last modified dateTime.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.mgn#TagsMap",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave tags.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#references": [
+          {
+            "resource": "com.amazonaws.mgn#WaveResource"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#WaveAggregatedStatus": {
+      "type": "structure",
+      "members": {
+        "lastUpdateDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave aggregated status last update dateTime.</p>"
+          }
+        },
+        "replicationStartedDateTime": {
+          "target": "com.amazonaws.mgn#ISO8601DatetimeString",
+          "traits": {
+            "smithy.api#documentation": "<p>DateTime marking when the first source server in the wave started replication.</p>"
+          }
+        },
+        "healthStatus": {
+          "target": "com.amazonaws.mgn#WaveHealthStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave aggregated status health status.</p>"
+          }
+        },
+        "progressStatus": {
+          "target": "com.amazonaws.mgn#WaveProgressStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>Wave aggregated status progress status.</p>"
+          }
+        },
+        "totalApplications": {
+          "target": "com.amazonaws.mgn#PositiveInteger",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Wave aggregated status total applications amount.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Wave aggregated status.</p>"
+      }
+    },
+    "com.amazonaws.mgn#WaveDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 600
+        },
+        "smithy.api#pattern": "^[^\\x00]*$"
+      }
+    },
+    "com.amazonaws.mgn#WaveHealthStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "HEALTHY",
+            "value": "HEALTHY"
+          },
+          {
+            "name": "LAGGING",
+            "value": "LAGGING"
+          },
+          {
+            "name": "ERROR",
+            "value": "ERROR"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#WaveID": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 22,
+          "max": 22
+        },
+        "smithy.api#pattern": "^wave-[0-9a-zA-Z]{17}$"
+      }
+    },
+    "com.amazonaws.mgn#WaveIDsFilter": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#WaveID"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 200
+        }
+      }
+    },
+    "com.amazonaws.mgn#WaveName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[^\\s\\x00]( *[^\\s\\x00])*$"
+      }
+    },
+    "com.amazonaws.mgn#WaveProgressStatus": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "name": "NOT_STARTED",
+            "value": "NOT_STARTED"
+          },
+          {
+            "name": "IN_PROGRESS",
+            "value": "IN_PROGRESS"
+          },
+          {
+            "name": "COMPLETED",
+            "value": "COMPLETED"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.mgn#WaveResource": {
+      "type": "resource",
+      "identifiers": {
+        "waveID": {
+          "target": "com.amazonaws.mgn#WaveID"
+        }
+      },
+      "create": {
+        "target": "com.amazonaws.mgn#CreateWave"
+      },
+      "delete": {
+        "target": "com.amazonaws.mgn#DeleteWave"
+      },
+      "list": {
+        "target": "com.amazonaws.mgn#ListWaves"
+      },
+      "operations": [
+        {
+          "target": "com.amazonaws.mgn#ArchiveWave"
+        },
+        {
+          "target": "com.amazonaws.mgn#AssociateApplications"
+        },
+        {
+          "target": "com.amazonaws.mgn#DisassociateApplications"
+        },
+        {
+          "target": "com.amazonaws.mgn#UnarchiveWave"
+        },
+        {
+          "target": "com.amazonaws.mgn#UpdateWave"
+        }
+      ],
+      "traits": {
+        "aws.api#arn": {
+          "template": "wave/{waveID}"
+        }
+      }
+    },
+    "com.amazonaws.mgn#WavesList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.mgn#Wave"
       }
     }
   }

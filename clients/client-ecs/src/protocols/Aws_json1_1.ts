@@ -79,6 +79,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "../commands/ListContainerInstancesCommand";
+import {
+  ListServicesByNamespaceCommandInput,
+  ListServicesByNamespaceCommandOutput,
+} from "../commands/ListServicesByNamespaceCommand";
 import { ListServicesCommandInput, ListServicesCommandOutput } from "../commands/ListServicesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -177,6 +181,8 @@ import {
   ClusterContainsTasksException,
   ClusterField,
   ClusterNotFoundException,
+  ClusterServiceConnectDefaults,
+  ClusterServiceConnectDefaultsRequest,
   ClusterSetting,
   Compatibility,
   Container,
@@ -267,6 +273,8 @@ import {
   ListClustersResponse,
   ListContainerInstancesRequest,
   ListContainerInstancesResponse,
+  ListServicesByNamespaceRequest,
+  ListServicesByNamespaceResponse,
   ListServicesRequest,
   ListServicesResponse,
   ListTagsForResourceRequest,
@@ -284,6 +292,7 @@ import {
   ManagedScaling,
   MissingVersionException,
   MountPoint,
+  NamespaceNotFoundException,
   NetworkBinding,
   NetworkConfiguration,
   NetworkInterface,
@@ -320,6 +329,10 @@ import {
   Secret,
   ServerException,
   Service,
+  ServiceConnectClientAlias,
+  ServiceConnectConfiguration,
+  ServiceConnectService,
+  ServiceConnectServiceResource,
   ServiceEvent,
   ServiceField,
   ServiceNotActiveException,
@@ -729,6 +742,19 @@ export const serializeAws_json1_1ListServicesCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ListServicesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ListServicesByNamespaceCommand = async (
+  input: ListServicesByNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "AmazonEC2ContainerServiceV20141113.ListServicesByNamespace",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListServicesByNamespaceRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1222,6 +1248,9 @@ const deserializeAws_json1_1CreateServiceCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await deserializeAws_json1_1NamespaceNotFoundExceptionResponse(parsedOutput, context);
     case "PlatformTaskDefinitionIncompatibilityException":
     case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       throw await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(parsedOutput, context);
@@ -1284,6 +1313,9 @@ const deserializeAws_json1_1CreateTaskSetCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await deserializeAws_json1_1NamespaceNotFoundExceptionResponse(parsedOutput, context);
     case "PlatformTaskDefinitionIncompatibilityException":
     case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       throw await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(parsedOutput, context);
@@ -2467,6 +2499,56 @@ const deserializeAws_json1_1ListServicesCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.ecs#ServerException":
+      throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListServicesByNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesByNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListServicesByNamespaceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListServicesByNamespaceResponse(data, context);
+  const response: ListServicesByNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListServicesByNamespaceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServicesByNamespaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ClientException":
+    case "com.amazonaws.ecs#ClientException":
+      throw await deserializeAws_json1_1ClientExceptionResponse(parsedOutput, context);
+    case "InvalidParameterException":
+    case "com.amazonaws.ecs#InvalidParameterException":
+      throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await deserializeAws_json1_1NamespaceNotFoundExceptionResponse(parsedOutput, context);
     case "ServerException":
     case "com.amazonaws.ecs#ServerException":
       throw await deserializeAws_json1_1ServerExceptionResponse(parsedOutput, context);
@@ -3685,6 +3767,9 @@ const deserializeAws_json1_1UpdateServiceCommandError = async (
     case "InvalidParameterException":
     case "com.amazonaws.ecs#InvalidParameterException":
       throw await deserializeAws_json1_1InvalidParameterExceptionResponse(parsedOutput, context);
+    case "NamespaceNotFoundException":
+    case "com.amazonaws.ecs#NamespaceNotFoundException":
+      throw await deserializeAws_json1_1NamespaceNotFoundExceptionResponse(parsedOutput, context);
     case "PlatformTaskDefinitionIncompatibilityException":
     case "com.amazonaws.ecs#PlatformTaskDefinitionIncompatibilityException":
       throw await deserializeAws_json1_1PlatformTaskDefinitionIncompatibilityExceptionResponse(parsedOutput, context);
@@ -4043,6 +4128,19 @@ const deserializeAws_json1_1MissingVersionExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1NamespaceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<NamespaceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1NamespaceNotFoundException(body, context);
+  const exception = new NamespaceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1NoUpdateAvailableExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -4335,6 +4433,15 @@ const serializeAws_json1_1ClusterFieldList = (input: (ClusterField | string)[], 
     });
 };
 
+const serializeAws_json1_1ClusterServiceConnectDefaultsRequest = (
+  input: ClusterServiceConnectDefaultsRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.namespace != null && { namespace: input.namespace }),
+  };
+};
+
 const serializeAws_json1_1ClusterSetting = (input: ClusterSetting, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -4537,6 +4644,12 @@ const serializeAws_json1_1CreateClusterRequest = (input: CreateClusterRequest, c
         context
       ),
     }),
+    ...(input.serviceConnectDefaults != null && {
+      serviceConnectDefaults: serializeAws_json1_1ClusterServiceConnectDefaultsRequest(
+        input.serviceConnectDefaults,
+        context
+      ),
+    }),
     ...(input.settings != null && { settings: serializeAws_json1_1ClusterSettings(input.settings, context) }),
     ...(input.tags != null && { tags: serializeAws_json1_1Tags(input.tags, context) }),
   };
@@ -4578,6 +4691,12 @@ const serializeAws_json1_1CreateServiceRequest = (input: CreateServiceRequest, c
     ...(input.propagateTags != null && { propagateTags: input.propagateTags }),
     ...(input.role != null && { role: input.role }),
     ...(input.schedulingStrategy != null && { schedulingStrategy: input.schedulingStrategy }),
+    ...(input.serviceConnectConfiguration != null && {
+      serviceConnectConfiguration: serializeAws_json1_1ServiceConnectConfiguration(
+        input.serviceConnectConfiguration,
+        context
+      ),
+    }),
     ...(input.serviceName != null && { serviceName: input.serviceName }),
     ...(input.serviceRegistries != null && {
       serviceRegistries: serializeAws_json1_1ServiceRegistries(input.serviceRegistries, context),
@@ -5123,6 +5242,17 @@ const serializeAws_json1_1ListContainerInstancesRequest = (
   };
 };
 
+const serializeAws_json1_1ListServicesByNamespaceRequest = (
+  input: ListServicesByNamespaceRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.namespace != null && { namespace: input.namespace }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
+  };
+};
+
 const serializeAws_json1_1ListServicesRequest = (input: ListServicesRequest, context: __SerdeContext): any => {
   return {
     ...(input.cluster != null && { cluster: input.cluster }),
@@ -5337,8 +5467,10 @@ const serializeAws_json1_1PlatformDevices = (input: PlatformDevice[], context: _
 
 const serializeAws_json1_1PortMapping = (input: PortMapping, context: __SerdeContext): any => {
   return {
+    ...(input.appProtocol != null && { appProtocol: input.appProtocol }),
     ...(input.containerPort != null && { containerPort: input.containerPort }),
     ...(input.hostPort != null && { hostPort: input.hostPort }),
+    ...(input.name != null && { name: input.name }),
     ...(input.protocol != null && { protocol: input.protocol }),
   };
 };
@@ -5575,6 +5707,63 @@ const serializeAws_json1_1SecretList = (input: Secret[], context: __SerdeContext
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_1Secret(entry, context);
+    });
+};
+
+const serializeAws_json1_1ServiceConnectClientAlias = (
+  input: ServiceConnectClientAlias,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.dnsName != null && { dnsName: input.dnsName }),
+    ...(input.port != null && { port: input.port }),
+  };
+};
+
+const serializeAws_json1_1ServiceConnectClientAliasList = (
+  input: ServiceConnectClientAlias[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ServiceConnectClientAlias(entry, context);
+    });
+};
+
+const serializeAws_json1_1ServiceConnectConfiguration = (
+  input: ServiceConnectConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.enabled != null && { enabled: input.enabled }),
+    ...(input.logConfiguration != null && {
+      logConfiguration: serializeAws_json1_1LogConfiguration(input.logConfiguration, context),
+    }),
+    ...(input.namespace != null && { namespace: input.namespace }),
+    ...(input.services != null && { services: serializeAws_json1_1ServiceConnectServiceList(input.services, context) }),
+  };
+};
+
+const serializeAws_json1_1ServiceConnectService = (input: ServiceConnectService, context: __SerdeContext): any => {
+  return {
+    ...(input.clientAliases != null && {
+      clientAliases: serializeAws_json1_1ServiceConnectClientAliasList(input.clientAliases, context),
+    }),
+    ...(input.discoveryName != null && { discoveryName: input.discoveryName }),
+    ...(input.ingressPortOverride != null && { ingressPortOverride: input.ingressPortOverride }),
+    ...(input.portName != null && { portName: input.portName }),
+  };
+};
+
+const serializeAws_json1_1ServiceConnectServiceList = (
+  input: ServiceConnectService[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1ServiceConnectService(entry, context);
     });
 };
 
@@ -5880,6 +6069,12 @@ const serializeAws_json1_1UpdateClusterRequest = (input: UpdateClusterRequest, c
     ...(input.configuration != null && {
       configuration: serializeAws_json1_1ClusterConfiguration(input.configuration, context),
     }),
+    ...(input.serviceConnectDefaults != null && {
+      serviceConnectDefaults: serializeAws_json1_1ClusterServiceConnectDefaultsRequest(
+        input.serviceConnectDefaults,
+        context
+      ),
+    }),
     ...(input.settings != null && { settings: serializeAws_json1_1ClusterSettings(input.settings, context) }),
   };
 };
@@ -5959,6 +6154,12 @@ const serializeAws_json1_1UpdateServiceRequest = (input: UpdateServiceRequest, c
     ...(input.platformVersion != null && { platformVersion: input.platformVersion }),
     ...(input.propagateTags != null && { propagateTags: input.propagateTags }),
     ...(input.service != null && { service: input.service }),
+    ...(input.serviceConnectConfiguration != null && {
+      serviceConnectConfiguration: serializeAws_json1_1ServiceConnectConfiguration(
+        input.serviceConnectConfiguration,
+        context
+      ),
+    }),
     ...(input.serviceRegistries != null && {
       serviceRegistries: serializeAws_json1_1ServiceRegistries(input.serviceRegistries, context),
     }),
@@ -6218,6 +6419,10 @@ const deserializeAws_json1_1Cluster = (output: any, context: __SerdeContext): Cl
     pendingTasksCount: __expectInt32(output.pendingTasksCount),
     registeredContainerInstancesCount: __expectInt32(output.registeredContainerInstancesCount),
     runningTasksCount: __expectInt32(output.runningTasksCount),
+    serviceConnectDefaults:
+      output.serviceConnectDefaults != null
+        ? deserializeAws_json1_1ClusterServiceConnectDefaults(output.serviceConnectDefaults, context)
+        : undefined,
     settings: output.settings != null ? deserializeAws_json1_1ClusterSettings(output.settings, context) : undefined,
     statistics: output.statistics != null ? deserializeAws_json1_1Statistics(output.statistics, context) : undefined,
     status: __expectString(output.status),
@@ -6280,6 +6485,15 @@ const deserializeAws_json1_1Clusters = (output: any, context: __SerdeContext): C
       return deserializeAws_json1_1Cluster(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_json1_1ClusterServiceConnectDefaults = (
+  output: any,
+  context: __SerdeContext
+): ClusterServiceConnectDefaults => {
+  return {
+    namespace: __expectString(output.namespace),
+  } as any;
 };
 
 const deserializeAws_json1_1ClusterSetting = (output: any, context: __SerdeContext): ClusterSetting => {
@@ -6651,6 +6865,14 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
     rolloutState: __expectString(output.rolloutState),
     rolloutStateReason: __expectString(output.rolloutStateReason),
     runningCount: __expectInt32(output.runningCount),
+    serviceConnectConfiguration:
+      output.serviceConnectConfiguration != null
+        ? deserializeAws_json1_1ServiceConnectConfiguration(output.serviceConnectConfiguration, context)
+        : undefined,
+    serviceConnectResources:
+      output.serviceConnectResources != null
+        ? deserializeAws_json1_1ServiceConnectServiceResourceList(output.serviceConnectResources, context)
+        : undefined,
     status: __expectString(output.status),
     taskDefinition: __expectString(output.taskDefinition),
     updatedAt:
@@ -6841,6 +7063,7 @@ const deserializeAws_json1_1DiscoverPollEndpointResponse = (
 ): DiscoverPollEndpointResponse => {
   return {
     endpoint: __expectString(output.endpoint),
+    serviceConnectEndpoint: __expectString(output.serviceConnectEndpoint),
     telemetryEndpoint: __expectString(output.telemetryEndpoint),
   } as any;
 };
@@ -7244,6 +7467,16 @@ const deserializeAws_json1_1ListContainerInstancesResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListServicesByNamespaceResponse = (
+  output: any,
+  context: __SerdeContext
+): ListServicesByNamespaceResponse => {
+  return {
+    nextToken: __expectString(output.nextToken),
+    serviceArns: output.serviceArns != null ? deserializeAws_json1_1StringList(output.serviceArns, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ListServicesResponse = (output: any, context: __SerdeContext): ListServicesResponse => {
   return {
     nextToken: __expectString(output.nextToken),
@@ -7397,6 +7630,15 @@ const deserializeAws_json1_1MountPointList = (output: any, context: __SerdeConte
   return retVal;
 };
 
+const deserializeAws_json1_1NamespaceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): NamespaceNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
 const deserializeAws_json1_1NetworkBinding = (output: any, context: __SerdeContext): NetworkBinding => {
   return {
     bindIP: __expectString(output.bindIP),
@@ -7514,8 +7756,10 @@ const deserializeAws_json1_1PlatformUnknownException = (
 
 const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext): PortMapping => {
   return {
+    appProtocol: __expectString(output.appProtocol),
     containerPort: __expectInt32(output.containerPort),
     hostPort: __expectInt32(output.hostPort),
+    name: __expectString(output.name),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -7814,6 +8058,99 @@ const deserializeAws_json1_1Service = (output: any, context: __SerdeContext): Se
     taskDefinition: __expectString(output.taskDefinition),
     taskSets: output.taskSets != null ? deserializeAws_json1_1TaskSets(output.taskSets, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1ServiceConnectClientAlias = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectClientAlias => {
+  return {
+    dnsName: __expectString(output.dnsName),
+    port: __expectInt32(output.port),
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceConnectClientAliasList = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectClientAlias[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServiceConnectClientAlias(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ServiceConnectConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectConfiguration => {
+  return {
+    enabled: __expectBoolean(output.enabled),
+    logConfiguration:
+      output.logConfiguration != null
+        ? deserializeAws_json1_1LogConfiguration(output.logConfiguration, context)
+        : undefined,
+    namespace: __expectString(output.namespace),
+    services:
+      output.services != null ? deserializeAws_json1_1ServiceConnectServiceList(output.services, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceConnectService = (output: any, context: __SerdeContext): ServiceConnectService => {
+  return {
+    clientAliases:
+      output.clientAliases != null
+        ? deserializeAws_json1_1ServiceConnectClientAliasList(output.clientAliases, context)
+        : undefined,
+    discoveryName: __expectString(output.discoveryName),
+    ingressPortOverride: __expectInt32(output.ingressPortOverride),
+    portName: __expectString(output.portName),
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceConnectServiceList = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectService[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServiceConnectService(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ServiceConnectServiceResource = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectServiceResource => {
+  return {
+    discoveryArn: __expectString(output.discoveryArn),
+    discoveryName: __expectString(output.discoveryName),
+  } as any;
+};
+
+const deserializeAws_json1_1ServiceConnectServiceResourceList = (
+  output: any,
+  context: __SerdeContext
+): ServiceConnectServiceResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ServiceConnectServiceResource(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ServiceEvent = (output: any, context: __SerdeContext): ServiceEvent => {

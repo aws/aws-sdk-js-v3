@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListTargetsForPolicyRequest, ListTargetsForPolicyRequestFilterSensitiveLog } from "../models/models_1";
-import { ListTargetsForPolicyResponse, ListTargetsForPolicyResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  ListTargetsForPolicyRequest,
+  ListTargetsForPolicyRequestFilterSensitiveLog,
+  ListTargetsForPolicyResponse,
+  ListTargetsForPolicyResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListTargetsForPolicyCommand,
   serializeAws_restJson1ListTargetsForPolicyCommand,

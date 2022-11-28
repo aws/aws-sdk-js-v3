@@ -43,17 +43,18 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * 				<code>protectionEnabled</code> set to <code>true</code>. You can keep extending the
  * 			protection expiration period of a task by invoking this operation repeatedly.</p>
  * 		       <p>To learn more about Amazon ECS task protection, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection.html">Task scale-in
- * 				protection</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				protection</a> in the <i>
+ *                <i>Amazon Elastic Container Service Developer Guide</i>
+ *             </i>.</p>
  * 		       <note>
  * 			         <p>This operation is only supported for tasks belonging to an Amazon ECS service. Invoking
  * 				this operation for a standalone task will result in an <code>TASK_NOT_VALID</code>
- * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html.html">API
- * 					failure reasons</a>.</p>
+ * 				failure. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/api_failures_messages.html">API failure
+ * 					reasons</a>.</p>
  * 		       </note>
  * 		       <important>
  * 			         <p>If you prefer to set task protection from within the container, we recommend using
- * 				the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-endpoint.html">Amazon ECS container
- * 					agent endpoint</a>.</p>
+ * 				the <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-scale-in-protection-endpoint.html">Task scale-in protection endpoint</a>.</p>
  * 		       </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

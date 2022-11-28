@@ -96,7 +96,7 @@ export interface ManagedScaling {
   /**
    * <p>The maximum number of Amazon EC2 instances that Amazon ECS will scale out at one time. The scale
    * 			in process is not affected by this parameter. If this parameter is omitted, the default
-   * 			value of <code>10000</code> is used.</p>
+   * 			value of <code>1</code> is used.</p>
    */
   maximumScalingStepSize?: number;
 
@@ -594,6 +594,40 @@ export interface CapacityProviderStrategyItem {
   base?: number;
 }
 
+/**
+ * <p>Use this parameter to set a default Service Connect namespace. After you set a default
+ * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
+ * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
+ * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
+ * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
+ * 	parameter.</p>
+ * 	        <p>Tasks that run in a namespace can use short names to connect
+ * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+ * 	Tasks connect through a managed proxy container
+ * 	that collects logs and metrics for increased visibility.
+ * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+ * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface ClusterServiceConnectDefaultsRequest {
+  /**
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's used when you create a service
+   * 			and don't specify a Service Connect configuration. Up to 1024 characters are allowed. The
+   * 			name is case-sensitive. The characters can't include hyphens (-), tilde (~), greater than
+   * 			(>), less than (<), or slash (/).</p>
+   * 		       <p>If you enter an existing namespace name or ARN, then that namespace will be used. Any
+   * 			namespace type is supported. The namespace must be in this account and this Amazon Web Services Region.</p>
+   * 		       <p>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates a
+   * 			Cloud Map namespace with the "API calls" method of instance discovery only. This instance
+   * 			discovery method is the "HTTP" namespace type in the Command Line Interface. Other types of
+   * 			instance discovery aren't used by Service Connect.</p>
+   * 		       <p>If you update the service with an empty string <code>""</code> for the namespace name,
+   * 			the cluster configuration for Service Connect is removed. Note that the namespace will
+   * 			remain in Cloud Map and must be deleted separately.</p>
+   * 		       <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
+   */
+  namespace: string | undefined;
+}
+
 export enum ClusterSettingName {
   CONTAINER_INSIGHTS = "containerInsights",
 }
@@ -706,6 +740,22 @@ export interface CreateClusterRequest {
    * 			API operation.</p>
    */
   defaultCapacityProviderStrategy?: CapacityProviderStrategyItem[];
+
+  /**
+   * <p>Use this parameter to set a default Service Connect namespace. After you set a default
+   * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
+   * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
+   * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
+   * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
+   * 	parameter.</p>
+   * 	        <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest;
 }
 
 /**
@@ -752,6 +802,28 @@ export interface Attachment {
    * 			interface ID, the MAC address, the subnet ID, and the private IPv4 address.</p>
    */
   details?: KeyValuePair[];
+}
+
+/**
+ * <p>Use this parameter to set a default Service Connect namespace. After you set a default
+ * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
+ * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
+ * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
+ * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
+ * 	parameter.</p>
+ * 	        <p>Tasks that run in a namespace can use short names to connect
+ * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+ * 	Tasks connect through a managed proxy container
+ * 	that collects logs and metrics for increased visibility.
+ * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+ * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface ClusterServiceConnectDefaults {
+  /**
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace. When you create a service
+   * 			and don't specify a Service Connect configuration, this namespace is used.</p>
+   */
+  namespace?: string;
 }
 
 /**
@@ -947,6 +1019,22 @@ export interface Cluster {
    *          </dl>
    */
   attachmentsStatus?: string;
+
+  /**
+   * <p>Use this parameter to set a default Service Connect namespace. After you set a default
+   * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
+   * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
+   * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
+   * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
+   * 	parameter.</p>
+   * 	        <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectDefaults?: ClusterServiceConnectDefaults;
 }
 
 export interface CreateClusterResponse {
@@ -1335,6 +1423,297 @@ export enum SchedulingStrategy {
   REPLICA = "REPLICA",
 }
 
+export enum LogDriver {
+  AWSFIRELENS = "awsfirelens",
+  AWSLOGS = "awslogs",
+  FLUENTD = "fluentd",
+  GELF = "gelf",
+  JOURNALD = "journald",
+  JSON_FILE = "json-file",
+  SPLUNK = "splunk",
+  SYSLOG = "syslog",
+}
+
+/**
+ * <p>An object representing the secret to expose to your container. Secrets can be exposed
+ * 			to a container in the following ways:</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>To inject sensitive data into your containers as environment variables, use
+ * 					the <code>secrets</code> container definition parameter.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>To reference sensitive information in the log configuration of a container,
+ * 					use the <code>secretOptions</code> container definition parameter.</p>
+ * 			         </li>
+ *          </ul>
+ * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+ * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface Secret {
+  /**
+   * <p>The name of the secret.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The secret to expose to the container. The supported values are either the full ARN
+   * 			of the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter
+   * 			Store.</p>
+   * 		       <p>For information about the require Identity and Access Management permissions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam">Required IAM permissions for Amazon ECS secrets</a> (for Secrets Manager) or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html">Required IAM permissions for Amazon ECS secrets</a> (for Systems Manager Parameter
+   * 			store) in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>If the SSM Parameter Store parameter exists in the same Region as the task
+   * 				you're launching, then you can use either the full ARN or name of the parameter.
+   * 				If the parameter exists in a different Region, then the full ARN must be
+   * 				specified.</p>
+   * 		       </note>
+   */
+  valueFrom: string | undefined;
+}
+
+/**
+ * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
+ * 			in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+ * 				<code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
+ *                <code>docker
+ * 					run</code>
+ *             </a>.</p>
+ * 		       <p>By default, containers use the same logging driver that the Docker daemon uses.
+ * 			However, the container might use a different logging driver than the Docker daemon by
+ * 			specifying a log driver configuration in the container definition. For more information
+ * 			about the options for different supported log drivers, see <a href="https://docs.docker.com/engine/admin/logging/overview/">Configure logging
+ * 				drivers</a> in the Docker documentation.</p>
+ * 		       <p>Understand the following when specifying a log configuration for your
+ * 			containers.</p>
+ * 		       <ul>
+ *             <li>
+ * 				           <p>Amazon ECS currently supports a subset of the logging drivers available to the
+ * 					Docker daemon (shown in the valid values below). Additional log drivers may be
+ * 					available in future releases of the Amazon ECS container agent.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>This parameter requires version 1.18 of the Docker Remote API or greater on
+ * 					your container instance.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must
+ * 					register the available logging drivers with the
+ * 						<code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before
+ * 					containers placed on that instance can use these log configuration options. For
+ * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the
+ * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			         </li>
+ *             <li>
+ * 				           <p>For tasks that are on Fargate, because you don't have access to the
+ * 					underlying infrastructure your tasks are hosted on, any additional software
+ * 					needed must be installed outside of the task. For example, the Fluentd output
+ * 					aggregators or a remote host running Logstash to send Gelf logs to.</p>
+ * 			         </li>
+ *          </ul>
+ */
+export interface LogConfiguration {
+  /**
+   * <p>The log driver to use for the container.</p>
+   * 		       <p>For tasks on Fargate, the supported log drivers are <code>awslogs</code>,
+   * 				<code>splunk</code>, and <code>awsfirelens</code>.</p>
+   * 		       <p>For tasks hosted on Amazon EC2 instances, the supported log drivers are
+   * 				<code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
+   * 				<code>json-file</code>, <code>journald</code>,
+   * 				<code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and
+   * 				<code>awsfirelens</code>.</p>
+   * 		       <p>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
+   * 				the awslogs log driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>For more information about using the <code>awsfirelens</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log routing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <note>
+   * 			         <p>If you have a custom driver that isn't listed, you can fork the Amazon ECS container
+   * 				agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available
+   * 					on GitHub</a> and customize it to work with that driver. We encourage you to
+   * 				submit pull requests for changes that you would like to have included. However, we
+   * 				don't currently provide support for running modified copies of this software.</p>
+   * 		       </note>
+   */
+  logDriver: LogDriver | string | undefined;
+
+  /**
+   * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
+   *          </p>
+   */
+  options?: Record<string, string>;
+
+  /**
+   * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
+   * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  secretOptions?: Secret[];
+}
+
+/**
+ * <p>Each alias ("endpoint") is a fully-qualified name and port number that other
+ * 			tasks ("clients") can use to connect to this service.</p>
+ * 		       <p>Each name and port mapping must be unique within the namespace.</p>
+ * 		       <p>Tasks that run in a namespace can use short names to connect
+ * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+ * 	Tasks connect through a managed proxy container
+ * 	that collects logs and metrics for increased visibility.
+ * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+ * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface ServiceConnectClientAlias {
+  /**
+   * <p>The listening port number for the Service Connect proxy. This port is
+   * 			available inside of all of the tasks within the same namespace.</p>
+   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this
+   * 			to the same port that the client application uses by default.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  port: number | undefined;
+
+  /**
+   * <p>The <code>dnsName</code> is the name that you use in the applications
+   * 			of client tasks to connect to this service.
+   * 			The name must be a valid DNS name but doesn't need to be fully-qualified.
+   * 			Up to 127 characters are allowed. The characters can include lowercase letters,
+   * 			numbers, underscores (_), hyphens (-), and periods (.). A hyphen can't be
+   * 			the first character.</p>
+   * 		       <p>If this parameter isn't specified,
+   * 			the default value of <code>discoveryName.namespace</code> is used.
+   * 			If the <code>discoveryName</code> isn't specified, the <code>portName.namespace</code>
+   * 			from the task definition is used.</p>
+   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this
+   * 			to the same name that the client application uses by default. For example, a few common names
+   * 			are <code>database</code>, <code>db</code>, or the lowercase name of a database,
+   * 			such as <code>mysql</code> or <code>redis</code>.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  dnsName?: string;
+}
+
+/**
+ * <p>The Service Connect service object configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface ServiceConnectService {
+  /**
+   * <p>The <code>portName</code> must match the name of one of the
+   * 			<code>portMappings</code> from all the containers in the task
+   * 			definition of this Amazon ECS service.</p>
+   */
+  portName: string | undefined;
+
+  /**
+   * <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
+   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. Up to 64 characters are allowed. The characters can include lowercase letters,
+   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
+   * 		       <p>If this field isn't specified, <code>portName</code> is used.</p>
+   */
+  discoveryName?: string;
+
+  /**
+   * <p>The list of client aliases for this Service Connect service. You use these to assign
+   * 			names that can be used by client applications. The maximum number of client aliases
+   * 			that you can have in this list is 1.</p>
+   * 		       <p>Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS
+   * 			tasks ("clients") can use to connect to this service.</p>
+   * 		       <p>Each name and port mapping must be unique within the namespace.</p>
+   * 		       <p>For each <code>ServiceConnectService</code>, you must provide at least one <code>clientAlias</code> with one <code>port</code>.</p>
+   */
+  clientAliases?: ServiceConnectClientAlias[];
+
+  /**
+   * <p>The port number for the Service Connect proxy to listen on.</p>
+   * 		       <p>Use the value of this field to bypass the proxy for traffic on the port number
+   * 			specified in the named <code>portMapping</code> in the task definition of this application, and
+   * 			then use it in your VPC security groups to allow traffic into the proxy for
+   * 			this Amazon ECS service.</p>
+   * 		       <p>In <code>awsvpc</code> mode and Fargate, the default value is the container port number. The container port number is in the
+   * 			<code>portMapping</code> in the task definition. In bridge mode,
+   * 			the default value is the ephemeral port of the Service Connect proxy.</p>
+   */
+  ingressPortOverride?: number;
+}
+
+/**
+ * <p>The Service Connect configuration of your Amazon ECS service. The configuration for
+ * 		this service to discover and connect to services, and be discovered by, and
+ * 		connected from, other services within a namespace.</p>
+ * 		       <p>Tasks that run in a namespace can use short names to connect
+ * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+ * 	Tasks connect through a managed proxy container
+ * 	that collects logs and metrics for increased visibility.
+ * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+ * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ */
+export interface ServiceConnectConfiguration {
+  /**
+   * <p>Specifies whether to use Service Connect with this service.</p>
+   */
+  enabled: boolean | undefined;
+
+  /**
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for use with Service Connect. The
+   * 			namespace must be in the same Amazon Web Services Region as the Amazon ECS service and
+   * 			cluster. The type of namespace doesn't affect Service Connect.
+   * 			For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
+   */
+  namespace?: string;
+
+  /**
+   * <p>The list of Service Connect service objects. These are names and aliases (also known as endpoints)
+   * 			that are used by other Amazon ECS services to connect to this service. You can specify up to
+   * 			X (30?) objects per Amazon ECS service.</p>
+   * 		       <p>This field is not required for a "client" Amazon ECS service that's a member of a
+   * 			namespace only to connect to other services within the namespace. An example of this
+   * 			would be a frontend application that accepts incoming requests
+   * 			from either a load balancer that's attached to the service or by other means.</p>
+   * 		       <p>An object selects a port from the task definition, assigns a name for the
+   * 			Cloud Map service, and a list of aliases (endpoints) and ports for
+   * 			client applications to refer to this service.</p>
+   */
+  services?: ServiceConnectService[];
+
+  /**
+   * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
+   * 			in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
+   * 				<code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
+   *                <code>docker
+   * 					run</code>
+   *             </a>.</p>
+   * 		       <p>By default, containers use the same logging driver that the Docker daemon uses.
+   * 			However, the container might use a different logging driver than the Docker daemon by
+   * 			specifying a log driver configuration in the container definition. For more information
+   * 			about the options for different supported log drivers, see <a href="https://docs.docker.com/engine/admin/logging/overview/">Configure logging
+   * 				drivers</a> in the Docker documentation.</p>
+   * 		       <p>Understand the following when specifying a log configuration for your
+   * 			containers.</p>
+   * 		       <ul>
+   *             <li>
+   * 				           <p>Amazon ECS currently supports a subset of the logging drivers available to the
+   * 					Docker daemon (shown in the valid values below). Additional log drivers may be
+   * 					available in future releases of the Amazon ECS container agent.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>This parameter requires version 1.18 of the Docker Remote API or greater on
+   * 					your container instance.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must
+   * 					register the available logging drivers with the
+   * 						<code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before
+   * 					containers placed on that instance can use these log configuration options. For
+   * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the
+   * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			         </li>
+   *             <li>
+   * 				           <p>For tasks that are on Fargate, because you don't have access to the
+   * 					underlying infrastructure your tasks are hosted on, any additional software
+   * 					needed must be installed outside of the task. For example, the Fluentd output
+   * 					aggregators or a remote host running Logstash to send Gelf logs to.</p>
+   * 			         </li>
+   *          </ul>
+   */
+  logConfiguration?: LogConfiguration;
+}
+
 /**
  * <p>The details for the service registry.</p>
  * 		       <p>Each service may be associated with one service registry. Multiple service registries
@@ -1568,8 +1947,8 @@ export interface CreateServiceRequest {
    * 			service is configured to use a load balancer. If your service has a load balancer
    * 			defined and you don't specify a health check grace period value, the default value of
    * 				<code>0</code> is used.</p>
-   * 		       <p>If you do not use an Elastic Load Balancing, we recomend that you use the <code>startPeriod</code> in
-   * 			the task definition healtch check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
+   * 		       <p>If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code> in the
+   * 			task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
    * 				check</a>.</p>
    * 		       <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you
    * 			can specify a health check grace period of up to
@@ -1677,12 +2056,52 @@ export interface CreateServiceRequest {
    * 			the service tasks.</p>
    */
   enableExecuteCommand?: boolean;
+
+  /**
+   * <p>The configuration for this service to discover and connect to
+   * 	services, and be discovered by, and connected from, other services within a namespace.</p>
+   *          <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectConfiguration?: ServiceConnectConfiguration;
 }
 
 export enum DeploymentRolloutState {
   COMPLETED = "COMPLETED",
   FAILED = "FAILED",
   IN_PROGRESS = "IN_PROGRESS",
+}
+
+/**
+ * <p>The Service Connect resource. Each configuration maps a discovery name to a Cloud Map service name.
+ * 			The data is stored in Cloud Map as part of the Service Connect configuration
+ * 			for each discovery name of this Amazon ECS service.</p>
+ * 		       <p>A task can resolve the <code>dnsName</code> for each of the
+ * 			<code>clientAliases</code> of a service. However a task can't resolve the discovery names.
+ * 			If you want to connect to a service, refer to the
+ * 			<code>ServiceConnectConfiguration</code> of
+ * 			that service for the list of <code>clientAliases</code> that you can use.</p>
+ */
+export interface ServiceConnectServiceResource {
+  /**
+   * <p>The discovery name of this Service Connect resource.</p>
+   * 		       <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
+   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. Up to 64 characters are allowed. The characters can include lowercase letters,
+   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
+   * 		       <p>If this field isn't specified, <code>portName</code> is used.</p>
+   */
+  discoveryName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the namespace in Cloud Map that matches the discovery name
+   * 			for this Service Connect resource. You can use this ARN in other integrations
+   * 			with Cloud Map. However, Service Connect can't ensure connectivity outside of Amazon ECS.</p>
+   */
+  discoveryArn?: string;
 }
 
 /**
@@ -1814,6 +2233,27 @@ export interface Deployment {
    * <p>A description of the rollout state of a deployment.</p>
    */
   rolloutStateReason?: string;
+
+  /**
+   * <p>The details of the Service Connect configuration that's used by this deployment. Compare the
+   * 			configuration between multiple deployments when troubleshooting issues with new
+   * 			deployments.</p>
+   * 		       <p>The configuration for this service to discover and connect to
+   * 	services, and be discovered by, and connected from, other services within a namespace.</p>
+   *          <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectConfiguration?: ServiceConnectConfiguration;
+
+  /**
+   * <p>The list of Service Connect resources that are associated with this deployment.
+   * 			Each list entry maps a discovery name to a Cloud Map service name.</p>
+   */
+  serviceConnectResources?: ServiceConnectServiceResource[];
 }
 
 /**
@@ -1892,7 +2332,7 @@ export interface TaskSet {
   /**
    * <p>The tag specified when a task set is started. If an CodeDeploy deployment created the task
    * 			set, the <code>startedBy</code> parameter is <code>CODE_DEPLOY</code>. If an external
-   * 			deployment created the task set, the startedBy field isn't used.</p>
+   * 			deployment created the task set, the <code>startedBy</code> field isn't used.</p>
    */
   startedBy?: string;
 
@@ -2015,7 +2455,7 @@ export interface TaskSet {
 
   /**
    * <p>The stability status. This indicates whether the task set has reached a steady state.
-   * 			If the following conditions are met, the task set sre in
+   * 			If the following conditions are met, the task set are in
    * 			<code>STEADY_STATE</code>:</p>
    * 		       <ul>
    *             <li>
@@ -2349,6 +2789,25 @@ export interface CreateServiceResponse {
 }
 
 /**
+ * <p>The specified namespace wasn't found.</p>
+ */
+export class NamespaceNotFoundException extends __BaseException {
+  readonly name: "NamespaceNotFoundException" = "NamespaceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NamespaceNotFoundException, __BaseException>) {
+    super({
+      name: "NamespaceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NamespaceNotFoundException.prototype);
+  }
+}
+
+/**
  * <p>The specified platform version doesn't satisfy the required capabilities of the task
  * 			definition.</p>
  */
@@ -2668,7 +3127,7 @@ export interface Attribute {
    * <p>The value of the attribute. The <code>value</code> must contain between 1 and 128
    * 			characters. It can contain letters (uppercase and lowercase), numbers, hyphens (-),
    * 			underscores (_), periods (.), at signs (@), forward slashes (/), back slashes (\),
-   * 			colons (:), or spaces. The value can't can't start or end with a space.</p>
+   * 			colons (:), or spaces. The value can't start or end with a space.</p>
    */
   value?: string;
 
@@ -3435,8 +3894,8 @@ export interface FirelensConfiguration {
  * 			         </li>
  *          </ul>
  * 		       <p>The following describes the possible <code>healthStatus</code> values for a task. The
- * 			container health check status of nonessential containers do not have an effect on the
- * 			health status of a task.</p>
+ * 			container health check status of nonessential containers only affects the health status
+ * 			of a task if no essential containers have health checks defined.</p>
  * 		       <ul>
  *             <li>
  * 				           <p>
@@ -3451,14 +3910,22 @@ export interface FirelensConfiguration {
  *             <li>
  * 				           <p>
  *                   <code>UNKNOWN</code>-The essential containers within the task are still
- * 					having their health checks evaluated or there are no container health checks
- * 					defined.</p>
+ * 					having their health checks evaluated or there are only nonessential containers
+ * 					with health checks defined.</p>
  * 			         </li>
  *          </ul>
  * 		       <p>If a task is run manually, and not as part of a service, the task will continue its
  * 			lifecycle regardless of its health status. For tasks that are part of a service, if the
  * 			task reports as unhealthy then the task will be stopped and the service scheduler will
  * 			replace it.</p>
+ * 		       <important>
+ * 			         <p>For tasks that are a part of a service and the service uses the <code>ECS</code>
+ * 				rolling deployment type, the deployment is paused while the new tasks have the
+ * 					<code>UNKNOWN</code> task health check status. For example, tasks that define
+ * 				health checks for nonessential containers when no essential containers have health
+ * 				checks will have the <code>UNKNOWN</code> health check status indefinitely which
+ * 				prevents the deployment from completing.</p>
+ * 		       </important>
  * 		       <p>The following are notes about container health check support:</p>
  * 		       <ul>
  *             <li>
@@ -3723,131 +4190,6 @@ export interface LinuxParameters {
   swappiness?: number;
 }
 
-export enum LogDriver {
-  AWSFIRELENS = "awsfirelens",
-  AWSLOGS = "awslogs",
-  FLUENTD = "fluentd",
-  GELF = "gelf",
-  JOURNALD = "journald",
-  JSON_FILE = "json-file",
-  SPLUNK = "splunk",
-  SYSLOG = "syslog",
-}
-
-/**
- * <p>An object representing the secret to expose to your container. Secrets can be exposed
- * 			to a container in the following ways:</p>
- * 		       <ul>
- *             <li>
- * 				           <p>To inject sensitive data into your containers as environment variables, use
- * 					the <code>secrets</code> container definition parameter.</p>
- * 			         </li>
- *             <li>
- * 				           <p>To reference sensitive information in the log configuration of a container,
- * 					use the <code>secretOptions</code> container definition parameter.</p>
- * 			         </li>
- *          </ul>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
- * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- */
-export interface Secret {
-  /**
-   * <p>The name of the secret.</p>
-   */
-  name: string | undefined;
-
-  /**
-   * <p>The secret to expose to the container. The supported values are either the full ARN
-   * 			of the Secrets Manager secret or the full ARN of the parameter in the SSM Parameter
-   * 			Store.</p>
-   * 		       <p>For information about the require Identity and Access Management permissions, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-secrets.html#secrets-iam">Required IAM permissions for Amazon ECS secrets</a> (for Secrets Manager) or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data-parameters.html">Required IAM permissions for Amazon ECS secrets</a> (for Systems Manager Parameter
-   * 			store) in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <note>
-   * 			         <p>If the SSM Parameter Store parameter exists in the same Region as the task
-   * 				you're launching, then you can use either the full ARN or name of the parameter.
-   * 				If the parameter exists in a different Region, then the full ARN must be
-   * 				specified.</p>
-   * 		       </note>
-   */
-  valueFrom: string | undefined;
-}
-
-/**
- * <p>The log configuration for the container. This parameter maps to <code>LogConfig</code>
- * 			in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the
- * 				<code>--log-driver</code> option to <a href="https://docs.docker.com/engine/reference/commandline/run/">
- *                <code>docker
- * 					run</code>
- *             </a>.</p>
- * 		       <p>By default, containers use the same logging driver that the Docker daemon uses.
- * 			However, the container might use a different logging driver than the Docker daemon by
- * 			specifying a log driver configuration in the container definition. For more information
- * 			about the options for different supported log drivers, see <a href="https://docs.docker.com/engine/admin/logging/overview/">Configure logging
- * 				drivers</a> in the Docker documentation.</p>
- * 		       <p>Understand the following when specifying a log configuration for your
- * 			containers.</p>
- * 		       <ul>
- *             <li>
- * 				           <p>Amazon ECS currently supports a subset of the logging drivers available to the
- * 					Docker daemon (shown in the valid values below). Additional log drivers may be
- * 					available in future releases of the Amazon ECS container agent.</p>
- * 			         </li>
- *             <li>
- * 				           <p>This parameter requires version 1.18 of the Docker Remote API or greater on
- * 					your container instance.</p>
- * 			         </li>
- *             <li>
- * 				           <p>For tasks that are hosted on Amazon EC2 instances, the Amazon ECS container agent must
- * 					register the available logging drivers with the
- * 						<code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before
- * 					containers placed on that instance can use these log configuration options. For
- * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the
- * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 			         </li>
- *             <li>
- * 				           <p>For tasks that are on Fargate, because you don't have access to the
- * 					underlying infrastructure your tasks are hosted on, any additional software
- * 					needed must be installed outside of the task. For example, the Fluentd output
- * 					aggregators or a remote host running Logstash to send Gelf logs to.</p>
- * 			         </li>
- *          </ul>
- */
-export interface LogConfiguration {
-  /**
-   * <p>The log driver to use for the container.</p>
-   * 		       <p>For tasks on Fargate, the supported log drivers are <code>awslogs</code>,
-   * 				<code>splunk</code>, and <code>awsfirelens</code>.</p>
-   * 		       <p>For tasks hosted on Amazon EC2 instances, the supported log drivers are
-   * 				<code>awslogs</code>, <code>fluentd</code>, <code>gelf</code>,
-   * 				<code>json-file</code>, <code>journald</code>,
-   * 				<code>logentries</code>,<code>syslog</code>, <code>splunk</code>, and
-   * 				<code>awsfirelens</code>.</p>
-   * 		       <p>For more information about using the <code>awslogs</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html">Using
-   * 				the awslogs log driver</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>For more information about using the <code>awsfirelens</code> log driver, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html">Custom log routing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <note>
-   * 			         <p>If you have a custom driver that isn't listed, you can fork the Amazon ECS container
-   * 				agent project that's <a href="https://github.com/aws/amazon-ecs-agent">available
-   * 					on GitHub</a> and customize it to work with that driver. We encourage you to
-   * 				submit pull requests for changes that you would like to have included. However, we
-   * 				don't currently provide support for running modified copies of this software.</p>
-   * 		       </note>
-   */
-  logDriver: LogDriver | string | undefined;
-
-  /**
-   * <p>The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: <code>sudo docker version --format '{{.Server.APIVersion}}'</code>
-   *          </p>
-   */
-  options?: Record<string, string>;
-
-  /**
-   * <p>The secrets to pass to the log configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/specifying-sensitive-data.html">Specifying
-   * 				sensitive data</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   */
-  secretOptions?: Secret[];
-}
-
 /**
  * <p>Details for a volume mount point that's used in a container definition.</p>
  */
@@ -3869,6 +4211,12 @@ export interface MountPoint {
    * 			default value is <code>false</code>.</p>
    */
   readOnly?: boolean;
+}
+
+export enum ApplicationProtocol {
+  GRPC = "grpc",
+  HTTP = "http",
+  HTTP2 = "http2",
 }
 
 export enum TransportProtocol {
@@ -3939,6 +4287,32 @@ export interface PortMapping {
    * 				<code>udp</code>. The default is <code>tcp</code>.</p>
    */
   protocol?: TransportProtocol | string;
+
+  /**
+   * <p>The name that's used for the port mapping. This parameter only applies to Service Connect.
+   * 			This parameter is the name that you use in the <code>serviceConnectConfiguration</code>
+   * 			of a service. Up to 64 characters are allowed. The characters can include lowercase letters,
+   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
+   * 			      <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  name?: string;
+
+  /**
+   * <p>The application protocol that's used for the port mapping. This parameter only applies
+   * 			to Service Connect. We recommend that you set this parameter to be consistent with
+   * 			the protocol that your application uses.
+   * 			If you set this parameter, Amazon ECS adds protocol-specific connection
+   * 			handling to the Service Connect proxy.
+   * 			If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.</p>
+   * 		       <p>If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.</p>
+   * 		       <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  appProtocol?: ApplicationProtocol | string;
 }
 
 /**
@@ -4063,12 +4437,12 @@ export interface Ulimit {
   name: UlimitName | string | undefined;
 
   /**
-   * <p>The soft limit for the ulimit type.</p>
+   * <p>The soft limit for the <code>ulimit</code> type.</p>
    */
   softLimit: number | undefined;
 
   /**
-   * <p>The hard limit for the ulimit type.</p>
+   * <p>The hard limit for the <code>ulimit</code> type.</p>
    */
   hardLimit: number | undefined;
 }
@@ -4680,7 +5054,7 @@ export interface ContainerDefinition {
   dockerLabels?: Record<string, string>;
 
   /**
-   * <p>A list of <code>ulimits</code> to set in the container. If a ulimit value is specified
+   * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is specified
    * 			in a task definition, it overrides the default values set by Docker. This parameter maps
    * 			to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. Valid naming values are displayed
@@ -4952,7 +5326,7 @@ export interface RuntimePlatform {
   /**
    * <p>The CPU architecture.</p>
    * 		       <p>You can run your Linux tasks on an ARM-based platform by setting the value to
-   * 				<code>ARM64</code>. This option is avaiable for tasks that run on Linux Amazon EC2
+   * 				<code>ARM64</code>. This option is available for tasks that run on Linux Amazon EC2
    * 			instance or Linux containers on Fargate.</p>
    */
   cpuArchitecture?: CPUArchitecture | string;
@@ -5172,8 +5546,7 @@ export interface HostVolumeProperties {
 }
 
 /**
- * <p>A data volume that's used in a task definition. For tasks that use the Amazon Elastic
- * 			File System (Amazon EFS), specify an <code>efsVolumeConfiguration</code>. For Windows
+ * <p>A data volume that's used in a task definition. For tasks that use the Amazon Elastic File System (Amazon EFS), specify an <code>efsVolumeConfiguration</code>. For Windows
  * 			tasks that use Amazon FSx for Windows File Server file system, specify a
  * 				<code>fsxWindowsFileServerVolumeConfiguration</code>. For tasks that use a Docker
  * 			volume, specify a <code>DockerVolumeConfiguration</code>. For tasks that use a bind
@@ -5658,7 +6031,7 @@ export interface DescribeClustersRequest {
    * <p>Determines whether to include additional information about the clusters in the
    * 			response. If this field is omitted, this information isn't included.</p>
    * 		       <p>If <code>ATTACHMENTS</code> is specified, the attachments for the container instances
-   * 			or tasks within the cluster are included.</p>
+   * 			or tasks within the cluster are included, for example the capacity providers.</p>
    * 		       <p>If <code>SETTINGS</code> is specified, the settings for the cluster are
    * 			included.</p>
    * 		       <p>If <code>CONFIGURATIONS</code> is specified, the configuration for the cluster is
@@ -6130,7 +6503,7 @@ export interface TaskOverride {
   containerOverrides?: ContainerOverride[];
 
   /**
-   * <p>The cpu override for the task.</p>
+   * <p>The CPU override for the task.</p>
    */
   cpu?: string;
 
@@ -6179,7 +6552,10 @@ export interface TaskOverride {
 
 export enum TaskStopCode {
   ESSENTIAL_CONTAINER_EXITED = "EssentialContainerExited",
+  SERVICE_SCHEDULER_INITIATED = "ServiceSchedulerInitiated",
+  SPOT_INTERRUPTION = "SpotInterruption",
   TASK_FAILED_TO_START = "TaskFailedToStart",
+  TERMINATION_NOTICE = "TerminationNotice",
   USER_INITIATED = "UserInitiated",
 }
 
@@ -6627,6 +7003,11 @@ export interface DiscoverPollEndpointResponse {
    * <p>The telemetry endpoint for the Amazon ECS agent.</p>
    */
   telemetryEndpoint?: string;
+
+  /**
+   * <p>The endpoint for the Amazon ECS agent to poll for Service Connect configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectEndpoint?: string;
 }
 
 export interface ExecuteCommandRequest {
@@ -7150,6 +7531,57 @@ export interface ListServicesResponse {
   nextToken?: string;
 }
 
+export interface ListServicesByNamespaceRequest {
+  /**
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace to list the services in.</p>
+   * 		       <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  namespace: string | undefined;
+
+  /**
+   * <p>The <code>nextToken</code> value that's returned from a <code>ListServicesByNamespace</code> request.
+   * 			It indicates that more results are available to fulfill the request and further calls
+   * 			are needed. If <code>maxResults</code> is returned, it is possible the number of results
+   * 			is less than <code>maxResults</code>.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The maximum number of service results that <code>ListServicesByNamespace</code> returns in
+   * 			paginated output. When this parameter is used, <code>ListServicesByNamespace</code> only returns
+   * 			<code>maxResults</code> results in a single page along with a <code>nextToken</code>
+   * 			response element. The remaining results of the initial request can be seen by sending
+   * 			another <code>ListServicesByNamespace</code> request with the returned <code>nextToken</code>
+   * 			value. This value can be between 1 and 100. If
+   * 			this parameter isn't used, then <code>ListServicesByNamespace</code> returns up to
+   * 			10 results and a <code>nextToken</code> value if
+   * 			applicable.</p>
+   */
+  maxResults?: number;
+}
+
+export interface ListServicesByNamespaceResponse {
+  /**
+   * <p>The list of full ARN entries for each service that's associated with the specified
+   * 			namespace.</p>
+   */
+  serviceArns?: string[];
+
+  /**
+   * <p>The <code>nextToken</code> value to include in a future <code>ListServicesByNamespace</code>
+   * 			request. When the results of a <code>ListServicesByNamespace</code> request exceed
+   * 			<code>maxResults</code>, this value can be used to retrieve the next page of
+   * 			results. When there are no more results to
+   * 			return, this value is <code>null</code>.</p>
+   */
+  nextToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the
@@ -7371,6 +7803,8 @@ export interface ListTasksRequest {
    * <p>The <code>startedBy</code> value to filter the task results with. Specifying a
    * 				<code>startedBy</code> value limits the results to tasks that were started with that
    * 			value.</p>
+   * 		       <p>When you specify <code>startedBy</code> as the filter, it must be the only filter that
+   * 			you use.</p>
    */
   startedBy?: string;
 
@@ -8292,7 +8726,7 @@ export interface StartTaskRequest {
 
   /**
    * <p>Specifies whether to use Amazon ECS managed tags for the task. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
+   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   enableECSManagedTags?: boolean;
@@ -8773,6 +9207,22 @@ export interface UpdateClusterRequest {
    * <p>The execute command configuration for the cluster.</p>
    */
   configuration?: ClusterConfiguration;
+
+  /**
+   * <p>Use this parameter to set a default Service Connect namespace. After you set a default
+   * 	Service Connect namespace, any new services with Service Connect turned on that are created in the cluster are added as
+   * 	client services in the namespace. This setting only applies to new services that set the <code>enabled</code> parameter to
+   * 	<code>true</code> in the <code>ServiceConnectConfiguration</code>.
+   * 	You can set the namespace of each service individually in the <code>ServiceConnectConfiguration</code> to override this default
+   * 	parameter.</p>
+   * 	        <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectDefaults?: ClusterServiceConnectDefaultsRequest;
 }
 
 export interface UpdateClusterResponse {
@@ -8793,6 +9243,13 @@ export interface UpdateClusterSettingsRequest {
    * 			Container Insights for a cluster. If this value is specified, it overrides the
    * 				<code>containerInsights</code> value set with <a>PutAccountSetting</a> or
    * 				<a>PutAccountSettingDefault</a>.</p>
+   * 		       <important>
+   * 			         <p>Currently, if you delete an existing cluster that does not have Container Insights
+   * 				turned on, and then create a new cluster with the same name with Container Insights
+   * 				tuned on, Container Insights will not actually be turned on. If you want to preserve
+   * 				the same name for your existing cluster and turn on Container Insights, you must
+   * 				wait 7 days before you can re-create it.</p>
+   * 		       </important>
    */
   settings: ClusterSetting[] | undefined;
 }
@@ -9081,6 +9538,18 @@ export interface UpdateServiceRequest {
    * 			list.</p>
    */
   serviceRegistries?: ServiceRegistry[];
+
+  /**
+   * <p>The configuration for this service to discover and connect to
+   * 	services, and be discovered by, and connected from, other services within a namespace.</p>
+   *          <p>Tasks that run in a namespace can use short names to connect
+   * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
+   * 	Tasks connect through a managed proxy container
+   * 	that collects logs and metrics for increased visibility.
+   * 	Only the tasks that Amazon ECS services create are supported with Service Connect.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   */
+  serviceConnectConfiguration?: ServiceConnectConfiguration;
 }
 
 export interface UpdateServiceResponse {
@@ -9111,7 +9580,7 @@ export interface UpdateServicePrimaryTaskSetRequest {
 
 export interface UpdateServicePrimaryTaskSetResponse {
   /**
-   * <p>etails about the task set.</p>
+   * <p>The details about the task set.</p>
    */
   taskSet?: TaskSet;
 }
@@ -9279,6 +9748,15 @@ export const CapacityProviderStrategyItemFilterSensitiveLog = (obj: CapacityProv
 /**
  * @internal
  */
+export const ClusterServiceConnectDefaultsRequestFilterSensitiveLog = (
+  obj: ClusterServiceConnectDefaultsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ClusterSettingFilterSensitiveLog = (obj: ClusterSetting): any => ({
   ...obj,
 });
@@ -9301,6 +9779,13 @@ export const KeyValuePairFilterSensitiveLog = (obj: KeyValuePair): any => ({
  * @internal
  */
 export const AttachmentFilterSensitiveLog = (obj: Attachment): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ClusterServiceConnectDefaultsFilterSensitiveLog = (obj: ClusterServiceConnectDefaults): any => ({
   ...obj,
 });
 
@@ -9377,6 +9862,41 @@ export const PlacementStrategyFilterSensitiveLog = (obj: PlacementStrategy): any
 /**
  * @internal
  */
+export const SecretFilterSensitiveLog = (obj: Secret): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceConnectClientAliasFilterSensitiveLog = (obj: ServiceConnectClientAlias): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceConnectServiceFilterSensitiveLog = (obj: ServiceConnectService): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceConnectConfigurationFilterSensitiveLog = (obj: ServiceConnectConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ServiceRegistryFilterSensitiveLog = (obj: ServiceRegistry): any => ({
   ...obj,
 });
@@ -9385,6 +9905,13 @@ export const ServiceRegistryFilterSensitiveLog = (obj: ServiceRegistry): any => 
  * @internal
  */
 export const CreateServiceRequestFilterSensitiveLog = (obj: CreateServiceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ServiceConnectServiceResourceFilterSensitiveLog = (obj: ServiceConnectServiceResource): any => ({
   ...obj,
 });
 
@@ -9660,20 +10187,6 @@ export const TmpfsFilterSensitiveLog = (obj: Tmpfs): any => ({
  * @internal
  */
 export const LinuxParametersFilterSensitiveLog = (obj: LinuxParameters): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SecretFilterSensitiveLog = (obj: Secret): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const LogConfigurationFilterSensitiveLog = (obj: LogConfiguration): any => ({
   ...obj,
 });
 
@@ -10121,6 +10634,20 @@ export const ListServicesRequestFilterSensitiveLog = (obj: ListServicesRequest):
  * @internal
  */
 export const ListServicesResponseFilterSensitiveLog = (obj: ListServicesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesByNamespaceRequestFilterSensitiveLog = (obj: ListServicesByNamespaceRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListServicesByNamespaceResponseFilterSensitiveLog = (obj: ListServicesByNamespaceResponse): any => ({
   ...obj,
 });
 

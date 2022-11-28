@@ -60,6 +60,11 @@ import {
   GetDocumentTextDetectionCommandOutput,
 } from "./commands/GetDocumentTextDetectionCommand";
 import { GetExpenseAnalysisCommandInput, GetExpenseAnalysisCommandOutput } from "./commands/GetExpenseAnalysisCommand";
+import { GetLendingAnalysisCommandInput, GetLendingAnalysisCommandOutput } from "./commands/GetLendingAnalysisCommand";
+import {
+  GetLendingAnalysisSummaryCommandInput,
+  GetLendingAnalysisSummaryCommandOutput,
+} from "./commands/GetLendingAnalysisSummaryCommand";
 import {
   StartDocumentAnalysisCommandInput,
   StartDocumentAnalysisCommandOutput,
@@ -72,6 +77,10 @@ import {
   StartExpenseAnalysisCommandInput,
   StartExpenseAnalysisCommandOutput,
 } from "./commands/StartExpenseAnalysisCommand";
+import {
+  StartLendingAnalysisCommandInput,
+  StartLendingAnalysisCommandOutput,
+} from "./commands/StartLendingAnalysisCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -88,9 +97,12 @@ export type ServiceInputTypes =
   | GetDocumentAnalysisCommandInput
   | GetDocumentTextDetectionCommandInput
   | GetExpenseAnalysisCommandInput
+  | GetLendingAnalysisCommandInput
+  | GetLendingAnalysisSummaryCommandInput
   | StartDocumentAnalysisCommandInput
   | StartDocumentTextDetectionCommandInput
-  | StartExpenseAnalysisCommandInput;
+  | StartExpenseAnalysisCommandInput
+  | StartLendingAnalysisCommandInput;
 
 export type ServiceOutputTypes =
   | AnalyzeDocumentCommandOutput
@@ -100,9 +112,12 @@ export type ServiceOutputTypes =
   | GetDocumentAnalysisCommandOutput
   | GetDocumentTextDetectionCommandOutput
   | GetExpenseAnalysisCommandOutput
+  | GetLendingAnalysisCommandOutput
+  | GetLendingAnalysisSummaryCommandOutput
   | StartDocumentAnalysisCommandOutput
   | StartDocumentTextDetectionCommandOutput
-  | StartExpenseAnalysisCommandOutput;
+  | StartExpenseAnalysisCommandOutput
+  | StartLendingAnalysisCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**

@@ -24,10 +24,9 @@ export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if
- *       the index is already being deleted. While the index is being deleted, the
- *         <code>Status</code> field returned by a call to the
- *         <code>DescribeIndex</code> API is set to
+ * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
+ *       already being deleted. While the index is being deleted, the <code>Status</code> field
+ *       returned by a call to the <code>DescribeIndex</code> API is set to
  *       <code>DELETING</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

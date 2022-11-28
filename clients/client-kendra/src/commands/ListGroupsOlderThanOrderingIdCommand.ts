@@ -33,7 +33,7 @@ export interface ListGroupsOlderThanOrderingIdCommandOutput
 /**
  * <p>Provides a list of groups that are mapped to users before a
  *             given ordering or timestamp identifier.</p>
- *         <p>
+ *          <p>
  *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

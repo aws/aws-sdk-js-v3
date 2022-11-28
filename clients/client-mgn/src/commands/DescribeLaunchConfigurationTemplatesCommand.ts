@@ -31,7 +31,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new ReplicationConfigurationTemplate.</p>
+ * <p>Lists all Launch Configuration Templates, filtered by Launch Configuration Template IDs</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

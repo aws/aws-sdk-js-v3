@@ -25,6 +25,7 @@ export * from "./ListAccountSettingsCommand";
 export * from "./ListAttributesCommand";
 export * from "./ListClustersCommand";
 export * from "./ListContainerInstancesCommand";
+export * from "./ListServicesByNamespaceCommand";
 export * from "./ListServicesCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ListTaskDefinitionFamiliesCommand";

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
+
+
+### Features
+
+* **client-textract:** This release adds support for classifying and splitting lending documents by type, and extracting information by using the Analyze Lending APIs. This release also includes support for summarized information of the processed lending document package, in addition to per document results. ([be0312b](https://github.com/aws/aws-sdk-js-v3/commit/be0312bf59290fe1eafdb5802b4b3999cd4ce072))
+
+
+
+
+
 # [3.216.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.215.0...v3.216.0) (2022-11-22)
 
 **Note:** Version bump only for package @aws-sdk/client-textract

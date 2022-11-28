@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: false,
+      required: true,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -241,12 +241,12 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
-                            "us-gov-west-1",
+                            "us-gov-east-1",
                           ],
                         },
                       ],
                       endpoint: {
-                        url: "https://logs.us-gov-west-1.amazonaws.com",
+                        url: "https://logs.us-gov-east-1.amazonaws.com",
                         properties: {},
                         headers: {},
                       },
@@ -260,12 +260,12 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
-                            "us-gov-east-1",
+                            "us-gov-west-1",
                           ],
                         },
                       ],
                       endpoint: {
-                        url: "https://logs.us-gov-east-1.amazonaws.com",
+                        url: "https://logs.us-gov-west-1.amazonaws.com",
                         properties: {},
                         headers: {},
                       },

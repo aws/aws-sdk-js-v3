@@ -82,6 +82,10 @@ import {
 import { CopyDBSnapshotCommandInput, CopyDBSnapshotCommandOutput } from "./commands/CopyDBSnapshotCommand";
 import { CopyOptionGroupCommandInput, CopyOptionGroupCommandOutput } from "./commands/CopyOptionGroupCommand";
 import {
+  CreateBlueGreenDeploymentCommandInput,
+  CreateBlueGreenDeploymentCommandOutput,
+} from "./commands/CreateBlueGreenDeploymentCommand";
+import {
   CreateCustomDBEngineVersionCommandInput,
   CreateCustomDBEngineVersionCommandOutput,
 } from "./commands/CreateCustomDBEngineVersionCommand";
@@ -130,6 +134,10 @@ import {
   CreateGlobalClusterCommandOutput,
 } from "./commands/CreateGlobalClusterCommand";
 import { CreateOptionGroupCommandInput, CreateOptionGroupCommandOutput } from "./commands/CreateOptionGroupCommand";
+import {
+  DeleteBlueGreenDeploymentCommandInput,
+  DeleteBlueGreenDeploymentCommandOutput,
+} from "./commands/DeleteBlueGreenDeploymentCommand";
 import {
   DeleteCustomDBEngineVersionCommandInput,
   DeleteCustomDBEngineVersionCommandOutput,
@@ -187,6 +195,10 @@ import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
 } from "./commands/DescribeAccountAttributesCommand";
+import {
+  DescribeBlueGreenDeploymentsCommandInput,
+  DescribeBlueGreenDeploymentsCommandOutput,
+} from "./commands/DescribeBlueGreenDeploymentsCommand";
 import {
   DescribeCertificatesCommandInput,
   DescribeCertificatesCommandOutput,
@@ -484,6 +496,10 @@ import {
 } from "./commands/StopDBInstanceAutomatedBackupsReplicationCommand";
 import { StopDBInstanceCommandInput, StopDBInstanceCommandOutput } from "./commands/StopDBInstanceCommand";
 import {
+  SwitchoverBlueGreenDeploymentCommandInput,
+  SwitchoverBlueGreenDeploymentCommandOutput,
+} from "./commands/SwitchoverBlueGreenDeploymentCommand";
+import {
   SwitchoverReadReplicaCommandInput,
   SwitchoverReadReplicaCommandOutput,
 } from "./commands/SwitchoverReadReplicaCommand";
@@ -509,6 +525,7 @@ export type ServiceInputTypes =
   | CopyDBParameterGroupCommandInput
   | CopyDBSnapshotCommandInput
   | CopyOptionGroupCommandInput
+  | CreateBlueGreenDeploymentCommandInput
   | CreateCustomDBEngineVersionCommandInput
   | CreateDBClusterCommandInput
   | CreateDBClusterEndpointCommandInput
@@ -525,6 +542,7 @@ export type ServiceInputTypes =
   | CreateEventSubscriptionCommandInput
   | CreateGlobalClusterCommandInput
   | CreateOptionGroupCommandInput
+  | DeleteBlueGreenDeploymentCommandInput
   | DeleteCustomDBEngineVersionCommandInput
   | DeleteDBClusterCommandInput
   | DeleteDBClusterEndpointCommandInput
@@ -543,6 +561,7 @@ export type ServiceInputTypes =
   | DeleteOptionGroupCommandInput
   | DeregisterDBProxyTargetsCommandInput
   | DescribeAccountAttributesCommandInput
+  | DescribeBlueGreenDeploymentsCommandInput
   | DescribeCertificatesCommandInput
   | DescribeDBClusterBacktracksCommandInput
   | DescribeDBClusterEndpointsCommandInput
@@ -632,6 +651,7 @@ export type ServiceInputTypes =
   | StopDBClusterCommandInput
   | StopDBInstanceAutomatedBackupsReplicationCommandInput
   | StopDBInstanceCommandInput
+  | SwitchoverBlueGreenDeploymentCommandInput
   | SwitchoverReadReplicaCommandInput;
 
 export type ServiceOutputTypes =
@@ -648,6 +668,7 @@ export type ServiceOutputTypes =
   | CopyDBParameterGroupCommandOutput
   | CopyDBSnapshotCommandOutput
   | CopyOptionGroupCommandOutput
+  | CreateBlueGreenDeploymentCommandOutput
   | CreateCustomDBEngineVersionCommandOutput
   | CreateDBClusterCommandOutput
   | CreateDBClusterEndpointCommandOutput
@@ -664,6 +685,7 @@ export type ServiceOutputTypes =
   | CreateEventSubscriptionCommandOutput
   | CreateGlobalClusterCommandOutput
   | CreateOptionGroupCommandOutput
+  | DeleteBlueGreenDeploymentCommandOutput
   | DeleteCustomDBEngineVersionCommandOutput
   | DeleteDBClusterCommandOutput
   | DeleteDBClusterEndpointCommandOutput
@@ -682,6 +704,7 @@ export type ServiceOutputTypes =
   | DeleteOptionGroupCommandOutput
   | DeregisterDBProxyTargetsCommandOutput
   | DescribeAccountAttributesCommandOutput
+  | DescribeBlueGreenDeploymentsCommandOutput
   | DescribeCertificatesCommandOutput
   | DescribeDBClusterBacktracksCommandOutput
   | DescribeDBClusterEndpointsCommandOutput
@@ -771,6 +794,7 @@ export type ServiceOutputTypes =
   | StopDBClusterCommandOutput
   | StopDBInstanceAutomatedBackupsReplicationCommandOutput
   | StopDBInstanceCommandOutput
+  | SwitchoverBlueGreenDeploymentCommandOutput
   | SwitchoverReadReplicaCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

@@ -769,6 +769,7 @@ import {
   MetricToRetain,
   MetricValue,
   MitigationActionParams,
+  MqttHeaders,
   NonCompliantResource,
   OpenSearchAction,
   OTAUpdateFile,
@@ -792,6 +793,7 @@ import {
   S3Destination,
   S3Location,
   SalesforceAction,
+  SchedulingConfig,
   ServiceUnavailableException,
   SigningProfileParameter,
   SigV4Authorization,
@@ -818,6 +820,7 @@ import {
   UnauthorizedException,
   UpdateCACertificateParams,
   UpdateDeviceCertificateParams,
+  UserProperty,
   VersionConflictException,
   VersionsLimitExceededException,
   ViolationEventAdditionalInfo,
@@ -1695,6 +1698,9 @@ export const serializeAws_restJson1CreateJobCommand = async (
     ...(input.namespaceId != null && { namespaceId: input.namespaceId }),
     ...(input.presignedUrlConfig != null && {
       presignedUrlConfig: serializeAws_restJson1PresignedUrlConfig(input.presignedUrlConfig, context),
+    }),
+    ...(input.schedulingConfig != null && {
+      schedulingConfig: serializeAws_restJson1SchedulingConfig(input.schedulingConfig, context),
     }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagList(input.tags, context) }),
     ...(input.targetSelection != null && { targetSelection: input.targetSelection }),
@@ -22676,6 +22682,19 @@ const serializeAws_restJson1MqttContext = (input: MqttContext, context: __SerdeC
   };
 };
 
+const serializeAws_restJson1MqttHeaders = (input: MqttHeaders, context: __SerdeContext): any => {
+  return {
+    ...(input.contentType != null && { contentType: input.contentType }),
+    ...(input.correlationData != null && { correlationData: input.correlationData }),
+    ...(input.messageExpiry != null && { messageExpiry: input.messageExpiry }),
+    ...(input.payloadFormatIndicator != null && { payloadFormatIndicator: input.payloadFormatIndicator }),
+    ...(input.responseTopic != null && { responseTopic: input.responseTopic }),
+    ...(input.userProperties != null && {
+      userProperties: serializeAws_restJson1UserProperties(input.userProperties, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1NamedShadowNamesFilter = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -22884,6 +22903,7 @@ const serializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
 
 const serializeAws_restJson1RepublishAction = (input: RepublishAction, context: __SerdeContext): any => {
   return {
+    ...(input.headers != null && { headers: serializeAws_restJson1MqttHeaders(input.headers, context) }),
     ...(input.qos != null && { qos: input.qos }),
     ...(input.roleArn != null && { roleArn: input.roleArn }),
     ...(input.topic != null && { topic: input.topic }),
@@ -22963,6 +22983,14 @@ const serializeAws_restJson1SalesforceAction = (input: SalesforceAction, context
   return {
     ...(input.token != null && { token: input.token }),
     ...(input.url != null && { url: input.url }),
+  };
+};
+
+const serializeAws_restJson1SchedulingConfig = (input: SchedulingConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.endBehavior != null && { endBehavior: input.endBehavior }),
+    ...(input.endTime != null && { endTime: input.endTime }),
+    ...(input.startTime != null && { startTime: input.startTime }),
   };
 };
 
@@ -23294,6 +23322,21 @@ const serializeAws_restJson1UpdateDeviceCertificateParams = (
 ): any => {
   return {
     ...(input.action != null && { action: input.action }),
+  };
+};
+
+const serializeAws_restJson1UserProperties = (input: UserProperty[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1UserProperty(entry, context);
+    });
+};
+
+const serializeAws_restJson1UserProperty = (input: UserProperty, context: __SerdeContext): any => {
+  return {
+    ...(input.key != null && { key: input.key }),
+    ...(input.value != null && { value: input.value }),
   };
 };
 
@@ -24947,6 +24990,10 @@ const deserializeAws_restJson1Job = (output: any, context: __SerdeContext): Job 
         ? deserializeAws_restJson1PresignedUrlConfig(output.presignedUrlConfig, context)
         : undefined,
     reasonCode: __expectString(output.reasonCode),
+    schedulingConfig:
+      output.schedulingConfig != null
+        ? deserializeAws_restJson1SchedulingConfig(output.schedulingConfig, context)
+        : undefined,
     status: __expectString(output.status),
     targetSelection: __expectString(output.targetSelection),
     targets: output.targets != null ? deserializeAws_restJson1JobTargets(output.targets, context) : undefined,
@@ -25455,6 +25502,20 @@ const deserializeAws_restJson1MitigationActionParams = (
     updateDeviceCertificateParams:
       output.updateDeviceCertificateParams != null
         ? deserializeAws_restJson1UpdateDeviceCertificateParams(output.updateDeviceCertificateParams, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1MqttHeaders = (output: any, context: __SerdeContext): MqttHeaders => {
+  return {
+    contentType: __expectString(output.contentType),
+    correlationData: __expectString(output.correlationData),
+    messageExpiry: __expectString(output.messageExpiry),
+    payloadFormatIndicator: __expectString(output.payloadFormatIndicator),
+    responseTopic: __expectString(output.responseTopic),
+    userProperties:
+      output.userProperties != null
+        ? deserializeAws_restJson1UserProperties(output.userProperties, context)
         : undefined,
   } as any;
 };
@@ -25970,6 +26031,7 @@ const deserializeAws_restJson1ReplaceDefaultPolicyVersionParams = (
 
 const deserializeAws_restJson1RepublishAction = (output: any, context: __SerdeContext): RepublishAction => {
   return {
+    headers: output.headers != null ? deserializeAws_restJson1MqttHeaders(output.headers, context) : undefined,
     qos: __expectInt32(output.qos),
     roleArn: __expectString(output.roleArn),
     topic: __expectString(output.topic),
@@ -26137,6 +26199,14 @@ const deserializeAws_restJson1ScheduledAuditMetadataList = (
       return deserializeAws_restJson1ScheduledAuditMetadata(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SchedulingConfig = (output: any, context: __SerdeContext): SchedulingConfig => {
+  return {
+    endBehavior: __expectString(output.endBehavior),
+    endTime: __expectString(output.endTime),
+    startTime: __expectString(output.startTime),
+  } as any;
 };
 
 const deserializeAws_restJson1SearchableAttributes = (output: any, context: __SerdeContext): string[] => {
@@ -26948,6 +27018,25 @@ const deserializeAws_restJson1UpdateDeviceCertificateParams = (
 ): UpdateDeviceCertificateParams => {
   return {
     action: __expectString(output.action),
+  } as any;
+};
+
+const deserializeAws_restJson1UserProperties = (output: any, context: __SerdeContext): UserProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1UserProperty(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1UserProperty = (output: any, context: __SerdeContext): UserProperty => {
+  return {
+    key: __expectString(output.key),
+    value: __expectString(output.value),
   } as any;
 };
 

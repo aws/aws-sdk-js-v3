@@ -32,9 +32,9 @@ export interface DescribeQuerySuggestionsConfigCommandOutput
 
 /**
  * <p>Gets information on the settings of query suggestions for an index.</p>
- *         <p>This is used to check the current settings applied
+ *          <p>This is used to check the current settings applied
  *             to query suggestions.</p>
- *         <p>
+ *          <p>
  *             <code>DescribeQuerySuggestionsConfig</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

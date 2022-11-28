@@ -35,7 +35,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  *             user and group access information for your documents. This is useful
  *             for user context filtering, where search results are filtered based
  *             on the user or their group access to documents.</p>
- *         <p>You can use this to re-configure your existing document level access control without
+ *          <p>You can use this to re-configure your existing document level access control without
  *             indexing all of your documents again. For example, your index contains top-secret
  *             company documents that only certain employees or users should access. One of these users
  *             leaves the company or switches to a team that should be blocked from accessing
@@ -45,7 +45,7 @@ export interface CreateAccessControlConfigurationCommandOutput
  *             access. You can later update the access control configuration to allow access if the
  *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
  *             access control for your documents as circumstances change.</p>
- *         <p>To apply your access control configuration to certain documents, you call
+ *          <p>To apply your access control configuration to certain documents, you call
  *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
  *             API with the <code>AccessControlConfigurationId</code> included in the
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>

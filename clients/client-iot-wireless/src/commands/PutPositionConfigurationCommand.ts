@@ -29,7 +29,13 @@ export interface PutPositionConfigurationCommandInput extends PutPositionConfigu
 export interface PutPositionConfigurationCommandOutput extends PutPositionConfigurationResponse, __MetadataBearer {}
 
 /**
+ * @deprecated
+ *
  * <p>Put position configuration for a given resource.</p>
+ *         <important>
+ *             <p>This action is no longer supported. Calls to update the position configuration
+ *                 should use the <a href="https://docs.aws.amazon.com/iot-wireless/2020-11-22/apireference/API_UpdateResourcePosition.html">UpdateResourcePosition</a> API operation instead.</p>
+ *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

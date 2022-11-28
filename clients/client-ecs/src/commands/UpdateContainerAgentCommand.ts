@@ -41,6 +41,11 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 					Amazon ECS container agent</a> in the
  * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
+ * 		       <note>
+ * 			         <p>Agent updates with the <code>UpdateContainerAgent</code> API operation do not
+ * 				apply to Windows container instances. We recommend that you launch new container
+ * 				instances to update the agent version in your Windows clusters.</p>
+ * 		       </note>
  * 		       <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
  * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
  * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the

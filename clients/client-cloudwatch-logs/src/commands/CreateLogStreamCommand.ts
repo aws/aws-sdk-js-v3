@@ -38,7 +38,7 @@ export interface CreateLogStreamCommandOutput extends __MetadataBearer {}
  *                <p>Log stream names can be between 1 and 512 characters long.</p>
  *             </li>
  *             <li>
- *                <p>The ':' (colon) and '*' (asterisk) characters are not allowed.</p>
+ *                <p>Don't use ':' (colon) or '*' (asterisk) characters.</p>
  *             </li>
  *          </ul>
  * @example

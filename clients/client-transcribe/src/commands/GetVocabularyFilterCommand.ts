@@ -30,12 +30,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
 
 /**
  * <p>Provides information about the specified custom vocabulary filter.</p>
- *         <p>To view the status of the specified vocabulary filter, check the <code>VocabularyState</code>
- *             field. If the status is <code>READY</code>, your vocabulary is available to use. If the status is
- *             <code>FAILED</code>, <code>FailureReason</code> provides details on why your vocabulary
- *             filter failed.</p>
- *         <p>To get a list of your custom vocabulary filters, use the
- *              operation.</p>
+ *         <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
