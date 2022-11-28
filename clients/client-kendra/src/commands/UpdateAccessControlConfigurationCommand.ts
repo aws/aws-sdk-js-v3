@@ -35,7 +35,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *             includes user and group access information for your documents. This is useful
  *             for user context filtering, where search results are filtered based on the user
  *             or their group access to documents.</p>
- *         <p>You can update an access control configuration you created without indexing all
+ *          <p>You can update an access control configuration you created without indexing all
  *             of your documents again. For example, your index contains top-secret company
  *             documents that only certain employees or users should access. You created an 'allow'
  *             access control configuration for one user who recently joined the 'top-secret' team,
@@ -43,7 +43,7 @@ export interface UpdateAccessControlConfigurationCommandOutput
  *             suddenly returns to their previous team and should no longer have access to top secret
  *             documents. You can update the access control configuration to re-configure access
  *             control for your documents as circumstances change.</p>
- *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
+ *          <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
  *             apply the updated access control configuration, with the
  *                 <code>AccessControlConfigurationId</code> included in the
  *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>

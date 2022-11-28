@@ -26,7 +26,7 @@ export interface SubmitFeedbackCommandOutput extends __MetadataBearer {}
 /**
  * <p>Enables you to provide feedback to Amazon Kendra to improve the
  *             performance of your index.</p>
- *         <p>
+ *          <p>
  *             <code>SubmitFeedback</code> is currently not supported in the
  *             Amazon Web Services GovCloud (US-West) region.</p>
  * @example

@@ -379,12 +379,12 @@ export class Kendra extends KendraClient {
    * <p>Returns the indexing status for one or more documents submitted
    *             with the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">
    *                 BatchPutDocument</a> API.</p>
-   *         <p>When you use the <code>BatchPutDocument</code> API,
+   *          <p>When you use the <code>BatchPutDocument</code> API,
    *             documents are indexed asynchronously. You can use the
    *                 <code>BatchGetDocumentStatus</code> API to get the current
    *             status of a list of documents so that you can determine if they have
    *             been successfully indexed.</p>
-   *         <p>You can also use the <code>BatchGetDocumentStatus</code> API
+   *          <p>You can also use the <code>BatchGetDocumentStatus</code> API
    *             to check the status of the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchDeleteDocument.html">
    *                 BatchDeleteDocument</a> API. When a document is
    *             deleted from the index, Amazon Kendra returns <code>NOT_FOUND</code> as the
@@ -464,13 +464,13 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Clears existing query suggestions from an index.</p>
-   *         <p>This deletes existing suggestions only, not the queries
+   *          <p>This deletes existing suggestions only, not the queries
    *             in the query log. After you clear suggestions, Amazon Kendra learns
    *             new suggestions based on new queries added to the query log
    *             from the time you cleared suggestions. If you do not see any
    *             new suggestions, then please allow Amazon Kendra to collect
    *             enough queries to learn new suggestions.</p>
-   *         <p>
+   *          <p>
    *             <code>ClearQuerySuggestions</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -508,7 +508,7 @@ export class Kendra extends KendraClient {
    *             user and group access information for your documents. This is useful
    *             for user context filtering, where search results are filtered based
    *             on the user or their group access to documents.</p>
-   *         <p>You can use this to re-configure your existing document level access control without
+   *          <p>You can use this to re-configure your existing document level access control without
    *             indexing all of your documents again. For example, your index contains top-secret
    *             company documents that only certain employees or users should access. One of these users
    *             leaves the company or switches to a team that should be blocked from accessing
@@ -518,7 +518,7 @@ export class Kendra extends KendraClient {
    *             access. You can later update the access control configuration to allow access if the
    *             user returns to the company and re-joins the 'top-secret' team. You can re-configure
    *             access control for your documents as circumstances change.</p>
-   *         <p>To apply your access control configuration to certain documents, you call
+   *          <p>To apply your access control configuration to certain documents, you call
    *             the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a>
    *             API with the <code>AccessControlConfigurationId</code> included in the
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
@@ -638,8 +638,8 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates an new set of frequently asked question (FAQ) questions and answers.</p>
-   *         <p>Adding FAQs to an index is an asynchronous operation.</p>
-   *         <p>For an example of adding an FAQ to an index using Python and Java SDKs,
+   *          <p>Adding FAQs to an index is an asynchronous operation.</p>
+   *          <p>For an example of adding an FAQ to an index using Python and Java SDKs,
    *             see <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html#using-faq-file">Using your
    *                 FAQ file</a>.</p>
    */
@@ -667,18 +667,16 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Creates an Amazon Kendra index. Index creation is an asynchronous
-   *       API. To determine if index creation has completed, check the
-   *         <code>Status</code> field returned from a call to
-   *         <code>DescribeIndex</code>. The <code>Status</code> field is set to
-   *         <code>ACTIVE</code> when the index is ready to use.</p>
+   * <p>Creates an Amazon Kendra index. Index creation is an asynchronous API. To determine
+   *       if index creation has completed, check the <code>Status</code> field returned from a call to
+   *         <code>DescribeIndex</code>. The <code>Status</code> field is set to <code>ACTIVE</code> when
+   *       the index is ready to use.</p>
    *          <p>Once the index is active you can index your documents using the
-   *         <code>BatchPutDocument</code> API or using one of the supported
-   *       data sources.</p>
-   *          <p>For an example of creating an index and data source using the Python SDK,
-   *       see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting
-   *         started with Python SDK</a>. For an example of creating an index and data
-   *       source using the Java SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java SDK</a>.</p>
+   *         <code>BatchPutDocument</code> API or using one of the supported data sources.</p>
+   *          <p>For an example of creating an index and data source using the Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-python.html">Getting started with Python
+   *         SDK</a>. For an example of creating an index and data source using the Java SDK, see
+   *         <a href="https://docs.aws.amazon.com/kendra/latest/dg/gs-java.html">Getting started with Java
+   *         SDK</a>.</p>
    */
   public createIndex(args: CreateIndexCommandInput, options?: __HttpHandlerOptions): Promise<CreateIndexCommandOutput>;
   public createIndex(args: CreateIndexCommandInput, cb: (err: any, data?: CreateIndexCommandOutput) => void): void;
@@ -705,18 +703,18 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Creates a block list to exlcude certain queries from suggestions.</p>
-   *         <p>Any query that contains words or phrases specified in the block
+   *          <p>Any query that contains words or phrases specified in the block
    *             list is blocked or filtered out from being shown as a suggestion.</p>
-   *         <p>You need to provide the file location of your block list text file
+   *          <p>You need to provide the file location of your block list text file
    *             in your S3 bucket. In your text file, enter each block word or phrase
    *             on a separate line.</p>
-   *         <p>For information on the current quota limits for block lists, see
+   *          <p>For information on the current quota limits for block lists, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
    *                 for Amazon Kendra</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>CreateQuerySuggestionsBlockList</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
-   *         <p>For an example of creating a block list for query suggestions using the
+   *          <p>For an example of creating a block list for query suggestions using the
    *             Python SDK, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/query-suggestions.html#suggestions-block-list">Query
    *                 suggestions block list</a>.</p>
    */
@@ -916,10 +914,9 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if
-   *       the index is already being deleted. While the index is being deleted, the
-   *         <code>Status</code> field returned by a call to the
-   *         <code>DescribeIndex</code> API is set to
+   * <p>Deletes an existing Amazon Kendra index. An exception is not thrown if the index is
+   *       already being deleted. While the index is being deleted, the <code>Status</code> field
+   *       returned by a call to the <code>DescribeIndex</code> API is set to
    *       <code>DELETING</code>.</p>
    */
   public deleteIndex(args: DeleteIndexCommandInput, options?: __HttpHandlerOptions): Promise<DeleteIndexCommandOutput>;
@@ -948,17 +945,17 @@ export class Kendra extends KendraClient {
   /**
    * <p>Deletes a group so that all users and sub groups that belong to the group can
    *             no longer access documents only available to that group.</p>
-   *         <p>For example, after deleting the group "Summer Interns", all interns who
+   *          <p>For example, after deleting the group "Summer Interns", all interns who
    *             belonged to that group no longer see intern-only documents in their search
    *             results.</p>
-   *         <p>If you want to delete or replace users or sub groups of a group, you need to
+   *          <p>If you want to delete or replace users or sub groups of a group, you need to
    *             use the <code>PutPrincipalMapping</code> operation. For example, if a user in
    *             the group "Engineering" leaves the engineering team and another user takes
    *             their place, you provide an updated list of users or sub groups that belong
    *             to the "Engineering" group when calling <code>PutPrincipalMapping</code>. You
    *             can update your internal list of users or sub groups and input this list
    *             when calling <code>PutPrincipalMapping</code>.</p>
-   *         <p>
+   *          <p>
    *             <code>DeletePrincipalMapping</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -993,10 +990,10 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Deletes a block list used for query suggestions for an index.</p>
-   *         <p>A deleted block list might not take effect right away. Amazon Kendra
+   *          <p>A deleted block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to add back the
    *             queries that were previously blocked.</p>
-   *         <p>
+   *          <p>
    *             <code>DeleteQuerySuggestionsBlockList</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1229,7 +1226,7 @@ export class Kendra extends KendraClient {
    *             when actions were received by Amazon Kendra, the latest action that should process
    *             and apply after other actions, and useful error messages if an action could
    *             not be processed.</p>
-   *         <p>
+   *          <p>
    *             <code>DescribePrincipalMapping</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1265,9 +1262,9 @@ export class Kendra extends KendraClient {
   /**
    * <p>Gets information about a block list used for query suggestions for
    *             an index.</p>
-   *         <p>This is used to check the current settings that are applied to a
+   *          <p>This is used to check the current settings that are applied to a
    *             block list.</p>
-   *         <p>
+   *          <p>
    *             <code>DescribeQuerySuggestionsBlockList</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1302,9 +1299,9 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Gets information on the settings of query suggestions for an index.</p>
-   *         <p>This is used to check the current settings applied
+   *          <p>This is used to check the current settings applied
    *             to query suggestions.</p>
-   *         <p>
+   *          <p>
    *             <code>DescribeQuerySuggestionsConfig</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1443,7 +1440,7 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Fetches the queries that are suggested to your users.</p>
-   *         <p>
+   *          <p>
    *             <code>GetQuerySuggestions</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1739,7 +1736,7 @@ export class Kendra extends KendraClient {
   /**
    * <p>Provides a list of groups that are mapped to users before a
    *             given ordering or timestamp identifier.</p>
-   *         <p>
+   *          <p>
    *             <code>ListGroupsOlderThanOrderingId</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1800,10 +1797,10 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Lists the block lists used for query suggestions for an index.</p>
-   *         <p>For information on the current quota limits for block lists, see
+   *          <p>For information on the current quota limits for block lists, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/quotas.html">Quotas
    *                 for Amazon Kendra</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>ListQuerySuggestionsBlockLists</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1901,21 +1898,21 @@ export class Kendra extends KendraClient {
   /**
    * <p>Maps users to their groups so that you only need to provide
    *             the user ID when you issue the query.</p>
-   *         <p>You can also map sub groups to groups.
+   *          <p>You can also map sub groups to groups.
    *             For example, the group "Company Intellectual Property Teams" includes
    *             sub groups "Research" and "Engineering". These sub groups include their
    *             own list of users or people who work in these teams. Only users who work
    *             in research and engineering, and therefore belong in the intellectual
    *             property group, can see top-secret company documents in their search
    *             results.</p>
-   *         <p>This is useful for user context filtering, where search results are
+   *          <p>This is useful for user context filtering, where search results are
    *             filtered based on the user or their group access to documents. For more
    *             information, see
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/user-context-filter.html">Filtering
    *                 on user context</a>.</p>
-   *         <p>If more than five <code>PUT</code> actions for a group are currently
+   *          <p>If more than five <code>PUT</code> actions for a group are currently
    *             processing, a validation exception is thrown.</p>
-   *         <p>
+   *          <p>
    *             <code>PutPrincipalMapping</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -1949,14 +1946,13 @@ export class Kendra extends KendraClient {
   }
 
   /**
-   * <p>Searches an active index. Use this API to search your documents
-   *          using query. The <code>Query</code> API enables to do faceted
-   *          search and to filter results based on document attributes.</p>
-   *          <p>It also enables you to provide user context that Amazon Kendra uses
-   *          to enforce document access control in the search results.</p>
-   *          <p>Amazon Kendra searches your index for text content and question and
-   *          answer (FAQ) content. By default the response contains three types of
-   *          results.</p>
+   * <p>Searches an active index. Use this API to search your documents using query. The
+   *             <code>Query</code> API enables to do faceted search and to filter results based on
+   *          document attributes.</p>
+   *          <p>It also enables you to provide user context that Amazon Kendra uses to enforce
+   *          document access control in the search results.</p>
+   *          <p>Amazon Kendra searches your index for text content and question and answer (FAQ)
+   *          content. By default the response contains three types of results.</p>
    *          <ul>
    *             <li>
    *                <p>Relevant passages</p>
@@ -1968,8 +1964,8 @@ export class Kendra extends KendraClient {
    *                <p>Relevant documents</p>
    *             </li>
    *          </ul>
-   *          <p>You can specify that the query return only one type of result using
-   *          the <code>QueryResultTypeConfig</code> parameter.</p>
+   *          <p>You can specify that the query return only one type of result using the
+   *             <code>QueryResultTypeConfig</code> parameter.</p>
    *          <p>Each query returns the 100 most relevant results. </p>
    */
   public query(args: QueryCommandInput, options?: __HttpHandlerOptions): Promise<QueryCommandOutput>;
@@ -2065,7 +2061,7 @@ export class Kendra extends KendraClient {
   /**
    * <p>Enables you to provide feedback to Amazon Kendra to improve the
    *             performance of your index.</p>
-   *         <p>
+   *          <p>
    *             <code>SubmitFeedback</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -2163,7 +2159,7 @@ export class Kendra extends KendraClient {
    *             includes user and group access information for your documents. This is useful
    *             for user context filtering, where search results are filtered based on the user
    *             or their group access to documents.</p>
-   *         <p>You can update an access control configuration you created without indexing all
+   *          <p>You can update an access control configuration you created without indexing all
    *             of your documents again. For example, your index contains top-secret company
    *             documents that only certain employees or users should access. You created an 'allow'
    *             access control configuration for one user who recently joined the 'top-secret' team,
@@ -2171,7 +2167,7 @@ export class Kendra extends KendraClient {
    *             suddenly returns to their previous team and should no longer have access to top secret
    *             documents. You can update the access control configuration to re-configure access
    *             control for your documents as circumstances change.</p>
-   *         <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
+   *          <p>You call the <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_BatchPutDocument.html">BatchPutDocument</a> API to
    *             apply the updated access control configuration, with the
    *                 <code>AccessControlConfigurationId</code> included in the
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/API_Document.html">Document</a>
@@ -2303,14 +2299,14 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Updates a block list used for query suggestions for an index.</p>
-   *         <p>Updates to a block list might not take effect right away. Amazon Kendra
+   *          <p>Updates to a block list might not take effect right away. Amazon Kendra
    *             needs to refresh the entire suggestions list to apply any updates to the
    *             block list. Other changes not related to the block list apply immediately.</p>
-   *         <p>If a block list is updating, then you need to wait for the first update to
+   *          <p>If a block list is updating, then you need to wait for the first update to
    *             finish before submitting another update.</p>
-   *         <p>Amazon Kendra supports partial updates, so you only need to provide the fields
+   *          <p>Amazon Kendra supports partial updates, so you only need to provide the fields
    *             you want to update.</p>
-   *         <p>
+   *          <p>
    *             <code>UpdateQuerySuggestionsBlockList</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
@@ -2345,15 +2341,15 @@ export class Kendra extends KendraClient {
 
   /**
    * <p>Updates the settings of query suggestions for an index.</p>
-   *         <p>Amazon Kendra supports partial updates, so you only need to provide
+   *          <p>Amazon Kendra supports partial updates, so you only need to provide
    *             the fields you want to update.</p>
-   *         <p>If an update is currently processing (i.e. 'happening'), you
+   *          <p>If an update is currently processing (i.e. 'happening'), you
    *             need to wait for the update to finish before making another update.</p>
-   *         <p>Updates to query suggestions settings might not take effect right away.
+   *          <p>Updates to query suggestions settings might not take effect right away.
    *             The time for your updated settings to take effect depends on the updates
    *             made and the number of search queries in your index.</p>
-   *         <p>You can still enable/disable query suggestions at any time.</p>
-   *         <p>
+   *          <p>You can still enable/disable query suggestions at any time.</p>
+   *          <p>
    *             <code>UpdateQuerySuggestionsConfig</code> is currently not supported in the
    *             Amazon Web Services GovCloud (US-West) region.</p>
    */
