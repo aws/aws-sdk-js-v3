@@ -29,7 +29,9 @@ export interface DescribeAddonVersionsCommandInput extends DescribeAddonVersions
 export interface DescribeAddonVersionsCommandOutput extends DescribeAddonVersionsResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the Kubernetes versions that the add-on can be used with.</p>
+ * <p>Describes the versions for an add-on. Information such as the Kubernetes versions that you
+ *             can use the add-on with, the <code>owner</code>, <code>publisher</code>, and the
+ *                 <code>type</code> of the add-on are returned. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -66,6 +66,21 @@ export interface AddonHealth {
   issues?: AddonIssue[];
 }
 
+/**
+ * <p>Information about an Amazon EKS add-on from the Amazon Web Services Marketplace.</p>
+ */
+export interface MarketplaceInformation {
+  /**
+   * <p>The product ID from the Amazon Web Services Marketplace.</p>
+   */
+  productId?: string;
+
+  /**
+   * <p>The product URL from the Amazon Web Services Marketplace.</p>
+   */
+  productUrl?: string;
+}
+
 export enum AddonStatus {
   ACTIVE = "ACTIVE",
   CREATE_FAILED = "CREATE_FAILED",
@@ -134,6 +149,21 @@ export interface Addon {
    *             tags do not propagate to any other resources associated with the cluster. </p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p>The publisher of the add-on.</p>
+   */
+  publisher?: string;
+
+  /**
+   * <p>The owner of the add-on.</p>
+   */
+  owner?: string;
+
+  /**
+   * <p>Information about an Amazon EKS add-on from the Amazon Web Services Marketplace.</p>
+   */
+  marketplaceInformation?: MarketplaceInformation;
 }
 
 /**
@@ -174,6 +204,11 @@ export interface AddonVersionInfo {
    * <p>An object representing the compatibilities of a version.</p>
    */
   compatibilities?: Compatibility[];
+
+  /**
+   * <p>Whether the add-on requires configuration.</p>
+   */
+  requiresConfiguration?: boolean;
 }
 
 /**
@@ -195,6 +230,21 @@ export interface AddonInfo {
    *             Kubernetes versions.</p>
    */
   addonVersions?: AddonVersionInfo[];
+
+  /**
+   * <p>The publisher of the add-on.</p>
+   */
+  publisher?: string;
+
+  /**
+   * <p>The owner of the add-on.</p>
+   */
+  owner?: string;
+
+  /**
+   * <p>Information about the add-on from the Amazon Web Services Marketplace.</p>
+   */
+  marketplaceInformation?: MarketplaceInformation;
 }
 
 export enum AMITypes {
@@ -868,14 +918,14 @@ export enum IpFamily {
 export interface KubernetesNetworkConfigRequest {
   /**
    * <p>Don't specify a value if you select <code>ipv6</code> for <b>ipFamily</b>. The CIDR block to assign Kubernetes service IP addresses from.
-   *             If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16
-   *             or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not
+   *             If you don't specify a block, Kubernetes assigns addresses from either the <code>10.100.0.0/16</code>
+   *             or <code>172.20.0.0/16</code> CIDR blocks. We recommend that you specify a block that does not
    *             overlap with resources in other networks that are peered or connected to your VPC. The
    *             block must meet the following requirements:</p>
    *         <ul>
    *             <li>
-   *                 <p>Within one of the following private IP address blocks: 10.0.0.0/8,
-   *                     172.16.0.0/12, or 192.168.0.0/16.</p>
+   *                 <p>Within one of the following private IP address blocks: <code>10.0.0.0/8</code>,
+   *                     <code>172.16.0.0/12</code>, or <code>192.168.0.0/16</code>.</p>
    *             </li>
    *             <li>
    *                 <p>Doesn't overlap with any CIDR block assigned to the VPC that you selected for
@@ -897,15 +947,15 @@ export interface KubernetesNetworkConfigRequest {
    *             you don't specify a value, <code>ipv4</code> is used by default. You can only specify an
    *             IP family when you create a cluster and can't change this value once the cluster is
    *             created. If you specify <code>ipv6</code>, the VPC and subnets that you specify for
-   *             cluster creation must have both IPv4 and IPv6 CIDR blocks assigned to them. You can't
+   *             cluster creation must have both <code>IPv4</code> and <code>IPv6</code> CIDR blocks assigned to them. You can't
    *             specify <code>ipv6</code> for clusters in China Regions.</p>
-   *         <p>You can only specify <code>ipv6</code> for 1.21 and later clusters that use version
-   *             1.10.1 or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then ensure
+   *         <p>You can only specify <code>ipv6</code> for <code>1.21</code> and later clusters that use version
+   *             <code>1.10.1</code> or later of the Amazon VPC CNI add-on. If you specify <code>ipv6</code>, then ensure
    *             that your VPC meets the requirements listed in the considerations listed in <a href="https://docs.aws.amazon.com/eks/latest/userguide/cni-ipv6.html">Assigning IPv6
    *                 addresses to pods and services</a> in the Amazon EKS User Guide.
-   *             Kubernetes assigns services IPv6 addresses from the unique local address range
-   *             (fc00::/7). You can't specify a custom IPv6 CIDR block. Pod addresses are assigned from
-   *             the subnet's IPv6 CIDR.</p>
+   *             Kubernetes assigns services <code>IPv6</code> addresses from the unique local address range
+   *             <code>(fc00::/7)</code>. You can't specify a custom <code>IPv6</code> CIDR block. Pod addresses are assigned from
+   *             the subnet's <code>IPv6</code> CIDR.</p>
    */
   ipFamily?: IpFamily | string;
 }
@@ -946,7 +996,7 @@ export interface Logging {
 }
 
 /**
- * <p>The placement configuration for all the control plane instance of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
+ * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
  *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
  *                 considerations</a> in the <i>Amazon EKS User Guide</i>
  *          </p>
@@ -961,15 +1011,14 @@ export interface ControlPlanePlacementRequest {
 
 /**
  * <p>The configuration of your local Amazon EKS cluster on an Amazon Web Services
- *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local cluster on an Outpost</a> in the
- *             <i>Amazon EKS User Guide</i>. This API isn't available for Amazon EKS clusters on the
- *                 Amazon Web Services cloud.</p>
+ *             Outpost. Before creating a cluster on an Outpost, review <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-create.html">Creating a local
+ *                 cluster on an Outpost</a> in the <i>Amazon EKS User Guide</i>. This API isn't available for
+ *                 Amazon EKS clusters on the Amazon Web Services cloud.</p>
  */
 export interface OutpostConfigRequest {
   /**
    * <p>The ARN of the Outpost that you want to use for your local Amazon EKS
-   *             cluster on Outposts. Only a single Outpost ARN is
-   *             supported.</p>
+   *             cluster on Outposts. Only a single Outpost ARN is supported.</p>
    */
   outpostArns: string[] | undefined;
 
@@ -985,8 +1034,8 @@ export interface OutpostConfigRequest {
   controlPlaneInstanceType: string | undefined;
 
   /**
-   * <p>An object representing the placement configuration for all the control plane instance
-   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost.  For more
+   * <p>An object representing the placement configuration for all the control plane instances
+   *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more
    *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
    */
   controlPlanePlacement?: ControlPlanePlacementRequest;
@@ -1068,7 +1117,7 @@ export interface CreateClusterRequest {
    *             the default version available in Amazon EKS is used.</p>
    *         <note>
    *             <p>The default version might not be the latest version available.</p>
-   *          </note>
+   *         </note>
    */
   version?: string;
 
@@ -1131,10 +1180,10 @@ export interface CreateClusterRequest {
   /**
    * <p>An object representing the configuration of your local Amazon EKS cluster on
    *             an Amazon Web Services Outpost. Before creating a local cluster on an Outpost, review
-   *             <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html">Local clusters for Amazon EKS on Amazon Web Services Outposts</a> in
-   *             the <i>Amazon EKS User Guide</i>. This object isn't available for creating Amazon EKS
-   *             clusters on the Amazon Web Services
-   *             cloud.</p>
+   *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-local-cluster-overview.html">Local clusters
+   *                 for Amazon EKS on Amazon Web Services Outposts</a> in the
+   *             <i>Amazon EKS User Guide</i>. This object isn't available for creating Amazon EKS clusters
+   *             on the Amazon Web Services cloud.</p>
    */
   outpostConfig?: OutpostConfigRequest;
 }
@@ -1210,8 +1259,7 @@ export interface ClusterIssue {
   message?: string;
 
   /**
-   * <p>The resource IDs that the issue relates
-   *             to.</p>
+   * <p>The resource IDs that the issue relates to.</p>
    */
   resourceIds?: string[];
 }
@@ -1219,8 +1267,7 @@ export interface ClusterIssue {
 /**
  * <p>An object representing the health of your local Amazon EKS cluster on an
  *                 Amazon Web Services Outpost. You can't use this API with an Amazon EKS
- *             cluster on the Amazon Web Services cloud.
- *             </p>
+ *             cluster on the Amazon Web Services cloud. </p>
  */
 export interface ClusterHealth {
   /**
@@ -1287,7 +1334,7 @@ export interface KubernetesNetworkConfigResponse {
 }
 
 /**
- * <p>The placement configuration for all the control plane instance of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
+ * <p>The placement configuration for all the control plane instances of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more information, see
  *                 <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
  */
 export interface ControlPlanePlacementResponse {
@@ -1311,13 +1358,12 @@ export interface OutpostConfigResponse {
 
   /**
    * <p>The Amazon EC2 instance type used for the control plane. The instance type is
-   *             the same for all control plane
-   *             instances.</p>
+   *             the same for all control plane instances.</p>
    */
   controlPlaneInstanceType: string | undefined;
 
   /**
-   * <p>An object representing the placement configuration for all the control plane instance
+   * <p>An object representing the placement configuration for all the control plane instances
    *             of your local Amazon EKS cluster on an Amazon Web Services Outpost. For more
    *             information, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-outposts-capacity-considerations.html">Capacity
    *                 considerations</a> in the <i>Amazon EKS User Guide</i>.</p>
@@ -2407,7 +2453,7 @@ export interface DeleteAddonRequest {
 
   /**
    * <p>Specifying this option preserves the add-on software on your cluster but Amazon EKS stops managing any settings for the add-on. If an IAM
-   *             account is associated with the add-on, it is not removed.</p>
+   *             account is associated with the add-on, it isn't removed.</p>
    */
   preserve?: boolean;
 }
@@ -2512,7 +2558,7 @@ export interface DescribeAddonResponse {
 
 export interface DescribeAddonVersionsRequest {
   /**
-   * <p>The Kubernetes versions that the add-on can be used with.</p>
+   * <p>The Kubernetes versions that you can use the add-on with.</p>
    */
   kubernetesVersion?: string;
 
@@ -2539,11 +2585,30 @@ export interface DescribeAddonVersionsRequest {
    *             </a>.</p>
    */
   addonName?: string;
+
+  /**
+   * <p>The type of the add-on. For valid <code>types</code>, don't specify a value for this
+   *             property.</p>
+   */
+  types?: string[];
+
+  /**
+   * <p>The publisher of the add-on. For valid <code>publishers</code>, don't specify a value
+   *             for this property.</p>
+   */
+  publishers?: string[];
+
+  /**
+   * <p>The owner of the add-on. For valid <code>owners</code>, don't specify a value for this
+   *             property.</p>
+   */
+  owners?: string[];
 }
 
 export interface DescribeAddonVersionsResponse {
   /**
-   * <p>The list of available versions with Kubernetes version compatibility.</p>
+   * <p>The list of available versions with Kubernetes version compatibility and other
+   *             properties.</p>
    */
   addons?: AddonInfo[];
 
@@ -3417,7 +3482,7 @@ export interface UpdateTaintsPayload {
   addOrUpdateTaints?: Taint[];
 
   /**
-   * <p>Kubernetes taints to be removed.</p>
+   * <p>Kubernetes taints to remove.</p>
    */
   removeTaints?: Taint[];
 }
@@ -3542,6 +3607,13 @@ export const AddonIssueFilterSensitiveLog = (obj: AddonIssue): any => ({
  * @internal
  */
 export const AddonHealthFilterSensitiveLog = (obj: AddonHealth): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MarketplaceInformationFilterSensitiveLog = (obj: MarketplaceInformation): any => ({
   ...obj,
 });
 
