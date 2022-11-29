@@ -18,7 +18,7 @@ import {
   ListThemeVersionsRequestFilterSensitiveLog,
   ListThemeVersionsResponse,
   ListThemeVersionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListThemeVersionsCommand,
   serializeAws_restJson1ListThemeVersionsCommand,

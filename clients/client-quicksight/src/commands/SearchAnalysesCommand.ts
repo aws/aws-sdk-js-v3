@@ -18,7 +18,7 @@ import {
   SearchAnalysesRequestFilterSensitiveLog,
   SearchAnalysesResponse,
   SearchAnalysesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchAnalysesCommand,
   serializeAws_restJson1SearchAnalysesCommand,
@@ -30,9 +30,9 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
 
 /**
  * <p>Searches for analyses that belong to the user specified in the filter.</p>
- *         <note>
+ *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -18,7 +18,7 @@ import {
   DeleteTemplateAliasRequestFilterSensitiveLog,
   DeleteTemplateAliasResponse,
   DeleteTemplateAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteTemplateAliasCommand,
   serializeAws_restJson1DeleteTemplateAliasCommand,

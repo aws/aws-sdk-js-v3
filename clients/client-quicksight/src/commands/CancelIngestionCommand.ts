@@ -18,7 +18,7 @@ import {
   CancelIngestionRequestFilterSensitiveLog,
   CancelIngestionResponse,
   CancelIngestionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1CancelIngestionCommand,
   serializeAws_restJson1CancelIngestionCommand,

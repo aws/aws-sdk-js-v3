@@ -18,7 +18,7 @@ import {
   DescribeDataSetPermissionsRequestFilterSensitiveLog,
   DescribeDataSetPermissionsResponse,
   DescribeDataSetPermissionsResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeDataSetPermissionsCommand,
   serializeAws_restJson1DescribeDataSetPermissionsCommand,
@@ -30,7 +30,7 @@ export interface DescribeDataSetPermissionsCommandOutput extends DescribeDataSet
 
 /**
  * <p>Describes the permissions on a dataset.</p>
- * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

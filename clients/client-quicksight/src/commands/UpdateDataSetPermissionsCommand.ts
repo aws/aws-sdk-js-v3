@@ -18,7 +18,7 @@ import {
   UpdateDataSetPermissionsRequestFilterSensitiveLog,
   UpdateDataSetPermissionsResponse,
   UpdateDataSetPermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSetPermissionsCommand,
   serializeAws_restJson1UpdateDataSetPermissionsCommand,
@@ -30,7 +30,7 @@ export interface UpdateDataSetPermissionsCommandOutput extends UpdateDataSetPerm
 
 /**
  * <p>Updates the permissions on a dataset.</p>
- * 		       <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
+ *          <p>The permissions resource is <code>arn:aws:quicksight:region:aws-account-id:dataset/data-set-id</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

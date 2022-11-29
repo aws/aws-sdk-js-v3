@@ -18,7 +18,7 @@ import {
   CreateThemeRequestFilterSensitiveLog,
   CreateThemeResponse,
   CreateThemeResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateThemeCommand,
   serializeAws_restJson1CreateThemeCommand,
@@ -30,7 +30,7 @@ export interface CreateThemeCommandOutput extends CreateThemeResponse, __Metadat
 
 /**
  * <p>Creates a theme.</p>
- * 		       <p>A <i>theme</i> is set of configuration options for color and layout.
+ *          <p>A <i>theme</i> is set of configuration options for color and layout.
  * 			Themes apply to analyses and dashboards. For more information, see <a href="https://docs.aws.amazon.com/quicksight/latest/user/themes-in-quicksight.html">Using
  * 			Themes in Amazon QuickSight</a> in the <i>Amazon QuickSight User Guide</i>.</p>
  * @example

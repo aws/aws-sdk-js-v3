@@ -18,7 +18,7 @@ import {
   UpdatePublicSharingSettingsRequestFilterSensitiveLog,
   UpdatePublicSharingSettingsResponse,
   UpdatePublicSharingSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdatePublicSharingSettingsCommand,
   serializeAws_restJson1UpdatePublicSharingSettingsCommand,

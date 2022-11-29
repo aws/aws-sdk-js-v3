@@ -18,7 +18,7 @@ import {
   ListTemplateVersionsRequestFilterSensitiveLog,
   ListTemplateVersionsResponse,
   ListTemplateVersionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListTemplateVersionsCommand,
   serializeAws_restJson1ListTemplateVersionsCommand,

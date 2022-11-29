@@ -18,7 +18,7 @@ import {
   TagResourceRequestFilterSensitiveLog,
   TagResourceResponse,
   TagResourceResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1TagResourceCommand,
   serializeAws_restJson1TagResourceCommand,
@@ -30,27 +30,27 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>Assigns one or more tags (key-value pairs) to the specified Amazon QuickSight resource. </p>
- * 		       <p>Tags can help you organize and categorize your resources. You can also use them to
+ *          <p>Tags can help you organize and categorize your resources. You can also use them to
  * 			scope user permissions, by granting a user permission to access or change only resources
  * 			with certain tag values. You can use the <code>TagResource</code> operation with a
  * 			resource that already has tags. If you specify a new tag key for the resource, this tag
  * 			is appended to the list of tags associated with the resource. If you specify a tag key
  * 			that is already associated with the resource, the new tag value that you specify
  * 			replaces the previous value for that tag.</p>
- * 		       <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
+ *          <p>You can associate as many as 50 tags with a resource. Amazon QuickSight supports tagging on data
  * 			set, data source, dashboard, and template. </p>
- * 		       <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
+ *          <p>Tagging for Amazon QuickSight works in a similar way to tagging for other Amazon Web Services services, except for
  * 			the following:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- * 				           <p>You can't use tags to track costs for Amazon QuickSight. This isn't
+ *                <p>You can't use tags to track costs for Amazon QuickSight. This isn't
  * 				possible because you can't tag the resources that Amazon QuickSight costs are based
  * 				on, for example Amazon QuickSight storage capacity (SPICE), number of users, type
  * 				of users, and usage metrics.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
- * 				        </li>
+ *                <p>Amazon QuickSight doesn't currently support the tag editor for Resource Groups.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

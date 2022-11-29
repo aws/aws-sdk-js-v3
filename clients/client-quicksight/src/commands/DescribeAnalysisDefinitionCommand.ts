@@ -14,44 +14,48 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  ListIAMPolicyAssignmentsForUserRequest,
-  ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-  ListIAMPolicyAssignmentsForUserResponse,
-  ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
-} from "../models/models_3";
+  DescribeAnalysisDefinitionRequest,
+  DescribeAnalysisDefinitionRequestFilterSensitiveLog,
+  DescribeAnalysisDefinitionResponse,
+  DescribeAnalysisDefinitionResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
-  deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
-  serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
+  deserializeAws_restJson1DescribeAnalysisDefinitionCommand,
+  serializeAws_restJson1DescribeAnalysisDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
-export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPolicyAssignmentsForUserRequest {}
-export interface ListIAMPolicyAssignmentsForUserCommandOutput
-  extends ListIAMPolicyAssignmentsForUserResponse,
-    __MetadataBearer {}
+export interface DescribeAnalysisDefinitionCommandInput extends DescribeAnalysisDefinitionRequest {}
+export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysisDefinitionResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
- * 			policies assigned to the specified user and group or groups that the user belongs
- * 			to.</p>
+ * <p>Provides a detailed description of the definition of an analysis.</p>
+ *          <note>
+ *             <p>If you do not need to know details about the content of an Analysis, for instance if you
+ *                 are trying to check the status of a recently created or updated Analysis, use the
+ *                 <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeAnalysis.html">
+ *                   <code>DescribeAnalysis</code>
+ *                </a> instead.
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeAnalysisDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeAnalysisDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
+ * const command = new DescribeAnalysisDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
- * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
+ * @see {@link DescribeAnalysisDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeAnalysisDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
-export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
-  ListIAMPolicyAssignmentsForUserCommandInput,
-  ListIAMPolicyAssignmentsForUserCommandOutput,
+export class DescribeAnalysisDefinitionCommand extends $Command<
+  DescribeAnalysisDefinitionCommandInput,
+  DescribeAnalysisDefinitionCommandOutput,
   QuickSightClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +70,7 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListIAMPolicyAssignmentsForUserCommandInput) {
+  constructor(readonly input: DescribeAnalysisDefinitionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +83,23 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListIAMPolicyAssignmentsForUserCommandInput, ListIAMPolicyAssignmentsForUserCommandOutput> {
+  ): Handler<DescribeAnalysisDefinitionCommandInput, DescribeAnalysisDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListIAMPolicyAssignmentsForUserCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeAnalysisDefinitionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListIAMPolicyAssignmentsForUserCommand";
+    const commandName = "DescribeAnalysisDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeAnalysisDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeAnalysisDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +109,15 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListIAMPolicyAssignmentsForUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(input, context);
+  private serialize(input: DescribeAnalysisDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeAnalysisDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> {
-    return deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(output, context);
+  ): Promise<DescribeAnalysisDefinitionCommandOutput> {
+    return deserializeAws_restJson1DescribeAnalysisDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

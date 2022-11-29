@@ -18,7 +18,7 @@ import {
   UpdateDashboardRequestFilterSensitiveLog,
   UpdateDashboardResponse,
   UpdateDashboardResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDashboardCommand,
   serializeAws_restJson1UpdateDashboardCommand,
@@ -30,13 +30,13 @@ export interface UpdateDashboardCommandOutput extends UpdateDashboardResponse, _
 
 /**
  * <p>Updates a dashboard in an Amazon Web Services account.</p>
- *         <note>
+ *          <note>
  *             <p>Updating a Dashboard creates a new dashboard version but does not immediately publish
  *                 the new version.  You can update the published version of a dashboard by
  *                 using the <code>
  *                   <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_UpdateDashboardPublishedVersion.html">UpdateDashboardPublishedVersion</a>
  *                </code> API operation.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

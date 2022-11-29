@@ -18,7 +18,7 @@ import {
   UpdateFolderPermissionsRequestFilterSensitiveLog,
   UpdateFolderPermissionsResponse,
   UpdateFolderPermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateFolderPermissionsCommand,
   serializeAws_restJson1UpdateFolderPermissionsCommand,

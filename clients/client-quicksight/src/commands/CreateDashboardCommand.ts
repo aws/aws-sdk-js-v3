@@ -18,7 +18,7 @@ import {
   CreateDashboardRequestFilterSensitiveLog,
   CreateDashboardResponse,
   CreateDashboardResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateDashboardCommand,
   serializeAws_restJson1CreateDashboardCommand,
@@ -34,7 +34,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateTemplate.html">CreateTemplate</a>
  *             </code>
  *             API operation.</p>
- *         <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
+ *          <p>A dashboard is an entity in Amazon QuickSight that identifies Amazon QuickSight reports, created
  *             from analyses. You can share Amazon QuickSight dashboards. With the right permissions, you can
  *             create scheduled email reports from them. If you have the correct permissions, you can
  *             create a dashboard from a template that exists in a different Amazon Web Services account.</p>

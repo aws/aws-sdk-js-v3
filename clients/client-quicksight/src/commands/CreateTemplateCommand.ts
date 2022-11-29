@@ -18,7 +18,7 @@ import {
   CreateTemplateRequestFilterSensitiveLog,
   CreateTemplateResponse,
   CreateTemplateResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateTemplateCommand,
   serializeAws_restJson1CreateTemplateCommand,
@@ -31,7 +31,7 @@ export interface CreateTemplateCommandOutput extends CreateTemplateResponse, __M
 /**
  * <p>Creates a template from an existing Amazon QuickSight analysis or template. You can use the resulting
  * 			template to create a dashboard.</p>
- * 		       <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
+ *          <p>A <i>template</i> is an entity in Amazon QuickSight that encapsulates the metadata
  * 			required to create an analysis and that you can use to create s dashboard. A template adds
  * 			a layer of abstraction by using placeholders to replace the dataset associated with the
  * 			analysis. You can use templates to create dashboards by replacing dataset placeholders

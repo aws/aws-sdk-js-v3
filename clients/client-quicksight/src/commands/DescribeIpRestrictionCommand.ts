@@ -18,7 +18,7 @@ import {
   DescribeIpRestrictionRequestFilterSensitiveLog,
   DescribeIpRestrictionResponse,
   DescribeIpRestrictionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeIpRestrictionCommand,
   serializeAws_restJson1DescribeIpRestrictionCommand,

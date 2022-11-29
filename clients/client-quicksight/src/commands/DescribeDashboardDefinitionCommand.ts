@@ -14,44 +14,50 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  ListIAMPolicyAssignmentsForUserRequest,
-  ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-  ListIAMPolicyAssignmentsForUserResponse,
-  ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
-} from "../models/models_3";
+  DescribeDashboardDefinitionRequest,
+  DescribeDashboardDefinitionRequestFilterSensitiveLog,
+  DescribeDashboardDefinitionResponse,
+  DescribeDashboardDefinitionResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
-  deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
-  serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
+  deserializeAws_restJson1DescribeDashboardDefinitionCommand,
+  serializeAws_restJson1DescribeDashboardDefinitionCommand,
 } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
-export interface ListIAMPolicyAssignmentsForUserCommandInput extends ListIAMPolicyAssignmentsForUserRequest {}
-export interface ListIAMPolicyAssignmentsForUserCommandOutput
-  extends ListIAMPolicyAssignmentsForUserResponse,
+export interface DescribeDashboardDefinitionCommandInput extends DescribeDashboardDefinitionRequest {}
+export interface DescribeDashboardDefinitionCommandOutput
+  extends DescribeDashboardDefinitionResponse,
     __MetadataBearer {}
 
 /**
- * <p>Lists all the IAM policy assignments, including the Amazon Resource Names (ARNs) for the IAM
- * 			policies assigned to the specified user and group or groups that the user belongs
- * 			to.</p>
+ * <p>Provides a detailed description of the definition of a dashboard.</p>
+ *          <note>
+ *             <p>If you do not need to know details about the content of a dashboard, for instance if you
+ *                 are trying to check the status of a recently created or updated dashboard, use the
+ *                 <a href="https://docs.aws.amazon.com/quicksight/latest/APIReference/API_DescribeDashboard.html">
+ *                   <code>DescribeDashboard</code>
+ *                </a> instead.
+ *             </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
- * // const { QuickSightClient, ListIAMPolicyAssignmentsForUserCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
+ * import { QuickSightClient, DescribeDashboardDefinitionCommand } from "@aws-sdk/client-quicksight"; // ES Modules import
+ * // const { QuickSightClient, DescribeDashboardDefinitionCommand } = require("@aws-sdk/client-quicksight"); // CommonJS import
  * const client = new QuickSightClient(config);
- * const command = new ListIAMPolicyAssignmentsForUserCommand(input);
+ * const command = new DescribeDashboardDefinitionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListIAMPolicyAssignmentsForUserCommandInput} for command's `input` shape.
- * @see {@link ListIAMPolicyAssignmentsForUserCommandOutput} for command's `response` shape.
+ * @see {@link DescribeDashboardDefinitionCommandInput} for command's `input` shape.
+ * @see {@link DescribeDashboardDefinitionCommandOutput} for command's `response` shape.
  * @see {@link QuickSightClientResolvedConfig | config} for QuickSightClient's `config` shape.
  *
  */
-export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
-  ListIAMPolicyAssignmentsForUserCommandInput,
-  ListIAMPolicyAssignmentsForUserCommandOutput,
+export class DescribeDashboardDefinitionCommand extends $Command<
+  DescribeDashboardDefinitionCommandInput,
+  DescribeDashboardDefinitionCommandOutput,
   QuickSightClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +72,7 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListIAMPolicyAssignmentsForUserCommandInput) {
+  constructor(readonly input: DescribeDashboardDefinitionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +85,23 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: QuickSightClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListIAMPolicyAssignmentsForUserCommandInput, ListIAMPolicyAssignmentsForUserCommandOutput> {
+  ): Handler<DescribeDashboardDefinitionCommandInput, DescribeDashboardDefinitionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, ListIAMPolicyAssignmentsForUserCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DescribeDashboardDefinitionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "QuickSightClient";
-    const commandName = "ListIAMPolicyAssignmentsForUserCommand";
+    const commandName = "DescribeDashboardDefinitionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeDashboardDefinitionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeDashboardDefinitionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,18 +111,15 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: ListIAMPolicyAssignmentsForUserCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(input, context);
+  private serialize(input: DescribeDashboardDefinitionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeDashboardDefinitionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<ListIAMPolicyAssignmentsForUserCommandOutput> {
-    return deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand(output, context);
+  ): Promise<DescribeDashboardDefinitionCommandOutput> {
+    return deserializeAws_restJson1DescribeDashboardDefinitionCommand(output, context);
   }
 
   // Start section: command_body_extra

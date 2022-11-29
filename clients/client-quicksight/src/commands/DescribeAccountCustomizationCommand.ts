@@ -18,7 +18,7 @@ import {
   DescribeAccountCustomizationRequestFilterSensitiveLog,
   DescribeAccountCustomizationResponse,
   DescribeAccountCustomizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeAccountCustomizationCommand,
   serializeAws_restJson1DescribeAccountCustomizationCommand,
@@ -35,11 +35,11 @@ export interface DescribeAccountCustomizationCommandOutput
  *             Amazon QuickSight namespace in an Amazon Web Services Region. The Amazon QuickSight console evaluates which
  *             customizations to apply by running this API operation with the <code>Resolved</code> flag
  *             included. </p>
- *         <p>To determine what customizations display when you run this command, it can help to
+ *          <p>To determine what customizations display when you run this command, it can help to
  *             visualize the relationship of the entities involved. </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Amazon Web Services account</code> - The Amazon Web Services account exists at the top of the hierarchy.
  *                     It has the potential to use all of the Amazon Web Services Regions and Amazon Web Services Services. When you
  *                     subscribe to Amazon QuickSight, you choose one Amazon Web Services Region to use as your home Region.
@@ -47,30 +47,30 @@ export interface DescribeAccountCustomizationCommandOutput
  *                     supported Amazon Web Services Region. </p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Amazon Web Services Region</code> - In each Amazon Web Services Region where you sign in to Amazon QuickSight
  *                     at least once, Amazon QuickSight acts as a separate instance of the same service. If
  *                     you have a user directory, it resides in us-east-1, which is the US East (N.
  *                     Virginia). Generally speaking, these users have access to Amazon QuickSight in any
  *                     Amazon Web Services Region, unless they are constrained to a namespace. </p>
- *                 <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
+ *                <p>To run the command in a different Amazon Web Services Region, you change your Region settings.
  *                     If you're using the CLI, you can use one of the following options:</p>
- *                 <ul>
+ *                <ul>
  *                   <li>
- *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command line options</a>. </p>
- *                     </li>
+ *                      <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-options.html">command line options</a>. </p>
+ *                   </li>
  *                   <li>
- *                         <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
- *                     </li>
+ *                      <p>Use <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html">named profiles</a>. </p>
+ *                   </li>
  *                   <li>
- *                         <p>Run <code>aws configure</code> to change your default Amazon Web Services Region. Use
+ *                      <p>Run <code>aws configure</code> to change your default Amazon Web Services Region. Use
  *                             Enter to key the same settings for your keys. For more information, see
  *                             <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the CLI</a>.</p>
- *                     </li>
+ *                   </li>
  *                </ul>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Namespace</code> - A QuickSight namespace is a partition that contains
  *                     users and assets (data sources, datasets, dashboards, and so on). To access
  *                     assets that are in a specific namespace, users and groups must also be part of
@@ -79,7 +79,7 @@ export interface DescribeAccountCustomizationCommandOutput
  *                     and Amazon Web Services Region.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>Applied customizations</code> -  Within an Amazon Web Services Region, a set of
  *                     Amazon QuickSight customizations can apply to an Amazon Web Services account or to a namespace.
  *                     Settings that you apply to a namespace override settings that you apply to an

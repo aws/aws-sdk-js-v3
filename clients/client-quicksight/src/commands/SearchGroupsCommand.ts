@@ -18,7 +18,7 @@ import {
   SearchGroupsRequestFilterSensitiveLog,
   SearchGroupsResponse,
   SearchGroupsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchGroupsCommand,
   serializeAws_restJson1SearchGroupsCommand,

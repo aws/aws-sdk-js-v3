@@ -18,7 +18,7 @@ import {
   UpdateAnalysisPermissionsRequestFilterSensitiveLog,
   UpdateAnalysisPermissionsResponse,
   UpdateAnalysisPermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateAnalysisPermissionsCommand,
   serializeAws_restJson1UpdateAnalysisPermissionsCommand,

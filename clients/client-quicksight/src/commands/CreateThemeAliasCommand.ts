@@ -18,7 +18,7 @@ import {
   CreateThemeAliasRequestFilterSensitiveLog,
   CreateThemeAliasResponse,
   CreateThemeAliasResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateThemeAliasCommand,
   serializeAws_restJson1CreateThemeAliasCommand,

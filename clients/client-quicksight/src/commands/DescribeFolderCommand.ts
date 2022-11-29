@@ -18,7 +18,7 @@ import {
   DescribeFolderRequestFilterSensitiveLog,
   DescribeFolderResponse,
   DescribeFolderResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeFolderCommand,
   serializeAws_restJson1DescribeFolderCommand,

@@ -18,7 +18,7 @@ import {
   CreateGroupRequestFilterSensitiveLog,
   CreateGroupResponse,
   CreateGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateGroupCommand,
   serializeAws_restJson1CreateGroupCommand,
@@ -30,10 +30,10 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
 
 /**
  * <p>Use the <code>CreateGroup</code> operation to create a group in   Amazon QuickSight. You can create up to 10,000 groups in a namespace. If you want to create more than 10,000 groups in a namespace, contact AWS Support.</p>
- * 		       <p>The permissions resource is
+ *          <p>The permissions resource is
  * 					<code>arn:aws:quicksight:<your-region>:<i><relevant-aws-account-id></i>:group/default/<i><group-name></i>
  *             </code>.</p>
- * 		       <p>The response is a group object.</p>
+ *          <p>The response is a group object.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
