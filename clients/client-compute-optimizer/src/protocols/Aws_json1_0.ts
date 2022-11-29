@@ -122,6 +122,7 @@ import {
   ExportEC2InstanceRecommendationsResponse,
   ExportLambdaFunctionRecommendationsRequest,
   ExportLambdaFunctionRecommendationsResponse,
+  ExternalMetricsPreference,
   Filter,
   GetAutoScalingGroupRecommendationsRequest,
   GetAutoScalingGroupRecommendationsResponse,
@@ -1849,6 +1850,15 @@ const serializeAws_json1_0ExportLambdaFunctionRecommendationsRequest = (
   };
 };
 
+const serializeAws_json1_0ExternalMetricsPreference = (
+  input: ExternalMetricsPreference,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.source != null && { source: input.source }),
+  };
+};
+
 const serializeAws_json1_0Filter = (input: Filter, context: __SerdeContext): any => {
   return {
     ...(input.name != null && { name: input.name }),
@@ -2076,6 +2086,12 @@ const serializeAws_json1_0PutRecommendationPreferencesRequest = (
   return {
     ...(input.enhancedInfrastructureMetrics != null && {
       enhancedInfrastructureMetrics: input.enhancedInfrastructureMetrics,
+    }),
+    ...(input.externalMetricsPreference != null && {
+      externalMetricsPreference: serializeAws_json1_0ExternalMetricsPreference(
+        input.externalMetricsPreference,
+        context
+      ),
     }),
     ...(input.inferredWorkloadTypes != null && { inferredWorkloadTypes: input.inferredWorkloadTypes }),
     ...(input.resourceType != null && { resourceType: input.resourceType }),
@@ -2353,6 +2369,10 @@ const deserializeAws_json1_0EffectiveRecommendationPreferences = (
         ? deserializeAws_json1_0CpuVendorArchitectures(output.cpuVendorArchitectures, context)
         : undefined,
     enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
+    externalMetricsPreference:
+      output.externalMetricsPreference != null
+        ? deserializeAws_json1_0ExternalMetricsPreference(output.externalMetricsPreference, context)
+        : undefined,
     inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
   } as any;
 };
@@ -2417,6 +2437,15 @@ const deserializeAws_json1_0ExportLambdaFunctionRecommendationsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_0ExternalMetricsPreference = (
+  output: any,
+  context: __SerdeContext
+): ExternalMetricsPreference => {
+  return {
+    source: __expectString(output.source),
+  } as any;
+};
+
 const deserializeAws_json1_0GetAutoScalingGroupRecommendationsResponse = (
   output: any,
   context: __SerdeContext
@@ -2477,6 +2506,10 @@ const deserializeAws_json1_0GetEffectiveRecommendationPreferencesResponse = (
 ): GetEffectiveRecommendationPreferencesResponse => {
   return {
     enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
+    externalMetricsPreference:
+      output.externalMetricsPreference != null
+        ? deserializeAws_json1_0ExternalMetricsPreference(output.externalMetricsPreference, context)
+        : undefined,
   } as any;
 };
 
@@ -3015,6 +3048,10 @@ const deserializeAws_json1_0RecommendationPreferencesDetail = (
 ): RecommendationPreferencesDetail => {
   return {
     enhancedInfrastructureMetrics: __expectString(output.enhancedInfrastructureMetrics),
+    externalMetricsPreference:
+      output.externalMetricsPreference != null
+        ? deserializeAws_json1_0ExternalMetricsPreference(output.externalMetricsPreference, context)
+        : undefined,
     inferredWorkloadTypes: __expectString(output.inferredWorkloadTypes),
     resourceType: __expectString(output.resourceType),
     scope: output.scope != null ? deserializeAws_json1_0Scope(output.scope, context) : undefined,

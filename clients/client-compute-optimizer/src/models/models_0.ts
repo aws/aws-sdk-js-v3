@@ -101,6 +101,27 @@ export enum EnhancedInfrastructureMetrics {
   INACTIVE = "Inactive",
 }
 
+export enum ExternalMetricsSource {
+  DATADOG = "Datadog",
+  DYNATRACE = "Dynatrace",
+  INSTANA = "Instana",
+  NEWRELIC = "NewRelic",
+}
+
+/**
+ * <p>
+ *             Describes the external metrics preferences for EC2 rightsizing recommendations.
+ *         </p>
+ */
+export interface ExternalMetricsPreference {
+  /**
+   * <p>
+   *             Contains the source options for external metrics preferences.
+   *         </p>
+   */
+  source?: ExternalMetricsSource | string;
+}
+
 export enum InferredWorkloadTypesPreference {
   ACTIVE = "Active",
   INACTIVE = "Inactive",
@@ -151,6 +172,18 @@ export interface EffectiveRecommendationPreferences {
    *             applied to recommendations.</p>
    */
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+
+  /**
+   * <p>
+   *             An object that describes the external metrics recommendation preference.
+   *         </p>
+   *         <p>
+   *             If the preference is applied in the latest recommendation refresh, an object with a valid
+   *             <code>source</code> value appears in the response. If the preference isn't applied to the
+   *             recommendations already, then this object doesn't appear in the response.
+   *         </p>
+   */
+  externalMetricsPreference?: ExternalMetricsPreference;
 }
 
 export enum Finding {
@@ -601,6 +634,7 @@ export interface AutoScalingGroupRecommendation {
 
 export enum RecommendationPreferenceName {
   ENHANCED_INFRASTRUCTURE_METRICS = "EnhancedInfrastructureMetrics",
+  EXTERNAL_METRICS_PREFERENCE = "ExternalMetricsPreference",
   INFERRED_WORKLOAD_TYPES = "InferredWorkloadTypes",
 }
 
@@ -711,9 +745,6 @@ export interface DeleteRecommendationPreferencesRequest {
 
   /**
    * <p>The name of the recommendation preference to delete.</p>
-   *         <p>Enhanced infrastructure metrics (<code>EnhancedInfrastructureMetrics</code>) is the
-   *             only feature that can be activated through preferences. Therefore, it is also the only
-   *             recommendation preference that can be deleted.</p>
    */
   recommendationPreferenceNames: (RecommendationPreferenceName | string)[] | undefined;
 }
@@ -1581,6 +1612,7 @@ export enum ExportableInstanceField {
   CURRENT_VCPUS = "CurrentVCpus",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES = "EffectiveRecommendationPreferencesCpuVendorArchitectures",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS = "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
+  EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE = "EffectiveRecommendationPreferencesExternalMetricsSource",
   EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES = "EffectiveRecommendationPreferencesInferredWorkloadTypes",
   FINDING = "Finding",
   Finding_Reason_Codes = "FindingReasonCodes",
@@ -3007,6 +3039,22 @@ export interface GetEffectiveRecommendationPreferencesResponse {
    *                 Guide</i>.</p>
    */
   enhancedInfrastructureMetrics?: EnhancedInfrastructureMetrics | string;
+
+  /**
+   * <p>The provider of the external metrics recommendation preference. Considers
+   *             all applicable preferences that you might have set at the account and
+   *             organization level.</p>
+   *         <p>If the preference is applied in the latest recommendation refresh, an object with a valid
+   *             <code>source</code> value appears in the response. If the preference isn't applied to the
+   *             recommendations already, then this object doesn't appear in the response.</p>
+   *         <p>To validate whether the preference is applied to your last generated set of
+   *             recommendations, review the <code>effectiveRecommendationPreferences</code> value in the
+   *             response of the <a>GetEC2InstanceRecommendations</a> actions.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
+   *             infrastructure metrics</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
+   */
+  externalMetricsPreference?: ExternalMetricsPreference;
 }
 
 export interface GetEnrollmentStatusRequest {}
@@ -3507,9 +3555,9 @@ export interface RecommendationPreferencesDetail {
 
   /**
    * <p>The status of the enhanced infrastructure metrics recommendation preference.</p>
-   *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
-   *             recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet
-   *             applied to recommendations.</p>
+   *         <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms
+   *             that the preference is applied to the recommendations, and a status of <code>Inactive</code>
+   *             confirms that the preference isn't yet applied to recommendations.</p>
    *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html">Enhanced
    *                 infrastructure metrics</a> in the <i>Compute Optimizer User
    *                 Guide</i>.</p>
@@ -3519,11 +3567,23 @@ export interface RecommendationPreferencesDetail {
   /**
    * <p>The status of the inferred workload types recommendation preference.</p>
    *
-   *         <p>A status of <code>Active</code> confirms that the preference is applied in the latest
-   *             recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet
-   *             applied to recommendations.</p>
+   *         <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms
+   *             that the preference is applied to the recommendations, and a status of <code>Inactive</code>
+   *             confirms that the preference isn't yet applied to recommendations.</p>
    */
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+
+  /**
+   * <p>
+   *             An object that describes the external metrics recommendation preference.
+   *         </p>
+   *         <p>
+   *             If the preference is applied in the latest recommendation refresh, an object with a valid
+   *             <code>source</code> value appears in the response. If the preference isn't applied to the
+   *             recommendations already, then this object doesn't appear in the response.
+   *         </p>
+   */
+  externalMetricsPreference?: ExternalMetricsPreference;
 }
 
 export interface GetRecommendationPreferencesResponse {
@@ -3738,6 +3798,19 @@ export interface PutRecommendationPreferencesRequest {
    *                 types</a> in the <i>Compute Optimizer User Guide</i>.</p>
    */
   inferredWorkloadTypes?: InferredWorkloadTypesPreference | string;
+
+  /**
+   * <p>The provider of the external metrics recommendation preference to create or
+   *             update.</p>
+   *         <p>Specify a valid provider in the <code>source</code> field to activate the preference.
+   *             To delete this preference, see the <a>DeleteRecommendationPreferences</a>
+   *             action.</p>
+   *         <p>This preference can only be set for the <code>Ec2Instance</code> resource type.</p>
+   *         <p>For more information, see <a href="https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html">External
+   *             metrics ingestion</a> in the <i>Compute Optimizer User
+   *                 Guide</i>.</p>
+   */
+  externalMetricsPreference?: ExternalMetricsPreference;
 }
 
 export interface PutRecommendationPreferencesResponse {}
@@ -3801,6 +3874,13 @@ export const AccountEnrollmentStatusFilterSensitiveLog = (obj: AccountEnrollment
  * @internal
  */
 export const AutoScalingGroupConfigurationFilterSensitiveLog = (obj: AutoScalingGroupConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExternalMetricsPreferenceFilterSensitiveLog = (obj: ExternalMetricsPreference): any => ({
   ...obj,
 });
 
