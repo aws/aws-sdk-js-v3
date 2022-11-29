@@ -30,9 +30,8 @@ export interface ListCrawlsCommandOutput extends ListCrawlsResponse, __MetadataB
 
 /**
  * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
- *
- * 	        <p>You may use this API to:</p>
- * 	        <ul>
+ *          <p>You may use this API to:</p>
+ *          <ul>
  *             <li>
  *                <p>Retrive all the crawls of a specified crawler.</p>
  *             </li>

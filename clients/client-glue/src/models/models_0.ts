@@ -180,7 +180,7 @@ export interface GlueStudioSchemaColumn {
 }
 
 /**
- * <p>Specifies a user-defined schema when a schema cannot be determined by AWS Glue.</p>
+ * <p>Specifies a user-defined schema when a schema cannot be determined by Glue.</p>
  */
 export interface GlueSchema {
   /**
@@ -454,8 +454,7 @@ export interface StorageDescriptor {
 
   /**
    * <p>An object that references a schema stored in the Glue Schema Registry.</p>
-   *
-   * 	        <p>When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.</p>
+   *          <p>When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference.</p>
    */
   SchemaReference?: SchemaReference;
 }
@@ -466,8 +465,7 @@ export interface StorageDescriptor {
 export interface PartitionInput {
   /**
    * <p>The values of the partition. Although this parameter is not required by the SDK, you must specify this parameter for a valid input.</p>
-   *
-   * 	        <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise Glue will add the values to the wrong keys.</p>
+   *          <p>The values for the keys for the new partition must be passed as an array of String objects that must be ordered in the same order as the partition keys appearing in the Amazon S3 prefix. Otherwise Glue will add the values to the wrong keys.</p>
    */
   Values?: string[];
 
@@ -986,8 +984,7 @@ export interface Blueprint {
 
   /**
    * <p>The status of the blueprint registration.</p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Creating — The blueprint registration is in progress.</p>
    *             </li>
@@ -1102,8 +1099,7 @@ export enum CrawlerLineageSettings {
 export interface LineageConfiguration {
   /**
    * <p>Specifies whether data lineage is enabled for the crawler. Valid values are:</p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>ENABLE: enables data lineage for the crawler</p>
    *             </li>
@@ -1127,12 +1123,9 @@ export enum RecrawlBehavior {
 export interface RecrawlPolicy {
   /**
    * <p>Specifies whether to crawl the entire dataset again or to crawl only folders that were added since the last crawler run.</p>
-   *
-   * 	        <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p>
-   *
+   *          <p>A value of <code>CRAWL_EVERYTHING</code> specifies crawling the entire dataset again.</p>
    *          <p>A value of <code>CRAWL_NEW_FOLDERS_ONLY</code> specifies crawling only folders that were added since the last crawler run.</p>
-   *
-   * 	        <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
+   *          <p>A value of <code>CRAWL_EVENT_MODE</code> specifies crawling only the changes identified by Amazon S3 events.</p>
    */
   RecrawlBehavior?: RecrawlBehavior | string;
 }
@@ -1253,15 +1246,13 @@ export interface DynamoDBTarget {
 
   /**
    * <p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p>
-   *
-   * 	        <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
+   *          <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
    */
   scanAll?: boolean;
 
   /**
    * <p>The percentage of the configured read capacity units to use by the Glue crawler. Read capacity units is a term defined by DynamoDB, and is a numeric value that acts as rate limiter for the number of reads that can be performed on that table per second.</p>
-   *
-   * 	        <p>The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).</p>
+   *          <p>The valid values are null or a value between 0.1 to 1.5. A null value is used when user does not provide a value, and defaults to 0.5 of the configured Read Capacity Unit (for provisioned tables), or 0.25 of the max configured Read Capacity Unit (for tables using on-demand mode).</p>
    */
   scanRate?: number;
 }
@@ -1293,8 +1284,7 @@ export interface JdbcTarget {
 
   /**
    * <p>Specify a value of <code>RAWTYPES</code> or <code>COMMENTS</code> to enable additional metadata in table responses. <code>RAWTYPES</code> provides the native-level datatype. <code>COMMENTS</code> provides comments associated with a column or table in the database.</p>
-   *
-   * 	        <p>If you do not need additional metadata, keep the field empty.</p>
+   *          <p>If you do not need additional metadata, keep the field empty.</p>
    */
   EnableAdditionalMetadata?: (JdbcMetadataEntry | string)[];
 }
@@ -1315,8 +1305,7 @@ export interface MongoDBTarget {
 
   /**
    * <p>Indicates whether to scan all the records, or to sample rows from the table. Scanning all the records can take a long time when the table is not a high throughput table.</p>
-   *
-   * 	        <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
+   *          <p>A value of <code>true</code> means to scan all records, while a value of <code>false</code> means to sample the records. If no value is specified, the value defaults to <code>true</code>.</p>
    */
   ScanAll?: boolean;
 }
@@ -1540,8 +1529,7 @@ export interface CustomEntityType {
 
   /**
    * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   *
-   * 	        <p>If no context words are passed only a regular expression is checked.</p>
+   *          <p>If no context words are passed only a regular expression is checked.</p>
    */
   ContextWords?: string[];
 }
@@ -1630,7 +1618,7 @@ export interface DevEndpoint {
 
   /**
    * <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -1641,27 +1629,22 @@ export interface DevEndpoint {
    *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
+   *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
   WorkerType?: WorkerType | string;
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *          <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   GlueVersion?: string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *
-   * 		       <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    */
   NumberOfWorkers?: number;
 
@@ -1685,7 +1668,6 @@ export interface DevEndpoint {
    * <p>The paths to one or more Python libraries in an Amazon S3 bucket that should be loaded in
    *       your <code>DevEndpoint</code>. Multiple values must be complete paths separated by a
    *       comma.</p>
-   *
    *          <note>
    *             <p>You can only use pure Python libraries with a <code>DevEndpoint</code>. Libraries that rely on
    *         C extensions, such as the <a href="http://pandas.pydata.org/">pandas</a> Python data
@@ -1752,14 +1734,13 @@ export interface DevEndpoint {
   /**
    * <p>A map of arguments used to configure the <code>DevEndpoint</code>.</p>
    *          <p>Valid arguments are:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>"--enable-glue-datacatalog": ""</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   Arguments?: Record<string, string>;
@@ -2307,10 +2288,99 @@ export interface DropNullFields {
 
   /**
    * <p>A structure that specifies a list of NullValueField structures that represent a custom null value such as zero or other value being used as a null placeholder unique to the dataset.</p>
-   *
    *          <p>The <code>DropNullFields</code> transform removes custom null values only if both the value of the null placeholder and the datatype match the data.</p>
    */
   NullTextList?: NullValueField[];
+}
+
+export enum ParamType {
+  BOOL = "bool",
+  COMPLEX = "complex",
+  FLOAT = "float",
+  INT = "int",
+  LIST = "list",
+  NULL = "null",
+  STR = "str",
+}
+
+/**
+ * <p>Specifies the parameters in the config file of the dynamic transform.</p>
+ */
+export interface TransformConfigParameter {
+  /**
+   * <p>Specifies the name of the parameter in the config file of the dynamic transform.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the parameter type in the config file of the dynamic transform.</p>
+   */
+  Type: ParamType | string | undefined;
+
+  /**
+   * <p>Specifies the validation rule in the config file of the dynamic transform.</p>
+   */
+  ValidationRule?: string;
+
+  /**
+   * <p>Specifies the validation message in the config file of the dynamic transform.</p>
+   */
+  ValidationMessage?: string;
+
+  /**
+   * <p>Specifies the value of the parameter in the config file of the dynamic transform.</p>
+   */
+  Value?: string[];
+
+  /**
+   * <p>Specifies the list type of the parameter in the config file of the dynamic transform.</p>
+   */
+  ListType?: ParamType | string;
+
+  /**
+   * <p>Specifies whether the parameter is optional or not in the config file of the dynamic transform.</p>
+   */
+  IsOptional?: boolean;
+}
+
+/**
+ * <p>Specifies the set of parameters needed to perform the dynamic transform.</p>
+ */
+export interface DynamicTransform {
+  /**
+   * <p>Specifies the name of the dynamic transform.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Specifies the name of the dynamic transform as it appears in the Glue Studio visual editor.</p>
+   */
+  TransformName: string | undefined;
+
+  /**
+   * <p>Specifies the inputs for the dynamic transform that are required.</p>
+   */
+  Inputs: string[] | undefined;
+
+  /**
+   * <p>Specifies the parameters of the dynamic transform.</p>
+   */
+  Parameters?: TransformConfigParameter[];
+
+  /**
+   * <p>Specifies the name of the function of the dynamic transform.</p>
+   */
+  FunctionName: string | undefined;
+
+  /**
+   * <p>Specifies the path of the dynamic transform source and config files.</p>
+   */
+  Path: string | undefined;
+
+  /**
+   * <p>This field is not used and will be deprecated in future release.</p>
+   */
+  Version?: string;
 }
 
 /**
@@ -2599,12 +2669,10 @@ export enum GlueRecordType {
 export interface JDBCConnectorOptions {
   /**
    * <p>Extra condition clause to filter data from source. For example:</p>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>BillingCity='Mountain View'</code>
    *          </p>
-   *
-   * 	        <p>When using a query instead of a table name, you should validate that the query works with the specified <code>filterPredicate</code>.</p>
+   *          <p>When using a query instead of a table name, you should validate that the query works with the specified <code>filterPredicate</code>.</p>
    */
   FilterPredicate?: string;
 
@@ -3788,12 +3856,10 @@ export interface SparkSQL {
 
   /**
    * <p>A list of aliases. An alias allows you to specify what name to use in the SQL for a given input. For example, you have a datasource named "MyDataSource". If you specify <code>From</code> as MyDataSource, and <code>Alias</code> as SqlName, then in your SQL you can do:</p>
-   *
    *          <p>
    *             <code>select *
    * from SqlName</code>
    *          </p>
-   *
    *          <p>and that gets data from MyDataSource.</p>
    */
   SqlAliases: SqlAlias[] | undefined;
@@ -3875,9 +3941,7 @@ export interface Union {
 
   /**
    * <p>Indicates the type of Union transform. </p>
-   *
-   * 	        <p>Specify <code>ALL</code> to join all rows from data sources to the resulting DynamicFrame. The resulting union does not remove duplicate rows.</p>
-   *
+   *          <p>Specify <code>ALL</code> to join all rows from data sources to the resulting DynamicFrame. The resulting union does not remove duplicate rows.</p>
    *          <p>Specify <code>DISTINCT</code> to remove duplicate rows in the resulting DynamicFrame.</p>
    */
   UnionType: UnionType | string | undefined;
@@ -4466,7 +4530,6 @@ export interface JobRun {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) allocated to this JobRun.
    *       From 2 to 100 DPUs can be allocated; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -4483,7 +4546,6 @@ export interface JobRun {
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
    *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
-   *
    *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
    */
   Timeout?: number;
@@ -4493,9 +4555,7 @@ export interface JobRun {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
-   *
    *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
    *          <ul>
@@ -4557,10 +4617,8 @@ export interface JobRun {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    */
   GlueVersion?: string;
 
@@ -4571,10 +4629,8 @@ export interface JobRun {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 }
@@ -5351,7 +5407,7 @@ export interface ConnectionInput {
 
   /**
    * <p>The type of the connection. Currently, these types are supported:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>JDBC</code> - Designates a connection to a database through Java Database Connectivity (JDBC).</p>
@@ -5522,8 +5578,7 @@ export interface CreateCustomEntityTypeRequest {
 
   /**
    * <p>A list of context words. If none of these context words are found within the vicinity of the regular expression the data will not be detected as sensitive data.</p>
-   *
-   * 	        <p>If no context words are passed only a regular expression is checked.</p>
+   *          <p>If no context words are passed only a regular expression is checked.</p>
    */
   ContextWords?: string[];
 }
@@ -5726,7 +5781,6 @@ export interface CreateDevEndpointRequest {
    * <p>A list of public keys to be used by the development endpoints for authentication. The use
    *       of this attribute is preferred over a single public key because the public keys allow you to
    *       have a different private key per client.</p>
-   *
    *          <note>
    *             <p>If you previously created an endpoint with a public key, you must remove that key to be able
    *         to set a list of public keys. Call the <code>UpdateDevEndpoint</code> API with the public
@@ -5744,7 +5798,7 @@ export interface CreateDevEndpointRequest {
 
   /**
    * <p>The type of predefined worker that is allocated to the development endpoint. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -5755,26 +5809,22 @@ export interface CreateDevEndpointRequest {
    *                <p>For the <code>G.2X</code> worker type, each worker maps to 2 DPU (8 vCPU, 32 GB of memory, 128 GB disk), and provides 1 executor per worker. We recommend this worker type for memory-intensive jobs.</p>
    *             </li>
    *          </ul>
-   * 	        <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
+   *          <p>Known issue: when a development endpoint is created with the <code>G.2X</code>
    *             <code>WorkerType</code> configuration, the Spark drivers for the development endpoint will run on 4 vCPU, 16 GB of memory, and a 64 GB disk. </p>
    */
   WorkerType?: WorkerType | string;
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
-   *
-   * 	        <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
+   *          <p>Development endpoints that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   GlueVersion?: string;
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated to the development endpoint.</p>
-   *
-   * 	        <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
+   *          <p>The maximum number of workers you can define are 299 for <code>G.1X</code>, and 149 for <code>G.2X</code>. </p>
    */
   NumberOfWorkers?: number;
 
@@ -5862,7 +5912,6 @@ export interface CreateDevEndpointResponse {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for running your ETL scripts on development endpoints. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
    */
   GlueVersion?: string;
@@ -5912,16 +5961,14 @@ export interface CreateDevEndpointResponse {
 
   /**
    * <p>The map of arguments used to configure this <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>"--enable-glue-datacatalog": ""</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   Arguments?: Record<string, string>;
@@ -5997,10 +6044,8 @@ export interface FindMatchesParameters {
    *       A value of 0.5 means no preference; a value of 1.0 means a bias purely for precision, and a
    *       value of 0.0 means a bias for recall. Because this is a tradeoff, choosing values close to 1.0
    *       means very low recall, and choosing values close to 0.0 results in very low precision.</p>
-   *
-   * 	        <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
-   *
-   * 	        <p>The recall metric indicates that for an actual match, how often your model predicts the
+   *          <p>The precision metric indicates how often your model is correct when it predicts a match. </p>
+   *          <p>The recall metric indicates that for an actual match, how often your model predicts the
    *       match.</p>
    */
   PrecisionRecallTradeoff?: number;
@@ -6011,10 +6056,8 @@ export interface FindMatchesParameters {
    *       means a bias purely for accuracy, which typically results in a higher cost, sometimes
    *       substantially higher. A value of 0.0 means a bias purely for cost, which results in a less
    *       accurate <code>FindMatches</code> transform, sometimes with unacceptable accuracy.</p>
-   *
-   * 	        <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
-   *
-   * 	        <p>Cost measures how many compute resources, and thus money, are consumed to run the
+   *          <p>Accuracy measures how well the transform finds true positives and true negatives. Increasing accuracy requires more machine resources and cost. But it also results in increased recall. </p>
+   *          <p>Cost measures how many compute resources, and thus money, are consumed to run the
    *       transform.</p>
    */
   AccuracyCostTradeoff?: number;
@@ -6037,7 +6080,7 @@ export enum TransformType {
 export interface TransformParameters {
   /**
    * <p>The type of machine learning transform.</p>
-   * 	        <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
+   *          <p>For information about the types of machine learning transforms, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html">Creating Machine Learning Transforms</a>.</p>
    */
   TransformType: TransformType | string | undefined;
 
@@ -6058,8 +6101,7 @@ export enum MLUserDataEncryptionModeString {
 export interface MLUserDataEncryption {
   /**
    * <p>The encryption mode applied to user data. Valid values are:</p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>DISABLED: encryption is disabled</p>
    *             </li>
@@ -6078,8 +6120,7 @@ export interface MLUserDataEncryption {
 
 /**
  * <p>The encryption-at-rest settings of the transform that apply to accessing user data. Machine learning transforms can access user data encrypted in Amazon S3 using KMS.</p>
- *
- * 	        <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
+ *          <p>Additionally, imported labels and trained transforms can now be encrypted using a customer provided KMS key.</p>
  */
 export interface TransformEncryption {
   /**
@@ -6118,8 +6159,7 @@ export interface CreateMLTransformRequest {
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p>
    *             </li>
@@ -6140,10 +6180,9 @@ export interface CreateMLTransformRequest {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *         page</a>. </p>
-   *
-   * 			      <p>
+   *          <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
    *             </li>
@@ -6158,17 +6197,14 @@ export interface CreateMLTransformRequest {
    *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
-   *
-   *
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -6179,10 +6215,9 @@ export interface CreateMLTransformRequest {
    *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
    *             </li>
@@ -6202,8 +6237,7 @@ export interface CreateMLTransformRequest {
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when this task runs.</p>
-   *
-   * 		       <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *          <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
    */
   NumberOfWorkers?: number;
 
@@ -6383,7 +6417,6 @@ export interface CreateSchemaInput {
 
   /**
    * <p>The compatibility mode of the schema. The possible values are:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -6798,7 +6831,7 @@ export interface CreateSessionRequest {
 
   /**
    * <p>The type of predefined worker that is allocated to use for the session. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -6989,7 +7022,7 @@ export interface TableInput {
   /**
    * <p>A list of columns by which the table is partitioned. Only primitive
    *       types are supported as partition keys.</p>
-   * 	        <p>When you create a table used by Amazon Athena, and you do not specify any
+   *          <p>When you create a table used by Amazon Athena, and you do not specify any
    *         <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to
    *       an empty list. For example:</p>
    *          <p>
@@ -7149,57 +7182,6 @@ export interface ResourceUri {
    */
   Uri?: string;
 }
-
-/**
- * <p>A structure used to create or update a user-defined function.</p>
- */
-export interface UserDefinedFunctionInput {
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The Java class that contains the function code.</p>
-   */
-  ClassName?: string;
-
-  /**
-   * <p>The owner of the function.</p>
-   */
-  OwnerName?: string;
-
-  /**
-   * <p>The owner type.</p>
-   */
-  OwnerType?: PrincipalType | string;
-
-  /**
-   * <p>The resource URIs for the function.</p>
-   */
-  ResourceUris?: ResourceUri[];
-}
-
-export interface CreateUserDefinedFunctionRequest {
-  /**
-   * <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services
-   *       account ID is used by default.</p>
-   */
-  CatalogId?: string;
-
-  /**
-   * <p>The name of the catalog database in which to create the function.</p>
-   */
-  DatabaseName: string | undefined;
-
-  /**
-   * <p>A <code>FunctionInput</code> object that defines the function
-   *       to create in the Data Catalog.</p>
-   */
-  FunctionInput: UserDefinedFunctionInput | undefined;
-}
-
-export interface CreateUserDefinedFunctionResponse {}
 
 /**
  * @internal
@@ -7716,6 +7698,20 @@ export const NullValueFieldFilterSensitiveLog = (obj: NullValueField): any => ({
  * @internal
  */
 export const DropNullFieldsFilterSensitiveLog = (obj: DropNullFields): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TransformConfigParameterFilterSensitiveLog = (obj: TransformConfigParameter): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DynamicTransformFilterSensitiveLog = (obj: DynamicTransform): any => ({
   ...obj,
 });
 
@@ -8798,26 +8794,5 @@ export const CreateTriggerResponseFilterSensitiveLog = (obj: CreateTriggerRespon
  * @internal
  */
 export const ResourceUriFilterSensitiveLog = (obj: ResourceUri): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UserDefinedFunctionInputFilterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserDefinedFunctionRequestFilterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
   ...obj,
 });

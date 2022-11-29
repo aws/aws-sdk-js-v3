@@ -45,6 +45,57 @@ import {
   WorkflowRun,
 } from "./models_0";
 
+/**
+ * <p>A structure used to create or update a user-defined function.</p>
+ */
+export interface UserDefinedFunctionInput {
+  /**
+   * <p>The name of the function.</p>
+   */
+  FunctionName?: string;
+
+  /**
+   * <p>The Java class that contains the function code.</p>
+   */
+  ClassName?: string;
+
+  /**
+   * <p>The owner of the function.</p>
+   */
+  OwnerName?: string;
+
+  /**
+   * <p>The owner type.</p>
+   */
+  OwnerType?: PrincipalType | string;
+
+  /**
+   * <p>The resource URIs for the function.</p>
+   */
+  ResourceUris?: ResourceUri[];
+}
+
+export interface CreateUserDefinedFunctionRequest {
+  /**
+   * <p>The ID of the Data Catalog in which to create the function. If none is provided, the Amazon Web Services
+   *       account ID is used by default.</p>
+   */
+  CatalogId?: string;
+
+  /**
+   * <p>The name of the catalog database in which to create the function.</p>
+   */
+  DatabaseName: string | undefined;
+
+  /**
+   * <p>A <code>FunctionInput</code> object that defines the function
+   *       to create in the Data Catalog.</p>
+   */
+  FunctionInput: UserDefinedFunctionInput | undefined;
+}
+
+export interface CreateUserDefinedFunctionResponse {}
+
 export interface CreateWorkflowRequest {
   /**
    * <p>The name to be assigned to the workflow. It should be unique within your account.</p>
@@ -469,7 +520,7 @@ export interface DeleteSchemaVersionsInput {
 
   /**
    * <p>A version range may be supplied which may be of the format:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>a single version number, 5</p>
    *             </li>
@@ -712,8 +763,7 @@ export interface BlueprintRun {
 
   /**
    * <p>The state of the blueprint run. Possible values are:</p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>Running — The blueprint run is in progress.</p>
    *             </li>
@@ -1970,8 +2020,7 @@ export interface GetDatabasesRequest {
 
   /**
    * <p>Allows you to specify that you want to list the databases shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>If set to <code>FOREIGN</code>, will list the databases shared with your account. </p>
    *             </li>
@@ -2009,11 +2058,9 @@ export interface GetDataCatalogEncryptionSettingsRequest {
  *         <code>CreateConnection</code> or <code>UpdateConnection</code> and store it in the
  *         <code>ENCRYPTED_PASSWORD</code> field in the connection properties. You can enable catalog
  *       encryption or only password encryption.</p>
- *
- * 	        <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
+ *          <p>When a <code>CreationConnection</code> request arrives containing a password, the Data
  *       Catalog first encrypts the password using your KMS key. It then encrypts the whole
  *       connection object again if catalog encryption is also enabled.</p>
- *
  *          <p>This encryption requires that you set KMS key permissions to enable or restrict access
  *       on the password key according to your security requirements. For example, you might want only
  *       administrators to have decrypt permission on the password key.</p>
@@ -2026,12 +2073,10 @@ export interface ConnectionPasswordEncryption {
 
   /**
    * <p>An KMS key that is used to encrypt the connection password. </p>
-   *
    *          <p>If connection password protection is enabled, the caller of <code>CreateConnection</code>
    *       and <code>UpdateConnection</code> needs at least <code>kms:Encrypt</code> permission on the
    *       specified KMS key, to encrypt passwords before storing them in the Data Catalog. </p>
-   *
-   * 	        <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
+   *          <p>You can set the decrypt permission to enable or restrict access on the password key according to your security requirements.</p>
    */
   AwsKmsKeyId?: string;
 }
@@ -2684,8 +2729,7 @@ export interface GetMLTransformRequest {
 
 /**
  * <p>A structure containing the column name and column importance score for a column. </p>
- *
- * 	        <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
+ *          <p>Column importance helps you understand how columns contribute to your model, by identifying which columns in your records are more important than others.</p>
  */
 export interface ColumnImportance {
   /**
@@ -2701,8 +2745,7 @@ export interface ColumnImportance {
 
 /**
  * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
- *
- * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+ *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
  */
 export interface ConfusionMatrix {
   /**
@@ -2739,7 +2782,7 @@ export interface FindMatchesMetrics {
    * <p>The area under the precision/recall curve (AUPRC) is a single number measuring the overall
    *       quality of the transform, that is independent of the choice made for precision vs. recall.
    *       Higher values indicate that you have a more attractive precision vs. recall tradeoff.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Precision_and_recall">Precision and recall</a> in Wikipedia.</p>
    */
   AreaUnderPRCurve?: number;
 
@@ -2765,7 +2808,7 @@ export interface FindMatchesMetrics {
 
   /**
    * <p>The confusion matrix shows you what your transform is predicting accurately and what types of errors it is making.</p>
-   * 	        <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
+   *          <p>For more information, see <a href="https://en.wikipedia.org/wiki/Confusion_matrix">Confusion matrix</a> in Wikipedia.</p>
    */
   ConfusionMatrix?: ConfusionMatrix;
 
@@ -2886,14 +2929,13 @@ export interface GetMLTransformResponse {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *         page</a>. </p>
-   *
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -3096,8 +3138,7 @@ export interface MLTransform {
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the IAM role with the required permissions. The required permissions include both Glue service role permissions to Glue resources, and Amazon S3 permissions required by the transform. </p>
-   *
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>This role needs Glue service role permissions to allow access to resources in Glue. See <a href="https://docs.aws.amazon.com/glue/latest/dg/attach-policy-iam-user.html">Attach a Policy to IAM Users That Access Glue</a>.</p>
    *             </li>
@@ -3118,10 +3159,9 @@ export interface MLTransform {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="http://aws.amazon.com/glue/pricing/">Glue pricing
    *         page</a>. </p>
-   *
-   * 		       <p>
+   *          <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
    *             </li>
@@ -3136,14 +3176,13 @@ export interface MLTransform {
    *                   <code>MaxCapacity</code> and <code>NumberOfWorkers</code> must both be at least 1.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
+   *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when a task of this transform runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -3154,10 +3193,9 @@ export interface MLTransform {
    *                <p>For the <code>G.2X</code> worker type, each worker provides 8 vCPU, 32 GB of memory and a 128GB disk, and 1 executor per worker.</p>
    *             </li>
    *          </ul>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>MaxCapacity</code> is a mutually exclusive option with <code>NumberOfWorkers</code> and <code>WorkerType</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>If either <code>NumberOfWorkers</code> or <code>WorkerType</code> is set, then <code>MaxCapacity</code> cannot be set.</p>
    *             </li>
@@ -3177,8 +3215,7 @@ export interface MLTransform {
 
   /**
    * <p>The number of workers of a defined <code>workerType</code> that are allocated when a task of the transform runs.</p>
-   *
-   * 	        <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
+   *          <p>If <code>WorkerType</code> is set, then <code>NumberOfWorkers</code> is required (and vice versa).</p>
    */
   NumberOfWorkers?: number;
 
@@ -3274,10 +3311,8 @@ export enum BackfillErrorCode {
 
 /**
  * <p>A list of errors that can occur when registering partition indexes for an existing table.</p>
- *
- * 	        <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>
- *
- * 	        <ul>
+ *          <p>These errors give the details about why an index registration failed and provide a limited number of partitions in the response, so that you can fix the partitions at fault and try registering the index again. The most common set of errors that can occur are categorized as follows:</p>
+ *          <ul>
  *             <li>
  *                <p>EncryptedPartitionError: The partitions are encrypted.</p>
  *             </li>
@@ -3345,9 +3380,8 @@ export interface PartitionIndexDescriptor {
 
   /**
    * <p>The status of the partition index. </p>
-   *
-   * 	        <p>The possible statuses are:</p>
-   * 	        <ul>
+   *          <p>The possible statuses are:</p>
+   *          <ul>
    *             <li>
    *                <p>CREATING: The index is being created. When an index is in a CREATING state, the index or its table cannot be deleted.</p>
    *             </li>
@@ -3520,7 +3554,6 @@ export interface GetPartitionsRequest {
    *          <p>The following list shows the valid operators on each type. When you define a crawler, the
    *         <code>partitionKey</code> type is created as a <code>STRING</code>, to be compatible with the catalog
    *       partitions. </p>
-   *
    *          <p>
    *             <i>Sample API Call</i>: </p>
    */
@@ -3599,17 +3632,15 @@ export interface GetPlanRequest {
 
   /**
    * <p>A map to hold additional optional key-value parameters.</p>
-   *
-   * 	        <p>Currently, these key-value pairs are supported:</p>
-   *
-   * 	        <ul>
+   *          <p>Currently, these key-value pairs are supported:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>inferSchema</code>  —  Specifies whether to set <code>inferSchema</code> to true or false for the default script generated by an Glue job. For example, to set <code>inferSchema</code> to true, pass the following key value pair:</p>
-   * 	              <p>
+   *                <p>
    *                   <code>--additional-plan-options-map '{"inferSchema":"true"}'</code>
    *                </p>
-   * 	           </li>
+   *             </li>
    *          </ul>
    */
   AdditionalPlanOptionsMap?: Record<string, string>;
@@ -3750,7 +3781,7 @@ export interface GetResourcePolicyResponse {
 export interface GetSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
    *             </li>
@@ -3832,7 +3863,7 @@ export interface GetSchemaResponse {
 export interface GetSchemaByDefinitionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
    *             </li>
@@ -3894,7 +3925,7 @@ export interface SchemaVersionNumber {
 export interface GetSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
    *             </li>
@@ -3960,7 +3991,7 @@ export enum SchemaDiffType {
 export interface GetSchemaVersionsDiffInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
    *             </li>
@@ -4281,7 +4312,7 @@ export interface Table {
   /**
    * <p>A list of columns by which the table is partitioned. Only primitive
    *       types are supported as partition keys.</p>
-   * 	        <p>When you create a table used by Amazon Athena, and you do not specify any
+   *          <p>When you create a table used by Amazon Athena, and you do not specify any
    *         <code>partitionKeys</code>, you must at least set the value of <code>partitionKeys</code> to
    *       an empty list. For example:</p>
    *          <p>
@@ -4957,7 +4988,7 @@ export enum FilterOperator {
 export interface CrawlsFilter {
   /**
    * <p>A key used to filter the crawler runs for a specified crawler. Valid values for each of the field names are:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CRAWL_ID</code>: A string representing the UUID identifier for a crawl.</p>
@@ -4980,7 +5011,7 @@ export interface CrawlsFilter {
 
   /**
    * <p>A defined comparator that operates on the value. The available operators are:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>GT</code>: Greater than.</p>
@@ -5368,7 +5399,7 @@ export interface ListSchemasResponse {
 export interface ListSchemaVersionsInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
    *             </li>
@@ -5653,86 +5684,26 @@ export interface MetadataKeyValuePair {
   MetadataValue?: string;
 }
 
-export interface PutSchemaVersionMetadataInput {
-  /**
-   * <p>The unique ID for the schema.</p>
-   */
-  SchemaId?: SchemaId;
+/**
+ * @internal
+ */
+export const UserDefinedFunctionInputFilterSensitiveLog = (obj: UserDefinedFunctionInput): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The version number of the schema.</p>
-   */
-  SchemaVersionNumber?: SchemaVersionNumber;
+/**
+ * @internal
+ */
+export const CreateUserDefinedFunctionRequestFilterSensitiveLog = (obj: CreateUserDefinedFunctionRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The metadata key's corresponding value.</p>
-   */
-  MetadataKeyValue: MetadataKeyValuePair | undefined;
-}
-
-export interface PutSchemaVersionMetadataResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) for the schema.</p>
-   */
-  SchemaArn?: string;
-
-  /**
-   * <p>The name for the schema.</p>
-   */
-  SchemaName?: string;
-
-  /**
-   * <p>The name for the registry.</p>
-   */
-  RegistryName?: string;
-
-  /**
-   * <p>The latest version of the schema.</p>
-   */
-  LatestVersion?: boolean;
-
-  /**
-   * <p>The version number of the schema.</p>
-   */
-  VersionNumber?: number;
-
-  /**
-   * <p>The unique version ID of the schema version.</p>
-   */
-  SchemaVersionId?: string;
-
-  /**
-   * <p>The metadata key.</p>
-   */
-  MetadataKey?: string;
-
-  /**
-   * <p>The value of the metadata key.</p>
-   */
-  MetadataValue?: string;
-}
-
-export interface PutWorkflowRunPropertiesRequest {
-  /**
-   * <p>Name of the workflow which was run.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>The ID of the workflow run for which the run properties should be updated.</p>
-   */
-  RunId: string | undefined;
-
-  /**
-   * <p>The properties to put for the specified run.</p>
-   */
-  RunProperties: Record<string, string> | undefined;
-}
+/**
+ * @internal
+ */
+export const CreateUserDefinedFunctionResponseFilterSensitiveLog = (obj: CreateUserDefinedFunctionResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7669,26 +7640,5 @@ export const PutResourcePolicyResponseFilterSensitiveLog = (obj: PutResourcePoli
  * @internal
  */
 export const MetadataKeyValuePairFilterSensitiveLog = (obj: MetadataKeyValuePair): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSchemaVersionMetadataInputFilterSensitiveLog = (obj: PutSchemaVersionMetadataInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutSchemaVersionMetadataResponseFilterSensitiveLog = (obj: PutSchemaVersionMetadataResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
   ...obj,
 });

@@ -22,6 +22,7 @@ import {
   DropDuplicates,
   DropFields,
   DropNullFields,
+  DynamicTransform,
   DynamoDBCatalogSource,
   ErrorDetail,
   EventBatchingCondition,
@@ -80,7 +81,6 @@ import {
   TransformParameters,
   Trigger,
   Union,
-  UserDefinedFunctionInput,
   WorkerType,
 } from "./models_0";
 import {
@@ -90,7 +90,89 @@ import {
   ResourceShareType,
   SchemaVersionNumber,
   Table,
+  UserDefinedFunctionInput,
 } from "./models_1";
+
+export interface PutSchemaVersionMetadataInput {
+  /**
+   * <p>The unique ID for the schema.</p>
+   */
+  SchemaId?: SchemaId;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  SchemaVersionNumber?: SchemaVersionNumber;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key's corresponding value.</p>
+   */
+  MetadataKeyValue: MetadataKeyValuePair | undefined;
+}
+
+export interface PutSchemaVersionMetadataResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) for the schema.</p>
+   */
+  SchemaArn?: string;
+
+  /**
+   * <p>The name for the schema.</p>
+   */
+  SchemaName?: string;
+
+  /**
+   * <p>The name for the registry.</p>
+   */
+  RegistryName?: string;
+
+  /**
+   * <p>The latest version of the schema.</p>
+   */
+  LatestVersion?: boolean;
+
+  /**
+   * <p>The version number of the schema.</p>
+   */
+  VersionNumber?: number;
+
+  /**
+   * <p>The unique version ID of the schema version.</p>
+   */
+  SchemaVersionId?: string;
+
+  /**
+   * <p>The metadata key.</p>
+   */
+  MetadataKey?: string;
+
+  /**
+   * <p>The value of the metadata key.</p>
+   */
+  MetadataValue?: string;
+}
+
+export interface PutWorkflowRunPropertiesRequest {
+  /**
+   * <p>Name of the workflow which was run.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The ID of the workflow run for which the run properties should be updated.</p>
+   */
+  RunId: string | undefined;
+
+  /**
+   * <p>The properties to put for the specified run.</p>
+   */
+  RunProperties: Record<string, string> | undefined;
+}
 
 export interface PutWorkflowRunPropertiesResponse {}
 
@@ -181,7 +263,7 @@ export interface QuerySchemaVersionMetadataResponse {
 export interface RegisterSchemaVersionInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. Either <code>SchemaArn</code> or <code>SchemaName</code> and <code>RegistryName</code> has to be provided.</p>
    *             </li>
@@ -462,14 +544,13 @@ export interface SearchTablesRequest {
 
   /**
    * <p>A list of key-value pairs, and a comparator used to filter the search results. Returns all entities matching the predicate.</p>
-   *
-   * 	        <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
+   *          <p>The <code>Comparator</code> member of the <code>PropertyPredicate</code> struct is used only for time fields, and can be omitted for other field types. Also, when comparing string values, such as when <code>Key=Name</code>, a fuzzy match algorithm is used. The <code>Key</code> field (for example, the value of the <code>Name</code> field) is split on certain punctuation characters, for example, -, :, #, etc. into tokens. Then each token is exact-match compared with the <code>Value</code> member of <code>PropertyPredicate</code>. For example, if <code>Key=Name</code> and <code>Value=link</code>, tables named <code>customer-link</code> and <code>xx-link-yy</code> are returned, but <code>xxlinkyy</code> is not returned.</p>
    */
   Filters?: PropertyPredicate[];
 
   /**
    * <p>A string used for a text search.</p>
-   * 	        <p>Specifying a value in quotes filters based on an exact match to the value.</p>
+   *          <p>Specifying a value in quotes filters based on an exact match to the value.</p>
    */
   SearchText?: string;
 
@@ -485,8 +566,7 @@ export interface SearchTablesRequest {
 
   /**
    * <p>Allows you to specify that you want to search the tables shared with your account. The allowable values are <code>FOREIGN</code> or <code>ALL</code>. </p>
-   *
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>If set to <code>FOREIGN</code>, will search the tables shared with your account. </p>
    *             </li>
@@ -696,7 +776,6 @@ export interface StartJobRunRequest {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this JobRun.
    *       You can allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
@@ -708,7 +787,6 @@ export interface StartJobRunRequest {
   /**
    * <p>The <code>JobRun</code> timeout in minutes. This is the maximum time that a job run can
    *       consume resources before it is terminated and enters <code>TIMEOUT</code> status. This value overrides the timeout value set in the parent job.</p>
-   *
    *          <p>Streaming jobs do not have a timeout. The default for non-streaming jobs is 2,880 minutes (48 hours).</p>
    */
   Timeout?: number;
@@ -718,9 +796,7 @@ export interface StartJobRunRequest {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *         pricing page</a>.</p>
-   *
    *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job, or an Apache Spark ETL job:</p>
    *          <ul>
@@ -772,10 +848,8 @@ export interface StartJobRunRequest {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 }
@@ -1525,16 +1599,14 @@ export interface UpdateDevEndpointRequest {
   /**
    * <p>The map of arguments to add the map of arguments used to configure the
    *         <code>DevEndpoint</code>.</p>
-   *
-   * 	        <p>Valid arguments are:</p>
-   * 	        <ul>
+   *          <p>Valid arguments are:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>"--enable-glue-datacatalog": ""</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>You can specify a version of Python support for development endpoints by using the <code>Arguments</code> parameter in the <code>CreateDevEndpoint</code> or <code>UpdateDevEndpoint</code> APIs. If no arguments are provided, the version defaults to Python 2.</p>
    */
   AddArguments?: Record<string, string>;
@@ -1641,14 +1713,13 @@ export interface UpdateMLTransformRequest {
    *       processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more
    *       information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *         page</a>. </p>
-   *
    *          <p>When the <code>WorkerType</code> field is set to a value other than <code>Standard</code>, the <code>MaxCapacity</code> field is set automatically and becomes read-only.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when this task runs. Accepts a value of Standard, G.1X, or G.2X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -1710,8 +1781,7 @@ export interface UpdatePartitionRequest {
 
   /**
    * <p>The new partition object to update the partition to.</p>
-   *
-   * 	        <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
+   *          <p>The <code>Values</code> property can't be changed. If you want to change the partition key values for a partition, delete and recreate the partition.</p>
    */
   PartitionInput: PartitionInput | undefined;
 }
@@ -1745,7 +1815,7 @@ export interface UpdateRegistryResponse {
 export interface UpdateSchemaInput {
   /**
    * <p>This is a wrapper structure to contain schema identity fields. The structure contains:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>SchemaId$SchemaArn: The Amazon Resource Name (ARN) of the schema. One of <code>SchemaArn</code> or <code>SchemaName</code> has to be provided.</p>
    *             </li>
@@ -2028,10 +2098,8 @@ export interface Mapping {
 
   /**
    * <p>Only applicable to nested data structures. If you want to change the parent structure, but also one of its children, you can fill out this data strucutre. It is also <code>Mapping</code>, but its <code>FromPath</code> will be the parent's <code>FromPath</code> plus the <code>FromPath</code> from this structure.</p>
-   *
    *          <p>For the children part, suppose you have the structure:</p>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
@@ -2045,10 +2113,8 @@ export interface Mapping {
    *   }]
    * }</code>
    *          </p>
-   *
    *          <p>You can specify a <code>Mapping</code> that looks like:</p>
-   *
-   * 	        <p>
+   *          <p>
    *             <code>{
    *   "FromPath": "OuterStructure",
    *   "ToKey": "OuterStructure",
@@ -2341,6 +2407,11 @@ export interface CodeGenConfigurationNode {
    * <p>Specifies a target that uses Postgres SQL.</p>
    */
   PostgreSQLCatalogTarget?: PostgreSQLCatalogTarget;
+
+  /**
+   * <p>Specifies a custom visual transform created by a user.</p>
+   */
+  DynamicTransform?: DynamicTransform;
 }
 
 export interface CreateJobRequest {
@@ -2384,7 +2455,6 @@ export interface CreateJobRequest {
    *     other secret management mechanism if you intend to keep them within the Job.
    *     </p>
    *          <p>For information about how to specify and consume your own Job arguments, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-python-calling.html">Calling Glue APIs in Python</a> topic in the developer guide.</p>
-   *
    *          <p>For information about the key-value pairs that Glue consumes to set up your job, see the <a href="https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html">Special Parameters Used by Glue</a> topic in the developer guide.</p>
    */
   DefaultArguments?: Record<string, string>;
@@ -2408,7 +2478,6 @@ export interface CreateJobRequest {
    * @deprecated
    *
    * <p>This parameter is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this Job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -2429,9 +2498,7 @@ export interface CreateJobRequest {
    *        of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *        For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *          pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
    *          <ul>
@@ -2467,10 +2534,8 @@ export interface CreateJobRequest {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    */
   GlueVersion?: string;
 
@@ -2481,7 +2546,7 @@ export interface CreateJobRequest {
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2505,10 +2570,8 @@ export interface CreateJobRequest {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 
@@ -2591,13 +2654,12 @@ export interface Job {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) allocated to runs of this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
    *       see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing
    *       page</a>.</p>
-   * 	        <p></p>
+   *          <p></p>
    */
   AllocatedCapacity?: number;
 
@@ -2613,13 +2675,11 @@ export interface Job {
    *       of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory.
    *       For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue
    *       pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
-   * 	        <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
+   *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job, an Apache Spark ETL job, or an Apache Spark streaming ETL
    *       job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
    *           allocate either 0.0625 or 1 DPU. The default is 0.0625 DPU.</p>
@@ -2636,7 +2696,7 @@ export interface Job {
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2671,10 +2731,8 @@ export interface Job {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
-   *
-   * 	        <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
+   *          <p>Jobs that are created without specifying a Glue version default to Glue 0.9.</p>
    */
   GlueVersion?: string;
 
@@ -2685,10 +2743,8 @@ export interface Job {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 
@@ -2758,7 +2814,6 @@ export interface JobUpdate {
    * @deprecated
    *
    * <p>This field is deprecated. Use <code>MaxCapacity</code> instead.</p>
-   *
    *          <p>The number of Glue data processing units (DPUs) to allocate to this job. You can
    *       allocate a minimum of 2 DPUs; the default is 10. A DPU is a relative measure of processing
    *       power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information,
@@ -2777,12 +2832,9 @@ export interface JobUpdate {
   /**
    * <p>For Glue version 1.0 or earlier jobs, using the standard worker type, the number of Glue data processing units (DPUs) that can be allocated when this job runs. A DPU is a relative measure
    *      of processing power that consists of 4 vCPUs of compute capacity and 16 GB of memory. For more information, see the <a href="https://aws.amazon.com/glue/pricing/">Glue pricing page</a>.</p>
-   *
-   * 	        <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
-   *
+   *          <p>Do not set <code>Max Capacity</code> if using <code>WorkerType</code> and <code>NumberOfWorkers</code>.</p>
    *          <p>The value that can be allocated for <code>MaxCapacity</code> depends on whether you are
    *       running a Python shell job or an Apache Spark ETL job:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>When you specify a Python shell job (<code>JobCommand.Name</code>="pythonshell"), you can
@@ -2794,13 +2846,13 @@ export interface JobUpdate {
    *            The default is 10 DPUs. This job type cannot have a fractional DPU allocation.</p>
    *             </li>
    *          </ul>
-   * 	        <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
+   *          <p>For Glue version 2.0 jobs, you cannot instead specify a <code>Maximum capacity</code>. Instead, you should specify a <code>Worker type</code> and the <code>Number of workers</code>.</p>
    */
   MaxCapacity?: number;
 
   /**
    * <p>The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, G.2X, or G.025X.</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>For the <code>Standard</code> worker type, each worker provides 4 vCPU, 16 GB of memory and a 50GB disk, and 2 executors per worker.</p>
    *             </li>
@@ -2835,7 +2887,6 @@ export interface JobUpdate {
 
   /**
    * <p>Glue version determines the versions of Apache Spark and Python that Glue supports. The Python version indicates the version supported for jobs of type Spark. </p>
-   *
    *          <p>For more information about the available Glue versions and corresponding Spark and Python versions, see <a href="https://docs.aws.amazon.com/glue/latest/dg/add-job.html">Glue version</a> in the developer guide.</p>
    */
   GlueVersion?: string;
@@ -2847,10 +2898,8 @@ export interface JobUpdate {
 
   /**
    * <p>Indicates whether the job is run with a standard or flexible execution class. The standard execution-class is ideal for time-sensitive workloads that require fast job startup and dedicated resources.</p>
-   *
    *          <p>The flexible execution class is appropriate for time-insensitive jobs whose start and completion times may vary. </p>
-   *
-   * 	        <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
+   *          <p>Only jobs with Glue version 3.0 and above and command type <code>glueetl</code> will be allowed to set <code>ExecutionClass</code> to <code>FLEX</code>. The flexible execution class is available for Spark jobs.</p>
    */
   ExecutionClass?: ExecutionClass | string;
 
@@ -2902,6 +2951,27 @@ export interface GetJobsResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const PutSchemaVersionMetadataInputFilterSensitiveLog = (obj: PutSchemaVersionMetadataInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSchemaVersionMetadataResponseFilterSensitiveLog = (obj: PutSchemaVersionMetadataResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutWorkflowRunPropertiesRequestFilterSensitiveLog = (obj: PutWorkflowRunPropertiesRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
