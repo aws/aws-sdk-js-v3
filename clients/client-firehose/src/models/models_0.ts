@@ -3,8 +3,24 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { FirehoseServiceException as __BaseException } from "./FirehoseServiceException";
 
-export interface AmazonopensearchserviceBufferingHints {
+/**
+ * <p>Describes the buffering to perform before delivering data to the Serverless offering for
+ *          Amazon OpenSearch Service destination.</p>
+ */
+export interface AmazonOpenSearchServerlessBufferingHints {
+  /**
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering it
+   *          to the destination. The default value is 300 (5 minutes).</p>
+   */
   IntervalInSeconds?: number;
+
+  /**
+   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the
+   *          destination. The default value is 5. </p>
+   *          <p>We recommend setting this parameter to a value greater than the amount of data you
+   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
+   *          ingest data at 1 MB/sec, the value should be 10 MB or higher.</p>
+   */
   SizeInMBs?: number;
 }
 
@@ -30,14 +46,6 @@ export interface CloudWatchLoggingOptions {
   LogStreamName?: string;
 }
 
-export enum AmazonopensearchserviceIndexRotationPeriod {
-  NoRotation = "NoRotation",
-  OneDay = "OneDay",
-  OneHour = "OneHour",
-  OneMonth = "OneMonth",
-  OneWeek = "OneWeek",
-}
-
 export enum ProcessorParameterName {
   BUFFER_INTERVAL_IN_SECONDS = "BufferIntervalInSeconds",
   BUFFER_SIZE_IN_MB = "BufferSizeInMBs",
@@ -51,11 +59,15 @@ export enum ProcessorParameterName {
 }
 
 /**
- * <p>Describes the processor parameter.</p>
+ * <p>Describes the processor parameter. </p>
  */
 export interface ProcessorParameter {
   /**
-   * <p>The name of the parameter.</p>
+   * <p>The name of the parameter. Currently the following default values are supported: 3
+   *          for <code>NumberOfRetries</code> and 60 for the <code>BufferIntervalInSeconds</code>. The
+   *             <code>BufferSizeInMBs</code> ranges between 0.2 MB and up to 3MB. The default buffering
+   *          hint is 1MB for all destinations, except Splunk. For Splunk, the default buffering hint is
+   *          256 KB. </p>
    */
   ParameterName: ProcessorParameterName | string | undefined;
 
@@ -65,7 +77,12 @@ export interface ProcessorParameter {
   ParameterValue: string | undefined;
 }
 
-export type ProcessorType = "AppendDelimiterToRecord" | "Lambda" | "MetadataExtraction" | "RecordDeAggregation";
+export enum ProcessorType {
+  AppendDelimiterToRecord = "AppendDelimiterToRecord",
+  Lambda = "Lambda",
+  MetadataExtraction = "MetadataExtraction",
+  RecordDeAggregation = "RecordDeAggregation",
+}
 
 /**
  * <p>Describes a data processor.</p>
@@ -97,11 +114,22 @@ export interface ProcessingConfiguration {
   Processors?: Processor[];
 }
 
-export interface AmazonopensearchserviceRetryOptions {
+/**
+ * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents
+ *          to the Serverless offering for Amazon OpenSearch Service.</p>
+ */
+export interface AmazonOpenSearchServerlessRetryOptions {
+  /**
+   * <p>After an initial failure to deliver to the Serverless offering for Amazon OpenSearch
+   *          Service, the total amount of time during which Kinesis Data Firehose retries delivery
+   *          (including the first attempt). After this time has elapsed, the failed documents are
+   *          written to Amazon S3. Default value is 300 seconds (5 minutes). A value of 0 (zero) results
+   *          in no retries.</p>
+   */
   DurationInSeconds?: number;
 }
 
-export enum AmazonopensearchserviceS3BackupMode {
+export enum AmazonOpenSearchServerlessS3BackupMode {
   AllDocuments = "AllDocuments",
   FailedDocumentsOnly = "FailedDocumentsOnly",
 }
@@ -147,14 +175,15 @@ export enum CompressionFormat {
  */
 export interface KMSEncryptionConfig {
   /**
-   * <p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same AWS
-   *          Region as the destination Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the encryption key. Must belong to the same Amazon Web Services Region as the destination Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
+   *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    */
   AWSKMSKeyARN: string | undefined;
 }
 
-export type NoEncryptionConfig = "NoEncryption";
+export enum NoEncryptionConfig {
+  NoEncryption = "NoEncryption",
+}
 
 /**
  * <p>Describes the encryption for a destination in Amazon S3.</p>
@@ -177,15 +206,15 @@ export interface EncryptionConfiguration {
  */
 export interface S3DestinationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN: string | undefined;
 
@@ -319,16 +348,52 @@ export interface VpcConfiguration {
   SecurityGroupIds: string[] | undefined;
 }
 
-export interface AmazonopensearchserviceDestinationConfiguration {
+/**
+ * <p>Describes the configuration of a destination in the Serverless offering for Amazon
+ *          OpenSearch Service.</p>
+ */
+export interface AmazonOpenSearchServerlessDestinationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+   *          for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for
+   *          indexing documents.</p>
+   */
   RoleARN: string | undefined;
-  DomainARN?: string;
-  ClusterEndpoint?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the collection in the Serverless offering
+   *          for Amazon OpenSearch Service.</p>
+   */
+  CollectionEndpoint?: string;
+
+  /**
+   * <p>The Serverless offering for Amazon OpenSearch Service index name.</p>
+   */
   IndexName: string | undefined;
-  TypeName?: string;
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
-  BufferingHints?: AmazonopensearchserviceBufferingHints;
-  RetryOptions?: AmazonopensearchserviceRetryOptions;
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+
+  /**
+   * <p>The buffering options. If no value is specified, the default values for
+   *          AmazonopensearchserviceBufferingHints are used.</p>
+   */
+  BufferingHints?: AmazonOpenSearchServerlessBufferingHints;
+
+  /**
+   * <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to the
+   *          Serverless offering for Amazon OpenSearch Service. The default value is 300 (5
+   *          minutes).</p>
+   */
+  RetryOptions?: AmazonOpenSearchServerlessRetryOptions;
+
+  /**
+   * <p>Defines how documents should be delivered to Amazon S3. When it is set to
+   *          FailedDocumentsOnly, Kinesis Data Firehose writes any documents that could not be indexed
+   *          to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to
+   *          the key prefix. When set to AllDocuments, Kinesis Data Firehose delivers all incoming
+   *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
+   *          appended to the prefix.</p>
+   */
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+
   /**
    * <p>Describes the configuration of a destination in Amazon S3.</p>
    */
@@ -355,15 +420,15 @@ export interface AmazonopensearchserviceDestinationConfiguration {
  */
 export interface S3DestinationDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN: string | undefined;
 
@@ -498,16 +563,42 @@ export interface VpcConfigurationDescription {
   VpcId: string | undefined;
 }
 
-export interface AmazonopensearchserviceDestinationDescription {
+/**
+ * <p>The destination description in the Serverless offering for Amazon OpenSearch
+ *          Service.</p>
+ */
+export interface AmazonOpenSearchServerlessDestinationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS credentials.</p>
+   */
   RoleARN?: string;
-  DomainARN?: string;
-  ClusterEndpoint?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the collection in the Serverless offering
+   *          for Amazon OpenSearch Service.</p>
+   */
+  CollectionEndpoint?: string;
+
+  /**
+   * <p>The Serverless offering for Amazon OpenSearch Service index name.</p>
+   */
   IndexName?: string;
-  TypeName?: string;
-  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
-  BufferingHints?: AmazonopensearchserviceBufferingHints;
-  RetryOptions?: AmazonopensearchserviceRetryOptions;
-  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+
+  /**
+   * <p>The buffering options.</p>
+   */
+  BufferingHints?: AmazonOpenSearchServerlessBufferingHints;
+
+  /**
+   * <p>The Serverless offering for Amazon OpenSearch Service retry options.</p>
+   */
+  RetryOptions?: AmazonOpenSearchServerlessRetryOptions;
+
+  /**
+   * <p>The Amazon S3 backup mode.</p>
+   */
+  S3BackupMode?: AmazonOpenSearchServerlessS3BackupMode | string;
+
   /**
    * <p>Describes a destination in Amazon S3.</p>
    */
@@ -534,15 +625,15 @@ export interface AmazonopensearchserviceDestinationDescription {
  */
 export interface S3DestinationUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN?: string;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN?: string;
 
@@ -588,15 +679,322 @@ export interface S3DestinationUpdate {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export interface AmazonopensearchserviceDestinationUpdate {
+/**
+ * <p>Describes an update for a destination in the Serverless offering for Amazon OpenSearch
+ *          Service.</p>
+ */
+export interface AmazonOpenSearchServerlessDestinationUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+   *          for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for
+   *          indexing documents.</p>
+   */
   RoleARN?: string;
-  DomainARN?: string;
-  ClusterEndpoint?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the collection in the Serverless offering
+   *          for Amazon OpenSearch Service.</p>
+   */
+  CollectionEndpoint?: string;
+
+  /**
+   * <p>The Serverless offering for Amazon OpenSearch Service index name.</p>
+   */
   IndexName?: string;
+
+  /**
+   * <p>The buffering options. If no value is specified, AmazonopensearchBufferingHints object
+   *          default values are used.</p>
+   */
+  BufferingHints?: AmazonOpenSearchServerlessBufferingHints;
+
+  /**
+   * <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to the
+   *          Serverless offering for Amazon OpenSearch Service. The default value is 300 (5
+   *          minutes).</p>
+   */
+  RetryOptions?: AmazonOpenSearchServerlessRetryOptions;
+
+  /**
+   * <p>Describes an update for a destination in Amazon S3.</p>
+   */
+  S3Update?: S3DestinationUpdate;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+}
+
+/**
+ * <p>Describes the buffering to perform before delivering data to the Amazon OpenSearch
+ *          Service destination. </p>
+ */
+export interface AmazonopensearchserviceBufferingHints {
+  /**
+   * <p>Buffer incoming data for the specified period of time, in seconds, before delivering it
+   *          to the destination. The default value is 300 (5 minutes). </p>
+   */
+  IntervalInSeconds?: number;
+
+  /**
+   * <p>Buffer incoming data to the specified size, in MBs, before delivering it to the
+   *          destination. The default value is 5.</p>
+   *          <p>We recommend setting this parameter to a value greater than the amount of data you
+   *          typically ingest into the delivery stream in 10 seconds. For example, if you typically
+   *          ingest data at 1 MB/sec, the value should be 10 MB or higher. </p>
+   */
+  SizeInMBs?: number;
+}
+
+export enum AmazonopensearchserviceIndexRotationPeriod {
+  NoRotation = "NoRotation",
+  OneDay = "OneDay",
+  OneHour = "OneHour",
+  OneMonth = "OneMonth",
+  OneWeek = "OneWeek",
+}
+
+/**
+ * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver documents
+ *          to Amazon OpenSearch Service. </p>
+ */
+export interface AmazonopensearchserviceRetryOptions {
+  /**
+   * <p>After an initial failure to deliver to Amazon OpenSearch Service, the total amount of
+   *          time during which Kinesis Data Firehose retries delivery (including the first attempt).
+   *          After this time has elapsed, the failed documents are written to Amazon S3. Default value
+   *          is 300 seconds (5 minutes). A value of 0 (zero) results in no retries. </p>
+   */
+  DurationInSeconds?: number;
+}
+
+export enum AmazonopensearchserviceS3BackupMode {
+  AllDocuments = "AllDocuments",
+  FailedDocumentsOnly = "FailedDocumentsOnly",
+}
+
+/**
+ * <p>Describes the configuration of a destination in Amazon OpenSearch Service</p>
+ */
+export interface AmazonopensearchserviceDestinationConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+   *          for calling the Amazon OpenSearch Service Configuration API and for indexing
+   *          documents.</p>
+   */
+  RoleARN: string | undefined;
+
+  /**
+   * <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for
+   *          DescribeElasticsearchDomain, DescribeElasticsearchDomains, and
+   *          DescribeElasticsearchDomainConfig after assuming the role specified in RoleARN. </p>
+   */
+  DomainARN?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the cluster. Specify either this
+   *          ClusterEndpoint or the DomainARN field. </p>
+   */
+  ClusterEndpoint?: string;
+
+  /**
+   * <p>The ElasticsearAmazon OpenSearch Service index name.</p>
+   */
+  IndexName: string | undefined;
+
+  /**
+   * <p>The Amazon OpenSearch Service type name. For Elasticsearch 6.x, there can be only one
+   *          type per index. If you try to specify a new type for an existing index that already has
+   *          another type, Kinesis Data Firehose returns an error during run time. </p>
+   */
   TypeName?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
+   *          to the IndexName to facilitate the expiration of old data.</p>
+   */
   IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+
+  /**
+   * <p>The buffering options. If no value is specified, the default values for
+   *          AmazonopensearchserviceBufferingHints are used. </p>
+   */
   BufferingHints?: AmazonopensearchserviceBufferingHints;
+
+  /**
+   * <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to
+   *          Amazon OpenSearch Service. The default value is 300 (5 minutes). </p>
+   */
   RetryOptions?: AmazonopensearchserviceRetryOptions;
+
+  /**
+   * <p>Defines how documents should be delivered to Amazon S3. When it is set to
+   *          FailedDocumentsOnly, Kinesis Data Firehose writes any documents that could not be indexed
+   *          to the configured Amazon S3 destination, with AmazonOpenSearchService-failed/ appended to
+   *          the key prefix. When set to AllDocuments, Kinesis Data Firehose delivers all incoming
+   *          records to Amazon S3, and also writes failed documents with AmazonOpenSearchService-failed/
+   *          appended to the prefix. </p>
+   */
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+
+  /**
+   * <p>Describes the configuration of a destination in Amazon S3.</p>
+   */
+  S3Configuration: S3DestinationConfiguration | undefined;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>The details of the VPC of the Amazon ES destination.</p>
+   */
+  VpcConfiguration?: VpcConfiguration;
+}
+
+/**
+ * <p>The destination description in Amazon OpenSearch Service.</p>
+ */
+export interface AmazonopensearchserviceDestinationDescription {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. </p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The ARN of the Amazon OpenSearch Service domain.</p>
+   */
+  DomainARN?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the cluster. Kinesis Data Firehose uses
+   *          either this ClusterEndpoint or the DomainARN field to send data to Amazon OpenSearch
+   *          Service. </p>
+   */
+  ClusterEndpoint?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service index name.</p>
+   */
+  IndexName?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service type name. This applies to Elasticsearch 6.x and lower
+   *          versions. For Elasticsearch 7.x and OpenSearch Service 1.x, there's no value for TypeName. </p>
+   */
+  TypeName?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service index rotation period</p>
+   */
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+
+  /**
+   * <p>The buffering options.</p>
+   */
+  BufferingHints?: AmazonopensearchserviceBufferingHints;
+
+  /**
+   * <p>The Amazon OpenSearch Service retry options.</p>
+   */
+  RetryOptions?: AmazonopensearchserviceRetryOptions;
+
+  /**
+   * <p>The Amazon S3 backup mode.</p>
+   */
+  S3BackupMode?: AmazonopensearchserviceS3BackupMode | string;
+
+  /**
+   * <p>Describes a destination in Amazon S3.</p>
+   */
+  S3DestinationDescription?: S3DestinationDescription;
+
+  /**
+   * <p>Describes a data processing configuration.</p>
+   */
+  ProcessingConfiguration?: ProcessingConfiguration;
+
+  /**
+   * <p>Describes the Amazon CloudWatch logging options for your delivery stream.</p>
+   */
+  CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
+
+  /**
+   * <p>The details of the VPC of the Amazon ES destination.</p>
+   */
+  VpcConfigurationDescription?: VpcConfigurationDescription;
+}
+
+/**
+ * <p>Describes an update for a destination in Amazon OpenSearch Service.</p>
+ */
+export interface AmazonopensearchserviceDestinationUpdate {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose
+   *          for calling the Amazon OpenSearch Service Configuration API and for indexing documents.
+   *       </p>
+   */
+  RoleARN?: string;
+
+  /**
+   * <p>The ARN of the Amazon OpenSearch Service domain. The IAM role must have permissions for
+   *          DescribeDomain, DescribeDomains, and DescribeDomainConfig after assuming the IAM role
+   *          specified in RoleARN.</p>
+   */
+  DomainARN?: string;
+
+  /**
+   * <p>The endpoint to use when communicating with the cluster. Specify either this
+   *          ClusterEndpoint or the DomainARN field. </p>
+   */
+  ClusterEndpoint?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service index name.</p>
+   */
+  IndexName?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service type name. For Elasticsearch 6.x, there can be only one
+   *          type per index. If you try to specify a new type for an existing index that already has
+   *          another type, Kinesis Data Firehose returns an error during runtime. </p>
+   *          <p>If you upgrade Elasticsearch from 6.x to 7.x and don’t update your delivery stream,
+   *          Kinesis Data Firehose still delivers data to Elasticsearch with the old index name and type
+   *          name. If you want to update your delivery stream with a new index name, provide an empty
+   *          string for TypeName. </p>
+   */
+  TypeName?: string;
+
+  /**
+   * <p>The Amazon OpenSearch Service index rotation period. Index rotation appends a timestamp
+   *          to IndexName to facilitate the expiration of old data.</p>
+   */
+  IndexRotationPeriod?: AmazonopensearchserviceIndexRotationPeriod | string;
+
+  /**
+   * <p>The buffering options. If no value is specified, AmazonopensearchBufferingHints object
+   *          default values are used. </p>
+   */
+  BufferingHints?: AmazonopensearchserviceBufferingHints;
+
+  /**
+   * <p>The retry behavior in case Kinesis Data Firehose is unable to deliver documents to
+   *          Amazon OpenSearch Service. The default value is 300 (5 minutes). </p>
+   */
+  RetryOptions?: AmazonopensearchserviceRetryOptions;
+
   /**
    * <p>Describes an update for a destination in Amazon S3.</p>
    */
@@ -689,19 +1087,18 @@ export enum KeyType {
 export interface DeliveryStreamEncryptionConfigurationInput {
   /**
    * <p>If you set <code>KeyType</code> to <code>CUSTOMER_MANAGED_CMK</code>, you must specify
-   *          the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to
-   *             <code>AWS_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</p>
+   *          the Amazon Resource Name (ARN) of the CMK. If you set <code>KeyType</code> to <code>Amazon Web Services_OWNED_CMK</code>, Kinesis Data Firehose uses a service-account CMK.</p>
    */
   KeyARN?: string;
 
   /**
    * <p>Indicates the type of customer master key (CMK) to use for encryption. The default
-   *          setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
-   *             Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or
-   *             <a>StartDeliveryStreamEncryption</a> with <code>KeyType</code> set to
-   *          CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a> to create a grant that allows the Kinesis Data Firehose service to
-   *          use the customer managed CMK to perform encryption and decryption. Kinesis Data Firehose
-   *          manages that grant. </p>
+   *          setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>. When you invoke <a>CreateDeliveryStream</a> or <a>StartDeliveryStreamEncryption</a> with
+   *             <code>KeyType</code> set to CUSTOMER_MANAGED_CMK, Kinesis Data Firehose invokes the
+   *          Amazon KMS operation <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_CreateGrant.html">CreateGrant</a> to create a grant
+   *          that allows the Kinesis Data Firehose service to use the customer managed CMK to perform
+   *          encryption and decryption. Kinesis Data Firehose manages that grant. </p>
    *          <p>When you invoke <a>StartDeliveryStreamEncryption</a> to change the CMK for a
    *          delivery stream that is encrypted with a customer managed CMK, Kinesis Data Firehose
    *          schedules the grant it had on the old CMK for retirement.</p>
@@ -712,14 +1109,17 @@ export interface DeliveryStreamEncryptionConfigurationInput {
    *          <important>
    *             <p>To encrypt your delivery stream, use symmetric CMKs. Kinesis Data Firehose doesn't
    *             support asymmetric CMKs. For information about symmetric and asymmetric CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symm-asymm-concepts.html">About
-   *                Symmetric and Asymmetric CMKs</a> in the AWS Key Management Service developer
-   *             guide.</p>
+   *                Symmetric and Asymmetric CMKs</a> in the Amazon Web Services Key Management
+   *             Service developer guide.</p>
    *          </important>
    */
   KeyType: KeyType | string | undefined;
 }
 
-export type DeliveryStreamType = "DirectPut" | "KinesisStreamAsSource";
+export enum DeliveryStreamType {
+  DirectPut = "DirectPut",
+  KinesisStreamAsSource = "KinesisStreamAsSource",
+}
 
 /**
  * <p>Describes the buffering to perform before delivering data to the Amazon ES
@@ -742,7 +1142,13 @@ export interface ElasticsearchBufferingHints {
   SizeInMBs?: number;
 }
 
-export type ElasticsearchIndexRotationPeriod = "NoRotation" | "OneDay" | "OneHour" | "OneMonth" | "OneWeek";
+export enum ElasticsearchIndexRotationPeriod {
+  NoRotation = "NoRotation",
+  OneDay = "OneDay",
+  OneHour = "OneHour",
+  OneMonth = "OneMonth",
+  OneWeek = "OneWeek",
+}
 
 /**
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
@@ -758,7 +1164,10 @@ export interface ElasticsearchRetryOptions {
   DurationInSeconds?: number;
 }
 
-export type ElasticsearchS3BackupMode = "AllDocuments" | "FailedDocumentsOnly";
+export enum ElasticsearchS3BackupMode {
+  AllDocuments = "AllDocuments",
+  FailedDocumentsOnly = "FailedDocumentsOnly",
+}
 
 /**
  * <p>Describes the configuration of a destination in Amazon ES.</p>
@@ -769,16 +1178,15 @@ export interface ElasticsearchDestinationConfiguration {
    *          for calling the Amazon ES Configuration API and for indexing documents. For more
    *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Kinesis Data
    *             Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
   /**
    * <p>The ARN of the Amazon ES domain. The IAM role must have permissions
-   *             for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>,
-   *          and <code>DescribeElasticsearchDomainConfig</code> after assuming the role specified in
-   *             <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
+   *             <code>DescribeDomainConfig</code> after assuming the role specified in <b>RoleARN</b>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
@@ -828,10 +1236,10 @@ export interface ElasticsearchDestinationConfiguration {
    * <p>Defines how documents should be delivered to Amazon S3. When it is set to
    *             <code>FailedDocumentsOnly</code>, Kinesis Data Firehose writes any documents that could
    *          not be indexed to the configured Amazon S3 destination, with
-   *             <code>elasticsearch-failed/</code> appended to the key prefix. When set to
+   *             <code>AmazonOpenSearchService-failed/</code> appended to the key prefix. When set to
    *             <code>AllDocuments</code>, Kinesis Data Firehose delivers all incoming records to Amazon
-   *          S3, and also writes failed documents with <code>elasticsearch-failed/</code> appended to
-   *          the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for the
+   *          S3, and also writes failed documents with <code>AmazonOpenSearchService-failed/</code>
+   *          appended to the prefix. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon S3 Backup for the
    *             Amazon ES Destination</a>. Default value is
    *          <code>FailedDocumentsOnly</code>.</p>
    *          <p>You can't change this backup mode after you create the delivery stream. </p>
@@ -1128,9 +1536,9 @@ export interface OutputFormatConfiguration {
  */
 export interface SchemaConfiguration {
   /**
-   * <p>The role that Kinesis Data Firehose can use to access AWS Glue. This role must be in
-   *          the same account you use for Kinesis Data Firehose. Cross-account roles aren't
-   *          allowed.</p>
+   * <p>The role that Kinesis Data Firehose can use to access Amazon Web Services Glue. This
+   *          role must be in the same account you use for Kinesis Data Firehose. Cross-account roles
+   *          aren't allowed.</p>
    *          <important>
    *             <p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking
    *             the <code>CreateDeliveryStream</code> API, then the <code>RoleARN</code> property is
@@ -1140,14 +1548,14 @@ export interface SchemaConfiguration {
   RoleARN?: string;
 
   /**
-   * <p>The ID of the AWS Glue Data Catalog. If you don't supply this, the AWS account ID is
-   *          used by default.</p>
+   * <p>The ID of the Amazon Web Services Glue Data Catalog. If you don't supply this, the
+   *             Amazon Web Services account ID is used by default.</p>
    */
   CatalogId?: string;
 
   /**
-   * <p>Specifies the name of the AWS Glue database that contains the schema for the output
-   *          data.</p>
+   * <p>Specifies the name of the Amazon Web Services Glue database that contains the schema for
+   *          the output data.</p>
    *          <important>
    *             <p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking
    *             the <code>CreateDeliveryStream</code> API, then the <code>DatabaseName</code> property
@@ -1157,8 +1565,8 @@ export interface SchemaConfiguration {
   DatabaseName?: string;
 
   /**
-   * <p>Specifies the AWS Glue table that contains the column information that constitutes your
-   *          data schema.</p>
+   * <p>Specifies the Amazon Web Services Glue table that contains the column information that
+   *          constitutes your data schema.</p>
    *          <important>
    *             <p>If the <code>SchemaConfiguration</code> request parameter is used as part of invoking
    *             the <code>CreateDeliveryStream</code> API, then the <code>TableName</code> property is
@@ -1168,7 +1576,8 @@ export interface SchemaConfiguration {
   TableName?: string;
 
   /**
-   * <p>If you don't specify an AWS Region, the default is the current Region.</p>
+   * <p>If you don't specify an Amazon Web Services Region, the default is the current
+   *          Region.</p>
    */
   Region?: string;
 
@@ -1185,14 +1594,14 @@ export interface SchemaConfiguration {
  * <p>Specifies that you want Kinesis Data Firehose to convert data from the JSON format to
  *          the Parquet or ORC format before writing it to Amazon S3. Kinesis Data Firehose uses the
  *          serializer and deserializer that you specify, in addition to the column information from
- *          the AWS Glue table, to deserialize your input data from JSON and then serialize it to the
- *          Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Kinesis Data Firehose Record
- *             Format Conversion</a>.</p>
+ *          the Amazon Web Services Glue table, to deserialize your input data from JSON and then
+ *          serialize it to the Parquet or ORC format. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/record-format-conversion.html">Kinesis
+ *             Data Firehose Record Format Conversion</a>.</p>
  */
 export interface DataFormatConversionConfiguration {
   /**
-   * <p>Specifies the AWS Glue Data Catalog table that contains the column information. This
-   *          parameter is required if <code>Enabled</code> is set to true.</p>
+   * <p>Specifies the Amazon Web Services Glue Data Catalog table that contains the column
+   *          information. This parameter is required if <code>Enabled</code> is set to true.</p>
    */
   SchemaConfiguration?: SchemaConfiguration;
 
@@ -1232,7 +1641,7 @@ export interface RetryOptions {
 /**
  * <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets
  *          from the streaming data by partitioning it based on partition keys. Currently, dynamic
- *          partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a>
+ *          partitioning is only supported for Amazon S3 destinations.
  *          </p>
  */
 export interface DynamicPartitioningConfiguration {
@@ -1249,22 +1658,25 @@ export interface DynamicPartitioningConfiguration {
   Enabled?: boolean;
 }
 
-export type S3BackupMode = "Disabled" | "Enabled";
+export enum S3BackupMode {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Describes the configuration of a destination in Amazon S3.</p>
  */
 export interface ExtendedS3DestinationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN: string | undefined;
 
@@ -1331,7 +1743,7 @@ export interface ExtendedS3DestinationConfiguration {
   /**
    * <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets
    *          from the streaming data by partitioning it based on partition keys. Currently, dynamic
-   *          partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a>
+   *          partitioning is only supported for Amazon S3 destinations.
    *          </p>
    */
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
@@ -1435,7 +1847,10 @@ export interface HttpEndpointRetryOptions {
   DurationInSeconds?: number;
 }
 
-export type HttpEndpointS3BackupMode = "AllData" | "FailedDataOnly";
+export enum HttpEndpointS3BackupMode {
+  AllData = "AllData",
+  FailedDataOnly = "FailedDataOnly",
+}
 
 /**
  * <p>Describes the configuration of the HTTP endpoint destination.</p>
@@ -1511,8 +1926,8 @@ export interface KinesisStreamSourceConfiguration {
 
   /**
    * <p>The ARN of the role that provides access to the source Kinesis data stream. For more
-   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and
-   *             Access Management (IAM) ARN Format</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services
+   *             Identity and Access Management (IAM) ARN Format</a>.</p>
    */
   RoleARN: string | undefined;
 }
@@ -1532,16 +1947,19 @@ export interface RedshiftRetryOptions {
   DurationInSeconds?: number;
 }
 
-export type RedshiftS3BackupMode = "Disabled" | "Enabled";
+export enum RedshiftS3BackupMode {
+  Disabled = "Disabled",
+  Enabled = "Enabled",
+}
 
 /**
  * <p>Describes the configuration of a destination in Amazon Redshift.</p>
  */
 export interface RedshiftDestinationConfiguration {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
@@ -1604,7 +2022,10 @@ export interface RedshiftDestinationConfiguration {
   CloudWatchLoggingOptions?: CloudWatchLoggingOptions;
 }
 
-export type HECEndpointType = "Event" | "Raw";
+export enum HECEndpointType {
+  Event = "Event",
+  Raw = "Raw",
+}
 
 /**
  * <p>Configures retry behavior in case Kinesis Data Firehose is unable to deliver
@@ -1620,7 +2041,10 @@ export interface SplunkRetryOptions {
   DurationInSeconds?: number;
 }
 
-export type SplunkS3BackupMode = "AllEvents" | "FailedEventsOnly";
+export enum SplunkS3BackupMode {
+  AllEvents = "AllEvents",
+  FailedEventsOnly = "FailedEventsOnly",
+}
 
 /**
  * <p>Describes the configuration of a destination in Splunk.</p>
@@ -1706,9 +2130,10 @@ export interface Tag {
 
 export interface CreateDeliveryStreamInput {
   /**
-   * <p>The name of the delivery stream. This name must be unique per AWS account in the same
-   *          AWS Region. If the delivery streams are in different accounts or different Regions, you can
-   *          have multiple delivery streams with the same name.</p>
+   * <p>The name of the delivery stream. This name must be unique per Amazon Web Services
+   *          account in the same Amazon Web Services Region. If the delivery streams are in different
+   *          accounts or different Regions, you can have multiple delivery streams with the same
+   *          name.</p>
    */
   DeliveryStreamName: string | undefined;
 
@@ -1765,7 +2190,12 @@ export interface CreateDeliveryStreamInput {
    */
   ElasticsearchDestinationConfiguration?: ElasticsearchDestinationConfiguration;
 
+  /**
+   * <p>The destination in Amazon OpenSearch Service. You can specify only one
+   *          destination.</p>
+   */
   AmazonopensearchserviceDestinationConfiguration?: AmazonopensearchserviceDestinationConfiguration;
+
   /**
    * <p>The destination in Splunk. You can specify only one destination.</p>
    */
@@ -1779,14 +2209,21 @@ export interface CreateDeliveryStreamInput {
 
   /**
    * <p>A set of tags to assign to the delivery stream. A tag is a key-value pair that you can
-   *          define and assign to AWS resources. Tags are metadata. For example, you can add friendly
-   *          names and descriptions or other types of information that can help you distinguish the
-   *          delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
-   *             Tags</a> in the AWS Billing and Cost Management User Guide.</p>
+   *          define and assign to Amazon Web Services resources. Tags are metadata. For example, you can
+   *          add friendly names and descriptions or other types of information that can help you
+   *          distinguish the delivery stream. For more information about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
+   *             Cost Allocation Tags</a> in the Amazon Web Services Billing and Cost Management User
+   *          Guide.</p>
    *
    *          <p>You can specify up to 50 tags when creating a delivery stream.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * <p>The destination in the Serverless offering for Amazon OpenSearch Service. You can
+   *          specify only one destination.</p>
+   */
+  AmazonOpenSearchServerlessDestinationConfiguration?: AmazonOpenSearchServerlessDestinationConfiguration;
 }
 
 export interface CreateDeliveryStreamOutput {
@@ -1890,8 +2327,8 @@ export interface DeleteDeliveryStreamInput {
    *          the grant due to a customer error, such as when the CMK or the grant are in an invalid
    *          state. If you force deletion, you can then use the <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> operation to
    *          revoke the grant you gave to Kinesis Data Firehose. If a failure to retire the grant
-   *          happens due to an AWS KMS issue, Kinesis Data Firehose keeps retrying the delete
-   *          operation.</p>
+   *          happens due to an Amazon Web Services KMS issue, Kinesis Data Firehose keeps retrying the
+   *          delete operation.</p>
    *          <p>The default value is false.</p>
    */
   AllowForceDelete?: boolean;
@@ -1970,16 +2407,15 @@ export enum DeliveryStreamEncryptionStatus {
 export interface DeliveryStreamEncryptionConfiguration {
   /**
    * <p>If <code>KeyType</code> is <code>CUSTOMER_MANAGED_CMK</code>, this field contains the
-   *          ARN of the customer managed CMK. If <code>KeyType</code> is <code>AWS_OWNED_CMK</code>,
-   *             <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain a value for
-   *             <code>KeyARN</code>.</p>
+   *          ARN of the customer managed CMK. If <code>KeyType</code> is <code>Amazon Web Services_OWNED_CMK</code>, <code>DeliveryStreamEncryptionConfiguration</code> doesn't contain
+   *          a value for <code>KeyARN</code>.</p>
    */
   KeyARN?: string;
 
   /**
    * <p>Indicates the type of customer master key (CMK) that is used for encryption. The default
-   *          setting is <code>AWS_OWNED_CMK</code>. For more information about CMKs, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer
-   *             Master Keys (CMKs)</a>.</p>
+   *          setting is <code>Amazon Web Services_OWNED_CMK</code>. For more information about CMKs, see
+   *             <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys">Customer Master Keys (CMKs)</a>.</p>
    */
   KeyType?: KeyType | string;
 
@@ -2012,15 +2448,15 @@ export enum DeliveryStreamStatus {
  */
 export interface ElasticsearchDestinationDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN?: string;
 
   /**
    * <p>The ARN of the Amazon ES domain. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    *
    *          <p>Kinesis Data Firehose uses either <code>ClusterEndpoint</code> or <code>DomainARN</code>
    *          to send data to Amazon ES.</p>
@@ -2041,7 +2477,8 @@ export interface ElasticsearchDestinationDescription {
 
   /**
    * <p>The Elasticsearch type name. This applies to Elasticsearch 6.x and lower versions.
-   *          For Elasticsearch 7.x, there's no value for <code>TypeName</code>.</p>
+   *          For Elasticsearch 7.x and OpenSearch Service 1.x, there's no value for
+   *             <code>TypeName</code>.</p>
    */
   TypeName?: string;
 
@@ -2091,15 +2528,15 @@ export interface ElasticsearchDestinationDescription {
  */
 export interface ExtendedS3DestinationDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN: string | undefined;
 
@@ -2164,7 +2601,7 @@ export interface ExtendedS3DestinationDescription {
   /**
    * <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets
    *          from the streaming data by partitioning it based on partition keys. Currently, dynamic
-   *          partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a>
+   *          partitioning is only supported for Amazon S3 destinations.
    *          </p>
    */
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
@@ -2251,9 +2688,9 @@ export interface HttpEndpointDestinationDescription {
  */
 export interface RedshiftDestinationDescription {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN: string | undefined;
 
@@ -2393,7 +2830,11 @@ export interface DestinationDescription {
    */
   ElasticsearchDestinationDescription?: ElasticsearchDestinationDescription;
 
+  /**
+   * <p>The destination in Amazon OpenSearch Service.</p>
+   */
   AmazonopensearchserviceDestinationDescription?: AmazonopensearchserviceDestinationDescription;
+
   /**
    * <p>The destination in Splunk.</p>
    */
@@ -2403,6 +2844,11 @@ export interface DestinationDescription {
    * <p>Describes the specified HTTP endpoint destination.</p>
    */
   HttpEndpointDestinationDescription?: HttpEndpointDestinationDescription;
+
+  /**
+   * <p>The destination in the Serverless offering for Amazon OpenSearch Service.</p>
+   */
+  AmazonOpenSearchServerlessDestinationDescription?: AmazonOpenSearchServerlessDestinationDescription;
 }
 
 /**
@@ -2419,8 +2865,8 @@ export interface KinesisStreamSourceDescription {
 
   /**
    * <p>The ARN of the role used by the source Kinesis data stream. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">AWS Identity and
-   *             Access Management (IAM) ARN Format</a>.</p>
+   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-iam">Amazon Web Services
+   *             Identity and Access Management (IAM) ARN Format</a>.</p>
    */
   RoleARN?: string;
 
@@ -2455,7 +2901,7 @@ export interface DeliveryStreamDescription {
   /**
    * <p>The Amazon Resource Name (ARN) of the delivery stream. For more information, see
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   *             Resource Names (ARNs) and Amazon Web Services Service Namespaces</a>.</p>
    */
   DeliveryStreamARN: string | undefined;
 
@@ -2566,16 +3012,16 @@ export interface ElasticsearchDestinationUpdate {
    *          for calling the Amazon ES Configuration API and for indexing documents. For more
    *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Kinesis Data
    *             Firehose Access to an Amazon S3 Destination</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN?: string;
 
   /**
    * <p>The ARN of the Amazon ES domain. The IAM role must have permissions
-   *             for <code>DescribeElasticsearchDomain</code>, <code>DescribeElasticsearchDomains</code>,
-   *          and <code>DescribeElasticsearchDomainConfig</code> after assuming the IAM role specified in
+   *             for <code>DescribeDomain</code>, <code>DescribeDomains</code>, and
+   *             <code>DescribeDomainConfig</code> after assuming the IAM role specified in
    *             <code>RoleARN</code>. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    *
    *          <p>Specify either <code>ClusterEndpoint</code> or <code>DomainARN</code>.</p>
    */
@@ -2645,15 +3091,15 @@ export interface ElasticsearchDestinationUpdate {
  */
 export interface ExtendedS3DestinationUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN?: string;
 
   /**
    * <p>The ARN of the S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
-   *             AWS Service Namespaces</a>.</p>
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   BucketARN?: string;
 
@@ -2719,7 +3165,7 @@ export interface ExtendedS3DestinationUpdate {
   /**
    * <p>The configuration of the dynamic partitioning mechanism that creates smaller data sets
    *          from the streaming data by partitioning it based on partition keys. Currently, dynamic
-   *          partitioning is only supported for Amazon S3 destinations. For more information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html">https://docs.aws.amazon.com/firehose/latest/dev/dynamic-partitioning.html</a>
+   *          partitioning is only supported for Amazon S3 destinations.
    *          </p>
    */
   DynamicPartitioningConfiguration?: DynamicPartitioningConfiguration;
@@ -3043,9 +3489,9 @@ export interface HttpEndpointDestinationUpdate {
  */
 export interface RedshiftDestinationUpdate {
   /**
-   * <p>The Amazon Resource Name (ARN) of the AWS credentials. For more information, see
-   *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-   *             Resource Names (ARNs) and AWS Service Namespaces</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon Web Services credentials. For more
+   *          information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs) and
+   *                Amazon Web Services Service Namespaces</a>.</p>
    */
   RoleARN?: string;
 
@@ -3211,7 +3657,11 @@ export interface UpdateDestinationInput {
    */
   ElasticsearchDestinationUpdate?: ElasticsearchDestinationUpdate;
 
+  /**
+   * <p>Describes an update for a destination in Amazon OpenSearch Service.</p>
+   */
   AmazonopensearchserviceDestinationUpdate?: AmazonopensearchserviceDestinationUpdate;
+
   /**
    * <p>Describes an update for a destination in Splunk.</p>
    */
@@ -3221,6 +3671,12 @@ export interface UpdateDestinationInput {
    * <p>Describes an update to the specified HTTP endpoint destination.</p>
    */
   HttpEndpointDestinationUpdate?: HttpEndpointDestinationUpdate;
+
+  /**
+   * <p>Describes an update for a destination in the Serverless offering for Amazon OpenSearch
+   *          Service.</p>
+   */
+  AmazonOpenSearchServerlessDestinationUpdate?: AmazonOpenSearchServerlessDestinationUpdate;
 }
 
 export interface UpdateDestinationOutput {}
@@ -3228,8 +3684,8 @@ export interface UpdateDestinationOutput {}
 /**
  * @internal
  */
-export const AmazonopensearchserviceBufferingHintsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceBufferingHints
+export const AmazonOpenSearchServerlessBufferingHintsFilterSensitiveLog = (
+  obj: AmazonOpenSearchServerlessBufferingHints
 ): any => ({
   ...obj,
 });
@@ -3265,8 +3721,8 @@ export const ProcessingConfigurationFilterSensitiveLog = (obj: ProcessingConfigu
 /**
  * @internal
  */
-export const AmazonopensearchserviceRetryOptionsFilterSensitiveLog = (
-  obj: AmazonopensearchserviceRetryOptions
+export const AmazonOpenSearchServerlessRetryOptionsFilterSensitiveLog = (
+  obj: AmazonOpenSearchServerlessRetryOptions
 ): any => ({
   ...obj,
 });
@@ -3309,8 +3765,8 @@ export const VpcConfigurationFilterSensitiveLog = (obj: VpcConfiguration): any =
 /**
  * @internal
  */
-export const AmazonopensearchserviceDestinationConfigurationFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationConfiguration
+export const AmazonOpenSearchServerlessDestinationConfigurationFilterSensitiveLog = (
+  obj: AmazonOpenSearchServerlessDestinationConfiguration
 ): any => ({
   ...obj,
 });
@@ -3332,8 +3788,8 @@ export const VpcConfigurationDescriptionFilterSensitiveLog = (obj: VpcConfigurat
 /**
  * @internal
  */
-export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
-  obj: AmazonopensearchserviceDestinationDescription
+export const AmazonOpenSearchServerlessDestinationDescriptionFilterSensitiveLog = (
+  obj: AmazonOpenSearchServerlessDestinationDescription
 ): any => ({
   ...obj,
 });
@@ -3342,6 +3798,51 @@ export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
  * @internal
  */
 export const S3DestinationUpdateFilterSensitiveLog = (obj: S3DestinationUpdate): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonOpenSearchServerlessDestinationUpdateFilterSensitiveLog = (
+  obj: AmazonOpenSearchServerlessDestinationUpdate
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceBufferingHintsFilterSensitiveLog = (
+  obj: AmazonopensearchserviceBufferingHints
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceRetryOptionsFilterSensitiveLog = (
+  obj: AmazonopensearchserviceRetryOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceDestinationConfigurationFilterSensitiveLog = (
+  obj: AmazonopensearchserviceDestinationConfiguration
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AmazonopensearchserviceDestinationDescriptionFilterSensitiveLog = (
+  obj: AmazonopensearchserviceDestinationDescription
+): any => ({
   ...obj,
 });
 

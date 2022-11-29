@@ -31,7 +31,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
 /**
  * <p>Creates a Kinesis Data Firehose delivery stream.</p>
  *
- *          <p>By default, you can create up to 50 delivery streams per AWS Region.</p>
+ *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
+ *          Region.</p>
  *          <p>This is an asynchronous operation that immediately returns. The initial status of the
  *          delivery stream is <code>CREATING</code>. After the delivery stream is created, its status
  *          is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the
