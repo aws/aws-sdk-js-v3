@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: false,
+      required: true,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -241,25 +241,6 @@ export const ruleSet: RuleSetObject = {
                             {
                               ref: "Region",
                             },
-                            "prod-us-east-2",
-                          ],
-                        },
-                      ],
-                      endpoint: {
-                        url: "https://fsx-fips.us-east-2.amazonaws.com",
-                        properties: {},
-                        headers: {},
-                      },
-                      type: "endpoint",
-                    },
-                    {
-                      conditions: [
-                        {
-                          fn: "stringEquals",
-                          argv: [
-                            {
-                              ref: "Region",
-                            },
                             "prod-ca-central-1",
                           ],
                         },
@@ -285,6 +266,25 @@ export const ruleSet: RuleSetObject = {
                       ],
                       endpoint: {
                         url: "https://fsx-fips.us-east-1.amazonaws.com",
+                        properties: {},
+                        headers: {},
+                      },
+                      type: "endpoint",
+                    },
+                    {
+                      conditions: [
+                        {
+                          fn: "stringEquals",
+                          argv: [
+                            {
+                              ref: "Region",
+                            },
+                            "prod-us-east-2",
+                          ],
+                        },
+                      ],
+                      endpoint: {
+                        url: "https://fsx-fips.us-east-2.amazonaws.com",
                         properties: {},
                         headers: {},
                       },

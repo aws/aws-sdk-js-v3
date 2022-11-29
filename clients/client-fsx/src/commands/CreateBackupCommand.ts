@@ -34,9 +34,9 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *             volume, or Amazon FSx for OpenZFS file system. We recommend creating regular
  *             backups so that you can restore a file system or volume from a backup if an issue arises
  *             with the original file system or volume.</p>
- *         <p>For Amazon FSx for Lustre file systems, you can create a backup only for file
+ *          <p>For Amazon FSx for Lustre file systems, you can create a backup only for file
  *             systems that have the following configuration:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>A Persistent deployment type</p>
  *             </li>
@@ -44,46 +44,44 @@ export interface CreateBackupCommandOutput extends CreateBackupResponse, __Metad
  *                <p>Are <i>not</i> linked to a data repository</p>
  *             </li>
  *          </ul>
- *             <p>For more information about backups, see the following:</p>
- *         <ul>
+ *          <p>For more information about backups, see the following:</p>
+ *          <ul>
  *             <li>
- *                 <p>For Amazon FSx for Lustre, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for
+ *                <p>For Amazon FSx for Lustre, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">Working with FSx for
  *                         Lustre backups</a>.</p>
  *             </li>
  *             <li>
- *                 <p>For Amazon FSx for Windows, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for
+ *                <p>For Amazon FSx for Windows, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/using-backups.html">Working with FSx for
  *                         Windows backups</a>.</p>
  *             </li>
  *             <li>
- *                 <p>For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp
+ *                <p>For Amazon FSx for NetApp ONTAP, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/using-backups.html">Working with FSx for NetApp
  *                         ONTAP backups</a>.</p>
  *             </li>
  *             <li>
- *                 <p>For Amazon FSx for OpenZFS, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html">Working with FSx for OpenZFS backups</a>.</p>
+ *                <p>For Amazon FSx for OpenZFS, see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/using-backups.html">Working with FSx for OpenZFS backups</a>.</p>
  *             </li>
  *          </ul>
- *         <p>If a backup with the specified client request token exists and the parameters match,
+ *          <p>If a backup with the specified client request token exists and the parameters match,
  *             this operation returns the description of the existing backup. If a backup with the
  *             specified client request token exists and the parameters don't match, this operation
  *             returns <code>IncompatibleParameterError</code>. If a backup with the specified client
  *             request token doesn't exist, <code>CreateBackup</code> does the following: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Creates a new Amazon FSx backup with an assigned ID, and an initial
+ *                <p>Creates a new Amazon FSx backup with an assigned ID, and an initial
  *                     lifecycle state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Returns the description of the backup.</p>
+ *                <p>Returns the description of the backup.</p>
  *             </li>
  *          </ul>
- *
- *         <p>By using the idempotent operation, you can retry a <code>CreateBackup</code>
+ *          <p>By using the idempotent operation, you can retry a <code>CreateBackup</code>
  *             operation without the risk of creating an extra backup. This approach can be useful when
  *             an initial call fails in a way that makes it unclear whether a backup was created. If
  *             you use the same client request token and the initial call created a backup, the
  *             operation returns a successful result because all the parameters are the same.</p>
- *
- *         <p>The <code>CreateBackup</code> operation returns while the backup's lifecycle state is
+ *          <p>The <code>CreateBackup</code> operation returns while the backup's lifecycle state is
  *             still <code>CREATING</code>. You can check the backup creation status by calling the
  *                 <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeBackups.html">DescribeBackups</a> operation, which returns the backup state along with other
  *             information.</p>

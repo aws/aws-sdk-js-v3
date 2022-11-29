@@ -32,7 +32,7 @@ export interface DeleteSnapshotCommandOutput extends DeleteSnapshotResponse, __M
  * <p>Deletes an Amazon FSx for OpenZFS snapshot. After deletion, the snapshot no longer
  *             exists, and its data is gone. Deleting a snapshot doesn't affect snapshots stored in a
  *             file system backup. </p>
- *         <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
+ *          <p>The <code>DeleteSnapshot</code> operation returns instantly. The snapshot appears with
  *             the lifecycle status of <code>DELETING</code> until the deletion is complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

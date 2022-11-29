@@ -30,7 +30,7 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
 
 /**
  * <p>Creates a new Amazon File Cache resource.</p>
- *         <p>You can use this operation with a client request token in the request that
+ *          <p>You can use this operation with a client request token in the request that
  *             Amazon File Cache uses to ensure idempotent creation.
  *             If a cache with the specified client request token exists and the parameters
  *             match, <code>CreateFileCache</code> returns the description of the existing
@@ -38,21 +38,21 @@ export interface CreateFileCacheCommandOutput extends CreateFileCacheResponse, _
  *             parameters don't match, this call returns <code>IncompatibleParameterError</code>.
  *             If a file cache with the specified client request token doesn't exist,
  *             <code>CreateFileCache</code> does the following: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Creates a new, empty Amazon File Cache resourcewith an assigned ID, and
+ *                <p>Creates a new, empty Amazon File Cache resourcewith an assigned ID, and
  *                     an initial lifecycle state of <code>CREATING</code>.</p>
  *             </li>
  *             <li>
- *                 <p>Returns the description of the cache in JSON format.</p>
+ *                <p>Returns the description of the cache in JSON format.</p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>The <code>CreateFileCache</code> call returns while the cache's lifecycle
  *                 state is still <code>CREATING</code>. You can check the cache creation status
  *                 by calling the <a href="https://docs.aws.amazon.com/fsx/latest/APIReference/API_DescribeFileCaches.html">DescribeFileCaches</a> operation, which returns the cache state
  *                 along with other information.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

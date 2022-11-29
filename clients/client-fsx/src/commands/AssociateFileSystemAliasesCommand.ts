@@ -35,7 +35,7 @@ export interface AssociateFileSystemAliasesCommandOutput extends AssociateFileSy
  *         For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
  *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
  *              additional steps you must take to be able to access your file system using a DNS alias.</p>
- *         <p>The system response shows the DNS aliases that
+ *          <p>The system response shows the DNS aliases that
  *             Amazon FSx is attempting to associate with the file system.
  *             Use the  API
  *             operation to monitor the status of the aliases Amazon FSx is
