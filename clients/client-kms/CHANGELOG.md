@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.220.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.219.0...v3.220.0) (2022-11-29)
+
+
+### Features
+
+* **client-kms:** AWS KMS introduces the External Key Store (XKS), a new feature for customers who want to protect their data with encryption keys stored in an external key management system under their control. ([cb66e2e](https://github.com/aws/aws-sdk-js-v3/commit/cb66e2e96ad67f05f3d945a78ab0af8dade1f9b9))
+
+
+
+
+
 # [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
 
 **Note:** Version bump only for package @aws-sdk/client-kms

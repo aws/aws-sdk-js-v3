@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.220.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.219.0...v3.220.0) (2022-11-29)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AWS Verified Access and the Hpc6id Amazon EC2 compute optimized instance type, which features 3rd generation Intel Xeon Scalable processors. ([e0d2198](https://github.com/aws/aws-sdk-js-v3/commit/e0d219808aa30864e04ed31da29d1d2563d2e757))
+
+
+
+
+
 # [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
 
 

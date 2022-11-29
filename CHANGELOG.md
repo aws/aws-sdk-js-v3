@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.220.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.219.0...v3.220.0) (2022-11-29)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AWS Verified Access and the Hpc6id Amazon EC2 compute optimized instance type, which features 3rd generation Intel Xeon Scalable processors. ([e0d2198](https://github.com/aws/aws-sdk-js-v3/commit/e0d219808aa30864e04ed31da29d1d2563d2e757))
+* **client-firehose:** Allow support for the Serverless offering for Amazon OpenSearch Service as a Kinesis Data Firehose delivery destination. ([eb21147](https://github.com/aws/aws-sdk-js-v3/commit/eb211476739406378f466f7c0185048463bb4b49))
+* **client-kms:** AWS KMS introduces the External Key Store (XKS), a new feature for customers who want to protect their data with encryption keys stored in an external key management system under their control. ([cb66e2e](https://github.com/aws/aws-sdk-js-v3/commit/cb66e2e96ad67f05f3d945a78ab0af8dade1f9b9))
+* **client-omics:** Amazon Omics is a new, purpose-built service that can be used by healthcare and life science organizations to store, query, and analyze omics data. The insights from that data can be used to accelerate scientific discoveries and improve healthcare. ([838da6f](https://github.com/aws/aws-sdk-js-v3/commit/838da6f94d6e038ae49db68c924d02ceb463e6eb))
+* **client-opensearchserverless:** Publish SDK for Amazon OpenSearch Serverless ([6b0dfae](https://github.com/aws/aws-sdk-js-v3/commit/6b0dfae3674d0a0337dc07e590917d5ef07f80f9))
+* **client-securitylake:** Amazon Security Lake automatically centralizes security data from cloud, on-premises, and custom sources into a purpose-built data lake stored in your account. Security Lake makes it easier to analyze security data, so you can improve the protection of your workloads, applications, and data ([8b0dd1d](https://github.com/aws/aws-sdk-js-v3/commit/8b0dd1db10056d0eceec3ca53d2111e672b17463))
+* **client-simspaceweaver:** AWS SimSpace Weaver is a new service that helps customers build spatial simulations at new levels of scale - resulting in virtual worlds with millions of dynamic entities. See the AWS SimSpace Weaver developer guide for more details on how to get started. https://docs.aws.amazon.com/simspaceweaver ([219849b](https://github.com/aws/aws-sdk-js-v3/commit/219849be2d9db216f478881d3012b58680cbb661))
+* **clients:** update client endpoints as of 2022-11-29 ([f64d4e8](https://github.com/aws/aws-sdk-js-v3/commit/f64d4e81cff5478541fc04b1b368f14ecc71e136))
+* **codegen:** add TokenAuthPlugin ([#4238](https://github.com/aws/aws-sdk-js-v3/issues/4238)) ([20c9947](https://github.com/aws/aws-sdk-js-v3/commit/20c9947b0d0d3af7212983088c673587528d4558))
+
+
+
+
+
 # [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
 
 
