@@ -265,3 +265,17 @@ subprojects {
         }
     }
 }
+
+tasks.register<GradleBuild>("yarn-test") {
+    doLast {
+        exec {
+            workingDir = File("${projectDir}/..")
+            commandLine("yarn")
+            commandLine("yarn", "test:all")
+        }
+    }
+}
+
+tasks.register<GradleBuild>("smithy-ci") {
+    tasks = listOf("clean", "build", "yarn-test")
+}
