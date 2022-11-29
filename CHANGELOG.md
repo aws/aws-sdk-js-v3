@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
+
+
+### Features
+
+* **client-arc-zonal-shift:** Amazon Route 53 Application Recovery Controller Zonal Shift is a new service that makes it easy to shift traffic away from an Availability Zone in a Region. See the developer guide for more information: https://docs.aws.amazon.com/r53recovery/latest/dg/what-is-route53-recovery.html ([29a44a8](https://github.com/aws/aws-sdk-js-v3/commit/29a44a84eff57fa259dbe6b6fce32119ae032447))
+* **client-compute-optimizer:** Adds support for a new recommendation preference that makes it possible for customers to optimize their EC2 recommendations by utilizing an external metrics ingestion service to provide metrics. ([fefe82f](https://github.com/aws/aws-sdk-js-v3/commit/fefe82f8cd3604253c868553020d9aebc6e13634))
+* **client-config-service:** With this release, you can use AWS Config to evaluate your resources for compliance with Config rules before they are created or updated. Using Config rules in proactive mode enables you to test and build compliant resource templates or check resource configurations at the time they are provisioned. ([384d079](https://github.com/aws/aws-sdk-js-v3/commit/384d07940e9f9de5dfbd9d625963a53c1be0e14b))
+* **client-ec2:** Introduces ENA Express, which uses AWS SRD and dynamic routing to increase throughput and minimize latency, adds support for trust relationships between Reachability Analyzer and AWS Organizations to enable cross-account analysis, and adds support for Infrastructure Performance metric subscriptions. ([394dcfc](https://github.com/aws/aws-sdk-js-v3/commit/394dcfcf94f76142605687ba21f7fde13ae94714))
+* **client-eks:** Adds support for additional EKS add-ons metadata and filtering fields ([bd65010](https://github.com/aws/aws-sdk-js-v3/commit/bd6501033911efeec252bbbab5b6b321d4ce9c07))
+* **client-fsx:** This release adds support for 4GB/s / 160K PIOPS FSx for ONTAP file systems and 10GB/s / 350K PIOPS FSx for OpenZFS file systems (Single_AZ_2). For FSx for ONTAP, this also adds support for DP volumes, snapshot policy, copy tags to backups, and Multi-AZ route table updates. ([797d649](https://github.com/aws/aws-sdk-js-v3/commit/797d649071cce7b02fd0041c1b11f3fff2347e00))
+* **client-glue:** This release allows the creation of Custom Visual Transforms (Dynamic Transforms) to be created via AWS Glue CLI/SDK. ([23a99e8](https://github.com/aws/aws-sdk-js-v3/commit/23a99e8135c9e7975a15b7fad395a7242e072bc7))
+* **client-inspector2:** This release adds support for Inspector to scan AWS Lambda. ([25099d1](https://github.com/aws/aws-sdk-js-v3/commit/25099d17cbe66ea792370a5ba2019fb62a55d029))
+* **client-lambda:** Adds support for Lambda SnapStart, which helps improve the startup performance of functions. Customers can now manage SnapStart based functions via CreateFunction and UpdateFunctionConfiguration APIs ([aa2dc1f](https://github.com/aws/aws-sdk-js-v3/commit/aa2dc1f18b057e7b5df2a5b08c28fa50a9af3f82))
+* **client-license-manager-user-subscriptions:** AWS now offers fully-compliant, Amazon-provided licenses for Microsoft Office Professional Plus 2021 Amazon Machine Images (AMIs) on Amazon EC2. These AMIs are now available on the Amazon EC2 console and on AWS Marketplace to launch instances on-demand without any long-term licensing commitments. ([0fe1ce8](https://github.com/aws/aws-sdk-js-v3/commit/0fe1ce8c662a3cf35a938798e83e713df80c36dc))
+* **client-macie2:** Added support for configuring Macie to continually sample objects from S3 buckets and inspect them for sensitive data. Results appear in statistics, findings, and other data that Macie provides. ([f418c4b](https://github.com/aws/aws-sdk-js-v3/commit/f418c4b5a51f0d0b7fb906cc38e87f12393d45bb))
+* **client-quicksight:** This release adds new Describe APIs and updates Create and Update APIs to support the data model for Dashboards, Analyses, and Templates. ([1d1950f](https://github.com/aws/aws-sdk-js-v3/commit/1d1950ffbc03a245bad87287247069c0b0c8573b))
+* **client-s3-control:** Added two new APIs to support Amazon S3 Multi-Region Access Point failover controls: GetMultiRegionAccessPointRoutes and SubmitMultiRegionAccessPointRoutes. The failover control APIs are supported in the following Regions: us-east-1, us-west-2, eu-west-1, ap-southeast-2, and ap-northeast-1. ([e6868fe](https://github.com/aws/aws-sdk-js-v3/commit/e6868feb839a0028b7015aac1ce47688629c34df))
+* **client-securityhub:** Adding StandardsManagedBy field to DescribeStandards API response ([0f56885](https://github.com/aws/aws-sdk-js-v3/commit/0f56885674f0c011e1db44c2962d901a77d61eb7))
+* **clients:** update client endpoints as of 2022-11-29 ([eed3235](https://github.com/aws/aws-sdk-js-v3/commit/eed323587eeeb49054ec98a10f9521c70095228f))
+
+
+
+
+
 # [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
 
 
