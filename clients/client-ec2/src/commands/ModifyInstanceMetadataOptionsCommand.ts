@@ -19,7 +19,7 @@ import {
   ModifyInstanceMetadataOptionsRequestFilterSensitiveLog,
   ModifyInstanceMetadataOptionsResult,
   ModifyInstanceMetadataOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceMetadataOptionsCommand,
   serializeAws_ec2ModifyInstanceMetadataOptionsCommand,

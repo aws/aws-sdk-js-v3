@@ -19,7 +19,7 @@ import {
   DisableVpcClassicLinkDnsSupportRequestFilterSensitiveLog,
   DisableVpcClassicLinkDnsSupportResult,
   DisableVpcClassicLinkDnsSupportResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,
   serializeAws_ec2DisableVpcClassicLinkDnsSupportCommand,

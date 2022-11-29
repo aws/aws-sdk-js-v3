@@ -19,7 +19,7 @@ import {
   ModifyInstancePlacementRequestFilterSensitiveLog,
   ModifyInstancePlacementResult,
   ModifyInstancePlacementResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstancePlacementCommand,
   serializeAws_ec2ModifyInstancePlacementCommand,

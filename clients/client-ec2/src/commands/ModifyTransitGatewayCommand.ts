@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyTransitGatewayRequest, ModifyTransitGatewayRequestFilterSensitiveLog } from "../models/models_5";
-import { ModifyTransitGatewayResult, ModifyTransitGatewayResultFilterSensitiveLog } from "../models/models_6";
+import {
+  ModifyTransitGatewayRequest,
+  ModifyTransitGatewayRequestFilterSensitiveLog,
+  ModifyTransitGatewayResult,
+  ModifyTransitGatewayResultFilterSensitiveLog,
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTransitGatewayCommand,
   serializeAws_ec2ModifyTransitGatewayCommand,

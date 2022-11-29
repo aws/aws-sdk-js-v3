@@ -22,25 +22,28 @@ import {
   ClientVpnAuthorizationRuleStatus,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
-  CoipPool,
   CurrencyCodeValues,
-  CustomerGateway,
   FleetCapacityReservation,
   FleetCapacityReservationTenancy,
   FleetInstanceMatchCriteria,
-  HostnameType,
   HostRecovery,
   IamInstanceProfile,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
   Tag,
+  TransitGatewayVpcAttachment,
   TransportProtocol,
+  UnsuccessfulItem,
+  VerifiedAccessInstance,
+  VerifiedAccessTrustProvider,
 } from "./models_0";
 import {
   AttributeValue,
   BlockDeviceMapping,
   CapacityReservationPreference,
   CapacityReservationTargetResponse,
+  CoipPool,
+  CustomerGateway,
   DefaultTargetCapacityType,
   DestinationFileFormat,
   DhcpOptions,
@@ -55,10 +58,9 @@ import {
   FleetReplacementStrategy,
   FleetType,
   GroupIdentifier,
+  HostnameType,
   InstanceIpv6Address,
   InstanceLifecycle,
-  InternetGateway,
-  IpamPool,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   NetworkInterfaceStatus,
@@ -70,7 +72,442 @@ import {
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
-import { FleetStateCode } from "./models_2";
+import {
+  FleetStateCode,
+  TransitGatewayRoute,
+  TransitGatewayRouteTable,
+  TransitGatewayRouteTableAnnouncement,
+  VerifiedAccessEndpoint,
+  VerifiedAccessGroup,
+} from "./models_2";
+
+export interface DeleteTransitGatewayRouteResult {
+  /**
+   * <p>Information about the route.</p>
+   */
+  Route?: TransitGatewayRoute;
+}
+
+export interface DeleteTransitGatewayRouteTableRequest {
+  /**
+   * <p>The ID of the transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayRouteTableResult {
+  /**
+   * <p>Information about the deleted transit gateway route table.</p>
+   */
+  TransitGatewayRouteTable?: TransitGatewayRouteTable;
+}
+
+export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
+  /**
+   * <p>The transit gateway route table ID that's being deleted. </p>
+   */
+  TransitGatewayRouteTableAnnouncementId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayRouteTableAnnouncementResult {
+  /**
+   * <p>Provides details about a deleted transit gateway route table.</p>
+   */
+  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
+}
+
+export interface DeleteTransitGatewayVpcAttachmentRequest {
+  /**
+   * <p>The ID of the attachment.</p>
+   */
+  TransitGatewayAttachmentId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteTransitGatewayVpcAttachmentResult {
+  /**
+   * <p>Information about the deleted VPC attachment.</p>
+   */
+  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+export interface DeleteVerifiedAccessEndpointRequest {
+  VerifiedAccessEndpointId: string | undefined;
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface DeleteVerifiedAccessEndpointResult {
+  VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
+}
+
+export interface DeleteVerifiedAccessGroupRequest {
+  VerifiedAccessGroupId: string | undefined;
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface DeleteVerifiedAccessGroupResult {
+  VerifiedAccessGroup?: VerifiedAccessGroup;
+}
+
+export interface DeleteVerifiedAccessInstanceRequest {
+  VerifiedAccessInstanceId: string | undefined;
+  DryRun?: boolean;
+  ClientToken?: string;
+}
+
+export interface DeleteVerifiedAccessInstanceResult {
+  VerifiedAccessInstance?: VerifiedAccessInstance;
+}
+
+export interface DeleteVerifiedAccessTrustProviderRequest {
+  VerifiedAccessTrustProviderId: string | undefined;
+  DryRun?: boolean;
+  ClientToken?: string;
+}
+
+export interface DeleteVerifiedAccessTrustProviderResult {
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+}
+
+export interface DeleteVolumeRequest {
+  /**
+   * <p>The ID of the volume.</p>
+   */
+  VolumeId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteVpcRequest {
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeleteVpcEndpointConnectionNotificationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more notification IDs.</p>
+   */
+  ConnectionNotificationIds: string[] | undefined;
+}
+
+export interface DeleteVpcEndpointConnectionNotificationsResult {
+  /**
+   * <p>Information about the notifications that could not be deleted
+   *             successfully.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+/**
+ * <p>Contains the parameters for DeleteVpcEndpoints.</p>
+ */
+export interface DeleteVpcEndpointsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more VPC endpoint IDs.</p>
+   */
+  VpcEndpointIds: string[] | undefined;
+}
+
+/**
+ * <p>Contains the output of DeleteVpcEndpoints.</p>
+ */
+export interface DeleteVpcEndpointsResult {
+  /**
+   * <p>Information about the VPC endpoints that were not successfully deleted.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export interface DeleteVpcEndpointServiceConfigurationsRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The IDs of one or more services.</p>
+   */
+  ServiceIds: string[] | undefined;
+}
+
+export interface DeleteVpcEndpointServiceConfigurationsResult {
+  /**
+   * <p>Information about the service configurations that were not deleted, if
+   *             applicable.</p>
+   */
+  Unsuccessful?: UnsuccessfulItem[];
+}
+
+export interface DeleteVpcPeeringConnectionRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the VPC peering connection.</p>
+   */
+  VpcPeeringConnectionId: string | undefined;
+}
+
+export interface DeleteVpcPeeringConnectionResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+   */
+  Return?: boolean;
+}
+
+/**
+ * <p>Contains the parameters for DeleteVpnConnection.</p>
+ */
+export interface DeleteVpnConnectionRequest {
+  /**
+   * <p>The ID of the VPN connection.</p>
+   */
+  VpnConnectionId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
+ */
+export interface DeleteVpnConnectionRouteRequest {
+  /**
+   * <p>The CIDR block associated with the local subnet of the customer network.</p>
+   */
+  DestinationCidrBlock: string | undefined;
+
+  /**
+   * <p>The ID of the VPN connection.</p>
+   */
+  VpnConnectionId: string | undefined;
+}
+
+/**
+ * <p>Contains the parameters for DeleteVpnGateway.</p>
+ */
+export interface DeleteVpnGatewayRequest {
+  /**
+   * <p>The ID of the virtual private gateway.</p>
+   */
+  VpnGatewayId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeprovisionByoipCidrRequest {
+  /**
+   * <p>The address range, in CIDR notation. The prefix must be the same prefix
+   *          that you specified when you provisioned the address range.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DeprovisionByoipCidrResult {
+  /**
+   * <p>Information about the address range.</p>
+   */
+  ByoipCidr?: ByoipCidr;
+}
+
+export interface DeprovisionIpamPoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the pool that has the CIDR you want to deprovision.</p>
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The CIDR which you want to deprovision from the pool.</p>
+   */
+  Cidr?: string;
+}
+
+export enum IpamPoolCidrFailureCode {
+  cidr_not_available = "cidr-not-available",
+}
+
+/**
+ * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
+ */
+export interface IpamPoolCidrFailureReason {
+  /**
+   * <p>An error code related to why an IPAM pool CIDR failed to be provisioned.</p>
+   */
+  Code?: IpamPoolCidrFailureCode | string;
+
+  /**
+   * <p>A message related to why an IPAM pool CIDR failed to be provisioned.</p>
+   */
+  Message?: string;
+}
+
+export enum IpamPoolCidrState {
+  deprovisioned = "deprovisioned",
+  failed_deprovision = "failed-deprovision",
+  failed_import = "failed-import",
+  failed_provision = "failed-provision",
+  pending_deprovision = "pending-deprovision",
+  pending_import = "pending-import",
+  pending_provision = "pending-provision",
+  provisioned = "provisioned",
+}
+
+/**
+ * <p>A CIDR provisioned to an IPAM pool.</p>
+ */
+export interface IpamPoolCidr {
+  /**
+   * <p>The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask)
+   *          and refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>
+   */
+  Cidr?: string;
+
+  /**
+   * <p>The state of the CIDR.</p>
+   */
+  State?: IpamPoolCidrState | string;
+
+  /**
+   * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
+   */
+  FailureReason?: IpamPoolCidrFailureReason;
+}
+
+export interface DeprovisionIpamPoolCidrResult {
+  /**
+   * <p>The deprovisioned pool CIDR.</p>
+   */
+  IpamPoolCidr?: IpamPoolCidr;
+}
+
+export interface DeprovisionPublicIpv4PoolCidrRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the pool that you want to deprovision the CIDR from.</p>
+   */
+  PoolId: string | undefined;
+
+  /**
+   * <p>The CIDR you want to deprovision from the pool.</p>
+   */
+  Cidr: string | undefined;
+}
+
+export interface DeprovisionPublicIpv4PoolCidrResult {
+  /**
+   * <p>The ID of the pool that you deprovisioned the CIDR from.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>The deprovisioned CIDRs.</p>
+   */
+  DeprovisionedAddresses?: string[];
+}
+
+/**
+ * <p>Contains the parameters for DeregisterImage.</p>
+ */
+export interface DeregisterImageRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
 
 /**
  * <p>Information about the tag keys to deregister for the current Region. You can either specify
@@ -8567,760 +9004,295 @@ export interface DescribeInstanceTypesRequest {
 }
 
 /**
- * <p>Describes the optimized EBS performance for supported instance types.</p>
+ * @internal
  */
-export interface EbsOptimizedInfo {
-  /**
-   * <p>The baseline bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   */
-  BaselineBandwidthInMbps?: number;
-
-  /**
-   * <p>The baseline throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   */
-  BaselineThroughputInMBps?: number;
-
-  /**
-   * <p>The baseline input/output storage operations per seconds for an EBS-optimized instance type.</p>
-   */
-  BaselineIops?: number;
-
-  /**
-   * <p>The maximum bandwidth performance for an EBS-optimized instance type, in Mbps.</p>
-   */
-  MaximumBandwidthInMbps?: number;
-
-  /**
-   * <p>The maximum throughput performance for an EBS-optimized instance type, in MB/s.</p>
-   */
-  MaximumThroughputInMBps?: number;
-
-  /**
-   * <p>The maximum input/output storage operations per second for an EBS-optimized instance type.</p>
-   */
-  MaximumIops?: number;
-}
-
-export enum EbsOptimizedSupport {
-  default = "default",
-  supported = "supported",
-  unsupported = "unsupported",
-}
-
-export enum EbsEncryptionSupport {
-  supported = "supported",
-  unsupported = "unsupported",
-}
-
-export enum EbsNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export const DeleteTransitGatewayRouteResultFilterSensitiveLog = (obj: DeleteTransitGatewayRouteResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Amazon EBS features supported by the instance type.</p>
+ * @internal
  */
-export interface EbsInfo {
-  /**
-   * <p>Indicates whether the instance type is Amazon EBS-optimized. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html">Amazon EBS-optimized
-   *     instances</a> in <i>Amazon EC2 User Guide</i>.</p>
-   */
-  EbsOptimizedSupport?: EbsOptimizedSupport | string;
-
-  /**
-   * <p>Indicates whether Amazon EBS encryption is supported.</p>
-   */
-  EncryptionSupport?: EbsEncryptionSupport | string;
-
-  /**
-   * <p>Describes the optimized EBS performance for the instance type.</p>
-   */
-  EbsOptimizedInfo?: EbsOptimizedInfo;
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   */
-  NvmeSupport?: EbsNvmeSupport | string;
-}
+export const DeleteTransitGatewayRouteTableRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayRouteTableRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
+ * @internal
  */
-export interface FpgaDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the FPGA accelerator, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
+export const DeleteTransitGatewayRouteTableResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayRouteTableResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the FPGA accelerator for the instance type.</p>
+ * @internal
  */
-export interface FpgaDeviceInfo {
-  /**
-   * <p>The name of the FPGA accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the FPGA accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The count of FPGA accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory for the FPGA accelerator for the instance type.</p>
-   */
-  MemoryInfo?: FpgaDeviceMemoryInfo;
-}
+export const DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayRouteTableAnnouncementRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the FPGAs for the instance type.</p>
+ * @internal
  */
-export interface FpgaInfo {
-  /**
-   * <p>Describes the FPGAs for the instance type.</p>
-   */
-  Fpgas?: FpgaDeviceInfo[];
-
-  /**
-   * <p>The total memory of all FPGA accelerators for the instance type.</p>
-   */
-  TotalFpgaMemoryInMiB?: number;
-}
+export const DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayRouteTableAnnouncementResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the memory available to the GPU accelerator.</p>
+ * @internal
  */
-export interface GpuDeviceMemoryInfo {
-  /**
-   * <p>The size of the memory available to the GPU accelerator, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
+export const DeleteTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
+  obj: DeleteTransitGatewayVpcAttachmentRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the GPU accelerators for the instance type.</p>
+ * @internal
  */
-export interface GpuDeviceInfo {
-  /**
-   * <p>The name of the GPU accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the GPU accelerator.</p>
-   */
-  Manufacturer?: string;
-
-  /**
-   * <p>The number of GPUs for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>Describes the memory available to the GPU accelerator.</p>
-   */
-  MemoryInfo?: GpuDeviceMemoryInfo;
-}
+export const DeleteTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
+  obj: DeleteTransitGatewayVpcAttachmentResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the GPU accelerators for the instance type.</p>
+ * @internal
  */
-export interface GpuInfo {
-  /**
-   * <p>Describes the GPU accelerators for the instance type.</p>
-   */
-  Gpus?: GpuDeviceInfo[];
-
-  /**
-   * <p>The total size of the memory for the GPU accelerators for the instance type, in MiB.</p>
-   */
-  TotalGpuMemoryInMiB?: number;
-}
-
-export enum InstanceTypeHypervisor {
-  NITRO = "nitro",
-  XEN = "xen",
-}
+export const DeleteVerifiedAccessEndpointRequestFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessEndpointRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Inference accelerators for the instance type.</p>
+ * @internal
  */
-export interface InferenceDeviceInfo {
-  /**
-   * <p>The number of Inference accelerators for the instance type.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The name of the Inference accelerator.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The manufacturer of the Inference accelerator.</p>
-   */
-  Manufacturer?: string;
-}
+export const DeleteVerifiedAccessEndpointResultFilterSensitiveLog = (obj: DeleteVerifiedAccessEndpointResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Inference accelerators for the instance type.</p>
+ * @internal
  */
-export interface InferenceAcceleratorInfo {
-  /**
-   * <p>Describes the Inference accelerators for the instance type.</p>
-   */
-  Accelerators?: InferenceDeviceInfo[];
-}
-
-export enum DiskType {
-  hdd = "hdd",
-  ssd = "ssd",
-}
+export const DeleteVerifiedAccessGroupRequestFilterSensitiveLog = (obj: DeleteVerifiedAccessGroupRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a disk.</p>
+ * @internal
  */
-export interface DiskInfo {
-  /**
-   * <p>The size of the disk in GB.</p>
-   */
-  SizeInGB?: number;
-
-  /**
-   * <p>The number of disks with this configuration.</p>
-   */
-  Count?: number;
-
-  /**
-   * <p>The type of disk.</p>
-   */
-  Type?: DiskType | string;
-}
-
-export enum InstanceStorageEncryptionSupport {
-  required = "required",
-  unsupported = "unsupported",
-}
-
-export enum EphemeralNvmeSupport {
-  REQUIRED = "required",
-  SUPPORTED = "supported",
-  UNSUPPORTED = "unsupported",
-}
+export const DeleteVerifiedAccessGroupResultFilterSensitiveLog = (obj: DeleteVerifiedAccessGroupResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the instance store features that are supported by the instance type.</p>
+ * @internal
  */
-export interface InstanceStorageInfo {
-  /**
-   * <p>The total size of the disks, in GB.</p>
-   */
-  TotalSizeInGB?: number;
-
-  /**
-   * <p>Describes the disks that are available for the instance type.</p>
-   */
-  Disks?: DiskInfo[];
-
-  /**
-   * <p>Indicates whether non-volatile memory express (NVMe) is supported.</p>
-   */
-  NvmeSupport?: EphemeralNvmeSupport | string;
-
-  /**
-   * <p>Indicates whether data is encrypted at rest.</p>
-   */
-  EncryptionSupport?: InstanceStorageEncryptionSupport | string;
-}
+export const DeleteVerifiedAccessInstanceRequestFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessInstanceRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the memory for the instance type.</p>
+ * @internal
  */
-export interface MemoryInfo {
-  /**
-   * <p>The size of the memory, in MiB.</p>
-   */
-  SizeInMiB?: number;
-}
+export const DeleteVerifiedAccessInstanceResultFilterSensitiveLog = (obj: DeleteVerifiedAccessInstanceResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
+ * @internal
  */
-export interface EfaInfo {
-  /**
-   * <p>The maximum number of Elastic Fabric Adapters for the instance type.</p>
-   */
-  MaximumEfaInterfaces?: number;
-}
-
-export enum EnaSupport {
-  required = "required",
-  supported = "supported",
-  unsupported = "unsupported",
-}
+export const DeleteVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the network card support of the instance type.</p>
+ * @internal
  */
-export interface NetworkCardInfo {
-  /**
-   * <p>The index of the network card.</p>
-   */
-  NetworkCardIndex?: number;
-
-  /**
-   * <p>The network performance of the network card.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the network card.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-}
+export const DeleteVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: DeleteVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the networking features of the instance type.</p>
+ * @internal
  */
-export interface NetworkInfo {
-  /**
-   * <p>The network performance.</p>
-   */
-  NetworkPerformance?: string;
-
-  /**
-   * <p>The maximum number of network interfaces for the instance type.</p>
-   */
-  MaximumNetworkInterfaces?: number;
-
-  /**
-   * <p>The maximum number of physical network cards that can be allocated to the instance.</p>
-   */
-  MaximumNetworkCards?: number;
-
-  /**
-   * <p>The index of the default network card, starting at 0.</p>
-   */
-  DefaultNetworkCardIndex?: number;
-
-  /**
-   * <p>Describes the network cards for the instance type.</p>
-   */
-  NetworkCards?: NetworkCardInfo[];
-
-  /**
-   * <p>The maximum number of IPv4 addresses per network interface.</p>
-   */
-  Ipv4AddressesPerInterface?: number;
-
-  /**
-   * <p>The maximum number of IPv6 addresses per network interface.</p>
-   */
-  Ipv6AddressesPerInterface?: number;
-
-  /**
-   * <p>Indicates whether IPv6 is supported.</p>
-   */
-  Ipv6Supported?: boolean;
-
-  /**
-   * <p>Indicates whether Elastic Network Adapter (ENA) is supported.</p>
-   */
-  EnaSupport?: EnaSupport | string;
-
-  /**
-   * <p>Indicates whether Elastic Fabric Adapter (EFA) is supported.</p>
-   */
-  EfaSupported?: boolean;
-
-  /**
-   * <p>Describes the Elastic Fabric Adapters for the instance type.</p>
-   */
-  EfaInfo?: EfaInfo;
-
-  /**
-   * <p>Indicates whether the instance type automatically encrypts in-transit traffic between instances.</p>
-   */
-  EncryptionInTransitSupported?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable
-   *     Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and
-   *     minimize tail latency of network traffic between EC2 instances.</p>
-   */
-  EnaSrdSupported?: boolean;
-}
-
-export enum PlacementGroupStrategy {
-  cluster = "cluster",
-  partition = "partition",
-  spread = "spread",
-}
+export const DeleteVolumeRequestFilterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the placement group support of the instance type.</p>
+ * @internal
  */
-export interface PlacementGroupInfo {
-  /**
-   * <p>The supported placement group types.</p>
-   */
-  SupportedStrategies?: (PlacementGroupStrategy | string)[];
-}
-
-export enum ArchitectureType {
-  arm64 = "arm64",
-  arm64_mac = "arm64_mac",
-  i386 = "i386",
-  x86_64 = "x86_64",
-  x86_64_mac = "x86_64_mac",
-}
+export const DeleteVpcRequestFilterSensitiveLog = (obj: DeleteVpcRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the processor used by the instance type.</p>
+ * @internal
  */
-export interface ProcessorInfo {
-  /**
-   * <p>The architectures supported by the instance type.</p>
-   */
-  SupportedArchitectures?: (ArchitectureType | string)[];
-
-  /**
-   * <p>The speed of the processor, in GHz.</p>
-   */
-  SustainedClockSpeedInGhz?: number;
-}
-
-export enum BootModeType {
-  legacy_bios = "legacy-bios",
-  uefi = "uefi",
-}
-
-export enum RootDeviceType {
-  ebs = "ebs",
-  instance_store = "instance-store",
-}
-
-export enum UsageClassType {
-  on_demand = "on-demand",
-  spot = "spot",
-}
+export const DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
+  obj: DeleteVpcEndpointConnectionNotificationsRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the vCPU configurations for the instance type.</p>
+ * @internal
  */
-export interface VCpuInfo {
-  /**
-   * <p>The default number of vCPUs for the instance type.</p>
-   */
-  DefaultVCpus?: number;
-
-  /**
-   * <p>The default number of cores for the instance type.</p>
-   */
-  DefaultCores?: number;
-
-  /**
-   * <p>The default number of threads per core for the instance type.</p>
-   */
-  DefaultThreadsPerCore?: number;
-
-  /**
-   * <p>The valid number of cores that can be configured for the instance type.</p>
-   */
-  ValidCores?: number[];
-
-  /**
-   * <p>The valid number of threads per core that can be configured for the instance type.</p>
-   */
-  ValidThreadsPerCore?: number[];
-}
+export const DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
+  obj: DeleteVpcEndpointConnectionNotificationsResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the instance type.</p>
+ * @internal
  */
-export interface InstanceTypeInfo {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceType?: _InstanceType | string;
+export const DeleteVpcEndpointsRequestFilterSensitiveLog = (obj: DeleteVpcEndpointsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether the instance type is current generation.</p>
-   */
-  CurrentGeneration?: boolean;
+/**
+ * @internal
+ */
+export const DeleteVpcEndpointsResultFilterSensitiveLog = (obj: DeleteVpcEndpointsResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether the instance type is eligible for the free tier.</p>
-   */
-  FreeTierEligible?: boolean;
+/**
+ * @internal
+ */
+export const DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
+  obj: DeleteVpcEndpointServiceConfigurationsRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether the instance type is offered for spot or On-Demand.</p>
-   */
-  SupportedUsageClasses?: (UsageClassType | string)[];
+/**
+ * @internal
+ */
+export const DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog = (
+  obj: DeleteVpcEndpointServiceConfigurationsResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The supported root device types.</p>
-   */
-  SupportedRootDeviceTypes?: (RootDeviceType | string)[];
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringConnectionRequestFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The supported virtualization types.</p>
-   */
-  SupportedVirtualizationTypes?: (VirtualizationType | string)[];
+/**
+ * @internal
+ */
+export const DeleteVpcPeeringConnectionResultFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether the instance is a bare metal instance type.</p>
-   */
-  BareMetal?: boolean;
+/**
+ * @internal
+ */
+export const DeleteVpnConnectionRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The hypervisor for the instance type.</p>
-   */
-  Hypervisor?: InstanceTypeHypervisor | string;
+/**
+ * @internal
+ */
+export const DeleteVpnConnectionRouteRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRouteRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the processor.</p>
-   */
-  ProcessorInfo?: ProcessorInfo;
+/**
+ * @internal
+ */
+export const DeleteVpnGatewayRequestFilterSensitiveLog = (obj: DeleteVpnGatewayRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the vCPU configurations for the instance type.</p>
-   */
-  VCpuInfo?: VCpuInfo;
+/**
+ * @internal
+ */
+export const DeprovisionByoipCidrRequestFilterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the memory for the instance type.</p>
-   */
-  MemoryInfo?: MemoryInfo;
+/**
+ * @internal
+ */
+export const DeprovisionByoipCidrResultFilterSensitiveLog = (obj: DeprovisionByoipCidrResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates whether instance storage is supported.</p>
-   */
-  InstanceStorageSupported?: boolean;
+/**
+ * @internal
+ */
+export const DeprovisionIpamPoolCidrRequestFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the instance storage for the instance type.</p>
-   */
-  InstanceStorageInfo?: InstanceStorageInfo;
+/**
+ * @internal
+ */
+export const IpamPoolCidrFailureReasonFilterSensitiveLog = (obj: IpamPoolCidrFailureReason): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the Amazon EBS settings for the instance type.</p>
-   */
-  EbsInfo?: EbsInfo;
+/**
+ * @internal
+ */
+export const IpamPoolCidrFilterSensitiveLog = (obj: IpamPoolCidr): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the network settings for the instance type.</p>
-   */
-  NetworkInfo?: NetworkInfo;
+/**
+ * @internal
+ */
+export const DeprovisionIpamPoolCidrResultFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the GPU accelerator settings for the instance type.</p>
-   */
-  GpuInfo?: GpuInfo;
+/**
+ * @internal
+ */
+export const DeprovisionPublicIpv4PoolCidrRequestFilterSensitiveLog = (
+  obj: DeprovisionPublicIpv4PoolCidrRequest
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the FPGA accelerator settings for the instance type.</p>
-   */
-  FpgaInfo?: FpgaInfo;
+/**
+ * @internal
+ */
+export const DeprovisionPublicIpv4PoolCidrResultFilterSensitiveLog = (
+  obj: DeprovisionPublicIpv4PoolCidrResult
+): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Describes the placement group settings for the instance type.</p>
-   */
-  PlacementGroupInfo?: PlacementGroupInfo;
-
-  /**
-   * <p>Describes the Inference accelerator settings for the instance type.</p>
-   */
-  InferenceAcceleratorInfo?: InferenceAcceleratorInfo;
-
-  /**
-   * <p>Indicates whether On-Demand hibernation is supported.</p>
-   */
-  HibernationSupported?: boolean;
-
-  /**
-   * <p>Indicates whether the instance type is a burstable performance instance type.</p>
-   */
-  BurstablePerformanceSupported?: boolean;
-
-  /**
-   * <p>Indicates whether Dedicated Hosts are supported on the instance type.</p>
-   */
-  DedicatedHostsSupported?: boolean;
-
-  /**
-   * <p>Indicates whether auto recovery is supported.</p>
-   */
-  AutoRecoverySupported?: boolean;
-
-  /**
-   * <p>The supported boot modes. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *    <i>Amazon EC2 User Guide</i>.</p>
-   */
-  SupportedBootModes?: (BootModeType | string)[];
-}
-
-export interface DescribeInstanceTypesResult {
-  /**
-   * <p>The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   */
-  InstanceTypes?: InstanceTypeInfo[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there
-   *          are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeInternetGatewaysRequest {
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.state</code> - The current state of the attachment between the gateway
-   *                     and the VPC (<code>available</code>). Present only if a VPC is attached.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>internet-gateway-id</code> - The ID of the Internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the internet gateway.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more internet gateway IDs.</p>
-   *         <p>Default: Describes all your internet gateways.</p>
-   */
-  InternetGatewayIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface DescribeInternetGatewaysResult {
-  /**
-   * <p>Information about one or more internet gateways.</p>
-   */
-  InternetGateways?: InternetGateway[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeIpamPoolsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the IPAM pools you would like information on.</p>
-   */
-  IpamPoolIds?: string[];
-}
-
-export interface DescribeIpamPoolsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the IPAM pools.</p>
-   */
-  IpamPools?: IpamPool[];
-}
-
-export interface DescribeIpamsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the IPAMs you want information on.</p>
-   */
-  IpamIds?: string[];
-}
+/**
+ * @internal
+ */
+export const DeregisterImageRequestFilterSensitiveLog = (obj: DeregisterImageRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10894,187 +10866,5 @@ export const DescribeInstanceTypeOfferingsResultFilterSensitiveLog = (
  * @internal
  */
 export const DescribeInstanceTypesRequestFilterSensitiveLog = (obj: DescribeInstanceTypesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsOptimizedInfoFilterSensitiveLog = (obj: EbsOptimizedInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EbsInfoFilterSensitiveLog = (obj: EbsInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaDeviceMemoryInfoFilterSensitiveLog = (obj: FpgaDeviceMemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaDeviceInfoFilterSensitiveLog = (obj: FpgaDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FpgaInfoFilterSensitiveLog = (obj: FpgaInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuDeviceMemoryInfoFilterSensitiveLog = (obj: GpuDeviceMemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuDeviceInfoFilterSensitiveLog = (obj: GpuDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GpuInfoFilterSensitiveLog = (obj: GpuInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceDeviceInfoFilterSensitiveLog = (obj: InferenceDeviceInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InferenceAcceleratorInfoFilterSensitiveLog = (obj: InferenceAcceleratorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DiskInfoFilterSensitiveLog = (obj: DiskInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceStorageInfoFilterSensitiveLog = (obj: InstanceStorageInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemoryInfoFilterSensitiveLog = (obj: MemoryInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EfaInfoFilterSensitiveLog = (obj: EfaInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkCardInfoFilterSensitiveLog = (obj: NetworkCardInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const NetworkInfoFilterSensitiveLog = (obj: NetworkInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PlacementGroupInfoFilterSensitiveLog = (obj: PlacementGroupInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ProcessorInfoFilterSensitiveLog = (obj: ProcessorInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const VCpuInfoFilterSensitiveLog = (obj: VCpuInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTypeInfoFilterSensitiveLog = (obj: InstanceTypeInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInstanceTypesResultFilterSensitiveLog = (obj: DescribeInstanceTypesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInternetGatewaysRequestFilterSensitiveLog = (obj: DescribeInternetGatewaysRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeInternetGatewaysResultFilterSensitiveLog = (obj: DescribeInternetGatewaysResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamPoolsRequestFilterSensitiveLog = (obj: DescribeIpamPoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamPoolsResultFilterSensitiveLog = (obj: DescribeIpamPoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamsRequestFilterSensitiveLog = (obj: DescribeIpamsRequest): any => ({
   ...obj,
 });

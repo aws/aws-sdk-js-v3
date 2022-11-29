@@ -19,7 +19,7 @@ import {
   DeprovisionPublicIpv4PoolCidrRequestFilterSensitiveLog,
   DeprovisionPublicIpv4PoolCidrResult,
   DeprovisionPublicIpv4PoolCidrResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand,
   serializeAws_ec2DeprovisionPublicIpv4PoolCidrCommand,

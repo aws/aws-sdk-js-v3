@@ -19,7 +19,7 @@ import {
   DescribeInternetGatewaysRequestFilterSensitiveLog,
   DescribeInternetGatewaysResult,
   DescribeInternetGatewaysResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeInternetGatewaysCommand,
   serializeAws_ec2DescribeInternetGatewaysCommand,

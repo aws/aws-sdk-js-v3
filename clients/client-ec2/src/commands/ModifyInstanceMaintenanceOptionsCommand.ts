@@ -19,7 +19,7 @@ import {
   ModifyInstanceMaintenanceOptionsRequestFilterSensitiveLog,
   ModifyInstanceMaintenanceOptionsResult,
   ModifyInstanceMaintenanceOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,
   serializeAws_ec2ModifyInstanceMaintenanceOptionsCommand,

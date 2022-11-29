@@ -19,7 +19,7 @@ import {
   ModifyTrafficMirrorSessionRequestFilterSensitiveLog,
   ModifyTrafficMirrorSessionResult,
   ModifyTrafficMirrorSessionResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyTrafficMirrorSessionCommand,
   serializeAws_ec2ModifyTrafficMirrorSessionCommand,

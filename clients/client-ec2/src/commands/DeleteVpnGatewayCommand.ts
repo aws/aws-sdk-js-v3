@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpnGatewayRequest, DeleteVpnGatewayRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteVpnGatewayRequest, DeleteVpnGatewayRequestFilterSensitiveLog } from "../models/models_3";
 import {
   deserializeAws_ec2DeleteVpnGatewayCommand,
   serializeAws_ec2DeleteVpnGatewayCommand,

@@ -19,7 +19,7 @@ import {
   DescribeVpcsRequestFilterSensitiveLog,
   DescribeVpcsResult,
   DescribeVpcsResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import { deserializeAws_ec2DescribeVpcsCommand, serializeAws_ec2DescribeVpcsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}

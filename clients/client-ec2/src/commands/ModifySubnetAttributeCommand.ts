@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifySubnetAttributeRequest, ModifySubnetAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifySubnetAttributeCommand,
   serializeAws_ec2ModifySubnetAttributeCommand,

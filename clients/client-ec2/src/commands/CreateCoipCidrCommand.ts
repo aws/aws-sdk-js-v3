@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateCoipCidrRequest,
-  CreateCoipCidrRequestFilterSensitiveLog,
-  CreateCoipCidrResult,
-  CreateCoipCidrResultFilterSensitiveLog,
-} from "../models/models_0";
+import { CreateCoipCidrRequest, CreateCoipCidrRequestFilterSensitiveLog } from "../models/models_0";
+import { CreateCoipCidrResult, CreateCoipCidrResultFilterSensitiveLog } from "../models/models_1";
 import { deserializeAws_ec2CreateCoipCidrCommand, serializeAws_ec2CreateCoipCidrCommand } from "../protocols/Aws_ec2";
 
 export interface CreateCoipCidrCommandInput extends CreateCoipCidrRequest {}

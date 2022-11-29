@@ -19,7 +19,7 @@ import {
   ModifyPrivateDnsNameOptionsRequestFilterSensitiveLog,
   ModifyPrivateDnsNameOptionsResult,
   ModifyPrivateDnsNameOptionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyPrivateDnsNameOptionsCommand,
   serializeAws_ec2ModifyPrivateDnsNameOptionsCommand,

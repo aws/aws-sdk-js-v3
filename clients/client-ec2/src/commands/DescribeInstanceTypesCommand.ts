@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  DescribeInstanceTypesRequest,
-  DescribeInstanceTypesRequestFilterSensitiveLog,
-  DescribeInstanceTypesResult,
-  DescribeInstanceTypesResultFilterSensitiveLog,
-} from "../models/models_3";
+import { DescribeInstanceTypesRequest, DescribeInstanceTypesRequestFilterSensitiveLog } from "../models/models_3";
+import { DescribeInstanceTypesResult, DescribeInstanceTypesResultFilterSensitiveLog } from "../models/models_4";
 import {
   deserializeAws_ec2DescribeInstanceTypesCommand,
   serializeAws_ec2DescribeInstanceTypesCommand,

@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DeleteVpcRequest, DeleteVpcRequestFilterSensitiveLog } from "../models/models_2";
+import { DeleteVpcRequest, DeleteVpcRequestFilterSensitiveLog } from "../models/models_3";
 import { deserializeAws_ec2DeleteVpcCommand, serializeAws_ec2DeleteVpcCommand } from "../protocols/Aws_ec2";
 
 export interface DeleteVpcCommandInput extends DeleteVpcRequest {}

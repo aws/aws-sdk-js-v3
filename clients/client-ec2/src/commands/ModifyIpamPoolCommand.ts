@@ -19,7 +19,7 @@ import {
   ModifyIpamPoolRequestFilterSensitiveLog,
   ModifyIpamPoolResult,
   ModifyIpamPoolResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyIpamPoolCommand, serializeAws_ec2ModifyIpamPoolCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyIpamPoolCommandInput extends ModifyIpamPoolRequest {}

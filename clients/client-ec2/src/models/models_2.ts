@@ -1,15 +1,13 @@
 // smithy-typescript generated code
 import {
   ApplianceModeSupportValue,
-  ByoipCidr,
   CarrierGateway,
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
-  CoipPool,
+  DeviceTrustProviderType,
   DnsSupportValue,
   DynamicRoutingValue,
-  GatewayType,
   InstanceEventWindowState,
   Ipv6SupportValue,
   Tag,
@@ -18,12 +16,18 @@ import {
   TransitGatewayAttachmentState,
   TransitGatewayPeeringAttachment,
   TransitGatewayVpcAttachment,
+  TrustProviderType,
   UnsuccessfulItem,
+  UserTrustProviderType,
+  VerifiedAccessInstance,
+  VerifiedAccessTrustProvider,
   VolumeAttachment,
   VpcAttachment,
   VpcPeeringConnection,
 } from "./models_0";
 import {
+  CoipPool,
+  GatewayType,
   Ipam,
   IpamPool,
   IpamScope,
@@ -33,11 +37,221 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
+  SnapshotState,
   Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+/**
+ * <p>Information about a snapshot.</p>
+ */
+export interface SnapshotInfo {
+  /**
+   * <p>Description specified by the CreateSnapshotRequest that has been applied to all
+   *     snapshots.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Tags associated with this snapshot.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>Indicates whether the snapshot is encrypted.</p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>Source volume from which this snapshot was created.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>Current state of the snapshot.</p>
+   */
+  State?: SnapshotState | string;
+
+  /**
+   * <p>Size of the volume from which this snapshot was created.</p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>Time this snapshot was started. This is the same for all snapshots initiated by the
+   *     same request.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>Progress this snapshot has made towards completing.</p>
+   */
+  Progress?: string;
+
+  /**
+   * <p>Account id used when creating this snapshot.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>Snapshot id that can be used to describe this snapshot.</p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   */
+  OutpostArn?: string;
+}
+
+export interface CreateSnapshotsResult {
+  /**
+   * <p>List of snapshots.</p>
+   */
+  Snapshots?: SnapshotInfo[];
+}
+
+/**
+ * <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
+ */
+export interface CreateSpotDatafeedSubscriptionRequest {
+  /**
+   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
+   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket
+   *                 naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *             <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The prefix for the data feed file names.</p>
+   */
+  Prefix?: string;
+}
+
+/**
+ * <p>Describes a Spot Instance state change.</p>
+ */
+export interface SpotInstanceStateFault {
+  /**
+   * <p>The reason code for the Spot Instance state change.</p>
+   */
+  Code?: string;
+
+  /**
+   * <p>The message for the Spot Instance state change.</p>
+   */
+  Message?: string;
+}
+
+export enum DatafeedSubscriptionState {
+  Active = "Active",
+  Inactive = "Inactive",
+}
+
+/**
+ * <p>Describes the data feed for a Spot Instance.</p>
+ */
+export interface SpotDatafeedSubscription {
+  /**
+   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The fault codes for the Spot Instance request, if any.</p>
+   */
+  Fault?: SpotInstanceStateFault;
+
+  /**
+   * <p>The Amazon Web Services account ID of the account.</p>
+   */
+  OwnerId?: string;
+
+  /**
+   * <p>The prefix for the data feed files.</p>
+   */
+  Prefix?: string;
+
+  /**
+   * <p>The state of the Spot Instance data feed subscription.</p>
+   */
+  State?: DatafeedSubscriptionState | string;
+}
+
+/**
+ * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
+ */
+export interface CreateSpotDatafeedSubscriptionResult {
+  /**
+   * <p>The Spot Instance data feed subscription.</p>
+   */
+  SpotDatafeedSubscription?: SpotDatafeedSubscription;
+}
+
+/**
+ * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
+ *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ */
+export interface S3ObjectTag {
+  /**
+   * <p>The key of the tag.</p>
+   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
+   *       length. May not begin with <code>aws</code>:.</p>
+   */
+  Key?: string;
+
+  /**
+   * <p>The value of the tag.</p>
+   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
+   *       length.</p>
+   */
+  Value?: string;
+}
+
+export interface CreateStoreImageTaskRequest {
+  /**
+   * <p>The ID of the AMI.</p>
+   */
+  ImageId: string | undefined;
+
+  /**
+   * <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in
+   *       the Region in which the request is being made. The AMI object appears in the bucket only after
+   *       the upload task has completed. </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
+   */
+  S3ObjectTags?: S3ObjectTag[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface CreateStoreImageTaskResult {
+  /**
+   * <p>The name of the stored AMI object in the S3 bucket.</p>
+   */
+  ObjectKey?: string;
+}
 
 export interface CreateSubnetRequest {
   /**
@@ -1899,6 +2113,168 @@ export interface CreateTransitGatewayVpcAttachmentResult {
    * <p>Information about the VPC attachment.</p>
    */
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
+}
+
+export enum VerifiedAccessEndpointAttachmentType {
+  vpc = "vpc",
+}
+
+export enum VerifiedAccessEndpointType {
+  load_balancer = "load-balancer",
+  network_interface = "network-interface",
+}
+
+export enum VerifiedAccessEndpointProtocol {
+  http = "http",
+  https = "https",
+}
+
+export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Port?: number;
+  LoadBalancerArn?: string;
+  SubnetIds?: string[];
+}
+
+export interface CreateVerifiedAccessEndpointEniOptions {
+  NetworkInterfaceId?: string;
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Port?: number;
+}
+
+export interface CreateVerifiedAccessEndpointRequest {
+  VerifiedAccessGroupId: string | undefined;
+  EndpointType: VerifiedAccessEndpointType | string | undefined;
+  AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
+  DomainCertificateArn: string | undefined;
+  ApplicationDomain: string | undefined;
+  EndpointDomainPrefix: string | undefined;
+  SecurityGroupIds?: string[];
+  LoadBalancerOptions?: CreateVerifiedAccessEndpointLoadBalancerOptions;
+  NetworkInterfaceOptions?: CreateVerifiedAccessEndpointEniOptions;
+  Description?: string;
+  PolicyDocument?: string;
+  TagSpecifications?: TagSpecification[];
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface VerifiedAccessEndpointLoadBalancerOptions {
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Port?: number;
+  LoadBalancerArn?: string;
+  SubnetIds?: string[];
+}
+
+export interface VerifiedAccessEndpointEniOptions {
+  NetworkInterfaceId?: string;
+  Protocol?: VerifiedAccessEndpointProtocol | string;
+  Port?: number;
+}
+
+export enum VerifiedAccessEndpointStatusCode {
+  active = "active",
+  deleted = "deleted",
+  deleting = "deleting",
+  pending = "pending",
+  updating = "updating",
+}
+
+export interface VerifiedAccessEndpointStatus {
+  Code?: VerifiedAccessEndpointStatusCode | string;
+  Message?: string;
+}
+
+export interface VerifiedAccessEndpoint {
+  VerifiedAccessInstanceId?: string;
+  VerifiedAccessGroupId?: string;
+  VerifiedAccessEndpointId?: string;
+  ApplicationDomain?: string;
+  EndpointType?: VerifiedAccessEndpointType | string;
+  AttachmentType?: VerifiedAccessEndpointAttachmentType | string;
+  DomainCertificateArn?: string;
+  EndpointDomain?: string;
+  DeviceValidationDomain?: string;
+  SecurityGroupIds?: string[];
+  LoadBalancerOptions?: VerifiedAccessEndpointLoadBalancerOptions;
+  NetworkInterfaceOptions?: VerifiedAccessEndpointEniOptions;
+  Status?: VerifiedAccessEndpointStatus;
+  Description?: string;
+  CreationTime?: string;
+  LastUpdatedTime?: string;
+  DeletionTime?: string;
+  Tags?: Tag[];
+}
+
+export interface CreateVerifiedAccessEndpointResult {
+  VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
+}
+
+export interface CreateVerifiedAccessGroupRequest {
+  VerifiedAccessInstanceId: string | undefined;
+  Description?: string;
+  PolicyDocument?: string;
+  TagSpecifications?: TagSpecification[];
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface VerifiedAccessGroup {
+  VerifiedAccessGroupId?: string;
+  VerifiedAccessInstanceId?: string;
+  Description?: string;
+  Owner?: string;
+  VerifiedAccessGroupArn?: string;
+  CreationTime?: string;
+  LastUpdatedTime?: string;
+  DeletionTime?: string;
+  Tags?: Tag[];
+}
+
+export interface CreateVerifiedAccessGroupResult {
+  VerifiedAccessGroup?: VerifiedAccessGroup;
+}
+
+export interface CreateVerifiedAccessInstanceRequest {
+  Description?: string;
+  TagSpecifications?: TagSpecification[];
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface CreateVerifiedAccessInstanceResult {
+  VerifiedAccessInstance?: VerifiedAccessInstance;
+}
+
+export interface CreateVerifiedAccessTrustProviderDeviceOptions {
+  TenantId?: string;
+}
+
+export interface CreateVerifiedAccessTrustProviderOidcOptions {
+  Issuer?: string;
+  AuthorizationEndpoint?: string;
+  TokenEndpoint?: string;
+  UserInfoEndpoint?: string;
+  ClientId?: string;
+  ClientSecret?: string;
+  Scope?: string;
+}
+
+export interface CreateVerifiedAccessTrustProviderRequest {
+  TrustProviderType: TrustProviderType | string | undefined;
+  UserTrustProviderType?: UserTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions;
+  DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions;
+  PolicyReferenceName: string | undefined;
+  Description?: string;
+  TagSpecifications?: TagSpecification[];
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export interface CreateVerifiedAccessTrustProviderResult {
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 
 export interface CreateVolumeRequest {
@@ -5367,393 +5743,72 @@ export interface DeleteTransitGatewayRouteRequest {
   DryRun?: boolean;
 }
 
-export interface DeleteTransitGatewayRouteResult {
-  /**
-   * <p>Information about the route.</p>
-   */
-  Route?: TransitGatewayRoute;
-}
-
-export interface DeleteTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayRouteTableResult {
-  /**
-   * <p>Information about the deleted transit gateway route table.</p>
-   */
-  TransitGatewayRouteTable?: TransitGatewayRouteTable;
-}
-
-export interface DeleteTransitGatewayRouteTableAnnouncementRequest {
-  /**
-   * <p>The transit gateway route table ID that's being deleted. </p>
-   */
-  TransitGatewayRouteTableAnnouncementId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayRouteTableAnnouncementResult {
-  /**
-   * <p>Provides details about a deleted transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableAnnouncement?: TransitGatewayRouteTableAnnouncement;
-}
-
-export interface DeleteTransitGatewayVpcAttachmentRequest {
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteTransitGatewayVpcAttachmentResult {
-  /**
-   * <p>Information about the deleted VPC attachment.</p>
-   */
-  TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
-}
-
-export interface DeleteVolumeRequest {
-  /**
-   * <p>The ID of the volume.</p>
-   */
-  VolumeId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteVpcRequest {
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeleteVpcEndpointConnectionNotificationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more notification IDs.</p>
-   */
-  ConnectionNotificationIds: string[] | undefined;
-}
-
-export interface DeleteVpcEndpointConnectionNotificationsResult {
-  /**
-   * <p>Information about the notifications that could not be deleted
-   *             successfully.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
+/**
+ * @internal
+ */
+export const SnapshotInfoFilterSensitiveLog = (obj: SnapshotInfo): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpcEndpoints.</p>
+ * @internal
  */
-export interface DeleteVpcEndpointsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more VPC endpoint IDs.</p>
-   */
-  VpcEndpointIds: string[] | undefined;
-}
+export const CreateSnapshotsResultFilterSensitiveLog = (obj: CreateSnapshotsResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of DeleteVpcEndpoints.</p>
+ * @internal
  */
-export interface DeleteVpcEndpointsResult {
-  /**
-   * <p>Information about the VPC endpoints that were not successfully deleted.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export interface DeleteVpcEndpointServiceConfigurationsRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The IDs of one or more services.</p>
-   */
-  ServiceIds: string[] | undefined;
-}
-
-export interface DeleteVpcEndpointServiceConfigurationsResult {
-  /**
-   * <p>Information about the service configurations that were not deleted, if
-   *             applicable.</p>
-   */
-  Unsuccessful?: UnsuccessfulItem[];
-}
-
-export interface DeleteVpcPeeringConnectionRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the VPC peering connection.</p>
-   */
-  VpcPeeringConnectionId: string | undefined;
-}
-
-export interface DeleteVpcPeeringConnectionResult {
-  /**
-   * <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
-   */
-  Return?: boolean;
-}
+export const CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog = (
+  obj: CreateSpotDatafeedSubscriptionRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnConnection.</p>
+ * @internal
  */
-export interface DeleteVpnConnectionRequest {
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const SpotInstanceStateFaultFilterSensitiveLog = (obj: SpotInstanceStateFault): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnConnectionRoute.</p>
+ * @internal
  */
-export interface DeleteVpnConnectionRouteRequest {
-  /**
-   * <p>The CIDR block associated with the local subnet of the customer network.</p>
-   */
-  DestinationCidrBlock: string | undefined;
-
-  /**
-   * <p>The ID of the VPN connection.</p>
-   */
-  VpnConnectionId: string | undefined;
-}
+export const SpotDatafeedSubscriptionFilterSensitiveLog = (obj: SpotDatafeedSubscription): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeleteVpnGateway.</p>
+ * @internal
  */
-export interface DeleteVpnGatewayRequest {
-  /**
-   * <p>The ID of the virtual private gateway.</p>
-   */
-  VpnGatewayId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeprovisionByoipCidrRequest {
-  /**
-   * <p>The address range, in CIDR notation. The prefix must be the same prefix
-   *          that you specified when you provisioned the address range.</p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DeprovisionByoipCidrResult {
-  /**
-   * <p>Information about the address range.</p>
-   */
-  ByoipCidr?: ByoipCidr;
-}
-
-export interface DeprovisionIpamPoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the pool that has the CIDR you want to deprovision.</p>
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The CIDR which you want to deprovision from the pool.</p>
-   */
-  Cidr?: string;
-}
-
-export enum IpamPoolCidrFailureCode {
-  cidr_not_available = "cidr-not-available",
-}
+export const CreateSpotDatafeedSubscriptionResultFilterSensitiveLog = (
+  obj: CreateSpotDatafeedSubscriptionResult
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
+ * @internal
  */
-export interface IpamPoolCidrFailureReason {
-  /**
-   * <p>An error code related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  Code?: IpamPoolCidrFailureCode | string;
-
-  /**
-   * <p>A message related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  Message?: string;
-}
-
-export enum IpamPoolCidrState {
-  deprovisioned = "deprovisioned",
-  failed_deprovision = "failed-deprovision",
-  failed_import = "failed-import",
-  failed_provision = "failed-provision",
-  pending_deprovision = "pending-deprovision",
-  pending_import = "pending-import",
-  pending_provision = "pending-provision",
-  provisioned = "provisioned",
-}
+export const S3ObjectTagFilterSensitiveLog = (obj: S3ObjectTag): any => ({
+  ...obj,
+});
 
 /**
- * <p>A CIDR provisioned to an IPAM pool.</p>
+ * @internal
  */
-export interface IpamPoolCidr {
-  /**
-   * <p>The CIDR provisioned to the IPAM pool. A CIDR is a representation of an IP address and its associated network mask (or netmask)
-   *          and refers to a range of IP addresses. An IPv4 CIDR example is <code>10.24.34.0/23</code>. An IPv6 CIDR example is <code>2001:DB8::/32</code>.</p>
-   */
-  Cidr?: string;
-
-  /**
-   * <p>The state of the CIDR.</p>
-   */
-  State?: IpamPoolCidrState | string;
-
-  /**
-   * <p>Details related to why an IPAM pool CIDR failed to be provisioned.</p>
-   */
-  FailureReason?: IpamPoolCidrFailureReason;
-}
-
-export interface DeprovisionIpamPoolCidrResult {
-  /**
-   * <p>The deprovisioned pool CIDR.</p>
-   */
-  IpamPoolCidr?: IpamPoolCidr;
-}
-
-export interface DeprovisionPublicIpv4PoolCidrRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the pool that you want to deprovision the CIDR from.</p>
-   */
-  PoolId: string | undefined;
-
-  /**
-   * <p>The CIDR you want to deprovision from the pool.</p>
-   */
-  Cidr: string | undefined;
-}
-
-export interface DeprovisionPublicIpv4PoolCidrResult {
-  /**
-   * <p>The ID of the pool that you deprovisioned the CIDR from.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The deprovisioned CIDRs.</p>
-   */
-  DeprovisionedAddresses?: string[];
-}
+export const CreateStoreImageTaskRequestFilterSensitiveLog = (obj: CreateStoreImageTaskRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for DeregisterImage.</p>
+ * @internal
  */
-export interface DeregisterImageRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+export const CreateStoreImageTaskResultFilterSensitiveLog = (obj: CreateStoreImageTaskResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -6253,6 +6308,143 @@ export const CreateTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
  */
 export const CreateTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
   obj: CreateTransitGatewayVpcAttachmentResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointLoadBalancerOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointLoadBalancerOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointEniOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointEniOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessEndpointRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointLoadBalancerOptionsFilterSensitiveLog = (
+  obj: VerifiedAccessEndpointLoadBalancerOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointEniOptionsFilterSensitiveLog = (obj: VerifiedAccessEndpointEniOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointStatusFilterSensitiveLog = (obj: VerifiedAccessEndpointStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessEndpointFilterSensitiveLog = (obj: VerifiedAccessEndpoint): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessEndpointResultFilterSensitiveLog = (obj: CreateVerifiedAccessEndpointResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessGroupRequestFilterSensitiveLog = (obj: CreateVerifiedAccessGroupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessGroupFilterSensitiveLog = (obj: VerifiedAccessGroup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessGroupResultFilterSensitiveLog = (obj: CreateVerifiedAccessGroupResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessInstanceRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessInstanceRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessInstanceResultFilterSensitiveLog = (obj: CreateVerifiedAccessInstanceResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderDeviceOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderDeviceOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderOidcOptionsFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderOidcOptions
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: CreateVerifiedAccessTrustProviderResult
 ): any => ({
   ...obj,
 });
@@ -7457,232 +7649,5 @@ export const DeleteTransitGatewayPrefixListReferenceResultFilterSensitiveLog = (
  * @internal
  */
 export const DeleteTransitGatewayRouteRequestFilterSensitiveLog = (obj: DeleteTransitGatewayRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteResultFilterSensitiveLog = (obj: DeleteTransitGatewayRouteResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableAnnouncementRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayRouteTableAnnouncementResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayVpcAttachmentRequestFilterSensitiveLog = (
-  obj: DeleteTransitGatewayVpcAttachmentRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteTransitGatewayVpcAttachmentResultFilterSensitiveLog = (
-  obj: DeleteTransitGatewayVpcAttachmentResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVolumeRequestFilterSensitiveLog = (obj: DeleteVolumeRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcRequestFilterSensitiveLog = (obj: DeleteVpcRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointConnectionNotificationsRequestFilterSensitiveLog = (
-  obj: DeleteVpcEndpointConnectionNotificationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointConnectionNotificationsResultFilterSensitiveLog = (
-  obj: DeleteVpcEndpointConnectionNotificationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointsRequestFilterSensitiveLog = (obj: DeleteVpcEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointsResultFilterSensitiveLog = (obj: DeleteVpcEndpointsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointServiceConfigurationsRequestFilterSensitiveLog = (
-  obj: DeleteVpcEndpointServiceConfigurationsRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcEndpointServiceConfigurationsResultFilterSensitiveLog = (
-  obj: DeleteVpcEndpointServiceConfigurationsResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionRequestFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpcPeeringConnectionResultFilterSensitiveLog = (obj: DeleteVpcPeeringConnectionResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnConnectionRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnConnectionRouteRequestFilterSensitiveLog = (obj: DeleteVpnConnectionRouteRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeleteVpnGatewayRequestFilterSensitiveLog = (obj: DeleteVpnGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionByoipCidrRequestFilterSensitiveLog = (obj: DeprovisionByoipCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionByoipCidrResultFilterSensitiveLog = (obj: DeprovisionByoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionIpamPoolCidrRequestFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolCidrFailureReasonFilterSensitiveLog = (obj: IpamPoolCidrFailureReason): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const IpamPoolCidrFilterSensitiveLog = (obj: IpamPoolCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionIpamPoolCidrResultFilterSensitiveLog = (obj: DeprovisionIpamPoolCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionPublicIpv4PoolCidrRequestFilterSensitiveLog = (
-  obj: DeprovisionPublicIpv4PoolCidrRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeprovisionPublicIpv4PoolCidrResultFilterSensitiveLog = (
-  obj: DeprovisionPublicIpv4PoolCidrResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterImageRequestFilterSensitiveLog = (obj: DeregisterImageRequest): any => ({
   ...obj,
 });

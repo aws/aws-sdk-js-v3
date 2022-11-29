@@ -19,7 +19,7 @@ import {
   CreateCustomerGatewayRequestFilterSensitiveLog,
   CreateCustomerGatewayResult,
   CreateCustomerGatewayResultFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_ec2CreateCustomerGatewayCommand,
   serializeAws_ec2CreateCustomerGatewayCommand,

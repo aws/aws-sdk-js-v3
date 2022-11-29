@@ -19,7 +19,7 @@ import {
   DetachClassicLinkVpcRequestFilterSensitiveLog,
   DetachClassicLinkVpcResult,
   DetachClassicLinkVpcResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DetachClassicLinkVpcCommand,
   serializeAws_ec2DetachClassicLinkVpcCommand,

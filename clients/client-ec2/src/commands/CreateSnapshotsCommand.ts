@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import {
-  CreateSnapshotsRequest,
-  CreateSnapshotsRequestFilterSensitiveLog,
-  CreateSnapshotsResult,
-  CreateSnapshotsResultFilterSensitiveLog,
-} from "../models/models_1";
+import { CreateSnapshotsRequest, CreateSnapshotsRequestFilterSensitiveLog } from "../models/models_1";
+import { CreateSnapshotsResult, CreateSnapshotsResultFilterSensitiveLog } from "../models/models_2";
 import { deserializeAws_ec2CreateSnapshotsCommand, serializeAws_ec2CreateSnapshotsCommand } from "../protocols/Aws_ec2";
 
 export interface CreateSnapshotsCommandInput extends CreateSnapshotsRequest {}

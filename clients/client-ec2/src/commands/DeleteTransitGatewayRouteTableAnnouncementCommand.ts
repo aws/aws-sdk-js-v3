@@ -19,7 +19,7 @@ import {
   DeleteTransitGatewayRouteTableAnnouncementRequestFilterSensitiveLog,
   DeleteTransitGatewayRouteTableAnnouncementResult,
   DeleteTransitGatewayRouteTableAnnouncementResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,
   serializeAws_ec2DeleteTransitGatewayRouteTableAnnouncementCommand,

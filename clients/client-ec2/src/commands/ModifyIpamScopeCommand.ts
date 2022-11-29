@@ -19,7 +19,7 @@ import {
   ModifyIpamScopeRequestFilterSensitiveLog,
   ModifyIpamScopeResult,
   ModifyIpamScopeResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyIpamScopeCommand, serializeAws_ec2ModifyIpamScopeCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyIpamScopeCommandInput extends ModifyIpamScopeRequest {}

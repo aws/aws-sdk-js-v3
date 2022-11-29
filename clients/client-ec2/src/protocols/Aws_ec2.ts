@@ -131,6 +131,10 @@ import {
   AttachNetworkInterfaceCommandInput,
   AttachNetworkInterfaceCommandOutput,
 } from "../commands/AttachNetworkInterfaceCommand";
+import {
+  AttachVerifiedAccessTrustProviderCommandInput,
+  AttachVerifiedAccessTrustProviderCommandOutput,
+} from "../commands/AttachVerifiedAccessTrustProviderCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "../commands/AttachVolumeCommand";
 import { AttachVpnGatewayCommandInput, AttachVpnGatewayCommandOutput } from "../commands/AttachVpnGatewayCommand";
 import {
@@ -392,6 +396,22 @@ import {
   CreateTransitGatewayVpcAttachmentCommandInput,
   CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "../commands/CreateTransitGatewayVpcAttachmentCommand";
+import {
+  CreateVerifiedAccessEndpointCommandInput,
+  CreateVerifiedAccessEndpointCommandOutput,
+} from "../commands/CreateVerifiedAccessEndpointCommand";
+import {
+  CreateVerifiedAccessGroupCommandInput,
+  CreateVerifiedAccessGroupCommandOutput,
+} from "../commands/CreateVerifiedAccessGroupCommand";
+import {
+  CreateVerifiedAccessInstanceCommandInput,
+  CreateVerifiedAccessInstanceCommandOutput,
+} from "../commands/CreateVerifiedAccessInstanceCommand";
+import {
+  CreateVerifiedAccessTrustProviderCommandInput,
+  CreateVerifiedAccessTrustProviderCommandOutput,
+} from "../commands/CreateVerifiedAccessTrustProviderCommand";
 import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "../commands/CreateVolumeCommand";
 import { CreateVpcCommandInput, CreateVpcCommandOutput } from "../commands/CreateVpcCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
@@ -601,6 +621,22 @@ import {
   DeleteTransitGatewayVpcAttachmentCommandInput,
   DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "../commands/DeleteTransitGatewayVpcAttachmentCommand";
+import {
+  DeleteVerifiedAccessEndpointCommandInput,
+  DeleteVerifiedAccessEndpointCommandOutput,
+} from "../commands/DeleteVerifiedAccessEndpointCommand";
+import {
+  DeleteVerifiedAccessGroupCommandInput,
+  DeleteVerifiedAccessGroupCommandOutput,
+} from "../commands/DeleteVerifiedAccessGroupCommand";
+import {
+  DeleteVerifiedAccessInstanceCommandInput,
+  DeleteVerifiedAccessInstanceCommandOutput,
+} from "../commands/DeleteVerifiedAccessInstanceCommand";
+import {
+  DeleteVerifiedAccessTrustProviderCommandInput,
+  DeleteVerifiedAccessTrustProviderCommandOutput,
+} from "../commands/DeleteVerifiedAccessTrustProviderCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "../commands/DeleteVolumeCommand";
 import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "../commands/DeleteVpcCommand";
 import {
@@ -1074,6 +1110,26 @@ import {
   DescribeTrunkInterfaceAssociationsCommandOutput,
 } from "../commands/DescribeTrunkInterfaceAssociationsCommand";
 import {
+  DescribeVerifiedAccessEndpointsCommandInput,
+  DescribeVerifiedAccessEndpointsCommandOutput,
+} from "../commands/DescribeVerifiedAccessEndpointsCommand";
+import {
+  DescribeVerifiedAccessGroupsCommandInput,
+  DescribeVerifiedAccessGroupsCommandOutput,
+} from "../commands/DescribeVerifiedAccessGroupsCommand";
+import {
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
+} from "../commands/DescribeVerifiedAccessInstanceLoggingConfigurationsCommand";
+import {
+  DescribeVerifiedAccessInstancesCommandInput,
+  DescribeVerifiedAccessInstancesCommandOutput,
+} from "../commands/DescribeVerifiedAccessInstancesCommand";
+import {
+  DescribeVerifiedAccessTrustProvidersCommandInput,
+  DescribeVerifiedAccessTrustProvidersCommandOutput,
+} from "../commands/DescribeVerifiedAccessTrustProvidersCommand";
+import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "../commands/DescribeVolumeAttributeCommand";
@@ -1147,6 +1203,10 @@ import {
   DetachNetworkInterfaceCommandInput,
   DetachNetworkInterfaceCommandOutput,
 } from "../commands/DetachNetworkInterfaceCommand";
+import {
+  DetachVerifiedAccessTrustProviderCommandInput,
+  DetachVerifiedAccessTrustProviderCommandOutput,
+} from "../commands/DetachVerifiedAccessTrustProviderCommand";
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "../commands/DetachVolumeCommand";
 import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "../commands/DetachVpnGatewayCommand";
 import {
@@ -1438,6 +1498,14 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "../commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVerifiedAccessEndpointPolicyCommandInput,
+  GetVerifiedAccessEndpointPolicyCommandOutput,
+} from "../commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessGroupPolicyCommandInput,
+  GetVerifiedAccessGroupPolicyCommandOutput,
+} from "../commands/GetVerifiedAccessGroupPolicyCommand";
+import {
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
   GetVpnConnectionDeviceSampleConfigurationCommandOutput,
 } from "../commands/GetVpnConnectionDeviceSampleConfigurationCommand";
@@ -1609,6 +1677,34 @@ import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "../commands/ModifyTransitGatewayVpcAttachmentCommand";
+import {
+  ModifyVerifiedAccessEndpointCommandInput,
+  ModifyVerifiedAccessEndpointCommandOutput,
+} from "../commands/ModifyVerifiedAccessEndpointCommand";
+import {
+  ModifyVerifiedAccessEndpointPolicyCommandInput,
+  ModifyVerifiedAccessEndpointPolicyCommandOutput,
+} from "../commands/ModifyVerifiedAccessEndpointPolicyCommand";
+import {
+  ModifyVerifiedAccessGroupCommandInput,
+  ModifyVerifiedAccessGroupCommandOutput,
+} from "../commands/ModifyVerifiedAccessGroupCommand";
+import {
+  ModifyVerifiedAccessGroupPolicyCommandInput,
+  ModifyVerifiedAccessGroupPolicyCommandOutput,
+} from "../commands/ModifyVerifiedAccessGroupPolicyCommand";
+import {
+  ModifyVerifiedAccessInstanceCommandInput,
+  ModifyVerifiedAccessInstanceCommandOutput,
+} from "../commands/ModifyVerifiedAccessInstanceCommand";
+import {
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
+} from "../commands/ModifyVerifiedAccessInstanceLoggingConfigurationCommand";
+import {
+  ModifyVerifiedAccessTrustProviderCommandInput,
+  ModifyVerifiedAccessTrustProviderCommandOutput,
+} from "../commands/ModifyVerifiedAccessTrustProviderCommand";
 import {
   ModifyVolumeAttributeCommandInput,
   ModifyVolumeAttributeCommandOutput,
@@ -1961,6 +2057,8 @@ import {
   AttachInternetGatewayRequest,
   AttachNetworkInterfaceRequest,
   AttachNetworkInterfaceResult,
+  AttachVerifiedAccessTrustProviderRequest,
+  AttachVerifiedAccessTrustProviderResult,
   AttachVolumeRequest,
   AttachVpnGatewayRequest,
   AttachVpnGatewayResult,
@@ -2011,7 +2109,6 @@ import {
   ClientVpnEndpointStatus,
   ClientVpnRouteStatus,
   CoipCidr,
-  CoipPool,
   ConfirmProductInstanceRequest,
   ConfirmProductInstanceResult,
   ConnectionLogOptions,
@@ -2032,13 +2129,7 @@ import {
   CreateClientVpnRouteRequest,
   CreateClientVpnRouteResult,
   CreateCoipCidrRequest,
-  CreateCoipCidrResult,
-  CreateCoipPoolRequest,
-  CreateCoipPoolResult,
-  CreateCustomerGatewayRequest,
-  CreateCustomerGatewayResult,
-  CreateDefaultSubnetRequest,
-  CustomerGateway,
+  DeviceOptions,
   DirectoryServiceAuthenticationRequest,
   EnaSrdSpecification,
   EnaSrdUdpSpecification,
@@ -2060,6 +2151,7 @@ import {
   Ipv4PrefixSpecification,
   Ipv6CidrBlock,
   Ipv6Range,
+  OidcOptions,
   PacketHeaderStatement,
   PacketHeaderStatementRequest,
   PathComponent,
@@ -2101,6 +2193,9 @@ import {
   UnsuccessfulItem,
   UnsuccessfulItemError,
   UserIdGroupPair,
+  VerifiedAccessInstance,
+  VerifiedAccessTrustProvider,
+  VerifiedAccessTrustProviderCondensed,
   VolumeAttachment,
   VpcAttachment,
   VpcCidrBlockAssociation,
@@ -2121,7 +2216,14 @@ import {
   CapacityReservationOptionsRequest,
   CapacityReservationTarget,
   CapacityReservationTargetResponse,
+  CoipPool,
   CpuManufacturer,
+  CreateCoipCidrResult,
+  CreateCoipPoolRequest,
+  CreateCoipPoolResult,
+  CreateCustomerGatewayRequest,
+  CreateCustomerGatewayResult,
+  CreateDefaultSubnetRequest,
   CreateDefaultSubnetResult,
   CreateDefaultVpcRequest,
   CreateDefaultVpcResult,
@@ -2197,13 +2299,9 @@ import {
   CreateSecurityGroupResult,
   CreateSnapshotRequest,
   CreateSnapshotsRequest,
-  CreateSnapshotsResult,
-  CreateSpotDatafeedSubscriptionRequest,
-  CreateSpotDatafeedSubscriptionResult,
-  CreateStoreImageTaskRequest,
-  CreateStoreImageTaskResult,
   CreditSpecification,
   CreditSpecificationRequest,
+  CustomerGateway,
   DestinationOptionsRequest,
   DhcpConfiguration,
   DhcpOptions,
@@ -2329,11 +2427,7 @@ import {
   Route,
   RouteTable,
   RouteTableAssociation,
-  S3ObjectTag,
   Snapshot,
-  SnapshotInfo,
-  SpotDatafeedSubscription,
-  SpotInstanceStateFault,
   SpotOptionsRequest,
   StateReason,
   StorageLocation,
@@ -2351,6 +2445,11 @@ import {
   CloudWatchLogOptions,
   CloudWatchLogOptionsSpecification,
   ConnectionNotification,
+  CreateSnapshotsResult,
+  CreateSpotDatafeedSubscriptionRequest,
+  CreateSpotDatafeedSubscriptionResult,
+  CreateStoreImageTaskRequest,
+  CreateStoreImageTaskResult,
   CreateSubnetCidrReservationRequest,
   CreateSubnetCidrReservationResult,
   CreateSubnetRequest,
@@ -2390,6 +2489,18 @@ import {
   CreateTransitGatewayVpcAttachmentRequest,
   CreateTransitGatewayVpcAttachmentRequestOptions,
   CreateTransitGatewayVpcAttachmentResult,
+  CreateVerifiedAccessEndpointEniOptions,
+  CreateVerifiedAccessEndpointLoadBalancerOptions,
+  CreateVerifiedAccessEndpointRequest,
+  CreateVerifiedAccessEndpointResult,
+  CreateVerifiedAccessGroupRequest,
+  CreateVerifiedAccessGroupResult,
+  CreateVerifiedAccessInstanceRequest,
+  CreateVerifiedAccessInstanceResult,
+  CreateVerifiedAccessTrustProviderDeviceOptions,
+  CreateVerifiedAccessTrustProviderOidcOptions,
+  CreateVerifiedAccessTrustProviderRequest,
+  CreateVerifiedAccessTrustProviderResult,
   CreateVolumeRequest,
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
@@ -2508,33 +2619,6 @@ import {
   DeleteTransitGatewayRequest,
   DeleteTransitGatewayResult,
   DeleteTransitGatewayRouteRequest,
-  DeleteTransitGatewayRouteResult,
-  DeleteTransitGatewayRouteTableAnnouncementRequest,
-  DeleteTransitGatewayRouteTableAnnouncementResult,
-  DeleteTransitGatewayRouteTableRequest,
-  DeleteTransitGatewayRouteTableResult,
-  DeleteTransitGatewayVpcAttachmentRequest,
-  DeleteTransitGatewayVpcAttachmentResult,
-  DeleteVolumeRequest,
-  DeleteVpcEndpointConnectionNotificationsRequest,
-  DeleteVpcEndpointConnectionNotificationsResult,
-  DeleteVpcEndpointServiceConfigurationsRequest,
-  DeleteVpcEndpointServiceConfigurationsResult,
-  DeleteVpcEndpointsRequest,
-  DeleteVpcEndpointsResult,
-  DeleteVpcPeeringConnectionRequest,
-  DeleteVpcPeeringConnectionResult,
-  DeleteVpcRequest,
-  DeleteVpnConnectionRequest,
-  DeleteVpnConnectionRouteRequest,
-  DeleteVpnGatewayRequest,
-  DeprovisionByoipCidrRequest,
-  DeprovisionByoipCidrResult,
-  DeprovisionIpamPoolCidrRequest,
-  DeprovisionIpamPoolCidrResult,
-  DeprovisionPublicIpv4PoolCidrRequest,
-  DeprovisionPublicIpv4PoolCidrResult,
-  DeregisterImageRequest,
   DnsEntry,
   DnsOptions,
   DnsOptionsSpecification,
@@ -2542,8 +2626,6 @@ import {
   IKEVersionsListValue,
   IKEVersionsRequestListValue,
   InstanceEventWindowStateChange,
-  IpamPoolCidr,
-  IpamPoolCidrFailureReason,
   LastError,
   Phase1DHGroupNumbersListValue,
   Phase1DHGroupNumbersRequestListValue,
@@ -2559,10 +2641,14 @@ import {
   Phase2IntegrityAlgorithmsRequestListValue,
   PrivateDnsNameConfiguration,
   ResponseError,
+  S3ObjectTag,
   SecurityGroupIdentifier,
   ServiceConfiguration,
   ServiceConnectivityType,
   ServiceTypeDetail,
+  SnapshotInfo,
+  SpotDatafeedSubscription,
+  SpotInstanceStateFault,
   SubnetCidrReservation,
   SuccessfulQueuedPurchaseDeletion,
   TrafficMirrorFilter,
@@ -2591,6 +2677,11 @@ import {
   TransitGatewayRouteTable,
   TransitGatewayRouteTableAnnouncement,
   TunnelOption,
+  VerifiedAccessEndpoint,
+  VerifiedAccessEndpointEniOptions,
+  VerifiedAccessEndpointLoadBalancerOptions,
+  VerifiedAccessEndpointStatus,
+  VerifiedAccessGroup,
   VgwTelemetry,
   Volume,
   VpcEndpoint,
@@ -2604,14 +2695,12 @@ import {
   VpnTunnelOptionsSpecification,
 } from "../models/models_2";
 import {
-  ArchitectureType,
   AssociatedTargetNetwork,
   AttributeBooleanValue,
   AuthorizationRule,
   AvailabilityZone,
   AvailabilityZoneMessage,
   AvailableCapacity,
-  BootModeType,
   CapacityReservationFleet,
   CapacityReservationOptions,
   CapacityReservationSpecificationResponse,
@@ -2628,6 +2717,41 @@ import {
   ConnectionLogResponseOptions,
   ConversionTask,
   CpuOptions,
+  DeleteTransitGatewayRouteResult,
+  DeleteTransitGatewayRouteTableAnnouncementRequest,
+  DeleteTransitGatewayRouteTableAnnouncementResult,
+  DeleteTransitGatewayRouteTableRequest,
+  DeleteTransitGatewayRouteTableResult,
+  DeleteTransitGatewayVpcAttachmentRequest,
+  DeleteTransitGatewayVpcAttachmentResult,
+  DeleteVerifiedAccessEndpointRequest,
+  DeleteVerifiedAccessEndpointResult,
+  DeleteVerifiedAccessGroupRequest,
+  DeleteVerifiedAccessGroupResult,
+  DeleteVerifiedAccessInstanceRequest,
+  DeleteVerifiedAccessInstanceResult,
+  DeleteVerifiedAccessTrustProviderRequest,
+  DeleteVerifiedAccessTrustProviderResult,
+  DeleteVolumeRequest,
+  DeleteVpcEndpointConnectionNotificationsRequest,
+  DeleteVpcEndpointConnectionNotificationsResult,
+  DeleteVpcEndpointServiceConfigurationsRequest,
+  DeleteVpcEndpointServiceConfigurationsResult,
+  DeleteVpcEndpointsRequest,
+  DeleteVpcEndpointsResult,
+  DeleteVpcPeeringConnectionRequest,
+  DeleteVpcPeeringConnectionResult,
+  DeleteVpcRequest,
+  DeleteVpnConnectionRequest,
+  DeleteVpnConnectionRouteRequest,
+  DeleteVpnGatewayRequest,
+  DeprovisionByoipCidrRequest,
+  DeprovisionByoipCidrResult,
+  DeprovisionIpamPoolCidrRequest,
+  DeprovisionIpamPoolCidrResult,
+  DeprovisionPublicIpv4PoolCidrRequest,
+  DeprovisionPublicIpv4PoolCidrResult,
+  DeregisterImageRequest,
   DeregisterInstanceEventNotificationAttributesRequest,
   DeregisterInstanceEventNotificationAttributesResult,
   DeregisterInstanceTagAttributeRequest,
@@ -2740,21 +2864,11 @@ import {
   DescribeInstanceTypeOfferingsRequest,
   DescribeInstanceTypeOfferingsResult,
   DescribeInstanceTypesRequest,
-  DescribeInstanceTypesResult,
-  DescribeInternetGatewaysRequest,
-  DescribeInternetGatewaysResult,
-  DescribeIpamPoolsRequest,
-  DescribeIpamPoolsResult,
-  DescribeIpamsRequest,
   DestinationOptionsResponse,
   DirectoryServiceAuthentication,
   DiskImageDescription,
   DiskImageVolumeDescription,
-  DiskInfo,
-  EbsInfo,
   EbsInstanceBlockDevice,
-  EbsOptimizedInfo,
-  EfaInfo,
   ElasticGpuAssociation,
   ElasticGpuHealth,
   ElasticGpus,
@@ -2772,15 +2886,9 @@ import {
   FleetSpotCapacityRebalance,
   FleetSpotMaintenanceStrategies,
   FlowLog,
-  FpgaDeviceInfo,
-  FpgaDeviceMemoryInfo,
   FpgaImage,
   FpgaImageAttribute,
   FpgaImageState,
-  FpgaInfo,
-  GpuDeviceInfo,
-  GpuDeviceMemoryInfo,
-  GpuInfo,
   HibernationOptions,
   HistoryRecordEntry,
   Host,
@@ -2797,8 +2905,6 @@ import {
   ImportInstanceVolumeDetailItem,
   ImportSnapshotTask,
   ImportVolumeTaskDetails,
-  InferenceAcceleratorInfo,
-  InferenceDeviceInfo,
   Instance,
   InstanceAttribute,
   InstanceBlockDeviceMapping,
@@ -2817,26 +2923,19 @@ import {
   InstanceStatusDetails,
   InstanceStatusEvent,
   InstanceStatusSummary,
-  InstanceStorageInfo,
   InstanceTagNotificationAttribute,
-  InstanceTypeInfo,
   InstanceTypeOffering,
+  IpamPoolCidr,
+  IpamPoolCidrFailureReason,
   LaunchPermission,
   LicenseConfiguration,
   LoadPermission,
-  MemoryInfo,
   Monitoring,
-  NetworkCardInfo,
-  NetworkInfo,
   OnDemandOptions,
   PciId,
-  PlacementGroupInfo,
-  PlacementGroupStrategy,
   PrivateDnsNameOptionsResponse,
-  ProcessorInfo,
   ProductCode,
   Reservation,
-  RootDeviceType,
   SnapshotDetail,
   SnapshotTaskDetail,
   SpotOptions,
@@ -2845,18 +2944,24 @@ import {
   TargetNetwork,
   TransitGatewayMulticastDeregisteredGroupMembers,
   TransitGatewayMulticastDeregisteredGroupSources,
-  UsageClassType,
   UserBucketDetails,
-  VCpuInfo,
   VirtualizationType,
 } from "../models/models_3";
 import {
+  ArchitectureType,
+  BootModeType,
   ClassicLinkDnsSupport,
   ClassicLoadBalancer,
   ClassicLoadBalancersConfig,
   CreateVolumePermission,
+  DescribeInstanceTypesResult,
+  DescribeInternetGatewaysRequest,
+  DescribeInternetGatewaysResult,
+  DescribeIpamPoolsRequest,
+  DescribeIpamPoolsResult,
   DescribeIpamScopesRequest,
   DescribeIpamScopesResult,
+  DescribeIpamsRequest,
   DescribeIpamsResult,
   DescribeIpv6PoolsRequest,
   DescribeIpv6PoolsResult,
@@ -2986,6 +3091,16 @@ import {
   DescribeTransitGatewayVpcAttachmentsResult,
   DescribeTrunkInterfaceAssociationsRequest,
   DescribeTrunkInterfaceAssociationsResult,
+  DescribeVerifiedAccessEndpointsRequest,
+  DescribeVerifiedAccessEndpointsResult,
+  DescribeVerifiedAccessGroupsRequest,
+  DescribeVerifiedAccessGroupsResult,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsResult,
+  DescribeVerifiedAccessInstancesRequest,
+  DescribeVerifiedAccessInstancesResult,
+  DescribeVerifiedAccessTrustProvidersRequest,
+  DescribeVerifiedAccessTrustProvidersResult,
   DescribeVolumeAttributeRequest,
   DescribeVolumeAttributeResult,
   DescribeVolumesModificationsRequest,
@@ -3005,13 +3120,120 @@ import {
   DescribeVpcEndpointConnectionsRequest,
   DescribeVpcEndpointConnectionsResult,
   DescribeVpcEndpointServiceConfigurationsRequest,
+  DescribeVpcEndpointsRequest,
+  DescribeVpcEndpointsResult,
+  DiskInfo,
+  EbsInfo,
+  EbsOptimizedInfo,
+  EfaInfo,
+  FpgaDeviceInfo,
+  FpgaDeviceMemoryInfo,
+  FpgaInfo,
+  GpuDeviceInfo,
+  GpuDeviceMemoryInfo,
+  GpuInfo,
+  HistoryRecord,
+  InferenceAcceleratorInfo,
+  InferenceDeviceInfo,
+  InstanceNetworkInterfaceSpecification,
+  InstanceStorageInfo,
+  InstanceTypeInfo,
+  Ipv6Pool,
+  KeyPairInfo,
+  LaunchSpecification,
+  LaunchTemplateConfig,
+  LaunchTemplateOverrides,
+  LoadBalancersConfig,
+  LocalGateway,
+  LocalGatewayVirtualInterface,
+  LocalGatewayVirtualInterfaceGroup,
+  MemoryInfo,
+  MovingAddressStatus,
+  NetworkCardInfo,
+  NetworkInfo,
+  NetworkInsightsAccessScopeAnalysis,
+  NetworkInsightsAnalysis,
+  PlacementGroupInfo,
+  PlacementGroupStrategy,
+  PoolCidrBlock,
+  PrefixList,
+  PricingDetail,
+  PrincipalIdFormat,
+  ProcessorInfo,
+  PublicIpv4Pool,
+  PublicIpv4PoolRange,
+  RecurringCharge,
+  Region,
+  ReservedInstances,
+  ReservedInstancesConfiguration,
+  ReservedInstancesId,
+  ReservedInstancesModification,
+  ReservedInstancesModificationResult,
+  ReservedInstancesOffering,
+  RootDeviceType,
+  RunInstancesMonitoringEnabled,
+  ScheduledInstance,
+  ScheduledInstanceAvailability,
+  ScheduledInstanceRecurrence,
+  ScheduledInstanceRecurrenceRequest,
+  SecurityGroup,
+  SecurityGroupReference,
+  SlotDateTimeRangeRequest,
+  SlotStartTimeRangeRequest,
+  SnapshotTierStatus,
+  SpotCapacityRebalance,
+  SpotFleetLaunchSpecification,
+  SpotFleetMonitoring,
+  SpotFleetRequestConfig,
+  SpotFleetRequestConfigData,
+  SpotFleetTagSpecification,
+  SpotInstanceRequest,
+  SpotInstanceStatus,
+  SpotMaintenanceStrategies,
+  SpotPlacement,
+  SpotPrice,
+  StaleIpPermission,
+  StaleSecurityGroup,
+  StoreImageTaskResult,
+  TagDescription,
+  TargetGroup,
+  TargetGroupsConfig,
+  TransitGatewayAttachment,
+  TransitGatewayAttachmentAssociation,
+  UsageClassType,
+  VCpuInfo,
+  VerifiedAccessInstanceLoggingConfiguration,
+  VerifiedAccessLogCloudWatchLogsDestination,
+  VerifiedAccessLogDeliveryStatus,
+  VerifiedAccessLogKinesisDataFirehoseDestination,
+  VerifiedAccessLogs,
+  VerifiedAccessLogS3Destination,
+  VolumeModification,
+  VolumeStatusAction,
+  VolumeStatusAttachmentStatus,
+  VolumeStatusDetails,
+  VolumeStatusEvent,
+  VolumeStatusInfo,
+  VolumeStatusItem,
+  VpcClassicLink,
+  VpcEndpointConnection,
+} from "../models/models_4";
+import {
+  AssociatedRole,
+  AthenaIntegration,
+  BlobAttributeValue,
+  CapacityReservationGroup,
+  CapacityReservationSpecification,
+  ClientCertificateRevocationListStatus,
+  ClientData,
+  CoipAddressUsage,
+  DataQuery,
+  DataResponse,
   DescribeVpcEndpointServiceConfigurationsResult,
   DescribeVpcEndpointServicePermissionsRequest,
   DescribeVpcEndpointServicePermissionsResult,
   DescribeVpcEndpointServicesRequest,
   DescribeVpcEndpointServicesResult,
-  DescribeVpcEndpointsRequest,
-  DescribeVpcEndpointsResult,
   DescribeVpcPeeringConnectionsRequest,
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcsRequest,
@@ -3024,6 +3246,8 @@ import {
   DetachClassicLinkVpcResult,
   DetachInternetGatewayRequest,
   DetachNetworkInterfaceRequest,
+  DetachVerifiedAccessTrustProviderRequest,
+  DetachVerifiedAccessTrustProviderResult,
   DetachVolumeRequest,
   DetachVpnGatewayRequest,
   DisableAddressTransferRequest,
@@ -3059,88 +3283,6 @@ import {
   DisassociateEnclaveCertificateIamRoleRequest,
   DisassociateEnclaveCertificateIamRoleResult,
   DisassociateIamInstanceProfileRequest,
-  HistoryRecord,
-  InstanceNetworkInterfaceSpecification,
-  Ipv6Pool,
-  KeyPairInfo,
-  LaunchSpecification,
-  LaunchTemplateConfig,
-  LaunchTemplateOverrides,
-  LoadBalancersConfig,
-  LocalGateway,
-  LocalGatewayVirtualInterface,
-  LocalGatewayVirtualInterfaceGroup,
-  MovingAddressStatus,
-  NetworkInsightsAccessScopeAnalysis,
-  NetworkInsightsAnalysis,
-  PoolCidrBlock,
-  PrefixList,
-  PricingDetail,
-  PrincipalIdFormat,
-  PrivateDnsDetails,
-  PublicIpv4Pool,
-  PublicIpv4PoolRange,
-  RecurringCharge,
-  Region,
-  ReservedInstances,
-  ReservedInstancesConfiguration,
-  ReservedInstancesId,
-  ReservedInstancesModification,
-  ReservedInstancesModificationResult,
-  ReservedInstancesOffering,
-  RunInstancesMonitoringEnabled,
-  ScheduledInstance,
-  ScheduledInstanceAvailability,
-  ScheduledInstanceRecurrence,
-  ScheduledInstanceRecurrenceRequest,
-  SecurityGroup,
-  SecurityGroupReference,
-  ServiceDetail,
-  SlotDateTimeRangeRequest,
-  SlotStartTimeRangeRequest,
-  SnapshotTierStatus,
-  SpotCapacityRebalance,
-  SpotFleetLaunchSpecification,
-  SpotFleetMonitoring,
-  SpotFleetRequestConfig,
-  SpotFleetRequestConfigData,
-  SpotFleetTagSpecification,
-  SpotInstanceRequest,
-  SpotInstanceStatus,
-  SpotMaintenanceStrategies,
-  SpotPlacement,
-  SpotPrice,
-  StaleIpPermission,
-  StaleSecurityGroup,
-  StoreImageTaskResult,
-  TagDescription,
-  TargetGroup,
-  TargetGroupsConfig,
-  TransitGatewayAttachment,
-  TransitGatewayAttachmentAssociation,
-  TransitGatewayPropagation,
-  VolumeModification,
-  VolumeStatusAction,
-  VolumeStatusAttachmentStatus,
-  VolumeStatusDetails,
-  VolumeStatusEvent,
-  VolumeStatusInfo,
-  VolumeStatusItem,
-  VpcClassicLink,
-  VpcEndpointConnection,
-} from "../models/models_4";
-import {
-  AssociatedRole,
-  AthenaIntegration,
-  BlobAttributeValue,
-  CapacityReservationGroup,
-  CapacityReservationSpecification,
-  ClientCertificateRevocationListStatus,
-  ClientData,
-  CoipAddressUsage,
-  CreateVolumePermissionModifications,
-  DataQuery,
-  DataResponse,
   DisassociateIamInstanceProfileResult,
   DisassociateInstanceEventWindowRequest,
   DisassociateInstanceEventWindowResult,
@@ -3274,6 +3416,10 @@ import {
   GetTransitGatewayRouteTableAssociationsResult,
   GetTransitGatewayRouteTablePropagationsRequest,
   GetTransitGatewayRouteTablePropagationsResult,
+  GetVerifiedAccessEndpointPolicyRequest,
+  GetVerifiedAccessEndpointPolicyResult,
+  GetVerifiedAccessGroupPolicyRequest,
+  GetVerifiedAccessGroupPolicyResult,
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceTypesRequest,
@@ -3295,7 +3441,6 @@ import {
   ImportVolumeRequest,
   ImportVolumeResult,
   InstanceBlockDeviceMappingSpecification,
-  InstanceCreditSpecificationRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceRequirementsWithMetadataRequest,
@@ -3339,6 +3484,47 @@ import {
   ModifyInstanceAttributeRequest,
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
+  PrefixListAssociation,
+  PrefixListEntry,
+  PrivateDnsDetails,
+  Purchase,
+  ReservationValue,
+  ReservedInstanceReservationValue,
+  ServiceDetail,
+  SnapshotDiskContainer,
+  SnapshotRecycleBinInfo,
+  SpotPlacementScore,
+  TargetConfiguration,
+  TargetReservationValue,
+  TransitGatewayAttachmentPropagation,
+  TransitGatewayMulticastDomainAssociation,
+  TransitGatewayPolicyRule,
+  TransitGatewayPolicyRuleMetaData,
+  TransitGatewayPolicyTableEntry,
+  TransitGatewayPropagation,
+  TransitGatewayRouteTableAssociation,
+  TransitGatewayRouteTablePropagation,
+  UserBucket,
+  UserData,
+  VolumeDetail,
+  VpnConnectionDeviceType,
+} from "../models/models_5";
+import {
+  CidrAuthorizationContext,
+  CpuOptionsRequest,
+  CreateVolumePermissionModifications,
+  ElasticInferenceAccelerator,
+  EnclaveOptionsRequest,
+  HibernationOptionsRequest,
+  InstanceCreditSpecificationRequest,
+  InstanceMaintenanceOptionsRequest,
+  InstanceMarketOptionsRequest,
+  InstanceMetadataOptionsRequest,
+  InstanceMonitoring,
+  InstanceStateChange,
+  IpamCidrAuthorizationContext,
+  LaunchTemplateSpecification,
+  LicenseConfigurationRequest,
   ModifyInstanceCreditSpecificationRequest,
   ModifyInstanceCreditSpecificationResult,
   ModifyInstanceEventStartTimeRequest,
@@ -3385,59 +3571,30 @@ import {
   ModifyTrafficMirrorSessionRequest,
   ModifyTrafficMirrorSessionResult,
   ModifyTransitGatewayOptions,
-  ModifyTransitGatewayRequest,
-  NetworkInterfaceAttachmentChanges,
-  PrefixListAssociation,
-  PrefixListEntry,
-  Purchase,
-  RemoveIpamOperatingRegion,
-  RemovePrefixListEntry,
-  ReservationValue,
-  ReservedInstanceReservationValue,
-  SecurityGroupRuleRequest,
-  SecurityGroupRuleUpdate,
-  SnapshotDiskContainer,
-  SnapshotRecycleBinInfo,
-  SpotPlacementScore,
-  SuccessfulInstanceCreditSpecificationItem,
-  TargetConfiguration,
-  TargetReservationValue,
-  TrafficMirrorFilterRuleField,
-  TrafficMirrorSessionField,
-  TransitGatewayAttachmentPropagation,
-  TransitGatewayMulticastDomainAssociation,
-  TransitGatewayPolicyRule,
-  TransitGatewayPolicyRuleMetaData,
-  TransitGatewayPolicyTableEntry,
-  TransitGatewayRouteTableAssociation,
-  TransitGatewayRouteTablePropagation,
-  UnsuccessfulInstanceCreditSpecificationItem,
-  UnsuccessfulInstanceCreditSpecificationItemError,
-  UserBucket,
-  UserData,
-  VolumeDetail,
-  VpnConnectionDeviceType,
-} from "../models/models_5";
-import {
-  CidrAuthorizationContext,
-  CpuOptionsRequest,
-  ElasticInferenceAccelerator,
-  EnclaveOptionsRequest,
-  HibernationOptionsRequest,
-  InstanceMaintenanceOptionsRequest,
-  InstanceMarketOptionsRequest,
-  InstanceMetadataOptionsRequest,
-  InstanceMonitoring,
-  InstanceStateChange,
-  IpamCidrAuthorizationContext,
-  LaunchTemplateSpecification,
-  LicenseConfigurationRequest,
   ModifyTransitGatewayPrefixListReferenceRequest,
   ModifyTransitGatewayPrefixListReferenceResult,
+  ModifyTransitGatewayRequest,
   ModifyTransitGatewayResult,
   ModifyTransitGatewayVpcAttachmentRequest,
   ModifyTransitGatewayVpcAttachmentRequestOptions,
   ModifyTransitGatewayVpcAttachmentResult,
+  ModifyVerifiedAccessEndpointEniOptions,
+  ModifyVerifiedAccessEndpointLoadBalancerOptions,
+  ModifyVerifiedAccessEndpointPolicyRequest,
+  ModifyVerifiedAccessEndpointPolicyResult,
+  ModifyVerifiedAccessEndpointRequest,
+  ModifyVerifiedAccessEndpointResult,
+  ModifyVerifiedAccessGroupPolicyRequest,
+  ModifyVerifiedAccessGroupPolicyResult,
+  ModifyVerifiedAccessGroupRequest,
+  ModifyVerifiedAccessGroupResult,
+  ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
+  ModifyVerifiedAccessInstanceLoggingConfigurationResult,
+  ModifyVerifiedAccessInstanceRequest,
+  ModifyVerifiedAccessInstanceResult,
+  ModifyVerifiedAccessTrustProviderOidcOptions,
+  ModifyVerifiedAccessTrustProviderRequest,
+  ModifyVerifiedAccessTrustProviderResult,
   ModifyVolumeAttributeRequest,
   ModifyVolumeRequest,
   ModifyVolumeResult,
@@ -3471,6 +3628,7 @@ import {
   MoveAddressToVpcResult,
   MoveByoipCidrToIpamRequest,
   MoveByoipCidrToIpamResult,
+  NetworkInterfaceAttachmentChanges,
   PeeringConnectionOptions,
   PeeringConnectionOptionsRequest,
   PrivateDnsNameOptionsRequest,
@@ -3512,6 +3670,8 @@ import {
   ReleaseHostsResult,
   ReleaseIpamPoolAllocationRequest,
   ReleaseIpamPoolAllocationResult,
+  RemoveIpamOperatingRegion,
+  RemovePrefixListEntry,
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
   ReplaceNetworkAclAssociationRequest,
@@ -3575,6 +3735,8 @@ import {
   SearchTransitGatewayRoutesRequest,
   SearchTransitGatewayRoutesResult,
   SecurityGroupRuleDescription,
+  SecurityGroupRuleRequest,
+  SecurityGroupRuleUpdate,
   SendDiagnosticInterruptRequest,
   SpotMarketOptions,
   StartInstancesRequest,
@@ -3587,11 +3749,14 @@ import {
   StartVpcEndpointServicePrivateDnsVerificationResult,
   StopInstancesRequest,
   StopInstancesResult,
+  SuccessfulInstanceCreditSpecificationItem,
   TerminateClientVpnConnectionsRequest,
   TerminateClientVpnConnectionsResult,
   TerminateConnectionStatus,
   TerminateInstancesRequest,
   TerminateInstancesResult,
+  TrafficMirrorFilterRuleField,
+  TrafficMirrorSessionField,
   TransitGatewayMulticastGroup,
   TransitGatewayMulticastRegisteredGroupMembers,
   TransitGatewayMulticastRegisteredGroupSources,
@@ -3600,10 +3765,16 @@ import {
   UnassignPrivateIpAddressesRequest,
   UnmonitorInstancesRequest,
   UnmonitorInstancesResult,
+  UnsuccessfulInstanceCreditSpecificationItem,
+  UnsuccessfulInstanceCreditSpecificationItemError,
   UpdateSecurityGroupRuleDescriptionsEgressRequest,
   UpdateSecurityGroupRuleDescriptionsEgressResult,
   UpdateSecurityGroupRuleDescriptionsIngressRequest,
   UpdateSecurityGroupRuleDescriptionsIngressResult,
+  VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  VerifiedAccessLogOptions,
+  VerifiedAccessLogS3DestinationOptions,
   WithdrawByoipCidrRequest,
   WithdrawByoipCidrResult,
 } from "../models/models_6";
@@ -4083,6 +4254,22 @@ export const serializeAws_ec2AttachNetworkInterfaceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2AttachNetworkInterfaceRequest(input, context),
     Action: "AttachNetworkInterface",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2AttachVerifiedAccessTrustProviderCommand = async (
+  input: AttachVerifiedAccessTrustProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2AttachVerifiedAccessTrustProviderRequest(input, context),
+    Action: "AttachVerifiedAccessTrustProvider",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5480,6 +5667,70 @@ export const serializeAws_ec2CreateTransitGatewayVpcAttachmentCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2CreateVerifiedAccessEndpointCommand = async (
+  input: CreateVerifiedAccessEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateVerifiedAccessEndpointRequest(input, context),
+    Action: "CreateVerifiedAccessEndpoint",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateVerifiedAccessGroupCommand = async (
+  input: CreateVerifiedAccessGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateVerifiedAccessGroupRequest(input, context),
+    Action: "CreateVerifiedAccessGroup",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateVerifiedAccessInstanceCommand = async (
+  input: CreateVerifiedAccessInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateVerifiedAccessInstanceRequest(input, context),
+    Action: "CreateVerifiedAccessInstance",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2CreateVerifiedAccessTrustProviderCommand = async (
+  input: CreateVerifiedAccessTrustProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2CreateVerifiedAccessTrustProviderRequest(input, context),
+    Action: "CreateVerifiedAccessTrustProvider",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2CreateVolumeCommand = async (
   input: CreateVolumeCommandInput,
   context: __SerdeContext
@@ -6563,6 +6814,70 @@ export const serializeAws_ec2DeleteTransitGatewayVpcAttachmentCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest(input, context),
     Action: "DeleteTransitGatewayVpcAttachment",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteVerifiedAccessEndpointCommand = async (
+  input: DeleteVerifiedAccessEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteVerifiedAccessEndpointRequest(input, context),
+    Action: "DeleteVerifiedAccessEndpoint",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteVerifiedAccessGroupCommand = async (
+  input: DeleteVerifiedAccessGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteVerifiedAccessGroupRequest(input, context),
+    Action: "DeleteVerifiedAccessGroup",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteVerifiedAccessInstanceCommand = async (
+  input: DeleteVerifiedAccessInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteVerifiedAccessInstanceRequest(input, context),
+    Action: "DeleteVerifiedAccessInstance",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DeleteVerifiedAccessTrustProviderCommand = async (
+  input: DeleteVerifiedAccessTrustProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DeleteVerifiedAccessTrustProviderRequest(input, context),
+    Action: "DeleteVerifiedAccessTrustProvider",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -8744,6 +9059,86 @@ export const serializeAws_ec2DescribeTrunkInterfaceAssociationsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2DescribeVerifiedAccessEndpointsCommand = async (
+  input: DescribeVerifiedAccessEndpointsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeVerifiedAccessEndpointsRequest(input, context),
+    Action: "DescribeVerifiedAccessEndpoints",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeVerifiedAccessGroupsCommand = async (
+  input: DescribeVerifiedAccessGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeVerifiedAccessGroupsRequest(input, context),
+    Action: "DescribeVerifiedAccessGroups",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = async (
+  input: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest(input, context),
+    Action: "DescribeVerifiedAccessInstanceLoggingConfigurations",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeVerifiedAccessInstancesCommand = async (
+  input: DescribeVerifiedAccessInstancesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeVerifiedAccessInstancesRequest(input, context),
+    Action: "DescribeVerifiedAccessInstances",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand = async (
+  input: DescribeVerifiedAccessTrustProvidersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DescribeVerifiedAccessTrustProvidersRequest(input, context),
+    Action: "DescribeVerifiedAccessTrustProviders",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2DescribeVolumeAttributeCommand = async (
   input: DescribeVolumeAttributeCommandInput,
   context: __SerdeContext
@@ -9059,6 +9454,22 @@ export const serializeAws_ec2DetachNetworkInterfaceCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2DetachNetworkInterfaceRequest(input, context),
     Action: "DetachNetworkInterface",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2DetachVerifiedAccessTrustProviderCommand = async (
+  input: DetachVerifiedAccessTrustProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2DetachVerifiedAccessTrustProviderRequest(input, context),
+    Action: "DetachVerifiedAccessTrustProvider",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -10344,6 +10755,38 @@ export const serializeAws_ec2GetTransitGatewayRouteTablePropagationsCommand = as
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_ec2GetVerifiedAccessEndpointPolicyCommand = async (
+  input: GetVerifiedAccessEndpointPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetVerifiedAccessEndpointPolicyRequest(input, context),
+    Action: "GetVerifiedAccessEndpointPolicy",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2GetVerifiedAccessGroupPolicyCommand = async (
+  input: GetVerifiedAccessGroupPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2GetVerifiedAccessGroupPolicyRequest(input, context),
+    Action: "GetVerifiedAccessGroupPolicy",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand = async (
   input: GetVpnConnectionDeviceSampleConfigurationCommandInput,
   context: __SerdeContext
@@ -11171,6 +11614,118 @@ export const serializeAws_ec2ModifyTransitGatewayVpcAttachmentCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequest(input, context),
     Action: "ModifyTransitGatewayVpcAttachment",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessEndpointCommand = async (
+  input: ModifyVerifiedAccessEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessEndpointRequest(input, context),
+    Action: "ModifyVerifiedAccessEndpoint",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand = async (
+  input: ModifyVerifiedAccessEndpointPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessEndpointPolicyRequest(input, context),
+    Action: "ModifyVerifiedAccessEndpointPolicy",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessGroupCommand = async (
+  input: ModifyVerifiedAccessGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessGroupRequest(input, context),
+    Action: "ModifyVerifiedAccessGroup",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand = async (
+  input: ModifyVerifiedAccessGroupPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessGroupPolicyRequest(input, context),
+    Action: "ModifyVerifiedAccessGroupPolicy",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessInstanceCommand = async (
+  input: ModifyVerifiedAccessInstanceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessInstanceRequest(input, context),
+    Action: "ModifyVerifiedAccessInstance",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async (
+  input: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationRequest(input, context),
+    Action: "ModifyVerifiedAccessInstanceLoggingConfiguration",
+    Version: "2016-11-15",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_ec2ModifyVerifiedAccessTrustProviderCommand = async (
+  input: ModifyVerifiedAccessTrustProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_ec2ModifyVerifiedAccessTrustProviderRequest(input, context),
+    Action: "ModifyVerifiedAccessTrustProvider",
     Version: "2016-11-15",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -13470,6 +14025,41 @@ const deserializeAws_ec2AttachNetworkInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachNetworkInterfaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2AttachVerifiedAccessTrustProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachVerifiedAccessTrustProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2AttachVerifiedAccessTrustProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2AttachVerifiedAccessTrustProviderResult(data, context);
+  const response: AttachVerifiedAccessTrustProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2AttachVerifiedAccessTrustProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachVerifiedAccessTrustProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -16517,6 +17107,146 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentCommandError = async (
   });
 };
 
+export const deserializeAws_ec2CreateVerifiedAccessEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateVerifiedAccessEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateVerifiedAccessEndpointResult(data, context);
+  const response: CreateVerifiedAccessEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateVerifiedAccessEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateVerifiedAccessGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateVerifiedAccessGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateVerifiedAccessGroupResult(data, context);
+  const response: CreateVerifiedAccessGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateVerifiedAccessGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateVerifiedAccessInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateVerifiedAccessInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateVerifiedAccessInstanceResult(data, context);
+  const response: CreateVerifiedAccessInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateVerifiedAccessInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2CreateVerifiedAccessTrustProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessTrustProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2CreateVerifiedAccessTrustProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2CreateVerifiedAccessTrustProviderResult(data, context);
+  const response: CreateVerifiedAccessTrustProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2CreateVerifiedAccessTrustProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVerifiedAccessTrustProviderCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2CreateVolumeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -18835,6 +19565,146 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteVerifiedAccessEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteVerifiedAccessEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteVerifiedAccessEndpointResult(data, context);
+  const response: DeleteVerifiedAccessEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteVerifiedAccessGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteVerifiedAccessGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteVerifiedAccessGroupResult(data, context);
+  const response: DeleteVerifiedAccessGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteVerifiedAccessInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteVerifiedAccessInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteVerifiedAccessInstanceResult(data, context);
+  const response: DeleteVerifiedAccessInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DeleteVerifiedAccessTrustProviderResult(data, context);
+  const response: DeleteVerifiedAccessTrustProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessTrustProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -23594,6 +24464,181 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsCommandError = async (
   });
 };
 
+export const deserializeAws_ec2DescribeVerifiedAccessEndpointsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessEndpointsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeVerifiedAccessEndpointsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeVerifiedAccessEndpointsResult(data, context);
+  const response: DescribeVerifiedAccessEndpointsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessEndpointsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessEndpointsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DescribeVerifiedAccessGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessGroupsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeVerifiedAccessGroupsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeVerifiedAccessGroupsResult(data, context);
+  const response: DescribeVerifiedAccessGroupsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessGroupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsResult(data, context);
+  const response: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DescribeVerifiedAccessInstancesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessInstancesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeVerifiedAccessInstancesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeVerifiedAccessInstancesResult(data, context);
+  const response: DescribeVerifiedAccessInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessInstancesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessInstancesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DescribeVerifiedAccessTrustProvidersResult(data, context);
+  const response: DescribeVerifiedAccessTrustProvidersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessTrustProvidersCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2DescribeVolumeAttributeCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -24274,6 +25319,41 @@ const deserializeAws_ec2DetachNetworkInterfaceCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachNetworkInterfaceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2DetachVerifiedAccessTrustProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachVerifiedAccessTrustProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2DetachVerifiedAccessTrustProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2DetachVerifiedAccessTrustProviderResult(data, context);
+  const response: DetachVerifiedAccessTrustProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2DetachVerifiedAccessTrustProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachVerifiedAccessTrustProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -27070,6 +28150,76 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsCommandError = as
   });
 };
 
+export const deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetVerifiedAccessEndpointPolicyResult(data, context);
+  const response: GetVerifiedAccessEndpointPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetVerifiedAccessEndpointPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2GetVerifiedAccessGroupPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVerifiedAccessGroupPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2GetVerifiedAccessGroupPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2GetVerifiedAccessGroupPolicyResult(data, context);
+  const response: GetVerifiedAccessGroupPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2GetVerifiedAccessGroupPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVerifiedAccessGroupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -28855,6 +30005,251 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessEndpointCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessEndpointCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessEndpointResult(data, context);
+  const response: ModifyVerifiedAccessEndpointCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessEndpointCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessEndpointCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyResult(data, context);
+  const response: ModifyVerifiedAccessEndpointPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessGroupCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessGroupCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessGroupResult(data, context);
+  const response: ModifyVerifiedAccessGroupCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessGroupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessGroupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessGroupPolicyResult(data, context);
+  const response: ModifyVerifiedAccessGroupPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessGroupPolicyCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessInstanceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessInstanceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessInstanceCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessInstanceResult(data, context);
+  const response: ModifyVerifiedAccessInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessInstanceCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessInstanceCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationResult(data, context);
+  const response: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadEc2ErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Errors.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_ec2ModifyVerifiedAccessTrustProviderResult(data, context);
+  const response: ModifyVerifiedAccessTrustProviderCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessTrustProviderCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -32642,6 +34037,29 @@ const serializeAws_ec2AttachNetworkInterfaceRequest = (
   return entries;
 };
 
+const serializeAws_ec2AttachVerifiedAccessTrustProviderRequest = (
+  input: AttachVerifiedAccessTrustProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.VerifiedAccessTrustProviderId != null) {
+    entries["VerifiedAccessTrustProviderId"] = input.VerifiedAccessTrustProviderId;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2AttachVolumeRequest = (input: AttachVolumeRequest, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Device != null) {
@@ -36075,6 +37493,306 @@ const serializeAws_ec2CreateTransitGatewayVpcAttachmentRequestOptions = (
   return entries;
 };
 
+const serializeAws_ec2CreateVerifiedAccessEndpointEniOptions = (
+  input: CreateVerifiedAccessEndpointEniOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.NetworkInterfaceId != null) {
+    entries["NetworkInterfaceId"] = input.NetworkInterfaceId;
+  }
+  if (input.Protocol != null) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.Port != null) {
+    entries["Port"] = input.Port;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessEndpointLoadBalancerOptions = (
+  input: CreateVerifiedAccessEndpointLoadBalancerOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Protocol != null) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.Port != null) {
+    entries["Port"] = input.Port;
+  }
+  if (input.LoadBalancerArn != null) {
+    entries["LoadBalancerArn"] = input.LoadBalancerArn;
+  }
+  if (input.SubnetIds != null) {
+    const memberEntries = serializeAws_ec2CreateVerifiedAccessEndpointSubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessEndpointRequest = (
+  input: CreateVerifiedAccessEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.EndpointType != null) {
+    entries["EndpointType"] = input.EndpointType;
+  }
+  if (input.AttachmentType != null) {
+    entries["AttachmentType"] = input.AttachmentType;
+  }
+  if (input.DomainCertificateArn != null) {
+    entries["DomainCertificateArn"] = input.DomainCertificateArn;
+  }
+  if (input.ApplicationDomain != null) {
+    entries["ApplicationDomain"] = input.ApplicationDomain;
+  }
+  if (input.EndpointDomainPrefix != null) {
+    entries["EndpointDomainPrefix"] = input.EndpointDomainPrefix;
+  }
+  if (input.SecurityGroupIds != null) {
+    const memberEntries = serializeAws_ec2SecurityGroupIdList(input.SecurityGroupIds, context);
+    if (input.SecurityGroupIds?.length === 0) {
+      entries.SecurityGroupId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SecurityGroupId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.LoadBalancerOptions != null) {
+    const memberEntries = serializeAws_ec2CreateVerifiedAccessEndpointLoadBalancerOptions(
+      input.LoadBalancerOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoadBalancerOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NetworkInterfaceOptions != null) {
+    const memberEntries = serializeAws_ec2CreateVerifiedAccessEndpointEniOptions(
+      input.NetworkInterfaceOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInterfaceOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.PolicyDocument != null) {
+    entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessEndpointSubnetIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessGroupRequest = (
+  input: CreateVerifiedAccessGroupRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.PolicyDocument != null) {
+    entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessInstanceRequest = (
+  input: CreateVerifiedAccessInstanceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessTrustProviderDeviceOptions = (
+  input: CreateVerifiedAccessTrustProviderDeviceOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TenantId != null) {
+    entries["TenantId"] = input.TenantId;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessTrustProviderOidcOptions = (
+  input: CreateVerifiedAccessTrustProviderOidcOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Issuer != null) {
+    entries["Issuer"] = input.Issuer;
+  }
+  if (input.AuthorizationEndpoint != null) {
+    entries["AuthorizationEndpoint"] = input.AuthorizationEndpoint;
+  }
+  if (input.TokenEndpoint != null) {
+    entries["TokenEndpoint"] = input.TokenEndpoint;
+  }
+  if (input.UserInfoEndpoint != null) {
+    entries["UserInfoEndpoint"] = input.UserInfoEndpoint;
+  }
+  if (input.ClientId != null) {
+    entries["ClientId"] = input.ClientId;
+  }
+  if (input.ClientSecret != null) {
+    entries["ClientSecret"] = input.ClientSecret;
+  }
+  if (input.Scope != null) {
+    entries["Scope"] = input.Scope;
+  }
+  return entries;
+};
+
+const serializeAws_ec2CreateVerifiedAccessTrustProviderRequest = (
+  input: CreateVerifiedAccessTrustProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.TrustProviderType != null) {
+    entries["TrustProviderType"] = input.TrustProviderType;
+  }
+  if (input.UserTrustProviderType != null) {
+    entries["UserTrustProviderType"] = input.UserTrustProviderType;
+  }
+  if (input.DeviceTrustProviderType != null) {
+    entries["DeviceTrustProviderType"] = input.DeviceTrustProviderType;
+  }
+  if (input.OidcOptions != null) {
+    const memberEntries = serializeAws_ec2CreateVerifiedAccessTrustProviderOidcOptions(input.OidcOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OidcOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DeviceOptions != null) {
+    const memberEntries = serializeAws_ec2CreateVerifiedAccessTrustProviderDeviceOptions(input.DeviceOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `DeviceOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.PolicyReferenceName != null) {
+    entries["PolicyReferenceName"] = input.PolicyReferenceName;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.TagSpecifications != null) {
+    const memberEntries = serializeAws_ec2TagSpecificationList(input.TagSpecifications, context);
+    if (input.TagSpecifications?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2CreateVolumePermission = (input: CreateVolumePermission, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.Group != null) {
@@ -37478,6 +39196,86 @@ const serializeAws_ec2DeleteTransitGatewayVpcAttachmentRequest = (
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteVerifiedAccessEndpointRequest = (
+  input: DeleteVerifiedAccessEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessEndpointId != null) {
+    entries["VerifiedAccessEndpointId"] = input.VerifiedAccessEndpointId;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteVerifiedAccessGroupRequest = (
+  input: DeleteVerifiedAccessGroupRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteVerifiedAccessInstanceRequest = (
+  input: DeleteVerifiedAccessInstanceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DeleteVerifiedAccessTrustProviderRequest = (
+  input: DeleteVerifiedAccessTrustProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessTrustProviderId != null) {
+    entries["VerifiedAccessTrustProviderId"] = input.VerifiedAccessTrustProviderId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
   }
   return entries;
 };
@@ -41872,6 +43670,203 @@ const serializeAws_ec2DescribeTrunkInterfaceAssociationsRequest = (
   return entries;
 };
 
+const serializeAws_ec2DescribeVerifiedAccessEndpointsRequest = (
+  input: DescribeVerifiedAccessEndpointsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessEndpointIds != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessEndpointIdList(input.VerifiedAccessEndpointIds, context);
+    if (input.VerifiedAccessEndpointIds?.length === 0) {
+      entries.VerifiedAccessEndpointId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VerifiedAccessEndpointId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeVerifiedAccessGroupsRequest = (
+  input: DescribeVerifiedAccessGroupsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupIds != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessGroupIdList(input.VerifiedAccessGroupIds, context);
+    if (input.VerifiedAccessGroupIds?.length === 0) {
+      entries.VerifiedAccessGroupId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VerifiedAccessGroupId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsRequest = (
+  input: DescribeVerifiedAccessInstanceLoggingConfigurationsRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceIds != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessInstanceIdList(input.VerifiedAccessInstanceIds, context);
+    if (input.VerifiedAccessInstanceIds?.length === 0) {
+      entries.VerifiedAccessInstanceId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VerifiedAccessInstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeVerifiedAccessInstancesRequest = (
+  input: DescribeVerifiedAccessInstancesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceIds != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessInstanceIdList(input.VerifiedAccessInstanceIds, context);
+    if (input.VerifiedAccessInstanceIds?.length === 0) {
+      entries.VerifiedAccessInstanceId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VerifiedAccessInstanceId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DescribeVerifiedAccessTrustProvidersRequest = (
+  input: DescribeVerifiedAccessTrustProvidersRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessTrustProviderIds != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessTrustProviderIdList(
+      input.VerifiedAccessTrustProviderIds,
+      context
+    );
+    if (input.VerifiedAccessTrustProviderIds?.length === 0) {
+      entries.VerifiedAccessTrustProviderId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `VerifiedAccessTrustProviderId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.Filters != null) {
+    const memberEntries = serializeAws_ec2FilterList(input.Filters, context);
+    if (input.Filters?.length === 0) {
+      entries.Filter = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filter.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
 const serializeAws_ec2DescribeVolumeAttributeRequest = (
   input: DescribeVolumeAttributeRequest,
   context: __SerdeContext
@@ -42461,6 +44456,29 @@ const serializeAws_ec2DetachNetworkInterfaceRequest = (
   }
   if (input.Force != null) {
     entries["Force"] = input.Force;
+  }
+  return entries;
+};
+
+const serializeAws_ec2DetachVerifiedAccessTrustProviderRequest = (
+  input: DetachVerifiedAccessTrustProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.VerifiedAccessTrustProviderId != null) {
+    entries["VerifiedAccessTrustProviderId"] = input.VerifiedAccessTrustProviderId;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
   }
   return entries;
 };
@@ -44791,6 +46809,34 @@ const serializeAws_ec2GetTransitGatewayRouteTablePropagationsRequest = (
   }
   if (input.NextToken != null) {
     entries["NextToken"] = input.NextToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetVerifiedAccessEndpointPolicyRequest = (
+  input: GetVerifiedAccessEndpointPolicyRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessEndpointId != null) {
+    entries["VerifiedAccessEndpointId"] = input.VerifiedAccessEndpointId;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2GetVerifiedAccessGroupPolicyRequest = (
+  input: GetVerifiedAccessGroupPolicyRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
   }
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
@@ -49142,6 +51188,272 @@ const serializeAws_ec2ModifyTransitGatewayVpcAttachmentRequestOptions = (
   return entries;
 };
 
+const serializeAws_ec2ModifyVerifiedAccessEndpointEniOptions = (
+  input: ModifyVerifiedAccessEndpointEniOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Protocol != null) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.Port != null) {
+    entries["Port"] = input.Port;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessEndpointLoadBalancerOptions = (
+  input: ModifyVerifiedAccessEndpointLoadBalancerOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.SubnetIds != null) {
+    const memberEntries = serializeAws_ec2ModifyVerifiedAccessEndpointSubnetIdList(input.SubnetIds, context);
+    if (input.SubnetIds?.length === 0) {
+      entries.SubnetId = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `SubnetId.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Protocol != null) {
+    entries["Protocol"] = input.Protocol;
+  }
+  if (input.Port != null) {
+    entries["Port"] = input.Port;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessEndpointPolicyRequest = (
+  input: ModifyVerifiedAccessEndpointPolicyRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessEndpointId != null) {
+    entries["VerifiedAccessEndpointId"] = input.VerifiedAccessEndpointId;
+  }
+  if (input.PolicyEnabled != null) {
+    entries["PolicyEnabled"] = input.PolicyEnabled;
+  }
+  if (input.PolicyDocument != null) {
+    entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessEndpointRequest = (
+  input: ModifyVerifiedAccessEndpointRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessEndpointId != null) {
+    entries["VerifiedAccessEndpointId"] = input.VerifiedAccessEndpointId;
+  }
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.LoadBalancerOptions != null) {
+    const memberEntries = serializeAws_ec2ModifyVerifiedAccessEndpointLoadBalancerOptions(
+      input.LoadBalancerOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `LoadBalancerOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.NetworkInterfaceOptions != null) {
+    const memberEntries = serializeAws_ec2ModifyVerifiedAccessEndpointEniOptions(
+      input.NetworkInterfaceOptions,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NetworkInterfaceOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessEndpointSubnetIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessGroupPolicyRequest = (
+  input: ModifyVerifiedAccessGroupPolicyRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.PolicyEnabled != null) {
+    entries["PolicyEnabled"] = input.PolicyEnabled;
+  }
+  if (input.PolicyDocument != null) {
+    entries["PolicyDocument"] = input.PolicyDocument;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessGroupRequest = (
+  input: ModifyVerifiedAccessGroupRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessGroupId != null) {
+    entries["VerifiedAccessGroupId"] = input.VerifiedAccessGroupId;
+  }
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationRequest = (
+  input: ModifyVerifiedAccessInstanceLoggingConfigurationRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.AccessLogs != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessLogOptions(input.AccessLogs, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AccessLogs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessInstanceRequest = (
+  input: ModifyVerifiedAccessInstanceRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessInstanceId != null) {
+    entries["VerifiedAccessInstanceId"] = input.VerifiedAccessInstanceId;
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessTrustProviderOidcOptions = (
+  input: ModifyVerifiedAccessTrustProviderOidcOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Scope != null) {
+    entries["Scope"] = input.Scope;
+  }
+  return entries;
+};
+
+const serializeAws_ec2ModifyVerifiedAccessTrustProviderRequest = (
+  input: ModifyVerifiedAccessTrustProviderRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.VerifiedAccessTrustProviderId != null) {
+    entries["VerifiedAccessTrustProviderId"] = input.VerifiedAccessTrustProviderId;
+  }
+  if (input.OidcOptions != null) {
+    const memberEntries = serializeAws_ec2ModifyVerifiedAccessTrustProviderOidcOptions(input.OidcOptions, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `OidcOptions.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Description != null) {
+    entries["Description"] = input.Description;
+  }
+  if (input.DryRun != null) {
+    entries["DryRun"] = input.DryRun;
+  }
+  if (input.ClientToken === undefined) {
+    input.ClientToken = generateIdempotencyToken();
+  }
+  if (input.ClientToken != null) {
+    entries["ClientToken"] = input.ClientToken;
+  }
+  return entries;
+};
+
 const serializeAws_ec2ModifyVolumeAttributeRequest = (
   input: ModifyVolumeAttributeRequest,
   context: __SerdeContext
@@ -53364,6 +55676,19 @@ const serializeAws_ec2SearchTransitGatewayRoutesRequest = (
   return entries;
 };
 
+const serializeAws_ec2SecurityGroupIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
 const serializeAws_ec2SecurityGroupIdStringList = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -54957,6 +57282,138 @@ const serializeAws_ec2VCpuCountRangeRequest = (input: VCpuCountRangeRequest, con
   }
   if (input.Max != null) {
     entries["Max"] = input.Max;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessEndpointIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessGroupIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessInstanceIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessLogCloudWatchLogsDestinationOptions = (
+  input: VerifiedAccessLogCloudWatchLogsDestinationOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Enabled != null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.LogGroup != null) {
+    entries["LogGroup"] = input.LogGroup;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestinationOptions = (
+  input: VerifiedAccessLogKinesisDataFirehoseDestinationOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Enabled != null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.DeliveryStream != null) {
+    entries["DeliveryStream"] = input.DeliveryStream;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessLogOptions = (input: VerifiedAccessLogOptions, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.S3 != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessLogS3DestinationOptions(input.S3, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `S3.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.CloudWatchLogs != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessLogCloudWatchLogsDestinationOptions(
+      input.CloudWatchLogs,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `CloudWatchLogs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.KinesisDataFirehose != null) {
+    const memberEntries = serializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestinationOptions(
+      input.KinesisDataFirehose,
+      context
+    );
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `KinesisDataFirehose.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessLogS3DestinationOptions = (
+  input: VerifiedAccessLogS3DestinationOptions,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Enabled != null) {
+    entries["Enabled"] = input.Enabled;
+  }
+  if (input.BucketName != null) {
+    entries["BucketName"] = input.BucketName;
+  }
+  if (input.Prefix != null) {
+    entries["Prefix"] = input.Prefix;
+  }
+  if (input.BucketOwner != null) {
+    entries["BucketOwner"] = input.BucketOwner;
+  }
+  return entries;
+};
+
+const serializeAws_ec2VerifiedAccessTrustProviderIdList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Item.${counter}`] = entry;
+    counter++;
   }
   return entries;
 };
@@ -56716,6 +59173,29 @@ const deserializeAws_ec2AttachNetworkInterfaceResult = (
   }
   if (output["networkCardIndex"] !== undefined) {
     contents.NetworkCardIndex = __strictParseInt32(output["networkCardIndex"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2AttachVerifiedAccessTrustProviderResult = (
+  output: any,
+  context: __SerdeContext
+): AttachVerifiedAccessTrustProviderResult => {
+  const contents: any = {
+    VerifiedAccessTrustProvider: undefined,
+    VerifiedAccessInstance: undefined,
+  };
+  if (output["verifiedAccessTrustProvider"] !== undefined) {
+    contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
+      output["verifiedAccessTrustProvider"],
+      context
+    );
+  }
+  if (output["verifiedAccessInstance"] !== undefined) {
+    contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
+      output["verifiedAccessInstance"],
+      context
+    );
   }
   return contents;
 };
@@ -59647,6 +62127,67 @@ const deserializeAws_ec2CreateTransitGatewayVpcAttachmentResult = (
   return contents;
 };
 
+const deserializeAws_ec2CreateVerifiedAccessEndpointResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVerifiedAccessEndpointResult => {
+  const contents: any = {
+    VerifiedAccessEndpoint: undefined,
+  };
+  if (output["verifiedAccessEndpoint"] !== undefined) {
+    contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
+      output["verifiedAccessEndpoint"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateVerifiedAccessGroupResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVerifiedAccessGroupResult => {
+  const contents: any = {
+    VerifiedAccessGroup: undefined,
+  };
+  if (output["verifiedAccessGroup"] !== undefined) {
+    contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateVerifiedAccessInstanceResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVerifiedAccessInstanceResult => {
+  const contents: any = {
+    VerifiedAccessInstance: undefined,
+  };
+  if (output["verifiedAccessInstance"] !== undefined) {
+    contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
+      output["verifiedAccessInstance"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2CreateVerifiedAccessTrustProviderResult = (
+  output: any,
+  context: __SerdeContext
+): CreateVerifiedAccessTrustProviderResult => {
+  const contents: any = {
+    VerifiedAccessTrustProvider: undefined,
+  };
+  if (output["verifiedAccessTrustProvider"] !== undefined) {
+    contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
+      output["verifiedAccessTrustProvider"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2CreateVolumePermission = (output: any, context: __SerdeContext): CreateVolumePermission => {
   const contents: any = {
     Group: undefined,
@@ -60675,6 +63216,67 @@ const deserializeAws_ec2DeleteTransitGatewayVpcAttachmentResult = (
   if (output["transitGatewayVpcAttachment"] !== undefined) {
     contents.TransitGatewayVpcAttachment = deserializeAws_ec2TransitGatewayVpcAttachment(
       output["transitGatewayVpcAttachment"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessEndpointResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVerifiedAccessEndpointResult => {
+  const contents: any = {
+    VerifiedAccessEndpoint: undefined,
+  };
+  if (output["verifiedAccessEndpoint"] !== undefined) {
+    contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
+      output["verifiedAccessEndpoint"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessGroupResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVerifiedAccessGroupResult => {
+  const contents: any = {
+    VerifiedAccessGroup: undefined,
+  };
+  if (output["verifiedAccessGroup"] !== undefined) {
+    contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessInstanceResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVerifiedAccessInstanceResult => {
+  const contents: any = {
+    VerifiedAccessInstance: undefined,
+  };
+  if (output["verifiedAccessInstance"] !== undefined) {
+    contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
+      output["verifiedAccessInstance"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeleteVerifiedAccessTrustProviderResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteVerifiedAccessTrustProviderResult => {
+  const contents: any = {
+    VerifiedAccessTrustProvider: undefined,
+  };
+  if (output["verifiedAccessTrustProvider"] !== undefined) {
+    contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
+      output["verifiedAccessTrustProvider"],
       context
     );
   }
@@ -63624,6 +66226,128 @@ const deserializeAws_ec2DescribeTrunkInterfaceAssociationsResult = (
   return contents;
 };
 
+const deserializeAws_ec2DescribeVerifiedAccessEndpointsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedAccessEndpointsResult => {
+  const contents: any = {
+    VerifiedAccessEndpoints: undefined,
+    NextToken: undefined,
+  };
+  if (output.verifiedAccessEndpointSet === "") {
+    contents.VerifiedAccessEndpoints = [];
+  } else if (
+    output["verifiedAccessEndpointSet"] !== undefined &&
+    output["verifiedAccessEndpointSet"]["item"] !== undefined
+  ) {
+    contents.VerifiedAccessEndpoints = deserializeAws_ec2VerifiedAccessEndpointList(
+      __getArrayIfSingleItem(output["verifiedAccessEndpointSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessGroupsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedAccessGroupsResult => {
+  const contents: any = {
+    VerifiedAccessGroups: undefined,
+    NextToken: undefined,
+  };
+  if (output.verifiedAccessGroupSet === "") {
+    contents.VerifiedAccessGroups = [];
+  } else if (output["verifiedAccessGroupSet"] !== undefined && output["verifiedAccessGroupSet"]["item"] !== undefined) {
+    contents.VerifiedAccessGroups = deserializeAws_ec2VerifiedAccessGroupList(
+      __getArrayIfSingleItem(output["verifiedAccessGroupSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessInstanceLoggingConfigurationsResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedAccessInstanceLoggingConfigurationsResult => {
+  const contents: any = {
+    LoggingConfigurations: undefined,
+    NextToken: undefined,
+  };
+  if (output.loggingConfigurationSet === "") {
+    contents.LoggingConfigurations = [];
+  } else if (
+    output["loggingConfigurationSet"] !== undefined &&
+    output["loggingConfigurationSet"]["item"] !== undefined
+  ) {
+    contents.LoggingConfigurations = deserializeAws_ec2VerifiedAccessInstanceLoggingConfigurationList(
+      __getArrayIfSingleItem(output["loggingConfigurationSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessInstancesResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedAccessInstancesResult => {
+  const contents: any = {
+    VerifiedAccessInstances: undefined,
+    NextToken: undefined,
+  };
+  if (output.verifiedAccessInstanceSet === "") {
+    contents.VerifiedAccessInstances = [];
+  } else if (
+    output["verifiedAccessInstanceSet"] !== undefined &&
+    output["verifiedAccessInstanceSet"]["item"] !== undefined
+  ) {
+    contents.VerifiedAccessInstances = deserializeAws_ec2VerifiedAccessInstanceList(
+      __getArrayIfSingleItem(output["verifiedAccessInstanceSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DescribeVerifiedAccessTrustProvidersResult = (
+  output: any,
+  context: __SerdeContext
+): DescribeVerifiedAccessTrustProvidersResult => {
+  const contents: any = {
+    VerifiedAccessTrustProviders: undefined,
+    NextToken: undefined,
+  };
+  if (output.verifiedAccessTrustProviderSet === "") {
+    contents.VerifiedAccessTrustProviders = [];
+  } else if (
+    output["verifiedAccessTrustProviderSet"] !== undefined &&
+    output["verifiedAccessTrustProviderSet"]["item"] !== undefined
+  ) {
+    contents.VerifiedAccessTrustProviders = deserializeAws_ec2VerifiedAccessTrustProviderList(
+      __getArrayIfSingleItem(output["verifiedAccessTrustProviderSet"]["item"]),
+      context
+    );
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_ec2DescribeVolumeAttributeResult = (
   output: any,
   context: __SerdeContext
@@ -64032,6 +66756,39 @@ const deserializeAws_ec2DetachClassicLinkVpcResult = (
   };
   if (output["return"] !== undefined) {
     contents.Return = __parseBoolean(output["return"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DetachVerifiedAccessTrustProviderResult = (
+  output: any,
+  context: __SerdeContext
+): DetachVerifiedAccessTrustProviderResult => {
+  const contents: any = {
+    VerifiedAccessTrustProvider: undefined,
+    VerifiedAccessInstance: undefined,
+  };
+  if (output["verifiedAccessTrustProvider"] !== undefined) {
+    contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
+      output["verifiedAccessTrustProvider"],
+      context
+    );
+  }
+  if (output["verifiedAccessInstance"] !== undefined) {
+    contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
+      output["verifiedAccessInstance"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2DeviceOptions = (output: any, context: __SerdeContext): DeviceOptions => {
+  const contents: any = {
+    TenantId: undefined,
+  };
+  if (output["tenantId"] !== undefined) {
+    contents.TenantId = __expectString(output["tenantId"]);
   }
   return contents;
 };
@@ -67430,6 +70187,40 @@ const deserializeAws_ec2GetTransitGatewayRouteTablePropagationsResult = (
   }
   if (output["nextToken"] !== undefined) {
     contents.NextToken = __expectString(output["nextToken"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetVerifiedAccessEndpointPolicyResult = (
+  output: any,
+  context: __SerdeContext
+): GetVerifiedAccessEndpointPolicyResult => {
+  const contents: any = {
+    PolicyEnabled: undefined,
+    PolicyDocument: undefined,
+  };
+  if (output["policyEnabled"] !== undefined) {
+    contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
+  }
+  if (output["policyDocument"] !== undefined) {
+    contents.PolicyDocument = __expectString(output["policyDocument"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2GetVerifiedAccessGroupPolicyResult = (
+  output: any,
+  context: __SerdeContext
+): GetVerifiedAccessGroupPolicyResult => {
+  const contents: any = {
+    PolicyEnabled: undefined,
+    PolicyDocument: undefined,
+  };
+  if (output["policyEnabled"] !== undefined) {
+    contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
+  }
+  if (output["policyDocument"] !== undefined) {
+    contents.PolicyDocument = __expectString(output["policyDocument"]);
   }
   return contents;
 };
@@ -73382,6 +76173,117 @@ const deserializeAws_ec2ModifyTransitGatewayVpcAttachmentResult = (
   return contents;
 };
 
+const deserializeAws_ec2ModifyVerifiedAccessEndpointPolicyResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessEndpointPolicyResult => {
+  const contents: any = {
+    PolicyEnabled: undefined,
+    PolicyDocument: undefined,
+  };
+  if (output["policyEnabled"] !== undefined) {
+    contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
+  }
+  if (output["policyDocument"] !== undefined) {
+    contents.PolicyDocument = __expectString(output["policyDocument"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessEndpointResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessEndpointResult => {
+  const contents: any = {
+    VerifiedAccessEndpoint: undefined,
+  };
+  if (output["verifiedAccessEndpoint"] !== undefined) {
+    contents.VerifiedAccessEndpoint = deserializeAws_ec2VerifiedAccessEndpoint(
+      output["verifiedAccessEndpoint"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessGroupPolicyResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessGroupPolicyResult => {
+  const contents: any = {
+    PolicyEnabled: undefined,
+    PolicyDocument: undefined,
+  };
+  if (output["policyEnabled"] !== undefined) {
+    contents.PolicyEnabled = __parseBoolean(output["policyEnabled"]);
+  }
+  if (output["policyDocument"] !== undefined) {
+    contents.PolicyDocument = __expectString(output["policyDocument"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessGroupResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessGroupResult => {
+  const contents: any = {
+    VerifiedAccessGroup: undefined,
+  };
+  if (output["verifiedAccessGroup"] !== undefined) {
+    contents.VerifiedAccessGroup = deserializeAws_ec2VerifiedAccessGroup(output["verifiedAccessGroup"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessInstanceLoggingConfigurationResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessInstanceLoggingConfigurationResult => {
+  const contents: any = {
+    LoggingConfiguration: undefined,
+  };
+  if (output["loggingConfiguration"] !== undefined) {
+    contents.LoggingConfiguration = deserializeAws_ec2VerifiedAccessInstanceLoggingConfiguration(
+      output["loggingConfiguration"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessInstanceResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessInstanceResult => {
+  const contents: any = {
+    VerifiedAccessInstance: undefined,
+  };
+  if (output["verifiedAccessInstance"] !== undefined) {
+    contents.VerifiedAccessInstance = deserializeAws_ec2VerifiedAccessInstance(
+      output["verifiedAccessInstance"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2ModifyVerifiedAccessTrustProviderResult = (
+  output: any,
+  context: __SerdeContext
+): ModifyVerifiedAccessTrustProviderResult => {
+  const contents: any = {
+    VerifiedAccessTrustProvider: undefined,
+  };
+  if (output["verifiedAccessTrustProvider"] !== undefined) {
+    contents.VerifiedAccessTrustProvider = deserializeAws_ec2VerifiedAccessTrustProvider(
+      output["verifiedAccessTrustProvider"],
+      context
+    );
+  }
+  return contents;
+};
+
 const deserializeAws_ec2ModifyVolumeResult = (output: any, context: __SerdeContext): ModifyVolumeResult => {
   const contents: any = {
     VolumeModification: undefined,
@@ -74645,6 +77547,40 @@ const deserializeAws_ec2OccurrenceDaySet = (output: any, context: __SerdeContext
     .map((entry: any) => {
       return __strictParseInt32(entry) as number;
     });
+};
+
+const deserializeAws_ec2OidcOptions = (output: any, context: __SerdeContext): OidcOptions => {
+  const contents: any = {
+    Issuer: undefined,
+    AuthorizationEndpoint: undefined,
+    TokenEndpoint: undefined,
+    UserInfoEndpoint: undefined,
+    ClientId: undefined,
+    ClientSecret: undefined,
+    Scope: undefined,
+  };
+  if (output["issuer"] !== undefined) {
+    contents.Issuer = __expectString(output["issuer"]);
+  }
+  if (output["authorizationEndpoint"] !== undefined) {
+    contents.AuthorizationEndpoint = __expectString(output["authorizationEndpoint"]);
+  }
+  if (output["tokenEndpoint"] !== undefined) {
+    contents.TokenEndpoint = __expectString(output["tokenEndpoint"]);
+  }
+  if (output["userInfoEndpoint"] !== undefined) {
+    contents.UserInfoEndpoint = __expectString(output["userInfoEndpoint"]);
+  }
+  if (output["clientId"] !== undefined) {
+    contents.ClientId = __expectString(output["clientId"]);
+  }
+  if (output["clientSecret"] !== undefined) {
+    contents.ClientSecret = __expectString(output["clientSecret"]);
+  }
+  if (output["scope"] !== undefined) {
+    contents.Scope = __expectString(output["scope"]);
+  }
+  return contents;
 };
 
 const deserializeAws_ec2OnDemandOptions = (output: any, context: __SerdeContext): OnDemandOptions => {
@@ -77796,6 +80732,14 @@ const deserializeAws_ec2SecurityGroupIdentifier = (output: any, context: __Serde
     contents.GroupName = __expectString(output["groupName"]);
   }
   return contents;
+};
+
+const deserializeAws_ec2SecurityGroupIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 const deserializeAws_ec2SecurityGroupIdStringList = (output: any, context: __SerdeContext): string[] => {
@@ -82254,6 +85198,533 @@ const deserializeAws_ec2VCpuInfo = (output: any, context: __SerdeContext): VCpuI
     );
   }
   return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessEndpoint = (output: any, context: __SerdeContext): VerifiedAccessEndpoint => {
+  const contents: any = {
+    VerifiedAccessInstanceId: undefined,
+    VerifiedAccessGroupId: undefined,
+    VerifiedAccessEndpointId: undefined,
+    ApplicationDomain: undefined,
+    EndpointType: undefined,
+    AttachmentType: undefined,
+    DomainCertificateArn: undefined,
+    EndpointDomain: undefined,
+    DeviceValidationDomain: undefined,
+    SecurityGroupIds: undefined,
+    LoadBalancerOptions: undefined,
+    NetworkInterfaceOptions: undefined,
+    Status: undefined,
+    Description: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
+    DeletionTime: undefined,
+    Tags: undefined,
+  };
+  if (output["verifiedAccessInstanceId"] !== undefined) {
+    contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
+  }
+  if (output["verifiedAccessGroupId"] !== undefined) {
+    contents.VerifiedAccessGroupId = __expectString(output["verifiedAccessGroupId"]);
+  }
+  if (output["verifiedAccessEndpointId"] !== undefined) {
+    contents.VerifiedAccessEndpointId = __expectString(output["verifiedAccessEndpointId"]);
+  }
+  if (output["applicationDomain"] !== undefined) {
+    contents.ApplicationDomain = __expectString(output["applicationDomain"]);
+  }
+  if (output["endpointType"] !== undefined) {
+    contents.EndpointType = __expectString(output["endpointType"]);
+  }
+  if (output["attachmentType"] !== undefined) {
+    contents.AttachmentType = __expectString(output["attachmentType"]);
+  }
+  if (output["domainCertificateArn"] !== undefined) {
+    contents.DomainCertificateArn = __expectString(output["domainCertificateArn"]);
+  }
+  if (output["endpointDomain"] !== undefined) {
+    contents.EndpointDomain = __expectString(output["endpointDomain"]);
+  }
+  if (output["deviceValidationDomain"] !== undefined) {
+    contents.DeviceValidationDomain = __expectString(output["deviceValidationDomain"]);
+  }
+  if (output.securityGroupIdSet === "") {
+    contents.SecurityGroupIds = [];
+  } else if (output["securityGroupIdSet"] !== undefined && output["securityGroupIdSet"]["item"] !== undefined) {
+    contents.SecurityGroupIds = deserializeAws_ec2SecurityGroupIdList(
+      __getArrayIfSingleItem(output["securityGroupIdSet"]["item"]),
+      context
+    );
+  }
+  if (output["loadBalancerOptions"] !== undefined) {
+    contents.LoadBalancerOptions = deserializeAws_ec2VerifiedAccessEndpointLoadBalancerOptions(
+      output["loadBalancerOptions"],
+      context
+    );
+  }
+  if (output["networkInterfaceOptions"] !== undefined) {
+    contents.NetworkInterfaceOptions = deserializeAws_ec2VerifiedAccessEndpointEniOptions(
+      output["networkInterfaceOptions"],
+      context
+    );
+  }
+  if (output["status"] !== undefined) {
+    contents.Status = deserializeAws_ec2VerifiedAccessEndpointStatus(output["status"], context);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectString(output["creationTime"]);
+  }
+  if (output["lastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = __expectString(output["lastUpdatedTime"]);
+  }
+  if (output["deletionTime"] !== undefined) {
+    contents.DeletionTime = __expectString(output["deletionTime"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessEndpointEniOptions = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessEndpointEniOptions => {
+  const contents: any = {
+    NetworkInterfaceId: undefined,
+    Protocol: undefined,
+    Port: undefined,
+  };
+  if (output["networkInterfaceId"] !== undefined) {
+    contents.NetworkInterfaceId = __expectString(output["networkInterfaceId"]);
+  }
+  if (output["protocol"] !== undefined) {
+    contents.Protocol = __expectString(output["protocol"]);
+  }
+  if (output["port"] !== undefined) {
+    contents.Port = __strictParseInt32(output["port"]) as number;
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessEndpointList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessEndpoint[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessEndpoint(entry, context);
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessEndpointLoadBalancerOptions = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessEndpointLoadBalancerOptions => {
+  const contents: any = {
+    Protocol: undefined,
+    Port: undefined,
+    LoadBalancerArn: undefined,
+    SubnetIds: undefined,
+  };
+  if (output["protocol"] !== undefined) {
+    contents.Protocol = __expectString(output["protocol"]);
+  }
+  if (output["port"] !== undefined) {
+    contents.Port = __strictParseInt32(output["port"]) as number;
+  }
+  if (output["loadBalancerArn"] !== undefined) {
+    contents.LoadBalancerArn = __expectString(output["loadBalancerArn"]);
+  }
+  if (output.subnetIdSet === "") {
+    contents.SubnetIds = [];
+  } else if (output["subnetIdSet"] !== undefined && output["subnetIdSet"]["item"] !== undefined) {
+    contents.SubnetIds = deserializeAws_ec2VerifiedAccessEndpointSubnetIdList(
+      __getArrayIfSingleItem(output["subnetIdSet"]["item"]),
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessEndpointStatus = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessEndpointStatus => {
+  const contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["code"] !== undefined) {
+    contents.Code = __expectString(output["code"]);
+  }
+  if (output["message"] !== undefined) {
+    contents.Message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessEndpointSubnetIdList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessGroup = (output: any, context: __SerdeContext): VerifiedAccessGroup => {
+  const contents: any = {
+    VerifiedAccessGroupId: undefined,
+    VerifiedAccessInstanceId: undefined,
+    Description: undefined,
+    Owner: undefined,
+    VerifiedAccessGroupArn: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
+    DeletionTime: undefined,
+    Tags: undefined,
+  };
+  if (output["verifiedAccessGroupId"] !== undefined) {
+    contents.VerifiedAccessGroupId = __expectString(output["verifiedAccessGroupId"]);
+  }
+  if (output["verifiedAccessInstanceId"] !== undefined) {
+    contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["owner"] !== undefined) {
+    contents.Owner = __expectString(output["owner"]);
+  }
+  if (output["verifiedAccessGroupArn"] !== undefined) {
+    contents.VerifiedAccessGroupArn = __expectString(output["verifiedAccessGroupArn"]);
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectString(output["creationTime"]);
+  }
+  if (output["lastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = __expectString(output["lastUpdatedTime"]);
+  }
+  if (output["deletionTime"] !== undefined) {
+    contents.DeletionTime = __expectString(output["deletionTime"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessGroupList = (output: any, context: __SerdeContext): VerifiedAccessGroup[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessGroup(entry, context);
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessInstance = (output: any, context: __SerdeContext): VerifiedAccessInstance => {
+  const contents: any = {
+    VerifiedAccessInstanceId: undefined,
+    Description: undefined,
+    VerifiedAccessTrustProviders: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
+    Tags: undefined,
+  };
+  if (output["verifiedAccessInstanceId"] !== undefined) {
+    contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output.verifiedAccessTrustProviderSet === "") {
+    contents.VerifiedAccessTrustProviders = [];
+  } else if (
+    output["verifiedAccessTrustProviderSet"] !== undefined &&
+    output["verifiedAccessTrustProviderSet"]["item"] !== undefined
+  ) {
+    contents.VerifiedAccessTrustProviders = deserializeAws_ec2VerifiedAccessTrustProviderCondensedList(
+      __getArrayIfSingleItem(output["verifiedAccessTrustProviderSet"]["item"]),
+      context
+    );
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectString(output["creationTime"]);
+  }
+  if (output["lastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = __expectString(output["lastUpdatedTime"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessInstanceList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessInstance[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessInstance(entry, context);
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessInstanceLoggingConfiguration = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessInstanceLoggingConfiguration => {
+  const contents: any = {
+    VerifiedAccessInstanceId: undefined,
+    AccessLogs: undefined,
+  };
+  if (output["verifiedAccessInstanceId"] !== undefined) {
+    contents.VerifiedAccessInstanceId = __expectString(output["verifiedAccessInstanceId"]);
+  }
+  if (output["accessLogs"] !== undefined) {
+    contents.AccessLogs = deserializeAws_ec2VerifiedAccessLogs(output["accessLogs"], context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessInstanceLoggingConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessInstanceLoggingConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessInstanceLoggingConfiguration(entry, context);
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessLogCloudWatchLogsDestination = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessLogCloudWatchLogsDestination => {
+  const contents: any = {
+    Enabled: undefined,
+    DeliveryStatus: undefined,
+    LogGroup: undefined,
+  };
+  if (output["enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["enabled"]);
+  }
+  if (output["deliveryStatus"] !== undefined) {
+    contents.DeliveryStatus = deserializeAws_ec2VerifiedAccessLogDeliveryStatus(output["deliveryStatus"], context);
+  }
+  if (output["logGroup"] !== undefined) {
+    contents.LogGroup = __expectString(output["logGroup"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessLogDeliveryStatus = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessLogDeliveryStatus => {
+  const contents: any = {
+    Code: undefined,
+    Message: undefined,
+  };
+  if (output["code"] !== undefined) {
+    contents.Code = __expectString(output["code"]);
+  }
+  if (output["message"] !== undefined) {
+    contents.Message = __expectString(output["message"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestination = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessLogKinesisDataFirehoseDestination => {
+  const contents: any = {
+    Enabled: undefined,
+    DeliveryStatus: undefined,
+    DeliveryStream: undefined,
+  };
+  if (output["enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["enabled"]);
+  }
+  if (output["deliveryStatus"] !== undefined) {
+    contents.DeliveryStatus = deserializeAws_ec2VerifiedAccessLogDeliveryStatus(output["deliveryStatus"], context);
+  }
+  if (output["deliveryStream"] !== undefined) {
+    contents.DeliveryStream = __expectString(output["deliveryStream"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessLogs = (output: any, context: __SerdeContext): VerifiedAccessLogs => {
+  const contents: any = {
+    S3: undefined,
+    CloudWatchLogs: undefined,
+    KinesisDataFirehose: undefined,
+  };
+  if (output["s3"] !== undefined) {
+    contents.S3 = deserializeAws_ec2VerifiedAccessLogS3Destination(output["s3"], context);
+  }
+  if (output["cloudWatchLogs"] !== undefined) {
+    contents.CloudWatchLogs = deserializeAws_ec2VerifiedAccessLogCloudWatchLogsDestination(
+      output["cloudWatchLogs"],
+      context
+    );
+  }
+  if (output["kinesisDataFirehose"] !== undefined) {
+    contents.KinesisDataFirehose = deserializeAws_ec2VerifiedAccessLogKinesisDataFirehoseDestination(
+      output["kinesisDataFirehose"],
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessLogS3Destination = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessLogS3Destination => {
+  const contents: any = {
+    Enabled: undefined,
+    DeliveryStatus: undefined,
+    BucketName: undefined,
+    Prefix: undefined,
+    BucketOwner: undefined,
+  };
+  if (output["enabled"] !== undefined) {
+    contents.Enabled = __parseBoolean(output["enabled"]);
+  }
+  if (output["deliveryStatus"] !== undefined) {
+    contents.DeliveryStatus = deserializeAws_ec2VerifiedAccessLogDeliveryStatus(output["deliveryStatus"], context);
+  }
+  if (output["bucketName"] !== undefined) {
+    contents.BucketName = __expectString(output["bucketName"]);
+  }
+  if (output["prefix"] !== undefined) {
+    contents.Prefix = __expectString(output["prefix"]);
+  }
+  if (output["bucketOwner"] !== undefined) {
+    contents.BucketOwner = __expectString(output["bucketOwner"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessTrustProvider = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessTrustProvider => {
+  const contents: any = {
+    VerifiedAccessTrustProviderId: undefined,
+    Description: undefined,
+    TrustProviderType: undefined,
+    UserTrustProviderType: undefined,
+    DeviceTrustProviderType: undefined,
+    OidcOptions: undefined,
+    DeviceOptions: undefined,
+    PolicyReferenceName: undefined,
+    CreationTime: undefined,
+    LastUpdatedTime: undefined,
+    Tags: undefined,
+  };
+  if (output["verifiedAccessTrustProviderId"] !== undefined) {
+    contents.VerifiedAccessTrustProviderId = __expectString(output["verifiedAccessTrustProviderId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["trustProviderType"] !== undefined) {
+    contents.TrustProviderType = __expectString(output["trustProviderType"]);
+  }
+  if (output["userTrustProviderType"] !== undefined) {
+    contents.UserTrustProviderType = __expectString(output["userTrustProviderType"]);
+  }
+  if (output["deviceTrustProviderType"] !== undefined) {
+    contents.DeviceTrustProviderType = __expectString(output["deviceTrustProviderType"]);
+  }
+  if (output["oidcOptions"] !== undefined) {
+    contents.OidcOptions = deserializeAws_ec2OidcOptions(output["oidcOptions"], context);
+  }
+  if (output["deviceOptions"] !== undefined) {
+    contents.DeviceOptions = deserializeAws_ec2DeviceOptions(output["deviceOptions"], context);
+  }
+  if (output["policyReferenceName"] !== undefined) {
+    contents.PolicyReferenceName = __expectString(output["policyReferenceName"]);
+  }
+  if (output["creationTime"] !== undefined) {
+    contents.CreationTime = __expectString(output["creationTime"]);
+  }
+  if (output["lastUpdatedTime"] !== undefined) {
+    contents.LastUpdatedTime = __expectString(output["lastUpdatedTime"]);
+  }
+  if (output.tagSet === "") {
+    contents.Tags = [];
+  } else if (output["tagSet"] !== undefined && output["tagSet"]["item"] !== undefined) {
+    contents.Tags = deserializeAws_ec2TagList(__getArrayIfSingleItem(output["tagSet"]["item"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessTrustProviderCondensed = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessTrustProviderCondensed => {
+  const contents: any = {
+    VerifiedAccessTrustProviderId: undefined,
+    Description: undefined,
+    TrustProviderType: undefined,
+    UserTrustProviderType: undefined,
+    DeviceTrustProviderType: undefined,
+  };
+  if (output["verifiedAccessTrustProviderId"] !== undefined) {
+    contents.VerifiedAccessTrustProviderId = __expectString(output["verifiedAccessTrustProviderId"]);
+  }
+  if (output["description"] !== undefined) {
+    contents.Description = __expectString(output["description"]);
+  }
+  if (output["trustProviderType"] !== undefined) {
+    contents.TrustProviderType = __expectString(output["trustProviderType"]);
+  }
+  if (output["userTrustProviderType"] !== undefined) {
+    contents.UserTrustProviderType = __expectString(output["userTrustProviderType"]);
+  }
+  if (output["deviceTrustProviderType"] !== undefined) {
+    contents.DeviceTrustProviderType = __expectString(output["deviceTrustProviderType"]);
+  }
+  return contents;
+};
+
+const deserializeAws_ec2VerifiedAccessTrustProviderCondensedList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessTrustProviderCondensed[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessTrustProviderCondensed(entry, context);
+    });
+};
+
+const deserializeAws_ec2VerifiedAccessTrustProviderList = (
+  output: any,
+  context: __SerdeContext
+): VerifiedAccessTrustProvider[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_ec2VerifiedAccessTrustProvider(entry, context);
+    });
 };
 
 const deserializeAws_ec2VgwTelemetry = (output: any, context: __SerdeContext): VgwTelemetry => {
