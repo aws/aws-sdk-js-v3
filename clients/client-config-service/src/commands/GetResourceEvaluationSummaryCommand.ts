@@ -15,44 +15,43 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
-  GetComplianceDetailsByResourceRequest,
-  GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-  GetComplianceDetailsByResourceResponse,
-  GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+  GetResourceEvaluationSummaryRequest,
+  GetResourceEvaluationSummaryRequestFilterSensitiveLog,
+  GetResourceEvaluationSummaryResponse,
+  GetResourceEvaluationSummaryResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
-  serializeAws_json1_1GetComplianceDetailsByResourceCommand,
+  deserializeAws_json1_1GetResourceEvaluationSummaryCommand,
+  serializeAws_json1_1GetResourceEvaluationSummaryCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
-export interface GetComplianceDetailsByResourceCommandOutput
-  extends GetComplianceDetailsByResourceResponse,
+export interface GetResourceEvaluationSummaryCommandInput extends GetResourceEvaluationSummaryRequest {}
+export interface GetResourceEvaluationSummaryCommandOutput
+  extends GetResourceEvaluationSummaryResponse,
     __MetadataBearer {}
 
 /**
- * <p>Returns the evaluation results for the specified Amazon Web Services resource.
- * 			The results indicate which Config rules were used to evaluate
- * 			the resource, when each rule was last invoked, and whether the resource
- * 			complies with each rule.</p>
+ * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
+ * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
+ * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetComplianceDetailsByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetComplianceDetailsByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, GetResourceEvaluationSummaryCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, GetResourceEvaluationSummaryCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const command = new GetComplianceDetailsByResourceCommand(input);
+ * const command = new GetResourceEvaluationSummaryCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
- * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
+ * @see {@link GetResourceEvaluationSummaryCommandInput} for command's `input` shape.
+ * @see {@link GetResourceEvaluationSummaryCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
-export class GetComplianceDetailsByResourceCommand extends $Command<
-  GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput,
+export class GetResourceEvaluationSummaryCommand extends $Command<
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +66,7 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetComplianceDetailsByResourceCommandInput) {
+  constructor(readonly input: GetResourceEvaluationSummaryCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,23 +79,23 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetComplianceDetailsByResourceCommandInput, GetComplianceDetailsByResourceCommandOutput> {
+  ): Handler<GetResourceEvaluationSummaryCommandInput, GetResourceEvaluationSummaryCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetComplianceDetailsByResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetResourceEvaluationSummaryCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConfigServiceClient";
-    const commandName = "GetComplianceDetailsByResourceCommand";
+    const commandName = "GetResourceEvaluationSummaryCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetResourceEvaluationSummaryRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetResourceEvaluationSummaryResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +105,15 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetComplianceDetailsByResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailsByResourceCommand(input, context);
+  private serialize(input: GetResourceEvaluationSummaryCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetResourceEvaluationSummaryCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetComplianceDetailsByResourceCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailsByResourceCommand(output, context);
+  ): Promise<GetResourceEvaluationSummaryCommandOutput> {
+    return deserializeAws_json1_1GetResourceEvaluationSummaryCommand(output, context);
   }
 
   // Start section: command_body_extra

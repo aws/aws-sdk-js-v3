@@ -15,44 +15,39 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
-  GetComplianceDetailsByResourceRequest,
-  GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-  GetComplianceDetailsByResourceResponse,
-  GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+  ListResourceEvaluationsRequest,
+  ListResourceEvaluationsRequestFilterSensitiveLog,
+  ListResourceEvaluationsResponse,
+  ListResourceEvaluationsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetComplianceDetailsByResourceCommand,
-  serializeAws_json1_1GetComplianceDetailsByResourceCommand,
+  deserializeAws_json1_1ListResourceEvaluationsCommand,
+  serializeAws_json1_1ListResourceEvaluationsCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetComplianceDetailsByResourceCommandInput extends GetComplianceDetailsByResourceRequest {}
-export interface GetComplianceDetailsByResourceCommandOutput
-  extends GetComplianceDetailsByResourceResponse,
-    __MetadataBearer {}
+export interface ListResourceEvaluationsCommandInput extends ListResourceEvaluationsRequest {}
+export interface ListResourceEvaluationsCommandOutput extends ListResourceEvaluationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the evaluation results for the specified Amazon Web Services resource.
- * 			The results indicate which Config rules were used to evaluate
- * 			the resource, when each rule was last invoked, and whether the resource
- * 			complies with each rule.</p>
+ * <p>Returns a list of proactive resource evaluations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, GetComplianceDetailsByResourceCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, GetComplianceDetailsByResourceCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, ListResourceEvaluationsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, ListResourceEvaluationsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const command = new GetComplianceDetailsByResourceCommand(input);
+ * const command = new ListResourceEvaluationsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetComplianceDetailsByResourceCommandInput} for command's `input` shape.
- * @see {@link GetComplianceDetailsByResourceCommandOutput} for command's `response` shape.
+ * @see {@link ListResourceEvaluationsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceEvaluationsCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
-export class GetComplianceDetailsByResourceCommand extends $Command<
-  GetComplianceDetailsByResourceCommandInput,
-  GetComplianceDetailsByResourceCommandOutput,
+export class ListResourceEvaluationsCommand extends $Command<
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +62,7 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetComplianceDetailsByResourceCommandInput) {
+  constructor(readonly input: ListResourceEvaluationsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,23 +75,23 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetComplianceDetailsByResourceCommandInput, GetComplianceDetailsByResourceCommandOutput> {
+  ): Handler<ListResourceEvaluationsCommandInput, ListResourceEvaluationsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetComplianceDetailsByResourceCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListResourceEvaluationsCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConfigServiceClient";
-    const commandName = "GetComplianceDetailsByResourceCommand";
+    const commandName = "ListResourceEvaluationsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetComplianceDetailsByResourceRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetComplianceDetailsByResourceResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceEvaluationsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceEvaluationsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,18 +101,12 @@ export class GetComplianceDetailsByResourceCommand extends $Command<
     );
   }
 
-  private serialize(
-    input: GetComplianceDetailsByResourceCommandInput,
-    context: __SerdeContext
-  ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetComplianceDetailsByResourceCommand(input, context);
+  private serialize(input: ListResourceEvaluationsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListResourceEvaluationsCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetComplianceDetailsByResourceCommandOutput> {
-    return deserializeAws_json1_1GetComplianceDetailsByResourceCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListResourceEvaluationsCommandOutput> {
+    return deserializeAws_json1_1ListResourceEvaluationsCommand(output, context);
   }
 
   // Start section: command_body_extra

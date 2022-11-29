@@ -153,7 +153,8 @@ export interface AggregateConformancePackCompliance {
  * <p>Provides aggregate compliance of the conformance pack. Indicates whether a conformance pack is compliant based on the name of the conformance pack, account ID, and region.</p>
  * 		       <p>A conformance pack is compliant if all of the rules in a conformance packs are compliant. It is noncompliant if any of the rules are not compliant.
  * 			The compliance status of a conformance pack is INSUFFICIENT_DATA only if all rules within a conformance pack cannot be evaluated due to insufficient data.
- * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows compliant.</p>
+ * 			If some of the rules in a conformance pack are compliant but the compliance status of other rules in that same conformance pack is INSUFFICIENT_DATA, the conformance pack shows
+ * 			compliant.</p>
  */
 export interface AggregateComplianceByConformancePack {
   /**
@@ -364,6 +365,11 @@ export interface AggregatedSourceStatus {
   LastErrorMessage?: string;
 }
 
+export enum EvaluationMode {
+  DETECTIVE = "DETECTIVE",
+  PROACTIVE = "PROACTIVE",
+}
+
 /**
  * <p>Identifies an Config rule that evaluated an Amazon Web Services resource,
  * 			and provides the type and ID of the resource that the rule
@@ -385,6 +391,11 @@ export interface EvaluationResultQualifier {
    * <p>The ID of the evaluated Amazon Web Services resource.</p>
    */
   ResourceId?: string;
+
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   */
+  EvaluationMode?: EvaluationMode | string;
 }
 
 /**
@@ -404,6 +415,11 @@ export interface EvaluationResultIdentifier {
    * 			event triggered the evaluation.</p>
    */
   OrderingTimestamp?: Date;
+
+  /**
+   * <p>A Unique ID for an evaluation result.</p>
+   */
+  ResourceEvaluationId?: string;
 }
 
 /**
@@ -1034,6 +1050,16 @@ export enum ConfigRuleState {
   EVALUATING = "EVALUATING",
 }
 
+/**
+ * <p>The configuration object for Config rule evaluation mode. The Supported valid values are Detective or Proactive.</p>
+ */
+export interface EvaluationModeConfiguration {
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   */
+  Mode?: EvaluationMode | string;
+}
+
 export enum MaximumExecutionFrequency {
   One_Hour = "One_Hour",
   Six_Hours = "Six_Hours",
@@ -1380,6 +1406,11 @@ export interface ConfigRule {
    * 		       </note>
    */
   CreatedBy?: string;
+
+  /**
+   * <p>The modes the Config rule can be evaluated in. The valid values are distinct objects. By default, the value is Detective evaluation mode only.</p>
+   */
+  EvaluationModes?: EvaluationModeConfiguration[];
 }
 
 /**
@@ -1874,36 +1905,40 @@ export interface ConfigurationItem {
 }
 
 /**
- * <p>Specifies the types of Amazon Web Services resource for which Config
- * 			records configuration changes.</p>
- * 		       <p>In the recording group, you specify whether all supported types
- * 			or specific types of resources are recorded.</p>
- * 		       <p>By default, Config records configuration changes for all
- * 			supported types of regional resources that Config discovers in
- * 			the region in which it is running. Regional resources are tied to a
- * 			region and can be used only in that region. Examples of regional
- * 			resources are EC2 instances and EBS volumes.</p>
- * 		       <p>You can also have Config record configuration changes for
- * 			supported types of global resources (for example, IAM resources).
- * 			Global resources are not tied to an individual region and can be
- * 			used in all regions.</p>
+ * <p>Specifies which Amazon Web Services resource types Config
+ * 			records for configuration changes. In the recording group, you specify whether you want to record all supported resource types
+ * 			or only specific types of resources.</p>
+ *
+ * 	 	      <p>By default, Config records the configuration changes for all supported types of
+ * 				<i>regional resources</i> that Config discovers in the region in which it is
+ * 				running. Regional resources are tied to a region and can be used only in that region. Examples
+ * 				of regional resources are EC2 instances and EBS volumes.</p>
+ * 			      <p>You can also have Config record supported types of <i>global resources</i>.
+ * 				Global resources are not tied to a specific region and can be used in all regions. The global
+ * 				resource types that Config supports include  IAM users, groups, roles, and customer managed
+ * 				policies.</p>
+ *
  * 		       <important>
- * 			         <p>The configuration details for any global resource are the
- * 				same in all regions. If you customize Config in multiple
- * 				regions to record global resources, it will create multiple
- * 				configuration items each time a global resource changes: one
- * 				configuration item for each region. These configuration items
- * 				will contain identical data. To prevent duplicate configuration
- * 				items, you should consider customizing Config in only one
- * 				region to record global resources, unless you want the
- * 				configuration items to be available in multiple
- * 				regions.</p>
+ * 			         <p>Global resource types onboarded to Config recording after February 2022 will only be
+ * 				recorded in the service's home region for the commercial partition and
+ * 				Amazon Web Services GovCloud (US) West for the GovCloud partition. You can view the Configuration Items for
+ * 				these new global resource types only in their home region and Amazon Web Services GovCloud (US) West.</p>
+ *
+ * 			         <p>Supported global resource types onboarded before February 2022 such as
+ * 				<code>AWS::IAM::Group</code>, <code>AWS::IAM::Policy</code>, <code>AWS::IAM::Role</code>,
+ * 				<code>AWS::IAM::User</code> remain unchanged, and they will continue to deliver
+ * 				Configuration Items in all supported regions in Config. The change will only affect new global
+ * 				resource types onboarded after February 2022.</p>
+ *
+ * 			         <p>To record global resource types onboarded after February 2022,
+ * 				enable All Supported Resource Types in the home region of the global resource type you want to record.</p>
  * 		       </important>
+ *
  * 		       <p>If you don't want Config to record all resources, you can
  * 			specify which types of resources it will record with the
  * 				<code>resourceTypes</code> parameter.</p>
  * 		       <p>For a list of supported resource types, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/resource-config-reference.html#supported-resources">Supported Resource Types</a>.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
+ * 		       <p>For more information and a table of the Home Regions for Global Resource Types Onboarded after February 2022, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/select-resources.html">Selecting Which Resources Config Records</a>.</p>
  */
 export interface RecordingGroup {
   /**
@@ -3351,6 +3386,16 @@ export interface DescribeConfigRuleEvaluationStatusResponse {
 }
 
 /**
+ * <p>Returns a filtered list of Detective or Proactive Config rules. By default, if the filter is not defined, this API returns an unfiltered list.</p>
+ */
+export interface DescribeConfigRulesFilters {
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   */
+  EvaluationMode?: EvaluationMode | string;
+}
+
+/**
  * <p></p>
  */
 export interface DescribeConfigRulesRequest {
@@ -3367,6 +3412,11 @@ export interface DescribeConfigRulesRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>Returns a list of Detecive or Proactive Config rules. By default, this API returns an unfiltered list.</p>
+   */
+  Filters?: DescribeConfigRulesFilters;
 }
 
 /**
@@ -4753,6 +4803,17 @@ export interface Evaluation {
 }
 
 /**
+ * <p>Use EvaluationContext to group independently initiated proactive resource evaluations. For example, CFN Stack.
+ * 			If you want to check just a resource definition, you do not need to provide evaluation context.</p>
+ */
+export interface EvaluationContext {
+  /**
+   * <p>A unique EvaluationContextIdentifier ID for an EvaluationContext.</p>
+   */
+  EvaluationContextIdentifier?: string;
+}
+
+/**
  * <p>The details of an Config evaluation. Provides the Amazon Web Services
  * 			resource that was evaluated, the compliance of the resource, related
  * 			time stamps, and supplementary information.</p>
@@ -4797,6 +4858,27 @@ export interface EvaluationResult {
    * 			evaluated, and the event that triggered the evaluation.</p>
    */
   ResultToken?: string;
+}
+
+export enum ResourceEvaluationStatus {
+  FAILED = "FAILED",
+  IN_PROGRESS = "IN_PROGRESS",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+/**
+ * <p>Returns status details of an evaluation.</p>
+ */
+export interface EvaluationStatus {
+  /**
+   * <p>The status of an execution. The valid values are In_Progress, Succeeded or Failed. </p>
+   */
+  Status: ResourceEvaluationStatus | string | undefined;
+
+  /**
+   * <p>An explanation for failed execution status.</p>
+   */
+  FailureReason?: string;
 }
 
 /**
@@ -5230,13 +5312,13 @@ export interface GetComplianceDetailsByResourceRequest {
    * <p>The type of the Amazon Web Services resource for which you want compliance
    * 			information.</p>
    */
-  ResourceType: string | undefined;
+  ResourceType?: string;
 
   /**
    * <p>The ID of the Amazon Web Services resource for which you want compliance
    * 			information.</p>
    */
-  ResourceId: string | undefined;
+  ResourceId?: string;
 
   /**
    * <p>Filters the results by compliance.</p>
@@ -5252,6 +5334,14 @@ export interface GetComplianceDetailsByResourceRequest {
    * 			response.</p>
    */
   NextToken?: string;
+
+  /**
+   * <p>The unique ID of Amazon Web Services resource execution for which you want to retrieve evaluation results. </p>
+   * 		       <note>
+   *             <p>You need to only provide either a <code>ResourceEvaluationID</code> or a <code>ResourceID </code>and <code>ResourceType</code>.</p>
+   *          </note>
+   */
+  ResourceEvaluationId?: string;
 }
 
 /**
@@ -5964,6 +6054,79 @@ export class InvalidTimeRangeException extends __BaseException {
   }
 }
 
+export interface GetResourceEvaluationSummaryRequest {
+  /**
+   * <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
+   */
+  ResourceEvaluationId: string | undefined;
+}
+
+export enum ResourceConfigurationSchemaType {
+  CFN_RESOURCE_SCHEMA = "CFN_RESOURCE_SCHEMA",
+}
+
+/**
+ * <p>Returns information about the resource being evaluated. </p>
+ */
+export interface ResourceDetails {
+  /**
+   * <p>A unique resource ID for an evaluation.</p>
+   */
+  ResourceId: string | undefined;
+
+  /**
+   * <p>The type of resource being evaluated.</p>
+   */
+  ResourceType: string | undefined;
+
+  /**
+   * <p>The resource definition to be evaluated as per the resource configuration schema type.</p>
+   */
+  ResourceConfiguration: string | undefined;
+
+  /**
+   * <p>The schema type of the resource configuration.</p>
+   */
+  ResourceConfigurationSchemaType?: ResourceConfigurationSchemaType | string;
+}
+
+export interface GetResourceEvaluationSummaryResponse {
+  /**
+   * <p>The unique <code>ResourceEvaluationId</code> of Amazon Web Services resource execution for which you want to retrieve the evaluation summary.</p>
+   */
+  ResourceEvaluationId?: string;
+
+  /**
+   * <p>Lists results of the mode that you requested to retrieve the resource evaluation summary. The valid values are Detective or Proactive.</p>
+   */
+  EvaluationMode?: EvaluationMode | string;
+
+  /**
+   * <p>Returns an <code>EvaluationStatus</code> object.</p>
+   */
+  EvaluationStatus?: EvaluationStatus;
+
+  /**
+   * <p>The start timestamp when Config rule starts evaluating compliance for the provided resource details.</p>
+   */
+  EvaluationStartTimestamp?: Date;
+
+  /**
+   * <p>The compliance status of the resource evaluation summary.</p>
+   */
+  Compliance?: ComplianceType | string;
+
+  /**
+   * <p>Returns an <code>EvaluationContext</code> object.</p>
+   */
+  EvaluationContext?: EvaluationContext;
+
+  /**
+   * <p>Returns a <code>ResourceDetails</code> object.</p>
+   */
+  ResourceDetails?: ResourceDetails;
+}
+
 export interface GetStoredQueryRequest {
   /**
    * <p>The name of the query.</p>
@@ -6013,6 +6176,25 @@ export interface GetStoredQueryResponse {
    * <p>Returns a <code>StoredQuery</code> object.</p>
    */
   StoredQuery?: StoredQuery;
+}
+
+/**
+ * <p>Using the same client token with one or more different parameters. Specify a new client token with the parameter changes and try again.</p>
+ */
+export class IdempotentParameterMismatch extends __BaseException {
+  readonly name: "IdempotentParameterMismatch" = "IdempotentParameterMismatch";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<IdempotentParameterMismatch, __BaseException>) {
+    super({
+      name: "IdempotentParameterMismatch",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, IdempotentParameterMismatch.prototype);
+  }
 }
 
 /**
@@ -6438,6 +6620,91 @@ export interface ListDiscoveredResourcesResponse {
   nextToken?: string;
 }
 
+/**
+ * <p>Filters evaluation results based on start and end times.</p>
+ */
+export interface TimeWindow {
+  /**
+   * <p>The start time of an execution.</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * <p>The end time of an execution. The end time must be after the start date.</p>
+   */
+  EndTime?: Date;
+}
+
+/**
+ * <p>Returns details of a resource evaluation based on the selected filter.</p>
+ */
+export interface ResourceEvaluationFilters {
+  /**
+   * <p>Filters all resource evaluations results based on an evaluation mode. the valid value for this API is <code>Proactive</code>.</p>
+   */
+  EvaluationMode?: EvaluationMode | string;
+
+  /**
+   * <p>Returns a <code>TimeWindow</code> object.</p>
+   */
+  TimeWindow?: TimeWindow;
+
+  /**
+   * <p>Filters evaluations for a given infrastructure deployment. For example: CFN Stack.</p>
+   */
+  EvaluationContextIdentifier?: string;
+}
+
+export interface ListResourceEvaluationsRequest {
+  /**
+   * <p>Returns a <code>ResourceEvaluationFilters</code> object.</p>
+   */
+  Filters?: ResourceEvaluationFilters;
+
+  /**
+   * <p>The maximum number of evaluations returned on each page. The default is 10.
+   * 			You cannot specify a number greater than 100. If you specify 0, Config uses the default.</p>
+   */
+  Limit?: number;
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Returns details of a resource evaluation.</p>
+ */
+export interface ResourceEvaluation {
+  /**
+   * <p>The ResourceEvaluationId of a evaluation.</p>
+   */
+  ResourceEvaluationId?: string;
+
+  /**
+   * <p>The mode of an evaluation. The valid values are Detective or Proactive.</p>
+   */
+  EvaluationMode?: EvaluationMode | string;
+
+  /**
+   * <p>The starting time of an execution.</p>
+   */
+  EvaluationStartTimestamp?: Date;
+}
+
+export interface ListResourceEvaluationsResponse {
+  /**
+   * <p>Returns a <code>ResourceEvaluations</code> object.</p>
+   */
+  ResourceEvaluations?: ResourceEvaluation[];
+
+  /**
+   * <p>The <code>nextToken</code> string returned on a previous page that you use to get the next page of results in a paginated response.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListStoredQueriesRequest {
   /**
    * <p>The nextToken string returned in a previous request that you use to request the next page of results in a paginated response.</p>
@@ -6617,349 +6884,6 @@ export class MaxNumberOfConformancePacksExceededException extends __BaseExceptio
     });
     Object.setPrototypeOf(this, MaxNumberOfConformancePacksExceededException.prototype);
   }
-}
-
-/**
- * <p>You have reached the limit of the number of delivery channels
- * 			you can create.</p>
- */
-export class MaxNumberOfDeliveryChannelsExceededException extends __BaseException {
-  readonly name: "MaxNumberOfDeliveryChannelsExceededException" = "MaxNumberOfDeliveryChannelsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxNumberOfDeliveryChannelsExceededException, __BaseException>) {
-    super({
-      name: "MaxNumberOfDeliveryChannelsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxNumberOfDeliveryChannelsExceededException.prototype);
-  }
-}
-
-/**
- * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
- *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
- */
-export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
-  readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
-    "MaxNumberOfOrganizationConfigRulesExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConfigRulesExceededException, __BaseException>) {
-    super({
-      name: "MaxNumberOfOrganizationConfigRulesExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxNumberOfOrganizationConfigRulesExceededException.prototype);
-  }
-}
-
-/**
- * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
- *                <b>Service Limits</b>
- *             </a> in the Config Developer Guide.</p>
- */
-export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
-  readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
-    "MaxNumberOfOrganizationConformancePacksExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConformancePacksExceededException, __BaseException>) {
-    super({
-      name: "MaxNumberOfOrganizationConformancePacksExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxNumberOfOrganizationConformancePacksExceededException.prototype);
-  }
-}
-
-/**
- * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
- */
-export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
-  readonly name: "MaxNumberOfRetentionConfigurationsExceededException" =
-    "MaxNumberOfRetentionConfigurationsExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MaxNumberOfRetentionConfigurationsExceededException, __BaseException>) {
-    super({
-      name: "MaxNumberOfRetentionConfigurationsExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MaxNumberOfRetentionConfigurationsExceededException.prototype);
-  }
-}
-
-/**
- * <p>There is no delivery channel available to record
- * 			configurations.</p>
- */
-export class NoAvailableDeliveryChannelException extends __BaseException {
-  readonly name: "NoAvailableDeliveryChannelException" = "NoAvailableDeliveryChannelException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAvailableDeliveryChannelException, __BaseException>) {
-    super({
-      name: "NoAvailableDeliveryChannelException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAvailableDeliveryChannelException.prototype);
-  }
-}
-
-/**
- * <p>Organization is no longer available.</p>
- */
-export class NoAvailableOrganizationException extends __BaseException {
-  readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoAvailableOrganizationException, __BaseException>) {
-    super({
-      name: "NoAvailableOrganizationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoAvailableOrganizationException.prototype);
-  }
-}
-
-/**
- * <p>The specified Amazon S3 bucket does not exist.</p>
- */
-export class NoSuchBucketException extends __BaseException {
-  readonly name: "NoSuchBucketException" = "NoSuchBucketException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<NoSuchBucketException, __BaseException>) {
-    super({
-      name: "NoSuchBucketException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, NoSuchBucketException.prototype);
-  }
-}
-
-/**
- * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
- */
-export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
-  readonly name: "OrganizationAllFeaturesNotEnabledException" = "OrganizationAllFeaturesNotEnabledException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationAllFeaturesNotEnabledException, __BaseException>) {
-    super({
-      name: "OrganizationAllFeaturesNotEnabledException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationAllFeaturesNotEnabledException.prototype);
-  }
-}
-
-/**
- * <p>You have specified a template that is invalid or supported.</p>
- */
-export class OrganizationConformancePackTemplateValidationException extends __BaseException {
-  readonly name: "OrganizationConformancePackTemplateValidationException" =
-    "OrganizationConformancePackTemplateValidationException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<OrganizationConformancePackTemplateValidationException, __BaseException>) {
-    super({
-      name: "OrganizationConformancePackTemplateValidationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, OrganizationConformancePackTemplateValidationException.prototype);
-  }
-}
-
-/**
- * <p>An
- * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
- * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
- * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
- */
-export interface OrganizationCustomPolicyRuleMetadata {
-  /**
-   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The type of notification that initiates Config to run an evaluation for a rule.
-   * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
-   *
-   * 		       <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
-   * 					change.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when
-   * 						Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the
-   * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
-   *             </li>
-   *          </ul>
-   */
-  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
-
-  /**
-   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
-   */
-  InputParameters?: string;
-
-  /**
-   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
-   * 			Config Custom Policy rule is triggered when Config delivers
-   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
-   */
-  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
-
-  /**
-   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
-   */
-  ResourceTypesScope?: string[];
-
-  /**
-   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
-   */
-  ResourceIdScope?: string;
-
-  /**
-   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
-   */
-  TagKeyScope?: string;
-
-  /**
-   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
-   */
-  TagValueScope?: string;
-
-  /**
-   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
-   * 			Repository</a>.</p>
-   */
-  PolicyRuntime: string | undefined;
-
-  /**
-   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
-   */
-  PolicyText: string | undefined;
-
-  /**
-   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
-   */
-  DebugLogDeliveryAccounts?: string[];
-}
-
-export interface PutAggregationAuthorizationRequest {
-  /**
-   * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
-   */
-  AuthorizedAccountId: string | undefined;
-
-  /**
-   * <p>The region authorized to collect aggregated data.</p>
-   */
-  AuthorizedAwsRegion: string | undefined;
-
-  /**
-   * <p>An array of tag object.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface PutAggregationAuthorizationResponse {
-  /**
-   * <p>Returns an AggregationAuthorization object.
-   *
-   * 		</p>
-   */
-  AggregationAuthorization?: AggregationAuthorization;
-}
-
-export interface PutConfigRuleRequest {
-  /**
-   * <p>The rule that you want to add to your account.</p>
-   */
-  ConfigRule: ConfigRule | undefined;
-
-  /**
-   * <p>An array of tag object.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface PutConfigurationAggregatorRequest {
-  /**
-   * <p>The name of the configuration aggregator.</p>
-   */
-  ConfigurationAggregatorName: string | undefined;
-
-  /**
-   * <p>A list of AccountAggregationSource object.
-   *
-   * 		</p>
-   */
-  AccountAggregationSources?: AccountAggregationSource[];
-
-  /**
-   * <p>An OrganizationAggregationSource object.</p>
-   */
-  OrganizationAggregationSource?: OrganizationAggregationSource;
-
-  /**
-   * <p>An array of tag object.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface PutConfigurationAggregatorResponse {
-  /**
-   * <p>Returns a ConfigurationAggregator object.</p>
-   */
-  ConfigurationAggregator?: ConfigurationAggregator;
-}
-
-/**
- * <p>The input for the <a>PutConfigurationRecorder</a>
- * 			action.</p>
- */
-export interface PutConfigurationRecorderRequest {
-  /**
-   * <p>The configuration recorder object that records each
-   * 			configuration change made to the resources.</p>
-   */
-  ConfigurationRecorder: ConfigurationRecorder | undefined;
 }
 
 /**
@@ -7169,6 +7093,13 @@ export const ComplianceSummaryByResourceTypeFilterSensitiveLog = (obj: Complianc
  * @internal
  */
 export const ConfigExportDeliveryInfoFilterSensitiveLog = (obj: ConfigExportDeliveryInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationModeConfigurationFilterSensitiveLog = (obj: EvaluationModeConfiguration): any => ({
   ...obj,
 });
 
@@ -7676,6 +7607,13 @@ export const DescribeConfigRuleEvaluationStatusResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const DescribeConfigRulesFiltersFilterSensitiveLog = (obj: DescribeConfigRulesFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DescribeConfigRulesRequestFilterSensitiveLog = (obj: DescribeConfigRulesRequest): any => ({
   ...obj,
 });
@@ -8141,7 +8079,21 @@ export const EvaluationFilterSensitiveLog = (obj: Evaluation): any => ({
 /**
  * @internal
  */
+export const EvaluationContextFilterSensitiveLog = (obj: EvaluationContext): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const EvaluationResultFilterSensitiveLog = (obj: EvaluationResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EvaluationStatusFilterSensitiveLog = (obj: EvaluationStatus): any => ({
   ...obj,
 });
 
@@ -8512,6 +8464,31 @@ export const GetResourceConfigHistoryResponseFilterSensitiveLog = (obj: GetResou
 /**
  * @internal
  */
+export const GetResourceEvaluationSummaryRequestFilterSensitiveLog = (
+  obj: GetResourceEvaluationSummaryRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceDetailsFilterSensitiveLog = (obj: ResourceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetResourceEvaluationSummaryResponseFilterSensitiveLog = (
+  obj: GetResourceEvaluationSummaryResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetStoredQueryRequestFilterSensitiveLog = (obj: GetStoredQueryRequest): any => ({
   ...obj,
 });
@@ -8597,6 +8574,41 @@ export const ListDiscoveredResourcesResponseFilterSensitiveLog = (obj: ListDisco
 /**
  * @internal
  */
+export const TimeWindowFilterSensitiveLog = (obj: TimeWindow): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceEvaluationFiltersFilterSensitiveLog = (obj: ResourceEvaluationFilters): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceEvaluationsRequestFilterSensitiveLog = (obj: ListResourceEvaluationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ResourceEvaluationFilterSensitiveLog = (obj: ResourceEvaluation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListResourceEvaluationsResponseFilterSensitiveLog = (obj: ListResourceEvaluationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListStoredQueriesRequestFilterSensitiveLog = (obj: ListStoredQueriesRequest): any => ({
   ...obj,
 });
@@ -8633,58 +8645,5 @@ export const TagFilterSensitiveLog = (obj: Tag): any => ({
  * @internal
  */
 export const ListTagsForResourceResponseFilterSensitiveLog = (obj: ListTagsForResourceResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OrganizationCustomPolicyRuleMetadataFilterSensitiveLog = (
-  obj: OrganizationCustomPolicyRuleMetadata
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAggregationAuthorizationRequestFilterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutAggregationAuthorizationResponseFilterSensitiveLog = (
-  obj: PutAggregationAuthorizationResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigRuleRequestFilterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationAggregatorRequestFilterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationAggregatorResponseFilterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
   ...obj,
 });

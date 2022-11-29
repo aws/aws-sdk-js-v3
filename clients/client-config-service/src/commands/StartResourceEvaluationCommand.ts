@@ -15,47 +15,46 @@ import {
 
 import { ConfigServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConfigServiceClient";
 import {
-  PutRemediationExceptionsRequest,
-  PutRemediationExceptionsRequestFilterSensitiveLog,
-  PutRemediationExceptionsResponse,
-  PutRemediationExceptionsResponseFilterSensitiveLog,
+  StartResourceEvaluationRequest,
+  StartResourceEvaluationRequestFilterSensitiveLog,
+  StartResourceEvaluationResponse,
+  StartResourceEvaluationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_json1_1PutRemediationExceptionsCommand,
-  serializeAws_json1_1PutRemediationExceptionsCommand,
+  deserializeAws_json1_1StartResourceEvaluationCommand,
+  serializeAws_json1_1StartResourceEvaluationCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface PutRemediationExceptionsCommandInput extends PutRemediationExceptionsRequest {}
-export interface PutRemediationExceptionsCommandOutput extends PutRemediationExceptionsResponse, __MetadataBearer {}
+export interface StartResourceEvaluationCommandInput extends StartResourceEvaluationRequest {}
+export interface StartResourceEvaluationCommandOutput extends StartResourceEvaluationResponse, __MetadataBearer {}
 
 /**
- * <p>A remediation exception is when a specific resource is no longer considered for auto-remediation.
- * 			This API adds a new exception or updates an existing exception for a specific resource with a specific Config rule. </p>
+ * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
+ * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
+ * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
+ *
  * 		       <note>
- *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
- * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
- *          </note>
- * 		       <note>
- *             <p>To place an exception on an Amazon Web Services resource, ensure remediation is set as manual remediation.</p>
+ *             <p>Ensure you have the <code>cloudformation:DescribeType</code> role setup to validate the resource type schema.
+ * 		</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConfigServiceClient, PutRemediationExceptionsCommand } from "@aws-sdk/client-config-service"; // ES Modules import
- * // const { ConfigServiceClient, PutRemediationExceptionsCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
+ * import { ConfigServiceClient, StartResourceEvaluationCommand } from "@aws-sdk/client-config-service"; // ES Modules import
+ * // const { ConfigServiceClient, StartResourceEvaluationCommand } = require("@aws-sdk/client-config-service"); // CommonJS import
  * const client = new ConfigServiceClient(config);
- * const command = new PutRemediationExceptionsCommand(input);
+ * const command = new StartResourceEvaluationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link PutRemediationExceptionsCommandInput} for command's `input` shape.
- * @see {@link PutRemediationExceptionsCommandOutput} for command's `response` shape.
+ * @see {@link StartResourceEvaluationCommandInput} for command's `input` shape.
+ * @see {@link StartResourceEvaluationCommandOutput} for command's `response` shape.
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  */
-export class PutRemediationExceptionsCommand extends $Command<
-  PutRemediationExceptionsCommandInput,
-  PutRemediationExceptionsCommandOutput,
+export class StartResourceEvaluationCommand extends $Command<
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
   ConfigServiceClientResolvedConfig
 > {
   // Start section: command_properties
@@ -70,7 +69,7 @@ export class PutRemediationExceptionsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: PutRemediationExceptionsCommandInput) {
+  constructor(readonly input: StartResourceEvaluationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -83,23 +82,23 @@ export class PutRemediationExceptionsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConfigServiceClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<PutRemediationExceptionsCommandInput, PutRemediationExceptionsCommandOutput> {
+  ): Handler<StartResourceEvaluationCommandInput, StartResourceEvaluationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, PutRemediationExceptionsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartResourceEvaluationCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConfigServiceClient";
-    const commandName = "PutRemediationExceptionsCommand";
+    const commandName = "StartResourceEvaluationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: PutRemediationExceptionsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: PutRemediationExceptionsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: StartResourceEvaluationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartResourceEvaluationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -109,12 +108,12 @@ export class PutRemediationExceptionsCommand extends $Command<
     );
   }
 
-  private serialize(input: PutRemediationExceptionsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1PutRemediationExceptionsCommand(input, context);
+  private serialize(input: StartResourceEvaluationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StartResourceEvaluationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<PutRemediationExceptionsCommandOutput> {
-    return deserializeAws_json1_1PutRemediationExceptionsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<StartResourceEvaluationCommandOutput> {
+    return deserializeAws_json1_1StartResourceEvaluationCommand(output, context);
   }
 
   // Start section: command_body_extra

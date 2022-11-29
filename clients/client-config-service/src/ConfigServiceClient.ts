@@ -281,6 +281,10 @@ import {
   GetResourceConfigHistoryCommandInput,
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
+import {
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
+} from "./commands/GetResourceEvaluationSummaryCommand";
 import { GetStoredQueryCommandInput, GetStoredQueryCommandOutput } from "./commands/GetStoredQueryCommand";
 import {
   ListAggregateDiscoveredResourcesCommandInput,
@@ -294,6 +298,10 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
+} from "./commands/ListResourceEvaluationsCommand";
 import { ListStoredQueriesCommandInput, ListStoredQueriesCommandOutput } from "./commands/ListStoredQueriesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -361,6 +369,10 @@ import {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
+import {
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
+} from "./commands/StartResourceEvaluationCommand";
 import {
   StopConfigurationRecorderCommandInput,
   StopConfigurationRecorderCommandOutput,
@@ -436,10 +448,12 @@ export type ServiceInputTypes =
   | GetOrganizationConformancePackDetailedStatusCommandInput
   | GetOrganizationCustomRulePolicyCommandInput
   | GetResourceConfigHistoryCommandInput
+  | GetResourceEvaluationSummaryCommandInput
   | GetStoredQueryCommandInput
   | ListAggregateDiscoveredResourcesCommandInput
   | ListConformancePackComplianceScoresCommandInput
   | ListDiscoveredResourcesCommandInput
+  | ListResourceEvaluationsCommandInput
   | ListStoredQueriesCommandInput
   | ListTagsForResourceCommandInput
   | PutAggregationAuthorizationCommandInput
@@ -462,6 +476,7 @@ export type ServiceInputTypes =
   | StartConfigRulesEvaluationCommandInput
   | StartConfigurationRecorderCommandInput
   | StartRemediationExecutionCommandInput
+  | StartResourceEvaluationCommandInput
   | StopConfigurationRecorderCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput;
@@ -527,10 +542,12 @@ export type ServiceOutputTypes =
   | GetOrganizationConformancePackDetailedStatusCommandOutput
   | GetOrganizationCustomRulePolicyCommandOutput
   | GetResourceConfigHistoryCommandOutput
+  | GetResourceEvaluationSummaryCommandOutput
   | GetStoredQueryCommandOutput
   | ListAggregateDiscoveredResourcesCommandOutput
   | ListConformancePackComplianceScoresCommandOutput
   | ListDiscoveredResourcesCommandOutput
+  | ListResourceEvaluationsCommandOutput
   | ListStoredQueriesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutAggregationAuthorizationCommandOutput
@@ -553,6 +570,7 @@ export type ServiceOutputTypes =
   | StartConfigRulesEvaluationCommandOutput
   | StartConfigurationRecorderCommandOutput
   | StartRemediationExecutionCommandOutput
+  | StartResourceEvaluationCommandOutput
   | StopConfigurationRecorderCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput;

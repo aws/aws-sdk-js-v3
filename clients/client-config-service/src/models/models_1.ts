@@ -3,24 +3,377 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@aws-sdk/smithy-cl
 
 import { ConfigServiceServiceException as __BaseException } from "./ConfigServiceServiceException";
 import {
+  AccountAggregationSource,
+  AggregationAuthorization,
+  ConfigRule,
+  ConfigurationAggregator,
+  ConfigurationRecorder,
   ConformancePackInputParameter,
   DeliveryChannel,
   Evaluation,
+  EvaluationContext,
+  EvaluationMode,
   ExternalEvaluation,
   FailedRemediationBatch,
   FailedRemediationExceptionBatch,
   FieldInfo,
-  OrganizationCustomPolicyRuleMetadata,
+  MaximumExecutionFrequency,
+  OrganizationAggregationSource,
+  OrganizationConfigRuleTriggerTypeNoSN,
   OrganizationCustomRuleMetadata,
   OrganizationManagedRuleMetadata,
   RemediationConfiguration,
   RemediationExceptionResourceKey,
+  ResourceDetails,
   ResourceKey,
   RetentionConfiguration,
   StoredQuery,
   Tag,
   TemplateSSMDocumentDetails,
 } from "./models_0";
+
+/**
+ * <p>You have reached the limit of the number of delivery channels
+ * 			you can create.</p>
+ */
+export class MaxNumberOfDeliveryChannelsExceededException extends __BaseException {
+  readonly name: "MaxNumberOfDeliveryChannelsExceededException" = "MaxNumberOfDeliveryChannelsExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfDeliveryChannelsExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfDeliveryChannelsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfDeliveryChannelsExceededException.prototype);
+  }
+}
+
+/**
+ * <p>You have reached the limit of the number of organization Config rules you can create. For more information, see see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
+ */
+export class MaxNumberOfOrganizationConfigRulesExceededException extends __BaseException {
+  readonly name: "MaxNumberOfOrganizationConfigRulesExceededException" =
+    "MaxNumberOfOrganizationConfigRulesExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConfigRulesExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfOrganizationConfigRulesExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfOrganizationConfigRulesExceededException.prototype);
+  }
+}
+
+/**
+ * <p>You have reached the limit of the number of organization conformance packs you can create in an account. For more information, see <a href="https://docs.aws.amazon.com/config/latest/developerguide/configlimits.html">
+ *                <b>Service Limits</b>
+ *             </a> in the Config Developer Guide.</p>
+ */
+export class MaxNumberOfOrganizationConformancePacksExceededException extends __BaseException {
+  readonly name: "MaxNumberOfOrganizationConformancePacksExceededException" =
+    "MaxNumberOfOrganizationConformancePacksExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfOrganizationConformancePacksExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfOrganizationConformancePacksExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfOrganizationConformancePacksExceededException.prototype);
+  }
+}
+
+/**
+ * <p>Failed to add the retention configuration because a retention configuration with that name already exists.</p>
+ */
+export class MaxNumberOfRetentionConfigurationsExceededException extends __BaseException {
+  readonly name: "MaxNumberOfRetentionConfigurationsExceededException" =
+    "MaxNumberOfRetentionConfigurationsExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MaxNumberOfRetentionConfigurationsExceededException, __BaseException>) {
+    super({
+      name: "MaxNumberOfRetentionConfigurationsExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MaxNumberOfRetentionConfigurationsExceededException.prototype);
+  }
+}
+
+/**
+ * <p>There is no delivery channel available to record
+ * 			configurations.</p>
+ */
+export class NoAvailableDeliveryChannelException extends __BaseException {
+  readonly name: "NoAvailableDeliveryChannelException" = "NoAvailableDeliveryChannelException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoAvailableDeliveryChannelException, __BaseException>) {
+    super({
+      name: "NoAvailableDeliveryChannelException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableDeliveryChannelException.prototype);
+  }
+}
+
+/**
+ * <p>Organization is no longer available.</p>
+ */
+export class NoAvailableOrganizationException extends __BaseException {
+  readonly name: "NoAvailableOrganizationException" = "NoAvailableOrganizationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoAvailableOrganizationException, __BaseException>) {
+    super({
+      name: "NoAvailableOrganizationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoAvailableOrganizationException.prototype);
+  }
+}
+
+/**
+ * <p>The specified Amazon S3 bucket does not exist.</p>
+ */
+export class NoSuchBucketException extends __BaseException {
+  readonly name: "NoSuchBucketException" = "NoSuchBucketException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<NoSuchBucketException, __BaseException>) {
+    super({
+      name: "NoSuchBucketException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, NoSuchBucketException.prototype);
+  }
+}
+
+/**
+ * <p>Config resource cannot be created because your organization does not have all features enabled.</p>
+ */
+export class OrganizationAllFeaturesNotEnabledException extends __BaseException {
+  readonly name: "OrganizationAllFeaturesNotEnabledException" = "OrganizationAllFeaturesNotEnabledException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationAllFeaturesNotEnabledException, __BaseException>) {
+    super({
+      name: "OrganizationAllFeaturesNotEnabledException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationAllFeaturesNotEnabledException.prototype);
+  }
+}
+
+/**
+ * <p>You have specified a template that is invalid or supported.</p>
+ */
+export class OrganizationConformancePackTemplateValidationException extends __BaseException {
+  readonly name: "OrganizationConformancePackTemplateValidationException" =
+    "OrganizationConformancePackTemplateValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<OrganizationConformancePackTemplateValidationException, __BaseException>) {
+    super({
+      name: "OrganizationConformancePackTemplateValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, OrganizationConformancePackTemplateValidationException.prototype);
+  }
+}
+
+/**
+ * <p>An
+ * 			object that specifies metadata for your organization's Config Custom Policy rule. The metadata includes the runtime system in use, which accounts have
+ * 			debug logging enabled, and other custom rule metadata, such as resource type, resource
+ * 			ID of Amazon Web Services resource, and organization trigger types that initiate Config to evaluate Amazon Web Services resources against a rule.</p>
+ */
+export interface OrganizationCustomPolicyRuleMetadata {
+  /**
+   * <p>The description that you provide for your organization Config Custom Policy rule.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The type of notification that initiates Config to run an evaluation for a rule.
+   * 			For Config Custom Policy rules, Config supports change-initiated notification types:</p>
+   *
+   * 		       <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ConfigurationItemChangeNotification</code> - Initiates an evaluation when Config delivers a configuration item as a result of a resource
+   * 					change.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OversizedConfigurationItemChangeNotification</code> - Initiates an evaluation when
+   * 						Config delivers an oversized configuration item. Config may generate this notification type when a resource changes and the
+   * 					notification exceeds the maximum size allowed by Amazon SNS.</p>
+   *             </li>
+   *          </ul>
+   */
+  OrganizationConfigRuleTriggerTypes?: (OrganizationConfigRuleTriggerTypeNoSN | string)[];
+
+  /**
+   * <p>A string, in JSON format, that is passed to your organization Config Custom Policy rule.</p>
+   */
+  InputParameters?: string;
+
+  /**
+   * <p>The maximum frequency with which Config runs evaluations for a rule. Your
+   * 			Config Custom Policy rule is triggered when Config delivers
+   * 			the configuration snapshot. For more information, see <a>ConfigSnapshotDeliveryProperties</a>.</p>
+   */
+  MaximumExecutionFrequency?: MaximumExecutionFrequency | string;
+
+  /**
+   * <p>The type of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceTypesScope?: string[];
+
+  /**
+   * <p>The ID of the Amazon Web Services resource that was evaluated.</p>
+   */
+  ResourceIdScope?: string;
+
+  /**
+   * <p>One part of a key-value pair that make up a tag. A key is a general label that acts like a category for more specific tag values.</p>
+   */
+  TagKeyScope?: string;
+
+  /**
+   * <p>The optional part of a key-value pair that make up a tag. A value acts as a descriptor within a tag category (key).</p>
+   */
+  TagValueScope?: string;
+
+  /**
+   * <p>The runtime system for your organization Config Custom Policy rules. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the <a href="https://github.com/aws-cloudformation/cloudformation-guard">Guard GitHub
+   * 			Repository</a>.</p>
+   */
+  PolicyRuntime: string | undefined;
+
+  /**
+   * <p>The policy definition containing the logic for your organization Config Custom Policy rule.</p>
+   */
+  PolicyText: string | undefined;
+
+  /**
+   * <p>A list of accounts that you can enable debug logging for your organization Config Custom Policy rule. List is null when debug logging is enabled for all accounts.</p>
+   */
+  DebugLogDeliveryAccounts?: string[];
+}
+
+export interface PutAggregationAuthorizationRequest {
+  /**
+   * <p>The 12-digit account ID of the account authorized to aggregate data.</p>
+   */
+  AuthorizedAccountId: string | undefined;
+
+  /**
+   * <p>The region authorized to collect aggregated data.</p>
+   */
+  AuthorizedAwsRegion: string | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface PutAggregationAuthorizationResponse {
+  /**
+   * <p>Returns an AggregationAuthorization object.
+   *
+   * 		</p>
+   */
+  AggregationAuthorization?: AggregationAuthorization;
+}
+
+export interface PutConfigRuleRequest {
+  /**
+   * <p>The rule that you want to add to your account.</p>
+   */
+  ConfigRule: ConfigRule | undefined;
+
+  /**
+   * <p>An array of tag object.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface PutConfigurationAggregatorRequest {
+  /**
+   * <p>The name of the configuration aggregator.</p>
+   */
+  ConfigurationAggregatorName: string | undefined;
+
+  /**
+   * <p>A list of AccountAggregationSource object.
+   *
+   * 		</p>
+   */
+  AccountAggregationSources?: AccountAggregationSource[];
+
+  /**
+   * <p>An OrganizationAggregationSource object.</p>
+   */
+  OrganizationAggregationSource?: OrganizationAggregationSource;
+
+  /**
+   * <p>An array of tag object.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface PutConfigurationAggregatorResponse {
+  /**
+   * <p>Returns a ConfigurationAggregator object.</p>
+   */
+  ConfigurationAggregator?: ConfigurationAggregator;
+}
+
+/**
+ * <p>The input for the <a>PutConfigurationRecorder</a>
+ * 			action.</p>
+ */
+export interface PutConfigurationRecorderRequest {
+  /**
+   * <p>The configuration recorder object that records each
+   * 			configuration change made to the resources.</p>
+   */
+  ConfigurationRecorder: ConfigurationRecorder | undefined;
+}
 
 export interface PutConformancePackRequest {
   /**
@@ -555,6 +908,50 @@ export interface StartRemediationExecutionResponse {
   FailedItems?: ResourceKey[];
 }
 
+export interface StartResourceEvaluationRequest {
+  /**
+   * <p>Returns a <code>ResourceDetails</code> object.</p>
+   */
+  ResourceDetails: ResourceDetails | undefined;
+
+  /**
+   * <p>Returns an <code>EvaluationContext</code> object.</p>
+   */
+  EvaluationContext?: EvaluationContext;
+
+  /**
+   * <p>The mode of an evaluation. The valid value for this API is <code>Proactive</code>.</p>
+   */
+  EvaluationMode: EvaluationMode | string | undefined;
+
+  /**
+   * <p>The timeout for an evaluation. The default is 900 seconds. You cannot specify a number greater than 3600. If you specify 0, Config uses the default.</p>
+   */
+  EvaluationTimeout?: number;
+
+  /**
+   * <p>A client token is a unique, case-sensitive string of up to 64 ASCII characters.
+   * 			To make an idempotent API request using one of these actions, specify a client token in the request.</p>
+   * 		       <note>
+   *             <p>Avoid reusing the same client token for other API requests. If you retry
+   * 				a request that completed successfully using the same client token and the same
+   * 				parameters, the retry succeeds without performing any further actions. If you retry
+   * 				a successful request using the same client token, but one or more of the parameters
+   * 				are different, other than the Region or Availability Zone, the retry fails with an
+   * 				IdempotentParameterMismatch error.</p>
+   *          </note>
+   */
+  ClientToken?: string;
+}
+
+export interface StartResourceEvaluationResponse {
+  /**
+   * <p>A
+   * 			unique ResourceEvaluationId that is associated with a single execution.</p>
+   */
+  ResourceEvaluationId?: string;
+}
+
 /**
  * <p>The input for the <a>StopConfigurationRecorder</a> action.</p>
  */
@@ -588,6 +985,59 @@ export interface UntagResourceRequest {
    */
   TagKeys: string[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const OrganizationCustomPolicyRuleMetadataFilterSensitiveLog = (
+  obj: OrganizationCustomPolicyRuleMetadata
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAggregationAuthorizationRequestFilterSensitiveLog = (obj: PutAggregationAuthorizationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutAggregationAuthorizationResponseFilterSensitiveLog = (
+  obj: PutAggregationAuthorizationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigRuleRequestFilterSensitiveLog = (obj: PutConfigRuleRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationAggregatorRequestFilterSensitiveLog = (obj: PutConfigurationAggregatorRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationAggregatorResponseFilterSensitiveLog = (obj: PutConfigurationAggregatorResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutConfigurationRecorderRequestFilterSensitiveLog = (obj: PutConfigurationRecorderRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -808,6 +1258,20 @@ export const StartRemediationExecutionRequestFilterSensitiveLog = (obj: StartRem
  * @internal
  */
 export const StartRemediationExecutionResponseFilterSensitiveLog = (obj: StartRemediationExecutionResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartResourceEvaluationRequestFilterSensitiveLog = (obj: StartResourceEvaluationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartResourceEvaluationResponseFilterSensitiveLog = (obj: StartResourceEvaluationResponse): any => ({
   ...obj,
 });
 
