@@ -30,27 +30,27 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
 
 /**
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
- *       deployment package is a .zip file  archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services
- *       services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p>
+ *       deployment package is a .zip file archive or container image that contains your function code. The execution role
+ *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
+ *       streaming and X-Ray for request tracing.</p>
  *
- *          <p>You set the package type to <code>Image</code> if the deployment package is a
- *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image,
- *       the code property must include the URI of a container image in the Amazon ECR registry.
- *       You do not need to specify the handler and runtime properties. </p>
+ *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
+ *         image</a>, then you set the package type to <code>Image</code>. For a container image, the code property
+ *       must include the URI of a container image in the Amazon ECR registry. You do not need to specify the
+ *       handler and runtime properties.</p>
  *
- *          <p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file
- *         archive</a>. For a .zip file archive, the code property specifies the location of the
- *       .zip file. You must also specify the handler and runtime properties. The code in the
- *       deployment package must be compatible with the target instruction set architecture of the
- *       function (<code>x86-64</code> or <code>arm64</code>). If you do not specify the architecture, the default value is
+ *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>, then
+ *       you set the package type to <code>Zip</code>. For a .zip file archive, the code property specifies the location of
+ *       the .zip file. You must also specify the handler and runtime properties. The code in the deployment package must
+ *       be compatible with the target instruction set architecture of the function (<code>x86-64</code> or
+ *         <code>arm64</code>). If you do not specify the architecture, then the default value is
  *       <code>x86-64</code>.</p>
  *
- *          <p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If
- *       your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or
- *       modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in
- *       the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For
- *       more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function
- *         States</a>.</p>
+ *          <p>When you create a function, Lambda provisions an instance of the function and its supporting
+ *       resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't
+ *       invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code>
+ *       fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to
+ *       invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Lambda function states</a>.</p>
  *
  *          <p>A function has an unpublished version, and can have published versions and aliases. The unpublished version
  *       changes when you update your function's code and configuration. A published version is a snapshot of your function
@@ -63,19 +63,18 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *       to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>)
  *       and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p>
  *
- *          <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function,
- *       specify the ARN of a code-signing configuration. When a user
- *       attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code
- *       package has a valid signature from a trusted publisher. The code-signing configuration
- *       includes set set of signing profiles, which define the trusted publishers for this function.</p>
+ *          <p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this
+ *       function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with
+ *         <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from
+ *       a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted
+ *       publishers for this function.</p>
  *
- *          <p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant
- *       permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version,
- *       or on an alias.</p>
+ *          <p>If another Amazon Web Services account or an Amazon Web Service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
  *
  *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
- *       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a
- *       function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ *       in other Amazon Web Services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+ *       or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Lambda
+ *       functions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

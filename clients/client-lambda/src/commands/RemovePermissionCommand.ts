@@ -24,8 +24,8 @@ export interface RemovePermissionCommandInput extends RemovePermissionRequest {}
 export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement
- *       from the output of <a>GetPolicy</a>.</p>
+ * <p>Revokes function-use permission from an Amazon Web Service or another Amazon Web Services account. You
+ *       can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -278,6 +278,11 @@ import {
   SelfManagedEventSource,
   SelfManagedKafkaEventSourceConfig,
   ServiceException,
+  SnapStart,
+  SnapStartException,
+  SnapStartNotReadyException,
+  SnapStartResponse,
+  SnapStartTimeoutException,
   SourceAccessConfiguration,
   SubnetIPAddressLimitReachedException,
   TooManyRequestsException,
@@ -555,6 +560,7 @@ export const serializeAws_restJson1CreateFunctionCommand = async (
     ...(input.Publish != null && { Publish: input.Publish }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.SnapStart != null && { SnapStart: serializeAws_restJson1SnapStart(input.SnapStart, context) }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1Tags(input.Tags, context) }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.TracingConfig != null && {
@@ -2343,6 +2349,7 @@ export const serializeAws_restJson1UpdateFunctionConfigurationCommand = async (
     ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
     ...(input.Role != null && { Role: input.Role }),
     ...(input.Runtime != null && { Runtime: input.Runtime }),
+    ...(input.SnapStart != null && { SnapStart: serializeAws_restJson1SnapStart(input.SnapStart, context) }),
     ...(input.Timeout != null && { Timeout: input.Timeout }),
     ...(input.TracingConfig != null && {
       TracingConfig: serializeAws_restJson1TracingConfig(input.TracingConfig, context),
@@ -2903,6 +2910,9 @@ export const deserializeAws_restJson1CreateFunctionCommand = async (
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -4167,6 +4177,9 @@ export const deserializeAws_restJson1GetFunctionConfigurationCommand = async (
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
+  }
   if (data.State != null) {
     contents.State = __expectString(data.State);
   }
@@ -4779,6 +4792,15 @@ const deserializeAws_restJson1InvokeCommandError = async (
     case "ServiceException":
     case "com.amazonaws.lambda#ServiceException":
       throw await deserializeAws_restJson1ServiceExceptionResponse(parsedOutput, context);
+    case "SnapStartException":
+    case "com.amazonaws.lambda#SnapStartException":
+      throw await deserializeAws_restJson1SnapStartExceptionResponse(parsedOutput, context);
+    case "SnapStartNotReadyException":
+    case "com.amazonaws.lambda#SnapStartNotReadyException":
+      throw await deserializeAws_restJson1SnapStartNotReadyExceptionResponse(parsedOutput, context);
+    case "SnapStartTimeoutException":
+    case "com.amazonaws.lambda#SnapStartTimeoutException":
+      throw await deserializeAws_restJson1SnapStartTimeoutExceptionResponse(parsedOutput, context);
     case "SubnetIPAddressLimitReachedException":
     case "com.amazonaws.lambda#SubnetIPAddressLimitReachedException":
       throw await deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse(parsedOutput, context);
@@ -5645,6 +5667,9 @@ export const deserializeAws_restJson1PublishVersionCommand = async (
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
+  }
   if (data.State != null) {
     contents.State = __expectString(data.State);
   }
@@ -6508,6 +6533,9 @@ export const deserializeAws_restJson1UpdateFunctionCodeCommand = async (
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
   }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
+  }
   if (data.State != null) {
     contents.State = __expectString(data.State);
   }
@@ -6671,6 +6699,9 @@ export const deserializeAws_restJson1UpdateFunctionConfigurationCommand = async 
   }
   if (data.SigningProfileVersionArn != null) {
     contents.SigningProfileVersionArn = __expectString(data.SigningProfileVersionArn);
+  }
+  if (data.SnapStart != null) {
+    contents.SnapStart = deserializeAws_restJson1SnapStartResponse(data.SnapStart, context);
   }
   if (data.State != null) {
     contents.State = __expectString(data.State);
@@ -7470,6 +7501,63 @@ const deserializeAws_restJson1ServiceExceptionResponse = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+const deserializeAws_restJson1SnapStartExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1SnapStartNotReadyExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartNotReadyException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartNotReadyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+const deserializeAws_restJson1SnapStartTimeoutExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SnapStartTimeoutException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  if (data.Message != null) {
+    contents.Message = __expectString(data.Message);
+  }
+  if (data.Type != null) {
+    contents.Type = __expectString(data.Type);
+  }
+  const exception = new SnapStartTimeoutException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 const deserializeAws_restJson1SubnetIPAddressLimitReachedExceptionResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -7838,6 +7926,12 @@ const serializeAws_restJson1SigningProfileVersionArns = (input: string[], contex
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_restJson1SnapStart = (input: SnapStart, context: __SerdeContext): any => {
+  return {
+    ...(input.ApplyOn != null && { ApplyOn: input.ApplyOn }),
+  };
 };
 
 const serializeAws_restJson1SourceAccessConfiguration = (
@@ -8367,6 +8461,8 @@ const deserializeAws_restJson1FunctionConfiguration = (output: any, context: __S
     Runtime: __expectString(output.Runtime),
     SigningJobArn: __expectString(output.SigningJobArn),
     SigningProfileVersionArn: __expectString(output.SigningProfileVersionArn),
+    SnapStart:
+      output.SnapStart != null ? deserializeAws_restJson1SnapStartResponse(output.SnapStart, context) : undefined,
     State: __expectString(output.State),
     StateReason: __expectString(output.StateReason),
     StateReasonCode: __expectString(output.StateReasonCode),
@@ -8681,6 +8777,13 @@ const deserializeAws_restJson1SigningProfileVersionArns = (output: any, context:
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1SnapStartResponse = (output: any, context: __SerdeContext): SnapStartResponse => {
+  return {
+    ApplyOn: __expectString(output.ApplyOn),
+    OptimizationStatus: __expectString(output.OptimizationStatus),
+  } as any;
 };
 
 const deserializeAws_restJson1SourceAccessConfiguration = (
