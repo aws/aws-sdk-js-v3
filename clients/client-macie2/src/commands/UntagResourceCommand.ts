@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
-import { UntagResourceRequest, UntagResourceRequestFilterSensitiveLog } from "../models/models_0";
-import { UntagResourceResponse, UntagResourceResponseFilterSensitiveLog } from "../models/models_1";
+import {
+  UntagResourceRequest,
+  UntagResourceRequestFilterSensitiveLog,
+  UntagResourceResponse,
+  UntagResourceResponseFilterSensitiveLog,
+} from "../models/models_1";
 import {
   deserializeAws_restJson1UntagResourceCommand,
   serializeAws_restJson1UntagResourceCommand,

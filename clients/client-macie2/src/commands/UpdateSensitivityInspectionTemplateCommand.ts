@@ -15,39 +15,41 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
-  ListMembersRequest,
-  ListMembersRequestFilterSensitiveLog,
-  ListMembersResponse,
-  ListMembersResponseFilterSensitiveLog,
+  UpdateSensitivityInspectionTemplateRequest,
+  UpdateSensitivityInspectionTemplateRequestFilterSensitiveLog,
+  UpdateSensitivityInspectionTemplateResponse,
+  UpdateSensitivityInspectionTemplateResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
+  deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommand,
+  serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListMembersCommandInput extends ListMembersRequest {}
-export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
+export interface UpdateSensitivityInspectionTemplateCommandInput extends UpdateSensitivityInspectionTemplateRequest {}
+export interface UpdateSensitivityInspectionTemplateCommandOutput
+  extends UpdateSensitivityInspectionTemplateResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
+ * <p>Updates the settings for the sensitivity inspection template for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateSensitivityInspectionTemplateCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, UpdateSensitivityInspectionTemplateCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const command = new ListMembersCommand(input);
+ * const command = new UpdateSensitivityInspectionTemplateCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListMembersCommandInput} for command's `input` shape.
- * @see {@link ListMembersCommandOutput} for command's `response` shape.
+ * @see {@link UpdateSensitivityInspectionTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateSensitivityInspectionTemplateCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
-export class ListMembersCommand extends $Command<
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
+export class UpdateSensitivityInspectionTemplateCommand extends $Command<
+  UpdateSensitivityInspectionTemplateCommandInput,
+  UpdateSensitivityInspectionTemplateCommandOutput,
   Macie2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class ListMembersCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListMembersCommandInput) {
+  constructor(readonly input: UpdateSensitivityInspectionTemplateCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +77,23 @@ export class ListMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListMembersCommandInput, ListMembersCommandOutput> {
+  ): Handler<UpdateSensitivityInspectionTemplateCommandInput, UpdateSensitivityInspectionTemplateCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListMembersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateSensitivityInspectionTemplateCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Macie2Client";
-    const commandName = "ListMembersCommand";
+    const commandName = "UpdateSensitivityInspectionTemplateCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateSensitivityInspectionTemplateRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateSensitivityInspectionTemplateResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +103,18 @@ export class ListMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+  private serialize(
+    input: UpdateSensitivityInspectionTemplateCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateSensitivityInspectionTemplateCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateSensitivityInspectionTemplateCommandOutput> {
+    return deserializeAws_restJson1UpdateSensitivityInspectionTemplateCommand(output, context);
   }
 
   // Start section: command_body_extra

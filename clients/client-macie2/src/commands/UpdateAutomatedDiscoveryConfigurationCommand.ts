@@ -15,39 +15,42 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
-  ListMembersRequest,
-  ListMembersRequestFilterSensitiveLog,
-  ListMembersResponse,
-  ListMembersResponseFilterSensitiveLog,
+  UpdateAutomatedDiscoveryConfigurationRequest,
+  UpdateAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
+  UpdateAutomatedDiscoveryConfigurationResponse,
+  UpdateAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
+  deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
+  serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListMembersCommandInput extends ListMembersRequest {}
-export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandInput
+  extends UpdateAutomatedDiscoveryConfigurationRequest {}
+export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
+  extends UpdateAutomatedDiscoveryConfigurationResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
+ * <p>Enables or disables automated sensitive data discovery for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const command = new ListMembersCommand(input);
+ * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListMembersCommandInput} for command's `input` shape.
- * @see {@link ListMembersCommandOutput} for command's `response` shape.
+ * @see {@link UpdateAutomatedDiscoveryConfigurationCommandInput} for command's `input` shape.
+ * @see {@link UpdateAutomatedDiscoveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
-export class ListMembersCommand extends $Command<
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
+export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command<
+  UpdateAutomatedDiscoveryConfigurationCommandInput,
+  UpdateAutomatedDiscoveryConfigurationCommandOutput,
   Macie2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class ListMembersCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListMembersCommandInput) {
+  constructor(readonly input: UpdateAutomatedDiscoveryConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +78,23 @@ export class ListMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListMembersCommandInput, ListMembersCommandOutput> {
+  ): Handler<UpdateAutomatedDiscoveryConfigurationCommandInput, UpdateAutomatedDiscoveryConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListMembersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateAutomatedDiscoveryConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Macie2Client";
-    const commandName = "ListMembersCommand";
+    const commandName = "UpdateAutomatedDiscoveryConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateAutomatedDiscoveryConfigurationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateAutomatedDiscoveryConfigurationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +104,18 @@ export class ListMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+  private serialize(
+    input: UpdateAutomatedDiscoveryConfigurationCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateAutomatedDiscoveryConfigurationCommandOutput> {
+    return deserializeAws_restJson1UpdateAutomatedDiscoveryConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -15,39 +15,41 @@ import {
 
 import { Macie2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Macie2Client";
 import {
-  ListMembersRequest,
-  ListMembersRequestFilterSensitiveLog,
-  ListMembersResponse,
-  ListMembersResponseFilterSensitiveLog,
+  ListResourceProfileArtifactsRequest,
+  ListResourceProfileArtifactsRequestFilterSensitiveLog,
+  ListResourceProfileArtifactsResponse,
+  ListResourceProfileArtifactsResponseFilterSensitiveLog,
 } from "../models/models_1";
 import {
-  deserializeAws_restJson1ListMembersCommand,
-  serializeAws_restJson1ListMembersCommand,
+  deserializeAws_restJson1ListResourceProfileArtifactsCommand,
+  serializeAws_restJson1ListResourceProfileArtifactsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface ListMembersCommandInput extends ListMembersRequest {}
-export interface ListMembersCommandOutput extends ListMembersResponse, __MetadataBearer {}
+export interface ListResourceProfileArtifactsCommandInput extends ListResourceProfileArtifactsRequest {}
+export interface ListResourceProfileArtifactsCommandOutput
+  extends ListResourceProfileArtifactsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the accounts that are associated with an Amazon Macie administrator account.</p>
+ * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Macie2Client, ListMembersCommand } from "@aws-sdk/client-macie2"; // ES Modules import
- * // const { Macie2Client, ListMembersCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
+ * import { Macie2Client, ListResourceProfileArtifactsCommand } from "@aws-sdk/client-macie2"; // ES Modules import
+ * // const { Macie2Client, ListResourceProfileArtifactsCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
- * const command = new ListMembersCommand(input);
+ * const command = new ListResourceProfileArtifactsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListMembersCommandInput} for command's `input` shape.
- * @see {@link ListMembersCommandOutput} for command's `response` shape.
+ * @see {@link ListResourceProfileArtifactsCommandInput} for command's `input` shape.
+ * @see {@link ListResourceProfileArtifactsCommandOutput} for command's `response` shape.
  * @see {@link Macie2ClientResolvedConfig | config} for Macie2Client's `config` shape.
  *
  */
-export class ListMembersCommand extends $Command<
-  ListMembersCommandInput,
-  ListMembersCommandOutput,
+export class ListResourceProfileArtifactsCommand extends $Command<
+  ListResourceProfileArtifactsCommandInput,
+  ListResourceProfileArtifactsCommandOutput,
   Macie2ClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class ListMembersCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListMembersCommandInput) {
+  constructor(readonly input: ListResourceProfileArtifactsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +77,23 @@ export class ListMembersCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Macie2ClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListMembersCommandInput, ListMembersCommandOutput> {
+  ): Handler<ListResourceProfileArtifactsCommandInput, ListResourceProfileArtifactsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListMembersCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListResourceProfileArtifactsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Macie2Client";
-    const commandName = "ListMembersCommand";
+    const commandName = "ListResourceProfileArtifactsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListMembersRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListMembersResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListResourceProfileArtifactsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListResourceProfileArtifactsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +103,15 @@ export class ListMembersCommand extends $Command<
     );
   }
 
-  private serialize(input: ListMembersCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1ListMembersCommand(input, context);
+  private serialize(input: ListResourceProfileArtifactsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1ListResourceProfileArtifactsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMembersCommandOutput> {
-    return deserializeAws_restJson1ListMembersCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListResourceProfileArtifactsCommandOutput> {
+    return deserializeAws_restJson1ListResourceProfileArtifactsCommand(output, context);
   }
 
   // Start section: command_body_extra

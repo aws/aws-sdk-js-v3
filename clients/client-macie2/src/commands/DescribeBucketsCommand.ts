@@ -29,7 +29,7 @@ export interface DescribeBucketsCommandInput extends DescribeBucketsRequest {}
 export interface DescribeBucketsCommandOutput extends DescribeBucketsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes.</p>
+ * <p>Retrieves (queries) statistical data and other information about one or more S3 buckets that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
