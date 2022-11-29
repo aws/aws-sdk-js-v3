@@ -44,6 +44,11 @@ export interface ResourceStatus {
    * <p>The status of Amazon Inspector scanning for Amazon ECR resources.</p>
    */
   ecr: Status | string | undefined;
+
+  /**
+   * <p>The status of Amazon Inspector scanning for AWS Lambda function resources.</p>
+   */
+  lambda?: Status | string;
 }
 
 /**
@@ -74,6 +79,7 @@ export enum AggregationFindingType {
 export enum AggregationResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
+  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
 }
 
 export enum AccountSortBy {
@@ -203,10 +209,15 @@ export interface ResourceState {
    * <p>An object detailing the state of Amazon Inspector scanning for Amazon ECR resources.</p>
    */
   ecr: State | undefined;
+
+  /**
+   * <p>An object that described the state of Amazon Inspector scans for an account.</p>
+   */
+  lambda?: State;
 }
 
 /**
- * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment</p>
+ * <p>An object with details the status of an Amazon Web Services account within your Amazon Inspector environment.</p>
  */
 export interface AccountState {
   /**
@@ -236,7 +247,7 @@ export enum StringComparison {
  */
 export interface StringFilter {
   /**
-   * <p>The operator to use when comparing values in the filter</p>
+   * <p>The operator to use when comparing values in the filter.</p>
    */
   comparison: StringComparison | string | undefined;
 
@@ -454,6 +465,84 @@ export interface ImageLayerAggregation {
   sortBy?: ImageLayerSortBy | string;
 }
 
+export enum LambdaFunctionSortBy {
+  ALL = "ALL",
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+}
+
+/**
+ * <p>The details that define a findings aggregation based on AWS Lambda functions.</p>
+ */
+export interface LambdaFunctionAggregation {
+  /**
+   * <p>The resource IDs to include in the aggregation results.</p>
+   */
+  resourceIds?: StringFilter[];
+
+  /**
+   * <p>The AWS Lambda function names to include in the aggregation results.</p>
+   */
+  functionNames?: StringFilter[];
+
+  /**
+   * <p>Returns findings aggregated by AWS Lambda function runtime environments.</p>
+   */
+  runtimes?: StringFilter[];
+
+  /**
+   * <p>The tags to include in the aggregation results.</p>
+   */
+  functionTags?: MapFilter[];
+
+  /**
+   * <p>The order to use for sorting the results.</p>
+   */
+  sortOrder?: SortOrder | string;
+
+  /**
+   * <p>The finding severity to use for sorting the results.</p>
+   */
+  sortBy?: LambdaFunctionSortBy | string;
+}
+
+export enum LambdaLayerSortBy {
+  ALL = "ALL",
+  CRITICAL = "CRITICAL",
+  HIGH = "HIGH",
+}
+
+/**
+ * <p>The details that define a findings aggregation based on an AWS Lambda function's layers.</p>
+ */
+export interface LambdaLayerAggregation {
+  /**
+   * <p>The names of the AWS Lambda functions associated with the layers.</p>
+   */
+  functionNames?: StringFilter[];
+
+  /**
+   * <p>The resource IDs for the AWS Lambda function layers.</p>
+   */
+  resourceIds?: StringFilter[];
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function layer.
+   *       </p>
+   */
+  layerArns?: StringFilter[];
+
+  /**
+   * <p>The order to use for sorting the results.</p>
+   */
+  sortOrder?: SortOrder | string;
+
+  /**
+   * <p>The finding severity to use for sorting the results.</p>
+   */
+  sortBy?: LambdaLayerSortBy | string;
+}
+
 export enum PackageSortBy {
   ALL = "ALL",
   CRITICAL = "CRITICAL",
@@ -553,6 +642,8 @@ export type AggregationRequest =
   | AggregationRequest.Ec2InstanceAggregationMember
   | AggregationRequest.FindingTypeAggregationMember
   | AggregationRequest.ImageLayerAggregationMember
+  | AggregationRequest.LambdaFunctionAggregationMember
+  | AggregationRequest.LambdaLayerAggregationMember
   | AggregationRequest.PackageAggregationMember
   | AggregationRequest.RepositoryAggregationMember
   | AggregationRequest.TitleAggregationMember
@@ -573,6 +664,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -590,6 +683,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -607,6 +702,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -624,6 +721,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -640,6 +739,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -657,6 +758,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -674,6 +777,8 @@ export namespace AggregationRequest {
     packageAggregation: PackageAggregation;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -690,6 +795,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation: RepositoryAggregation;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -706,6 +813,44 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation: TitleAggregation;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Returns an object with findings aggregated by AWS Lambda layer.</p>
+   */
+  export interface LambdaLayerAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation: LambdaLayerAggregation;
+    lambdaFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Returns an object with findings aggregated by AWS Lambda function.</p>
+   */
+  export interface LambdaFunctionAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation: LambdaFunctionAggregation;
     $unknown?: never;
   }
 
@@ -719,6 +864,8 @@ export namespace AggregationRequest {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -732,6 +879,8 @@ export namespace AggregationRequest {
     packageAggregation: (value: PackageAggregation) => T;
     repositoryAggregation: (value: RepositoryAggregation) => T;
     titleAggregation: (value: TitleAggregation) => T;
+    lambdaLayerAggregation: (value: LambdaLayerAggregation) => T;
+    lambdaFunctionAggregation: (value: LambdaFunctionAggregation) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -746,6 +895,9 @@ export namespace AggregationRequest {
     if (value.packageAggregation !== undefined) return visitor.packageAggregation(value.packageAggregation);
     if (value.repositoryAggregation !== undefined) return visitor.repositoryAggregation(value.repositoryAggregation);
     if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
+    if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
+    if (value.lambdaFunctionAggregation !== undefined)
+      return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -760,7 +912,7 @@ export interface AmiAggregationResponse {
   ami: string | undefined;
 
   /**
-   * <p>The Amazon Web Services account ID that the AMI belongs.</p>
+   * <p>The Amazon Web Services account ID for the AMI.</p>
    */
   accountId?: string;
 
@@ -840,7 +992,7 @@ export interface Ec2InstanceAggregationResponse {
   instanceTags?: Record<string, string>;
 
   /**
-   * <p>The Amazon Web Services account the Amazon EC2 instance belongs to.</p>
+   * <p>The Amazon Web Services account for the Amazon EC2 instance.</p>
    */
   accountId?: string;
 
@@ -896,6 +1048,77 @@ export interface ImageLayerAggregationResponse {
 
   /**
    * <p>An object that represents the count of matched findings per severity.</p>
+   */
+  severityCounts?: SeverityCounts;
+}
+
+/**
+ * <p>A response that contains the results of an AWS Lambda function finding aggregation.</p>
+ */
+export interface LambdaFunctionAggregationResponse {
+  /**
+   * <p>The resource IDs included in the aggregation results.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The AWS Lambda function names included in the aggregation results.</p>
+   */
+  functionName?: string;
+
+  /**
+   * <p>The runtimes included in the aggregation results.</p>
+   */
+  runtime?: string;
+
+  /**
+   * <p>The tags included in the aggregation results.</p>
+   */
+  lambdaTags?: Record<string, string>;
+
+  /**
+   * <p>The ID of the AWS account that owns the AWS Lambda function.
+   *       </p>
+   */
+  accountId?: string;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
+   */
+  severityCounts?: SeverityCounts;
+
+  /**
+   * <p>The date that the AWS Lambda function included in the aggregation results was last changed.</p>
+   */
+  lastModifiedAt?: Date;
+}
+
+/**
+ * <p>A response that contains the results of an AWS Lambda function layer finding aggregation.</p>
+ */
+export interface LambdaLayerAggregationResponse {
+  /**
+   * <p>The names of the AWS Lambda functions associated with the layers.</p>
+   */
+  functionName: string | undefined;
+
+  /**
+   * <p>The Resource ID of the AWS Lambda function layer.</p>
+   */
+  resourceId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS Lambda function layer.</p>
+   */
+  layerArn: string | undefined;
+
+  /**
+   * <p>The account ID of the AWS Lambda function layer.</p>
+   */
+  accountId: string | undefined;
+
+  /**
+   * <p>An object that contains the counts of aggregated finding per severity.</p>
    */
   severityCounts?: SeverityCounts;
 }
@@ -980,6 +1203,8 @@ export type AggregationResponse =
   | AggregationResponse.Ec2InstanceAggregationMember
   | AggregationResponse.FindingTypeAggregationMember
   | AggregationResponse.ImageLayerAggregationMember
+  | AggregationResponse.LambdaFunctionAggregationMember
+  | AggregationResponse.LambdaLayerAggregationMember
   | AggregationResponse.PackageAggregationMember
   | AggregationResponse.RepositoryAggregationMember
   | AggregationResponse.TitleAggregationMember
@@ -1000,6 +1225,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1017,6 +1244,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1034,6 +1263,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1051,6 +1282,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1067,6 +1300,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1084,6 +1319,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1101,6 +1338,8 @@ export namespace AggregationResponse {
     packageAggregation: PackageAggregationResponse;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1118,6 +1357,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation: RepositoryAggregationResponse;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown?: never;
   }
 
@@ -1134,6 +1375,44 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation: TitleAggregationResponse;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An aggregation of findings by AWS Lambda layer.</p>
+   */
+  export interface LambdaLayerAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation: LambdaLayerAggregationResponse;
+    lambdaFunctionAggregation?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>An aggregation of findings by AWS Lambda function.</p>
+   */
+  export interface LambdaFunctionAggregationMember {
+    accountAggregation?: never;
+    amiAggregation?: never;
+    awsEcrContainerAggregation?: never;
+    ec2InstanceAggregation?: never;
+    findingTypeAggregation?: never;
+    imageLayerAggregation?: never;
+    packageAggregation?: never;
+    repositoryAggregation?: never;
+    titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation: LambdaFunctionAggregationResponse;
     $unknown?: never;
   }
 
@@ -1147,6 +1426,8 @@ export namespace AggregationResponse {
     packageAggregation?: never;
     repositoryAggregation?: never;
     titleAggregation?: never;
+    lambdaLayerAggregation?: never;
+    lambdaFunctionAggregation?: never;
     $unknown: [string, any];
   }
 
@@ -1160,6 +1441,8 @@ export namespace AggregationResponse {
     packageAggregation: (value: PackageAggregationResponse) => T;
     repositoryAggregation: (value: RepositoryAggregationResponse) => T;
     titleAggregation: (value: TitleAggregationResponse) => T;
+    lambdaLayerAggregation: (value: LambdaLayerAggregationResponse) => T;
+    lambdaFunctionAggregation: (value: LambdaFunctionAggregationResponse) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1174,6 +1457,9 @@ export namespace AggregationResponse {
     if (value.packageAggregation !== undefined) return visitor.packageAggregation(value.packageAggregation);
     if (value.repositoryAggregation !== undefined) return visitor.repositoryAggregation(value.repositoryAggregation);
     if (value.titleAggregation !== undefined) return visitor.titleAggregation(value.titleAggregation);
+    if (value.lambdaLayerAggregation !== undefined) return visitor.lambdaLayerAggregation(value.lambdaLayerAggregation);
+    if (value.lambdaFunctionAggregation !== undefined)
+      return visitor.lambdaFunctionAggregation(value.lambdaFunctionAggregation);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1183,11 +1469,18 @@ export enum AggregationType {
   AMI = "AMI",
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER = "AWS_ECR_CONTAINER",
+  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
   FINDING_TYPE = "FINDING_TYPE",
   IMAGE_LAYER = "IMAGE_LAYER",
+  LAMBDA_LAYER = "LAMBDA_LAYER",
   PACKAGE = "PACKAGE",
   REPOSITORY = "REPOSITORY",
   TITLE = "TITLE",
+}
+
+export enum Architecture {
+  ARM64 = "ARM64",
+  X86_64 = "X86_64",
 }
 
 export interface AssociateMemberRequest {
@@ -1236,6 +1529,14 @@ export class InternalServerException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  /**
+   * <p>The number of seconds to wait before retrying the request.</p>
+   */
+  retryAfterSeconds?: number;
+
   /**
    * @internal
    */
@@ -1246,6 +1547,7 @@ export class ThrottlingException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.retryAfterSeconds = opts.retryAfterSeconds;
   }
 }
 
@@ -1317,6 +1619,12 @@ export interface AutoEnable {
    *          organization.</p>
    */
   ecr: boolean | undefined;
+
+  /**
+   * <p>Represents whether AWS Lambda scans are automatically enabled for new members of your Amazon Inspector organization.
+   *       </p>
+   */
+  lambda?: boolean;
 }
 
 /**
@@ -1409,7 +1717,7 @@ export interface AwsEcrContainerImageDetails {
   imageHash: string | undefined;
 
   /**
-   * <p>The registry the Amazon ECR container image belongs to.</p>
+   * <p>The registry for the Amazon ECR container image.</p>
    */
   registry: string | undefined;
 
@@ -1417,6 +1725,103 @@ export interface AwsEcrContainerImageDetails {
    * <p>The platform of the Amazon ECR container image.</p>
    */
   platform?: string;
+}
+
+export enum PackageType {
+  IMAGE = "IMAGE",
+  ZIP = "ZIP",
+}
+
+export enum Runtime {
+  JAVA_11 = "JAVA_11",
+  JAVA_8 = "JAVA_8",
+  JAVA_8_AL2 = "JAVA_8_AL2",
+  NODEJS = "NODEJS",
+  NODEJS_12_X = "NODEJS_12_X",
+  NODEJS_14_X = "NODEJS_14_X",
+  NODEJS_16_X = "NODEJS_16_X",
+  PYTHON_3_7 = "PYTHON_3_7",
+  PYTHON_3_8 = "PYTHON_3_8",
+  PYTHON_3_9 = "PYTHON_3_9",
+  UNSUPPORTED = "UNSUPPORTED",
+}
+
+/**
+ * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ */
+export interface LambdaVpcConfig {
+  /**
+   * <p>A list of VPC subnet IDs.</p>
+   */
+  subnetIds?: string[];
+
+  /**
+   * <p>The VPC security groups and subnets that are attached to an AWS Lambda function. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+   */
+  securityGroupIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  vpcId?: string;
+}
+
+/**
+ * <p> A summary of information about the AWS Lambda function.</p>
+ */
+export interface AwsLambdaFunctionDetails {
+  /**
+   * <p>The name of the AWS Lambda function.</p>
+   */
+  functionName: string | undefined;
+
+  /**
+   * <p>The runtime environment for the AWS Lambda function.</p>
+   */
+  runtime: Runtime | string | undefined;
+
+  /**
+   * <p>The SHA256 hash of the AWS Lambda function's deployment package.</p>
+   */
+  codeSha256: string | undefined;
+
+  /**
+   * <p>The version of the AWS Lambda function.</p>
+   */
+  version: string | undefined;
+
+  /**
+   * <p>The AWS Lambda function's execution role.</p>
+   */
+  executionRoleArn: string | undefined;
+
+  /**
+   * <p>The AWS Lambda function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+   *          layers</a>. A Lambda function can have up to five layers.</p>
+   */
+  layers?: string[];
+
+  /**
+   * <p>The AWS Lambda function's networking configuration.</p>
+   */
+  vpcConfig?: LambdaVpcConfig;
+
+  /**
+   * <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for .zip file archive.</p>
+   */
+  packageType?: PackageType | string;
+
+  /**
+   * <p>The instruction set architecture that the AWS Lambda function supports. Architecture is a string array with one of the
+   *          valid values. The default architecture value is <code>x86_64</code>.</p>
+   */
+  architectures?: (Architecture | string)[];
+
+  /**
+   * <p>The date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
+   *          </p>
+   */
+  lastModifiedAt?: Date;
 }
 
 /**
@@ -1521,6 +1926,7 @@ export enum FreeTrialStatus {
 export enum FreeTrialType {
   EC2 = "EC2",
   ECR = "ECR",
+  LAMBDA = "LAMBDA",
 }
 
 /**
@@ -1761,12 +2167,28 @@ export interface CoverageFilterCriteria {
    * <p>The Amazon EC2 instance tags to filter on.</p>
    */
   ec2InstanceTags?: CoverageMapFilter[];
+
+  /**
+   * <p>Returns coverage statistics for AWS Lambda functions filtered by function names.</p>
+   */
+  lambdaFunctionName?: CoverageStringFilter[];
+
+  /**
+   * <p>Returns coverage statistics for AWS Lambda functions filtered by tag.</p>
+   */
+  lambdaFunctionTags?: CoverageMapFilter[];
+
+  /**
+   * <p>Returns coverage statistics for AWS Lambda functions filtered by runtime.</p>
+   */
+  lambdaFunctionRuntime?: CoverageStringFilter[];
 }
 
 export enum CoverageResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
   AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
 }
 
 export enum Ec2Platform {
@@ -1827,6 +2249,31 @@ export interface EcrRepositoryMetadata {
 }
 
 /**
+ * <p>The AWS Lambda function metadata.</p>
+ */
+export interface LambdaFunctionMetadata {
+  /**
+   * <p>The resource tags on an AWS Lambda function.</p>
+   */
+  functionTags?: Record<string, string>;
+
+  /**
+   * <p>The layers for an AWS Lambda function. A Lambda function can have up to five layers.</p>
+   */
+  layers?: string[];
+
+  /**
+   * <p>The name of a function.</p>
+   */
+  functionName?: string;
+
+  /**
+   * <p>An AWS Lambda function's runtime.</p>
+   */
+  runtime?: Runtime | string;
+}
+
+/**
  * <p>An object that contains details about the metadata for an Amazon ECR resource.</p>
  */
 export interface ResourceScanMetadata {
@@ -1844,11 +2291,17 @@ export interface ResourceScanMetadata {
    * <p>An object that contains metadata details for an Amazon EC2 instance.</p>
    */
   ec2?: Ec2Metadata;
+
+  /**
+   * <p>An object that contains metadata details for an AWS Lambda function.</p>
+   */
+  lambdaFunction?: LambdaFunctionMetadata;
 }
 
 export enum ScanStatusReason {
   ACCESS_DENIED = "ACCESS_DENIED",
   EC2_INSTANCE_STOPPED = "EC2_INSTANCE_STOPPED",
+  EXCLUDED_BY_TAG = "EXCLUDED_BY_TAG",
   IMAGE_SIZE_EXCEEDED = "IMAGE_SIZE_EXCEEDED",
   INTERNAL_ERROR = "INTERNAL_ERROR",
   NO_INVENTORY = "NO_INVENTORY",
@@ -1863,6 +2316,7 @@ export enum ScanStatusReason {
   SUCCESSFUL = "SUCCESSFUL",
   UNMANAGED_EC2_INSTANCE = "UNMANAGED_EC2_INSTANCE",
   UNSUPPORTED_OS = "UNSUPPORTED_OS",
+  UNSUPPORTED_RUNTIME = "UNSUPPORTED_RUNTIME",
 }
 
 export enum ScanStatusCode {
@@ -2008,6 +2462,11 @@ export interface PackageFilter {
    * <p>An object that contains details on the source layer hash to filter on.</p>
    */
   sourceLayerHash?: StringFilter;
+
+  /**
+   * <p>An object that describes the details of a string filter.</p>
+   */
+  sourceLambdaLayerArn?: StringFilter;
 }
 
 /**
@@ -2173,6 +2632,38 @@ export interface FilterCriteria {
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    */
   fixAvailable?: StringFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda functions by the name of the function.</p>
+   */
+  lambdaFunctionName?: StringFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda functions by the function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">
+   *          layers</a>. A Lambda function can have up to five layers.</p>
+   */
+  lambdaFunctionLayers?: StringFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda functions by the runtime environment for the Lambda function.</p>
+   */
+  lambdaFunctionRuntime?: StringFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda functions by the date and time that a user last updated the configuration, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO 8601 format</a>
+   *          </p>
+   */
+  lambdaFunctionLastModifiedAt?: DateFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda functions by execution role.</p>
+   */
+  lambdaFunctionExecutionRoleArn?: StringFilter[];
+
+  /**
+   * <p>Filters the list of AWS Lambda findings by the availability of exploits.</p>
+   */
+  exploitAvailable?: StringFilter[];
 }
 
 export interface CreateFilterRequest {
@@ -2451,6 +2942,7 @@ export interface DescribeOrganizationConfigurationResponse {
 export enum ResourceScanType {
   EC2 = "EC2",
   ECR = "ECR",
+  LAMBDA = "LAMBDA",
 }
 
 export interface DisableRequest {
@@ -2514,7 +3006,7 @@ export enum EcrRescanDuration {
 }
 
 /**
- * <p>Details about the ECR automated re-scan duration setting for your environment</p>
+ * <p>Details about the ECR automated re-scan duration setting for your environment.</p>
  */
 export interface EcrConfiguration {
   /**
@@ -2607,6 +3099,21 @@ export interface EnableDelegatedAdminAccountResponse {
    * <p>The Amazon Web Services account ID of the successfully Amazon Inspector delegated administrator.</p>
    */
   delegatedAdminAccountId: string | undefined;
+}
+
+/**
+ * <p>The details of an exploit available for a finding discovered in your environment.</p>
+ */
+export interface ExploitabilityDetails {
+  /**
+   * <p>The date and time of the last exploit associated with a finding discovered in your environment.</p>
+   */
+  lastKnownExploitAt?: Date;
+}
+
+export enum ExploitAvailable {
+  NO = "NO",
+  YES = "YES",
 }
 
 export enum ExternalReportStatus {
@@ -2824,6 +3331,11 @@ export interface VulnerablePackage {
    * <p>The code to run in your environment to update packages with a fix available.</p>
    */
   remediation?: string;
+
+  /**
+   * <p>The Amazon Resource Number (ARN) of the AWS Lambda function affected by a finding.</p>
+   */
+  sourceLambdaLayerArn?: string;
 }
 
 /**
@@ -2919,12 +3431,18 @@ export interface ResourceDetails {
    * <p>An object that contains details about the Amazon ECR container image involved in the finding.</p>
    */
   awsEcrContainerImage?: AwsEcrContainerImageDetails;
+
+  /**
+   * <p>A summary of the information about an AWS Lambda function affected by a finding.</p>
+   */
+  awsLambdaFunction?: AwsLambdaFunctionDetails;
 }
 
 export enum ResourceType {
   AWS_EC2_INSTANCE = "AWS_EC2_INSTANCE",
   AWS_ECR_CONTAINER_IMAGE = "AWS_ECR_CONTAINER_IMAGE",
   AWS_ECR_REPOSITORY = "AWS_ECR_REPOSITORY",
+  AWS_LAMBDA_FUNCTION = "AWS_LAMBDA_FUNCTION",
 }
 
 /**
@@ -3070,6 +3588,16 @@ export interface Finding {
    * <p>Details on whether a fix is available through a version update. This value can be <code>YES</code>, <code>NO</code>, or <code>PARTIAL</code>.  A <code>PARTIAL</code> fix means that some, but not all, of the packages identified in the finding have fixes available through updated versions.</p>
    */
   fixAvailable?: FixAvailable | string;
+
+  /**
+   * <p>If a finding discovered in your environment has an exploit available.</p>
+   */
+  exploitAvailable?: ExploitAvailable | string;
+
+  /**
+   * <p>The details of an exploit available for a finding discovered in your environment.</p>
+   */
+  exploitabilityDetails?: ExploitabilityDetails;
 }
 
 export interface GetConfigurationRequest {}
@@ -3180,6 +3708,7 @@ export interface GetMemberResponse {
 export enum Service {
   EC2 = "EC2",
   ECR = "ECR",
+  LAMBDA = "LAMBDA",
 }
 
 export interface ListAccountPermissionsRequest {
@@ -3582,6 +4111,7 @@ export enum UsageType {
   EC2_INSTANCE_HOURS = "EC2_INSTANCE_HOURS",
   ECR_INITIAL_SCAN = "ECR_INITIAL_SCAN",
   ECR_RESCAN = "ECR_RESCAN",
+  LAMBDA_FUNCTION_HOURS = "LAMBDA_FUNCTION_HOURS",
 }
 
 /**
@@ -3834,6 +4364,20 @@ export const ImageLayerAggregationFilterSensitiveLog = (obj: ImageLayerAggregati
 /**
  * @internal
  */
+export const LambdaFunctionAggregationFilterSensitiveLog = (obj: LambdaFunctionAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaLayerAggregationFilterSensitiveLog = (obj: LambdaLayerAggregation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PackageAggregationFilterSensitiveLog = (obj: PackageAggregation): any => ({
   ...obj,
 });
@@ -3873,6 +4417,10 @@ export const AggregationRequestFilterSensitiveLog = (obj: AggregationRequest): a
     return { repositoryAggregation: RepositoryAggregationFilterSensitiveLog(obj.repositoryAggregation) };
   if (obj.titleAggregation !== undefined)
     return { titleAggregation: TitleAggregationFilterSensitiveLog(obj.titleAggregation) };
+  if (obj.lambdaLayerAggregation !== undefined)
+    return { lambdaLayerAggregation: LambdaLayerAggregationFilterSensitiveLog(obj.lambdaLayerAggregation) };
+  if (obj.lambdaFunctionAggregation !== undefined)
+    return { lambdaFunctionAggregation: LambdaFunctionAggregationFilterSensitiveLog(obj.lambdaFunctionAggregation) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -3908,6 +4456,20 @@ export const FindingTypeAggregationResponseFilterSensitiveLog = (obj: FindingTyp
  * @internal
  */
 export const ImageLayerAggregationResponseFilterSensitiveLog = (obj: ImageLayerAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionAggregationResponseFilterSensitiveLog = (obj: LambdaFunctionAggregationResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaLayerAggregationResponseFilterSensitiveLog = (obj: LambdaLayerAggregationResponse): any => ({
   ...obj,
 });
 
@@ -3956,6 +4518,12 @@ export const AggregationResponseFilterSensitiveLog = (obj: AggregationResponse):
     return { repositoryAggregation: RepositoryAggregationResponseFilterSensitiveLog(obj.repositoryAggregation) };
   if (obj.titleAggregation !== undefined)
     return { titleAggregation: TitleAggregationResponseFilterSensitiveLog(obj.titleAggregation) };
+  if (obj.lambdaLayerAggregation !== undefined)
+    return { lambdaLayerAggregation: LambdaLayerAggregationResponseFilterSensitiveLog(obj.lambdaLayerAggregation) };
+  if (obj.lambdaFunctionAggregation !== undefined)
+    return {
+      lambdaFunctionAggregation: LambdaFunctionAggregationResponseFilterSensitiveLog(obj.lambdaFunctionAggregation),
+    };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
@@ -3998,6 +4566,20 @@ export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetai
  * @internal
  */
 export const AwsEcrContainerImageDetailsFilterSensitiveLog = (obj: AwsEcrContainerImageDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaVpcConfigFilterSensitiveLog = (obj: LambdaVpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
   ...obj,
 });
 
@@ -4117,6 +4699,13 @@ export const EcrContainerImageMetadataFilterSensitiveLog = (obj: EcrContainerIma
  * @internal
  */
 export const EcrRepositoryMetadataFilterSensitiveLog = (obj: EcrRepositoryMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LambdaFunctionMetadataFilterSensitiveLog = (obj: LambdaFunctionMetadata): any => ({
   ...obj,
 });
 
@@ -4372,6 +4961,13 @@ export const EnableDelegatedAdminAccountRequestFilterSensitiveLog = (obj: Enable
 export const EnableDelegatedAdminAccountResponseFilterSensitiveLog = (
   obj: EnableDelegatedAdminAccountResponse
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ExploitabilityDetailsFilterSensitiveLog = (obj: ExploitabilityDetails): any => ({
   ...obj,
 });
 
