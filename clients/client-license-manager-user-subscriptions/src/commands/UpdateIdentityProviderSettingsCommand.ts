@@ -19,44 +19,42 @@ import {
   ServiceOutputTypes,
 } from "../LicenseManagerUserSubscriptionsClient";
 import {
-  AssociateUserRequest,
-  AssociateUserRequestFilterSensitiveLog,
-  AssociateUserResponse,
-  AssociateUserResponseFilterSensitiveLog,
+  UpdateIdentityProviderSettingsRequest,
+  UpdateIdentityProviderSettingsRequestFilterSensitiveLog,
+  UpdateIdentityProviderSettingsResponse,
+  UpdateIdentityProviderSettingsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1AssociateUserCommand,
-  serializeAws_restJson1AssociateUserCommand,
+  deserializeAws_restJson1UpdateIdentityProviderSettingsCommand,
+  serializeAws_restJson1UpdateIdentityProviderSettingsCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface AssociateUserCommandInput extends AssociateUserRequest {}
-export interface AssociateUserCommandOutput extends AssociateUserResponse, __MetadataBearer {}
+export interface UpdateIdentityProviderSettingsCommandInput extends UpdateIdentityProviderSettingsRequest {}
+export interface UpdateIdentityProviderSettingsCommandOutput
+  extends UpdateIdentityProviderSettingsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Associates the user to an EC2 instance to utilize user-based subscriptions.</p>
- *          <note>
- *             <p>Your estimated bill for charges on the number of users and related costs will take 48
- *         hours to appear for billing periods that haven't closed (marked as <b>Pending</b> billing status) in Amazon Web Services Billing. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/invoice.html">Viewing your
- *           monthly charges</a> in the <i>Amazon Web Services Billing User Guide</i>.</p>
- *          </note>
+ * <p>Updates additional product configuration settings for the registered identity
+ *       provider.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
- * // const { LicenseManagerUserSubscriptionsClient, AssociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
+ * import { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } from "@aws-sdk/client-license-manager-user-subscriptions"; // ES Modules import
+ * // const { LicenseManagerUserSubscriptionsClient, UpdateIdentityProviderSettingsCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
- * const command = new AssociateUserCommand(input);
+ * const command = new UpdateIdentityProviderSettingsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link AssociateUserCommandInput} for command's `input` shape.
- * @see {@link AssociateUserCommandOutput} for command's `response` shape.
+ * @see {@link UpdateIdentityProviderSettingsCommandInput} for command's `input` shape.
+ * @see {@link UpdateIdentityProviderSettingsCommandOutput} for command's `response` shape.
  * @see {@link LicenseManagerUserSubscriptionsClientResolvedConfig | config} for LicenseManagerUserSubscriptionsClient's `config` shape.
  *
  */
-export class AssociateUserCommand extends $Command<
-  AssociateUserCommandInput,
-  AssociateUserCommandOutput,
+export class UpdateIdentityProviderSettingsCommand extends $Command<
+  UpdateIdentityProviderSettingsCommandInput,
+  UpdateIdentityProviderSettingsCommandOutput,
   LicenseManagerUserSubscriptionsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -71,7 +69,7 @@ export class AssociateUserCommand extends $Command<
     };
   }
 
-  constructor(readonly input: AssociateUserCommandInput) {
+  constructor(readonly input: UpdateIdentityProviderSettingsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -84,21 +82,23 @@ export class AssociateUserCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: LicenseManagerUserSubscriptionsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<AssociateUserCommandInput, AssociateUserCommandOutput> {
+  ): Handler<UpdateIdentityProviderSettingsCommandInput, UpdateIdentityProviderSettingsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, AssociateUserCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateIdentityProviderSettingsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "LicenseManagerUserSubscriptionsClient";
-    const commandName = "AssociateUserCommand";
+    const commandName = "UpdateIdentityProviderSettingsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: AssociateUserRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: AssociateUserResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateIdentityProviderSettingsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateIdentityProviderSettingsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,12 +108,18 @@ export class AssociateUserCommand extends $Command<
     );
   }
 
-  private serialize(input: AssociateUserCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1AssociateUserCommand(input, context);
+  private serialize(
+    input: UpdateIdentityProviderSettingsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_restJson1UpdateIdentityProviderSettingsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AssociateUserCommandOutput> {
-    return deserializeAws_restJson1AssociateUserCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<UpdateIdentityProviderSettingsCommandOutput> {
+    return deserializeAws_restJson1UpdateIdentityProviderSettingsCommand(output, context);
   }
 
   // Start section: command_body_extra

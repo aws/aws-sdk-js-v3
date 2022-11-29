@@ -9,3 +9,4 @@ export * from "./ListUserAssociationsCommand";
 export * from "./RegisterIdentityProviderCommand";
 export * from "./StartProductSubscriptionCommand";
 export * from "./StopProductSubscriptionCommand";
+export * from "./UpdateIdentityProviderSettingsCommand";
