@@ -19,7 +19,7 @@ import {
   SearchResourcesRequestFilterSensitiveLog,
   SearchResourcesResponse,
   SearchResourcesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1SearchResourcesCommand,
   serializeAws_restJson1SearchResourcesCommand,

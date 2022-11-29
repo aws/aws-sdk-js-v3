@@ -18,7 +18,7 @@ import {
   UpdateGroupRequestFilterSensitiveLog,
   UpdateGroupResponse,
   UpdateGroupResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateGroupCommand,
   serializeAws_restJson1UpdateGroupCommand,

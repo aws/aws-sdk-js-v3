@@ -35,6 +35,9 @@ export interface PutRemediationExceptionsCommandOutput extends PutRemediationExc
  *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
  * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
  *          </note>
+ * 		       <note>
+ *             <p>To place an exception on an Amazon Web Services resource, ensure remediation is set as manual remediation.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

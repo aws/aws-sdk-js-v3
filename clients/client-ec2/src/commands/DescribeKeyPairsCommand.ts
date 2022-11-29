@@ -19,7 +19,7 @@ import {
   DescribeKeyPairsRequestFilterSensitiveLog,
   DescribeKeyPairsResult,
   DescribeKeyPairsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeKeyPairsCommand,
   serializeAws_ec2DescribeKeyPairsCommand,

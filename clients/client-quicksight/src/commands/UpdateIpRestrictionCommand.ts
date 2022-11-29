@@ -18,7 +18,7 @@ import {
   UpdateIpRestrictionRequestFilterSensitiveLog,
   UpdateIpRestrictionResponse,
   UpdateIpRestrictionResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateIpRestrictionCommand,
   serializeAws_restJson1UpdateIpRestrictionCommand,

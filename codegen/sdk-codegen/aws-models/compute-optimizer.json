@@ -356,7 +356,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -677,8 +677,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -690,8 +690,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -703,8 +703,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -716,8 +716,8 @@
               },
               "params": {
                 "Region": "ap-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -729,8 +729,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -742,8 +742,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -755,8 +755,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -768,8 +768,8 @@
               },
               "params": {
                 "Region": "eu-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -781,8 +781,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -794,8 +794,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -807,8 +807,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -820,8 +820,8 @@
               },
               "params": {
                 "Region": "us-gov-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -833,8 +833,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -846,8 +846,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -859,8 +859,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -872,8 +872,8 @@
               },
               "params": {
                 "Region": "ca-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -885,8 +885,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -898,8 +898,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -911,8 +911,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -924,8 +924,8 @@
               },
               "params": {
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -937,8 +937,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -950,8 +950,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -963,8 +963,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -976,8 +976,8 @@
               },
               "params": {
                 "Region": "us-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -989,8 +989,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1002,8 +1002,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1015,8 +1015,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1028,8 +1028,8 @@
               },
               "params": {
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1041,8 +1041,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1054,8 +1054,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1067,8 +1067,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1080,8 +1080,8 @@
               },
               "params": {
                 "Region": "af-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1093,8 +1093,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1106,8 +1106,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1119,8 +1119,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1132,8 +1132,8 @@
               },
               "params": {
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1145,8 +1145,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1158,8 +1158,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1171,8 +1171,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1184,8 +1184,8 @@
               },
               "params": {
                 "Region": "eu-west-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1197,8 +1197,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1210,8 +1210,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1223,8 +1223,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1236,8 +1236,8 @@
               },
               "params": {
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1249,8 +1249,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1262,8 +1262,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1275,8 +1275,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1288,8 +1288,8 @@
               },
               "params": {
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1301,8 +1301,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1314,8 +1314,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1327,8 +1327,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1340,8 +1340,8 @@
               },
               "params": {
                 "Region": "ap-northeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1353,8 +1353,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1366,8 +1366,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1379,8 +1379,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1392,8 +1392,8 @@
               },
               "params": {
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1405,8 +1405,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1418,8 +1418,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1431,8 +1431,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1444,8 +1444,8 @@
               },
               "params": {
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1457,8 +1457,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1470,8 +1470,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1483,8 +1483,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1496,8 +1496,8 @@
               },
               "params": {
                 "Region": "me-south-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1509,8 +1509,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1522,8 +1522,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1535,8 +1535,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1548,8 +1548,8 @@
               },
               "params": {
                 "Region": "sa-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1561,8 +1561,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1574,8 +1574,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1587,8 +1587,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1600,8 +1600,8 @@
               },
               "params": {
                 "Region": "ap-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1613,8 +1613,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1626,8 +1626,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1639,8 +1639,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1652,8 +1652,8 @@
               },
               "params": {
                 "Region": "cn-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1665,8 +1665,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1678,8 +1678,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1691,8 +1691,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1704,8 +1704,8 @@
               },
               "params": {
                 "Region": "us-gov-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1717,8 +1717,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1730,8 +1730,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1743,8 +1743,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1756,8 +1756,8 @@
               },
               "params": {
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1769,8 +1769,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1782,8 +1782,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1795,8 +1795,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1808,8 +1808,8 @@
               },
               "params": {
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1821,8 +1821,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1834,8 +1834,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1847,8 +1847,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1860,8 +1860,8 @@
               },
               "params": {
                 "Region": "ap-southeast-3",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1873,8 +1873,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1886,8 +1886,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1899,8 +1899,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1912,8 +1912,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1925,8 +1925,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1938,8 +1938,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -1951,8 +1951,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -1964,8 +1964,8 @@
               },
               "params": {
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -1977,8 +1977,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
@@ -1990,8 +1990,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseFIPS": true,
+                "UseDualStack": false
               }
             },
             {
@@ -2003,8 +2003,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
@@ -2016,8 +2016,8 @@
               },
               "params": {
                 "Region": "cn-northwest-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseFIPS": false,
+                "UseDualStack": false
               }
             },
             {
@@ -2029,8 +2029,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2041,8 +2041,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -2053,8 +2053,8 @@
               },
               "params": {
                 "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
                 "Endpoint": "https://example.com"
               }
             }
@@ -2064,18 +2064,20 @@
       }
     },
     "com.amazonaws.computeoptimizer#CpuVendorArchitecture": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AWS_ARM64",
-            "name": "AWS_ARM64"
-          },
-          {
-            "value": "CURRENT",
-            "name": "CURRENT"
+      "type": "enum",
+      "members": {
+        "AWS_ARM64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_ARM64"
           }
-        ]
+        },
+        "CURRENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CURRENT"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#CpuVendorArchitectures": {
@@ -2088,44 +2090,52 @@
       "type": "timestamp"
     },
     "com.amazonaws.computeoptimizer#Currency": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "USD",
-            "name": "USD"
-          },
-          {
-            "value": "CNY",
-            "name": "CNY"
+      "type": "enum",
+      "members": {
+        "USD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USD"
           }
-        ]
+        },
+        "CNY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CNY"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#CurrentInstanceType": {
       "type": "string"
     },
     "com.amazonaws.computeoptimizer#CurrentPerformanceRisk": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VeryLow",
-            "name": "VERY_LOW"
-          },
-          {
-            "value": "Low",
-            "name": "LOW"
-          },
-          {
-            "value": "Medium",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "High",
-            "name": "HIGH"
+      "type": "enum",
+      "members": {
+        "VERY_LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VeryLow"
           }
-        ]
+        },
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Low"
+          }
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Medium"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "High"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#CurrentPerformanceRiskRatings": {
@@ -2221,7 +2231,7 @@
         "recommendationPreferenceNames": {
           "target": "com.amazonaws.computeoptimizer#RecommendationPreferenceNames",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the recommendation preference to delete.</p>\n        <p>Enhanced infrastructure metrics (<code>EnhancedInfrastructureMetrics</code>) is the\n            only feature that can be activated through preferences. Therefore, it is also the only\n            recommendation preference that can be deleted.</p>",
+            "smithy.api#documentation": "<p>The name of the recommendation preference to delete.</p>",
             "smithy.api#required": {}
           }
         }
@@ -2351,14 +2361,14 @@
       }
     },
     "com.amazonaws.computeoptimizer#EBSFilterName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Finding",
-            "name": "FINDING"
+      "type": "enum",
+      "members": {
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.computeoptimizer#EBSFilters": {
@@ -2368,41 +2378,49 @@
       }
     },
     "com.amazonaws.computeoptimizer#EBSFinding": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Optimized",
-            "name": "OPTIMIZED"
-          },
-          {
-            "value": "NotOptimized",
-            "name": "NOT_OPTIMIZED"
+      "type": "enum",
+      "members": {
+        "OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Optimized"
           }
-        ]
+        },
+        "NOT_OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotOptimized"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#EBSMetricName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VolumeReadOpsPerSecond",
-            "name": "VOLUME_READ_OPS_PER_SECOND"
-          },
-          {
-            "value": "VolumeWriteOpsPerSecond",
-            "name": "VOLUME_WRITE_OPS_PER_SECOND"
-          },
-          {
-            "value": "VolumeReadBytesPerSecond",
-            "name": "VOLUME_READ_BYTES_PER_SECOND"
-          },
-          {
-            "value": "VolumeWriteBytesPerSecond",
-            "name": "VOLUME_WRITE_BYTES_PER_SECOND"
+      "type": "enum",
+      "members": {
+        "VOLUME_READ_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VolumeReadOpsPerSecond"
           }
-        ]
+        },
+        "VOLUME_WRITE_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VolumeWriteOpsPerSecond"
+          }
+        },
+        "VOLUME_READ_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VolumeReadBytesPerSecond"
+          }
+        },
+        "VOLUME_WRITE_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VolumeWriteBytesPerSecond"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#EBSUtilizationMetric": {
@@ -2458,6 +2476,12 @@
           "traits": {
             "smithy.api#documentation": "<p>Describes the activation status of the inferred workload types preference.</p>\n\n        <p>A status of <code>Active</code> confirms that the preference is applied in the latest\n            recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet\n            applied to recommendations.</p>"
           }
+        },
+        "externalMetricsPreference": {
+          "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the external metrics recommendation preference.\n        </p>\n        <p>\n            If the preference is applied in the latest recommendation refresh, an object with a valid\n            <code>source</code> value appears in the response. If the preference isn't applied to the \n            recommendations already, then this object doesn't appear in the response.\n        </p>"
+          }
         }
       },
       "traits": {
@@ -2465,18 +2489,20 @@
       }
     },
     "com.amazonaws.computeoptimizer#EnhancedInfrastructureMetrics": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Inactive",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inactive"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#EnrollmentFilter": {
@@ -2500,14 +2526,14 @@
       }
     },
     "com.amazonaws.computeoptimizer#EnrollmentFilterName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Status",
-            "name": "STATUS"
+      "type": "enum",
+      "members": {
+        "STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Status"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.computeoptimizer#EnrollmentFilters": {
@@ -2951,226 +2977,332 @@
       }
     },
     "com.amazonaws.computeoptimizer#ExportableAutoScalingGroupField": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AccountId",
-            "name": "ACCOUNT_ID"
-          },
-          {
-            "value": "AutoScalingGroupArn",
-            "name": "AUTO_SCALING_GROUP_ARN"
-          },
-          {
-            "value": "AutoScalingGroupName",
-            "name": "AUTO_SCALING_GROUP_NAME"
-          },
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "UtilizationMetricsCpuMaximum",
-            "name": "UTILIZATION_METRICS_CPU_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsMemoryMaximum",
-            "name": "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "LookbackPeriodInDays",
-            "name": "LOOKBACK_PERIOD_IN_DAYS"
-          },
-          {
-            "value": "CurrentConfigurationInstanceType",
-            "name": "CURRENT_CONFIGURATION_INSTANCE_TYPE"
-          },
-          {
-            "value": "CurrentConfigurationDesiredCapacity",
-            "name": "CURRENT_CONFIGURATION_DESIRED_CAPACITY"
-          },
-          {
-            "value": "CurrentConfigurationMinSize",
-            "name": "CURRENT_CONFIGURATION_MIN_SIZE"
-          },
-          {
-            "value": "CurrentConfigurationMaxSize",
-            "name": "CURRENT_CONFIGURATION_MAX_SIZE"
-          },
-          {
-            "value": "CurrentOnDemandPrice",
-            "name": "CURRENT_ON_DEMAND_PRICE"
-          },
-          {
-            "value": "CurrentStandardOneYearNoUpfrontReservedPrice",
-            "name": "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "CurrentStandardThreeYearNoUpfrontReservedPrice",
-            "name": "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "CurrentVCpus",
-            "name": "CURRENT_VCPUS"
-          },
-          {
-            "value": "CurrentMemory",
-            "name": "CURRENT_MEMORY"
-          },
-          {
-            "value": "CurrentStorage",
-            "name": "CURRENT_STORAGE"
-          },
-          {
-            "value": "CurrentNetwork",
-            "name": "CURRENT_NETWORK"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationInstanceType",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationDesiredCapacity",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationMinSize",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationMaxSize",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-          },
-          {
-            "value": "RecommendationOptionsPerformanceRisk",
-            "name": "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsOnDemandPrice",
-            "name": "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-            "name": "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-            "name": "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsVcpus",
-            "name": "RECOMMENDATION_OPTIONS_VCPUS"
-          },
-          {
-            "value": "RecommendationOptionsMemory",
-            "name": "RECOMMENDATION_OPTIONS_MEMORY"
-          },
-          {
-            "value": "RecommendationOptionsStorage",
-            "name": "RECOMMENDATION_OPTIONS_STORAGE"
-          },
-          {
-            "value": "RecommendationOptionsNetwork",
-            "name": "RECOMMENDATION_OPTIONS_NETWORK"
-          },
-          {
-            "value": "LastRefreshTimestamp",
-            "name": "LAST_REFRESH_TIMESTAMP"
-          },
-          {
-            "value": "CurrentPerformanceRisk",
-            "name": "CURRENT_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsSavingsOpportunityPercentage",
-            "name": "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsValue",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-          },
-          {
-            "value": "InferredWorkloadTypes",
-            "name": "INFERRED_WORKLOAD_TYPES"
-          },
-          {
-            "value": "RecommendationOptionsMigrationEffort",
-            "name": "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
+      "type": "enum",
+      "members": {
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
           }
-        ]
+        },
+        "AUTO_SCALING_GROUP_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AutoScalingGroupArn"
+          }
+        },
+        "AUTO_SCALING_GROUP_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AutoScalingGroupName"
+          }
+        },
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "UTILIZATION_METRICS_CPU_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsCpuMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsMemoryMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsReadOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsWriteOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsReadBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsWriteBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskReadOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskWriteOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskReadBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskWriteBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkInBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkOutBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkPacketsInPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkPacketsOutPerSecondMaximum"
+          }
+        },
+        "LOOKBACK_PERIOD_IN_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookbackPeriodInDays"
+          }
+        },
+        "CURRENT_CONFIGURATION_INSTANCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationInstanceType"
+          }
+        },
+        "CURRENT_CONFIGURATION_DESIRED_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationDesiredCapacity"
+          }
+        },
+        "CURRENT_CONFIGURATION_MIN_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationMinSize"
+          }
+        },
+        "CURRENT_CONFIGURATION_MAX_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationMaxSize"
+          }
+        },
+        "CURRENT_ON_DEMAND_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentOnDemandPrice"
+          }
+        },
+        "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStandardOneYearNoUpfrontReservedPrice"
+          }
+        },
+        "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStandardThreeYearNoUpfrontReservedPrice"
+          }
+        },
+        "CURRENT_VCPUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentVCpus"
+          }
+        },
+        "CURRENT_MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentMemory"
+          }
+        },
+        "CURRENT_STORAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStorage"
+          }
+        },
+        "CURRENT_NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentNetwork"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_INSTANCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationInstanceType"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_DESIRED_CAPACITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationDesiredCapacity"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_MIN_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationMinSize"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_MAX_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationMaxSize"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsOnDemandPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_VCPUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsVcpus"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsMemory"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STORAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStorage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsNetwork"
+          }
+        },
+        "LAST_REFRESH_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastRefreshTimestamp"
+          }
+        },
+        "CURRENT_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValue"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesCpuVendorArchitectures"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesInferredWorkloadTypes"
+          }
+        },
+        "INFERRED_WORKLOAD_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InferredWorkloadTypes"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsMigrationEffort"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#ExportableAutoScalingGroupFields": {
@@ -3180,218 +3312,326 @@
       }
     },
     "com.amazonaws.computeoptimizer#ExportableInstanceField": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AccountId",
-            "name": "ACCOUNT_ID"
-          },
-          {
-            "value": "InstanceArn",
-            "name": "INSTANCE_ARN"
-          },
-          {
-            "value": "InstanceName",
-            "name": "INSTANCE_NAME"
-          },
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "FindingReasonCodes",
-            "name": "Finding_Reason_Codes"
-          },
-          {
-            "value": "LookbackPeriodInDays",
-            "name": "LOOKBACK_PERIOD_IN_DAYS"
-          },
-          {
-            "value": "CurrentInstanceType",
-            "name": "CURRENT_INSTANCE_TYPE"
-          },
-          {
-            "value": "UtilizationMetricsCpuMaximum",
-            "name": "UTILIZATION_METRICS_CPU_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsMemoryMaximum",
-            "name": "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsReadOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsWriteOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsReadBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsEbsWriteBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskReadOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskWriteOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskReadBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDiskWriteBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkInBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkOutBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkPacketsInPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsNetworkPacketsOutPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "CurrentOnDemandPrice",
-            "name": "CURRENT_ON_DEMAND_PRICE"
-          },
-          {
-            "value": "CurrentStandardOneYearNoUpfrontReservedPrice",
-            "name": "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "CurrentStandardThreeYearNoUpfrontReservedPrice",
-            "name": "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "CurrentVCpus",
-            "name": "CURRENT_VCPUS"
-          },
-          {
-            "value": "CurrentMemory",
-            "name": "CURRENT_MEMORY"
-          },
-          {
-            "value": "CurrentStorage",
-            "name": "CURRENT_STORAGE"
-          },
-          {
-            "value": "CurrentNetwork",
-            "name": "CURRENT_NETWORK"
-          },
-          {
-            "value": "RecommendationOptionsInstanceType",
-            "name": "RECOMMENDATION_OPTIONS_INSTANCE_TYPE"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM"
-          },
-          {
-            "value": "RecommendationOptionsPlatformDifferences",
-            "name": "RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES"
-          },
-          {
-            "value": "RecommendationOptionsPerformanceRisk",
-            "name": "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsVcpus",
-            "name": "RECOMMENDATION_OPTIONS_VCPUS"
-          },
-          {
-            "value": "RecommendationOptionsMemory",
-            "name": "RECOMMENDATION_OPTIONS_MEMORY"
-          },
-          {
-            "value": "RecommendationOptionsStorage",
-            "name": "RECOMMENDATION_OPTIONS_STORAGE"
-          },
-          {
-            "value": "RecommendationOptionsNetwork",
-            "name": "RECOMMENDATION_OPTIONS_NETWORK"
-          },
-          {
-            "value": "RecommendationOptionsOnDemandPrice",
-            "name": "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice",
-            "name": "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice",
-            "name": "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE"
-          },
-          {
-            "value": "RecommendationsSourcesRecommendationSourceArn",
-            "name": "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN"
-          },
-          {
-            "value": "RecommendationsSourcesRecommendationSourceType",
-            "name": "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE"
-          },
-          {
-            "value": "LastRefreshTimestamp",
-            "name": "LAST_REFRESH_TIMESTAMP"
-          },
-          {
-            "value": "CurrentPerformanceRisk",
-            "name": "CURRENT_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsSavingsOpportunityPercentage",
-            "name": "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsValue",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesCpuVendorArchitectures",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS"
-          },
-          {
-            "value": "EffectiveRecommendationPreferencesInferredWorkloadTypes",
-            "name": "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES"
-          },
-          {
-            "value": "InferredWorkloadTypes",
-            "name": "INFERRED_WORKLOAD_TYPES"
-          },
-          {
-            "value": "RecommendationOptionsMigrationEffort",
-            "name": "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT"
+      "type": "enum",
+      "members": {
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
           }
-        ]
+        },
+        "INSTANCE_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InstanceArn"
+          }
+        },
+        "INSTANCE_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InstanceName"
+          }
+        },
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "Finding_Reason_Codes": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCodes"
+          }
+        },
+        "LOOKBACK_PERIOD_IN_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookbackPeriodInDays"
+          }
+        },
+        "CURRENT_INSTANCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentInstanceType"
+          }
+        },
+        "UTILIZATION_METRICS_CPU_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsCpuMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsMemoryMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_READ_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsReadOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_WRITE_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsWriteOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_READ_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsReadBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_EBS_WRITE_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsEbsWriteBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_READ_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskReadOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_WRITE_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskWriteOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_READ_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskReadBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DISK_WRITE_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDiskWriteBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_IN_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkInBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_OUT_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkOutBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_PACKETS_IN_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkPacketsInPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_NETWORK_PACKETS_OUT_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsNetworkPacketsOutPerSecondMaximum"
+          }
+        },
+        "CURRENT_ON_DEMAND_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentOnDemandPrice"
+          }
+        },
+        "CURRENT_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStandardOneYearNoUpfrontReservedPrice"
+          }
+        },
+        "CURRENT_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStandardThreeYearNoUpfrontReservedPrice"
+          }
+        },
+        "CURRENT_VCPUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentVCpus"
+          }
+        },
+        "CURRENT_MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentMemory"
+          }
+        },
+        "CURRENT_STORAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentStorage"
+          }
+        },
+        "CURRENT_NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentNetwork"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_INSTANCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsInstanceType"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_CPU_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsCpuMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsMemoryMaximum"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PLATFORM_DIFFERENCES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsPlatformDifferences"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_VCPUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsVcpus"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsMemory"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STORAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStorage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_NETWORK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsNetwork"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ON_DEMAND_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsOnDemandPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STANDARD_ONE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStandardOneYearNoUpfrontReservedPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_STANDARD_THREE_YEAR_NO_UPFRONT_RESERVED_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsStandardThreeYearNoUpfrontReservedPrice"
+          }
+        },
+        "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationsSourcesRecommendationSourceArn"
+          }
+        },
+        "RECOMMENDATIONS_SOURCES_RECOMMENDATION_SOURCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationsSourcesRecommendationSourceType"
+          }
+        },
+        "LAST_REFRESH_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastRefreshTimestamp"
+          }
+        },
+        "CURRENT_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValue"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_CPU_VENDOR_ARCHITECTURES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesCpuVendorArchitectures"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_ENHANCED_INFRASTRUCTURE_METRICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesEnhancedInfrastructureMetrics"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_INFERRED_WORKLOAD_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesInferredWorkloadTypes"
+          }
+        },
+        "INFERRED_WORKLOAD_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InferredWorkloadTypes"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_MIGRATION_EFFORT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsMigrationEffort"
+          }
+        },
+        "EFFECTIVE_RECOMMENDATION_PREFERENCES_EXTERNAL_METRICS_SOURCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EffectiveRecommendationPreferencesExternalMetricsSource"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#ExportableInstanceFields": {
@@ -3401,114 +3641,164 @@
       }
     },
     "com.amazonaws.computeoptimizer#ExportableLambdaFunctionField": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AccountId",
-            "name": "ACCOUNT_ID"
-          },
-          {
-            "value": "FunctionArn",
-            "name": "FUNCTION_ARN"
-          },
-          {
-            "value": "FunctionVersion",
-            "name": "FUNCTION_VERSION"
-          },
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "FindingReasonCodes",
-            "name": "FINDING_REASON_CODES"
-          },
-          {
-            "value": "NumberOfInvocations",
-            "name": "NUMBER_OF_INVOCATIONS"
-          },
-          {
-            "value": "UtilizationMetricsDurationMaximum",
-            "name": "UTILIZATION_METRICS_DURATION_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsDurationAverage",
-            "name": "UTILIZATION_METRICS_DURATION_AVERAGE"
-          },
-          {
-            "value": "UtilizationMetricsMemoryMaximum",
-            "name": "UTILIZATION_METRICS_MEMORY_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsMemoryAverage",
-            "name": "UTILIZATION_METRICS_MEMORY_AVERAGE"
-          },
-          {
-            "value": "LookbackPeriodInDays",
-            "name": "LOOKBACK_PERIOD_IN_DAYS"
-          },
-          {
-            "value": "CurrentConfigurationMemorySize",
-            "name": "CURRENT_CONFIGURATION_MEMORY_SIZE"
-          },
-          {
-            "value": "CurrentConfigurationTimeout",
-            "name": "CURRENT_CONFIGURATION_TIMEOUT"
-          },
-          {
-            "value": "CurrentCostTotal",
-            "name": "CURRENT_COST_TOTAL"
-          },
-          {
-            "value": "CurrentCostAverage",
-            "name": "CURRENT_COST_AVERAGE"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationMemorySize",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE"
-          },
-          {
-            "value": "RecommendationOptionsCostLow",
-            "name": "RECOMMENDATION_OPTIONS_COST_LOW"
-          },
-          {
-            "value": "RecommendationOptionsCostHigh",
-            "name": "RECOMMENDATION_OPTIONS_COST_HIGH"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND"
-          },
-          {
-            "value": "RecommendationOptionsProjectedUtilizationMetricsDurationExpected",
-            "name": "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED"
-          },
-          {
-            "value": "LastRefreshTimestamp",
-            "name": "LAST_REFRESH_TIMESTAMP"
-          },
-          {
-            "value": "CurrentPerformanceRisk",
-            "name": "CURRENT_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsSavingsOpportunityPercentage",
-            "name": "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsValue",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
+      "type": "enum",
+      "members": {
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
           }
-        ]
+        },
+        "FUNCTION_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FunctionArn"
+          }
+        },
+        "FUNCTION_VERSION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FunctionVersion"
+          }
+        },
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "FINDING_REASON_CODES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCodes"
+          }
+        },
+        "NUMBER_OF_INVOCATIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NumberOfInvocations"
+          }
+        },
+        "UTILIZATION_METRICS_DURATION_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDurationMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_DURATION_AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsDurationAverage"
+          }
+        },
+        "UTILIZATION_METRICS_MEMORY_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsMemoryMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_MEMORY_AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsMemoryAverage"
+          }
+        },
+        "LOOKBACK_PERIOD_IN_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookbackPeriodInDays"
+          }
+        },
+        "CURRENT_CONFIGURATION_MEMORY_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationMemorySize"
+          }
+        },
+        "CURRENT_CONFIGURATION_TIMEOUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationTimeout"
+          }
+        },
+        "CURRENT_COST_TOTAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentCostTotal"
+          }
+        },
+        "CURRENT_COST_AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentCostAverage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_MEMORY_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationMemorySize"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_COST_LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsCostLow"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_COST_HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsCostHigh"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_LOWER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsDurationLowerBound"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_UPPER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsDurationUpperBound"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PROJECTED_UTILIZATION_METRICS_DURATION_EXPECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsProjectedUtilizationMetricsDurationExpected"
+          }
+        },
+        "LAST_REFRESH_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastRefreshTimestamp"
+          }
+        },
+        "CURRENT_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValue"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#ExportableLambdaFunctionFields": {
@@ -3518,122 +3808,176 @@
       }
     },
     "com.amazonaws.computeoptimizer#ExportableVolumeField": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AccountId",
-            "name": "ACCOUNT_ID"
-          },
-          {
-            "value": "VolumeArn",
-            "name": "VOLUME_ARN"
-          },
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "UtilizationMetricsVolumeReadOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsVolumeWriteOpsPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsVolumeReadBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "UtilizationMetricsVolumeWriteBytesPerSecondMaximum",
-            "name": "UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM"
-          },
-          {
-            "value": "LookbackPeriodInDays",
-            "name": "LOOKBACK_PERIOD_IN_DAYS"
-          },
-          {
-            "value": "CurrentConfigurationVolumeType",
-            "name": "CURRENT_CONFIGURATION_VOLUME_TYPE"
-          },
-          {
-            "value": "CurrentConfigurationVolumeBaselineIOPS",
-            "name": "CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS"
-          },
-          {
-            "value": "CurrentConfigurationVolumeBaselineThroughput",
-            "name": "CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-          },
-          {
-            "value": "CurrentConfigurationVolumeBurstIOPS",
-            "name": "CURRENT_CONFIGURATION_VOLUME_BURST_IOPS"
-          },
-          {
-            "value": "CurrentConfigurationVolumeBurstThroughput",
-            "name": "CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-          },
-          {
-            "value": "CurrentConfigurationVolumeSize",
-            "name": "CURRENT_CONFIGURATION_VOLUME_SIZE"
-          },
-          {
-            "value": "CurrentMonthlyPrice",
-            "name": "CURRENT_MONTHLY_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeType",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeBaselineIOPS",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeBaselineThroughput",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeBurstIOPS",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeBurstThroughput",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT"
-          },
-          {
-            "value": "RecommendationOptionsConfigurationVolumeSize",
-            "name": "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE"
-          },
-          {
-            "value": "RecommendationOptionsMonthlyPrice",
-            "name": "RECOMMENDATION_OPTIONS_MONTHLY_PRICE"
-          },
-          {
-            "value": "RecommendationOptionsPerformanceRisk",
-            "name": "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK"
-          },
-          {
-            "value": "LastRefreshTimestamp",
-            "name": "LAST_REFRESH_TIMESTAMP"
-          },
-          {
-            "value": "CurrentPerformanceRisk",
-            "name": "CURRENT_PERFORMANCE_RISK"
-          },
-          {
-            "value": "RecommendationOptionsSavingsOpportunityPercentage",
-            "name": "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsCurrency",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY"
-          },
-          {
-            "value": "RecommendationOptionsEstimatedMonthlySavingsValue",
-            "name": "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE"
+      "type": "enum",
+      "members": {
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
           }
-        ]
+        },
+        "VOLUME_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VolumeArn"
+          }
+        },
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
+          }
+        },
+        "UTILIZATION_METRICS_VOLUME_READ_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsVolumeReadOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_VOLUME_WRITE_OPS_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsVolumeWriteOpsPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_VOLUME_READ_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsVolumeReadBytesPerSecondMaximum"
+          }
+        },
+        "UTILIZATION_METRICS_VOLUME_WRITE_BYTES_PER_SECOND_MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UtilizationMetricsVolumeWriteBytesPerSecondMaximum"
+          }
+        },
+        "LOOKBACK_PERIOD_IN_DAYS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LookbackPeriodInDays"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeType"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_BASELINE_IOPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeBaselineIOPS"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeBaselineThroughput"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_BURST_IOPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeBurstIOPS"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_BURST_THROUGHPUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeBurstThroughput"
+          }
+        },
+        "CURRENT_CONFIGURATION_VOLUME_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentConfigurationVolumeSize"
+          }
+        },
+        "CURRENT_MONTHLY_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentMonthlyPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeType"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_IOPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeBaselineIOPS"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BASELINE_THROUGHPUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeBaselineThroughput"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_IOPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeBurstIOPS"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_BURST_THROUGHPUT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeBurstThroughput"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_CONFIGURATION_VOLUME_SIZE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsConfigurationVolumeSize"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_MONTHLY_PRICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsMonthlyPrice"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsPerformanceRisk"
+          }
+        },
+        "LAST_REFRESH_TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LastRefreshTimestamp"
+          }
+        },
+        "CURRENT_PERFORMANCE_RISK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CurrentPerformanceRisk"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_SAVINGS_OPPORTUNITY_PERCENTAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsSavingsOpportunityPercentage"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_CURRENCY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsCurrency"
+          }
+        },
+        "RECOMMENDATION_OPTIONS_ESTIMATED_MONTHLY_SAVINGS_VALUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationOptionsEstimatedMonthlySavingsValue"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#ExportableVolumeFields": {
@@ -3642,18 +3986,61 @@
         "target": "com.amazonaws.computeoptimizer#ExportableVolumeField"
       }
     },
+    "com.amazonaws.computeoptimizer#ExternalMetricsPreference": {
+      "type": "structure",
+      "members": {
+        "source": {
+          "target": "com.amazonaws.computeoptimizer#ExternalMetricsSource",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            Contains the source options for external metrics preferences.\n        </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>\n            Describes the external metrics preferences for EC2 rightsizing recommendations.\n        </p>"
+      }
+    },
+    "com.amazonaws.computeoptimizer#ExternalMetricsSource": {
+      "type": "enum",
+      "members": {
+        "DATADOG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Datadog"
+          }
+        },
+        "DYNATRACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Dynatrace"
+          }
+        },
+        "NEWRELIC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NewRelic"
+          }
+        },
+        "INSTANA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Instana"
+          }
+        }
+      }
+    },
     "com.amazonaws.computeoptimizer#FailureReason": {
       "type": "string"
     },
     "com.amazonaws.computeoptimizer#FileFormat": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Csv",
-            "name": "CSV"
+      "type": "enum",
+      "members": {
+        "CSV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Csv"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.computeoptimizer#Filter": {
@@ -3677,22 +4064,26 @@
       }
     },
     "com.amazonaws.computeoptimizer#FilterName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "FindingReasonCodes",
-            "name": "FINDING_REASON_CODES"
-          },
-          {
-            "value": "RecommendationSourceType",
-            "name": "RECOMMENDATION_SOURCE_TYPE"
+      "type": "enum",
+      "members": {
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
           }
-        ]
+        },
+        "FINDING_REASON_CODES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCodes"
+          }
+        },
+        "RECOMMENDATION_SOURCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RecommendationSourceType"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#FilterValue": {
@@ -3711,41 +4102,49 @@
       }
     },
     "com.amazonaws.computeoptimizer#Finding": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Underprovisioned",
-            "name": "UNDER_PROVISIONED"
-          },
-          {
-            "value": "Overprovisioned",
-            "name": "OVER_PROVISIONED"
-          },
-          {
-            "value": "Optimized",
-            "name": "OPTIMIZED"
-          },
-          {
-            "value": "NotOptimized",
-            "name": "NOT_OPTIMIZED"
+      "type": "enum",
+      "members": {
+        "UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Underprovisioned"
           }
-        ]
+        },
+        "OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Overprovisioned"
+          }
+        },
+        "OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Optimized"
+          }
+        },
+        "NOT_OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotOptimized"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#FindingReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MemoryOverprovisioned",
-            "name": "MEMORY_OVER_PROVISIONED"
-          },
-          {
-            "value": "MemoryUnderprovisioned",
-            "name": "MEMORY_UNDER_PROVISIONED"
+      "type": "enum",
+      "members": {
+        "MEMORY_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryOverprovisioned"
           }
-        ]
+        },
+        "MEMORY_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryUnderprovisioned"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#FunctionArn": {
@@ -4214,6 +4613,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the enhanced infrastructure metrics recommendation preference. Considers\n            all applicable preferences that you might have set at the resource, account, and\n            organization level.</p>\n        <p>A status of <code>Active</code> confirms that the preference is applied in the latest\n            recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet\n            applied to recommendations.</p>\n        <p>To validate whether the preference is applied to your last generated set of\n            recommendations, review the <code>effectiveRecommendationPreferences</code> value in the\n            response of the <a>GetAutoScalingGroupRecommendations</a> and <a>GetEC2InstanceRecommendations</a> actions.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Enhanced\n                infrastructure metrics</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
           }
+        },
+        "externalMetricsPreference": {
+          "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>The provider of the external metrics recommendation preference. Considers\n            all applicable preferences that you might have set at the account and\n            organization level.</p>\n        <p>If the preference is applied in the latest recommendation refresh, an object with a valid\n            <code>source</code> value appears in the response. If the preference isn't applied to the \n            recommendations already, then this object doesn't appear in the response.</p>\n        <p>To validate whether the preference is applied to your last generated set of\n            recommendations, review the <code>effectiveRecommendationPreferences</code> value in the\n            response of the <a>GetEC2InstanceRecommendations</a> actions.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Enhanced\n            infrastructure metrics</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
+          }
         }
       }
     },
@@ -4659,38 +5064,50 @@
       }
     },
     "com.amazonaws.computeoptimizer#InferredWorkloadType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "AmazonEmr",
-            "name": "AMAZON_EMR"
-          },
-          {
-            "value": "ApacheCassandra",
-            "name": "APACHE_CASSANDRA"
-          },
-          {
-            "value": "ApacheHadoop",
-            "name": "APACHE_HADOOP"
-          },
-          {
-            "value": "Memcached",
-            "name": "MEMCACHED"
-          },
-          {
-            "value": "Nginx",
-            "name": "NGINX"
-          },
-          {
-            "value": "PostgreSql",
-            "name": "POSTGRE_SQL"
-          },
-          {
-            "value": "Redis",
-            "name": "REDIS"
+      "type": "enum",
+      "members": {
+        "AMAZON_EMR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AmazonEmr"
           }
-        ]
+        },
+        "APACHE_CASSANDRA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ApacheCassandra"
+          }
+        },
+        "APACHE_HADOOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ApacheHadoop"
+          }
+        },
+        "MEMCACHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Memcached"
+          }
+        },
+        "NGINX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Nginx"
+          }
+        },
+        "POSTGRE_SQL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PostgreSql"
+          }
+        },
+        "REDIS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Redis"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#InferredWorkloadTypes": {
@@ -4700,18 +5117,20 @@
       }
     },
     "com.amazonaws.computeoptimizer#InferredWorkloadTypesPreference": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Inactive",
-            "name": "INACTIVE"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inactive"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#InstanceArn": {
@@ -4820,74 +5239,104 @@
       }
     },
     "com.amazonaws.computeoptimizer#InstanceRecommendationFindingReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CPUOverprovisioned",
-            "name": "CPU_OVER_PROVISIONED"
-          },
-          {
-            "value": "CPUUnderprovisioned",
-            "name": "CPU_UNDER_PROVISIONED"
-          },
-          {
-            "value": "MemoryOverprovisioned",
-            "name": "MEMORY_OVER_PROVISIONED"
-          },
-          {
-            "value": "MemoryUnderprovisioned",
-            "name": "MEMORY_UNDER_PROVISIONED"
-          },
-          {
-            "value": "EBSThroughputOverprovisioned",
-            "name": "EBS_THROUGHPUT_OVER_PROVISIONED"
-          },
-          {
-            "value": "EBSThroughputUnderprovisioned",
-            "name": "EBS_THROUGHPUT_UNDER_PROVISIONED"
-          },
-          {
-            "value": "EBSIOPSOverprovisioned",
-            "name": "EBS_IOPS_OVER_PROVISIONED"
-          },
-          {
-            "value": "EBSIOPSUnderprovisioned",
-            "name": "EBS_IOPS_UNDER_PROVISIONED"
-          },
-          {
-            "value": "NetworkBandwidthOverprovisioned",
-            "name": "NETWORK_BANDWIDTH_OVER_PROVISIONED"
-          },
-          {
-            "value": "NetworkBandwidthUnderprovisioned",
-            "name": "NETWORK_BANDWIDTH_UNDER_PROVISIONED"
-          },
-          {
-            "value": "NetworkPPSOverprovisioned",
-            "name": "NETWORK_PPS_OVER_PROVISIONED"
-          },
-          {
-            "value": "NetworkPPSUnderprovisioned",
-            "name": "NETWORK_PPS_UNDER_PROVISIONED"
-          },
-          {
-            "value": "DiskIOPSOverprovisioned",
-            "name": "DISK_IOPS_OVER_PROVISIONED"
-          },
-          {
-            "value": "DiskIOPSUnderprovisioned",
-            "name": "DISK_IOPS_UNDER_PROVISIONED"
-          },
-          {
-            "value": "DiskThroughputOverprovisioned",
-            "name": "DISK_THROUGHPUT_OVER_PROVISIONED"
-          },
-          {
-            "value": "DiskThroughputUnderprovisioned",
-            "name": "DISK_THROUGHPUT_UNDER_PROVISIONED"
+      "type": "enum",
+      "members": {
+        "CPU_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CPUOverprovisioned"
           }
-        ]
+        },
+        "CPU_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CPUUnderprovisioned"
+          }
+        },
+        "MEMORY_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryOverprovisioned"
+          }
+        },
+        "MEMORY_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryUnderprovisioned"
+          }
+        },
+        "EBS_THROUGHPUT_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBSThroughputOverprovisioned"
+          }
+        },
+        "EBS_THROUGHPUT_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBSThroughputUnderprovisioned"
+          }
+        },
+        "EBS_IOPS_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBSIOPSOverprovisioned"
+          }
+        },
+        "EBS_IOPS_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBSIOPSUnderprovisioned"
+          }
+        },
+        "NETWORK_BANDWIDTH_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NetworkBandwidthOverprovisioned"
+          }
+        },
+        "NETWORK_BANDWIDTH_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NetworkBandwidthUnderprovisioned"
+          }
+        },
+        "NETWORK_PPS_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NetworkPPSOverprovisioned"
+          }
+        },
+        "NETWORK_PPS_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NetworkPPSUnderprovisioned"
+          }
+        },
+        "DISK_IOPS_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DiskIOPSOverprovisioned"
+          }
+        },
+        "DISK_IOPS_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DiskIOPSUnderprovisioned"
+          }
+        },
+        "DISK_THROUGHPUT_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DiskThroughputOverprovisioned"
+          }
+        },
+        "DISK_THROUGHPUT_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DiskThroughputUnderprovisioned"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#InstanceRecommendationFindingReasonCodes": {
@@ -5004,18 +5453,20 @@
       }
     },
     "com.amazonaws.computeoptimizer#JobFilterName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ResourceType",
-            "name": "RESOURCE_TYPE"
-          },
-          {
-            "value": "JobStatus",
-            "name": "JOB_STATUS"
+      "type": "enum",
+      "members": {
+        "RESOURCE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceType"
           }
-        ]
+        },
+        "JOB_STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "JobStatus"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#JobFilters": {
@@ -5034,56 +5485,66 @@
       }
     },
     "com.amazonaws.computeoptimizer#JobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Queued",
-            "name": "QUEUED"
-          },
-          {
-            "value": "InProgress",
-            "name": "IN_PROGRESS"
-          },
-          {
-            "value": "Complete",
-            "name": "COMPLETE"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "QUEUED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Queued"
           }
-        ]
+        },
+        "IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InProgress"
+          }
+        },
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Complete"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionMemoryMetricName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Duration",
-            "name": "DURATION"
+      "type": "enum",
+      "members": {
+        "DURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Duration"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionMemoryMetricStatistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LowerBound",
-            "name": "LOWER_BOUND"
-          },
-          {
-            "value": "UpperBound",
-            "name": "UPPER_BOUND"
-          },
-          {
-            "value": "Expected",
-            "name": "EXPECTED"
+      "type": "enum",
+      "members": {
+        "LOWER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LowerBound"
           }
-        ]
+        },
+        "UPPER_BOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UpperBound"
+          }
+        },
+        "EXPECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Expected"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionMemoryProjectedMetric": {
@@ -5160,33 +5621,37 @@
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionMetricName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Duration",
-            "name": "DURATION"
-          },
-          {
-            "value": "Memory",
-            "name": "MEMORY"
+      "type": "enum",
+      "members": {
+        "DURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Duration"
           }
-        ]
+        },
+        "MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Memory"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionMetricStatistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Maximum",
-            "name": "MAXIMUM"
-          },
-          {
-            "value": "Average",
-            "name": "AVERAGE"
+      "type": "enum",
+      "members": {
+        "MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Maximum"
           }
-        ]
+        },
+        "AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Average"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendation": {
@@ -5293,18 +5758,20 @@
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendationFilterName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Finding",
-            "name": "FINDING"
-          },
-          {
-            "value": "FindingReasonCode",
-            "name": "FINDING_REASON_CODE"
+      "type": "enum",
+      "members": {
+        "FINDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Finding"
           }
-        ]
+        },
+        "FINDING_REASON_CODE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FindingReasonCode"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendationFilters": {
@@ -5314,45 +5781,55 @@
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendationFinding": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Optimized",
-            "name": "OPTIMIZED"
-          },
-          {
-            "value": "NotOptimized",
-            "name": "NOT_OPTIMIZED"
-          },
-          {
-            "value": "Unavailable",
-            "name": "UNAVAILABLE"
+      "type": "enum",
+      "members": {
+        "OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Optimized"
           }
-        ]
+        },
+        "NOT_OPTIMIZED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotOptimized"
+          }
+        },
+        "UNAVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Unavailable"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendationFindingReasonCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "MemoryOverprovisioned",
-            "name": "MEMORY_OVER_PROVISIONED"
-          },
-          {
-            "value": "MemoryUnderprovisioned",
-            "name": "MEMORY_UNDER_PROVISIONED"
-          },
-          {
-            "value": "InsufficientData",
-            "name": "INSUFFICIENT_DATA"
-          },
-          {
-            "value": "Inconclusive",
-            "name": "INCONCLUSIVE"
+      "type": "enum",
+      "members": {
+        "MEMORY_OVER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryOverprovisioned"
           }
-        ]
+        },
+        "MEMORY_UNDER_PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryUnderprovisioned"
+          }
+        },
+        "INSUFFICIENT_DATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InsufficientData"
+          }
+        },
+        "INCONCLUSIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inconclusive"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#LambdaFunctionRecommendationFindingReasonCodes": {
@@ -5465,81 +5942,109 @@
       "type": "string"
     },
     "com.amazonaws.computeoptimizer#MetricName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Cpu",
-            "name": "CPU"
-          },
-          {
-            "value": "Memory",
-            "name": "MEMORY"
-          },
-          {
-            "value": "EBS_READ_OPS_PER_SECOND",
-            "name": "EBS_READ_OPS_PER_SECOND"
-          },
-          {
-            "value": "EBS_WRITE_OPS_PER_SECOND",
-            "name": "EBS_WRITE_OPS_PER_SECOND"
-          },
-          {
-            "value": "EBS_READ_BYTES_PER_SECOND",
-            "name": "EBS_READ_BYTES_PER_SECOND"
-          },
-          {
-            "value": "EBS_WRITE_BYTES_PER_SECOND",
-            "name": "EBS_WRITE_BYTES_PER_SECOND"
-          },
-          {
-            "value": "DISK_READ_OPS_PER_SECOND",
-            "name": "DISK_READ_OPS_PER_SECOND"
-          },
-          {
-            "value": "DISK_WRITE_OPS_PER_SECOND",
-            "name": "DISK_WRITE_OPS_PER_SECOND"
-          },
-          {
-            "value": "DISK_READ_BYTES_PER_SECOND",
-            "name": "DISK_READ_BYTES_PER_SECOND"
-          },
-          {
-            "value": "DISK_WRITE_BYTES_PER_SECOND",
-            "name": "DISK_WRITE_BYTES_PER_SECOND"
-          },
-          {
-            "value": "NETWORK_IN_BYTES_PER_SECOND",
-            "name": "NETWORK_IN_BYTES_PER_SECOND"
-          },
-          {
-            "value": "NETWORK_OUT_BYTES_PER_SECOND",
-            "name": "NETWORK_OUT_BYTES_PER_SECOND"
-          },
-          {
-            "value": "NETWORK_PACKETS_IN_PER_SECOND",
-            "name": "NETWORK_PACKETS_IN_PER_SECOND"
-          },
-          {
-            "value": "NETWORK_PACKETS_OUT_PER_SECOND",
-            "name": "NETWORK_PACKETS_OUT_PER_SECOND"
+      "type": "enum",
+      "members": {
+        "CPU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Cpu"
           }
-        ]
+        },
+        "MEMORY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Memory"
+          }
+        },
+        "EBS_READ_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS_READ_OPS_PER_SECOND"
+          }
+        },
+        "EBS_WRITE_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS_WRITE_OPS_PER_SECOND"
+          }
+        },
+        "EBS_READ_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS_READ_BYTES_PER_SECOND"
+          }
+        },
+        "EBS_WRITE_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EBS_WRITE_BYTES_PER_SECOND"
+          }
+        },
+        "DISK_READ_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISK_READ_OPS_PER_SECOND"
+          }
+        },
+        "DISK_WRITE_OPS_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISK_WRITE_OPS_PER_SECOND"
+          }
+        },
+        "DISK_READ_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISK_READ_BYTES_PER_SECOND"
+          }
+        },
+        "DISK_WRITE_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISK_WRITE_BYTES_PER_SECOND"
+          }
+        },
+        "NETWORK_IN_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK_IN_BYTES_PER_SECOND"
+          }
+        },
+        "NETWORK_OUT_BYTES_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK_OUT_BYTES_PER_SECOND"
+          }
+        },
+        "NETWORK_PACKETS_IN_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK_PACKETS_IN_PER_SECOND"
+          }
+        },
+        "NETWORK_PACKETS_OUT_PER_SECOND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK_PACKETS_OUT_PER_SECOND"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#MetricStatistic": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Maximum",
-            "name": "MAXIMUM"
-          },
-          {
-            "value": "Average",
-            "name": "AVERAGE"
+      "type": "enum",
+      "members": {
+        "MAXIMUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Maximum"
           }
-        ]
+        },
+        "AVERAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Average"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#MetricValue": {
@@ -5555,26 +6060,32 @@
       }
     },
     "com.amazonaws.computeoptimizer#MigrationEffort": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "VeryLow",
-            "name": "VERY_LOW"
-          },
-          {
-            "value": "Low",
-            "name": "LOW"
-          },
-          {
-            "value": "Medium",
-            "name": "MEDIUM"
-          },
-          {
-            "value": "High",
-            "name": "HIGH"
+      "type": "enum",
+      "members": {
+        "VERY_LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VeryLow"
           }
-        ]
+        },
+        "LOW": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Low"
+          }
+        },
+        "MEDIUM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Medium"
+          }
+        },
+        "HIGH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "High"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#MinSize": {
@@ -5638,34 +6149,44 @@
       }
     },
     "com.amazonaws.computeoptimizer#PlatformDifference": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Hypervisor",
-            "name": "HYPERVISOR"
-          },
-          {
-            "value": "NetworkInterface",
-            "name": "NETWORK_INTERFACE"
-          },
-          {
-            "value": "StorageInterface",
-            "name": "STORAGE_INTERFACE"
-          },
-          {
-            "value": "InstanceStoreAvailability",
-            "name": "INSTANCE_STORE_AVAILABILITY"
-          },
-          {
-            "value": "VirtualizationType",
-            "name": "VIRTUALIZATION_TYPE"
-          },
-          {
-            "value": "Architecture",
-            "name": "ARCHITECTURE"
+      "type": "enum",
+      "members": {
+        "HYPERVISOR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Hypervisor"
           }
-        ]
+        },
+        "NETWORK_INTERFACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NetworkInterface"
+          }
+        },
+        "STORAGE_INTERFACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StorageInterface"
+          }
+        },
+        "INSTANCE_STORE_AVAILABILITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InstanceStoreAvailability"
+          }
+        },
+        "VIRTUALIZATION_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "VirtualizationType"
+          }
+        },
+        "ARCHITECTURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Architecture"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#PlatformDifferences": {
@@ -5777,6 +6298,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The status of the inferred workload types recommendation preference to create or\n            update.</p>\n\n        <note>\n            <p>The inferred workload type feature is active by default. To deactivate it, create\n                a recommendation preference.</p>\n        </note>\n\n        <p>Specify the <code>Inactive</code> status to deactivate the feature, or specify\n                <code>Active</code> to activate it.</p>\n\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/inferred-workload-types.html\">Inferred workload\n                types</a> in the <i>Compute Optimizer User Guide</i>.</p>"
           }
+        },
+        "externalMetricsPreference": {
+          "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>The provider of the external metrics recommendation preference to create or \n            update.</p>\n        <p>Specify a valid provider in the <code>source</code> field to activate the preference. \n            To delete this preference, see the <a>DeleteRecommendationPreferences</a>\n            action.</p>\n        <p>This preference can only be set for the <code>Ec2Instance</code> resource type.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html\">External\n            metrics ingestion</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
+          }
         }
       }
     },
@@ -5880,18 +6407,26 @@
       }
     },
     "com.amazonaws.computeoptimizer#RecommendationPreferenceName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "EnhancedInfrastructureMetrics",
-            "name": "ENHANCED_INFRASTRUCTURE_METRICS"
-          },
-          {
-            "value": "InferredWorkloadTypes",
-            "name": "INFERRED_WORKLOAD_TYPES"
+      "type": "enum",
+      "members": {
+        "ENHANCED_INFRASTRUCTURE_METRICS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EnhancedInfrastructureMetrics"
           }
-        ]
+        },
+        "INFERRED_WORKLOAD_TYPES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InferredWorkloadTypes"
+          }
+        },
+        "EXTERNAL_METRICS_PREFERENCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ExternalMetricsPreference"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#RecommendationPreferenceNames": {
@@ -5932,13 +6467,19 @@
         "enhancedInfrastructureMetrics": {
           "target": "com.amazonaws.computeoptimizer#EnhancedInfrastructureMetrics",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the enhanced infrastructure metrics recommendation preference.</p>\n        <p>A status of <code>Active</code> confirms that the preference is applied in the latest\n            recommendation refresh, and a status of <code>Inactive</code> confirms that it's not yet\n            applied to recommendations.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Enhanced\n                infrastructure metrics</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
+            "smithy.api#documentation": "<p>The status of the enhanced infrastructure metrics recommendation preference.</p>\n        <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms\n            that the preference is applied to the recommendations, and a status of <code>Inactive</code>\n            confirms that the preference isn't yet applied to recommendations.</p>\n        <p>For more information, see <a href=\"https://docs.aws.amazon.com/compute-optimizer/latest/ug/enhanced-infrastructure-metrics.html\">Enhanced\n                infrastructure metrics</a> in the <i>Compute Optimizer User\n                Guide</i>.</p>"
           }
         },
         "inferredWorkloadTypes": {
           "target": "com.amazonaws.computeoptimizer#InferredWorkloadTypesPreference",
           "traits": {
-            "smithy.api#documentation": "<p>The status of the inferred workload types recommendation preference.</p>\n\n        <p>A status of <code>Active</code> confirms that the preference is applied in the latest\n            recommendation refresh. A status of <code>Inactive</code> confirms that it's not yet\n            applied to recommendations.</p>"
+            "smithy.api#documentation": "<p>The status of the inferred workload types recommendation preference.</p>\n\n        <p>When the recommendations page is refreshed, a status of <code>Active</code> confirms\n            that the preference is applied to the recommendations, and a status of <code>Inactive</code>\n            confirms that the preference isn't yet applied to recommendations.</p>"
+          }
+        },
+        "externalMetricsPreference": {
+          "target": "com.amazonaws.computeoptimizer#ExternalMetricsPreference",
+          "traits": {
+            "smithy.api#documentation": "<p>\n            An object that describes the external metrics recommendation preference.\n        </p>\n        <p>\n            If the preference is applied in the latest recommendation refresh, an object with a valid\n            <code>source</code> value appears in the response. If the preference isn't applied to the \n            recommendations already, then this object doesn't appear in the response.\n        </p>"
           }
         }
       },
@@ -5976,26 +6517,32 @@
       "type": "string"
     },
     "com.amazonaws.computeoptimizer#RecommendationSourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Ec2Instance",
-            "name": "EC2_INSTANCE"
-          },
-          {
-            "value": "AutoScalingGroup",
-            "name": "AUTO_SCALING_GROUP"
-          },
-          {
-            "value": "EbsVolume",
-            "name": "EBS_VOLUME"
-          },
-          {
-            "value": "LambdaFunction",
-            "name": "LAMBDA_FUNCTION"
+      "type": "enum",
+      "members": {
+        "EC2_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2Instance"
           }
-        ]
+        },
+        "AUTO_SCALING_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AutoScalingGroup"
+          }
+        },
+        "EBS_VOLUME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EbsVolume"
+          }
+        },
+        "LAMBDA_FUNCTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunction"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#RecommendationSources": {
@@ -6101,30 +6648,38 @@
       }
     },
     "com.amazonaws.computeoptimizer#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Ec2Instance",
-            "name": "EC2_INSTANCE"
-          },
-          {
-            "value": "AutoScalingGroup",
-            "name": "AUTO_SCALING_GROUP"
-          },
-          {
-            "value": "EbsVolume",
-            "name": "EBS_VOLUME"
-          },
-          {
-            "value": "LambdaFunction",
-            "name": "LAMBDA_FUNCTION"
-          },
-          {
-            "value": "NotApplicable",
-            "name": "NOT_APPLICABLE"
+      "type": "enum",
+      "members": {
+        "EC2_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Ec2Instance"
           }
-        ]
+        },
+        "AUTO_SCALING_GROUP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AutoScalingGroup"
+          }
+        },
+        "EBS_VOLUME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EbsVolume"
+          }
+        },
+        "LAMBDA_FUNCTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LambdaFunction"
+          }
+        },
+        "NOT_APPLICABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NotApplicable"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#S3Destination": {
@@ -6221,22 +6776,26 @@
       }
     },
     "com.amazonaws.computeoptimizer#ScopeName": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Organization",
-            "name": "ORGANIZATION"
-          },
-          {
-            "value": "AccountId",
-            "name": "ACCOUNT_ID"
-          },
-          {
-            "value": "ResourceArn",
-            "name": "RESOURCE_ARN"
+      "type": "enum",
+      "members": {
+        "ORGANIZATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Organization"
           }
-        ]
+        },
+        "ACCOUNT_ID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountId"
+          }
+        },
+        "RESOURCE_ARN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ResourceArn"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#ScopeValue": {
@@ -6256,26 +6815,32 @@
       }
     },
     "com.amazonaws.computeoptimizer#Status": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "Active",
-            "name": "ACTIVE"
-          },
-          {
-            "value": "Inactive",
-            "name": "INACTIVE"
-          },
-          {
-            "value": "Pending",
-            "name": "PENDING"
-          },
-          {
-            "value": "Failed",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Active"
           }
-        ]
+        },
+        "INACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Inactive"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Pending"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Failed"
+          }
+        }
       }
     },
     "com.amazonaws.computeoptimizer#StatusReason": {

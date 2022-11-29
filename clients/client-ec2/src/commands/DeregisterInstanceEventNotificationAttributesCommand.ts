@@ -19,7 +19,7 @@ import {
   DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog,
   DeregisterInstanceEventNotificationAttributesResult,
   DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,
   serializeAws_ec2DeregisterInstanceEventNotificationAttributesCommand,

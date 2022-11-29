@@ -18,7 +18,7 @@ import {
   DescribeThemeRequestFilterSensitiveLog,
   DescribeThemeResponse,
   DescribeThemeResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeThemeCommand,
   serializeAws_restJson1DescribeThemeCommand,

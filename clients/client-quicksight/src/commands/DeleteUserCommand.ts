@@ -18,7 +18,7 @@ import {
   DeleteUserRequestFilterSensitiveLog,
   DeleteUserResponse,
   DeleteUserResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteUserCommand,
   serializeAws_restJson1DeleteUserCommand,

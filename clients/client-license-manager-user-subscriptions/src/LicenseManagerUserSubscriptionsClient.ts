@@ -79,6 +79,10 @@ import {
   StopProductSubscriptionCommandOutput,
 } from "./commands/StopProductSubscriptionCommand";
 import {
+  UpdateIdentityProviderSettingsCommandInput,
+  UpdateIdentityProviderSettingsCommandOutput,
+} from "./commands/UpdateIdentityProviderSettingsCommand";
+import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
   EndpointParameters,
@@ -96,7 +100,8 @@ export type ServiceInputTypes =
   | ListUserAssociationsCommandInput
   | RegisterIdentityProviderCommandInput
   | StartProductSubscriptionCommandInput
-  | StopProductSubscriptionCommandInput;
+  | StopProductSubscriptionCommandInput
+  | UpdateIdentityProviderSettingsCommandInput;
 
 export type ServiceOutputTypes =
   | AssociateUserCommandOutput
@@ -108,7 +113,8 @@ export type ServiceOutputTypes =
   | ListUserAssociationsCommandOutput
   | RegisterIdentityProviderCommandOutput
   | StartProductSubscriptionCommandOutput
-  | StopProductSubscriptionCommandOutput;
+  | StopProductSubscriptionCommandOutput
+  | UpdateIdentityProviderSettingsCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
   /**
@@ -261,7 +267,8 @@ export interface LicenseManagerUserSubscriptionsClientResolvedConfig
   extends LicenseManagerUserSubscriptionsClientResolvedConfigType {}
 
 /**
- * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with a per user subscription fee on Amazon EC2 instances.</p>
+ * <p>With License Manager, you can create user-based subscriptions to utilize licensed software with
+ *       a per user subscription fee on Amazon EC2 instances.</p>
  */
 export class LicenseManagerUserSubscriptionsClient extends __Client<
   __HttpHandlerOptions,

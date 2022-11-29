@@ -302,6 +302,11 @@ import {
   GetResourceConfigHistoryCommandOutput,
 } from "./commands/GetResourceConfigHistoryCommand";
 import {
+  GetResourceEvaluationSummaryCommand,
+  GetResourceEvaluationSummaryCommandInput,
+  GetResourceEvaluationSummaryCommandOutput,
+} from "./commands/GetResourceEvaluationSummaryCommand";
+import {
   GetStoredQueryCommand,
   GetStoredQueryCommandInput,
   GetStoredQueryCommandOutput,
@@ -321,6 +326,11 @@ import {
   ListDiscoveredResourcesCommandInput,
   ListDiscoveredResourcesCommandOutput,
 } from "./commands/ListDiscoveredResourcesCommand";
+import {
+  ListResourceEvaluationsCommand,
+  ListResourceEvaluationsCommandInput,
+  ListResourceEvaluationsCommandOutput,
+} from "./commands/ListResourceEvaluationsCommand";
 import {
   ListStoredQueriesCommand,
   ListStoredQueriesCommandInput,
@@ -431,6 +441,11 @@ import {
   StartRemediationExecutionCommandInput,
   StartRemediationExecutionCommandOutput,
 } from "./commands/StartRemediationExecutionCommand";
+import {
+  StartResourceEvaluationCommand,
+  StartResourceEvaluationCommandInput,
+  StartResourceEvaluationCommandOutput,
+} from "./commands/StartResourceEvaluationCommand";
 import {
   StopConfigurationRecorderCommand,
   StopConfigurationRecorderCommandInput,
@@ -1178,8 +1193,8 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
-   * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each conformance pack.
-   * 			Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
+   * <p>Returns a list of the conformance packs and their associated compliance status with the count of compliant and noncompliant Config rules within each
+   * 			conformance pack. Also returns the total rule count which includes compliant rules, noncompliant rules, and rules that cannot be evaluated due to insufficient data.</p>
    * 		       <note>
    *             <p>The results can return an empty result page, but if you have a <code>nextToken</code>, the results are displayed on the next page.</p>
    *          </note>
@@ -2354,7 +2369,7 @@ export class ConfigService extends ConfigServiceClient {
   /**
    * <p>Returns the evaluation results for the specified Amazon Web Services resource.
    * 			The results indicate which Config rules were used to evaluate
-   * 			the resource, when each rule was last used, and whether the resource
+   * 			the resource, when each rule was last invoked, and whether the resource
    * 			complies with each rule.</p>
    */
   public getComplianceDetailsByResource(
@@ -2797,6 +2812,40 @@ export class ConfigService extends ConfigServiceClient {
   }
 
   /**
+   * <p>Returns a summary of resource evaluation for the specified resource evaluation ID from the proactive rules that were run.
+   * 			The results indicate which evaluation context was used to evaluate the rules, which resource details were evaluated,
+   * 			the evaluation mode that was run, and whether the resource details comply with the configuration of the proactive rules. </p>
+   */
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourceEvaluationSummaryCommandOutput>;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    cb: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): void;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): void;
+  public getResourceEvaluationSummary(
+    args: GetResourceEvaluationSummaryCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void),
+    cb?: (err: any, data?: GetResourceEvaluationSummaryCommandOutput) => void
+  ): Promise<GetResourceEvaluationSummaryCommandOutput> | void {
+    const command = new GetResourceEvaluationSummaryCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns the details of a specific stored query.</p>
    */
   public getStoredQuery(
@@ -2939,6 +2988,38 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: ListDiscoveredResourcesCommandOutput) => void
   ): Promise<ListDiscoveredResourcesCommandOutput> | void {
     const command = new ListDiscoveredResourcesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a list of proactive resource evaluations.</p>
+   */
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListResourceEvaluationsCommandOutput>;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    cb: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): void;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): void;
+  public listResourceEvaluations(
+    args: ListResourceEvaluationsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListResourceEvaluationsCommandOutput) => void),
+    cb?: (err: any, data?: ListResourceEvaluationsCommandOutput) => void
+  ): Promise<ListResourceEvaluationsCommandOutput> | void {
+    const command = new ListResourceEvaluationsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3540,6 +3621,9 @@ export class ConfigService extends ConfigServiceClient {
    *             <p>Config generates a remediation exception when a problem occurs executing a remediation action to a specific resource.
    * 			Remediation exceptions blocks auto-remediation until the exception is cleared.</p>
    *          </note>
+   * 		       <note>
+   *             <p>To place an exception on an Amazon Web Services resource, ensure remediation is set as manual remediation.</p>
+   *          </note>
    */
   public putRemediationExceptions(
     args: PutRemediationExceptionsCommandInput,
@@ -3904,6 +3988,45 @@ export class ConfigService extends ConfigServiceClient {
     cb?: (err: any, data?: StartRemediationExecutionCommandOutput) => void
   ): Promise<StartRemediationExecutionCommandOutput> | void {
     const command = new StartRemediationExecutionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Runs an on-demand evaluation for the specified resource to determine whether the resource details will comply with configured Config rules.
+   * 			You can also use it for evaluation purposes. Config recommends using an evaluation context. It runs an execution against the resource details with all
+   * 			of the Config rules in your account that match with the specified proactive mode and resource type.</p>
+   *
+   * 		       <note>
+   *             <p>Ensure you have the <code>cloudformation:DescribeType</code> role setup to validate the resource type schema.
+   * 		</p>
+   *          </note>
+   */
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartResourceEvaluationCommandOutput>;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    cb: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): void;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): void;
+  public startResourceEvaluation(
+    args: StartResourceEvaluationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartResourceEvaluationCommandOutput) => void),
+    cb?: (err: any, data?: StartResourceEvaluationCommandOutput) => void
+  ): Promise<StartResourceEvaluationCommandOutput> | void {
+    const command = new StartResourceEvaluationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

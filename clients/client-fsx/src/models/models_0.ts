@@ -77,6 +77,7 @@ export enum AdministrativeActionType {
   RELEASE_NFS_V3_LOCKS = "RELEASE_NFS_V3_LOCKS",
   SNAPSHOT_UPDATE = "SNAPSHOT_UPDATE",
   STORAGE_OPTIMIZATION = "STORAGE_OPTIMIZATION",
+  VOLUME_RESTORE = "VOLUME_RESTORE",
   VOLUME_UPDATE = "VOLUME_UPDATE",
 }
 
@@ -138,7 +139,7 @@ export enum AutoImportPolicyType {
 }
 
 /**
- * <p>Provides detailed information about the data respository if its <code>Lifecycle</code> is
+ * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
  *             set to <code>MISCONFIGURED</code> or <code>FAILED</code>.</p>
  */
 export interface DataRepositoryFailureDetails {
@@ -160,14 +161,14 @@ export enum DataRepositoryLifecycle {
 /**
  * <p>The data repository configuration object for Lustre file systems returned in the response of
  *             the <code>CreateFileSystem</code> operation.</p>
- *         <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
+ *          <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
  *             Instead, use .</p>
  */
 export interface DataRepositoryConfiguration {
   /**
    * <p>Describes the state of the file system's S3 durable data repository, if it is configured with an S3 repository.
    *         The lifecycle can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code> - The data repository configuration between
@@ -219,8 +220,7 @@ export interface DataRepositoryConfiguration {
    *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
    *             number of disks that a single file can be striped across is limited by the total number
    *             of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
    */
   ImportedFileChunkSize?: number;
@@ -229,7 +229,7 @@ export interface DataRepositoryConfiguration {
    * <p>Describes the file system's linked S3 data repository's <code>AutoImportPolicy</code>.
    *             The AutoImportPolicy configures how Amazon FSx keeps your file and directory listings up to date
    *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates
@@ -261,7 +261,7 @@ export interface DataRepositoryConfiguration {
   AutoImportPolicy?: AutoImportPolicyType | string;
 
   /**
-   * <p>Provides detailed information about the data respository if its <code>Lifecycle</code> is
+   * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
    *             set to <code>MISCONFIGURED</code> or <code>FAILED</code>.</p>
    */
   FailureDetails?: DataRepositoryFailureDetails;
@@ -294,27 +294,27 @@ export enum LustreAccessAuditLogLevel {
 export interface LustreLogConfiguration {
   /**
    * <p>The data repository events that are logged by Amazon FSx.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>WARN_ONLY</code> - only warning events are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERROR_ONLY</code> - only error events are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>WARN_ERROR</code> - both warning events and error events
    *                     are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - logging of data repository events
    *                     is turned off.</p>
    *             </li>
    *          </ul>
-   *         <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>,
+   *          <p>Note that Amazon File Cache uses a default setting of <code>WARN_ERROR</code>,
    *             which can't be changed.</p>
    */
   Level: LustreAccessAuditLogLevel | string | undefined;
@@ -334,7 +334,7 @@ export interface LustreLogConfiguration {
  *             Use the <code>RootSquash</code> parameter to enable root squash. To learn more
  *             about Lustre root squash,
  *             see  <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/root-squash.html">Lustre root squash</a>.</p>
- *         <p>You can also use the <code>NoSquashNids</code> parameter to provide an array of clients
+ *          <p>You can also use the <code>NoSquashNids</code> parameter to provide an array of clients
  *             who are not affected by the root squash setting. These clients will access the file system as root,
  *             with unrestricted privileges.</p>
  */
@@ -343,7 +343,7 @@ export interface LustreRootSquashConfiguration {
    * <p>You enable root squash by setting a user ID (UID) and group ID (GID) for the file
    *             system in the format <code>UID:GID</code> (for example, <code>365534:65534</code>).
    *             The UID and GID values can range from <code>0</code> to <code>4294967294</code>:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>A non-zero value for UID and GID enables root squash. The UID and GID
    *                 values can be different, but each must be a non-zero value.</p>
@@ -353,7 +353,7 @@ export interface LustreRootSquashConfiguration {
    *                 and therefore disables root squash.</p>
    *             </li>
    *          </ul>
-   *         <p>When root squash is enabled, the user ID and group ID of a root user accessing
+   *          <p>When root squash is enabled, the user ID and group ID of a root user accessing
    *             the file system are re-mapped to the UID and GID you provide.</p>
    */
   RootSquash?: string;
@@ -363,7 +363,7 @@ export interface LustreRootSquashConfiguration {
    *             for which root squash does not apply. A client NID is a Lustre Network Identifier used
    *             to uniquely identify a client. You can specify the NID as either a single address or a
    *             range of addresses:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>A single address is described in standard Lustre NID format by specifying
    *                 the client’s IP address followed by the Lustre network ID (for example,
@@ -392,7 +392,7 @@ export interface LustreFileSystemConfiguration {
   /**
    * <p>The data repository configuration object for Lustre file systems returned in the response of
    *             the <code>CreateFileSystem</code> operation.</p>
-   *         <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
+   *          <p>This data type is not supported for file systems with the <code>Persistent_2</code> deployment type.
    *             Instead, use .</p>
    */
   DataRepositoryConfiguration?: DataRepositoryConfiguration;
@@ -401,18 +401,18 @@ export interface LustreFileSystemConfiguration {
    * <p>The deployment type of the FSx for Lustre file system.
    *             <i>Scratch deployment type</i> is designed for temporary storage
    *             and shorter-term processing of data.</p>
-   *         <p>
+   *          <p>
    *             <code>SCRATCH_1</code> and <code>SCRATCH_2</code> deployment types are best suited
    *             for when you need temporary storage and shorter-term processing of data. The
    *             <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst
    *             throughput capacity than <code>SCRATCH_1</code>.</p>
-   *         <p>The <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment type is used
+   *          <p>The <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment type is used
    *             for longer-term storage and workloads and encryption of data in transit.
    *                 <code>PERSISTENT_2</code> is built on Lustre v2.12 and offers higher
    *                 <code>PerUnitStorageThroughput</code> (up to 1000 MB/s/TiB) along with a lower
    *             minimum storage capacity requirement (600 GiB). To learn more about FSx for Lustre deployment types, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/lustre-deployment-types.html">
    *                 FSx for Lustre deployment options</a>.</p>
-   *         <p>The default is <code>SCRATCH_1</code>.</p>
+   *          <p>The default is <code>SCRATCH_1</code>.</p>
    */
   DeploymentType?: LustreDeploymentType | string;
 
@@ -421,8 +421,8 @@ export interface LustreFileSystemConfiguration {
    *             throughput per 1 tebibyte of storage provisioned. File system throughput capacity is
    *             equal to Storage capacity (TiB) * PerUnitStorageThroughput (MB/s/TiB). This option is
    *             only valid for <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> deployment types. </p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
    *                <p>For <code>PERSISTENT_1</code> SSD storage: 50, 100, 200.</p>
    *             </li>
@@ -438,7 +438,7 @@ export interface LustreFileSystemConfiguration {
 
   /**
    * <p>You use the <code>MountName</code> value when mounting the file system.</p>
-   *         <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
+   *          <p>For the <code>SCRATCH_1</code> deployment type, this value is always "<code>fsx</code>".
    *             For <code>SCRATCH_2</code>, <code>PERSISTENT_1</code>, and <code>PERSISTENT_2</code> deployment
    *             types, this value is a string that is unique within an Amazon Web Services Region.
    *
@@ -477,14 +477,14 @@ export interface LustreFileSystemConfiguration {
    *             <code>READ</code> the file system has an SSD storage cache that is sized to 20% of the file system's
    *             storage capacity. This improves the performance for frequently accessed files by caching up to 20%
    *             of the total storage capacity.</p>
-   *         <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
+   *          <p>This parameter is required when <code>StorageType</code> is set to HDD.</p>
    */
   DriveCacheType?: DriveCacheType | string;
 
   /**
    * <p>The data compression configuration for the file system. <code>DataCompressionType</code>
    *             can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - Data compression is turned off for
@@ -496,7 +496,7 @@ export interface LustreFileSystemConfiguration {
    *                 algorithm.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
   DataCompressionType?: DataCompressionType | string;
 
@@ -603,20 +603,20 @@ export interface OntapFileSystemConfiguration {
   /**
    * <p>Specifies the FSx for ONTAP file system deployment type in use in the file
    *             system. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MULTI_AZ_1</code> - (Default) A high availability file system configured
    *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ)
    *                     unavailability. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
    *                     redundancy.</p>
    *             </li>
    *          </ul>
-   *         <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
+   *          <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">Choosing Multi-AZ or
    *                 Single-AZ file system deployment</a>. </p>
    */
@@ -625,7 +625,7 @@ export interface OntapFileSystemConfiguration {
   /**
    * <p>(Multi-AZ only) The IP address range in which the endpoints to access your file system
    *             are created.</p>
-   *         <important>
+   *          <important>
    *             <p>The Endpoint IP address range you select for your file system
    *             must exist outside the VPC's CIDR range and must be at least /30 or larger.
    *             If you do not specify this optional parameter, Amazon FSx will automatically
@@ -668,19 +668,20 @@ export interface OntapFileSystemConfiguration {
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 }
 
 export enum OpenZFSDeploymentType {
   SINGLE_AZ_1 = "SINGLE_AZ_1",
+  SINGLE_AZ_2 = "SINGLE_AZ_2",
 }
 
 /**
@@ -724,27 +725,24 @@ export interface OpenZFSFileSystemConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports
-   *                 <code>SINGLE_AZ_1</code>. <code>SINGLE_AZ_1</code> is a file system configured for a
-   *             single Availability Zone (AZ) of redundancy. </p>
+   * <p>Specifies the file-system deployment type. Amazon FSx for OpenZFS supports  <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code>.</p>
    */
   DeploymentType?: OpenZFSDeploymentType | string;
 
   /**
-   * <p>The throughput of an Amazon FSx file system, measured in megabytes per second
-   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   * <p>The throughput of an Amazon FSx file system, measured in megabytes per second (MBps).</p>
    */
   ThroughputCapacity?: number;
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -804,7 +802,7 @@ export enum AliasLifecycle {
 export interface Alias {
   /**
    * <p>The name of the DNS alias. The alias name has to meet the following requirements:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p>
    *             </li>
@@ -818,14 +816,14 @@ export interface Alias {
    *                <p>Can start with a numeric.</p>
    *             </li>
    *          </ul>
-   *         <p>For DNS names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *          <p>For DNS names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
    *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
    */
   Name?: string;
 
   /**
    * <p>Describes the state of the DNS alias.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>AVAILABLE - The DNS alias is associated with an Amazon FSx file system.</p>
    *             </li>
@@ -863,24 +861,24 @@ export enum WindowsAccessAuditLogLevel {
 export interface WindowsAuditLogConfiguration {
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_ONLY</code> - only successful attempts to access files
    *                     or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILURE_ONLY</code> - only failed attempts to access files
    *                     or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
    *                     failed attempts to access files or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - access auditing of files and folders is turned off.</p>
    *             </li>
    *          </ul>
@@ -889,24 +887,24 @@ export interface WindowsAuditLogConfiguration {
 
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_ONLY</code> - only successful attempts to access file
    *                     shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILURE_ONLY</code> - only failed attempts to access file
    *                     shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
    *                     failed attempts to access file shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - access auditing of file shares is turned off.</p>
    *             </li>
    *          </ul>
@@ -917,10 +915,10 @@ export interface WindowsAuditLogConfiguration {
    * <p>The Amazon Resource Name (ARN) for the destination of the audit logs.
    *             The destination can be any Amazon CloudWatch Logs log group ARN or
    *             Amazon Kinesis Data Firehose delivery stream ARN.</p>
-   *         <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *          <p>The name of the Amazon CloudWatch Logs log group must begin with
    *             the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
    *             Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
-   *         <p>The destination ARN (either CloudWatch Logs log group or Kinesis
+   *          <p>The destination ARN (either CloudWatch Logs log group or Kinesis
    *             Data Firehose delivery stream) must be in the same Amazon Web Services partition,
    *             Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
    */
@@ -990,24 +988,24 @@ export interface WindowsFileSystemConfiguration {
 
   /**
    * <p>Specifies the file system deployment type, valid values are the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MULTI_AZ_1</code> - Specifies a high availability file system that is configured for Multi-AZ
    *                     redundancy to tolerate temporary Availability Zone (AZ) unavailability, and supports SSD and HDD storage.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_1</code> - (Default) Specifies a file system that is configured for single AZ redundancy,
    *                     only supports SSD storage.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_2</code> - Latest generation Single AZ file system.
    *                     Specifies a file system that is configured for single AZ redundancy and supports SSD and HDD storage.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see
+   *          <p>For more information, see
    *          <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">Single-AZ and Multi-AZ File Systems</a>.</p>
    */
   DeploymentType?: WindowsDeploymentType | string;
@@ -1015,8 +1013,8 @@ export interface WindowsFileSystemConfiguration {
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, use this endpoint when performing administrative tasks on the file system using
    *             Amazon FSx Remote PowerShell.</p>
-   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this is the DNS name of the file system.</p>
-   *         <p>This endpoint is temporarily unavailable when the file system is undergoing maintenance.</p>
+   *          <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this is the DNS name of the file system.</p>
+   *          <p>This endpoint is temporarily unavailable when the file system is undergoing maintenance.</p>
    */
   RemoteAdministrationEndpoint?: string;
 
@@ -1024,7 +1022,7 @@ export interface WindowsFileSystemConfiguration {
    * <p>For <code>MULTI_AZ_1</code> deployment types, it specifies the ID of the subnet where the preferred file server is located.
    *             Must be one of the two subnet IDs specified in <code>SubnetIds</code> property.
    *             Amazon FSx serves traffic from this subnet except in the event of a failover to the secondary file server.</p>
-   *         <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this value is the same as that for <code>SubnetIDs</code>.
+   *          <p>For <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> deployment types, this value is the same as that for <code>SubnetIDs</code>.
    *             For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html#single-multi-az-resources">Availability and durability: Single-AZ and Multi-AZ file systems</a>.</p>
    */
@@ -1032,7 +1030,7 @@ export interface WindowsFileSystemConfiguration {
 
   /**
    * <p>For <code>MULTI_AZ_1</code> deployment types, the IP address of the primary, or preferred, file server.</p>
-   *         <p>Use this IP address when mounting the file system on Linux SMB clients or Windows SMB clients that
+   *          <p>Use this IP address when mounting the file system on Linux SMB clients or Windows SMB clients that
    *             are not joined to a Microsoft Active Directory.
    *             Applicable for all Windows file system deployment types.
    *             This IP address is temporarily unavailable
@@ -1157,28 +1155,28 @@ export enum TieringPolicyName {
  * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
  *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
  *             pool storage based on your access patterns.</p>
- *         <p>Valid tiering policies are the following:</p>
- *         <ul>
+ *          <p>Valid tiering policies are the following:</p>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>SNAPSHOT_ONLY</code> - (Default value) moves cold snapshots to the capacity pool storage tier.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>ALL</code> - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.</p>
  *             </li>
  *          </ul>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <code>NONE</code> - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.</p>
  *             </li>
  *          </ul>
@@ -1194,7 +1192,7 @@ export interface TieringPolicy {
 
   /**
    * <p>Specifies the tiering policy used to transition data. Default value is <code>SNAPSHOT_ONLY</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>SNAPSHOT_ONLY</code> - moves cold snapshots to the capacity pool storage tier.</p>
@@ -1226,7 +1224,7 @@ export interface OntapVolumeConfiguration {
   /**
    * <p>Specifies the FlexCache endpoint type of the volume.
    *             Valid values are the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> specifies that the volume doesn't have a FlexCache configuration.
@@ -1281,7 +1279,7 @@ export interface OntapVolumeConfiguration {
    *             virtual machine (SVM). Only one volume on an SVM can be the root volume. This value
    *             defaults to <code>false</code>. If this value is <code>true</code>, then this is the SVM
    *             root volume.</p>
-   *         <p>This flag is useful when you're deleting an SVM, because you must first delete all
+   *          <p>This flag is useful when you're deleting an SVM, because you must first delete all
    *             non-root volumes. This flag, when set to <code>false</code>, helps you identify which
    *             volumes to delete before you can delete the SVM.</p>
    */
@@ -1299,7 +1297,7 @@ export interface OntapVolumeConfiguration {
 
   /**
    * <p>Specifies the type of volume. Valid values are the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>RW</code> specifies a read/write volume. <code>RW</code> is the default.</p>
@@ -1319,6 +1317,41 @@ export interface OntapVolumeConfiguration {
    *          </ul>
    */
   OntapVolumeType?: OntapVolumeType | string;
+
+  /**
+   * <p>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code>: This is the default policy. A maximum of six hourly snapshots taken five minutes past
+   *                 the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after
+   *                 midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-1weekly</code>: This policy is the same as the <code>default</code> policy except
+   *                 that it only retains one snapshot from the weekly schedule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: This policy does not take any snapshots. This policy can be assigned to volumes to
+   *                 prevent automatic snapshots from being taken.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot policies</a>
+   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   */
+  SnapshotPolicy?: string;
+
+  /**
+   * <p>A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to
+   *             false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups
+   *             where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the
+   *             specified tags are copied to backups. If you specify one or more tags when creating a user-initiated
+   *             backup, no tags are copied from the volume, regardless of this value.</p>
+   */
+  CopyTagsToBackups?: boolean;
 }
 
 export enum OpenZFSDataCompressionType {
@@ -1344,15 +1377,15 @@ export interface OpenZFSClientConfiguration {
    * <p>The options to use when mounting the file system. For a list of options that you can
    *             use with Network File System (NFS), see the <a href="https://linux.die.net/man/5/exports">exports(5) - Linux man page</a>. When
    *             choosing your options, consider the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>crossmnt</code> is used by default. If you don't specify
    *                     <code>crossmnt</code> when changing the client configuration, you won't be
    *                     able to see or access snapshots in your file system's snapshot directory.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>sync</code> is used by default. If you instead specify
    *                         <code>async</code>, the system acknowledges writes before writing to disk.
    *                     If the system crashes before the writes are finished, you lose the unwritten
@@ -1395,16 +1428,16 @@ export interface OpenZFSOriginSnapshotConfiguration {
 
   /**
    * <p>The strategy used when copying data from the snapshot to the new volume. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CLONE</code> - The new volume references the data in the origin
    *                     snapshot. Cloning a snapshot is faster than copying the data from a snapshot to
    *                     a new volume and doesn't consume disk throughput. However, the origin snapshot
    *                     can't be deleted if there is a volume using its copied data. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new volume.
    *                 </p>
    *             </li>
@@ -1477,20 +1510,20 @@ export interface OpenZFSVolumeConfiguration {
   /**
    * <p>Specifies the method used to compress the data on the volume. The compression
    *             type is <code>NONE</code> by default.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code> - Doesn't compress the data on the volume.
    *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
    *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
    *                     compression ratio to minimize on-disk storage utilization.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
    *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
    *                     and delivers higher write throughput speeds.</p>
@@ -1530,6 +1563,25 @@ export interface OpenZFSVolumeConfiguration {
    * <p>An object specifying how much storage users or groups can use on the volume.</p>
    */
   UserAndGroupQuotas?: OpenZFSUserOrGroupQuota[];
+
+  /**
+   * <p>Specifies the ID of the snapshot to which the volume was restored.</p>
+   */
+  RestoreToSnapshot?: string;
+
+  /**
+   * <p>A Boolean value indicating whether snapshots between the
+   *             current state and the specified snapshot should be deleted
+   *             when a volume is restored from snapshot.</p>
+   */
+  DeleteIntermediateSnaphots?: boolean;
+
+  /**
+   * <p>A Boolean value indicating whether dependent clone volumes
+   *             created from intermediate snapshots should be deleted when
+   *             a volume is restored from snapshot.</p>
+   */
+  DeleteClonedVolumes?: boolean;
 }
 
 export enum VolumeType {
@@ -1556,7 +1608,7 @@ export interface AssociateFileSystemAliasesRequest {
   /**
    * <p>An array of one or more DNS alias names to associate with the file system.
    *             The alias name has to comply with the following formatting requirements:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Formatted as a fully-qualified domain name (FQDN), <i>
    *                      <code>hostname.domain</code>
@@ -1573,7 +1625,7 @@ export interface AssociateFileSystemAliasesRequest {
    *                <p>Can start with a numeric.</p>
    *             </li>
    *          </ul>
-   *         <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *          <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
    *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
    */
   Aliases: string[] | undefined;
@@ -1679,13 +1731,13 @@ export enum EventType {
  *             As you create, modify, or delete files, Amazon FSx for Lustre
  *             automatically exports the defined changes asynchronously once your application finishes
  *             modifying the file.</p>
- *         <p>This <code>AutoExportPolicy</code> is supported only for Amazon FSx for Lustre
+ *          <p>This <code>AutoExportPolicy</code> is supported only for Amazon FSx for Lustre
  *             file systems with the <code>Persistent_2</code> deployment type.</p>
  */
 export interface AutoExportPolicy {
   /**
    * <p>The <code>AutoExportPolicy</code> can have the following event values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NEW</code> - New files and directories are automatically exported
@@ -1702,7 +1754,7 @@ export interface AutoExportPolicy {
    *                 on the data repository when they are deleted on the file system.</p>
    *             </li>
    *          </ul>
-   *         <p>You can define any combination of event types for your <code>AutoExportPolicy</code>.</p>
+   *          <p>You can define any combination of event types for your <code>AutoExportPolicy</code>.</p>
    */
   Events?: (EventType | string)[];
 }
@@ -1712,13 +1764,13 @@ export interface AutoExportPolicy {
  *             The AutoImportPolicy defines how Amazon FSx keeps your file metadata and directory
  *             listings up to date by importing changes to your Amazon FSx for Lustre file system
  *             as you modify objects in a linked S3 bucket.</p>
- *         <p>The <code>AutoImportPolicy</code> is supported only for Amazon FSx for Lustre
+ *          <p>The <code>AutoImportPolicy</code> is supported only for Amazon FSx for Lustre
  *             file systems with the <code>Persistent_2</code> deployment type.</p>
  */
 export interface AutoImportPolicy {
   /**
    * <p>The <code>AutoImportPolicy</code> can have the following event values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NEW</code> - Amazon FSx automatically imports metadata of
@@ -1737,7 +1789,7 @@ export interface AutoImportPolicy {
    *                 on the file system as corresponding files are deleted in the data repository.</p>
    *             </li>
    *          </ul>
-   *         <p>You can define any combination of event types for your <code>AutoImportPolicy</code>.</p>
+   *          <p>You can define any combination of event types for your <code>AutoImportPolicy</code>.</p>
    */
   Events?: (EventType | string)[];
 }
@@ -1764,7 +1816,7 @@ export enum DataRepositoryTaskLifecycle {
 export interface CancelDataRepositoryTaskResponse {
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>PENDING</code> - Amazon FSx has not started the task.</p>
@@ -1920,11 +1972,11 @@ export interface CopyBackupRequest {
   /**
    * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
    *              Amazon FSx file systems, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Amazon FSx for Lustre <code>PERSISTENT_1</code>
    *                 and <code>PERSISTENT_2</code> deployment types only.</p>
-   *                 <p>
+   *                <p>
    *                   <code>SCRATCH_1</code> and <code>SCRATCH_2</code> types are encrypted using
    *                     the Amazon FSx service KMS key for your account.</p>
    *             </li>
@@ -1938,7 +1990,7 @@ export interface CopyBackupRequest {
    *                <p>Amazon FSx for Windows File Server</p>
    *             </li>
    *          </ul>
-   *         <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
+   *          <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
    *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
    *             <i>Key Management Service API Reference</i>.</p>
    */
@@ -2289,11 +2341,11 @@ export class VolumeNotFound extends __BaseException {
  *             defines which file events on the file system are automatically exported
  *             to the data repository. File events are when files or directories are
  *             added, changed, or deleted on the file system or the data repository.</p>
- *         <note>
+ *          <note>
  *             <p>Data repository associations on Amazon File Cache don't
  *             use <code>S3DataRepositoryConfiguration</code> because they don't
  *             support automatic import or automatic export.</p>
- *         </note>
+ *          </note>
  */
 export interface S3DataRepositoryConfiguration {
   /**
@@ -2326,10 +2378,10 @@ export interface CreateDataRepositoryAssociationRequest {
    *             a data repository is associated with file system path <code>/ns1/</code>,
    *             then you cannot link another data repository with file system
    *             path <code>/ns1/ns2</code>.</p>
-   *         <p>This path specifies where in your file system files will be exported
+   *          <p>This path specifies where in your file system files will be exported
    *             from or imported to. This file system directory can be linked to only one
    *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
-   *         <note>
+   *          <note>
    *             <p>If you specify only a forward slash (<code>/</code>) as the file system
    *             path, you can link only one data repository to the file system. You can only specify
    *             "/" as the file system path for the first data repository associated with a file system.</p>
@@ -2357,8 +2409,7 @@ export interface CreateDataRepositoryAssociationRequest {
    *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
    *             number of disks that a single file can be striped across is limited by the total number
    *             of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
    */
   ImportedFileChunkSize?: number;
@@ -2424,7 +2475,7 @@ export interface NFSDataRepositoryConfiguration {
  *             or an Amazon File Cache resource to an Amazon S3 bucket or an NFS file system.
  *             The data repository association configuration object is returned
  *             in the response of the following operations:</p>
- *         <ul>
+ *          <ul>
  *             <li>
  *                <p>
  *                   <code>CreateDataRepositoryAssociation</code>
@@ -2441,7 +2492,7 @@ export interface NFSDataRepositoryConfiguration {
  *                </p>
  *             </li>
  *          </ul>
- *         <p>Data repository associations are supported only for an Amazon FSx for Lustre
+ *          <p>Data repository associations are supported only for an Amazon FSx for Lustre
  *             file system with the <code>Persistent_2</code> deployment type and for an
  *             Amazon File Cache resource.</p>
  */
@@ -2467,7 +2518,7 @@ export interface DataRepositoryAssociation {
   /**
    * <p>Describes the state of a data repository association. The lifecycle can have
    *             the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATING</code> - The data repository association between
@@ -2505,7 +2556,7 @@ export interface DataRepositoryAssociation {
   Lifecycle?: DataRepositoryLifecycle | string;
 
   /**
-   * <p>Provides detailed information about the data respository if its <code>Lifecycle</code> is
+   * <p>Provides detailed information about the data repository if its <code>Lifecycle</code> is
    *             set to <code>MISCONFIGURED</code> or <code>FAILED</code>.</p>
    */
   FailureDetails?: DataRepositoryFailureDetails;
@@ -2519,10 +2570,10 @@ export interface DataRepositoryAssociation {
    *             a data repository is associated with file system path <code>/ns1/</code>,
    *             then you cannot link another data repository with file system
    *             path <code>/ns1/ns2</code>.</p>
-   *         <p>This path specifies where in your file system files will be exported
+   *          <p>This path specifies where in your file system files will be exported
    *             from or imported to. This file system directory can be linked to only one
    *             Amazon S3 bucket, and no other S3 bucket can be linked to the directory.</p>
-   *         <note>
+   *          <note>
    *             <p>If you specify only a forward slash (<code>/</code>) as the file system
    *             path, you can link only one data repository to the file system. You can only specify
    *             "/" as the file system path for the first data repository associated with a file system.</p>
@@ -2533,11 +2584,11 @@ export interface DataRepositoryAssociation {
   /**
    * <p>The path to the data repository that will be linked to the cache
    *             or file system.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>For Amazon File Cache, the path can be an NFS data repository
    *                 that will be linked to the cache. The path can be in one of two formats:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>If you are not using the <code>DataRepositorySubdirectories</code>
    *                         parameter, the path is to an NFS Export directory (or one of its subdirectories)
@@ -2569,11 +2620,11 @@ export interface DataRepositoryAssociation {
    * <p>A boolean flag indicating whether an import data repository task to import
    *             metadata should run after the data repository association is created. The
    *             task runs if this flag is set to <code>true</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>
    *                <code>BatchImportMetaDataOnCreate</code> is not supported for data repositories
    *                 linked to an Amazon File Cache resource.</p>
-   *         </note>
+   *          </note>
    */
   BatchImportMetaDataOnCreate?: boolean;
 
@@ -2582,8 +2633,7 @@ export interface DataRepositoryAssociation {
    *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
    *             number of disks that a single file can be striped across is limited by the total number
    *             of disks that make up the file system or cache.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
    */
   ImportedFileChunkSize?: number;
@@ -2619,16 +2669,16 @@ export interface DataRepositoryAssociation {
    *             a data repository is associated with cache path <code>/ns1/</code>,
    *             then you cannot link another data repository with cache
    *             path <code>/ns1/ns2</code>.</p>
-   *         <p>This path specifies the directory in your cache where files will be exported
+   *          <p>This path specifies the directory in your cache where files will be exported
    *             from. This cache directory can be linked to only one data repository
    *             (S3 or NFS) and no other data repository can be linked to the directory.</p>
-   *         <note>
+   *          <note>
    *             <p>The cache path can only be set to root (/) on an NFS DRA when
    *                 <code>DataRepositorySubdirectories</code> is specified. If you
    *                 specify root (/) as the cache path, you can create only one DRA
    *                 on the cache.</p>
    *             <p>The cache path cannot be set to root (/) for an S3 DRA.</p>
-   *         </note>
+   *          </note>
    */
   FileCachePath?: string;
 
@@ -2719,7 +2769,7 @@ export interface CreateDataRepositoryTaskRequest {
   /**
    * <p>A list of paths for the data repository task to use when the task is processed.
    *             If a path that you provide isn't valid, the task fails.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>For export tasks, the list contains paths on the Amazon FSx file system
    *                 from which the files are exported to the Amazon S3 bucket. The default path is the
@@ -2828,7 +2878,7 @@ export interface DataRepositoryTask {
 
   /**
    * <p>The lifecycle status of the data repository task, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>PENDING</code> - The task has not started.</p>
@@ -2855,18 +2905,18 @@ export interface DataRepositoryTask {
    *                   <code>CANCELING</code> - The task is in process of being canceled.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>You cannot delete an FSx for Lustre file system if there are data
    *                 repository tasks for the file system in the <code>PENDING</code> or <code>EXECUTING</code> states.
    *                 Please retry when the data repository task is finished (with a status of <code>CANCELED</code>, <code>SUCCEEDED</code>, or <code>FAILED</code>).
    *                 You can use the DescribeDataRepositoryTask action to monitor the task status. Contact the FSx team if you need to delete your file system immediately.</p>
-   *         </note>
+   *          </note>
    */
   Lifecycle: DataRepositoryTaskLifecycle | string | undefined;
 
   /**
    * <p>The type of data repository task.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>EXPORT_TO_REPOSITORY</code> tasks export from your
@@ -2924,7 +2974,7 @@ export interface DataRepositoryTask {
    * <p>An array of paths that specify the data for the data repository task to process.
    *             For example, in an EXPORT_TO_REPOSITORY task, the paths specify which data to export
    *             to the linked data repository.</p>
-   *             <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>
+   *          <p>(Default) If <code>Paths</code> is not specified, Amazon FSx uses the file system root directory.</p>
    */
   Paths?: string[];
 
@@ -3017,7 +3067,7 @@ export interface FileCacheNFSConfiguration {
  *             be created during the Amazon File Cache resource creation. The DRA
  *             links the cache to either an Amazon S3 bucket or prefix, or a Network File
  *             System (NFS) data repository that supports the NFSv3 protocol.</p>
- *         <p>The DRA does not support automatic import or automatic
+ *          <p>The DRA does not support automatic import or automatic
  *             export.</p>
  */
 export interface FileCacheDataRepositoryAssociation {
@@ -3030,27 +3080,27 @@ export interface FileCacheDataRepositoryAssociation {
    *             a data repository is associated with cache path <code>/ns1/</code>,
    *             then you cannot link another data repository with cache
    *             path <code>/ns1/ns2</code>.</p>
-   *         <p>This path specifies where in your cache files will be exported
+   *          <p>This path specifies where in your cache files will be exported
    *             from. This cache directory can be linked to only one data repository,
    *             and no data repository other can be linked to the directory.</p>
-   *         <note>
+   *          <note>
    *             <p>The cache path can only be set to root (/) on an NFS DRA when
    *                 <code>DataRepositorySubdirectories</code> is specified. If you
    *                 specify root (/) as the cache path, you can create only one DRA
    *                 on the cache.</p>
    *             <p>The cache path cannot be set to root (/) for an S3 DRA.</p>
-   *         </note>
+   *          </note>
    */
   FileCachePath: string | undefined;
 
   /**
    * <p>The path to the S3 or NFS data repository that links to the
    *             cache. You must provide one of the following paths:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>The path can be an NFS data repository that links to
    *                 the cache. The path can be in one of two formats:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>If you are not using the <code>DataRepositorySubdirectories</code>
    *                         parameter, the path is to an NFS Export directory (or one of its subdirectories)
@@ -3130,13 +3180,13 @@ export interface CreateFileCacheLustreConfiguration {
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -3151,7 +3201,7 @@ export interface CreateFileCacheRequest {
    * <p>An idempotency token for resource creation, in a string of up to 64
    *             ASCII characters. This token is automatically filled on your behalf when you use the
    *             Command Line Interface (CLI) or an Amazon Web Services SDK.</p>
-   *         <p>By using the idempotent operation, you can retry a <code>CreateFileCache</code>
+   *          <p>By using the idempotent operation, you can retry a <code>CreateFileCache</code>
    *             operation without the risk of creating an extra cache. This approach can be useful
    *             when an initial call fails in a way that makes it unclear whether a cache was created.
    *             Examples are if a transport level timeout occurred, or your connection was reset.
@@ -3220,8 +3270,8 @@ export interface CreateFileCacheRequest {
    * <p>A list of up to 8 configurations for data repository associations (DRAs) to
    *             be created during the cache creation. The DRAs link the cache to either an
    *             Amazon S3 data repository or a Network File System (NFS) data repository that supports the NFSv3 protocol.</p>
-   *         <p>The DRA configurations must meet the following requirements:</p>
-   *         <ul>
+   *          <p>The DRA configurations must meet the following requirements:</p>
+   *          <ul>
    *             <li>
    *                <p>All configurations on the list must be of the
    *                 same data repository type, either all S3 or all NFS. A cache
@@ -3232,8 +3282,7 @@ export interface CreateFileCacheRequest {
    *                 supports the NFSv3 protocol.</p>
    *             </li>
    *          </ul>
-   *
-   *         <p>DRA automatic import and automatic export is not supported.</p>
+   *          <p>DRA automatic import and automatic export is not supported.</p>
    */
   DataRepositoryAssociations?: FileCacheDataRepositoryAssociation[];
 }
@@ -3283,13 +3332,13 @@ export interface FileCacheLustreConfiguration {
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -3340,7 +3389,7 @@ export interface FileCacheCreating {
   /**
    * <p>The lifecycle status of the cache. The following are the possible values and
    *             what they mean:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AVAILABLE</code> - The cache is in a healthy state, and is reachable and available for use.</p>
@@ -3539,28 +3588,28 @@ export class MissingFileCacheConfiguration extends __BaseException {
  *             Amazon FSx for Lustre file system. An Amazon File Cache is created
  *             with Lustre logging enabled by default, with a setting of
  *             <code>WARN_ERROR</code> for the logging events. which can't be changed.</p>
- *         <p>Lustre logging writes the enabled logging events for your file system
+ *          <p>Lustre logging writes the enabled logging events for your file system
  *             or cache to Amazon CloudWatch Logs.</p>
  */
 export interface LustreLogCreateConfiguration {
   /**
    * <p>Sets which data repository events are logged by Amazon FSx.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>WARN_ONLY</code> - only warning events are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERROR_ONLY</code> - only error events are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>WARN_ERROR</code> - both warning events and error events
    *                     are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - logging of data repository events
    *                     is turned off.</p>
    *             </li>
@@ -3570,29 +3619,29 @@ export interface LustreLogCreateConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the destination of the logs.</p>
-   *         <p>The destination can be any Amazon CloudWatch Logs log group ARN, with the following
+   *          <p>The destination can be any Amazon CloudWatch Logs log group ARN, with the following
    *             requirements:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The destination ARN that you provide must be in the same Amazon Web Services partition,
+   *                <p>The destination ARN that you provide must be in the same Amazon Web Services partition,
    *                     Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
    *             </li>
    *             <li>
-   *                 <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *                <p>The name of the Amazon CloudWatch Logs log group must begin with
    *                     the <code>/aws/fsx</code> prefix.</p>
    *             </li>
    *             <li>
-   *                 <p>If you do not provide a destination, Amazon FSx will create and use a
+   *                <p>If you do not provide a destination, Amazon FSx will create and use a
    *                     log stream in the CloudWatch Logs <code>/aws/fsx/lustre</code> log group
    *                     (for Amazon FSx for Lustre) or <code>/aws/fsx/filecache</code>
    *                     (for Amazon File Cache).</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>Destination</code> is provided and the resource does not
+   *                <p>If <code>Destination</code> is provided and the resource does not
    *                     exist, the request will fail with a <code>BadRequest</code> error.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>Level</code> is set to <code>DISABLED</code>, you cannot specify
+   *                <p>If <code>Level</code> is set to <code>DISABLED</code>, you cannot specify
    *                     a destination in <code>Destination</code>.</p>
    *             </li>
    *          </ul>
@@ -3602,7 +3651,7 @@ export interface LustreLogCreateConfiguration {
 
 /**
  * <p>The Lustre configuration for the file system being created.</p>
- *         <note>
+ *          <note>
  *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
  *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
  *             to create a data repository association to link your Lustre file system to a data repository.</p>
@@ -3645,7 +3694,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             example is <code>s3://import-bucket/optional-prefix</code>. If you specify a prefix
    *             after the Amazon S3 bucket name, only object keys with that prefix are loaded into the
    *             file system.</p>
-   *         <note>
+   *          <note>
    *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
    *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
    *             a data repository association to link your Lustre file system to a data repository.</p>
@@ -3662,15 +3711,14 @@ export interface CreateFileSystemLustreConfiguration {
    *             <code>s3://import-bucket/FSxLustre[creation-timestamp]</code>. The timestamp is in
    *             UTC format, for example
    *             <code>s3://import-bucket/FSxLustre20181105T222312Z</code>.</p>
-   *         <p>The Amazon S3 export bucket must be the same as the import bucket specified by
+   *          <p>The Amazon S3 export bucket must be the same as the import bucket specified by
    *                 <code>ImportPath</code>. If you specify only a bucket name, such as
    *                 <code>s3://import-bucket</code>, you get a 1:1 mapping of file system objects to S3
    *             bucket objects. This mapping means that the input data in S3 is overwritten on export.
    *             If you provide a custom prefix in the export path, such as
    *             <code>s3://import-bucket/[custom-optional-prefix]</code>, Amazon FSx exports the contents of your file
    *             system to that export prefix in the Amazon S3 bucket.</p>
-   *
-   *         <note>
+   *          <note>
    *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
    *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
    *             a data repository association to link your Lustre file system to a data repository.</p>
@@ -3683,10 +3731,9 @@ export interface CreateFileSystemLustreConfiguration {
    *             count and maximum amount of data per file (in MiB) stored on a single physical disk. The
    *             maximum number of disks that a single file can be striped across is limited by the total
    *             number of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3  objects have a maximum size of 5 TB.</p>
-   *         <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
+   *          <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
    *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
    *             a data repository association to link your Lustre file system to a data repository.</p>
    */
@@ -3697,11 +3744,11 @@ export interface CreateFileSystemLustreConfiguration {
    *             types when you need temporary storage and shorter-term processing of data.
    *             The <code>SCRATCH_2</code> deployment type provides in-transit encryption of data and higher burst
    *             throughput capacity than <code>SCRATCH_1</code>.</p>
-   *         <p>Choose <code>PERSISTENT_1</code> for longer-term storage and for throughput-focused
+   *          <p>Choose <code>PERSISTENT_1</code> for longer-term storage and for throughput-focused
    *             workloads that aren’t latency-sensitive.
    *             <code>PERSISTENT_1</code> supports encryption of data in transit, and is available in all
    *             Amazon Web Services Regions in which FSx for Lustre is available.</p>
-   *         <p>Choose <code>PERSISTENT_2</code> for longer-term storage and for latency-sensitive workloads
+   *          <p>Choose <code>PERSISTENT_2</code> for longer-term storage and for latency-sensitive workloads
    *             that require the highest levels of IOPS/throughput. <code>PERSISTENT_2</code> supports
    *             SSD storage, and offers higher <code>PerUnitStorageThroughput</code> (up to 1000 MB/s/TiB). <code>PERSISTENT_2</code>
    *             is available in a limited number of Amazon Web Services Regions.
@@ -3709,19 +3756,18 @@ export interface CreateFileSystemLustreConfiguration {
    *             <code>PERSISTENT_2</code> is available, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-fsx-lustre.html#lustre-deployment-types">File
    *                 system deployment options for FSx for Lustre</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
-   *         <note>
+   *          <note>
    *             <p>If you choose <code>PERSISTENT_2</code>, and you set <code>FileSystemTypeVersion</code> to
    *                     <code>2.10</code>, the <code>CreateFileSystem</code> operation fails.</p>
    *          </note>
-   *
-   *             <p>Encryption of data in transit is automatically turned on when you access
+   *          <p>Encryption of data in transit is automatically turned on when you access
    *                 <code>SCRATCH_2</code>, <code>PERSISTENT_1</code> and <code>PERSISTENT_2</code> file
    *             systems from Amazon EC2 instances that <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/data-                 protection.html">support
    *                 automatic encryption</a> in the Amazon Web Services Regions where they are
    *             available. For more information about encryption in transit for FSx for Lustre
    *             file systems, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/encryption-in-transit-fsxl.html">Encrypting data in
    *                 transit</a>  in the <i>Amazon FSx for Lustre User Guide</i>. </p>
-   *             <p>(Default = <code>SCRATCH_1</code>)</p>
+   *          <p>(Default = <code>SCRATCH_1</code>)</p>
    */
   DeploymentType?: LustreDeploymentType | string;
 
@@ -3731,7 +3777,7 @@ export interface CreateFileSystemLustreConfiguration {
    *             Use this property to choose how Amazon FSx keeps your file and directory listings up to date
    *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can
    *             have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates
@@ -3759,9 +3805,9 @@ export interface CreateFileSystemLustreConfiguration {
    *                 in the S3 bucket.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/older-deployment-types.html#legacy-auto-import-from-s3">
    *             Automatically import updates from your S3 bucket</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>This parameter is not supported for file systems with the <code>Persistent_2</code> deployment type.
    *             Instead, use <code>CreateDataRepositoryAssociation</code> to create
    *             a data repository association to link your Lustre file system to a data repository.</p>
@@ -3777,8 +3823,8 @@ export interface CreateFileSystemLustreConfiguration {
    *                 <code>PerUnitStorageThroughput</code> (MB/s/TiB). For a 2.4-TiB ﬁle system,
    *             provisioning 50 MB/s/TiB of <code>PerUnitStorageThroughput</code> yields 120 MB/s of ﬁle
    *             system throughput. You pay for the amount of throughput that you provision. </p>
-   *         <p>Valid values:</p>
-   *         <ul>
+   *          <p>Valid values:</p>
+   *          <ul>
    *             <li>
    *                <p>For <code>PERSISTENT_1</code> SSD storage: 50, 100, 200 MB/s/TiB.</p>
    *             </li>
@@ -3816,8 +3862,8 @@ export interface CreateFileSystemLustreConfiguration {
    *             tags, only the specified tags are copied to backups. If you specify one or more tags
    *             when creating a user-initiated backup, no tags are copied from the file system,
    *             regardless of this value.</p>
-   *         <p>(Default = <code>false</code>)</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">
+   *          <p>(Default = <code>false</code>)</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/using-backups-fsx.html">
    *             Working with backups</a> in the <i>Amazon FSx for Lustre User Guide</i>.</p>
    */
   CopyTagsToBackups?: boolean;
@@ -3827,14 +3873,14 @@ export interface CreateFileSystemLustreConfiguration {
    *             HDD storage devices. This parameter is required when storage type is HDD. Set this property to
    *             <code>READ</code> to improve the performance for frequently accessed files by caching up to 20%
    *             of the total storage capacity of the file system.</p>
-   *         <p>This parameter is required when <code>StorageType</code> is set to <code>HDD</code>.</p>
+   *          <p>This parameter is required when <code>StorageType</code> is set to <code>HDD</code>.</p>
    */
   DriveCacheType?: DriveCacheType | string;
 
   /**
    * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
    *             can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - (Default) Data compression is turned off when
@@ -3846,7 +3892,7 @@ export interface CreateFileSystemLustreConfiguration {
    *                 algorithm.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>
    *             in the <i>Amazon FSx for Lustre User Guide</i>.</p>
    */
   DataCompressionType?: DataCompressionType | string;
@@ -3888,32 +3934,32 @@ export interface CreateFileSystemOntapConfiguration {
   /**
    * <p>Specifies the FSx for ONTAP file system deployment type to use in creating
    *             the file system.  </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MULTI_AZ_1</code> - (Default) A high availability file system configured
    *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ)
    *                     unavailability.  </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_1</code> - A file system configured for Single-AZ
    *                     redundancy.</p>
    *             </li>
    *          </ul>
-   *         <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
+   *          <p>For information about the use cases for Multi-AZ and Single-AZ deployments, refer to
    *                 <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-AZ.html">Choosing a file system deployment type</a>. </p>
    */
   DeploymentType: OntapDeploymentType | string | undefined;
 
   /**
    * <p>(Multi-AZ only) Specifies the IP address range in which the endpoints to access your
-   *             file system will be created. By default, Amazon FSx selects an unused IP address
-   *             range for you from the 198.19.* range.</p>
-   *         <important>
-   *             <p>The Endpoint IP address range you select for your file system must exist outside
-   *                 the VPC's CIDR range and must be at least /30 or larger.</p>
-   *         </important>
+   *             file system will be created. By default in the Amazon FSx  API, Amazon FSx
+   *             selects an unused IP address range for you from the 198.19.* range. By default in the
+   *             Amazon FSx  console, Amazon FSx  chooses the last 64 IP addresses from
+   *             the VPC’s primary CIDR range to use as the endpoint IP address range for the file system.
+   *             You can have overlapping endpoint IP addresses for file systems deployed in the
+   *             same VPC/route tables.</p>
    */
   EndpointIpAddressRange?: string;
 
@@ -3944,19 +3990,19 @@ export interface CreateFileSystemOntapConfiguration {
 
   /**
    * <p>Sets the throughput capacity for the file system that you're creating. Valid values
-   *             are 128, 256, 512, 1024, and 2048 MBps.</p>
+   *             are 128, 256, 512, 1024, 2048, and 4096 MBps.</p>
    */
   ThroughputCapacity: number | undefined;
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 }
@@ -3979,20 +4025,20 @@ export interface OpenZFSCreateRootVolumeConfiguration {
   /**
    * <p>Specifies the method used to compress the data on the volume. The compression
    *             type is <code>NONE</code> by default.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code> - Doesn't compress the data on the volume.
    *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
    *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
    *                     compression ratio to minimize on-disk storage utilization.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
    *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
    *                     and delivers higher write throughput speeds.</p>
@@ -4069,28 +4115,50 @@ export interface CreateFileSystemOpenZFSConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>Specifies the file system deployment type. Amazon FSx for OpenZFS supports
-   *             <code>SINGLE_AZ_1</code>. <code>SINGLE_AZ_1</code> deployment type is configured for redundancy
-   *             within a single Availability Zone.</p>
+   * <p>Specifies the file system deployment type. Single AZ deployment types are configured
+   *             for redundancy within a single Availability Zone in an Amazon Web Services Region .
+   *             Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_AZ_1</code>- (Default) Creates file systems with throughput capacities of 64 - 4,096 MB/s.
+   *                 <code>Single_AZ_1</code> is available in all Amazon Web Services Regions where Amazon FSx
+   *                 for OpenZFS is available, except US West (Oregon).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SINGLE_AZ_2</code>- Creates file systems with throughput capacities of 160 - 10,240 MB/s
+   *                 using an NVMe L2ARC cache. <code>Single_AZ_2</code> is available only in the US East (N. Virginia), US East (Ohio),
+   *                 US West (Oregon), and Europe (Ireland) Amazon Web Services Regions.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see: <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/available-aws-regions.html">Deployment type availability</a> and <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/zfs-fs-performance.html"> File system performance</a>in the<i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
   DeploymentType: OpenZFSDeploymentType | string | undefined;
 
   /**
-   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second
-   *             (MB/s). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.
-   *             You pay for additional throughput capacity that you provision.</p>
+   * <p>Specifies the throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You pay for additional throughput capacity that you provision.</p>
    */
   ThroughputCapacity: number | undefined;
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -4116,24 +4184,24 @@ export interface CreateFileSystemOpenZFSConfiguration {
 export interface WindowsAuditLogCreateConfiguration {
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file and folder accesses.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_ONLY</code> - only successful attempts to access files
    *                     or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILURE_ONLY</code> - only failed attempts to access files
    *                     or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
    *                     failed attempts to access files or folders are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - access auditing of files and folders is turned off.</p>
    *             </li>
    *          </ul>
@@ -4142,24 +4210,24 @@ export interface WindowsAuditLogCreateConfiguration {
 
   /**
    * <p>Sets which attempt type is logged by Amazon FSx for file share accesses.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_ONLY</code> - only successful attempts to access file
    *                     shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILURE_ONLY</code> - only failed attempts to access file
    *                     shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SUCCESS_AND_FAILURE</code> - both successful attempts and
    *                     failed attempts to access file shares are logged.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DISABLED</code> - access auditing of file shares is turned off.</p>
    *             </li>
    *          </ul>
@@ -4168,30 +4236,30 @@ export interface WindowsAuditLogCreateConfiguration {
 
   /**
    * <p>The Amazon Resource Name (ARN) that specifies the destination of the audit logs.</p>
-   *         <p>The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis
+   *          <p>The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis
    *             Data Firehose delivery stream ARN, with the following requirements:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The destination ARN that you provide (either CloudWatch Logs log group
+   *                <p>The destination ARN that you provide (either CloudWatch Logs log group
    *                     or Kinesis Data Firehose delivery stream) must be in the same Amazon Web Services partition,
    *                     Amazon Web Services Region, and Amazon Web Services account as your Amazon FSx file system.</p>
    *             </li>
    *             <li>
-   *                 <p>The name of the Amazon CloudWatch Logs log group must begin with
+   *                <p>The name of the Amazon CloudWatch Logs log group must begin with
    *                     the <code>/aws/fsx</code> prefix. The name of the Amazon Kinesis Data
    *                     Firehouse delivery stream must begin with the <code>aws-fsx</code> prefix.</p>
    *             </li>
    *             <li>
-   *                 <p>If you do not provide a destination in <code>AuditLogDestination</code>,
+   *                <p>If you do not provide a destination in <code>AuditLogDestination</code>,
    *                     Amazon FSx will create and use a log stream in the CloudWatch Logs
    *                     <code>/aws/fsx/windows</code> log group.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>AuditLogDestination</code> is provided and the resource does not
+   *                <p>If <code>AuditLogDestination</code> is provided and the resource does not
    *                     exist, the request will fail with a <code>BadRequest</code> error.</p>
    *             </li>
    *             <li>
-   *                 <p>If <code>FileAccessAuditLogLevel</code> and <code>FileShareAccessAuditLogLevel</code>
+   *                <p>If <code>FileAccessAuditLogLevel</code> and <code>FileShareAccessAuditLogLevel</code>
    *                     are both set to <code>DISABLED</code>, you cannot specify a destination in
    *                     <code>AuditLogDestination</code>.</p>
    *             </li>
@@ -4221,10 +4289,10 @@ export interface SelfManagedActiveDirectoryConfiguration {
    *             FSx only accepts OU as the direct parent of the file system. An example is
    *                 <code>OU=FSx,DC=yourdomain,DC=corp,DC=com</code>. To learn more, see <a href="https://tools.ietf.org/html/rfc2253">RFC 2253</a>. If none is provided, the
    *             FSx file system is created in the default location of your self-managed AD directory. </p>
-   *         <important>
+   *          <important>
    *             <p>Only Organizational Unit (OU) objects can be the direct parent of the file system
    *                 that you're creating.</p>
-   *         </important>
+   *          </important>
    */
   OrganizationalUnitDistinguishedName?: string;
 
@@ -4284,25 +4352,25 @@ export interface CreateFileSystemWindowsConfiguration {
 
   /**
    * <p>Specifies the file system deployment type, valid values are the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MULTI_AZ_1</code> - Deploys a high availability file system that is configured
    *                     for Multi-AZ redundancy to tolerate temporary Availability Zone (AZ) unavailability. You
    *                     can only deploy a Multi-AZ file system in Amazon Web Services Regions that have a minimum of three Availability Zones. Also
    *                 supports HDD storage type</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_1</code> - (Default) Choose to deploy a file system that is configured for single AZ redundancy.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SINGLE_AZ_2</code> - The latest generation Single AZ file system.
    *                     Specifies a file system that is configured for single AZ redundancy and supports HDD storage type.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information, see
+   *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/high-availability-multiAZ.html">
    *                 Availability and Durability: Single-AZ and Multi-AZ File Systems</a>.</p>
    */
@@ -4358,11 +4426,11 @@ export interface CreateFileSystemWindowsConfiguration {
    *             You can associate additional DNS aliases after you create the file system using the AssociateFileSystemAliases operation.
    *             You can remove DNS aliases from the file system after it is created using the DisassociateFileSystemAliases operation.
    *             You only need to specify the alias name in the request payload.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html">Working with DNS Aliases</a> and
    *         <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/walkthrough05-file-system-custom-CNAME.html">Walkthrough 5: Using DNS aliases to access your file system</a>, including
    *         additional steps you must take to be able to access your file system using a DNS alias.</p>
    *          <p>An alias name has to meet the following requirements:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>Formatted as a fully-qualified domain name (FQDN), <code>hostname.domain</code>, for example, <code>accounting.example.com</code>.</p>
    *             </li>
@@ -4376,7 +4444,7 @@ export interface CreateFileSystemWindowsConfiguration {
    *                <p>Can start with a numeric.</p>
    *             </li>
    *          </ul>
-   *         <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
+   *          <p>For DNS alias names, Amazon FSx stores alphabetic characters as lowercase letters (a-z), regardless of how you specify them:
    *             as uppercase letters, lowercase letters, or the corresponding letters in escape codes.</p>
    */
   Aliases?: string[];
@@ -4409,12 +4477,12 @@ export interface CreateFileSystemRequest {
 
   /**
    * <p>Sets the storage capacity of the file system that you're creating, in gibibytes (GiB).</p>
-   *         <p>
+   *          <p>
    *             <b>FSx for Lustre file systems</b> - The amount of
    *             storage capacity that you can configure depends on the value that you set for
    *                 <code>StorageType</code> and the Lustre <code>DeploymentType</code>, as
    *             follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>For <code>SCRATCH_2</code>, <code>PERSISTENT_2</code> and <code>PERSISTENT_1</code> deployment types
    *                 using SSD storage type, the valid values are 1200 GiB, 2400 GiB, and increments of 2400 GiB.</p>
@@ -4428,17 +4496,17 @@ export interface CreateFileSystemRequest {
    *                 1200 GiB, 2400 GiB, and increments of 3600 GiB.</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>FSx for ONTAP file systems</b> - The amount of storage capacity
    *             that you can configure is from 1024 GiB up to 196,608 GiB (192 TiB).</p>
-   *         <p>
+   *          <p>
    *             <b>FSx for OpenZFS file systems</b> - The amount of storage capacity that
    *             you can configure is from 64 GiB up to 524,288 GiB (512 TiB).</p>
-   *         <p>
+   *          <p>
    *             <b>FSx for Windows File Server file systems</b> - The amount
    *             of storage capacity that you can configure depends on the value that you set for
    *                 <code>StorageType</code> as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>For SSD storage, valid values are 32 GiB-65,536 GiB (64 TiB).</p>
    *             </li>
@@ -4452,7 +4520,7 @@ export interface CreateFileSystemRequest {
   /**
    * <p>Sets the storage type for the file system that you're creating. Valid values are
    *                 <code>SSD</code> and <code>HDD</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all Windows,
    *                     Lustre, ONTAP, and OpenZFS deployment types.</p>
@@ -4464,7 +4532,7 @@ export interface CreateFileSystemRequest {
    *                 </p>
    *             </li>
    *          </ul>
-   *         <p>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage
+   *          <p>Default value is <code>SSD</code>. For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/WindowsGuide/optimize-fsx-costs.html#storage-type-options"> Storage
    *                 type options</a> in the <i>FSx for Windows File Server User
    *                 Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/what-is.html#storage-options">Multiple storage
    *                 options</a> in the <i>FSx for Lustre User
@@ -4483,7 +4551,7 @@ export interface CreateFileSystemRequest {
    *                 <i>Amazon FSx for Windows User Guide</i> and <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/high-availability-multiAZ.html">
    *                 Availability and durability</a> in the <i>Amazon FSx for ONTAP User
    *                 Guide</i>.</p>
-   *         <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> and all Lustre
+   *          <p>For Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> and all Lustre
    *             deployment types, provide exactly one subnet ID.
    *            The file server is launched in that subnet's Availability Zone.</p>
    */
@@ -4505,11 +4573,11 @@ export interface CreateFileSystemRequest {
   /**
    * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
    *              Amazon FSx file systems, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Amazon FSx for Lustre <code>PERSISTENT_1</code>
    *                 and <code>PERSISTENT_2</code> deployment types only.</p>
-   *                 <p>
+   *                <p>
    *                   <code>SCRATCH_1</code> and <code>SCRATCH_2</code> types are encrypted using
    *                     the Amazon FSx service KMS key for your account.</p>
    *             </li>
@@ -4523,7 +4591,7 @@ export interface CreateFileSystemRequest {
    *                <p>Amazon FSx for Windows File Server</p>
    *             </li>
    *          </ul>
-   *         <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
+   *          <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
    *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
    *             <i>Key Management Service API Reference</i>.</p>
    */
@@ -4536,7 +4604,7 @@ export interface CreateFileSystemRequest {
 
   /**
    * <p>The Lustre configuration for the file system being created.</p>
-   *         <note>
+   *          <note>
    *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
    *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
    *             to create a data repository association to link your Lustre file system to a data repository.</p>
@@ -4576,8 +4644,7 @@ export interface CreateFileSystemRequest {
    * <p>(Optional) For FSx for Lustre file systems, sets the Lustre version for the
    *             file system that you're creating. Valid values are <code>2.10</code> and
    *                 <code>2.12</code>:</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>2.10 is supported by the Scratch and Persistent_1 Lustre deployment types.</p>
    *             </li>
@@ -4587,9 +4654,9 @@ export interface CreateFileSystemRequest {
    *                 <code>PERSISTENT_2</code>.</p>
    *             </li>
    *          </ul>
-   *         <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to
+   *          <p>Default value = <code>2.10</code>, except when <code>DeploymentType</code> is set to
    *             <code>PERSISTENT_2</code>, then the default is <code>2.12</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If you set <code>FileSystemTypeVersion</code> to <code>2.10</code> for a
    *             <code>PERSISTENT_2</code> Lustre deployment type, the <code>CreateFileSystem</code>
    *             operation fails.</p>
@@ -4697,7 +4764,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             file system deployment types, provide exactly two subnet IDs, one for the preferred file server
    *             and one for the standby file server. You specify one of these subnets as the preferred subnet
    *             using the <code>WindowsConfiguration > PreferredSubnetID</code> property.</p>
-   *         <p>Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
+   *          <p>Windows <code>SINGLE_AZ_1</code> and <code>SINGLE_AZ_2</code> file system deployment
    *             types, Lustre file systems, and OpenZFS file systems provide exactly one subnet ID. The
    *             file server is launched in that subnet's Availability Zone.</p>
    */
@@ -4724,7 +4791,7 @@ export interface CreateFileSystemFromBackupRequest {
 
   /**
    * <p>The Lustre configuration for the file system being created.</p>
-   *         <note>
+   *          <note>
    *             <p>The following parameters are not supported for file systems with the <code>Persistent_2</code>
    *             deployment type. Instead, use <code>CreateDataRepositoryAssociation</code>
    *             to create a data repository association to link your Lustre file system to a data repository.</p>
@@ -4757,7 +4824,7 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * <p>Sets the storage type for the Windows or OpenZFS file system that you're creating from
    *             a backup. Valid values are <code>SSD</code> and <code>HDD</code>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Set to <code>SSD</code> to use solid state drive storage. SSD is supported on all Windows and OpenZFS
    *                     deployment types.</p>
@@ -4767,8 +4834,8 @@ export interface CreateFileSystemFromBackupRequest {
    *                     HDD is supported on <code>SINGLE_AZ_2</code> and <code>MULTI_AZ_1</code> FSx for Windows File Server file system deployment types.</p>
    *             </li>
    *          </ul>
-   *         <p> The default value is <code>SSD</code>. </p>
-   *         <note>
+   *          <p> The default value is <code>SSD</code>. </p>
+   *          <note>
    *             <p>HDD and SSD storage types have different minimum storage capacity requirements.
    *             A restored file system's storage capacity is tied to the file system that was backed up.
    *             You can create a file system that uses HDD storage from a backup of a file system that
@@ -4780,11 +4847,11 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * <p>Specifies the ID of the Key Management Service (KMS) key to use for encrypting data on
    *              Amazon FSx file systems, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Amazon FSx for Lustre <code>PERSISTENT_1</code>
    *                 and <code>PERSISTENT_2</code> deployment types only.</p>
-   *                 <p>
+   *                <p>
    *                   <code>SCRATCH_1</code> and <code>SCRATCH_2</code> types are encrypted using
    *                     the Amazon FSx service KMS key for your account.</p>
    *             </li>
@@ -4798,7 +4865,7 @@ export interface CreateFileSystemFromBackupRequest {
    *                <p>Amazon FSx for Windows File Server</p>
    *             </li>
    *          </ul>
-   *         <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
+   *          <p>If a <code>KmsKeyId</code> isn't specified, the Amazon FSx-managed KMS key for your account is used.
    *             For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_Encrypt.html">Encrypt</a> in the
    *             <i>Key Management Service API Reference</i>.</p>
    */
@@ -4807,7 +4874,7 @@ export interface CreateFileSystemFromBackupRequest {
   /**
    * <p>Sets the version for the Amazon FSx for Lustre file system that you're
    *             creating from a backup. Valid values are <code>2.10</code> and <code>2.12</code>.</p>
-   *         <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
+   *          <p>You don't need to specify <code>FileSystemTypeVersion</code> because it will
    *             be applied using the backup's <code>FileSystemTypeVersion</code> setting.
    *             If you choose to specify <code>FileSystemTypeVersion</code> when creating from backup, the
    *             value must match the backup's <code>FileSystemTypeVersion</code> setting.</p>
@@ -4825,7 +4892,7 @@ export interface CreateFileSystemFromBackupRequest {
    *             (512 TiB). However, the value that you specify must be equal to or greater than the
    *             backup's storage capacity value. If you don't use the <code>StorageCapacity</code>
    *             parameter, the default is the backup's <code>StorageCapacity</code> value.</p>
-   *         <p>If used to create a file system other than OpenZFS, you must provide a value
+   *          <p>If used to create a file system other than OpenZFS, you must provide a value
    *             that matches the backup's <code>StorageCapacity</code> value. If you provide any
    *             other value, Amazon FSx responds with a 400 Bad Request. </p>
    */
@@ -4922,7 +4989,7 @@ export interface CreateStorageVirtualMachineRequest {
 
   /**
    * <p>The security style of the root volume of the SVM. Specify one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>UNIX</code> if the file system is managed by a UNIX
@@ -5019,13 +5086,6 @@ export enum StorageVirtualMachineLifecycle {
   PENDING = "PENDING",
 }
 
-export enum StorageVirtualMachineSubtype {
-  DEFAULT = "DEFAULT",
-  DP_DESTINATION = "DP_DESTINATION",
-  SYNC_DESTINATION = "SYNC_DESTINATION",
-  SYNC_SOURCE = "SYNC_SOURCE",
-}
-
 /**
  * <p>Describes the Amazon FSx for NetApp ONTAP storage virtual machine (SVM) configuration.</p>
  */
@@ -5056,7 +5116,7 @@ export interface StorageVirtualMachine {
 
   /**
    * <p>Describes the SVM's lifecycle status.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>CREATED</code> - The SVM is fully available for use.</p>
@@ -5104,11 +5164,6 @@ export interface StorageVirtualMachine {
   StorageVirtualMachineId?: string;
 
   /**
-   * <p>Describes the SVM's subtype.</p>
-   */
-  Subtype?: StorageVirtualMachineSubtype | string;
-
-  /**
    * <p>The SVM's UUID (universally unique identifier).</p>
    */
   UUID?: string;
@@ -5136,6 +5191,11 @@ export interface CreateStorageVirtualMachineResponse {
   StorageVirtualMachine?: StorageVirtualMachine;
 }
 
+export enum InputOntapVolumeType {
+  DP = "DP",
+  RW = "RW",
+}
+
 /**
  * <p>Specifies the configuration of the ONTAP volume that you are creating.</p>
  */
@@ -5144,7 +5204,7 @@ export interface CreateOntapVolumeConfiguration {
    * <p>Specifies the location in the SVM's namespace where the volume is mounted.
    *             The <code>JunctionPath</code> must have a leading forward slash, such as <code>/vol3</code>.</p>
    */
-  JunctionPath: string | undefined;
+  JunctionPath?: string;
 
   /**
    * <p>Specifies the security style for the volume. If a volume's security style is not specified,
@@ -5153,7 +5213,7 @@ export interface CreateOntapVolumeConfiguration {
    *             <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style">Volume security style</a>
    *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.
    *             Specify one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>UNIX</code> if the file system is managed by a UNIX
@@ -5185,7 +5245,7 @@ export interface CreateOntapVolumeConfiguration {
    * <p>Set to true to enable deduplication, compression, and
    *             compaction storage efficiency features on the volume.</p>
    */
-  StorageEfficiencyEnabled: boolean | undefined;
+  StorageEfficiencyEnabled?: boolean;
 
   /**
    * <p>Specifies the ONTAP SVM in which to create the volume.</p>
@@ -5196,33 +5256,86 @@ export interface CreateOntapVolumeConfiguration {
    * <p>Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent
    *             tiering automatically transitions a volume's data between the file system's primary storage and capacity
    *             pool storage based on your access patterns.</p>
-   *         <p>Valid tiering policies are the following:</p>
-   *         <ul>
+   *          <p>Valid tiering policies are the following:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SNAPSHOT_ONLY</code> - (Default value) moves cold snapshots to the capacity pool storage tier.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AUTO</code> - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ALL</code> - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code> - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.</p>
    *             </li>
    *          </ul>
    */
   TieringPolicy?: TieringPolicy;
+
+  /**
+   * <p>Specifies the type of volume you are creating. Valid values are the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>RW</code> specifies a read/write volume. <code>RW</code> is the default.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DP</code> specifies a data-protection volume. A <code>DP</code> volume
+   *                 is read-only and can be used as the destination of a NetApp SnapMirror relationship.</p>
+   *             </li>
+   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/volume-types">Volume types</a>
+   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   */
+  OntapVolumeType?: InputOntapVolumeType | string;
+
+  /**
+   * <p>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code>: This is the default policy. A maximum of six hourly snapshots taken five minutes past
+   *             the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after
+   *             midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-1weekly</code>: This policy is the same as the <code>default</code> policy except
+   *             that it only retains one snapshot from the weekly schedule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: This policy does not take any snapshots. This policy can be assigned to volumes to
+   *             prevent automatic snapshots from being taken.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot policies</a>
+   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   */
+  SnapshotPolicy?: string;
+
+  /**
+   * <p>A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to
+   *             false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups
+   *             where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the
+   *             specified tags are copied to backups. If you specify one or more tags when creating a user-initiated
+   *             backup, no tags are copied from the volume, regardless of this value.</p>
+   */
+  CopyTagsToBackups?: boolean;
 }
 
 /**
@@ -5239,16 +5352,16 @@ export interface CreateOpenZFSOriginSnapshotConfiguration {
 
   /**
    * <p>The strategy used when copying data from the snapshot to the new volume. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CLONE</code> - The new volume references the data in the origin
    *                     snapshot. Cloning a snapshot is faster than copying data from the snapshot to a
    *                     new volume and doesn't consume disk throughput. However, the origin snapshot
    *                     can't be deleted if there is a volume using its copied data. </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FULL_COPY</code> - Copies all data from the snapshot to the new volume.
    *                 </p>
    *             </li>
@@ -5284,7 +5397,7 @@ export interface CreateOpenZFSVolumeConfiguration {
    *             guarantee the space will be available on the parent volume. To guarantee quota space, you must also set
    *             <code>StorageCapacityReservationGiB</code>. To <i>not</i> specify a storage capacity quota, set this to <code>-1</code>.
    *         </p>
-   *         <p>For more information, see
+   *          <p>For more information, see
    *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties">Volume properties</a>
    *             in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
@@ -5307,26 +5420,26 @@ export interface CreateOpenZFSVolumeConfiguration {
   /**
    * <p>Specifies the method used to compress the data on the volume. The compression
    *             type is <code>NONE</code> by default.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code> - Doesn't compress the data on the volume.
    *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
    *                     (ZSTD) compression algorithm. ZSTD compression provides a higher level of
    *                     data compression and higher read throughput performance than LZ4 compression.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
    *                     compression algorithm. LZ4 compression provides a lower level of compression
    *                     and higher write throughput performance than ZSTD compression.</p>
    *             </li>
    *          </ul>
-   *         <p>For more information about volume compression types and the performance of your Amazon FSx for OpenZFS file system,
+   *          <p>For more information about volume compression types and the performance of your Amazon FSx for OpenZFS file system,
    *             see <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#performance-tips-zfs">
    *                 Tips for maximizing performance</a> File system and volume settings in the <i>Amazon FSx for OpenZFS User Guide</i>.</p>
    */
@@ -5693,7 +5806,7 @@ export interface DeleteFileSystemLustreConfiguration {
    * <p>Set <code>SkipFinalBackup</code> to false if you want to take a final backup of the file
    *             system you are deleting. By default, Amazon FSx will not take a final backup on your behalf when the
    *                 <code>DeleteFileSystem</code> operation is invoked. (Default = true)</p>
-   *         <note>
+   *          <note>
    *             <p>The <code>fsx:CreateBackup</code> permission is required if you set <code>SkipFinalBackup</code> to <code>false</code> in order to delete the file system and take a final backup.</p>
    *          </note>
    */
@@ -6184,7 +6297,7 @@ export enum DataRepositoryTaskFilterName {
 export interface DataRepositoryTaskFilter {
   /**
    * <p>Name of the task property to use in filtering the tasks returned in the response.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Use <code>file-system-id</code> to retrieve data repository tasks for specific file systems.</p>
    *             </li>
@@ -6299,7 +6412,7 @@ export interface FileCache {
   /**
    * <p>The lifecycle status of the cache. The following are the possible values and
    *             what they mean:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AVAILABLE</code> - The cache is in a healthy state, and is reachable and available for use.</p>
@@ -6841,16 +6954,16 @@ export interface RestoreVolumeFromSnapshotRequest {
   SnapshotId: string | undefined;
 
   /**
-   * <p>The settings used when restoring the specified volume from snapshot. </p>
-   *         <ul>
+   * <p>The settings used when restoring the specified volume from snapshot.</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_INTERMEDIATE_SNAPSHOTS</code> - Deletes snapshots between the
    *                     current state and the specified snapshot. If there are intermediate snapshots
    *                     and this option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_CLONED_VOLUMES</code> - Deletes any dependent clone volumes
    *                     created from intermediate snapshots. If there are any dependent clone volumes and this
    *                     option isn't used, <code>RestoreVolumeFromSnapshot</code> fails.</p>
@@ -6858,18 +6971,6 @@ export interface RestoreVolumeFromSnapshotRequest {
    *          </ul>
    */
   Options?: (RestoreOpenZFSVolumeOption | string)[];
-}
-
-export interface RestoreVolumeFromSnapshotResponse {
-  /**
-   * <p>The ID of the volume that you restored.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>The lifecycle state of the volume being restored.</p>
-   */
-  Lifecycle?: VolumeLifecycle | string;
 }
 
 /**
@@ -6933,8 +7034,7 @@ export interface UpdateDataRepositoryAssociationRequest {
    *             maximum amount of data per file (in MiB) stored on a single physical disk. The maximum
    *             number of disks that a single file can be striped across is limited by the total number
    *             of disks that make up the file system.</p>
-   *
-   *         <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
+   *          <p>The default chunk size is 1,024 MiB (1 GiB) and can go as high as 512,000 MiB (500
    *             GiB). Amazon S3 objects have a maximum size of 5 TB.</p>
    */
   ImportedFileChunkSize?: number;
@@ -6963,13 +7063,13 @@ export interface UpdateDataRepositoryAssociationResponse {
 export interface UpdateFileCacheLustreConfiguration {
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 }
@@ -7030,7 +7130,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *             Use this property to choose how Amazon FSx keeps your file and directory listing up to date
    *             as you add or modify objects in your linked S3 bucket. <code>AutoImportPolicy</code> can
    *             have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - (Default) AutoImport is off. Amazon FSx only updates
@@ -7058,7 +7158,7 @@ export interface UpdateFileSystemLustreConfiguration {
    *                 in the S3 bucket.</p>
    *             </li>
    *          </ul>
-   *         <p>The <code>AutoImportPolicy</code> parameter is not supported for Lustre file systems with
+   *          <p>The <code>AutoImportPolicy</code> parameter is not supported for Lustre file systems with
    *             the <code>Persistent_2</code> deployment type. Instead, use
    *             to update a data repository association on your <code>Persistent_2</code> file system.</p>
    */
@@ -7067,7 +7167,7 @@ export interface UpdateFileSystemLustreConfiguration {
   /**
    * <p>Sets the data compression configuration for the file system. <code>DataCompressionType</code>
    *             can have the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>NONE</code> - Data compression is turned off for
@@ -7079,9 +7179,9 @@ export interface UpdateFileSystemLustreConfiguration {
    *                 algorithm.</p>
    *             </li>
    *          </ul>
-   *         <p>If you don't use <code>DataCompressionType</code>, the file system retains
+   *          <p>If you don't use <code>DataCompressionType</code>, the file system retains
    *             its current data compression configuration.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/data-compression.html">Lustre data compression</a>.</p>
    */
   DataCompressionType?: DataCompressionType | string;
 
@@ -7125,13 +7225,13 @@ export interface UpdateFileSystemOntapConfiguration {
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -7145,9 +7245,23 @@ export interface UpdateFileSystemOntapConfiguration {
 
   /**
    * <p>Specifies the throughput of an FSx for NetApp ONTAP file system, measured in megabytes per second
-   *             (MBps). Valid values are 128, 256, 512, 1024, or 2048 MB/s.</p>
+   *             (MBps). Valid values are 128, 256, 512, 1024, 2048, and 4096 MBps.</p>
    */
   ThroughputCapacity?: number;
+
+  /**
+   * <p>(Multi-AZ only) A list of IDs of new virtual private cloud (VPC) route tables
+   *             to associate (add) with your Amazon FSx for NetApp ONTAP file system.</p>
+   */
+  AddRouteTableIds?: string[];
+
+  /**
+   * <p>(Multi-AZ only) A list of IDs of existing virtual private cloud (VPC)
+   *             route tables to disassociate (remove) from your Amazon FSx for NetApp ONTAP file system. You can use
+   *             the  API operation to retrieve the
+   *             list of VPC route table IDs for a file system.</p>
+   */
+  RemoveRouteTableIds?: string[];
 }
 
 /**
@@ -7190,20 +7304,27 @@ export interface UpdateFileSystemOpenZFSConfiguration {
   DailyAutomaticBackupStartTime?: string;
 
   /**
-   * <p>The throughput of an Amazon FSx file system, measured in megabytes per second
-   *             (MBps). Valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   * <p>The throughput of an Amazon FSx for OpenZFS file system, measured in megabytes per second  (MB/s). Valid values depend on the DeploymentType you choose, as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_1</code>, valid values are 64, 128, 256, 512, 1024, 2048, 3072, or 4096 MB/s.</p>
+   *             </li>
+   *             <li>
+   *                <p>For <code>SINGLE_AZ_2</code>, valid values are 160, 320, 640, 1280, 2560, 3840, 5120, 7680, or 10240 MB/s.</p>
+   *             </li>
+   *          </ul>
    */
   ThroughputCapacity?: number;
 
   /**
    * <p>A recurring weekly time, in the format <code>D:HH:MM</code>. </p>
-   *         <p>
+   *          <p>
    *             <code>D</code> is the day of the week, for which 1 represents Monday and 7
    *             represents Sunday. For further details, see <a href="https://en.wikipedia.org/wiki/ISO_week_date">the ISO-8601 spec as described on Wikipedia</a>.</p>
-   *         <p>
+   *          <p>
    *             <code>HH</code> is the zero-padded hour of the day (0-23), and <code>MM</code> is
    *             the zero-padded minute of the hour. </p>
-   *         <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
+   *          <p>For example, <code>1:05:00</code> specifies maintenance at 5 AM Monday.</p>
    */
   WeeklyMaintenanceStartTime?: string;
 
@@ -7459,6 +7580,41 @@ export interface UpdateOntapVolumeConfiguration {
    * <p>Update the volume's data tiering policy.</p>
    */
   TieringPolicy?: TieringPolicy;
+
+  /**
+   * <p>Specifies the snapshot policy for the volume. There are three built-in snapshot policies:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>default</code>: This is the default policy. A maximum of six hourly snapshots taken five minutes past
+   *                 the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after
+   *                 midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-1weekly</code>: This policy is the same as the <code>default</code> policy except
+   *                 that it only retains one snapshot from the weekly schedule.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>none</code>: This policy does not take any snapshots. This policy can be assigned to volumes to
+   *                 prevent automatic snapshots from being taken.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies">Snapshot policies</a>
+   *             in the <i>Amazon FSx for NetApp ONTAP User Guide</i>.</p>
+   */
+  SnapshotPolicy?: string;
+
+  /**
+   * <p>A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to
+   *             false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups
+   *             where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the
+   *             specified tags are copied to backups. If you specify one or more tags when creating a user-initiated
+   *             backup, no tags are copied from the volume, regardless of this value.</p>
+   */
+  CopyTagsToBackups?: boolean;
 }
 
 /**
@@ -7494,20 +7650,20 @@ export interface UpdateOpenZFSVolumeConfiguration {
   /**
    * <p>Specifies the method used to compress the data on the volume. The compression
    *             type is <code>NONE</code> by default.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NONE</code> - Doesn't compress the data on the volume.
    *                     <code>NONE</code> is the default.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ZSTD</code> - Compresses the data in the volume using the Zstandard
    *                     (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better
    *                     compression ratio to minimize on-disk storage utilization.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LZ4</code> - Compresses the data in the volume using the LZ4
    *                     compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive
    *                     and delivers higher write throughput speeds.</p>
@@ -7571,20 +7727,20 @@ export interface UpdateVolumeRequest {
 export interface AdministrativeAction {
   /**
    * <p>Describes the type of administrative action, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FILE_SYSTEM_UPDATE</code> - A file system update administrative action
    *                     initiated from the Amazon FSx console, API
    *                         (<code>UpdateFileSystem</code>), or CLI
    *                     (<code>update-file-system</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STORAGE_OPTIMIZATION</code> - After the <code>FILE_SYSTEM_UPDATE</code>
    *                     task to increase a file system's storage capacity has been completed
    *                     successfully, a <code>STORAGE_OPTIMIZATION</code> task starts. </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>For Windows and ONTAP, storage optimization is the process of migrating the file system data
    *                         to newer larger disks.</p>
@@ -7594,7 +7750,7 @@ export interface AdministrativeAction {
    *                             newly added file servers.</p>
    *                   </li>
    *                </ul>
-   *                 <p>You can track the storage-optimization progress using the
+   *                <p>You can track the storage-optimization progress using the
    *                         <code>ProgressPercent</code> property. When
    *                         <code>STORAGE_OPTIMIZATION</code> has been completed successfully, the
    *                     parent <code>FILE_SYSTEM_UPDATE</code> action status changes to
@@ -7625,15 +7781,22 @@ export interface AdministrativeAction {
    *                     (<code>update-volume</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
+   *                   <code>VOLUME_RESTORE</code> - An Amazon FSx for OpenZFS volume
+   *                 is returned to the state saved by the specified snapshot, initiated from an
+   *                 API (<code>RestoreVolumeFromSnapshot</code>) or CLI
+   *                 (<code>restore-volume-from-snapshot</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>SNAPSHOT_UPDATE</code> - A snapshot update to an Amazon FSx for
    *                     OpenZFS volume initiated from the Amazon FSx console, API
    *                         (<code>UpdateSnapshot</code>), or CLI (<code>update-snapshot</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RELEASE_NFS_V3_LOCKS</code> - Tracks the release of Network File System
-   *                     (NFS) V3 locks on an Amazon FSx for OpenZFS file system. </p>
+   *                     (NFS) V3 locks on an Amazon FSx for OpenZFS file system.</p>
    *             </li>
    *          </ul>
    */
@@ -7652,7 +7815,7 @@ export interface AdministrativeAction {
 
   /**
    * <p>Describes the status of the administrative action, as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>FAILED</code> - Amazon FSx failed to process the administrative action
@@ -7738,7 +7901,7 @@ export interface FileSystem {
   /**
    * <p>The lifecycle status of the file system. The following are the possible values and
    *             what they mean:</p>
-   *             <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AVAILABLE</code> - The file system is in a healthy state, and is reachable and available for use.</p>
@@ -7801,7 +7964,7 @@ export interface FileSystem {
    *             ONTAP <code>MULTI_AZ_1</code> file system deployment type, there are two subnet IDs, one for
    *             the preferred file server and one for the standby file server. The preferred file server subnet
    *             identified in the <code>PreferredSubnetID</code> property. All other file systems have only one subnet ID.</p>
-   *         <p>For FSx for Lustre file systems, and Single-AZ Windows file systems, this is the ID of
+   *          <p>For FSx for Lustre file systems, and Single-AZ Windows file systems, this is the ID of
    *             the subnet that contains the file system's endpoint. For <code>MULTI_AZ_1</code> Windows and
    *             ONTAP file systems, the file system endpoint is available in the <code>PreferredSubnetID</code>.</p>
    */
@@ -7814,8 +7977,7 @@ export interface FileSystem {
    *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a> in
    *             the <i>Amazon EC2 User Guide.</i>
    *          </p>
-   *
-   *         <p>For an Amazon FSx for Windows File Server file system, you can have one
+   *          <p>For an Amazon FSx for Windows File Server file system, you can have one
    *             network interface ID. For an Amazon FSx for Lustre file system, you can have
    *             more than one.</p>
    */
@@ -7829,11 +7991,11 @@ export interface FileSystem {
   /**
    * <p>The ID of the Key Management Service (KMS) key used to encrypt Amazon FSx file
    *             system data. Used as follows with Amazon FSx file system types:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Amazon FSx for Lustre <code>PERSISTENT_1</code>
    *                and <code>PERSISTENT_2</code> deployment types only.</p>
-   *                 <p>
+   *                <p>
    *                   <code>SCRATCH_1</code> and <code>SCRATCH_2</code> types are encrypted using
    *                     the Amazon FSx service KMS key for your account.</p>
    *             </li>
@@ -7931,22 +8093,22 @@ export interface Snapshot {
 
   /**
    * <p>The lifecycle status of the snapshot.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - Amazon FSx hasn't started creating the
    *                     snapshot.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATING</code> - Amazon FSx is creating the snapshot.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - Amazon FSx is deleting the snapshot.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AVAILABLE</code> - The snapshot is fully available.</p>
    *             </li>
    *          </ul>
@@ -7989,37 +8151,37 @@ export interface Volume {
 
   /**
    * <p>The lifecycle status of the volume.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AVAILABLE</code> - The volume is fully available for
    *                     use.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATED</code> - The volume has been created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CREATING</code> - Amazon FSx is creating the new volume.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - Amazon FSx is deleting an existing
    *                     volume.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> - Amazon FSx was unable to create the
    *                     volume.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MISCONFIGURED</code> - The volume is in a failed but recoverable
    *                     state.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - Amazon FSx hasn't started creating the
    *                     volume.</p>
    *             </li>
@@ -8066,9 +8228,9 @@ export interface Volume {
   LifecycleTransitionReason?: LifecycleTransitionReason;
 
   /**
-   * <p>A list of administrative actions for the file system that are in process or waiting to
-   *             be processed. Administrative actions describe changes to the Amazon FSx system
-   *             that you initiated.</p>
+   * <p>A list of administrative actions for the volume that are in process or waiting to be processed.
+   *             Administrative actions describe changes to the volume that you have initiated using
+   *             the <code>UpdateVolume</code> action.</p>
    */
   AdministrativeActions?: AdministrativeAction[];
 
@@ -8076,6 +8238,25 @@ export interface Volume {
    * <p>The configuration of an Amazon FSx for OpenZFS volume.</p>
    */
   OpenZFSConfiguration?: OpenZFSVolumeConfiguration;
+}
+
+export interface RestoreVolumeFromSnapshotResponse {
+  /**
+   * <p>The ID of the volume that you restored.</p>
+   */
+  VolumeId?: string;
+
+  /**
+   * <p>The lifecycle state of the volume being restored.</p>
+   */
+  Lifecycle?: VolumeLifecycle | string;
+
+  /**
+   * <p>A list of administrative actions for the file system that are in process or waiting to
+   *             be processed. Administrative actions describe changes to the Amazon FSx
+   *             system.</p>
+   */
+  AdministrativeActions?: AdministrativeAction[];
 }
 
 /**
@@ -8212,7 +8393,7 @@ export interface Backup {
 
   /**
    * <p>The lifecycle status of the backup.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AVAILABLE</code> - The backup is fully available.</p>
@@ -9328,13 +9509,6 @@ export const RestoreVolumeFromSnapshotRequestFilterSensitiveLog = (obj: RestoreV
 /**
  * @internal
  */
-export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const TagResourceRequestFilterSensitiveLog = (obj: TagResourceRequest): any => ({
   ...obj,
 });
@@ -9551,6 +9725,13 @@ export const SnapshotFilterSensitiveLog = (obj: Snapshot): any => ({
  * @internal
  */
 export const VolumeFilterSensitiveLog = (obj: Volume): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RestoreVolumeFromSnapshotResponseFilterSensitiveLog = (obj: RestoreVolumeFromSnapshotResponse): any => ({
   ...obj,
 });
 

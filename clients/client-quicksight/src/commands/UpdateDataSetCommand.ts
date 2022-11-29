@@ -18,7 +18,7 @@ import {
   UpdateDataSetRequestFilterSensitiveLog,
   UpdateDataSetResponse,
   UpdateDataSetResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSetCommand,
   serializeAws_restJson1UpdateDataSetCommand,

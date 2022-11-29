@@ -18,7 +18,7 @@ import {
   UpdateAccountSettingsRequestFilterSensitiveLog,
   UpdateAccountSettingsResponse,
   UpdateAccountSettingsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateAccountSettingsCommand,
   serializeAws_restJson1UpdateAccountSettingsCommand,

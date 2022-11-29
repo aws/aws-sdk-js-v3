@@ -33,11 +33,140 @@ import {
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation,
   LocalGatewayRouteTableVpcAssociation,
   ManagedPrefixList,
-  SubnetCidrReservationType,
+  Subnet,
   Tenancy,
   VolumeType,
   Vpc,
 } from "./models_1";
+
+export interface CreateSubnetRequest {
+  /**
+   * <p>The tags to assign to the subnet.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>The Availability Zone or Local Zone for the subnet.</p>
+   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
+   *           do not necessarily select a different zone for each subnet.</p>
+   *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
+   *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
+   *            see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
+   *            Outpost and specify the Outpost ARN.</p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>The AZ ID or the Local Zone ID of the subnet.</p>
+   */
+  AvailabilityZoneId?: string;
+
+  /**
+   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
+   *            We modify the specified CIDR block to its canonical form; for example, if you specify
+   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
+   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
+   */
+  CidrBlock?: string;
+
+  /**
+   * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
+   *             /64 prefix length.</p>
+   *         <p>This parameter is required for an IPv6 only subnet.</p>
+   */
+  Ipv6CidrBlock?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also
+   *         specify the Availability Zone of the Outpost subnet.</p>
+   */
+  OutpostArn?: string;
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
+}
+
+export interface CreateSubnetResult {
+  /**
+   * <p>Information about the subnet.</p>
+   */
+  Subnet?: Subnet;
+}
+
+export enum SubnetCidrReservationType {
+  explicit = "explicit",
+  prefix = "prefix",
+}
+
+export interface CreateSubnetCidrReservationRequest {
+  /**
+   * <p>The ID of the subnet.</p>
+   */
+  SubnetId: string | undefined;
+
+  /**
+   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
+   */
+  Cidr: string | undefined;
+
+  /**
+   * <p>The type of reservation.</p>
+   *         <p>The following are valid values:</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>prefix</code>: The Amazon EC2
+   *                     Prefix
+   *                     Delegation feature assigns the IP addresses to network interfaces that are
+   *                     associated with an instance. For information about Prefix
+   *                     Delegation,
+   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation
+   *                         for Amazon EC2 network interfaces</a> in the
+   *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>explicit</code>: You manually assign the IP addresses to resources that
+   *                     reside in your subnet. </p>
+   *             </li>
+   *          </ul>
+   */
+  ReservationType: SubnetCidrReservationType | string | undefined;
+
+  /**
+   * <p>The
+   *             description
+   *             to assign to the subnet CIDR reservation.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The tags to assign to the subnet CIDR reservation.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+}
 
 /**
  * <p>Describes a subnet CIDR reservation.</p>
@@ -3905,7 +4034,7 @@ export interface DeleteCoipPoolRequest {
 
 export interface DeleteCoipPoolResult {
   /**
-   * <p>Describes a customer-owned address pool.</p>
+   * <p>Information about the CoIP address pool.</p>
    */
   CoipPool?: CoipPool;
 }
@@ -4460,7 +4589,7 @@ export interface DeleteLocalGatewayRouteTableRequest {
 
 export interface DeleteLocalGatewayRouteTableResult {
   /**
-   * <p>Describes a local gateway route table.</p>
+   * <p>Information about the local gateway route table.</p>
    */
   LocalGatewayRouteTable?: LocalGatewayRouteTable;
 }
@@ -4483,7 +4612,7 @@ export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationReq
 
 export interface DeleteLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
   /**
-   * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+   * <p>Information about the association.</p>
    */
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
@@ -5627,59 +5756,25 @@ export interface DeregisterImageRequest {
 }
 
 /**
- * <p>Information about the tag keys to deregister for the current Region. You can either specify
- *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
- *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ * @internal
  */
-export interface DeregisterInstanceTagAttributeRequest {
-  /**
-   * <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
-   *    		to deregister all tag keys.</p>
-   */
-  IncludeAllTagsOfInstance?: boolean;
-
-  /**
-   * <p>Information about the tag keys to deregister.</p>
-   */
-  InstanceTagKeys?: string[];
-}
-
-export interface DeregisterInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Information about the tag keys to deregister.</p>
-   */
-  InstanceTagAttribute?: DeregisterInstanceTagAttributeRequest;
-}
+export const CreateSubnetRequestFilterSensitiveLog = (obj: CreateSubnetRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the registered tag keys for the current Region.</p>
+ * @internal
  */
-export interface InstanceTagNotificationAttribute {
-  /**
-   * <p>The registered tag keys.</p>
-   */
-  InstanceTagKeys?: string[];
+export const CreateSubnetResultFilterSensitiveLog = (obj: CreateSubnetResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications.
-   *       	<code>true</code> indicates that all tag keys in the current Region are registered.</p>
-   */
-  IncludeAllTagsOfInstance?: boolean;
-}
-
-export interface DeregisterInstanceEventNotificationAttributesResult {
-  /**
-   * <p>The resulting set of tag keys.</p>
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
+/**
+ * @internal
+ */
+export const CreateSubnetCidrReservationRequestFilterSensitiveLog = (obj: CreateSubnetCidrReservationRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -7589,39 +7684,5 @@ export const DeprovisionPublicIpv4PoolCidrResultFilterSensitiveLog = (
  * @internal
  */
 export const DeregisterImageRequestFilterSensitiveLog = (obj: DeregisterImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceTagAttributeRequestFilterSensitiveLog = (
-  obj: DeregisterInstanceTagAttributeRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog = (
-  obj: DeregisterInstanceEventNotificationAttributesRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceTagNotificationAttributeFilterSensitiveLog = (obj: InstanceTagNotificationAttribute): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog = (
-  obj: DeregisterInstanceEventNotificationAttributesResult
-): any => ({
   ...obj,
 });

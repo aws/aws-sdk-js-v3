@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
+
+
+### Features
+
+* **client-inspector2:** This release adds support for Inspector to scan AWS Lambda. ([25099d1](https://github.com/aws/aws-sdk-js-v3/commit/25099d17cbe66ea792370a5ba2019fb62a55d029))
+
+
+
+
+
 # [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
 
 

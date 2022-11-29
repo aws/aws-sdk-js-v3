@@ -11,23 +11,18 @@ import {
   BatchState,
   CurrencyCodeValues,
   Explanation,
-  IamInstanceProfileAssociation,
   IamInstanceProfileSpecification,
-  InstanceEventWindow,
   IpPermission,
   PathComponent,
   ReservedInstancesListing,
   ResourceType,
   SecurityGroupRule,
-  SubnetIpv6CidrBlockAssociation,
   Tag,
   TagSpecification,
   TransitGatewayAssociationState,
   TransitGatewayAttachmentResourceType,
   TransitGatewayAttachmentState,
-  TransitGatewayMulticastDomainAssociations,
   TransitGatewayPeeringAttachment,
-  TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
   UserIdGroupPair,
@@ -42,8 +37,11 @@ import {
   InstanceInterruptionBehavior,
   InstanceIpv6Address,
   InstanceRequirements,
+  Ipam,
+  IpamScope,
   Ipv4PrefixSpecificationRequest,
   Ipv6PrefixSpecificationRequest,
+  KeyType,
   LaunchTemplate,
   LaunchTemplateVersion,
   LocalGatewayRouteTable,
@@ -108,9 +106,278 @@ import {
   FastSnapshotRestoreStateCode,
   Filter,
   IdFormat,
+  MetricType,
   PermissionGroup,
   ProductCode,
+  StatisticType,
 } from "./models_3";
+
+export interface DescribeIpamsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the IPAMs.</p>
+   */
+  Ipams?: Ipam[];
+}
+
+export interface DescribeIpamScopesRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in the request.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The IDs of the scopes you want information on.</p>
+   */
+  IpamScopeIds?: string[];
+}
+
+export interface DescribeIpamScopesResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The scopes you want information on.</p>
+   */
+  IpamScopes?: IpamScope[];
+}
+
+export interface DescribeIpv6PoolsRequest {
+  /**
+   * <p>The IDs of the IPv6 address pools.</p>
+   */
+  PoolIds?: string[];
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>One or more filters.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+}
+
+/**
+ * <p>Describes a CIDR block for an address pool.</p>
+ */
+export interface PoolCidrBlock {
+  /**
+   * <p>The CIDR block.</p>
+   */
+  Cidr?: string;
+}
+
+/**
+ * <p>Describes an IPv6 address pool.</p>
+ */
+export interface Ipv6Pool {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>The description for the address pool.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The CIDR blocks for the address pool.</p>
+   */
+  PoolCidrBlocks?: PoolCidrBlock[];
+
+  /**
+   * <p>Any tags for the address pool.</p>
+   */
+  Tags?: Tag[];
+}
+
+export interface DescribeIpv6PoolsResult {
+  /**
+   * <p>Information about the IPv6 address pools.</p>
+   */
+  Ipv6Pools?: Ipv6Pool[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeKeyPairsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *      		        <p>
+   *      			          <code>key-pair-id</code> - The ID of the key pair.</p>
+   *      	      </li>
+   *             <li>
+   *                <p>
+   *                   <code>fingerprint</code> - The fingerprint of the key pair.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>key-name</code> - The name of the key pair.</p>
+   *             </li>
+   *             <li>
+   *      		        <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *      	      </li>
+   *             <li>
+   *      		        <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *      	      </li>
+   *          </ul>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The key pair names.</p>
+   *          <p>Default: Describes all of your key pairs.</p>
+   */
+  KeyNames?: string[];
+
+  /**
+   * <p>The IDs of the key pairs.</p>
+   */
+  KeyPairIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>If <code>true</code>, the public key material is included in the response.</p>
+   *         <p>Default: <code>false</code>
+   *          </p>
+   */
+  IncludePublicKey?: boolean;
+}
+
+/**
+ * <p>Describes a key pair.</p>
+ */
+export interface KeyPairInfo {
+  /**
+   * <p>The ID of the key pair.</p>
+   */
+  KeyPairId?: string;
+
+  /**
+   * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which
+   *                    is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *            </li>
+   *          </ul>
+   *          <p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+   *            </li>
+   *             <li>
+   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256
+   *                     digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
+   *            </li>
+   *          </ul>
+   */
+  KeyFingerprint?: string;
+
+  /**
+   * <p>The name of the key pair.</p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>The type of key pair.</p>
+   */
+  KeyType?: KeyType | string;
+
+  /**
+   * <p>Any tags applied to the key pair.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The public key material.</p>
+   */
+  PublicKey?: string;
+
+  /**
+   * <p>If you used Amazon EC2 to create the key pair, this is the date and time when the key
+   *             was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                 8601 date-time format</a>, in the UTC time zone.</p>
+   *         <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key
+   *             was imported, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
+   *                 8601 date-time format</a>, in the UTC time zone.</p>
+   */
+  CreateTime?: Date;
+}
+
+export interface DescribeKeyPairsResult {
+  /**
+   * <p>Information about the key pairs.</p>
+   */
+  KeyPairs?: KeyPairInfo[];
+}
 
 export interface DescribeLaunchTemplatesRequest {
   /**
@@ -1425,6 +1692,7 @@ export interface NetworkInsightsAnalysis {
    */
   NetworkInsightsPathId?: string;
 
+  AdditionalAccounts?: string[];
   /**
    * <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
    */
@@ -1475,6 +1743,7 @@ export interface NetworkInsightsAnalysis {
    */
   AlternatePathHints?: AlternatePathHint[];
 
+  SuggestedAccounts?: string[];
   /**
    * <p>The tags.</p>
    */
@@ -5041,28 +5310,48 @@ export interface SpotFleetRequestConfigData {
    * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
    *             pools specified by the Spot Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-allocation-strategy.html">Allocation
    *                 strategies for Spot Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>
-   *             <code>lowestPrice</code> - Spot Fleet launches instances from the lowest-price Spot Instance pool
-   *             that has available capacity. If the cheapest pool doesn't have available capacity, the
-   *             Spot Instances come from the next cheapest pool that has available capacity. If a pool runs out
-   *             of capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your
-   *             request by drawing from the next cheapest pool. To ensure that your desired capacity is
-   *             met, you might receive Spot Instances from several pools.</p>
-   *         <p>
-   *             <code>diversified</code> - Spot Fleet launches instances from all of the Spot Instance pools that you
-   *             specify.</p>
-   *         <p>
-   *             <code>capacityOptimized</code> (recommended) - Spot Fleet launches instances from Spot Instance pools
-   *             with optimal capacity for the number of instances that are launching. To give certain
-   *             instance types a higher chance of launching first, use
-   *             <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
-   *             using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *             assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *             the priorities on a best-effort basis, but optimizes for capacity first.
-   *             <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
-   *             launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
-   *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *             capacity.</p>
+   *
+   *          <dl>
+   *             <dt>priceCapacityOptimized (recommended)</dt>
+   *             <dd>
+   *                 <p>Spot Fleet identifies the pools with
+   *                    the highest capacity availability for the number of instances that are launching. This means
+   *                    that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                    in the near term. Spot Fleet then requests Spot Instances from the lowest priced of these pools.</p>
+   *              </dd>
+   *             <dt>capacityOptimized</dt>
+   *             <dd>
+   *                 <p>Spot Fleet identifies the pools with
+   *                    the highest capacity availability for the number of instances that are launching. This means
+   *                    that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                    in the near term. To give certain
+   *           instance types a higher chance of launching first, use
+   *           <code>capacityOptimizedPrioritized</code>. Set a priority for each instance type by
+   *           using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *           assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *           the priorities on a best-effort basis, but optimizes for capacity first.
+   *           <code>capacityOptimizedPrioritized</code> is supported only if your Spot Fleet uses a
+   *           launch template. Note that if the <code>OnDemandAllocationStrategy</code> is set to
+   *           <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *           capacity.</p>
+   *              </dd>
+   *             <dt>diversified</dt>
+   *             <dd>
+   *                 <p>Spot Fleet requests instances from all of the Spot Instance pools that you
+   *           specify.</p>
+   *              </dd>
+   *             <dt>lowestPrice</dt>
+   *             <dd>
+   *                 <p>Spot Fleet requests instances from the lowest priced Spot Instance pool that
+   *           has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *           come from the next lowest priced pool that has available capacity. If a pool runs out of
+   *           capacity before fulfilling your desired capacity, Spot Fleet will continue to fulfill your
+   *           request by drawing from the next lowest priced pool. To ensure that your desired capacity is
+   *           met, you might receive Spot Instances from several pools. Because this strategy only considers instance
+   *           price and not capacity availability, it might lead to high interruption rates.</p>
+   *              </dd>
+   *          </dl>
+   *
    *         <p>Default: <code>lowestPrice</code>
    *          </p>
    */
@@ -8424,15 +8713,23 @@ export interface DescribeVpcEndpointsRequest {
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>service-name</code> - The name of the service.</p>
+   *                   <code>service-name</code> - The name of the service.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
    *                 <p>
-   *                     <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
+   *                   <code>vpc-endpoint-id</code> - The ID of the endpoint.</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -8445,14 +8742,6 @@ export interface DescribeVpcEndpointsRequest {
    *                 <p>
    *                   <code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
-   *             <li>
-   *         		     <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
    *          </ul>
    */
   Filters?: Filter[];
@@ -8635,12 +8924,17 @@ export interface DescribeVpcEndpointServicesRequest {
    *         <ul>
    *             <li>
    *                 <p>
+   *                   <code>owner</code> - The ID or alias of the Amazon Web Services account that owns
+   *                     the service.</p>
+   *             </li>
+   *             <li>
+   *                 <p>
    *                   <code>service-name</code> - The name of the service.</p>
    *             </li>
    *             <li>
    *                 <p>
    *                   <code>service-type</code> - The type of service (<code>Interface</code> |
-   *                         <code>Gateway</code>).</p>
+   *                         <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
    *             <li>
    *                 <p>
@@ -9339,6 +9633,42 @@ export interface DisableAddressTransferResult {
   AddressTransfer?: AddressTransfer;
 }
 
+export interface DisableAwsNetworkPerformanceMetricSubscriptionRequest {
+  /**
+   * <p>The source Region or Availability Zone that the metric subscription is disabled for. For example, <code>us-east-1</code>.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The target Region or Availability Zone that the metric subscription is disabled for. For example, <code>eu-north-1</code>.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The metric used for the disabled subscription.</p>
+   */
+  Metric?: MetricType | string;
+
+  /**
+   * <p>The statistic used for the disabled subscription. </p>
+   */
+  Statistic?: StatisticType | string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export interface DisableAwsNetworkPerformanceMetricSubscriptionResult {
+  /**
+   * <p>Indicates whether the unsubscribe action was successful.</p>
+   */
+  Output?: boolean;
+}
+
 export interface DisableEbsEncryptionByDefaultRequest {
   /**
    * <p>Checks whether you have the required permissions for the action, without actually making the request,
@@ -9840,168 +10170,75 @@ export interface DisassociateIamInstanceProfileRequest {
   AssociationId: string | undefined;
 }
 
-export interface DisassociateIamInstanceProfileResult {
-  /**
-   * <p>Information about the IAM instance profile association.</p>
-   */
-  IamInstanceProfileAssociation?: IamInstanceProfileAssociation;
-}
+/**
+ * @internal
+ */
+export const DescribeIpamsResultFilterSensitiveLog = (obj: DescribeIpamsResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>The targets to disassociate from the specified event window.</p>
+ * @internal
  */
-export interface InstanceEventWindowDisassociationRequest {
-  /**
-   * <p>The IDs of the instances to disassociate from the event window.</p>
-   */
-  InstanceIds?: string[];
+export const DescribeIpamScopesRequestFilterSensitiveLog = (obj: DescribeIpamScopesRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The instance tags to disassociate from the event window. Any instances associated with
-   *          the tags will be disassociated from the event window.</p>
-   */
-  InstanceTags?: Tag[];
+/**
+ * @internal
+ */
+export const DescribeIpamScopesResultFilterSensitiveLog = (obj: DescribeIpamScopesResult): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
-   */
-  DedicatedHostIds?: string[];
-}
+/**
+ * @internal
+ */
+export const DescribeIpv6PoolsRequestFilterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
+  ...obj,
+});
 
-export interface DisassociateInstanceEventWindowRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
+/**
+ * @internal
+ */
+export const PoolCidrBlockFilterSensitiveLog = (obj: PoolCidrBlock): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The ID of the event window.</p>
-   */
-  InstanceEventWindowId: string | undefined;
+/**
+ * @internal
+ */
+export const Ipv6PoolFilterSensitiveLog = (obj: Ipv6Pool): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>One or more targets to disassociate from the specified event window.</p>
-   */
-  AssociationTarget: InstanceEventWindowDisassociationRequest | undefined;
-}
+/**
+ * @internal
+ */
+export const DescribeIpv6PoolsResultFilterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
+  ...obj,
+});
 
-export interface DisassociateInstanceEventWindowResult {
-  /**
-   * <p>Information about the event window.</p>
-   */
-  InstanceEventWindow?: InstanceEventWindow;
-}
+/**
+ * @internal
+ */
+export const DescribeKeyPairsRequestFilterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
+  ...obj,
+});
 
-export interface DisassociateRouteTableRequest {
-  /**
-   * <p>The association ID representing the current association between the route table and subnet or gateway.</p>
-   */
-  AssociationId: string | undefined;
+/**
+ * @internal
+ */
+export const KeyPairInfoFilterSensitiveLog = (obj: KeyPairInfo): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DisassociateSubnetCidrBlockRequest {
-  /**
-   * <p>The association ID for the CIDR block.</p>
-   */
-  AssociationId: string | undefined;
-}
-
-export interface DisassociateSubnetCidrBlockResult {
-  /**
-   * <p>Information about the IPv6 CIDR block association.</p>
-   */
-  Ipv6CidrBlockAssociation?: SubnetIpv6CidrBlockAssociation;
-
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId?: string;
-}
-
-export interface DisassociateTransitGatewayMulticastDomainRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId?: string;
-
-  /**
-   * <p>The IDs of the subnets;</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DisassociateTransitGatewayMulticastDomainResult {
-  /**
-   * <p>Information about the association.</p>
-   */
-  Associations?: TransitGatewayMulticastDomainAssociations;
-}
-
-export interface DisassociateTransitGatewayPolicyTableRequest {
-  /**
-   * <p>The ID of the disassociated policy table.</p>
-   */
-  TransitGatewayPolicyTableId: string | undefined;
-
-  /**
-   * <p>The ID of the transit gateway attachment to disassociate from the policy table.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface DisassociateTransitGatewayPolicyTableResult {
-  /**
-   * <p>Returns details about the transit gateway policy table disassociation.</p>
-   */
-  Association?: TransitGatewayPolicyTableAssociation;
-}
-
-export interface DisassociateTransitGatewayRouteTableRequest {
-  /**
-   * <p>The ID of the transit gateway route table.</p>
-   */
-  TransitGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>The ID of the attachment.</p>
-   */
-  TransitGatewayAttachmentId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
+/**
+ * @internal
+ */
+export const DescribeKeyPairsResultFilterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11811,6 +12048,24 @@ export const DisableAddressTransferResultFilterSensitiveLog = (obj: DisableAddre
 /**
  * @internal
  */
+export const DisableAwsNetworkPerformanceMetricSubscriptionRequestFilterSensitiveLog = (
+  obj: DisableAwsNetworkPerformanceMetricSubscriptionRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DisableAwsNetworkPerformanceMetricSubscriptionResultFilterSensitiveLog = (
+  obj: DisableAwsNetworkPerformanceMetricSubscriptionResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DisableEbsEncryptionByDefaultRequestFilterSensitiveLog = (
   obj: DisableEbsEncryptionByDefaultRequest
 ): any => ({
@@ -12048,108 +12303,6 @@ export const DisassociateEnclaveCertificateIamRoleResultFilterSensitiveLog = (
  */
 export const DisassociateIamInstanceProfileRequestFilterSensitiveLog = (
   obj: DisassociateIamInstanceProfileRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateIamInstanceProfileResultFilterSensitiveLog = (
-  obj: DisassociateIamInstanceProfileResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InstanceEventWindowDisassociationRequestFilterSensitiveLog = (
-  obj: InstanceEventWindowDisassociationRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateInstanceEventWindowRequestFilterSensitiveLog = (
-  obj: DisassociateInstanceEventWindowRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateInstanceEventWindowResultFilterSensitiveLog = (
-  obj: DisassociateInstanceEventWindowResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateRouteTableRequestFilterSensitiveLog = (obj: DisassociateRouteTableRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSubnetCidrBlockRequestFilterSensitiveLog = (obj: DisassociateSubnetCidrBlockRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateSubnetCidrBlockResultFilterSensitiveLog = (obj: DisassociateSubnetCidrBlockResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayMulticastDomainRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayMulticastDomainRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayMulticastDomainResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayMulticastDomainResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayPolicyTableRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayPolicyTableRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayPolicyTableResultFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayPolicyTableResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateTransitGatewayRouteTableRequestFilterSensitiveLog = (
-  obj: DisassociateTransitGatewayRouteTableRequest
 ): any => ({
   ...obj,
 });

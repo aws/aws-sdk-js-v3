@@ -485,8 +485,6 @@ import {
   CreateTableResponse,
   CreateTriggerRequest,
   CreateTriggerResponse,
-  CreateUserDefinedFunctionRequest,
-  CreateUserDefinedFunctionResponse,
   CreateXMLClassifierRequest,
   CustomCode,
   CustomEntityType,
@@ -502,6 +500,7 @@ import {
   DropDuplicates,
   DropFields,
   DropNullFields,
+  DynamicTransform,
   DynamoDBCatalogSource,
   DynamoDBTarget,
   Edge,
@@ -617,13 +616,13 @@ import {
   TableIdentifier,
   TableInput,
   TableVersionError,
+  TransformConfigParameter,
   TransformEncryption,
   TransformParameters,
   Trigger,
   TriggerNodeDetails,
   Union,
   UpsertRedshiftTargetOptions,
-  UserDefinedFunctionInput,
   ValidationException,
   Workflow,
   WorkflowGraph,
@@ -652,6 +651,8 @@ import {
   CrawlerMetrics,
   CrawlerRunningException,
   CrawlsFilter,
+  CreateUserDefinedFunctionRequest,
+  CreateUserDefinedFunctionResponse,
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   CsvClassifier,
@@ -885,9 +886,6 @@ import {
   PutDataCatalogEncryptionSettingsResponse,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
-  PutSchemaVersionMetadataInput,
-  PutSchemaVersionMetadataResponse,
-  PutWorkflowRunPropertiesRequest,
   RegistryListItem,
   SchedulerTransitioningException,
   SchemaColumn,
@@ -911,6 +909,7 @@ import {
   TransformSortCriteria,
   UnfilteredPartition,
   UserDefinedFunction,
+  UserDefinedFunctionInput,
   XMLClassifier,
 } from "../models/models_1";
 import {
@@ -935,6 +934,9 @@ import {
   NoScheduleException,
   OtherMetadataValueListItem,
   PropertyPredicate,
+  PutSchemaVersionMetadataInput,
+  PutSchemaVersionMetadataResponse,
+  PutWorkflowRunPropertiesRequest,
   PutWorkflowRunPropertiesResponse,
   QuerySchemaVersionMetadataInput,
   QuerySchemaVersionMetadataResponse,
@@ -13985,6 +13987,9 @@ const serializeAws_json1_1CodeGenConfigurationNode = (
     ...(input.DropNullFields != null && {
       DropNullFields: serializeAws_json1_1DropNullFields(input.DropNullFields, context),
     }),
+    ...(input.DynamicTransform != null && {
+      DynamicTransform: serializeAws_json1_1DynamicTransform(input.DynamicTransform, context),
+    }),
     ...(input.DynamoDBCatalogSource != null && {
       DynamoDBCatalogSource: serializeAws_json1_1DynamoDBCatalogSource(input.DynamoDBCatalogSource, context),
     }),
@@ -15171,6 +15176,20 @@ const serializeAws_json1_1DropNullFields = (input: DropNullFields, context: __Se
     ...(input.NullTextList != null && {
       NullTextList: serializeAws_json1_1NullValueFields(input.NullTextList, context),
     }),
+  };
+};
+
+const serializeAws_json1_1DynamicTransform = (input: DynamicTransform, context: __SerdeContext): any => {
+  return {
+    ...(input.FunctionName != null && { FunctionName: input.FunctionName }),
+    ...(input.Inputs != null && { Inputs: serializeAws_json1_1OneInput(input.Inputs, context) }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Parameters != null && {
+      Parameters: serializeAws_json1_1TransformConfigParameterList(input.Parameters, context),
+    }),
+    ...(input.Path != null && { Path: input.Path }),
+    ...(input.TransformName != null && { TransformName: input.TransformName }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -17710,6 +17729,32 @@ const serializeAws_json1_1TaskRunSortCriteria = (input: TaskRunSortCriteria, con
   };
 };
 
+const serializeAws_json1_1TransformConfigParameter = (
+  input: TransformConfigParameter,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IsOptional != null && { IsOptional: input.IsOptional }),
+    ...(input.ListType != null && { ListType: input.ListType }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.Type != null && { Type: input.Type }),
+    ...(input.ValidationMessage != null && { ValidationMessage: input.ValidationMessage }),
+    ...(input.ValidationRule != null && { ValidationRule: input.ValidationRule }),
+    ...(input.Value != null && { Value: serializeAws_json1_1EnclosedInStringProperties(input.Value, context) }),
+  };
+};
+
+const serializeAws_json1_1TransformConfigParameterList = (
+  input: TransformConfigParameter[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_json1_1TransformConfigParameter(entry, context);
+    });
+};
+
 const serializeAws_json1_1TransformEncryption = (input: TransformEncryption, context: __SerdeContext): any => {
   return {
     ...(input.MlUserDataEncryption != null && {
@@ -18936,6 +18981,10 @@ const deserializeAws_json1_1CodeGenConfigurationNode = (
     DropFields: output.DropFields != null ? deserializeAws_json1_1DropFields(output.DropFields, context) : undefined,
     DropNullFields:
       output.DropNullFields != null ? deserializeAws_json1_1DropNullFields(output.DropNullFields, context) : undefined,
+    DynamicTransform:
+      output.DynamicTransform != null
+        ? deserializeAws_json1_1DynamicTransform(output.DynamicTransform, context)
+        : undefined,
     DynamoDBCatalogSource:
       output.DynamoDBCatalogSource != null
         ? deserializeAws_json1_1DynamoDBCatalogSource(output.DynamoDBCatalogSource, context)
@@ -20372,6 +20421,21 @@ const deserializeAws_json1_1DropNullFields = (output: any, context: __SerdeConte
         : undefined,
     NullTextList:
       output.NullTextList != null ? deserializeAws_json1_1NullValueFields(output.NullTextList, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DynamicTransform = (output: any, context: __SerdeContext): DynamicTransform => {
+  return {
+    FunctionName: __expectString(output.FunctionName),
+    Inputs: output.Inputs != null ? deserializeAws_json1_1OneInput(output.Inputs, context) : undefined,
+    Name: __expectString(output.Name),
+    Parameters:
+      output.Parameters != null
+        ? deserializeAws_json1_1TransformConfigParameterList(output.Parameters, context)
+        : undefined,
+    Path: __expectString(output.Path),
+    TransformName: __expectString(output.TransformName),
+    Version: __expectString(output.Version),
   } as any;
 };
 
@@ -23989,6 +24053,36 @@ const deserializeAws_json1_1TaskRunProperties = (output: any, context: __SerdeCo
         : undefined,
     TaskType: __expectString(output.TaskType),
   } as any;
+};
+
+const deserializeAws_json1_1TransformConfigParameter = (
+  output: any,
+  context: __SerdeContext
+): TransformConfigParameter => {
+  return {
+    IsOptional: __expectBoolean(output.IsOptional),
+    ListType: __expectString(output.ListType),
+    Name: __expectString(output.Name),
+    Type: __expectString(output.Type),
+    ValidationMessage: __expectString(output.ValidationMessage),
+    ValidationRule: __expectString(output.ValidationRule),
+    Value: output.Value != null ? deserializeAws_json1_1EnclosedInStringProperties(output.Value, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1TransformConfigParameterList = (
+  output: any,
+  context: __SerdeContext
+): TransformConfigParameter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1TransformConfigParameter(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1TransformEncryption = (output: any, context: __SerdeContext): TransformEncryption => {

@@ -33,7 +33,7 @@ export interface GetComplianceDetailsByResourceCommandOutput
 /**
  * <p>Returns the evaluation results for the specified Amazon Web Services resource.
  * 			The results indicate which Config rules were used to evaluate
- * 			the resource, when each rule was last used, and whether the resource
+ * 			the resource, when each rule was last invoked, and whether the resource
  * 			complies with each rule.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -36,8 +36,7 @@ export interface DescribeDataRepositoryTasksCommandOutput
  *             You can use filters to narrow the response to include just tasks for specific file systems or caches,
  *             or tasks in a specific lifecycle state. Otherwise, it returns all data repository tasks owned
  *             by your Amazon Web Services account in the Amazon Web Services Region of the endpoint that you're calling.</p>
- *
- *         <p>When retrieving all tasks, you can paginate the response by using  the optional <code>MaxResults</code>
+ *          <p>When retrieving all tasks, you can paginate the response by using  the optional <code>MaxResults</code>
  *             parameter to limit the number of tasks returned in a response. If more tasks remain,
  *             a <code>NextToken</code> value is returned in the response. In this case, send a later
  *             request with the <code>NextToken</code> request parameter set to the value of

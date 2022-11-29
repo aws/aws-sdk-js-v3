@@ -8520,7 +8520,25 @@ export interface DescribeStandardsRequest {
 }
 
 /**
- * <p>Provides information about a specific standard.</p>
+ * <p>Provides details about the management of a security standard.</p>
+ */
+export interface StandardsManagedBy {
+  /**
+   * <p>An identifier for the company that manages a specific security standard. For existing
+   *          standards, the value is equal to <code>Amazon Web Services</code>.</p>
+   */
+  Company?: string;
+
+  /**
+   * <p>An identifier for the product that manages a specific security standard. For existing
+   *          standards, the value is equal to the Amazon Web Services service that manages the
+   *          standard.</p>
+   */
+  Product?: string;
+}
+
+/**
+ * <p>Provides information about a specific security standard.</p>
  */
 export interface Standard {
   /**
@@ -8547,6 +8565,12 @@ export interface Standard {
    *             <code>false</code>.</p>
    */
   EnabledByDefault?: boolean;
+
+  /**
+   * <p>Provides details about the management of a standard.
+   *       </p>
+   */
+  StandardsManagedBy?: StandardsManagedBy;
 }
 
 export interface DescribeStandardsResponse {
@@ -9152,13 +9176,6 @@ export interface GetMembersResponse {
    *          includes the account ID and the email address.</p>
    */
   UnprocessedAccounts?: Result[];
-}
-
-export interface InviteMembersRequest {
-  /**
-   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
-   */
-  AccountIds: string[] | undefined;
 }
 
 /**
@@ -10883,6 +10900,13 @@ export const DescribeStandardsRequestFilterSensitiveLog = (obj: DescribeStandard
 /**
  * @internal
  */
+export const StandardsManagedByFilterSensitiveLog = (obj: StandardsManagedBy): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StandardFilterSensitiveLog = (obj: Standard): any => ({
   ...obj,
 });
@@ -11237,12 +11261,5 @@ export const MemberFilterSensitiveLog = (obj: Member): any => ({
  * @internal
  */
 export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InviteMembersRequestFilterSensitiveLog = (obj: InviteMembersRequest): any => ({
   ...obj,
 });

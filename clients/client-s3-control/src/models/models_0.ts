@@ -603,7 +603,8 @@ export namespace ObjectLambdaContentTransformation {
 export interface ObjectLambdaTransformationConfiguration {
   /**
    * <p>A container for the action of an Object Lambda Access Point configuration. Valid inputs are
-   *          <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and <code>ListObjectsV2</code>.</p>
+   *             <code>GetObject</code>, <code>ListObjects</code>, <code>HeadObject</code>, and
+   *             <code>ListObjectsV2</code>.</p>
    */
   Actions: (ObjectLambdaTransformationConfigurationAction | string)[] | undefined;
 
@@ -628,7 +629,9 @@ export interface ObjectLambdaConfiguration {
   CloudWatchMetricsEnabled?: boolean;
 
   /**
-   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>, <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and <code>HeadObject-PartNumber</code>.</p>
+   * <p>A container for allowed features. Valid inputs are <code>GetObject-Range</code>,
+   *             <code>GetObject-PartNumber</code>, <code>HeadObject-Range</code>, and
+   *             <code>HeadObject-PartNumber</code>.</p>
    */
   AllowedFeatures?: (ObjectLambdaAllowedFeature | string)[];
 
@@ -966,8 +969,8 @@ export interface JobManifestGeneratorFilter {
  */
 export interface SSEKMSEncryption {
   /**
-   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption customer managed
-   *          key to use for encrypting generated manifest objects.</p>
+   * <p>Specifies the ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) symmetric encryption
+   *          customer managed key to use for encrypting generated manifest objects.</p>
    */
   KeyId: string | undefined;
 }
@@ -1449,8 +1452,8 @@ export interface S3CopyObjectOperation {
 
   /**
    * <p>Specifies the folder prefix into which you would like the objects to be copied. For
-   *          example, to copy objects into a folder named <code>Folder1</code> in the destination bucket, set the
-   *          TargetKeyPrefix to <code>Folder1</code>.</p>
+   *          example, to copy objects into a folder named <code>Folder1</code> in the destination
+   *          bucket, set the TargetKeyPrefix to <code>Folder1</code>.</p>
    */
   TargetKeyPrefix?: string;
 
@@ -1480,9 +1483,9 @@ export interface S3CopyObjectOperation {
   BucketKeyEnabled?: boolean;
 
   /**
-   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more information
-   *             see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml">
-   *                 Checking object integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
+   * <p>Indicates the algorithm you want Amazon S3 to use to create the checksum. For more
+   *          information see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/CheckingObjectIntegrity.xml"> Checking object
+   *             integrity</a> in the <i>Amazon S3 User Guide</i>.</p>
    */
   ChecksumAlgorithm?: S3ChecksumAlgorithm | string;
 }
@@ -1574,8 +1577,8 @@ export interface S3SetObjectTaggingOperation {
 }
 
 /**
- * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the job's
- *          manifest.</p>
+ * <p>Directs the specified job to invoke <code>ReplicateObject</code> on every object in the
+ *          job's manifest.</p>
  */
 export interface S3ReplicateObjectOperation {}
 
@@ -3057,6 +3060,72 @@ export interface GetMultiRegionAccessPointPolicyStatusResult {
   Established?: PolicyStatus;
 }
 
+export interface GetMultiRegionAccessPointRoutesRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap: string | undefined;
+}
+
+/**
+ * <p>A structure for a Multi-Region Access Point that indicates where Amazon S3 traffic can be routed. Routes can be
+ *          either active or passive. Active routes can process Amazon S3 requests through the Multi-Region Access Point, but
+ *          passive routes are not eligible to process Amazon S3 requests. </p>
+ *          <p>Each route contains the Amazon S3 bucket name and the Amazon Web Services Region that the bucket is located
+ *          in. The route also includes the <code>TrafficDialPercentage</code> value, which shows
+ *          whether the bucket and Region are active (indicated by a value of <code>100</code>) or
+ *          passive (indicated by a value of <code>0</code>).</p>
+ */
+export interface MultiRegionAccessPointRoute {
+  /**
+   * <p>The name of the Amazon S3 bucket for which you'll submit a routing configuration change.
+   *          Either the <code>Bucket</code> or the <code>Region</code> value must be provided. If both
+   *          are provided, the bucket must be in the specified Region.</p>
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The Amazon Web Services Region to which you'll be submitting a routing configuration change. Either
+   *          the <code>Bucket</code> or the <code>Region</code> value must be provided. If both are
+   *          provided, the bucket must be in the specified Region.</p>
+   */
+  Region?: string;
+
+  /**
+   * <p>The traffic state for the specified bucket or Amazon Web Services Region. </p>
+   *          <p>A value of <code>0</code> indicates a passive state, which means that no new traffic
+   *          will be routed to the
+   *          Region. </p>
+   *          <p>A value of <code>100</code> indicates an active state, which means that traffic will be
+   *          routed to the specified Region. </p>
+   *          <p>When
+   *          the routing configuration for a Region is changed from active to passive, any in-progress
+   *          operations (uploads, copies, deletes, and so on) to the formerly active Region will
+   *          continue to run to until a final success or failure status is reached.</p>
+   *          <p>If all Regions in the routing configuration are designated as passive, you'll receive an
+   *             <code>InvalidRequest</code> error. </p>
+   */
+  TrafficDialPercentage: number | undefined;
+}
+
+export interface GetMultiRegionAccessPointRoutesResult {
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap?: string;
+
+  /**
+   * <p>The different routes that make up the route configuration. Active routes return a value
+   *          of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
+   */
+  Routes?: MultiRegionAccessPointRoute[];
+}
+
 export interface GetPublicAccessBlockOutput {
   /**
    * <p>The <code>PublicAccessBlock</code> configuration currently in effect for this
@@ -3912,8 +3981,8 @@ export enum MFADelete {
  */
 export interface VersioningConfiguration {
   /**
-   * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning configuration
-   *          for the S3 on Outposts bucket.</p>
+   * <p>Specifies whether MFA delete is enabled or disabled in the bucket versioning
+   *          configuration for the S3 on Outposts bucket.</p>
    */
   MFADelete?: MFADelete | string;
 
@@ -4072,6 +4141,26 @@ export interface PutStorageLensConfigurationTaggingRequest {
 }
 
 export interface PutStorageLensConfigurationTaggingResult {}
+
+export interface SubmitMultiRegionAccessPointRoutesRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   */
+  AccountId?: string;
+
+  /**
+   * <p>The Multi-Region Access Point ARN.</p>
+   */
+  Mrap: string | undefined;
+
+  /**
+   * <p>The different routes that make up the new route configuration. Active routes return a
+   *          value of <code>100</code>, and passive routes return a value of <code>0</code>.</p>
+   */
+  RouteUpdates: MultiRegionAccessPointRoute[] | undefined;
+}
+
+export interface SubmitMultiRegionAccessPointRoutesResult {}
 
 export interface UpdateJobPriorityRequest {
   /**
@@ -5219,6 +5308,31 @@ export const GetMultiRegionAccessPointPolicyStatusResultFilterSensitiveLog = (
 /**
  * @internal
  */
+export const GetMultiRegionAccessPointRoutesRequestFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointRoutesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MultiRegionAccessPointRouteFilterSensitiveLog = (obj: MultiRegionAccessPointRoute): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetMultiRegionAccessPointRoutesResultFilterSensitiveLog = (
+  obj: GetMultiRegionAccessPointRoutesResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetPublicAccessBlockOutputFilterSensitiveLog = (obj: GetPublicAccessBlockOutput): any => ({
   ...obj,
 });
@@ -5596,6 +5710,24 @@ export const PutStorageLensConfigurationTaggingRequestFilterSensitiveLog = (
  */
 export const PutStorageLensConfigurationTaggingResultFilterSensitiveLog = (
   obj: PutStorageLensConfigurationTaggingResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitMultiRegionAccessPointRoutesRequestFilterSensitiveLog = (
+  obj: SubmitMultiRegionAccessPointRoutesRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubmitMultiRegionAccessPointRoutesResultFilterSensitiveLog = (
+  obj: SubmitMultiRegionAccessPointRoutesResult
 ): any => ({
   ...obj,
 });

@@ -19,7 +19,7 @@ import {
   CreateSubnetRequestFilterSensitiveLog,
   CreateSubnetResult,
   CreateSubnetResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { deserializeAws_ec2CreateSubnetCommand, serializeAws_ec2CreateSubnetCommand } from "../protocols/Aws_ec2";
 
 export interface CreateSubnetCommandInput extends CreateSubnetRequest {}

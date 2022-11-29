@@ -19,7 +19,7 @@ import {
   ModifyVpcEndpointServicePayerResponsibilityRequestFilterSensitiveLog,
   ModifyVpcEndpointServicePayerResponsibilityResult,
   ModifyVpcEndpointServicePayerResponsibilityResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,
   serializeAws_ec2ModifyVpcEndpointServicePayerResponsibilityCommand,

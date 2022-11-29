@@ -431,7 +431,7 @@ export interface TransitGatewayMulticastDomainAssociations {
 
 export interface AcceptTransitGatewayMulticastDomainAssociationsResult {
   /**
-   * <p>Describes the multicast domain associations.</p>
+   * <p>Information about the multicast domain associations.</p>
    */
   Associations?: TransitGatewayMulticastDomainAssociations;
 }
@@ -3668,6 +3668,42 @@ export interface AttachInternetGatewayRequest {
 }
 
 /**
+ * <p>ENA Express is compatible with both TCP and UDP transport protocols. When it’s enabled, TCP traffic
+ * 			automatically uses it. However, some UDP-based applications are designed to handle network packets that are
+ * 			out of order, without a need for retransmission, such as live video broadcasting or other near-real-time
+ * 			applications. For UDP traffic, you can specify whether to use ENA Express, based on your application
+ * 			environment needs.</p>
+ */
+export interface EnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic uses ENA Express. To specify this setting, you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * <p>ENA Express uses Amazon Web Services Scalable Reliable Datagram (SRD) technology to increase the
+ * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
+ * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
+ * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
+ * 		       <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
+ * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
+ * 			is enabled, you can specify whether UDP network traffic uses it.</p>
+ */
+export interface EnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * <p>Configures ENA Express for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: EnaSrdUdpSpecification;
+}
+
+/**
  * <p>Contains the parameters for AttachNetworkInterface.</p>
  */
 export interface AttachNetworkInterfaceRequest {
@@ -3699,6 +3735,11 @@ export interface AttachNetworkInterfaceRequest {
    *             The default is network card index 0.</p>
    */
   NetworkCardIndex?: number;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   */
+  EnaSrdSpecification?: EnaSrdSpecification;
 }
 
 /**
@@ -7127,7 +7168,7 @@ export interface CoipPool {
 
 export interface CreateCoipPoolResult {
   /**
-   * <p>Describes a customer-owned address pool.</p>
+   * <p>Information about the CoIP address pool.</p>
    */
   CoipPool?: CoipPool;
 }
@@ -7272,36 +7313,6 @@ export interface CreateDefaultSubnetRequest {
 export enum HostnameType {
   ip_name = "ip-name",
   resource_name = "resource-name",
-}
-
-/**
- * <p>Describes the options for instance hostnames.</p>
- */
-export interface PrivateDnsNameOptionsOnLaunch {
-  /**
-   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
-   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
-   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
-   *             names use the instance IPv4 address or the instance ID.</p>
-   */
-  HostnameType?: HostnameType | string;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *             records.</p>
-   */
-  EnableResourceNameDnsARecord?: boolean;
-
-  /**
-   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
-   *             records.</p>
-   */
-  EnableResourceNameDnsAAAARecord?: boolean;
-}
-
-export enum SubnetState {
-  available = "available",
-  pending = "pending",
 }
 
 /**
@@ -8308,6 +8319,20 @@ export const AttachInternetGatewayRequestFilterSensitiveLog = (obj: AttachIntern
 /**
  * @internal
  */
+export const EnaSrdUdpSpecificationFilterSensitiveLog = (obj: EnaSrdUdpSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const EnaSrdSpecificationFilterSensitiveLog = (obj: EnaSrdSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AttachNetworkInterfaceRequestFilterSensitiveLog = (obj: AttachNetworkInterfaceRequest): any => ({
   ...obj,
 });
@@ -9009,12 +9034,5 @@ export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustome
  * @internal
  */
 export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PrivateDnsNameOptionsOnLaunchFilterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
   ...obj,
 });

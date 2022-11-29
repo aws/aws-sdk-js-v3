@@ -18,7 +18,7 @@ import {
   ListIngestionsRequestFilterSensitiveLog,
   ListIngestionsResponse,
   ListIngestionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListIngestionsCommand,
   serializeAws_restJson1ListIngestionsCommand,

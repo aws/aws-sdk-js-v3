@@ -138,7 +138,8 @@ export interface AssociateUserResponse {
 }
 
 /**
- * <p>The request couldn't be completed because it conflicted with the current state of the resource.</p>
+ * <p>The request couldn't be completed because it conflicted with the current state of the
+ *       resource.</p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -264,6 +265,25 @@ export interface DeregisterIdentityProviderRequest {
 }
 
 /**
+ * <p>The registered identity provider’s product related configuration settings such as the
+ *       subnets to provision VPC endpoints, and the security group ID that is associated with the VPC
+ *       endpoints. The security group should permit inbound TCP port 1688 communication from resources
+ *       in the VPC.</p>
+ */
+export interface Settings {
+  /**
+   * <p>The subnets defined for the registered identity provider.</p>
+   */
+  Subnets: string[] | undefined;
+
+  /**
+   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
+   *       your VPC and the VPC endpoint for activation servers.</p>
+   */
+  SecurityGroupId: string | undefined;
+}
+
+/**
  * <p>Describes an identity provider.</p>
  */
 export interface IdentityProviderSummary {
@@ -271,6 +291,12 @@ export interface IdentityProviderSummary {
    * <p>An object that specifies details for the identity provider.</p>
    */
   IdentityProvider: IdentityProvider | undefined;
+
+  /**
+   * <p>An object that details the registered identity provider’s product related configuration
+   *       settings such as the subnets to provision VPC endpoints.</p>
+   */
+  Settings: Settings | undefined;
 
   /**
    * <p>The name of the user-based subscription product.</p>
@@ -325,9 +351,9 @@ export interface DisassociateUserResponse {
 }
 
 /**
- * <p>A filter name and value pair that is used to return more specific results from a
- *        describe operation. Filters can be used to match a set of resources by specific criteria,
- *        such as tags, attributes, or IDs.</p>
+ * <p>A filter name and value pair that is used to return more specific results from a describe
+ *       operation. Filters can be used to match a set of resources by specific criteria, such as tags,
+ *       attributes, or IDs.</p>
  */
 export interface Filter {
   /**
@@ -565,6 +591,12 @@ export interface RegisterIdentityProviderRequest {
    * <p>The name of the user-based subscription product.</p>
    */
   Product: string | undefined;
+
+  /**
+   * <p>The registered identity provider’s product related configuration settings such as the
+   *       subnets to provision VPC endpoints.</p>
+   */
+  Settings?: Settings;
 }
 
 export interface RegisterIdentityProviderResponse {
@@ -633,6 +665,65 @@ export interface StopProductSubscriptionResponse {
 }
 
 /**
+ * <p>Updates the registered identity provider’s product related configuration settings such as
+ *       the subnets to provision VPC endpoints.</p>
+ */
+export interface UpdateSettings {
+  /**
+   * <p>The ID of one or more subnets in which License Manager will create a VPC endpoint for products that
+   *       require connectivity to activation servers.</p>
+   */
+  AddSubnets: string[] | undefined;
+
+  /**
+   * <p>The ID of one or more subnets to remove.</p>
+   */
+  RemoveSubnets: string[] | undefined;
+
+  /**
+   * <p>A security group ID that allows inbound TCP port 1688 communication between resources in
+   *       your VPC and the VPC endpoints for activation servers.</p>
+   */
+  SecurityGroupId?: string;
+}
+
+export interface UpdateIdentityProviderSettingsRequest {
+  /**
+   * <p>Details about an identity provider.</p>
+   */
+  IdentityProvider: IdentityProvider | undefined;
+
+  /**
+   * <p>The name of the user-based subscription product.</p>
+   */
+  Product: string | undefined;
+
+  /**
+   * <p>Updates the registered identity provider’s product related configuration settings. You can
+   *       update any combination of settings in a single operation such as the:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Subnets which you want to add to provision VPC endpoints.</p>
+   *             </li>
+   *             <li>
+   *                <p>Subnets which you want to remove the VPC endpoints from.</p>
+   *             </li>
+   *             <li>
+   *                <p>Security group ID which permits traffic to the VPC endpoints.</p>
+   *             </li>
+   *          </ul>
+   */
+  UpdateSettings: UpdateSettings | undefined;
+}
+
+export interface UpdateIdentityProviderSettingsResponse {
+  /**
+   * <p>Describes an identity provider.</p>
+   */
+  IdentityProviderSummary: IdentityProviderSummary | undefined;
+}
+
+/**
  * @internal
  */
 export const ActiveDirectoryIdentityProviderFilterSensitiveLog = (obj: ActiveDirectoryIdentityProvider): any => ({
@@ -684,6 +775,13 @@ export const AssociateUserResponseFilterSensitiveLog = (obj: AssociateUserRespon
 export const DeregisterIdentityProviderRequestFilterSensitiveLog = (obj: DeregisterIdentityProviderRequest): any => ({
   ...obj,
   ...(obj.IdentityProvider && { IdentityProvider: IdentityProviderFilterSensitiveLog(obj.IdentityProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const SettingsFilterSensitiveLog = (obj: Settings): any => ({
+  ...obj,
 });
 
 /**
@@ -861,4 +959,33 @@ export const StopProductSubscriptionRequestFilterSensitiveLog = (obj: StopProduc
 export const StopProductSubscriptionResponseFilterSensitiveLog = (obj: StopProductSubscriptionResponse): any => ({
   ...obj,
   ...(obj.ProductUserSummary && { ProductUserSummary: ProductUserSummaryFilterSensitiveLog(obj.ProductUserSummary) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateSettingsFilterSensitiveLog = (obj: UpdateSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderSettingsRequestFilterSensitiveLog = (
+  obj: UpdateIdentityProviderSettingsRequest
+): any => ({
+  ...obj,
+  ...(obj.IdentityProvider && { IdentityProvider: IdentityProviderFilterSensitiveLog(obj.IdentityProvider) }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateIdentityProviderSettingsResponseFilterSensitiveLog = (
+  obj: UpdateIdentityProviderSettingsResponse
+): any => ({
+  ...obj,
+  ...(obj.IdentityProviderSummary && {
+    IdentityProviderSummary: IdentityProviderSummaryFilterSensitiveLog(obj.IdentityProviderSummary),
+  }),
 });

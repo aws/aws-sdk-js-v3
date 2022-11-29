@@ -36,18 +36,18 @@ export interface CreateDataRepositoryAssociationCommandOutput
  *             an Amazon S3 bucket or prefix. You can have a maximum of 8 data repository
  *             associations on a file system. Data repository associations are supported only
  *             for file systems with the <code>Persistent_2</code> deployment type.</p>
- *         <p>Each data repository association must have a unique Amazon FSx file
+ *          <p>Each data repository association must have a unique Amazon FSx file
  *             system directory and a unique S3 bucket or prefix associated with it. You
  *             can configure a data repository association for automatic import only,
  *             for automatic export only, or for both. To learn more about linking a
  *             data repository to your file system, see
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/create-dra-linked-data-repo.html">Linking your file system to an S3 bucket</a>.</p>
- *         <note>
+ *          <note>
  *             <p>
  *                <code>CreateDataRepositoryAssociation</code> isn't supported
  *             on Amazon File Cache resources. To create a DRA on Amazon File Cache,
  *             use the <code>CreateFileCache</code> operation.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

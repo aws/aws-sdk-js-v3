@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
+
+
+### Features
+
+* **client-quicksight:** This release adds new Describe APIs and updates Create and Update APIs to support the data model for Dashboards, Analyses, and Templates. ([1d1950f](https://github.com/aws/aws-sdk-js-v3/commit/1d1950ffbc03a245bad87287247069c0b0c8573b))
+
+
+
+
+
 # [3.218.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.217.0...v3.218.0) (2022-11-28)
 
 

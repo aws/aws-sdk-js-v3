@@ -136,10 +136,18 @@ import {
 } from "./commands/DescribeAccountSubscriptionCommand";
 import { DescribeAnalysisCommandInput, DescribeAnalysisCommandOutput } from "./commands/DescribeAnalysisCommand";
 import {
+  DescribeAnalysisDefinitionCommandInput,
+  DescribeAnalysisDefinitionCommandOutput,
+} from "./commands/DescribeAnalysisDefinitionCommand";
+import {
   DescribeAnalysisPermissionsCommandInput,
   DescribeAnalysisPermissionsCommandOutput,
 } from "./commands/DescribeAnalysisPermissionsCommand";
 import { DescribeDashboardCommandInput, DescribeDashboardCommandOutput } from "./commands/DescribeDashboardCommand";
+import {
+  DescribeDashboardDefinitionCommandInput,
+  DescribeDashboardDefinitionCommandOutput,
+} from "./commands/DescribeDashboardDefinitionCommand";
 import {
   DescribeDashboardPermissionsCommandInput,
   DescribeDashboardPermissionsCommandOutput,
@@ -183,6 +191,10 @@ import {
   DescribeTemplateAliasCommandOutput,
 } from "./commands/DescribeTemplateAliasCommand";
 import { DescribeTemplateCommandInput, DescribeTemplateCommandOutput } from "./commands/DescribeTemplateCommand";
+import {
+  DescribeTemplateDefinitionCommandInput,
+  DescribeTemplateDefinitionCommandOutput,
+} from "./commands/DescribeTemplateDefinitionCommand";
 import {
   DescribeTemplatePermissionsCommandInput,
   DescribeTemplatePermissionsCommandOutput,
@@ -375,8 +387,10 @@ export type ServiceInputTypes =
   | DescribeAccountSettingsCommandInput
   | DescribeAccountSubscriptionCommandInput
   | DescribeAnalysisCommandInput
+  | DescribeAnalysisDefinitionCommandInput
   | DescribeAnalysisPermissionsCommandInput
   | DescribeDashboardCommandInput
+  | DescribeDashboardDefinitionCommandInput
   | DescribeDashboardPermissionsCommandInput
   | DescribeDataSetCommandInput
   | DescribeDataSetPermissionsCommandInput
@@ -393,6 +407,7 @@ export type ServiceInputTypes =
   | DescribeNamespaceCommandInput
   | DescribeTemplateAliasCommandInput
   | DescribeTemplateCommandInput
+  | DescribeTemplateDefinitionCommandInput
   | DescribeTemplatePermissionsCommandInput
   | DescribeThemeAliasCommandInput
   | DescribeThemeCommandInput
@@ -500,8 +515,10 @@ export type ServiceOutputTypes =
   | DescribeAccountSettingsCommandOutput
   | DescribeAccountSubscriptionCommandOutput
   | DescribeAnalysisCommandOutput
+  | DescribeAnalysisDefinitionCommandOutput
   | DescribeAnalysisPermissionsCommandOutput
   | DescribeDashboardCommandOutput
+  | DescribeDashboardDefinitionCommandOutput
   | DescribeDashboardPermissionsCommandOutput
   | DescribeDataSetCommandOutput
   | DescribeDataSetPermissionsCommandOutput
@@ -518,6 +535,7 @@ export type ServiceOutputTypes =
   | DescribeNamespaceCommandOutput
   | DescribeTemplateAliasCommandOutput
   | DescribeTemplateCommandOutput
+  | DescribeTemplateDefinitionCommandOutput
   | DescribeTemplatePermissionsCommandOutput
   | DescribeThemeAliasCommandOutput
   | DescribeThemeCommandOutput
@@ -735,7 +753,7 @@ export interface QuickSightClientResolvedConfig extends QuickSightClientResolved
 
 /**
  * <fullname>Amazon QuickSight API Reference</fullname>
- *         <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
+ *          <p>Amazon QuickSight is a fully managed, serverless business intelligence service for the
  *             Amazon Web Services Cloud that makes it easy to extend data and insights to every user in your
  *             organization. This API reference contains documentation for a programming interface that
  *             you can use to manage Amazon QuickSight. </p>

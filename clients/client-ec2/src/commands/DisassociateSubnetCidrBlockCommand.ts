@@ -19,7 +19,7 @@ import {
   DisassociateSubnetCidrBlockRequestFilterSensitiveLog,
   DisassociateSubnetCidrBlockResult,
   DisassociateSubnetCidrBlockResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateSubnetCidrBlockCommand,
   serializeAws_ec2DisassociateSubnetCidrBlockCommand,

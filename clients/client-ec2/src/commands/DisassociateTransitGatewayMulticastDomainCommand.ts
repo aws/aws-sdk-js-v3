@@ -19,7 +19,7 @@ import {
   DisassociateTransitGatewayMulticastDomainRequestFilterSensitiveLog,
   DisassociateTransitGatewayMulticastDomainResult,
   DisassociateTransitGatewayMulticastDomainResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand,
   serializeAws_ec2DisassociateTransitGatewayMulticastDomainCommand,

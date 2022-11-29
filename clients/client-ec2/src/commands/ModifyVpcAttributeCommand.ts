@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVpcAttributeRequest, ModifyVpcAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyVpcAttributeRequest, ModifyVpcAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcAttributeCommand,
   serializeAws_ec2ModifyVpcAttributeCommand,

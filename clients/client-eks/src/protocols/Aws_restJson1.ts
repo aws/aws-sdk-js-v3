@@ -136,6 +136,7 @@ import {
   Logging,
   LogSetup,
   LogType,
+  MarketplaceInformation,
   Nodegroup,
   NodegroupHealth,
   NodegroupResources,
@@ -548,6 +549,9 @@ export const serializeAws_restJson1DescribeAddonVersionsCommand = async (
     maxResults: [() => input.maxResults !== void 0, () => input.maxResults!.toString()],
     nextToken: [, input.nextToken!],
     addonName: [, input.addonName!],
+    types: [() => input.types !== void 0, () => (input.types! || []).map((_entry) => _entry as any)],
+    publishers: [() => input.publishers !== void 0, () => (input.publishers! || []).map((_entry) => _entry as any)],
+    owners: [() => input.owners !== void 0, () => (input.owners! || []).map((_entry) => _entry as any)],
   });
   let body: any;
   return new __HttpRequest({
@@ -3551,8 +3555,14 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     health: output.health != null ? deserializeAws_restJson1AddonHealth(output.health, context) : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
     modifiedAt:
       output.modifiedAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.modifiedAt))) : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     serviceAccountRoleArn: __expectString(output.serviceAccountRoleArn),
     status: __expectString(output.status),
     tags: output.tags != null ? deserializeAws_restJson1TagMap(output.tags, context) : undefined,
@@ -3572,6 +3582,12 @@ const deserializeAws_restJson1AddonInfo = (output: any, context: __SerdeContext)
       output.addonVersions != null
         ? deserializeAws_restJson1AddonVersionInfoList(output.addonVersions, context)
         : undefined,
+    marketplaceInformation:
+      output.marketplaceInformation != null
+        ? deserializeAws_restJson1MarketplaceInformation(output.marketplaceInformation, context)
+        : undefined,
+    owner: __expectString(output.owner),
+    publisher: __expectString(output.publisher),
     type: __expectString(output.type),
   } as any;
 };
@@ -3618,6 +3634,7 @@ const deserializeAws_restJson1AddonVersionInfo = (output: any, context: __SerdeC
       output.compatibilities != null
         ? deserializeAws_restJson1Compatibilities(output.compatibilities, context)
         : undefined,
+    requiresConfiguration: __expectBoolean(output.requiresConfiguration),
   } as any;
 };
 
@@ -3996,6 +4013,16 @@ const deserializeAws_restJson1LogTypes = (output: any, context: __SerdeContext):
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_restJson1MarketplaceInformation = (
+  output: any,
+  context: __SerdeContext
+): MarketplaceInformation => {
+  return {
+    productId: __expectString(output.productId),
+    productUrl: __expectString(output.productUrl),
+  } as any;
 };
 
 const deserializeAws_restJson1Nodegroup = (output: any, context: __SerdeContext): Nodegroup => {

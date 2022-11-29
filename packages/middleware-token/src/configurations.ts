@@ -7,10 +7,6 @@ export interface TokenInputConfig {
   token?: TokenIdentity | TokenIdentityProvider;
 }
 
-export interface TokenPreviouslyResolved {
-  tokenDefaultProvider: (input: any) => TokenIdentityProvider;
-}
-
 export interface TokenResolvedConfig {
   /**
    * Resolved value for input config {@link TokenInputConfig.token}

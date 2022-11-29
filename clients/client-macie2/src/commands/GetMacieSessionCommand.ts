@@ -29,7 +29,7 @@ export interface GetMacieSessionCommandInput extends GetMacieSessionRequest {}
 export interface GetMacieSessionCommandOutput extends GetMacieSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the current status and configuration settings for an Amazon Macie account.</p>
+ * <p>Retrieves the status and configuration settings for an Amazon Macie account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

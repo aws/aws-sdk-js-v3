@@ -18,7 +18,7 @@ import {
   SearchDashboardsRequestFilterSensitiveLog,
   SearchDashboardsResponse,
   SearchDashboardsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchDashboardsCommand,
   serializeAws_restJson1SearchDashboardsCommand,
@@ -30,9 +30,9 @@ export interface SearchDashboardsCommandOutput extends SearchDashboardsResponse,
 
 /**
  * <p>Searches for dashboards that belong to a user. </p>
- *         <note>
+ *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -36,8 +36,7 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  *             are provided in the request, or if filters are used in the request. Data repository
  *             associations are supported only for Amazon FSx for Lustre file systems with the
  *             <code>Persistent_2</code> deployment type and for Amazon File Cache resources.</p>
- *
- *         <p>You can use filters to narrow the response to include just data repository
+ *          <p>You can use filters to narrow the response to include just data repository
  *             associations for specific file systems (use the <code>file-system-id</code> filter with
  *             the ID of the file system) or caches (use the <code>file-cache-id</code> filter with
  *             the ID of the cache), or data repository associations for a specific repository type
@@ -45,8 +44,7 @@ export interface DescribeDataRepositoryAssociationsCommandOutput
  *             or <code>NFS</code>). If you don't use filters, the response returns all data
  *             repository associations owned by your Amazon Web Services account in the Amazon Web Services Region
  *             of the endpoint that you're calling.</p>
- *
- *         <p>When retrieving all data repository associations, you can paginate the response by using
+ *          <p>When retrieving all data repository associations, you can paginate the response by using
  *             the optional <code>MaxResults</code> parameter to limit the number of data repository associations
  *             returned in a response. If more data repository associations remain, a
  *             <code>NextToken</code> value is returned in the response. In this case, send a later

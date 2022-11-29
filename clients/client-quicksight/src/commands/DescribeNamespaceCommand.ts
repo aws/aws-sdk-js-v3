@@ -18,7 +18,7 @@ import {
   DescribeNamespaceRequestFilterSensitiveLog,
   DescribeNamespaceResponse,
   DescribeNamespaceResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeNamespaceCommand,
   serializeAws_restJson1DescribeNamespaceCommand,

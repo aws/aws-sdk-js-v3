@@ -696,6 +696,10 @@ import {
   DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand";
 import {
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput,
+} from "./commands/DescribeAwsNetworkPerformanceMetricSubscriptionsCommand";
+import {
   DescribeBundleTasksCommandInput,
   DescribeBundleTasksCommandOutput,
 } from "./commands/DescribeBundleTasksCommand";
@@ -1174,6 +1178,10 @@ import {
   DisableAddressTransferCommandOutput,
 } from "./commands/DisableAddressTransferCommand";
 import {
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
+import {
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/DisableEbsEncryptionByDefaultCommand";
@@ -1263,6 +1271,10 @@ import {
   EnableAddressTransferCommandOutput,
 } from "./commands/EnableAddressTransferCommand";
 import {
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
+import {
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
 } from "./commands/EnableEbsEncryptionByDefaultCommand";
@@ -1279,6 +1291,10 @@ import {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
+import {
+  EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+  EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
+} from "./commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
 import {
   EnableSerialConsoleAccessCommandInput,
   EnableSerialConsoleAccessCommandOutput,
@@ -1321,6 +1337,10 @@ import {
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand";
+import {
+  GetAwsNetworkPerformanceDataCommandInput,
+  GetAwsNetworkPerformanceDataCommandOutput,
+} from "./commands/GetAwsNetworkPerformanceDataCommand";
 import {
   GetCapacityReservationUsageCommandInput,
   GetCapacityReservationUsageCommandOutput,
@@ -2088,6 +2108,7 @@ export type ServiceInputTypes =
   | DescribeAddressesCommandInput
   | DescribeAggregateIdFormatCommandInput
   | DescribeAvailabilityZonesCommandInput
+  | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput
   | DescribeBundleTasksCommandInput
   | DescribeByoipCidrsCommandInput
   | DescribeCapacityReservationFleetsCommandInput
@@ -2224,6 +2245,7 @@ export type ServiceInputTypes =
   | DetachVolumeCommandInput
   | DetachVpnGatewayCommandInput
   | DisableAddressTransferCommandInput
+  | DisableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | DisableEbsEncryptionByDefaultCommandInput
   | DisableFastLaunchCommandInput
   | DisableFastSnapshotRestoresCommandInput
@@ -2247,11 +2269,13 @@ export type ServiceInputTypes =
   | DisassociateTrunkInterfaceCommandInput
   | DisassociateVpcCidrBlockCommandInput
   | EnableAddressTransferCommandInput
+  | EnableAwsNetworkPerformanceMetricSubscriptionCommandInput
   | EnableEbsEncryptionByDefaultCommandInput
   | EnableFastLaunchCommandInput
   | EnableFastSnapshotRestoresCommandInput
   | EnableImageDeprecationCommandInput
   | EnableIpamOrganizationAdminAccountCommandInput
+  | EnableReachabilityAnalyzerOrganizationSharingCommandInput
   | EnableSerialConsoleAccessCommandInput
   | EnableTransitGatewayRouteTablePropagationCommandInput
   | EnableVgwRoutePropagationCommandInput
@@ -2264,6 +2288,7 @@ export type ServiceInputTypes =
   | ExportTransitGatewayRoutesCommandInput
   | GetAssociatedEnclaveCertificateIamRolesCommandInput
   | GetAssociatedIpv6PoolCidrsCommandInput
+  | GetAwsNetworkPerformanceDataCommandInput
   | GetCapacityReservationUsageCommandInput
   | GetCoipPoolUsageCommandInput
   | GetConsoleOutputCommandInput
@@ -2637,6 +2662,7 @@ export type ServiceOutputTypes =
   | DescribeAddressesCommandOutput
   | DescribeAggregateIdFormatCommandOutput
   | DescribeAvailabilityZonesCommandOutput
+  | DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
   | DescribeBundleTasksCommandOutput
   | DescribeByoipCidrsCommandOutput
   | DescribeCapacityReservationFleetsCommandOutput
@@ -2773,6 +2799,7 @@ export type ServiceOutputTypes =
   | DetachVolumeCommandOutput
   | DetachVpnGatewayCommandOutput
   | DisableAddressTransferCommandOutput
+  | DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | DisableEbsEncryptionByDefaultCommandOutput
   | DisableFastLaunchCommandOutput
   | DisableFastSnapshotRestoresCommandOutput
@@ -2796,11 +2823,13 @@ export type ServiceOutputTypes =
   | DisassociateTrunkInterfaceCommandOutput
   | DisassociateVpcCidrBlockCommandOutput
   | EnableAddressTransferCommandOutput
+  | EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput
   | EnableEbsEncryptionByDefaultCommandOutput
   | EnableFastLaunchCommandOutput
   | EnableFastSnapshotRestoresCommandOutput
   | EnableImageDeprecationCommandOutput
   | EnableIpamOrganizationAdminAccountCommandOutput
+  | EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   | EnableSerialConsoleAccessCommandOutput
   | EnableTransitGatewayRouteTablePropagationCommandOutput
   | EnableVgwRoutePropagationCommandOutput
@@ -2813,6 +2842,7 @@ export type ServiceOutputTypes =
   | ExportTransitGatewayRoutesCommandOutput
   | GetAssociatedEnclaveCertificateIamRolesCommandOutput
   | GetAssociatedIpv6PoolCidrsCommandOutput
+  | GetAwsNetworkPerformanceDataCommandOutput
   | GetCapacityReservationUsageCommandOutput
   | GetCoipPoolUsageCommandOutput
   | GetConsoleOutputCommandOutput

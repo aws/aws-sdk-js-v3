@@ -11,6 +11,13 @@ import {
   Result,
 } from "./models_1";
 
+export interface InviteMembersRequest {
+  /**
+   * <p>The list of account IDs of the Amazon Web Services accounts to invite to Security Hub as members. </p>
+   */
+  AccountIds: string[] | undefined;
+}
+
 export interface InviteMembersResponse {
   /**
    * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
@@ -381,6 +388,13 @@ export interface UpdateStandardsControlRequest {
 }
 
 export interface UpdateStandardsControlResponse {}
+
+/**
+ * @internal
+ */
+export const InviteMembersRequestFilterSensitiveLog = (obj: InviteMembersRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

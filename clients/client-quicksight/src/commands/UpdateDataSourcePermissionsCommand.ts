@@ -18,7 +18,7 @@ import {
   UpdateDataSourcePermissionsRequestFilterSensitiveLog,
   UpdateDataSourcePermissionsResponse,
   UpdateDataSourcePermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDataSourcePermissionsCommand,
   serializeAws_restJson1UpdateDataSourcePermissionsCommand,

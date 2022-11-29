@@ -18,7 +18,7 @@ import {
   DeleteThemeRequestFilterSensitiveLog,
   DeleteThemeResponse,
   DeleteThemeResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DeleteThemeCommand,
   serializeAws_restJson1DeleteThemeCommand,

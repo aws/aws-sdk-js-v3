@@ -18,7 +18,7 @@ import {
   RestoreAnalysisRequestFilterSensitiveLog,
   RestoreAnalysisResponse,
   RestoreAnalysisResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1RestoreAnalysisCommand,
   serializeAws_restJson1RestoreAnalysisCommand,

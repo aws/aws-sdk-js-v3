@@ -18,7 +18,7 @@ import {
   ListDashboardsRequestFilterSensitiveLog,
   ListDashboardsResponse,
   ListDashboardsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1ListDashboardsCommand,
   serializeAws_restJson1ListDashboardsCommand,

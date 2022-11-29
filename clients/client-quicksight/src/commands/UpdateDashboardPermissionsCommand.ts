@@ -18,7 +18,7 @@ import {
   UpdateDashboardPermissionsRequestFilterSensitiveLog,
   UpdateDashboardPermissionsResponse,
   UpdateDashboardPermissionsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1UpdateDashboardPermissionsCommand,
   serializeAws_restJson1UpdateDashboardPermissionsCommand,

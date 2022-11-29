@@ -18,7 +18,7 @@ import {
   SearchDataSetsRequestFilterSensitiveLog,
   SearchDataSetsResponse,
   SearchDataSetsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1SearchDataSetsCommand,
   serializeAws_restJson1SearchDataSetsCommand,

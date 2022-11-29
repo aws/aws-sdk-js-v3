@@ -19,7 +19,7 @@ import {
   PutAggregationAuthorizationRequestFilterSensitiveLog,
   PutAggregationAuthorizationResponse,
   PutAggregationAuthorizationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1PutAggregationAuthorizationCommand,
   serializeAws_json1_1PutAggregationAuthorizationCommand,

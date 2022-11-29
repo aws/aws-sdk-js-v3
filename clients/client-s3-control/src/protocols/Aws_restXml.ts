@@ -137,6 +137,10 @@ import {
   GetMultiRegionAccessPointPolicyStatusCommandOutput,
 } from "../commands/GetMultiRegionAccessPointPolicyStatusCommand";
 import {
+  GetMultiRegionAccessPointRoutesCommandInput,
+  GetMultiRegionAccessPointRoutesCommandOutput,
+} from "../commands/GetMultiRegionAccessPointRoutesCommand";
+import {
   GetPublicAccessBlockCommandInput,
   GetPublicAccessBlockCommandOutput,
 } from "../commands/GetPublicAccessBlockCommand";
@@ -205,6 +209,10 @@ import {
   PutStorageLensConfigurationTaggingCommandInput,
   PutStorageLensConfigurationTaggingCommandOutput,
 } from "../commands/PutStorageLensConfigurationTaggingCommand";
+import {
+  SubmitMultiRegionAccessPointRoutesCommandInput,
+  SubmitMultiRegionAccessPointRoutesCommandOutput,
+} from "../commands/SubmitMultiRegionAccessPointRoutesCommand";
 import { UpdateJobPriorityCommandInput, UpdateJobPriorityCommandOutput } from "../commands/UpdateJobPriorityCommand";
 import { UpdateJobStatusCommandInput, UpdateJobStatusCommandOutput } from "../commands/UpdateJobStatusCommand";
 import {
@@ -260,6 +268,7 @@ import {
   MultiRegionAccessPointPolicyDocument,
   MultiRegionAccessPointRegionalResponse,
   MultiRegionAccessPointReport,
+  MultiRegionAccessPointRoute,
   MultiRegionAccessPointsAsyncResponse,
   NoncurrentVersionExpiration,
   NoncurrentVersionTransition,
@@ -1592,8 +1601,8 @@ export const serializeAws_restXmlGetMultiRegionAccessPointCommand = async (
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name}";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1626,8 +1635,8 @@ export const serializeAws_restXmlGetMultiRegionAccessPointPolicyCommand = async 
     "x-amz-account-id": input.AccountId!,
   });
   let resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name}/policy";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Name+}/policy";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1661,8 +1670,42 @@ export const serializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommand = 
   });
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
-    "/v20180820/mrap/instances/{Name}/policystatus";
-  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
+    "/v20180820/mrap/instances/{Name+}/policystatus";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name+}", true);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlGetMultiRegionAccessPointRoutesCommand = async (
+  input: GetMultiRegionAccessPointRoutesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -2564,6 +2607,53 @@ export const serializeAws_restXmlPutStorageLensConfigurationTaggingCommand = asy
     hostname: resolvedHostname,
     port,
     method: "PUT",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand = async (
+  input: SubmitMultiRegionAccessPointRoutesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    "x-amz-account-id": input.AccountId!,
+  });
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v20180820/mrap/instances/{Mrap+}/routes";
+  resolvedPath = __resolvedPath(resolvedPath, input, "Mrap", () => input.Mrap!, "{Mrap+}", true);
+  let body: any;
+  body = '<?xml version="1.0" encoding="UTF-8"?>';
+  const bodyNode = new __XmlNode("SubmitMultiRegionAccessPointRoutesRequest");
+  bodyNode.addAttribute("xmlns", "http://awss3control.amazonaws.com/doc/2018-08-20/");
+  if (input.RouteUpdates !== undefined) {
+    const nodes = serializeAws_restXmlRouteList(input.RouteUpdates, context);
+    const containerNode = new __XmlNode("RouteUpdates");
+    nodes.map((node: any) => {
+      containerNode.addChildNode(node);
+    });
+    bodyNode.addChildNode(containerNode);
+  }
+  body += bodyNode.toString();
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "{AccountId}." + resolvedHostname;
+    if (input.AccountId === undefined) {
+      throw new Error("Empty value provided for input host prefix: AccountId.");
+    }
+    resolvedHostname = resolvedHostname.replace("{AccountId}", input.AccountId!);
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  return new __HttpRequest({
+    protocol,
+    hostname: resolvedHostname,
+    port,
+    method: "PATCH",
     headers,
     path: resolvedPath,
     body,
@@ -3991,6 +4081,46 @@ const deserializeAws_restXmlGetMultiRegionAccessPointPolicyStatusCommandError = 
   });
 };
 
+export const deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionAccessPointRoutesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data["Mrap"] !== undefined) {
+    contents.Mrap = __expectString(data["Mrap"]);
+  }
+  if (data.Routes === "") {
+    contents.Routes = [];
+  } else if (data["Routes"] !== undefined && data["Routes"]["Route"] !== undefined) {
+    contents.Routes = deserializeAws_restXmlRouteList(__getArrayIfSingleItem(data["Routes"]["Route"]), context);
+  }
+  return contents;
+};
+
+const deserializeAws_restXmlGetMultiRegionAccessPointRoutesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMultiRegionAccessPointRoutesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
 export const deserializeAws_restXmlGetPublicAccessBlockCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4761,6 +4891,38 @@ const deserializeAws_restXmlPutStorageLensConfigurationTaggingCommandError = asy
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<PutStorageLensConfigurationTaggingCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestXmlErrorCode(output, parsedOutput.body);
+  const parsedBody = parsedOutput.body;
+  throwDefaultError({
+    output,
+    parsedBody: parsedBody.Error,
+    exceptionCtor: __BaseException,
+    errorCode,
+  });
+};
+
+export const deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restXmlSubmitMultiRegionAccessPointRoutesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SubmitMultiRegionAccessPointRoutesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5683,6 +5845,28 @@ const serializeAws_restXmlLifecycleRules = (input: LifecycleRule[], context: __S
     });
 };
 
+const serializeAws_restXmlMultiRegionAccessPointRoute = (
+  input: MultiRegionAccessPointRoute,
+  context: __SerdeContext
+): any => {
+  const bodyNode = new __XmlNode("MultiRegionAccessPointRoute");
+  if (input.Bucket != null) {
+    const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
+    bodyNode.addChildNode(node);
+  }
+  if (input.Region != null) {
+    const node = __XmlNode.of("RegionName", input.Region).withName("Region");
+    bodyNode.addChildNode(node);
+  }
+  if (input.TrafficDialPercentage != null) {
+    const node = __XmlNode
+      .of("TrafficDialPercentage", String(input.TrafficDialPercentage))
+      .withName("TrafficDialPercentage");
+    bodyNode.addChildNode(node);
+  }
+  return bodyNode;
+};
+
 const serializeAws_restXmlNoncurrentVersionExpiration = (
   input: NoncurrentVersionExpiration,
   context: __SerdeContext
@@ -5947,6 +6131,15 @@ const serializeAws_restXmlReplicationStatusFilterList = (
     .map((entry) => {
       const node = __XmlNode.of("ReplicationStatus", entry);
       return node.withName("member");
+    });
+};
+
+const serializeAws_restXmlRouteList = (input: MultiRegionAccessPointRoute[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const node = serializeAws_restXmlMultiRegionAccessPointRoute(entry, context);
+      return node.withName("Route");
     });
 };
 
@@ -7701,6 +7894,27 @@ const deserializeAws_restXmlMultiRegionAccessPointReportList = (
     });
 };
 
+const deserializeAws_restXmlMultiRegionAccessPointRoute = (
+  output: any,
+  context: __SerdeContext
+): MultiRegionAccessPointRoute => {
+  const contents: any = {
+    Bucket: undefined,
+    Region: undefined,
+    TrafficDialPercentage: undefined,
+  };
+  if (output["Bucket"] !== undefined) {
+    contents.Bucket = __expectString(output["Bucket"]);
+  }
+  if (output["Region"] !== undefined) {
+    contents.Region = __expectString(output["Region"]);
+  }
+  if (output["TrafficDialPercentage"] !== undefined) {
+    contents.TrafficDialPercentage = __strictParseInt32(output["TrafficDialPercentage"]) as number;
+  }
+  return contents;
+};
+
 const deserializeAws_restXmlMultiRegionAccessPointsAsyncResponse = (
   output: any,
   context: __SerdeContext
@@ -8084,6 +8298,14 @@ const deserializeAws_restXmlReplicationStatusFilterList = (
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return __expectString(entry) as any;
+    });
+};
+
+const deserializeAws_restXmlRouteList = (output: any, context: __SerdeContext): MultiRegionAccessPointRoute[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_restXmlMultiRegionAccessPointRoute(entry, context);
     });
 };
 

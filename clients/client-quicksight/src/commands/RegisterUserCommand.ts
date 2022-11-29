@@ -18,7 +18,7 @@ import {
   RegisterUserRequestFilterSensitiveLog,
   RegisterUserResponse,
   RegisterUserResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1RegisterUserCommand,
   serializeAws_restJson1RegisterUserCommand,

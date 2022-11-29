@@ -18,7 +18,7 @@ import {
   ListIAMPolicyAssignmentsForUserRequestFilterSensitiveLog,
   ListIAMPolicyAssignmentsForUserResponse,
   ListIAMPolicyAssignmentsForUserResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_3";
 import {
   deserializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,
   serializeAws_restJson1ListIAMPolicyAssignmentsForUserCommand,

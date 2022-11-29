@@ -18,7 +18,7 @@ import {
   DescribeGroupRequestFilterSensitiveLog,
   DescribeGroupResponse,
   DescribeGroupResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DescribeGroupCommand,
   serializeAws_restJson1DescribeGroupCommand,

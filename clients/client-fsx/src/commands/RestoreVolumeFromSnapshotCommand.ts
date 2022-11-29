@@ -30,7 +30,7 @@ export interface RestoreVolumeFromSnapshotCommandOutput extends RestoreVolumeFro
 
 /**
  * <p>Returns an Amazon FSx for OpenZFS volume to the state saved by the specified
- *             snapshot. </p>
+ *             snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

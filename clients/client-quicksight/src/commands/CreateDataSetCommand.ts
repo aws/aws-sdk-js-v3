@@ -18,7 +18,7 @@ import {
   CreateDataSetRequestFilterSensitiveLog,
   CreateDataSetResponse,
   CreateDataSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1CreateDataSetCommand,
   serializeAws_restJson1CreateDataSetCommand,
