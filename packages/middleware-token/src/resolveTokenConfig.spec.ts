@@ -1,14 +1,14 @@
 import { normalizeTokenProvider } from "./normalizeTokenProvider";
 import { resolveTokenConfig } from "./resolveTokenConfig";
+import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
 jest.mock("./normalizeTokenProvider");
+jest.mock("./tokenDefaultProvider");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 
 describe(resolveTokenConfig.name, () => {
-  const mockInput = {
-    tokenDefaultProvider: jest.fn(),
-  };
+  const mockInput = {};
   const mockOutputToken = () =>
     Promise.resolve({
       token: "mockOutputAccessToken",
@@ -22,10 +22,11 @@ describe(resolveTokenConfig.name, () => {
   describe("sets token from normalizeTokenProvider if token is provided", () => {
     beforeEach(() => {
       (normalizeTokenProvider as jest.Mock).mockReturnValue(mockOutputToken);
+      (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
     });
 
     afterEach(() => {
-      expect(mockInput.tokenDefaultProvider).not.toHaveBeenCalled();
+      expect(tokenDefaultProvider).not.toHaveBeenCalled();
     });
 
     const testTokenProviderWithToken = (token) => {
@@ -46,9 +47,9 @@ describe(resolveTokenConfig.name, () => {
   });
 
   it("sets token from tokenDefaultProvider if token is not provided", () => {
-    mockInput.tokenDefaultProvider.mockReturnValue(mockOutputToken);
+    (tokenDefaultProvider as jest.Mock).mockReturnValue(mockOutputToken);
     expect(resolveTokenConfig(mockInput)).toEqual({ ...mockInput, token: mockOutputToken });
-    expect(mockInput.tokenDefaultProvider).toHaveBeenCalledWith(mockInput);
+    expect(tokenDefaultProvider).toHaveBeenCalledWith(mockInput);
     expect(normalizeTokenProvider).not.toHaveBeenCalled();
   });
 });
