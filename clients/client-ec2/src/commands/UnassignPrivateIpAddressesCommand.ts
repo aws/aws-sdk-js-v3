@@ -27,7 +27,8 @@ export interface UnassignPrivateIpAddressesCommandInput extends UnassignPrivateI
 export interface UnassignPrivateIpAddressesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>
+ * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
+ *         	network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

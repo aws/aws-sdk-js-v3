@@ -2,6 +2,8 @@ export * from "./DescribeAddressTransfersPaginator";
 
 export * from "./DescribeAddressesAttributePaginator";
 
+export * from "./DescribeAwsNetworkPerformanceMetricSubscriptionsPaginator";
+
 export * from "./DescribeByoipCidrsPaginator";
 
 export * from "./DescribeCapacityReservationFleetsPaginator";
@@ -15,10 +17,9 @@ export * from "./DescribeClassicLinkInstancesPaginator";
 export * from "./DescribeClientVpnAuthorizationRulesPaginator";
 
 export * from "./DescribeClientVpnConnectionsPaginator";
-
-export * from "./DescribeClientVpnEndpointsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./DescribeClientVpnEndpointsPaginator";
 export * from "./DescribeClientVpnRoutesPaginator";
 export * from "./DescribeClientVpnTargetNetworksPaginator";
 export * from "./DescribeCoipPoolsPaginator";
@@ -111,6 +112,7 @@ export * from "./DescribeVpcEndpointsPaginator";
 export * from "./DescribeVpcPeeringConnectionsPaginator";
 export * from "./DescribeVpcsPaginator";
 export * from "./GetAssociatedIpv6PoolCidrsPaginator";
+export * from "./GetAwsNetworkPerformanceDataPaginator";
 export * from "./GetGroupsForCapacityReservationPaginator";
 export * from "./GetInstanceTypesFromInstanceRequirementsPaginator";
 export * from "./GetIpamAddressHistoryPaginator";

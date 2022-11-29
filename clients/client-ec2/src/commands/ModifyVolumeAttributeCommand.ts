@@ -14,7 +14,7 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { ModifyVolumeAttributeRequest, ModifyVolumeAttributeRequestFilterSensitiveLog } from "../models/models_5";
+import { ModifyVolumeAttributeRequest, ModifyVolumeAttributeRequestFilterSensitiveLog } from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVolumeAttributeCommand,
   serializeAws_ec2ModifyVolumeAttributeCommand,

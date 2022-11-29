@@ -19,7 +19,7 @@ import {
   ModifyVolumeRequestFilterSensitiveLog,
   ModifyVolumeResult,
   ModifyVolumeResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { deserializeAws_ec2ModifyVolumeCommand, serializeAws_ec2ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 export interface ModifyVolumeCommandInput extends ModifyVolumeRequest {}

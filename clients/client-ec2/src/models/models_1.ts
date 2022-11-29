@@ -21,13 +21,11 @@ import {
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   PortRange,
-  PrivateDnsNameOptionsOnLaunch,
   Protocol,
   ReservedInstancesListing,
   ResourceType,
   RouteTableAssociationState,
   SubnetIpv6CidrBlockAssociation,
-  SubnetState,
   Tag,
   TagSpecification,
   UnsuccessfulItem,
@@ -35,6 +33,36 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+/**
+ * <p>Describes the options for instance hostnames.</p>
+ */
+export interface PrivateDnsNameOptionsOnLaunch {
+  /**
+   * <p>The type of hostname for EC2 instances. For IPv4 only subnets, an instance DNS name
+   *             must be based on the instance IPv4 address. For IPv6 only subnets, an instance DNS name
+   *             must be based on the instance ID. For dual-stack subnets, you can specify whether DNS
+   *             names use the instance IPv4 address or the instance ID.</p>
+   */
+  HostnameType?: HostnameType | string;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *             records.</p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>Indicates whether to respond to DNS queries for instance hostname with DNS AAAA
+   *             records.</p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+}
+
+export enum SubnetState {
+  available = "available",
+  pending = "pending",
+}
 
 /**
  * <p>Describes a subnet.</p>
@@ -959,65 +987,60 @@ export interface Placement {
    * <p>The Availability Zone of the instance.</p>
    *         <p>If not specified, an Availability Zone will be automatically chosen for you based on
    *             the load balancing criteria for the Region.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
   AvailabilityZone?: string;
 
   /**
-   * <p>The affinity setting for the instance on the Dedicated Host. This parameter is not
-   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-   *             command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   * <p>The affinity setting for the instance on the Dedicated Host.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</p>
    */
   Affinity?: string;
 
   /**
-   * <p>The name of the placement group the instance is in.</p>
+   * <p>The name of the placement group that the instance is in. If you specify
+   *                 <code>GroupName</code>, you can't specify <code>GroupId</code>.</p>
    */
   GroupName?: string;
 
   /**
    * <p>The number of the partition that the instance is in. Valid only if the placement group
    *             strategy is set to <code>partition</code>.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
   PartitionNumber?: number;
 
   /**
-   * <p>The ID of the Dedicated Host on which the instance resides. This parameter is not
-   *             supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-   *             command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   * <p>The ID of the Dedicated Host on which the instance resides.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>.</p>
    */
   HostId?: string;
 
   /**
    * <p>The tenancy of the instance (if the instance is running in a VPC). An instance with a
-   *             tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-   *             tenancy is not supported for the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a>
-   *             command.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
-   *         <p>T3 instances that use the <code>unlimited</code> CPU credit option do not support
-   *                 <code>host</code> tenancy.</p>
+   *             tenancy of <code>dedicated</code> runs on single-tenant hardware.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>. The
+   *                 <code>host</code> tenancy is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html">ImportInstance</a> or
+   *             for T3 instances that are configured for the <code>unlimited</code> CPU credit
+   *             option.</p>
    */
   Tenancy?: Tenancy | string;
 
   /**
    * <p>Reserved for future use.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
   SpreadDomain?: string;
 
   /**
-   * <p>The ARN of the host resource group in which to launch the instances. If you specify a
-   *             host resource group ARN, omit the <b>Tenancy</b> parameter or
-   *             set it to <code>host</code>.</p>
-   *         <p>This parameter is not supported by <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
+   * <p>The ARN of the host resource group in which to launch the instances.</p>
+   *         <p>If you specify this parameter, either omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p>
+   *         <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet">CreateFleet</a>.</p>
    */
   HostResourceGroupArn?: string;
 
   /**
-   * <p>The Group Id of the placement group.</p>
+   * <p>The ID of the placement group that the instance is in. If you specify
+   *                 <code>GroupId</code>, you can't specify <code>GroupName</code>.</p>
    */
   GroupId?: string;
 }
@@ -1276,28 +1299,48 @@ export interface SpotOptionsRequest {
    * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
    *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
    *          <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that
-   *          has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances
-   *          come from the next cheapest pool that has available capacity. If a pool runs out of
-   *          capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
-   *          request by drawing from the next cheapest pool. To ensure that your desired capacity is
-   *          met, you might receive Spot Instances from several pools.</p>
-   *          <p>
-   *             <code>diversified</code> - EC2 Fleet launches instances from all
-   *          of the Spot Instance pools that you specify.</p>
-   *          <p>
-   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet
-   *          launches instances from Spot Instance pools with optimal capacity for the number of instances that
-   *          are launching. To give certain instance types a higher chance of launching first, use
-   *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
-   *          using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *          assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *          the priorities on a best-effort basis, but optimizes for capacity first.
-   *             <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a
-   *          launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
-   *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *          capacity.</p>
+   *
+   *          <dl>
+   *             <dt>price-capacity-optimized (recommended)</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</p>
+   *             </dd>
+   *             <dt>capacity-optimized</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. To give certain
+   *                   instance types a higher chance of launching first, use
+   *                   <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
+   *                   using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *                   assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *                   the priorities on a best-effort basis, but optimizes for capacity first.
+   *                   <code>capacity-optimized-prioritized</code> is supported only if your EC2 Fleet uses a
+   *                   launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
+   *                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *                   capacity.</p>
+   *             </dd>
+   *             <dt>diversified</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
+   *                   specify.</p>
+   *             </dd>
+   *             <dt>lowest-price</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that
+   *                   has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs out of
+   *                   capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
+   *                   request by drawing from the next lowest priced pool. To ensure that your desired capacity is
+   *                   met, you might receive Spot Instances from several pools. Because this strategy only considers instance
+   *                   price and not capacity availability, it might lead to high interruption rates.</p>
+   *             </dd>
+   *          </dl>
+   *
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
@@ -5897,14 +5940,14 @@ export interface LocalGatewayRouteTable {
   Mode?: LocalGatewayRouteTableMode | string;
 
   /**
-   * <p>Describes a state change.</p>
+   * <p>Information about the state change.</p>
    */
   StateReason?: StateReason;
 }
 
 export interface CreateLocalGatewayRouteTableResult {
   /**
-   * <p>Describes a local gateway route table.</p>
+   * <p>Information about the local gateway route table.</p>
    */
   LocalGatewayRouteTable?: LocalGatewayRouteTable;
 }
@@ -5986,7 +6029,7 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociation {
 
 export interface CreateLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult {
   /**
-   * <p>Describes an association between a local gateway route table and a virtual interface group.</p>
+   * <p>Information about the local gateway route table virtual interface group association.</p>
    */
   LocalGatewayRouteTableVirtualInterfaceGroupAssociation?: LocalGatewayRouteTableVirtualInterfaceGroupAssociation;
 }
@@ -6816,6 +6859,8 @@ export interface NetworkInsightsPath {
    */
   Destination?: string;
 
+  SourceArn?: string;
+  DestinationArn?: string;
   /**
    * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
    */
@@ -7012,6 +7057,34 @@ export interface NetworkInterfaceAssociation {
 }
 
 /**
+ * <p>Describes the ENA Express configuration for UDP traffic on the network interface that's attached to
+ * 			the instance.</p>
+ */
+export interface AttachmentEnaSrdUdpSpecification {
+  /**
+   * <p>Indicates whether UDP traffic to and from the instance uses ENA Express. To specify this setting,
+   * 			you must first enable ENA Express.</p>
+   */
+  EnaSrdUdpEnabled?: boolean;
+}
+
+/**
+ * <p>Describes the ENA Express configuration for the network interface that's attached to the instance.</p>
+ */
+export interface AttachmentEnaSrdSpecification {
+  /**
+   * <p>Indicates whether ENA Express is enabled for the network interface that's attached to the
+   * 			instance.</p>
+   */
+  EnaSrdEnabled?: boolean;
+
+  /**
+   * <p>ENA Express configuration for UDP network traffic.</p>
+   */
+  EnaSrdUdpSpecification?: AttachmentEnaSrdUdpSpecification;
+}
+
+/**
  * <p>Describes a network interface attachment.</p>
  */
 export interface NetworkInterfaceAttachment {
@@ -7054,6 +7127,11 @@ export interface NetworkInterfaceAttachment {
    * <p>The attachment state.</p>
    */
   Status?: AttachmentStatus | string;
+
+  /**
+   * <p>Configures ENA Express for the network interface that this action attaches to the instance.</p>
+   */
+  EnaSrdSpecification?: AttachmentEnaSrdSpecification;
 }
 
 /**
@@ -7504,8 +7582,8 @@ export interface PlacementGroup {
   GroupArn?: string;
 
   /**
-   * <p> The spread level for the placement group. <i>Only</i> Outpost placement
-   *             groups can be spread across hosts. </p>
+   * <p>The spread level for the placement group. <i>Only</i> Outpost placement
+   *             groups can be spread across hosts.</p>
    */
   SpreadLevel?: SpreadLevel | string;
 }
@@ -8621,134 +8699,12 @@ export interface CreateStoreImageTaskResult {
   ObjectKey?: string;
 }
 
-export interface CreateSubnetRequest {
-  /**
-   * <p>The tags to assign to the subnet.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>The Availability Zone or Local Zone for the subnet.</p>
-   *          <p>Default: Amazon Web Services selects one for you. If you create more than one subnet in your VPC, we
-   *           do not necessarily select a different zone for each subnet.</p>
-   *          <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example
-   *           <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones,
-   *            see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *          <p>To create a subnet in an Outpost, set this value to the Availability Zone for the
-   *            Outpost and specify the Outpost ARN.</p>
-   */
-  AvailabilityZone?: string;
-
-  /**
-   * <p>The AZ ID or the Local Zone ID of the subnet.</p>
-   */
-  AvailabilityZoneId?: string;
-
-  /**
-   * <p>The IPv4 network range for the subnet, in CIDR notation. For example, <code>10.0.0.0/24</code>.
-   *            We modify the specified CIDR block to its canonical form; for example, if you specify
-   *            <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
-   *          <p>This parameter is not supported for an IPv6 only subnet.</p>
-   */
-  CidrBlock?: string;
-
-  /**
-   * <p>The IPv6 network range for the subnet, in CIDR notation. The subnet size must use a
-   *             /64 prefix length.</p>
-   *         <p>This parameter is required for an IPv6 only subnet.</p>
-   */
-  Ipv6CidrBlock?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also
-   *         specify the Availability Zone of the Outpost subnet.</p>
-   */
-  OutpostArn?: string;
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-}
-
-export interface CreateSubnetResult {
-  /**
-   * <p>Information about the subnet.</p>
-   */
-  Subnet?: Subnet;
-}
-
-export enum SubnetCidrReservationType {
-  explicit = "explicit",
-  prefix = "prefix",
-}
-
-export interface CreateSubnetCidrReservationRequest {
-  /**
-   * <p>The ID of the subnet.</p>
-   */
-  SubnetId: string | undefined;
-
-  /**
-   * <p>The IPv4 or IPV6 CIDR range to reserve.</p>
-   */
-  Cidr: string | undefined;
-
-  /**
-   * <p>The type of reservation.</p>
-   *         <p>The following are valid values:</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>prefix</code>: The Amazon EC2
-   *                     Prefix
-   *                     Delegation feature assigns the IP addresses to network interfaces that are
-   *                     associated with an instance. For information about Prefix
-   *                     Delegation,
-   *                     see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-delegation.html">Prefix Delegation
-   *                         for Amazon EC2 network interfaces</a> in the
-   *                         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>explicit</code>: You manually assign the IP addresses to resources that
-   *                     reside in your subnet. </p>
-   *             </li>
-   *          </ul>
-   */
-  ReservationType: SubnetCidrReservationType | string | undefined;
-
-  /**
-   * <p>The
-   *             description
-   *             to assign to the subnet CIDR reservation.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The tags to assign to the subnet CIDR reservation.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-}
+/**
+ * @internal
+ */
+export const PrivateDnsNameOptionsOnLaunchFilterSensitiveLog = (obj: PrivateDnsNameOptionsOnLaunch): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10099,6 +10055,20 @@ export const NetworkInterfaceAssociationFilterSensitiveLog = (obj: NetworkInterf
 /**
  * @internal
  */
+export const AttachmentEnaSrdUdpSpecificationFilterSensitiveLog = (obj: AttachmentEnaSrdUdpSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachmentEnaSrdSpecificationFilterSensitiveLog = (obj: AttachmentEnaSrdSpecification): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const NetworkInterfaceAttachmentFilterSensitiveLog = (obj: NetworkInterfaceAttachment): any => ({
   ...obj,
 });
@@ -10434,26 +10404,5 @@ export const CreateStoreImageTaskRequestFilterSensitiveLog = (obj: CreateStoreIm
  * @internal
  */
 export const CreateStoreImageTaskResultFilterSensitiveLog = (obj: CreateStoreImageTaskResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetRequestFilterSensitiveLog = (obj: CreateSubnetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetResultFilterSensitiveLog = (obj: CreateSubnetResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSubnetCidrReservationRequestFilterSensitiveLog = (obj: CreateSubnetCidrReservationRequest): any => ({
   ...obj,
 });

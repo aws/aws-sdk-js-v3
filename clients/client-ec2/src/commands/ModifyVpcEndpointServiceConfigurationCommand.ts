@@ -19,7 +19,7 @@ import {
   ModifyVpcEndpointServiceConfigurationRequestFilterSensitiveLog,
   ModifyVpcEndpointServiceConfigurationResult,
   ModifyVpcEndpointServiceConfigurationResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,
   serializeAws_ec2ModifyVpcEndpointServiceConfigurationCommand,

@@ -58,10 +58,7 @@ import {
   InstanceIpv6Address,
   InstanceLifecycle,
   InternetGateway,
-  Ipam,
   IpamPool,
-  IpamScope,
-  KeyType,
   LaunchTemplateAndOverridesResponse,
   LogDestinationType,
   NetworkInterfaceStatus,
@@ -73,7 +70,62 @@ import {
   TargetCapacityUnitType,
   TrafficType,
 } from "./models_1";
-import { FleetStateCode, InstanceTagNotificationAttribute } from "./models_2";
+import { FleetStateCode } from "./models_2";
+
+/**
+ * <p>Information about the tag keys to deregister for the current Region. You can either specify
+ *    		individual tag keys or deregister all tag keys in the current Region. You must specify either
+ *    		<code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>
+ */
+export interface DeregisterInstanceTagAttributeRequest {
+  /**
+   * <p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code>
+   *    		to deregister all tag keys.</p>
+   */
+  IncludeAllTagsOfInstance?: boolean;
+
+  /**
+   * <p>Information about the tag keys to deregister.</p>
+   */
+  InstanceTagKeys?: string[];
+}
+
+export interface DeregisterInstanceEventNotificationAttributesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Information about the tag keys to deregister.</p>
+   */
+  InstanceTagAttribute?: DeregisterInstanceTagAttributeRequest;
+}
+
+/**
+ * <p>Describes the registered tag keys for the current Region.</p>
+ */
+export interface InstanceTagNotificationAttribute {
+  /**
+   * <p>The registered tag keys.</p>
+   */
+  InstanceTagKeys?: string[];
+
+  /**
+   * <p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications.
+   *       	<code>true</code> indicates that all tag keys in the current Region are registered.</p>
+   */
+  IncludeAllTagsOfInstance?: boolean;
+}
+
+export interface DeregisterInstanceEventNotificationAttributesResult {
+  /**
+   * <p>The resulting set of tag keys.</p>
+   */
+  InstanceTagAttribute?: InstanceTagNotificationAttribute;
+}
 
 export interface DeregisterTransitGatewayMulticastGroupMembersRequest {
   /**
@@ -607,6 +659,90 @@ export interface DescribeAvailabilityZonesResult {
    * <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
    */
   AvailabilityZones?: AvailabilityZone[];
+}
+
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsRequest {
+  /**
+   * <p>The maximum number of results to return with a single call.
+   *    To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>One or more filters.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+export enum MetricType {
+  aggregate_latency = "aggregate-latency",
+}
+
+export enum PeriodType {
+  fifteen_minutes = "fifteen-minutes",
+  five_minutes = "five-minutes",
+  one_day = "one-day",
+  one_hour = "one-hour",
+  one_week = "one-week",
+  three_hours = "three-hours",
+}
+
+export enum StatisticType {
+  p50 = "p50",
+}
+
+/**
+ * <p>Describes an Infrastructure Performance subscription.</p>
+ */
+export interface Subscription {
+  /**
+   * <p>The Region or Availability Zone that's the source for the subscription. For example, <code>us-east-1</code>.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The Region or Availability Zone that's the target for the subscription. For example, <code>eu-west-1</code>.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The metric used for the subscription.</p>
+   */
+  Metric?: MetricType | string;
+
+  /**
+   * <p>The statistic used for the subscription.</p>
+   */
+  Statistic?: StatisticType | string;
+
+  /**
+   * <p>The data aggregation time for the subscription.</p>
+   */
+  Period?: PeriodType | string;
+}
+
+export interface DescribeAwsNetworkPerformanceMetricSubscriptionsResult {
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Describes the current Infrastructure Performance subscriptions.</p>
+   */
+  Subscriptions?: Subscription[];
 }
 
 export interface DescribeBundleTasksRequest {
@@ -3598,28 +3734,48 @@ export interface SpotOptions {
    * <p>The strategy that determines how to allocate the target Spot Instance capacity across the Spot Instance
    *          pools specified by the EC2 Fleet launch configuration. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-allocation-strategy.html">Allocation strategies for Spot Instances</a> in the
    *          <i>Amazon EC2 User Guide</i>.</p>
-   *          <p>
-   *             <code>lowest-price</code> - EC2 Fleet launches instances from the lowest-price Spot Instance pool that
-   *          has available capacity. If the cheapest pool doesn't have available capacity, the Spot Instances
-   *          come from the next cheapest pool that has available capacity. If a pool runs out of
-   *          capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
-   *          request by drawing from the next cheapest pool. To ensure that your desired capacity is
-   *          met, you might receive Spot Instances from several pools.</p>
-   *          <p>
-   *             <code>diversified</code> - EC2 Fleet launches instances from all of the Spot Instance pools that you
-   *          specify.</p>
-   *          <p>
-   *             <code>capacity-optimized</code> (recommended) - EC2 Fleet launches instances from Spot Instance pools
-   *          with optimal capacity for the number of instances that are launching. To give certain
-   *          instance types a higher chance of launching first, use
-   *             <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
-   *          using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
-   *          assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
-   *          the priorities on a best-effort basis, but optimizes for capacity first.
-   *             <code>capacity-optimized-prioritized</code> is supported only if your fleet uses a
-   *          launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
-   *             <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
-   *          capacity.</p>
+   *
+   *          <dl>
+   *             <dt>price-capacity-optimized (recommended)</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. EC2 Fleet then requests Spot Instances from the lowest priced of these pools.</p>
+   *             </dd>
+   *             <dt>capacity-optimized</dt>
+   *             <dd>
+   *                <p>EC2 Fleet identifies the pools with
+   *                   the highest capacity availability for the number of instances that are launching. This means
+   *                   that we will request Spot Instances from the pools that we believe have the lowest chance of interruption
+   *                   in the near term. To give certain
+   *                   instance types a higher chance of launching first, use
+   *                   <code>capacity-optimized-prioritized</code>. Set a priority for each instance type by
+   *                   using the <code>Priority</code> parameter for <code>LaunchTemplateOverrides</code>. You can
+   *                   assign the same priority to different <code>LaunchTemplateOverrides</code>. EC2 implements
+   *                   the priorities on a best-effort basis, but optimizes for capacity first.
+   *                   <code>capacity-optimized-prioritized</code> is supported only if your EC2 Fleet uses a
+   *                   launch template. Note that if the On-Demand <code>AllocationStrategy</code> is set to
+   *                   <code>prioritized</code>, the same priority is applied when fulfilling On-Demand
+   *                   capacity.</p>
+   *             </dd>
+   *             <dt>diversified</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from all of the Spot Instance pools that you
+   *                   specify.</p>
+   *             </dd>
+   *             <dt>lowest-price</dt>
+   *             <dd>
+   *                <p>EC2 Fleet requests instances from the lowest priced Spot Instance pool that
+   *                   has available capacity. If the lowest priced pool doesn't have available capacity, the Spot Instances
+   *                   come from the next lowest priced pool that has available capacity. If a pool runs out of
+   *                   capacity before fulfilling your desired capacity, EC2 Fleet will continue to fulfill your
+   *                   request by drawing from the next lowest priced pool. To ensure that your desired capacity is
+   *                   met, you might receive Spot Instances from several pools. Because this strategy only considers instance
+   *                   price and not capacity availability, it might lead to high interruption rates.</p>
+   *             </dd>
+   *          </dl>
+   *
    *          <p>Default: <code>lowest-price</code>
    *          </p>
    */
@@ -8793,6 +8949,13 @@ export interface NetworkInfo {
    * <p>Indicates whether the instance type automatically encrypts in-transit traffic between instances.</p>
    */
   EncryptionInTransitSupported?: boolean;
+
+  /**
+   * <p>Indicates whether the instance type supports ENA Express. ENA Express uses Amazon Web Services Scalable
+   *     Reliable Datagram (SRD) technology to increase the maximum bandwidth used per stream and
+   *     minimize tail latency of network traffic between EC2 instances.</p>
+   */
+  EnaSrdSupported?: boolean;
 }
 
 export enum PlacementGroupStrategy {
@@ -8874,7 +9037,7 @@ export interface VCpuInfo {
   ValidCores?: number[];
 
   /**
-   * <p>The valid number of threads per core that can be configured for the instance type. </p>
+   * <p>The valid number of threads per core that can be configured for the instance type.</p>
    */
   ValidThreadsPerCore?: number[];
 }
@@ -9159,272 +9322,39 @@ export interface DescribeIpamsRequest {
   IpamIds?: string[];
 }
 
-export interface DescribeIpamsResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the IPAMs.</p>
-   */
-  Ipams?: Ipam[];
-}
-
-export interface DescribeIpamScopesRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The IDs of the scopes you want information on.</p>
-   */
-  IpamScopeIds?: string[];
-}
-
-export interface DescribeIpamScopesResult {
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The scopes you want information on.</p>
-   */
-  IpamScopes?: IpamScope[];
-}
-
-export interface DescribeIpv6PoolsRequest {
-  /**
-   * <p>The IDs of the IPv6 address pools.</p>
-   */
-  PoolIds?: string[];
-
-  /**
-   * <p>The token for the next page of results.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return with a single call.
-   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>One or more filters.</p>
-   *         <ul>
-   *             <li>
-   *                 <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                 <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-}
+/**
+ * @internal
+ */
+export const DeregisterInstanceTagAttributeRequestFilterSensitiveLog = (
+  obj: DeregisterInstanceTagAttributeRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a CIDR block for an address pool.</p>
+ * @internal
  */
-export interface PoolCidrBlock {
-  /**
-   * <p>The CIDR block.</p>
-   */
-  Cidr?: string;
-}
+export const DeregisterInstanceEventNotificationAttributesRequestFilterSensitiveLog = (
+  obj: DeregisterInstanceEventNotificationAttributesRequest
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes an IPv6 address pool.</p>
+ * @internal
  */
-export interface Ipv6Pool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The description for the address pool.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The CIDR blocks for the address pool.</p>
-   */
-  PoolCidrBlocks?: PoolCidrBlock[];
-
-  /**
-   * <p>Any tags for the address pool.</p>
-   */
-  Tags?: Tag[];
-}
-
-export interface DescribeIpv6PoolsResult {
-  /**
-   * <p>Information about the IPv6 address pools.</p>
-   */
-  Ipv6Pools?: Ipv6Pool[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeKeyPairsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *      		        <p>
-   *      			          <code>key-pair-id</code> - The ID of the key pair.</p>
-   *      	      </li>
-   *             <li>
-   *                <p>
-   *                   <code>fingerprint</code> - The fingerprint of the key pair.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>key-name</code> - The name of the key pair.</p>
-   *             </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *      	      </li>
-   *             <li>
-   *      		        <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *      	      </li>
-   *          </ul>
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The key pair names.</p>
-   *          <p>Default: Describes all of your key pairs.</p>
-   */
-  KeyNames?: string[];
-
-  /**
-   * <p>The IDs of the key pairs.</p>
-   */
-  KeyPairIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>If <code>true</code>, the public key material is included in the response.</p>
-   *         <p>Default: <code>false</code>
-   *          </p>
-   */
-  IncludePublicKey?: boolean;
-}
+export const InstanceTagNotificationAttributeFilterSensitiveLog = (obj: InstanceTagNotificationAttribute): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a key pair.</p>
+ * @internal
  */
-export interface KeyPairInfo {
-  /**
-   * <p>The ID of the key pair.</p>
-   */
-  KeyPairId?: string;
-
-  /**
-   * <p>If you used <a>CreateKeyPair</a> to create the key pair:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key.</p>
-   *            </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which
-   *                    is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *            </li>
-   *          </ul>
-   *          <p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
-   *            </li>
-   *             <li>
-   *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256
-   *                     digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *            </li>
-   *          </ul>
-   */
-  KeyFingerprint?: string;
-
-  /**
-   * <p>The name of the key pair.</p>
-   */
-  KeyName?: string;
-
-  /**
-   * <p>The type of key pair.</p>
-   */
-  KeyType?: KeyType | string;
-
-  /**
-   * <p>Any tags applied to the key pair.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The public key material.</p>
-   */
-  PublicKey?: string;
-
-  /**
-   * <p>If you used Amazon EC2 to create the key pair, this is the date and time when the key
-   *             was created, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
-   *         <p>If you imported an existing key pair to Amazon EC2, this is the date and time the key
-   *             was imported, in <a href="https://www.iso.org/iso-8601-date-and-time-format.html">ISO
-   *                 8601 date-time format</a>, in the UTC time zone.</p>
-   */
-  CreateTime?: Date;
-}
-
-export interface DescribeKeyPairsResult {
-  /**
-   * <p>Information about the key pairs.</p>
-   */
-  KeyPairs?: KeyPairInfo[];
-}
+export const DeregisterInstanceEventNotificationAttributesResultFilterSensitiveLog = (
+  obj: DeregisterInstanceEventNotificationAttributesResult
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9589,6 +9519,31 @@ export const AvailabilityZoneFilterSensitiveLog = (obj: AvailabilityZone): any =
  * @internal
  */
 export const DescribeAvailabilityZonesResultFilterSensitiveLog = (obj: DescribeAvailabilityZonesResult): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAwsNetworkPerformanceMetricSubscriptionsRequestFilterSensitiveLog = (
+  obj: DescribeAwsNetworkPerformanceMetricSubscriptionsRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SubscriptionFilterSensitiveLog = (obj: Subscription): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAwsNetworkPerformanceMetricSubscriptionsResultFilterSensitiveLog = (
+  obj: DescribeAwsNetworkPerformanceMetricSubscriptionsResult
+): any => ({
   ...obj,
 });
 
@@ -11121,75 +11076,5 @@ export const DescribeIpamPoolsResultFilterSensitiveLog = (obj: DescribeIpamPools
  * @internal
  */
 export const DescribeIpamsRequestFilterSensitiveLog = (obj: DescribeIpamsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamsResultFilterSensitiveLog = (obj: DescribeIpamsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamScopesRequestFilterSensitiveLog = (obj: DescribeIpamScopesRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpamScopesResultFilterSensitiveLog = (obj: DescribeIpamScopesResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpv6PoolsRequestFilterSensitiveLog = (obj: DescribeIpv6PoolsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const PoolCidrBlockFilterSensitiveLog = (obj: PoolCidrBlock): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const Ipv6PoolFilterSensitiveLog = (obj: Ipv6Pool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeIpv6PoolsResultFilterSensitiveLog = (obj: DescribeIpv6PoolsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyPairsRequestFilterSensitiveLog = (obj: DescribeKeyPairsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const KeyPairInfoFilterSensitiveLog = (obj: KeyPairInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeKeyPairsResultFilterSensitiveLog = (obj: DescribeKeyPairsResult): any => ({
   ...obj,
 });

@@ -993,6 +993,11 @@ import {
   DescribeAvailabilityZonesCommandOutput,
 } from "./commands/DescribeAvailabilityZonesCommand";
 import {
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommand,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+  DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput,
+} from "./commands/DescribeAwsNetworkPerformanceMetricSubscriptionsCommand";
+import {
   DescribeBundleTasksCommand,
   DescribeBundleTasksCommandInput,
   DescribeBundleTasksCommandOutput,
@@ -1673,6 +1678,11 @@ import {
   DisableAddressTransferCommandOutput,
 } from "./commands/DisableAddressTransferCommand";
 import {
+  DisableAwsNetworkPerformanceMetricSubscriptionCommand,
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/DisableAwsNetworkPerformanceMetricSubscriptionCommand";
+import {
   DisableEbsEncryptionByDefaultCommand,
   DisableEbsEncryptionByDefaultCommandInput,
   DisableEbsEncryptionByDefaultCommandOutput,
@@ -1788,6 +1798,11 @@ import {
   EnableAddressTransferCommandOutput,
 } from "./commands/EnableAddressTransferCommand";
 import {
+  EnableAwsNetworkPerformanceMetricSubscriptionCommand,
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+  EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput,
+} from "./commands/EnableAwsNetworkPerformanceMetricSubscriptionCommand";
+import {
   EnableEbsEncryptionByDefaultCommand,
   EnableEbsEncryptionByDefaultCommandInput,
   EnableEbsEncryptionByDefaultCommandOutput,
@@ -1812,6 +1827,11 @@ import {
   EnableIpamOrganizationAdminAccountCommandInput,
   EnableIpamOrganizationAdminAccountCommandOutput,
 } from "./commands/EnableIpamOrganizationAdminAccountCommand";
+import {
+  EnableReachabilityAnalyzerOrganizationSharingCommand,
+  EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+  EnableReachabilityAnalyzerOrganizationSharingCommandOutput,
+} from "./commands/EnableReachabilityAnalyzerOrganizationSharingCommand";
 import {
   EnableSerialConsoleAccessCommand,
   EnableSerialConsoleAccessCommandInput,
@@ -1868,6 +1888,11 @@ import {
   GetAssociatedIpv6PoolCidrsCommandInput,
   GetAssociatedIpv6PoolCidrsCommandOutput,
 } from "./commands/GetAssociatedIpv6PoolCidrsCommand";
+import {
+  GetAwsNetworkPerformanceDataCommand,
+  GetAwsNetworkPerformanceDataCommandInput,
+  GetAwsNetworkPerformanceDataCommandOutput,
+} from "./commands/GetAwsNetworkPerformanceDataCommand";
 import {
   GetCapacityReservationUsageCommand,
   GetCapacityReservationUsageCommandInput,
@@ -6100,7 +6125,7 @@ export class EC2 extends EC2Client {
    *       specific snapshot taken from the original root volume, or that is restored from an AMI
    *       that has the same key characteristics as that of the instance.</p>
    *
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public createReplaceRootVolumeTask(
     args: CreateReplaceRootVolumeTaskCommandInput,
@@ -10328,6 +10353,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+   */
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput>;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    cb: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): void;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): void;
+  public describeAwsNetworkPerformanceMetricSubscriptions(
+    args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput) => void
+  ): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput> | void {
+    const command = new DescribeAwsNetworkPerformanceMetricSubscriptionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
    *          <note>
    *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
@@ -12942,7 +13001,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Describes a root volume replacement task. For more information, see
-   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-restoring-volume.html#replace-root">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   public describeReplaceRootVolumeTasks(
     args: DescribeReplaceRootVolumeTasksCommandInput,
@@ -15121,6 +15180,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Disables Infrastructure Performance metric subscriptions.</p>
+   */
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    cb: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public disableAwsNetworkPerformanceMetricSubscription(
+    args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput> | void {
+    const command = new DisableAwsNetworkPerformanceMetricSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Disables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you disable encryption by default, you can still create encrypted volumes by
    *       enabling encryption when you create each volume.</p>
@@ -15940,6 +16033,40 @@ export class EC2 extends EC2Client {
   }
 
   /**
+   * <p>Enables Infrastructure Performance subscriptions.</p>
+   */
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    cb: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): void;
+  public enableAwsNetworkPerformanceMetricSubscription(
+    args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void),
+    cb?: (err: any, data?: EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput) => void
+  ): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput> | void {
+    const command = new EnableAwsNetworkPerformanceMetricSubscriptionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Enables EBS encryption by default for your account in the current Region.</p>
    *          <p>After you enable encryption by default, the EBS volumes that you create are
    *     	always encrypted, either using the default KMS key or the KMS key that you specified
@@ -16115,6 +16242,37 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: EnableIpamOrganizationAdminAccountCommandOutput) => void
   ): Promise<EnableIpamOrganizationAdminAccountCommandOutput> | void {
     const command = new EnableIpamOrganizationAdminAccountCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput>;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    cb: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): void;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): void;
+  public enableReachabilityAnalyzerOrganizationSharing(
+    args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void),
+    cb?: (err: any, data?: EnableReachabilityAnalyzerOrganizationSharingCommandOutput) => void
+  ): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput> | void {
+    const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -16533,6 +16691,38 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: GetAssociatedIpv6PoolCidrsCommandOutput) => void
   ): Promise<GetAssociatedIpv6PoolCidrsCommandOutput> | void {
     const command = new GetAssociatedIpv6PoolCidrsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets network performance data.</p>
+   */
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAwsNetworkPerformanceDataCommandOutput>;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    cb: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): void;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): void;
+  public getAwsNetworkPerformanceData(
+    args: GetAwsNetworkPerformanceDataCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void),
+    cb?: (err: any, data?: GetAwsNetworkPerformanceDataCommandOutput) => void
+  ): Promise<GetAwsNetworkPerformanceDataCommandOutput> | void {
+    const command = new GetAwsNetworkPerformanceDataCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -22609,7 +22799,8 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a network interface.</p>
+   * <p>Unassigns one or more secondary private IP addresses, or IPv4 Prefix Delegation prefixes from a
+   *         	network interface.</p>
    */
   public unassignPrivateIpAddresses(
     args: UnassignPrivateIpAddressesCommandInput,

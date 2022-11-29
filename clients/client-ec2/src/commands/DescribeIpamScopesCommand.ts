@@ -19,7 +19,7 @@ import {
   DescribeIpamScopesRequestFilterSensitiveLog,
   DescribeIpamScopesResult,
   DescribeIpamScopesResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeIpamScopesCommand,
   serializeAws_ec2DescribeIpamScopesCommand,
