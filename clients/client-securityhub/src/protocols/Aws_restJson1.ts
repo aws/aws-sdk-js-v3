@@ -647,6 +647,7 @@ import {
   SortCriterion,
   Standard,
   StandardsControl,
+  StandardsManagedBy,
   StandardsStatusReason,
   StandardsSubscription,
   StandardsSubscriptionRequest,
@@ -25112,6 +25113,10 @@ const deserializeAws_restJson1Standard = (output: any, context: __SerdeContext):
     EnabledByDefault: __expectBoolean(output.EnabledByDefault),
     Name: __expectString(output.Name),
     StandardsArn: __expectString(output.StandardsArn),
+    StandardsManagedBy:
+      output.StandardsManagedBy != null
+        ? deserializeAws_restJson1StandardsManagedBy(output.StandardsManagedBy, context)
+        : undefined,
   } as any;
 };
 
@@ -25171,6 +25176,13 @@ const deserializeAws_restJson1StandardsInputParameterMap = (
     acc[key] = __expectString(value) as any;
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1StandardsManagedBy = (output: any, context: __SerdeContext): StandardsManagedBy => {
+  return {
+    Company: __expectString(output.Company),
+    Product: __expectString(output.Product),
+  } as any;
 };
 
 const deserializeAws_restJson1StandardsStatusReason = (output: any, context: __SerdeContext): StandardsStatusReason => {
