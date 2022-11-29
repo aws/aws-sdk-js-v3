@@ -61,7 +61,7 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *           that you intend.</p>
  *             </li>
  *             <li>
- *                <p>To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter
+ *                <p>To reencrypt the data, you must use the <code>DestinationKeyId</code> parameter to
  *           specify the KMS key that re-encrypts the data after it is decrypted. If the destination
  *           KMS key is an asymmetric KMS key, you must also provide the encryption algorithm. The
  *           algorithm that you choose must be compatible with the KMS key.</p>
@@ -75,10 +75,10 @@ export interface ReEncryptCommandOutput extends ReEncryptResponse, __MetadataBea
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account use</b>: Yes.
- *       The source KMS key and destination KMS key can be in different Amazon Web Services accounts. Either or both
- *       KMS keys can be in a different account than the caller. To specify a KMS key in a different
- *       account, you must use its key ARN or alias ARN.</p>
+ *             <b>Cross-account use</b>: Yes. The source KMS key and
+ *       destination KMS key can be in different Amazon Web Services accounts. Either or both KMS keys can be in a
+ *       different account than the caller. To specify a KMS key in a different account, you must use
+ *       its key ARN or alias ARN.</p>
  *
  *          <p>
  *             <b>Required permissions</b>:</p>

@@ -29,28 +29,28 @@ export interface GenerateMacCommandInput extends GenerateMacRequest {}
 export interface GenerateMacCommandOutput extends GenerateMacResponse, __MetadataBearer {}
 
 /**
- * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS
- *       key and a MAC algorithm that the key supports. The MAC algorithm computes the HMAC for the
- *       message and the key as described in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
- *          <p>You can use the HMAC that this operation generates with the <a>VerifyMac</a>
- *       operation to demonstrate that the original message has not changed. Also, because a secret key
- *       is used to create the hash, you can verify that the party that generated the hash has the
- *       required secret key. This operation is part of KMS support for HMAC KMS keys.
- *       For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in KMS</a> in the <i>
+ * <p>Generates a hash-based message authentication code (HMAC) for a message using an HMAC KMS key and a MAC algorithm that the key supports.
+ *       HMAC KMS keys and the HMAC algorithms that KMS uses conform to industry standards defined in <a href="https://datatracker.ietf.org/doc/html/rfc2104">RFC 2104</a>.</p>
+ *          <p>You can use value that GenerateMac returns in the <a>VerifyMac</a> operation to
+ *       demonstrate that the original message has not changed. Also, because a secret key is used to
+ *       create the hash, you can verify that the party that generated the hash has the required secret
+ *       key. You can also use the raw result to implement HMAC-based algorithms such as key derivation
+ *       functions. This operation is part of KMS support for HMAC KMS keys. For
+ *       details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC keys in
+ *         KMS</a> in the <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
  *          <note>
  *             <p>Best practices recommend that you limit the time during which any signing mechanism,
- *         including an HMAC, is effective. This deters an attack where the actor uses a signed
- *         message to establish validity repeatedly or long after the message is superseded. HMAC
- *         tags do not include a timestamp, but you can include a timestamp in the token or message
- *         to help you detect when its time to refresh the HMAC. </p>
+ *         including an HMAC, is effective. This deters an attack where the actor uses a signed message
+ *         to establish validity repeatedly or long after the message is superseded. HMAC tags do not
+ *         include a timestamp, but you can include a timestamp in the token or message to help you
+ *         detect when its time to refresh the HMAC. </p>
  *          </note>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account
- *         use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateMac</a> (key policy)</p>
