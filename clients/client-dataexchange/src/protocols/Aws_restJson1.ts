@@ -71,6 +71,11 @@ import {
   AutoExportRevisionDestinationEntry,
   AutoExportRevisionToS3RequestDetails,
   ConflictException,
+  CreateS3DataAccessFromS3BucketRequestDetails,
+  CreateS3DataAccessFromS3BucketResponseDetails,
+  DatabaseLFTagPolicy,
+  DatabaseLFTagPolicyAndPermissions,
+  DatabaseLFTagPolicyPermission,
   DataSetEntry,
   Details,
   Event,
@@ -87,6 +92,8 @@ import {
   ImportAssetFromSignedUrlJobErrorDetails,
   ImportAssetFromSignedUrlRequestDetails,
   ImportAssetFromSignedUrlResponseDetails,
+  ImportAssetsFromLakeFormationTagPolicyRequestDetails,
+  ImportAssetsFromLakeFormationTagPolicyResponseDetails,
   ImportAssetsFromRedshiftDataSharesRequestDetails,
   ImportAssetsFromRedshiftDataSharesResponseDetails,
   ImportAssetsFromS3RequestDetails,
@@ -94,6 +101,12 @@ import {
   InternalServerException,
   JobEntry,
   JobError,
+  LakeFormationDataPermissionAsset,
+  LakeFormationDataPermissionDetails,
+  LFPermission,
+  LFResourceDetails,
+  LFTag,
+  LFTagPolicyDetails,
   OriginDetails,
   RedshiftDataShareAsset,
   RedshiftDataShareAssetSourceEntry,
@@ -103,8 +116,13 @@ import {
   RevisionDestinationEntry,
   RevisionEntry,
   RevisionPublished,
+  S3DataAccessAsset,
+  S3DataAccessAssetSourceEntry,
   S3SnapshotAsset,
   ServiceLimitExceededException,
+  TableLFTagPolicy,
+  TableLFTagPolicyAndPermissions,
+  TableTagPolicyLFPermission,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
@@ -2865,6 +2883,31 @@ const serializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
   };
 };
 
+const serializeAws_restJson1CreateS3DataAccessFromS3BucketRequestDetails = (
+  input: CreateS3DataAccessFromS3BucketRequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AssetSource != null && {
+      AssetSource: serializeAws_restJson1S3DataAccessAssetSourceEntry(input.AssetSource, context),
+    }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
+  };
+};
+
+const serializeAws_restJson1DatabaseLFTagPolicyAndPermissions = (
+  input: DatabaseLFTagPolicyAndPermissions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Expression != null && { Expression: serializeAws_restJson1ListOfLFTags(input.Expression, context) }),
+    ...(input.Permissions != null && {
+      Permissions: serializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions(input.Permissions, context),
+    }),
+  };
+};
+
 const serializeAws_restJson1Event = (input: Event, context: __SerdeContext): any => {
   return {
     ...(input.RevisionPublished != null && {
@@ -2954,6 +2997,22 @@ const serializeAws_restJson1ImportAssetFromSignedUrlRequestDetails = (
   };
 };
 
+const serializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyRequestDetails = (
+  input: ImportAssetsFromLakeFormationTagPolicyRequestDetails,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.CatalogId != null && { CatalogId: input.CatalogId }),
+    ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+    ...(input.Database != null && {
+      Database: serializeAws_restJson1DatabaseLFTagPolicyAndPermissions(input.Database, context),
+    }),
+    ...(input.RevisionId != null && { RevisionId: input.RevisionId }),
+    ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+    ...(input.Table != null && { Table: serializeAws_restJson1TableLFTagPolicyAndPermissions(input.Table, context) }),
+  };
+};
+
 const serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails = (
   input: ImportAssetsFromRedshiftDataSharesRequestDetails,
   context: __SerdeContext
@@ -2980,6 +3039,21 @@ const serializeAws_restJson1ImportAssetsFromS3RequestDetails = (
   };
 };
 
+const serializeAws_restJson1LFTag = (input: LFTag, context: __SerdeContext): any => {
+  return {
+    ...(input.TagKey != null && { TagKey: input.TagKey }),
+    ...(input.TagValues != null && { TagValues: serializeAws_restJson1ListOfLFTagValues(input.TagValues, context) }),
+  };
+};
+
+const serializeAws_restJson1ListOf__string = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1ListOfAssetDestinationEntry = (
   input: AssetDestinationEntry[],
   context: __SerdeContext
@@ -2996,6 +3070,33 @@ const serializeAws_restJson1ListOfAssetSourceEntry = (input: AssetSourceEntry[],
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_restJson1AssetSourceEntry(entry, context);
+    });
+};
+
+const serializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions = (
+  input: (DatabaseLFTagPolicyPermission | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1ListOfLFTags = (input: LFTag[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return serializeAws_restJson1LFTag(entry, context);
+    });
+};
+
+const serializeAws_restJson1ListOfLFTagValues = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
     });
 };
 
@@ -3021,6 +3122,17 @@ const serializeAws_restJson1ListOfRevisionDestinationEntry = (
     });
 };
 
+const serializeAws_restJson1ListOfTableTagPolicyLFPermissions = (
+  input: (TableTagPolicyLFPermission | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_restJson1MapOf__string = (input: Record<string, string>, context: __SerdeContext): any => {
   return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3042,6 +3154,12 @@ const serializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
 
 const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __SerdeContext): any => {
   return {
+    ...(input.CreateS3DataAccessFromS3Bucket != null && {
+      CreateS3DataAccessFromS3Bucket: serializeAws_restJson1CreateS3DataAccessFromS3BucketRequestDetails(
+        input.CreateS3DataAccessFromS3Bucket,
+        context
+      ),
+    }),
     ...(input.ExportAssetToSignedUrl != null && {
       ExportAssetToSignedUrl: serializeAws_restJson1ExportAssetToSignedUrlRequestDetails(
         input.ExportAssetToSignedUrl,
@@ -3065,6 +3183,13 @@ const serializeAws_restJson1RequestDetails = (input: RequestDetails, context: __
         input.ImportAssetFromSignedUrl,
         context
       ),
+    }),
+    ...(input.ImportAssetsFromLakeFormationTagPolicy != null && {
+      ImportAssetsFromLakeFormationTagPolicy:
+        serializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyRequestDetails(
+          input.ImportAssetsFromLakeFormationTagPolicy,
+          context
+        ),
     }),
     ...(input.ImportAssetsFromRedshiftDataShares != null && {
       ImportAssetsFromRedshiftDataShares: serializeAws_restJson1ImportAssetsFromRedshiftDataSharesRequestDetails(
@@ -3092,6 +3217,29 @@ const serializeAws_restJson1RevisionDestinationEntry = (
 const serializeAws_restJson1RevisionPublished = (input: RevisionPublished, context: __SerdeContext): any => {
   return {
     ...(input.DataSetId != null && { DataSetId: input.DataSetId }),
+  };
+};
+
+const serializeAws_restJson1S3DataAccessAssetSourceEntry = (
+  input: S3DataAccessAssetSourceEntry,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Bucket != null && { Bucket: input.Bucket }),
+    ...(input.KeyPrefixes != null && { KeyPrefixes: serializeAws_restJson1ListOf__string(input.KeyPrefixes, context) }),
+    ...(input.Keys != null && { Keys: serializeAws_restJson1ListOf__string(input.Keys, context) }),
+  };
+};
+
+const serializeAws_restJson1TableLFTagPolicyAndPermissions = (
+  input: TableLFTagPolicyAndPermissions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Expression != null && { Expression: serializeAws_restJson1ListOfLFTags(input.Expression, context) }),
+    ...(input.Permissions != null && {
+      Permissions: serializeAws_restJson1ListOfTableTagPolicyLFPermissions(input.Permissions, context),
+    }),
   };
 };
 
@@ -3135,9 +3283,17 @@ const deserializeAws_restJson1AssetDetails = (output: any, context: __SerdeConte
       output.ApiGatewayApiAsset != null
         ? deserializeAws_restJson1ApiGatewayApiAsset(output.ApiGatewayApiAsset, context)
         : undefined,
+    LakeFormationDataPermissionAsset:
+      output.LakeFormationDataPermissionAsset != null
+        ? deserializeAws_restJson1LakeFormationDataPermissionAsset(output.LakeFormationDataPermissionAsset, context)
+        : undefined,
     RedshiftDataShareAsset:
       output.RedshiftDataShareAsset != null
         ? deserializeAws_restJson1RedshiftDataShareAsset(output.RedshiftDataShareAsset, context)
+        : undefined,
+    S3DataAccessAsset:
+      output.S3DataAccessAsset != null
+        ? deserializeAws_restJson1S3DataAccessAsset(output.S3DataAccessAsset, context)
         : undefined,
     S3SnapshotAsset:
       output.S3SnapshotAsset != null
@@ -3191,6 +3347,41 @@ const deserializeAws_restJson1AutoExportRevisionToS3RequestDetails = (
     RevisionDestination:
       output.RevisionDestination != null
         ? deserializeAws_restJson1AutoExportRevisionDestinationEntry(output.RevisionDestination, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1CreateS3DataAccessFromS3BucketResponseDetails = (
+  output: any,
+  context: __SerdeContext
+): CreateS3DataAccessFromS3BucketResponseDetails => {
+  return {
+    AssetSource:
+      output.AssetSource != null
+        ? deserializeAws_restJson1S3DataAccessAssetSourceEntry(output.AssetSource, context)
+        : undefined,
+    DataSetId: __expectString(output.DataSetId),
+    RevisionId: __expectString(output.RevisionId),
+  } as any;
+};
+
+const deserializeAws_restJson1DatabaseLFTagPolicy = (output: any, context: __SerdeContext): DatabaseLFTagPolicy => {
+  return {
+    Expression:
+      output.Expression != null ? deserializeAws_restJson1ListOfLFTags(output.Expression, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1DatabaseLFTagPolicyAndPermissions = (
+  output: any,
+  context: __SerdeContext
+): DatabaseLFTagPolicyAndPermissions => {
+  return {
+    Expression:
+      output.Expression != null ? deserializeAws_restJson1ListOfLFTags(output.Expression, context) : undefined,
+    Permissions:
+      output.Permissions != null
+        ? deserializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions(output.Permissions, context)
         : undefined,
   } as any;
 };
@@ -3357,6 +3548,24 @@ const deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails = (
   } as any;
 };
 
+const deserializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyResponseDetails = (
+  output: any,
+  context: __SerdeContext
+): ImportAssetsFromLakeFormationTagPolicyResponseDetails => {
+  return {
+    CatalogId: __expectString(output.CatalogId),
+    DataSetId: __expectString(output.DataSetId),
+    Database:
+      output.Database != null
+        ? deserializeAws_restJson1DatabaseLFTagPolicyAndPermissions(output.Database, context)
+        : undefined,
+    RevisionId: __expectString(output.RevisionId),
+    RoleArn: __expectString(output.RoleArn),
+    Table:
+      output.Table != null ? deserializeAws_restJson1TableLFTagPolicyAndPermissions(output.Table, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1ImportAssetsFromRedshiftDataSharesResponseDetails = (
   output: any,
   context: __SerdeContext
@@ -3410,6 +3619,71 @@ const deserializeAws_restJson1JobError = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_restJson1LakeFormationDataPermissionAsset = (
+  output: any,
+  context: __SerdeContext
+): LakeFormationDataPermissionAsset => {
+  return {
+    LakeFormationDataPermissionDetails:
+      output.LakeFormationDataPermissionDetails != null
+        ? deserializeAws_restJson1LakeFormationDataPermissionDetails(output.LakeFormationDataPermissionDetails, context)
+        : undefined,
+    LakeFormationDataPermissionType: __expectString(output.LakeFormationDataPermissionType),
+    Permissions:
+      output.Permissions != null ? deserializeAws_restJson1ListOfLFPermissions(output.Permissions, context) : undefined,
+    RoleArn: __expectString(output.RoleArn),
+  } as any;
+};
+
+const deserializeAws_restJson1LakeFormationDataPermissionDetails = (
+  output: any,
+  context: __SerdeContext
+): LakeFormationDataPermissionDetails => {
+  return {
+    LFTagPolicy:
+      output.LFTagPolicy != null ? deserializeAws_restJson1LFTagPolicyDetails(output.LFTagPolicy, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LFResourceDetails = (output: any, context: __SerdeContext): LFResourceDetails => {
+  return {
+    Database:
+      output.Database != null ? deserializeAws_restJson1DatabaseLFTagPolicy(output.Database, context) : undefined,
+    Table: output.Table != null ? deserializeAws_restJson1TableLFTagPolicy(output.Table, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LFTag = (output: any, context: __SerdeContext): LFTag => {
+  return {
+    TagKey: __expectString(output.TagKey),
+    TagValues:
+      output.TagValues != null ? deserializeAws_restJson1ListOfLFTagValues(output.TagValues, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1LFTagPolicyDetails = (output: any, context: __SerdeContext): LFTagPolicyDetails => {
+  return {
+    CatalogId: __expectString(output.CatalogId),
+    ResourceDetails:
+      output.ResourceDetails != null
+        ? deserializeAws_restJson1LFResourceDetails(output.ResourceDetails, context)
+        : undefined,
+    ResourceType: __expectString(output.ResourceType),
+  } as any;
+};
+
+const deserializeAws_restJson1ListOf__string = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ListOfAssetDestinationEntry = (
   output: any,
   context: __SerdeContext
@@ -3445,6 +3719,21 @@ const deserializeAws_restJson1ListOfAssetSourceEntry = (output: any, context: __
         return null as any;
       }
       return deserializeAws_restJson1AssetSourceEntry(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListOfDatabaseLFTagPolicyPermissions = (
+  output: any,
+  context: __SerdeContext
+): (DatabaseLFTagPolicyPermission | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
     });
   return retVal;
 };
@@ -3497,6 +3786,45 @@ const deserializeAws_restJson1ListOfJobError = (output: any, context: __SerdeCon
   return retVal;
 };
 
+const deserializeAws_restJson1ListOfLFPermissions = (
+  output: any,
+  context: __SerdeContext
+): (LFPermission | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListOfLFTags = (output: any, context: __SerdeContext): LFTag[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1LFTag(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1ListOfLFTagValues = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1ListOfRedshiftDataShareAssetSourceEntry = (
   output: any,
   context: __SerdeContext
@@ -3539,6 +3867,21 @@ const deserializeAws_restJson1ListOfRevisionEntry = (output: any, context: __Ser
   return retVal;
 };
 
+const deserializeAws_restJson1ListOfTableTagPolicyLFPermissions = (
+  output: any,
+  context: __SerdeContext
+): (TableTagPolicyLFPermission | string)[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_restJson1MapOf__string = (output: any, context: __SerdeContext): Record<string, string> => {
   return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
     if (value === null) {
@@ -3575,6 +3918,13 @@ const deserializeAws_restJson1RedshiftDataShareAssetSourceEntry = (
 
 const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeContext): ResponseDetails => {
   return {
+    CreateS3DataAccessFromS3Bucket:
+      output.CreateS3DataAccessFromS3Bucket != null
+        ? deserializeAws_restJson1CreateS3DataAccessFromS3BucketResponseDetails(
+            output.CreateS3DataAccessFromS3Bucket,
+            context
+          )
+        : undefined,
     ExportAssetToSignedUrl:
       output.ExportAssetToSignedUrl != null
         ? deserializeAws_restJson1ExportAssetToSignedUrlResponseDetails(output.ExportAssetToSignedUrl, context)
@@ -3597,6 +3947,13 @@ const deserializeAws_restJson1ResponseDetails = (output: any, context: __SerdeCo
     ImportAssetFromSignedUrl:
       output.ImportAssetFromSignedUrl != null
         ? deserializeAws_restJson1ImportAssetFromSignedUrlResponseDetails(output.ImportAssetFromSignedUrl, context)
+        : undefined,
+    ImportAssetsFromLakeFormationTagPolicy:
+      output.ImportAssetsFromLakeFormationTagPolicy != null
+        ? deserializeAws_restJson1ImportAssetsFromLakeFormationTagPolicyResponseDetails(
+            output.ImportAssetsFromLakeFormationTagPolicy,
+            context
+          )
         : undefined,
     ImportAssetsFromRedshiftDataShares:
       output.ImportAssetsFromRedshiftDataShares != null
@@ -3645,9 +4002,53 @@ const deserializeAws_restJson1RevisionPublished = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_restJson1S3DataAccessAsset = (output: any, context: __SerdeContext): S3DataAccessAsset => {
+  return {
+    Bucket: __expectString(output.Bucket),
+    KeyPrefixes:
+      output.KeyPrefixes != null ? deserializeAws_restJson1ListOf__string(output.KeyPrefixes, context) : undefined,
+    Keys: output.Keys != null ? deserializeAws_restJson1ListOf__string(output.Keys, context) : undefined,
+    S3AccessPointAlias: __expectString(output.S3AccessPointAlias),
+    S3AccessPointArn: __expectString(output.S3AccessPointArn),
+  } as any;
+};
+
+const deserializeAws_restJson1S3DataAccessAssetSourceEntry = (
+  output: any,
+  context: __SerdeContext
+): S3DataAccessAssetSourceEntry => {
+  return {
+    Bucket: __expectString(output.Bucket),
+    KeyPrefixes:
+      output.KeyPrefixes != null ? deserializeAws_restJson1ListOf__string(output.KeyPrefixes, context) : undefined,
+    Keys: output.Keys != null ? deserializeAws_restJson1ListOf__string(output.Keys, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_restJson1S3SnapshotAsset = (output: any, context: __SerdeContext): S3SnapshotAsset => {
   return {
     Size: __limitedParseDouble(output.Size),
+  } as any;
+};
+
+const deserializeAws_restJson1TableLFTagPolicy = (output: any, context: __SerdeContext): TableLFTagPolicy => {
+  return {
+    Expression:
+      output.Expression != null ? deserializeAws_restJson1ListOfLFTags(output.Expression, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1TableLFTagPolicyAndPermissions = (
+  output: any,
+  context: __SerdeContext
+): TableLFTagPolicyAndPermissions => {
+  return {
+    Expression:
+      output.Expression != null ? deserializeAws_restJson1ListOfLFTags(output.Expression, context) : undefined,
+    Permissions:
+      output.Permissions != null
+        ? deserializeAws_restJson1ListOfTableTagPolicyLFPermissions(output.Permissions, context)
+        : undefined,
   } as any;
 };
 
