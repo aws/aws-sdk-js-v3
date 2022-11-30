@@ -1,9 +1,13 @@
+import { Checksum } from "./checksum";
+
 export type SourceData = string | ArrayBuffer | ArrayBufferView;
 
 /**
  * An object that provides a hash of data provided in chunks to `update`. The
  * hash may be performed incrementally as chunks are received or all at once
  * when the hash is finalized, depending on the underlying implementation.
+ *
+ * @deprecated use {@link Checksum}
  */
 export interface Hash {
   /**
