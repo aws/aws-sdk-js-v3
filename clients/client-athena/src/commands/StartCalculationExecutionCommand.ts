@@ -15,42 +15,40 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import {
-  GetQueryRuntimeStatisticsInput,
-  GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-  GetQueryRuntimeStatisticsOutput,
-  GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+  StartCalculationExecutionRequest,
+  StartCalculationExecutionRequestFilterSensitiveLog,
+  StartCalculationExecutionResponse,
+  StartCalculationExecutionResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryRuntimeStatisticsCommand,
-  serializeAws_json1_1GetQueryRuntimeStatisticsCommand,
+  deserializeAws_json1_1StartCalculationExecutionCommand,
+  serializeAws_json1_1StartCalculationExecutionCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeStatisticsInput {}
-export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
+export interface StartCalculationExecutionCommandInput extends StartCalculationExecutionRequest {}
+export interface StartCalculationExecutionCommandOutput extends StartCalculationExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Returns query execution runtime statistics related to a single execution of a query if
- *             you have access to the workgroup in which the query ran. The query execution runtime
- *             statistics is returned only when <a>QueryExecutionStatus$State</a> is in a
- *             SUCCEEDED or FAILED state.</p>
+ * <p>Submits calculations for execution within a session. You can supply the code to run as
+ *             an inline code block within the request or as an Amazon S3 URL.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetQueryRuntimeStatisticsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetQueryRuntimeStatisticsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, StartCalculationExecutionCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, StartCalculationExecutionCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const command = new GetQueryRuntimeStatisticsCommand(input);
+ * const command = new StartCalculationExecutionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryRuntimeStatisticsCommandInput} for command's `input` shape.
- * @see {@link GetQueryRuntimeStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link StartCalculationExecutionCommandInput} for command's `input` shape.
+ * @see {@link StartCalculationExecutionCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
-export class GetQueryRuntimeStatisticsCommand extends $Command<
-  GetQueryRuntimeStatisticsCommandInput,
-  GetQueryRuntimeStatisticsCommandOutput,
+export class StartCalculationExecutionCommand extends $Command<
+  StartCalculationExecutionCommandInput,
+  StartCalculationExecutionCommandOutput,
   AthenaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +63,7 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryRuntimeStatisticsCommandInput) {
+  constructor(readonly input: StartCalculationExecutionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +76,23 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryRuntimeStatisticsCommandInput, GetQueryRuntimeStatisticsCommandOutput> {
+  ): Handler<StartCalculationExecutionCommandInput, StartCalculationExecutionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryRuntimeStatisticsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartCalculationExecutionCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AthenaClient";
-    const commandName = "GetQueryRuntimeStatisticsCommand";
+    const commandName = "StartCalculationExecutionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: StartCalculationExecutionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartCalculationExecutionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +102,15 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryRuntimeStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryRuntimeStatisticsCommand(input, context);
+  private serialize(input: StartCalculationExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1StartCalculationExecutionCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetQueryRuntimeStatisticsCommandOutput> {
-    return deserializeAws_json1_1GetQueryRuntimeStatisticsCommand(output, context);
+  ): Promise<StartCalculationExecutionCommandOutput> {
+    return deserializeAws_json1_1StartCalculationExecutionCommand(output, context);
   }
 
   // Start section: command_body_extra

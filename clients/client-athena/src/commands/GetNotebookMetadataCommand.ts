@@ -15,42 +15,39 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import {
-  GetQueryRuntimeStatisticsInput,
-  GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-  GetQueryRuntimeStatisticsOutput,
-  GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+  GetNotebookMetadataInput,
+  GetNotebookMetadataInputFilterSensitiveLog,
+  GetNotebookMetadataOutput,
+  GetNotebookMetadataOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryRuntimeStatisticsCommand,
-  serializeAws_json1_1GetQueryRuntimeStatisticsCommand,
+  deserializeAws_json1_1GetNotebookMetadataCommand,
+  serializeAws_json1_1GetNotebookMetadataCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeStatisticsInput {}
-export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
+export interface GetNotebookMetadataCommandInput extends GetNotebookMetadataInput {}
+export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOutput, __MetadataBearer {}
 
 /**
- * <p>Returns query execution runtime statistics related to a single execution of a query if
- *             you have access to the workgroup in which the query ran. The query execution runtime
- *             statistics is returned only when <a>QueryExecutionStatus$State</a> is in a
- *             SUCCEEDED or FAILED state.</p>
+ * <p>Retrieves notebook metadata for the specified notebook ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetQueryRuntimeStatisticsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetQueryRuntimeStatisticsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, GetNotebookMetadataCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, GetNotebookMetadataCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const command = new GetQueryRuntimeStatisticsCommand(input);
+ * const command = new GetNotebookMetadataCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryRuntimeStatisticsCommandInput} for command's `input` shape.
- * @see {@link GetQueryRuntimeStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link GetNotebookMetadataCommandInput} for command's `input` shape.
+ * @see {@link GetNotebookMetadataCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
-export class GetQueryRuntimeStatisticsCommand extends $Command<
-  GetQueryRuntimeStatisticsCommandInput,
-  GetQueryRuntimeStatisticsCommandOutput,
+export class GetNotebookMetadataCommand extends $Command<
+  GetNotebookMetadataCommandInput,
+  GetNotebookMetadataCommandOutput,
   AthenaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +62,7 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryRuntimeStatisticsCommandInput) {
+  constructor(readonly input: GetNotebookMetadataCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +75,23 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryRuntimeStatisticsCommandInput, GetQueryRuntimeStatisticsCommandOutput> {
+  ): Handler<GetNotebookMetadataCommandInput, GetNotebookMetadataCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryRuntimeStatisticsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, GetNotebookMetadataCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AthenaClient";
-    const commandName = "GetQueryRuntimeStatisticsCommand";
+    const commandName = "GetNotebookMetadataCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: GetNotebookMetadataInputFilterSensitiveLog,
+      outputFilterSensitiveLog: GetNotebookMetadataOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +101,12 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryRuntimeStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryRuntimeStatisticsCommand(input, context);
+  private serialize(input: GetNotebookMetadataCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1GetNotebookMetadataCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetQueryRuntimeStatisticsCommandOutput> {
-    return deserializeAws_json1_1GetQueryRuntimeStatisticsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetNotebookMetadataCommandOutput> {
+    return deserializeAws_json1_1GetNotebookMetadataCommand(output, context);
   }
 
   // Start section: command_body_extra

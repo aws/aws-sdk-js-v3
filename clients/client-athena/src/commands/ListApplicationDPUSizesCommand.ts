@@ -15,42 +15,40 @@ import {
 
 import { AthenaClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AthenaClient";
 import {
-  GetQueryRuntimeStatisticsInput,
-  GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-  GetQueryRuntimeStatisticsOutput,
-  GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+  ListApplicationDPUSizesInput,
+  ListApplicationDPUSizesInputFilterSensitiveLog,
+  ListApplicationDPUSizesOutput,
+  ListApplicationDPUSizesOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetQueryRuntimeStatisticsCommand,
-  serializeAws_json1_1GetQueryRuntimeStatisticsCommand,
+  deserializeAws_json1_1ListApplicationDPUSizesCommand,
+  serializeAws_json1_1ListApplicationDPUSizesCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeStatisticsInput {}
-export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
+export interface ListApplicationDPUSizesCommandInput extends ListApplicationDPUSizesInput {}
+export interface ListApplicationDPUSizesCommandOutput extends ListApplicationDPUSizesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns query execution runtime statistics related to a single execution of a query if
- *             you have access to the workgroup in which the query ran. The query execution runtime
- *             statistics is returned only when <a>QueryExecutionStatus$State</a> is in a
- *             SUCCEEDED or FAILED state.</p>
+ * <p>Returns the supported DPU sizes for the supported application runtimes (for example,
+ *                 <code>Jupyter 1.0</code>). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AthenaClient, GetQueryRuntimeStatisticsCommand } from "@aws-sdk/client-athena"; // ES Modules import
- * // const { AthenaClient, GetQueryRuntimeStatisticsCommand } = require("@aws-sdk/client-athena"); // CommonJS import
+ * import { AthenaClient, ListApplicationDPUSizesCommand } from "@aws-sdk/client-athena"; // ES Modules import
+ * // const { AthenaClient, ListApplicationDPUSizesCommand } = require("@aws-sdk/client-athena"); // CommonJS import
  * const client = new AthenaClient(config);
- * const command = new GetQueryRuntimeStatisticsCommand(input);
+ * const command = new ListApplicationDPUSizesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetQueryRuntimeStatisticsCommandInput} for command's `input` shape.
- * @see {@link GetQueryRuntimeStatisticsCommandOutput} for command's `response` shape.
+ * @see {@link ListApplicationDPUSizesCommandInput} for command's `input` shape.
+ * @see {@link ListApplicationDPUSizesCommandOutput} for command's `response` shape.
  * @see {@link AthenaClientResolvedConfig | config} for AthenaClient's `config` shape.
  *
  */
-export class GetQueryRuntimeStatisticsCommand extends $Command<
-  GetQueryRuntimeStatisticsCommandInput,
-  GetQueryRuntimeStatisticsCommandOutput,
+export class ListApplicationDPUSizesCommand extends $Command<
+  ListApplicationDPUSizesCommandInput,
+  ListApplicationDPUSizesCommandOutput,
   AthenaClientResolvedConfig
 > {
   // Start section: command_properties
@@ -65,7 +63,7 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetQueryRuntimeStatisticsCommandInput) {
+  constructor(readonly input: ListApplicationDPUSizesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -78,23 +76,23 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AthenaClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetQueryRuntimeStatisticsCommandInput, GetQueryRuntimeStatisticsCommandOutput> {
+  ): Handler<ListApplicationDPUSizesCommandInput, ListApplicationDPUSizesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetQueryRuntimeStatisticsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListApplicationDPUSizesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AthenaClient";
-    const commandName = "GetQueryRuntimeStatisticsCommand";
+    const commandName = "ListApplicationDPUSizesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetQueryRuntimeStatisticsInputFilterSensitiveLog,
-      outputFilterSensitiveLog: GetQueryRuntimeStatisticsOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListApplicationDPUSizesInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListApplicationDPUSizesOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -104,15 +102,12 @@ export class GetQueryRuntimeStatisticsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetQueryRuntimeStatisticsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetQueryRuntimeStatisticsCommand(input, context);
+  private serialize(input: ListApplicationDPUSizesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListApplicationDPUSizesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<GetQueryRuntimeStatisticsCommandOutput> {
-    return deserializeAws_json1_1GetQueryRuntimeStatisticsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListApplicationDPUSizesCommandOutput> {
+    return deserializeAws_json1_1ListApplicationDPUSizesCommand(output, context);
   }
 
   // Start section: command_body_extra
