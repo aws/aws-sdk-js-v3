@@ -350,6 +350,10 @@ export const serializeAws_restXmlCreateAccessPointCommand = async (
     const node = __XmlNode.of("BucketName", input.Bucket).withName("Bucket");
     bodyNode.addChildNode(node);
   }
+  if (input.BucketAccountId !== undefined) {
+    const node = __XmlNode.of("AccountId", input.BucketAccountId).withName("BucketAccountId");
+    bodyNode.addChildNode(node);
+  }
   if (input.PublicAccessBlockConfiguration !== undefined) {
     const node = serializeAws_restXmlPublicAccessBlockConfiguration(
       input.PublicAccessBlockConfiguration,
@@ -3475,6 +3479,9 @@ export const deserializeAws_restXmlGetAccessPointCommand = async (
   }
   if (data["Bucket"] !== undefined) {
     contents.Bucket = __expectString(data["Bucket"]);
+  }
+  if (data["BucketAccountId"] !== undefined) {
+    contents.BucketAccountId = __expectString(data["BucketAccountId"]);
   }
   if (data["CreationDate"] !== undefined) {
     contents.CreationDate = __expectNonNull(__parseRfc3339DateTime(data["CreationDate"]));
@@ -6843,6 +6850,7 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
     Bucket: undefined,
     AccessPointArn: undefined,
     Alias: undefined,
+    BucketAccountId: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -6861,6 +6869,9 @@ const deserializeAws_restXmlAccessPoint = (output: any, context: __SerdeContext)
   }
   if (output["Alias"] !== undefined) {
     contents.Alias = __expectString(output["Alias"]);
+  }
+  if (output["BucketAccountId"] !== undefined) {
+    contents.BucketAccountId = __expectString(output["BucketAccountId"]);
   }
   return contents;
 };
