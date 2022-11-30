@@ -15,43 +15,42 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
-  UpdateColumnStatisticsForTableRequest,
-  UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-  UpdateColumnStatisticsForTableResponse,
-  UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
-} from "../models/models_2";
+  CancelDataQualityRuleRecommendationRunRequest,
+  CancelDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
+  CancelDataQualityRuleRecommendationRunResponse,
+  CancelDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
-  serializeAws_json1_1UpdateColumnStatisticsForTableCommand,
+  deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand,
+  serializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumnStatisticsForTableRequest {}
-export interface UpdateColumnStatisticsForTableCommandOutput
-  extends UpdateColumnStatisticsForTableResponse,
+export interface CancelDataQualityRuleRecommendationRunCommandInput
+  extends CancelDataQualityRuleRecommendationRunRequest {}
+export interface CancelDataQualityRuleRecommendationRunCommandOutput
+  extends CancelDataQualityRuleRecommendationRunResponse,
     __MetadataBearer {}
 
 /**
- * <p>Creates or updates table statistics of columns.</p>
- *
- * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+ * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, CancelDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, CancelDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const command = new UpdateColumnStatisticsForTableCommand(input);
+ * const command = new CancelDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
- * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
+ * @see {@link CancelDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
+ * @see {@link CancelDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
-export class UpdateColumnStatisticsForTableCommand extends $Command<
-  UpdateColumnStatisticsForTableCommandInput,
-  UpdateColumnStatisticsForTableCommandOutput,
+export class CancelDataQualityRuleRecommendationRunCommand extends $Command<
+  CancelDataQualityRuleRecommendationRunCommandInput,
+  CancelDataQualityRuleRecommendationRunCommandOutput,
   GlueClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +65,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateColumnStatisticsForTableCommandInput) {
+  constructor(readonly input: CancelDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +78,23 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateColumnStatisticsForTableCommandInput, UpdateColumnStatisticsForTableCommandOutput> {
+  ): Handler<CancelDataQualityRuleRecommendationRunCommandInput, CancelDataQualityRuleRecommendationRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateColumnStatisticsForTableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, CancelDataQualityRuleRecommendationRunCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "UpdateColumnStatisticsForTableCommand";
+    const commandName = "CancelDataQualityRuleRecommendationRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CancelDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CancelDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,17 +105,17 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
   }
 
   private serialize(
-    input: UpdateColumnStatisticsForTableCommandInput,
+    input: CancelDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateColumnStatisticsForTableCommand(input, context);
+    return serializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1UpdateColumnStatisticsForTableCommand(output, context);
+  ): Promise<CancelDataQualityRuleRecommendationRunCommandOutput> {
+    return deserializeAws_json1_1CancelDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -30,8 +30,10 @@ export interface GetJobBookmarkCommandOutput extends GetJobBookmarkResponse, __M
 
 /**
  * <p>Returns information on a job bookmark entry.</p>
- *          <p>For more information about enabling and using job bookmarks, see:</p>
- *          <ul>
+ *
+ * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+ *
+ * 	        <ul>
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>

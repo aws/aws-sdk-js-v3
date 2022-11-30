@@ -15,39 +15,42 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
-  ListWorkflowsRequest,
-  ListWorkflowsRequestFilterSensitiveLog,
-  ListWorkflowsResponse,
-  ListWorkflowsResponseFilterSensitiveLog,
+  ListDataQualityRuleRecommendationRunsRequest,
+  ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
+  ListDataQualityRuleRecommendationRunsResponse,
+  ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1ListWorkflowsCommand,
-  serializeAws_json1_1ListWorkflowsCommand,
+  deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand,
+  serializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface ListWorkflowsCommandInput extends ListWorkflowsRequest {}
-export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __MetadataBearer {}
+export interface ListDataQualityRuleRecommendationRunsCommandInput
+  extends ListDataQualityRuleRecommendationRunsRequest {}
+export interface ListDataQualityRuleRecommendationRunsCommandOutput
+  extends ListDataQualityRuleRecommendationRunsResponse,
+    __MetadataBearer {}
 
 /**
- * <p>Lists names of workflows created in the account.</p>
+ * <p>Lists the recommendation runs meeting the filter criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListWorkflowsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListWorkflowsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDataQualityRuleRecommendationRunsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ListDataQualityRuleRecommendationRunsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const command = new ListWorkflowsCommand(input);
+ * const command = new ListDataQualityRuleRecommendationRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListWorkflowsCommandInput} for command's `input` shape.
- * @see {@link ListWorkflowsCommandOutput} for command's `response` shape.
+ * @see {@link ListDataQualityRuleRecommendationRunsCommandInput} for command's `input` shape.
+ * @see {@link ListDataQualityRuleRecommendationRunsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
-export class ListWorkflowsCommand extends $Command<
-  ListWorkflowsCommandInput,
-  ListWorkflowsCommandOutput,
+export class ListDataQualityRuleRecommendationRunsCommand extends $Command<
+  ListDataQualityRuleRecommendationRunsCommandInput,
+  ListDataQualityRuleRecommendationRunsCommandOutput,
   GlueClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +65,7 @@ export class ListWorkflowsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: ListWorkflowsCommandInput) {
+  constructor(readonly input: ListDataQualityRuleRecommendationRunsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +78,23 @@ export class ListWorkflowsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListWorkflowsCommandInput, ListWorkflowsCommandOutput> {
+  ): Handler<ListDataQualityRuleRecommendationRunsCommandInput, ListDataQualityRuleRecommendationRunsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListWorkflowsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDataQualityRuleRecommendationRunsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "ListWorkflowsCommand";
+    const commandName = "ListDataQualityRuleRecommendationRunsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListWorkflowsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListWorkflowsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDataQualityRuleRecommendationRunsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +104,18 @@ export class ListWorkflowsCommand extends $Command<
     );
   }
 
-  private serialize(input: ListWorkflowsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListWorkflowsCommand(input, context);
+  private serialize(
+    input: ListDataQualityRuleRecommendationRunsCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListWorkflowsCommandOutput> {
-    return deserializeAws_json1_1ListWorkflowsCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> {
+    return deserializeAws_json1_1ListDataQualityRuleRecommendationRunsCommand(output, context);
   }
 
   // Start section: command_body_extra

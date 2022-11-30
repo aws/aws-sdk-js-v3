@@ -15,43 +15,42 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
-  UpdateColumnStatisticsForTableRequest,
-  UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-  UpdateColumnStatisticsForTableResponse,
-  UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
+  StartDataQualityRuleRecommendationRunRequest,
+  StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
+  StartDataQualityRuleRecommendationRunResponse,
+  StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
 } from "../models/models_2";
 import {
-  deserializeAws_json1_1UpdateColumnStatisticsForTableCommand,
-  serializeAws_json1_1UpdateColumnStatisticsForTableCommand,
+  deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
+  serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface UpdateColumnStatisticsForTableCommandInput extends UpdateColumnStatisticsForTableRequest {}
-export interface UpdateColumnStatisticsForTableCommandOutput
-  extends UpdateColumnStatisticsForTableResponse,
+export interface StartDataQualityRuleRecommendationRunCommandInput
+  extends StartDataQualityRuleRecommendationRunRequest {}
+export interface StartDataQualityRuleRecommendationRunCommandOutput
+  extends StartDataQualityRuleRecommendationRunResponse,
     __MetadataBearer {}
 
 /**
- * <p>Creates or updates table statistics of columns.</p>
- *
- * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+ * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, UpdateColumnStatisticsForTableCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, UpdateColumnStatisticsForTableCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, StartDataQualityRuleRecommendationRunCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, StartDataQualityRuleRecommendationRunCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const command = new UpdateColumnStatisticsForTableCommand(input);
+ * const command = new StartDataQualityRuleRecommendationRunCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateColumnStatisticsForTableCommandInput} for command's `input` shape.
- * @see {@link UpdateColumnStatisticsForTableCommandOutput} for command's `response` shape.
+ * @see {@link StartDataQualityRuleRecommendationRunCommandInput} for command's `input` shape.
+ * @see {@link StartDataQualityRuleRecommendationRunCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
-export class UpdateColumnStatisticsForTableCommand extends $Command<
-  UpdateColumnStatisticsForTableCommandInput,
-  UpdateColumnStatisticsForTableCommandOutput,
+export class StartDataQualityRuleRecommendationRunCommand extends $Command<
+  StartDataQualityRuleRecommendationRunCommandInput,
+  StartDataQualityRuleRecommendationRunCommandOutput,
   GlueClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +65,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateColumnStatisticsForTableCommandInput) {
+  constructor(readonly input: StartDataQualityRuleRecommendationRunCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +78,23 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateColumnStatisticsForTableCommandInput, UpdateColumnStatisticsForTableCommandOutput> {
+  ): Handler<StartDataQualityRuleRecommendationRunCommandInput, StartDataQualityRuleRecommendationRunCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateColumnStatisticsForTableCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, StartDataQualityRuleRecommendationRunCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "UpdateColumnStatisticsForTableCommand";
+    const commandName = "StartDataQualityRuleRecommendationRunCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateColumnStatisticsForTableRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateColumnStatisticsForTableResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: StartDataQualityRuleRecommendationRunRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: StartDataQualityRuleRecommendationRunResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,17 +105,17 @@ export class UpdateColumnStatisticsForTableCommand extends $Command<
   }
 
   private serialize(
-    input: UpdateColumnStatisticsForTableCommandInput,
+    input: StartDataQualityRuleRecommendationRunCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateColumnStatisticsForTableCommand(input, context);
+    return serializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<UpdateColumnStatisticsForTableCommandOutput> {
-    return deserializeAws_json1_1UpdateColumnStatisticsForTableCommand(output, context);
+  ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> {
+    return deserializeAws_json1_1StartDataQualityRuleRecommendationRunCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -31,10 +31,12 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
 /**
  * <p>Creates an Glue machine learning transform. This operation creates the transform and
  *       all the necessary parameters to train it.</p>
- *          <p>Call this operation as the first step in the process of using a machine learning transform
+ *
+ * 	        <p>Call this operation as the first step in the process of using a machine learning transform
  *       (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an
  *       optional <code>Description</code>, in addition to the parameters that you want to use for your
  *       algorithm.</p>
+ *
  *          <p>You must also specify certain parameters for the tasks that Glue runs on your
  *       behalf as part of learning from your data and creating a high-quality machine learning
  *       transform. These parameters include <code>Role</code>, and optionally,

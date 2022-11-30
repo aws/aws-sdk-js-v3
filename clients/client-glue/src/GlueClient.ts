@@ -71,6 +71,10 @@ import {
   BatchGetCustomEntityTypesCommandOutput,
 } from "./commands/BatchGetCustomEntityTypesCommand";
 import {
+  BatchGetDataQualityResultCommandInput,
+  BatchGetDataQualityResultCommandOutput,
+} from "./commands/BatchGetDataQualityResultCommand";
+import {
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
 } from "./commands/BatchGetDevEndpointsCommand";
@@ -83,6 +87,14 @@ import {
   BatchUpdatePartitionCommandInput,
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
+import {
+  CancelDataQualityRuleRecommendationRunCommandInput,
+  CancelDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/CancelDataQualityRuleRecommendationRunCommand";
+import {
+  CancelDataQualityRulesetEvaluationRunCommandInput,
+  CancelDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/CancelDataQualityRulesetEvaluationRunCommand";
 import { CancelMLTaskRunCommandInput, CancelMLTaskRunCommandOutput } from "./commands/CancelMLTaskRunCommand";
 import { CancelStatementCommandInput, CancelStatementCommandOutput } from "./commands/CancelStatementCommand";
 import {
@@ -98,6 +110,10 @@ import {
   CreateCustomEntityTypeCommandOutput,
 } from "./commands/CreateCustomEntityTypeCommand";
 import { CreateDatabaseCommandInput, CreateDatabaseCommandOutput } from "./commands/CreateDatabaseCommand";
+import {
+  CreateDataQualityRulesetCommandInput,
+  CreateDataQualityRulesetCommandOutput,
+} from "./commands/CreateDataQualityRulesetCommand";
 import { CreateDevEndpointCommandInput, CreateDevEndpointCommandOutput } from "./commands/CreateDevEndpointCommand";
 import { CreateJobCommandInput, CreateJobCommandOutput } from "./commands/CreateJobCommand";
 import { CreateMLTransformCommandInput, CreateMLTransformCommandOutput } from "./commands/CreateMLTransformCommand";
@@ -138,6 +154,10 @@ import {
   DeleteCustomEntityTypeCommandOutput,
 } from "./commands/DeleteCustomEntityTypeCommand";
 import { DeleteDatabaseCommandInput, DeleteDatabaseCommandOutput } from "./commands/DeleteDatabaseCommand";
+import {
+  DeleteDataQualityRulesetCommandInput,
+  DeleteDataQualityRulesetCommandOutput,
+} from "./commands/DeleteDataQualityRulesetCommand";
 import { DeleteDevEndpointCommandInput, DeleteDevEndpointCommandOutput } from "./commands/DeleteDevEndpointCommand";
 import { DeleteJobCommandInput, DeleteJobCommandOutput } from "./commands/DeleteJobCommand";
 import { DeleteMLTransformCommandInput, DeleteMLTransformCommandOutput } from "./commands/DeleteMLTransformCommand";
@@ -202,6 +222,22 @@ import {
   GetDataCatalogEncryptionSettingsCommandOutput,
 } from "./commands/GetDataCatalogEncryptionSettingsCommand";
 import { GetDataflowGraphCommandInput, GetDataflowGraphCommandOutput } from "./commands/GetDataflowGraphCommand";
+import {
+  GetDataQualityResultCommandInput,
+  GetDataQualityResultCommandOutput,
+} from "./commands/GetDataQualityResultCommand";
+import {
+  GetDataQualityRuleRecommendationRunCommandInput,
+  GetDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/GetDataQualityRuleRecommendationRunCommand";
+import {
+  GetDataQualityRulesetCommandInput,
+  GetDataQualityRulesetCommandOutput,
+} from "./commands/GetDataQualityRulesetCommand";
+import {
+  GetDataQualityRulesetEvaluationRunCommandInput,
+  GetDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/GetDataQualityRulesetEvaluationRunCommand";
 import { GetDevEndpointCommandInput, GetDevEndpointCommandOutput } from "./commands/GetDevEndpointCommand";
 import { GetDevEndpointsCommandInput, GetDevEndpointsCommandOutput } from "./commands/GetDevEndpointsCommand";
 import { GetJobBookmarkCommandInput, GetJobBookmarkCommandOutput } from "./commands/GetJobBookmarkCommand";
@@ -292,6 +328,22 @@ import {
   ListCustomEntityTypesCommandInput,
   ListCustomEntityTypesCommandOutput,
 } from "./commands/ListCustomEntityTypesCommand";
+import {
+  ListDataQualityResultsCommandInput,
+  ListDataQualityResultsCommandOutput,
+} from "./commands/ListDataQualityResultsCommand";
+import {
+  ListDataQualityRuleRecommendationRunsCommandInput,
+  ListDataQualityRuleRecommendationRunsCommandOutput,
+} from "./commands/ListDataQualityRuleRecommendationRunsCommand";
+import {
+  ListDataQualityRulesetEvaluationRunsCommandInput,
+  ListDataQualityRulesetEvaluationRunsCommandOutput,
+} from "./commands/ListDataQualityRulesetEvaluationRunsCommand";
+import {
+  ListDataQualityRulesetsCommandInput,
+  ListDataQualityRulesetsCommandOutput,
+} from "./commands/ListDataQualityRulesetsCommand";
 import { ListDevEndpointsCommandInput, ListDevEndpointsCommandOutput } from "./commands/ListDevEndpointsCommand";
 import { ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import { ListMLTransformsCommandInput, ListMLTransformsCommandOutput } from "./commands/ListMLTransformsCommand";
@@ -338,6 +390,14 @@ import {
   StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand";
 import {
+  StartDataQualityRuleRecommendationRunCommandInput,
+  StartDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/StartDataQualityRuleRecommendationRunCommand";
+import {
+  StartDataQualityRulesetEvaluationRunCommandInput,
+  StartDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/StartDataQualityRulesetEvaluationRunCommand";
+import {
   StartExportLabelsTaskRunCommandInput,
   StartExportLabelsTaskRunCommandOutput,
 } from "./commands/StartExportLabelsTaskRunCommand";
@@ -383,6 +443,10 @@ import {
   UpdateCrawlerScheduleCommandOutput,
 } from "./commands/UpdateCrawlerScheduleCommand";
 import { UpdateDatabaseCommandInput, UpdateDatabaseCommandOutput } from "./commands/UpdateDatabaseCommand";
+import {
+  UpdateDataQualityRulesetCommandInput,
+  UpdateDataQualityRulesetCommandOutput,
+} from "./commands/UpdateDataQualityRulesetCommand";
 import { UpdateDevEndpointCommandInput, UpdateDevEndpointCommandOutput } from "./commands/UpdateDevEndpointCommand";
 import { UpdateJobCommandInput, UpdateJobCommandOutput } from "./commands/UpdateJobCommand";
 import {
@@ -421,6 +485,7 @@ export type ServiceInputTypes =
   | BatchGetBlueprintsCommandInput
   | BatchGetCrawlersCommandInput
   | BatchGetCustomEntityTypesCommandInput
+  | BatchGetDataQualityResultCommandInput
   | BatchGetDevEndpointsCommandInput
   | BatchGetJobsCommandInput
   | BatchGetPartitionCommandInput
@@ -428,6 +493,8 @@ export type ServiceInputTypes =
   | BatchGetWorkflowsCommandInput
   | BatchStopJobRunCommandInput
   | BatchUpdatePartitionCommandInput
+  | CancelDataQualityRuleRecommendationRunCommandInput
+  | CancelDataQualityRulesetEvaluationRunCommandInput
   | CancelMLTaskRunCommandInput
   | CancelStatementCommandInput
   | CheckSchemaVersionValidityCommandInput
@@ -436,6 +503,7 @@ export type ServiceInputTypes =
   | CreateConnectionCommandInput
   | CreateCrawlerCommandInput
   | CreateCustomEntityTypeCommandInput
+  | CreateDataQualityRulesetCommandInput
   | CreateDatabaseCommandInput
   | CreateDevEndpointCommandInput
   | CreateJobCommandInput
@@ -458,6 +526,7 @@ export type ServiceInputTypes =
   | DeleteConnectionCommandInput
   | DeleteCrawlerCommandInput
   | DeleteCustomEntityTypeCommandInput
+  | DeleteDataQualityRulesetCommandInput
   | DeleteDatabaseCommandInput
   | DeleteDevEndpointCommandInput
   | DeleteJobCommandInput
@@ -490,6 +559,10 @@ export type ServiceInputTypes =
   | GetCrawlersCommandInput
   | GetCustomEntityTypeCommandInput
   | GetDataCatalogEncryptionSettingsCommandInput
+  | GetDataQualityResultCommandInput
+  | GetDataQualityRuleRecommendationRunCommandInput
+  | GetDataQualityRulesetCommandInput
+  | GetDataQualityRulesetEvaluationRunCommandInput
   | GetDatabaseCommandInput
   | GetDatabasesCommandInput
   | GetDataflowGraphCommandInput
@@ -541,6 +614,10 @@ export type ServiceInputTypes =
   | ListCrawlersCommandInput
   | ListCrawlsCommandInput
   | ListCustomEntityTypesCommandInput
+  | ListDataQualityResultsCommandInput
+  | ListDataQualityRuleRecommendationRunsCommandInput
+  | ListDataQualityRulesetEvaluationRunsCommandInput
+  | ListDataQualityRulesetsCommandInput
   | ListDevEndpointsCommandInput
   | ListJobsCommandInput
   | ListMLTransformsCommandInput
@@ -565,6 +642,8 @@ export type ServiceInputTypes =
   | StartBlueprintRunCommandInput
   | StartCrawlerCommandInput
   | StartCrawlerScheduleCommandInput
+  | StartDataQualityRuleRecommendationRunCommandInput
+  | StartDataQualityRulesetEvaluationRunCommandInput
   | StartExportLabelsTaskRunCommandInput
   | StartImportLabelsTaskRunCommandInput
   | StartJobRunCommandInput
@@ -586,6 +665,7 @@ export type ServiceInputTypes =
   | UpdateConnectionCommandInput
   | UpdateCrawlerCommandInput
   | UpdateCrawlerScheduleCommandInput
+  | UpdateDataQualityRulesetCommandInput
   | UpdateDatabaseCommandInput
   | UpdateDevEndpointCommandInput
   | UpdateJobCommandInput
@@ -609,6 +689,7 @@ export type ServiceOutputTypes =
   | BatchGetBlueprintsCommandOutput
   | BatchGetCrawlersCommandOutput
   | BatchGetCustomEntityTypesCommandOutput
+  | BatchGetDataQualityResultCommandOutput
   | BatchGetDevEndpointsCommandOutput
   | BatchGetJobsCommandOutput
   | BatchGetPartitionCommandOutput
@@ -616,6 +697,8 @@ export type ServiceOutputTypes =
   | BatchGetWorkflowsCommandOutput
   | BatchStopJobRunCommandOutput
   | BatchUpdatePartitionCommandOutput
+  | CancelDataQualityRuleRecommendationRunCommandOutput
+  | CancelDataQualityRulesetEvaluationRunCommandOutput
   | CancelMLTaskRunCommandOutput
   | CancelStatementCommandOutput
   | CheckSchemaVersionValidityCommandOutput
@@ -624,6 +707,7 @@ export type ServiceOutputTypes =
   | CreateConnectionCommandOutput
   | CreateCrawlerCommandOutput
   | CreateCustomEntityTypeCommandOutput
+  | CreateDataQualityRulesetCommandOutput
   | CreateDatabaseCommandOutput
   | CreateDevEndpointCommandOutput
   | CreateJobCommandOutput
@@ -646,6 +730,7 @@ export type ServiceOutputTypes =
   | DeleteConnectionCommandOutput
   | DeleteCrawlerCommandOutput
   | DeleteCustomEntityTypeCommandOutput
+  | DeleteDataQualityRulesetCommandOutput
   | DeleteDatabaseCommandOutput
   | DeleteDevEndpointCommandOutput
   | DeleteJobCommandOutput
@@ -678,6 +763,10 @@ export type ServiceOutputTypes =
   | GetCrawlersCommandOutput
   | GetCustomEntityTypeCommandOutput
   | GetDataCatalogEncryptionSettingsCommandOutput
+  | GetDataQualityResultCommandOutput
+  | GetDataQualityRuleRecommendationRunCommandOutput
+  | GetDataQualityRulesetCommandOutput
+  | GetDataQualityRulesetEvaluationRunCommandOutput
   | GetDatabaseCommandOutput
   | GetDatabasesCommandOutput
   | GetDataflowGraphCommandOutput
@@ -729,6 +818,10 @@ export type ServiceOutputTypes =
   | ListCrawlersCommandOutput
   | ListCrawlsCommandOutput
   | ListCustomEntityTypesCommandOutput
+  | ListDataQualityResultsCommandOutput
+  | ListDataQualityRuleRecommendationRunsCommandOutput
+  | ListDataQualityRulesetEvaluationRunsCommandOutput
+  | ListDataQualityRulesetsCommandOutput
   | ListDevEndpointsCommandOutput
   | ListJobsCommandOutput
   | ListMLTransformsCommandOutput
@@ -753,6 +846,8 @@ export type ServiceOutputTypes =
   | StartBlueprintRunCommandOutput
   | StartCrawlerCommandOutput
   | StartCrawlerScheduleCommandOutput
+  | StartDataQualityRuleRecommendationRunCommandOutput
+  | StartDataQualityRulesetEvaluationRunCommandOutput
   | StartExportLabelsTaskRunCommandOutput
   | StartImportLabelsTaskRunCommandOutput
   | StartJobRunCommandOutput
@@ -774,6 +869,7 @@ export type ServiceOutputTypes =
   | UpdateConnectionCommandOutput
   | UpdateCrawlerCommandOutput
   | UpdateCrawlerScheduleCommandOutput
+  | UpdateDataQualityRulesetCommandOutput
   | UpdateDatabaseCommandOutput
   | UpdateDevEndpointCommandOutput
   | UpdateJobCommandOutput

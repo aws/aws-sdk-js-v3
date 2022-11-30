@@ -19,7 +19,7 @@ import {
   CreateTableRequestFilterSensitiveLog,
   CreateTableResponse,
   CreateTableResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateTableCommand,
   serializeAws_json1_1CreateTableCommand,

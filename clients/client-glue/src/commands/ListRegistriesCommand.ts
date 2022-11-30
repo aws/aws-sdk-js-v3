@@ -19,7 +19,7 @@ import {
   ListRegistriesInputFilterSensitiveLog,
   ListRegistriesResponse,
   ListRegistriesResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListRegistriesCommand,
   serializeAws_json1_1ListRegistriesCommand,

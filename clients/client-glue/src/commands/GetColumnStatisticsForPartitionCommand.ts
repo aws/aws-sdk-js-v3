@@ -32,7 +32,8 @@ export interface GetColumnStatisticsForPartitionCommandOutput
 
 /**
  * <p>Retrieves partition statistics of columns.</p>
- *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

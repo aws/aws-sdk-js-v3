@@ -30,7 +30,8 @@ export interface UpdateSourceControlFromJobCommandOutput extends UpdateSourceCon
 
 /**
  * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
- *          <p>This API supports optional parameters which take in the repository information.</p>
+ *
+ * 	        <p>This API supports optional parameters which take in the repository information.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -15,38 +15,41 @@ import {
 
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
 import {
-  ListJobsRequest,
-  ListJobsRequestFilterSensitiveLog,
-  ListJobsResponse,
-  ListJobsResponseFilterSensitiveLog,
+  ListDataQualityRulesetsRequest,
+  ListDataQualityRulesetsRequestFilterSensitiveLog,
+  ListDataQualityRulesetsResponse,
+  ListDataQualityRulesetsResponseFilterSensitiveLog,
 } from "../models/models_2";
-import { deserializeAws_json1_1ListJobsCommand, serializeAws_json1_1ListJobsCommand } from "../protocols/Aws_json1_1";
+import {
+  deserializeAws_json1_1ListDataQualityRulesetsCommand,
+  serializeAws_json1_1ListDataQualityRulesetsCommand,
+} from "../protocols/Aws_json1_1";
 
-export interface ListJobsCommandInput extends ListJobsRequest {}
-export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBearer {}
+export interface ListDataQualityRulesetsCommandInput extends ListDataQualityRulesetsRequest {}
+export interface ListDataQualityRulesetsCommandOutput extends ListDataQualityRulesetsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
- *
- * 	        <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
- *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
- *       filtering, only resources with the tag are retrieved.</p>
+ * <p>Returns a paginated list of rulesets for the specified list of Glue tables.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { GlueClient, ListJobsCommand } from "@aws-sdk/client-glue"; // ES Modules import
- * // const { GlueClient, ListJobsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
+ * import { GlueClient, ListDataQualityRulesetsCommand } from "@aws-sdk/client-glue"; // ES Modules import
+ * // const { GlueClient, ListDataQualityRulesetsCommand } = require("@aws-sdk/client-glue"); // CommonJS import
  * const client = new GlueClient(config);
- * const command = new ListJobsCommand(input);
+ * const command = new ListDataQualityRulesetsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link ListJobsCommandInput} for command's `input` shape.
- * @see {@link ListJobsCommandOutput} for command's `response` shape.
+ * @see {@link ListDataQualityRulesetsCommandInput} for command's `input` shape.
+ * @see {@link ListDataQualityRulesetsCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
  */
-export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsCommandOutput, GlueClientResolvedConfig> {
+export class ListDataQualityRulesetsCommand extends $Command<
+  ListDataQualityRulesetsCommandInput,
+  ListDataQualityRulesetsCommandOutput,
+  GlueClientResolvedConfig
+> {
   // Start section: command_properties
   // End section: command_properties
 
@@ -59,7 +62,7 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     };
   }
 
-  constructor(readonly input: ListJobsCommandInput) {
+  constructor(readonly input: ListDataQualityRulesetsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -72,21 +75,23 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: GlueClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<ListJobsCommandInput, ListJobsCommandOutput> {
+  ): Handler<ListDataQualityRulesetsCommandInput, ListDataQualityRulesetsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, ListJobsCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, ListDataQualityRulesetsCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "GlueClient";
-    const commandName = "ListJobsCommand";
+    const commandName = "ListDataQualityRulesetsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: ListJobsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: ListJobsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListDataQualityRulesetsRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListDataQualityRulesetsResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -96,12 +101,12 @@ export class ListJobsCommand extends $Command<ListJobsCommandInput, ListJobsComm
     );
   }
 
-  private serialize(input: ListJobsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1ListJobsCommand(input, context);
+  private serialize(input: ListDataQualityRulesetsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListDataQualityRulesetsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListJobsCommandOutput> {
-    return deserializeAws_json1_1ListJobsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListDataQualityRulesetsCommandOutput> {
+    return deserializeAws_json1_1ListDataQualityRulesetsCommand(output, context);
   }
 
   // Start section: command_body_extra
