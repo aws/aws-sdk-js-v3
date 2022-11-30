@@ -18,7 +18,7 @@ import {
   DescribeAutoMLJobRequestFilterSensitiveLog,
   DescribeAutoMLJobResponse,
   DescribeAutoMLJobResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeAutoMLJobCommand,
   serializeAws_json1_1DescribeAutoMLJobCommand,

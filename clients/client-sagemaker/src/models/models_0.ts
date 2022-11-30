@@ -3369,6 +3369,11 @@ export interface AppDetails {
    * <p>The creation time.</p>
    */
   CreationTime?: Date;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
 }
 
 /**
@@ -3640,7 +3645,7 @@ export interface AssociateTrialComponentRequest {
 
 export interface AssociateTrialComponentResponse {
   /**
-   * <p>The ARN of the trial component.</p>
+   * <p>The Amazon Resource Name (ARN) of the trial component.</p>
    */
   TrialComponentArn?: string;
 
@@ -3652,7 +3657,7 @@ export interface AssociateTrialComponentResponse {
 
 /**
  * <p>Information about the user who created or modified an experiment, trial, trial
- *       component, lineage group, or project.</p>
+ *       component, lineage group, project, or model card.</p>
  */
 export interface UserContext {
   /**
@@ -3719,7 +3724,7 @@ export interface AssociationSummary {
 
   /**
    * <p>Information about the user who created or modified an experiment, trial, trial
-   *       component, lineage group, or project.</p>
+   *       component, lineage group, project, or model card.</p>
    */
   CreatedBy?: UserContext;
 }
@@ -4503,6 +4508,16 @@ export enum AutoMLJobStatus {
 }
 
 /**
+ * <p>Metadata for an AutoML job step.</p>
+ */
+export interface AutoMLJobStepMetadata {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AutoML job.</p>
+   */
+  Arn?: string;
+}
+
+/**
  * <p>The reason for a partial failure of an AutoML job.</p>
  */
 export interface AutoMLPartialFailureReason {
@@ -4567,7 +4582,7 @@ export interface AutoMLJobSummary {
  */
 export interface AutoMLOutputDataConfig {
   /**
-   * <p>The Amazon Web Services KMS encryption key ID.</p>
+   * <p>The Key Management Service (KMS) encryption key ID.</p>
    */
   KmsKeyId?: string;
 
@@ -5677,6 +5692,16 @@ export interface ClarifyExplainerConfig {
   ShapConfig: ClarifyShapConfig | undefined;
 }
 
+/**
+ * <p>A Git repository that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
+ */
+export interface CodeRepository {
+  /**
+   * <p>The URL of the Git repository.</p>
+   */
+  RepositoryUrl: string | undefined;
+}
+
 export enum CodeRepositorySortBy {
   CREATION_TIME = "CreationTime",
   LAST_MODIFIED_TIME = "LastModifiedTime",
@@ -5793,7 +5818,7 @@ export interface CognitoMemberDefinition {
 }
 
 /**
- * <p>Configuration information for the Debugger output tensor collections.</p>
+ * <p>Configuration information for the Amazon SageMaker Debugger output tensor collections.</p>
  */
 export interface CollectionConfiguration {
   /**
@@ -6669,7 +6694,7 @@ export interface CreateAppRequest {
   /**
    * <p>The user profile name.</p>
    */
-  UserProfileName: string | undefined;
+  UserProfileName?: string;
 
   /**
    * <p>The type of app.</p>
@@ -6696,6 +6721,11 @@ export interface CreateAppRequest {
    *          </note>
    */
   ResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
 }
 
 export interface CreateAppResponse {
@@ -8321,6 +8351,11 @@ export interface JupyterServerAppSettings {
    *          </note>
    */
   LifecycleConfigArns?: string[];
+
+  /**
+   * <p>A list of Git repositories that SageMaker automatically displays to users for cloning in the JupyterServer application.</p>
+   */
+  CodeRepositories?: CodeRepository[];
 }
 
 /**
@@ -8370,6 +8405,31 @@ export interface KernelGatewayAppSettings {
    *          </note>
    */
   LifecycleConfigArns?: string[];
+}
+
+/**
+ * <p>A collection of settings that apply to spaces created in the Domain.</p>
+ */
+export interface DefaultSpaceSettings {
+  /**
+   * <p>The execution role for the space.</p>
+   */
+  ExecutionRole?: string;
+
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the space uses for communication.</p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>The JupyterServer app settings.</p>
+   */
+  JupyterServerAppSettings?: JupyterServerAppSettings;
+
+  /**
+   * <p>The KernelGateway app settings.</p>
+   */
+  KernelGatewayAppSettings?: KernelGatewayAppSettings;
 }
 
 /**
@@ -8664,6 +8724,11 @@ export interface CreateDomainRequest {
    * <p>A collection of <code>Domain</code> settings.</p>
    */
   DomainSettings?: DomainSettings;
+
+  /**
+   * <p>The default settings used to create a space.</p>
+   */
+  DefaultSpaceSettings?: DefaultSpaceSettings;
 }
 
 export interface CreateDomainResponse {
@@ -9213,6 +9278,16 @@ export interface CreateEndpointConfigInput {
    * <p>A member of <code>CreateEndpointConfig</code> that enables explainers.</p>
    */
   ExplainerConfig?: ExplainerConfig;
+
+  /**
+   * <p>
+   *            Array of <code>ProductionVariant</code> objects. There is one for each model that you want to host at this
+   *            endpoint in shadow mode with production traffic replicated from the model specified on
+   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
+   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
+   *        </p>
+   */
+  ShadowProductionVariants?: ProductionVariant[];
 }
 
 export interface CreateEndpointConfigOutput {
@@ -9331,137 +9406,6 @@ export interface S3StorageConfig {
    * <p>The S3 path where offline records are written.</p>
    */
   ResolvedOutputS3Uri?: string;
-}
-
-/**
- * <p>The configuration of an <code>OfflineStore</code>.</p>
- *          <p>Provide an <code>OfflineStoreConfig</code> in a request to
- *             <code>CreateFeatureGroup</code> to create an <code>OfflineStore</code>.</p>
- *          <p>To encrypt an <code>OfflineStore</code> using at rest data encryption, specify Amazon Web Services Key
- *          Management Service (KMS) key ID, or <code>KMSKeyId</code>, in
- *          <code>S3StorageConfig</code>.</p>
- */
-export interface OfflineStoreConfig {
-  /**
-   * <p>The Amazon Simple Storage (Amazon S3) location of <code>OfflineStore</code>.</p>
-   */
-  S3StorageConfig: S3StorageConfig | undefined;
-
-  /**
-   * <p>Set to <code>True</code> to disable the automatic creation of an Amazon Web Services Glue table when
-   *        configuring an <code>OfflineStore</code>.</p>
-   */
-  DisableGlueTableCreation?: boolean;
-
-  /**
-   * <p>The meta data of the Glue table that is autogenerated when an <code>OfflineStore</code>
-   *          is created. </p>
-   */
-  DataCatalogConfig?: DataCatalogConfig;
-}
-
-/**
- * <p>The security configuration for <code>OnlineStore</code>.</p>
- */
-export interface OnlineStoreSecurityConfig {
-  /**
-   * <p>The ID of the Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker Feature Store uses
-   *          to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.</p>
-   *          <p>The caller (either IAM user or IAM role) of <code>CreateFeatureGroup</code> must have
-   *          below permissions to the <code>OnlineStore</code>
-   *             <code>KmsKeyId</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:Encrypt"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:Decrypt"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:DescribeKey"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:CreateGrant"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:RetireGrant"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:ReEncryptFrom"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:ReEncryptTo"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:GenerateDataKey"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:ListAliases"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:ListGrants"</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:RevokeGrant"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The caller (either IAM user or IAM role) to all DataPlane operations
-   *             (<code>PutRecord</code>, <code>GetRecord</code>, <code>DeleteRecord</code>) must have
-   *          the following permissions to the <code>KmsKeyId</code>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>"kms:Decrypt"</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KmsKeyId?: string;
-}
-
-/**
- * <p>Use this to specify the Amazon Web Services Key Management Service (KMS) Key ID, or
- *             <code>KMSKeyId</code>, for at rest data encryption. You can turn
- *             <code>OnlineStore</code> on or off by specifying the <code>EnableOnlineStore</code> flag
- *          at General Assembly; the default value is <code>False</code>.</p>
- */
-export interface OnlineStoreConfig {
-  /**
-   * <p>Use to specify KMS Key ID (<code>KMSKeyId</code>) for at-rest encryption of your
-   *             <code>OnlineStore</code>.</p>
-   */
-  SecurityConfig?: OnlineStoreSecurityConfig;
-
-  /**
-   * <p>Turn <code>OnlineStore</code> off by specifying <code>False</code>
-   *       for the <code>EnableOnlineStore</code> flag. Turn <code>OnlineStore</code>
-   *       on by specifying <code>True</code>
-   *       for the <code>EnableOnlineStore</code> flag. </p>
-   *          <p>The default value is <code>False</code>.</p>
-   */
-  EnableOnlineStore?: boolean;
 }
 
 /**
@@ -9973,6 +9917,13 @@ export const AutoMLJobObjectiveFilterSensitiveLog = (obj: AutoMLJobObjective): a
 /**
  * @internal
  */
+export const AutoMLJobStepMetadataFilterSensitiveLog = (obj: AutoMLJobStepMetadata): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AutoMLPartialFailureReasonFilterSensitiveLog = (obj: AutoMLPartialFailureReason): any => ({
   ...obj,
 });
@@ -10235,6 +10186,13 @@ export const ClarifyShapConfigFilterSensitiveLog = (obj: ClarifyShapConfig): any
  * @internal
  */
 export const ClarifyExplainerConfigFilterSensitiveLog = (obj: ClarifyExplainerConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CodeRepositoryFilterSensitiveLog = (obj: CodeRepository): any => ({
   ...obj,
 });
 
@@ -10702,6 +10660,13 @@ export const KernelGatewayAppSettingsFilterSensitiveLog = (obj: KernelGatewayApp
 /**
  * @internal
  */
+export const DefaultSpaceSettingsFilterSensitiveLog = (obj: DefaultSpaceSettings): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const RSessionAppSettingsFilterSensitiveLog = (obj: RSessionAppSettings): any => ({
   ...obj,
 });
@@ -10920,26 +10885,5 @@ export const DataCatalogConfigFilterSensitiveLog = (obj: DataCatalogConfig): any
  * @internal
  */
 export const S3StorageConfigFilterSensitiveLog = (obj: S3StorageConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OfflineStoreConfigFilterSensitiveLog = (obj: OfflineStoreConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnlineStoreSecurityConfigFilterSensitiveLog = (obj: OnlineStoreSecurityConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const OnlineStoreConfigFilterSensitiveLog = (obj: OnlineStoreConfig): any => ({
   ...obj,
 });

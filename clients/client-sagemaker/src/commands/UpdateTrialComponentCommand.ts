@@ -18,7 +18,7 @@ import {
   UpdateTrialComponentRequestFilterSensitiveLog,
   UpdateTrialComponentResponse,
   UpdateTrialComponentResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateTrialComponentCommand,
   serializeAws_json1_1UpdateTrialComponentCommand,

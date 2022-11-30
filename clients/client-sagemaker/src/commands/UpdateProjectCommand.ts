@@ -18,7 +18,7 @@ import {
   UpdateProjectInputFilterSensitiveLog,
   UpdateProjectOutput,
   UpdateProjectOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateProjectCommand,
   serializeAws_json1_1UpdateProjectCommand,

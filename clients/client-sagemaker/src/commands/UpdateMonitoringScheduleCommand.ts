@@ -18,7 +18,7 @@ import {
   UpdateMonitoringScheduleRequestFilterSensitiveLog,
   UpdateMonitoringScheduleResponse,
   UpdateMonitoringScheduleResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateMonitoringScheduleCommand,
   serializeAws_json1_1UpdateMonitoringScheduleCommand,

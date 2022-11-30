@@ -18,7 +18,7 @@ import {
   ListInferenceRecommendationsJobsRequestFilterSensitiveLog,
   ListInferenceRecommendationsJobsResponse,
   ListInferenceRecommendationsJobsResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListInferenceRecommendationsJobsCommand,
   serializeAws_json1_1ListInferenceRecommendationsJobsCommand,

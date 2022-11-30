@@ -18,7 +18,7 @@ import {
   DescribeContextRequestFilterSensitiveLog,
   DescribeContextResponse,
   DescribeContextResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeContextCommand,
   serializeAws_json1_1DescribeContextCommand,
