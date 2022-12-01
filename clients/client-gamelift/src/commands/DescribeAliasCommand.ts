@@ -33,16 +33,10 @@ export interface DescribeAliasCommandOutput extends DescribeAliasOutput, __Metad
  *             settings. To get an alias's target fleet ID only, use <code>ResolveAlias</code>. </p>
  *         <p>To get alias properties, specify the alias ID. If successful, the requested alias
  *             record is returned.</p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateAlias</a> |
- *                     <a>ListAliases</a> |
- *                     <a>DescribeAlias</a> |
- *                     <a>UpdateAlias</a> |
- *                     <a>DeleteAlias</a> |
- *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

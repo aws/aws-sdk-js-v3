@@ -30,23 +30,8 @@ export interface StopGameSessionPlacementCommandOutput extends StopGameSessionPl
 
 /**
  * <p>Cancels a game session placement that is in <code>PENDING</code> status. To stop a
- *         placement, provide the placement ID values. If successful, the placement is moved to
- *         <code>CANCELLED</code> status.</p>
- *          <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *             placement, provide the placement ID values. If successful, the placement is moved to
+ *                 <code>CANCELLED</code> status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

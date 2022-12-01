@@ -19,7 +19,7 @@ import {
   UpdateGameSessionInputFilterSensitiveLog,
   UpdateGameSessionOutput,
   UpdateGameSessionOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateGameSessionCommand,
   serializeAws_json1_1UpdateGameSessionCommand,
@@ -34,18 +34,6 @@ export interface UpdateGameSessionCommandOutput extends UpdateGameSessionOutput,
  *             change. </p>
  *         <p>If successful, the updated <code>GameSession</code> object is returned. </p>
  *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameSession</a> |
- *                     <a>DescribeGameSessions</a> |
- *                     <a>DescribeGameSessionDetails</a> |
- *                     <a>SearchGameSessions</a> |
- *                     <a>UpdateGameSession</a> |
- *                     <a>GetGameSessionLogUrl</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
- *                     <a>StopGameSessionPlacement</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

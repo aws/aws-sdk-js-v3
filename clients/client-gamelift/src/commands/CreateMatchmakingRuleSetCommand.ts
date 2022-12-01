@@ -31,14 +31,12 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
 /**
  * <p>Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of match
  *             to create, such as the number and size of teams. It also sets the parameters for
- *             acceptable player matches, such as minimum skill level or character type. A rule set is
- *             used by a <a>MatchmakingConfiguration</a>. </p>
+ *             acceptable player matches, such as minimum skill level or character type.</p>
  *         <p>To create a matchmaking rule set, provide unique rule set name and the rule set body
  *             in JSON format. Rule sets must be defined in the same Region as the matchmaking
  *             configuration they are used with.</p>
- *         <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule
- *             set syntax using <a>ValidateMatchmakingRuleSet</a> before creating a new rule
- *             set.</p>
+ *         <p>Since matchmaking rule sets cannot be edited, it is a good idea to check the rule set
+ *             syntax using <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_ValidateMatchmakingRuleSet.html">ValidateMatchmakingRuleSet</a> before creating a new rule set.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -62,20 +60,6 @@ export interface CreateMatchmakingRuleSetCommandOutput extends CreateMatchmaking
  *                </p>
  *             </li>
  *          </ul>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

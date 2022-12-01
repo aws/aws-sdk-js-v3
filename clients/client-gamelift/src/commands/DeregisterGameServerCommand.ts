@@ -27,9 +27,9 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Removes the game server from a game server group. As a result of this operation, the
- *             deregistered game server can no longer be claimed and will not be returned in a list of
- *             active game servers. </p>
+ *          <p>Removes the game server from a
+ *             game server group. As a result of this operation, the deregistered game server can no
+ *             longer be claimed and will not be returned in a list of active game servers. </p>
  *         <p>To deregister a game server, specify the game server group and game server ID. If
  *             successful, this operation emits a CloudWatch event with termination timestamp and
  *             reason.</p>
@@ -37,20 +37,9 @@ export interface DeregisterGameServerCommandOutput extends __MetadataBearer {}
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>RegisterGameServer</a> |
- *                     <a>ListGameServers</a> |
- *                     <a>ClaimGameServer</a> |
- *                     <a>DescribeGameServer</a> |
- *                     <a>UpdateGameServer</a> |
- *                     <a>DeregisterGameServer</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

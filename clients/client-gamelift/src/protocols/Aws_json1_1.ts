@@ -39,6 +39,7 @@ import {
   CreateGameSessionQueueCommandInput,
   CreateGameSessionQueueCommandOutput,
 } from "../commands/CreateGameSessionQueueCommand";
+import { CreateLocationCommandInput, CreateLocationCommandOutput } from "../commands/CreateLocationCommand";
 import {
   CreateMatchmakingConfigurationCommandInput,
   CreateMatchmakingConfigurationCommandOutput,
@@ -79,6 +80,7 @@ import {
   DeleteGameSessionQueueCommandInput,
   DeleteGameSessionQueueCommandOutput,
 } from "../commands/DeleteGameSessionQueueCommand";
+import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "../commands/DeleteLocationCommand";
 import {
   DeleteMatchmakingConfigurationCommandInput,
   DeleteMatchmakingConfigurationCommandOutput,
@@ -100,12 +102,14 @@ import {
   DeleteVpcPeeringConnectionCommandInput,
   DeleteVpcPeeringConnectionCommandOutput,
 } from "../commands/DeleteVpcPeeringConnectionCommand";
+import { DeregisterComputeCommandInput, DeregisterComputeCommandOutput } from "../commands/DeregisterComputeCommand";
 import {
   DeregisterGameServerCommandInput,
   DeregisterGameServerCommandOutput,
 } from "../commands/DeregisterGameServerCommand";
 import { DescribeAliasCommandInput, DescribeAliasCommandOutput } from "../commands/DescribeAliasCommand";
 import { DescribeBuildCommandInput, DescribeBuildCommandOutput } from "../commands/DescribeBuildCommand";
+import { DescribeComputeCommandInput, DescribeComputeCommandOutput } from "../commands/DescribeComputeCommand";
 import {
   DescribeEC2InstanceLimitsCommandInput,
   DescribeEC2InstanceLimitsCommandOutput,
@@ -201,6 +205,11 @@ import {
   DescribeVpcPeeringConnectionsCommandInput,
   DescribeVpcPeeringConnectionsCommandOutput,
 } from "../commands/DescribeVpcPeeringConnectionsCommand";
+import { GetComputeAccessCommandInput, GetComputeAccessCommandOutput } from "../commands/GetComputeAccessCommand";
+import {
+  GetComputeAuthTokenCommandInput,
+  GetComputeAuthTokenCommandOutput,
+} from "../commands/GetComputeAuthTokenCommand";
 import {
   GetGameSessionLogUrlCommandInput,
   GetGameSessionLogUrlCommandOutput,
@@ -208,18 +217,21 @@ import {
 import { GetInstanceAccessCommandInput, GetInstanceAccessCommandOutput } from "../commands/GetInstanceAccessCommand";
 import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import { ListBuildsCommandInput, ListBuildsCommandOutput } from "../commands/ListBuildsCommand";
+import { ListComputeCommandInput, ListComputeCommandOutput } from "../commands/ListComputeCommand";
 import { ListFleetsCommandInput, ListFleetsCommandOutput } from "../commands/ListFleetsCommand";
 import {
   ListGameServerGroupsCommandInput,
   ListGameServerGroupsCommandOutput,
 } from "../commands/ListGameServerGroupsCommand";
 import { ListGameServersCommandInput, ListGameServersCommandOutput } from "../commands/ListGameServersCommand";
+import { ListLocationsCommandInput, ListLocationsCommandOutput } from "../commands/ListLocationsCommand";
 import { ListScriptsCommandInput, ListScriptsCommandOutput } from "../commands/ListScriptsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutScalingPolicyCommandInput, PutScalingPolicyCommandOutput } from "../commands/PutScalingPolicyCommand";
+import { RegisterComputeCommandInput, RegisterComputeCommandOutput } from "../commands/RegisterComputeCommand";
 import { RegisterGameServerCommandInput, RegisterGameServerCommandOutput } from "../commands/RegisterGameServerCommand";
 import {
   RequestUploadCredentialsCommandInput,
@@ -292,12 +304,14 @@ import {
   AcceptMatchInput,
   AcceptMatchOutput,
   Alias,
+  AnywhereConfiguration,
   AttributeValue,
   AwsCredentials,
   Build,
   CertificateConfiguration,
   ClaimGameServerInput,
   ClaimGameServerOutput,
+  Compute,
   ConflictException,
   CreateAliasInput,
   CreateAliasOutput,
@@ -313,6 +327,8 @@ import {
   CreateGameSessionOutput,
   CreateGameSessionQueueInput,
   CreateGameSessionQueueOutput,
+  CreateLocationInput,
+  CreateLocationOutput,
   CreateMatchmakingConfigurationInput,
   CreateMatchmakingConfigurationOutput,
   CreateMatchmakingRuleSetInput,
@@ -336,6 +352,8 @@ import {
   DeleteGameServerGroupOutput,
   DeleteGameSessionQueueInput,
   DeleteGameSessionQueueOutput,
+  DeleteLocationInput,
+  DeleteLocationOutput,
   DeleteMatchmakingConfigurationInput,
   DeleteMatchmakingConfigurationOutput,
   DeleteMatchmakingRuleSetInput,
@@ -346,11 +364,15 @@ import {
   DeleteVpcPeeringAuthorizationOutput,
   DeleteVpcPeeringConnectionInput,
   DeleteVpcPeeringConnectionOutput,
+  DeregisterComputeInput,
+  DeregisterComputeOutput,
   DeregisterGameServerInput,
   DescribeAliasInput,
   DescribeAliasOutput,
   DescribeBuildInput,
   DescribeBuildOutput,
+  DescribeComputeInput,
+  DescribeComputeOutput,
   DescribeEC2InstanceLimitsInput,
   DescribeEC2InstanceLimitsOutput,
   DescribeFleetAttributesInput,
@@ -426,6 +448,10 @@ import {
   GameSessionPlacement,
   GameSessionQueue,
   GameSessionQueueDestination,
+  GetComputeAccessInput,
+  GetComputeAccessOutput,
+  GetComputeAuthTokenInput,
+  GetComputeAuthTokenOutput,
   GetGameSessionLogUrlInput,
   GetGameSessionLogUrlOutput,
   GetInstanceAccessInput,
@@ -446,18 +472,24 @@ import {
   ListAliasesOutput,
   ListBuildsInput,
   ListBuildsOutput,
+  ListComputeInput,
+  ListComputeOutput,
   ListFleetsInput,
   ListFleetsOutput,
   ListGameServerGroupsInput,
   ListGameServerGroupsOutput,
   ListGameServersInput,
   ListGameServersOutput,
+  ListLocationsInput,
+  ListLocationsOutput,
   ListScriptsInput,
   ListScriptsOutput,
   ListTagsForResourceRequest,
   ListTagsForResourceResponse,
   LocationAttributes,
   LocationConfiguration,
+  LocationFilter,
+  LocationModel,
   LocationState,
   MatchedPlayerSession,
   MatchmakingConfiguration,
@@ -474,6 +506,8 @@ import {
   PriorityType,
   PutScalingPolicyInput,
   PutScalingPolicyOutput,
+  RegisterComputeInput,
+  RegisterComputeOutput,
   RegisterGameServerInput,
   RegisterGameServerOutput,
   RequestUploadCredentialsInput,
@@ -527,6 +561,11 @@ import {
   UpdateFleetCapacityInput,
   UpdateFleetCapacityOutput,
   UpdateFleetPortSettingsInput,
+  VpcPeeringAuthorization,
+  VpcPeeringConnection,
+  VpcPeeringConnectionStatus,
+} from "../models/models_0";
+import {
   UpdateFleetPortSettingsOutput,
   UpdateGameServerGroupInput,
   UpdateGameServerGroupOutput,
@@ -544,10 +583,7 @@ import {
   UpdateScriptOutput,
   ValidateMatchmakingRuleSetInput,
   ValidateMatchmakingRuleSetOutput,
-  VpcPeeringAuthorization,
-  VpcPeeringConnection,
-  VpcPeeringConnectionStatus,
-} from "../models/models_0";
+} from "../models/models_1";
 
 export const serializeAws_json1_1AcceptMatchCommand = async (
   input: AcceptMatchCommandInput,
@@ -663,6 +699,19 @@ export const serializeAws_json1_1CreateGameSessionQueueCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1CreateGameSessionQueueInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1CreateLocationCommand = async (
+  input: CreateLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.CreateLocation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1CreateLocationInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -835,6 +884,19 @@ export const serializeAws_json1_1DeleteGameSessionQueueCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeleteLocationCommand = async (
+  input: DeleteLocationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DeleteLocation",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeleteLocationInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeleteMatchmakingConfigurationCommand = async (
   input: DeleteMatchmakingConfigurationCommandInput,
   context: __SerdeContext
@@ -913,6 +975,19 @@ export const serializeAws_json1_1DeleteVpcPeeringConnectionCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1DeregisterComputeCommand = async (
+  input: DeregisterComputeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DeregisterCompute",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DeregisterComputeInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1DeregisterGameServerCommand = async (
   input: DeregisterGameServerCommandInput,
   context: __SerdeContext
@@ -949,6 +1024,19 @@ export const serializeAws_json1_1DescribeBuildCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DescribeBuildInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DescribeComputeCommand = async (
+  input: DescribeComputeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.DescribeCompute",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DescribeComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1290,6 +1378,32 @@ export const serializeAws_json1_1DescribeVpcPeeringConnectionsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1GetComputeAccessCommand = async (
+  input: GetComputeAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.GetComputeAccess",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetComputeAccessInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1GetComputeAuthTokenCommand = async (
+  input: GetComputeAuthTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.GetComputeAuthToken",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1GetComputeAuthTokenInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1GetGameSessionLogUrlCommand = async (
   input: GetGameSessionLogUrlCommandInput,
   context: __SerdeContext
@@ -1342,6 +1456,19 @@ export const serializeAws_json1_1ListBuildsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListComputeCommand = async (
+  input: ListComputeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.ListCompute",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListComputeInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListFleetsCommand = async (
   input: ListFleetsCommandInput,
   context: __SerdeContext
@@ -1381,6 +1508,19 @@ export const serializeAws_json1_1ListGameServersCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListLocationsCommand = async (
+  input: ListLocationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.ListLocations",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListLocationsInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListScriptsCommand = async (
   input: ListScriptsCommandInput,
   context: __SerdeContext
@@ -1417,6 +1557,19 @@ export const serializeAws_json1_1PutScalingPolicyCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1PutScalingPolicyInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1RegisterComputeCommand = async (
+  input: RegisterComputeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "GameLift.RegisterCompute",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1RegisterComputeInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -2088,6 +2241,9 @@ const deserializeAws_json1_1CreateFleetLocationsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
     case "InternalServiceException":
     case "com.amazonaws.gamelift#InternalServiceException":
       throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
@@ -2297,6 +2453,62 @@ const deserializeAws_json1_1CreateGameSessionQueueCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1CreateLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1CreateLocationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1CreateLocationOutput(data, context);
+  const response: CreateLocationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1CreateLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "TaggingFailedException":
+    case "com.amazonaws.gamelift#TaggingFailedException":
+      throw await deserializeAws_json1_1TaggingFailedExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1CreateMatchmakingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2386,6 +2598,9 @@ const deserializeAws_json1_1CreateMatchmakingRuleSetCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.gamelift#InvalidRequestException":
       throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.gamelift#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
     case "TaggingFailedException":
     case "com.amazonaws.gamelift#TaggingFailedException":
       throw await deserializeAws_json1_1TaggingFailedExceptionResponse(parsedOutput, context);
@@ -2983,6 +3198,56 @@ const deserializeAws_json1_1DeleteGameSessionQueueCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeleteLocationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeleteLocationCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeleteLocationOutput(data, context);
+  const response: DeleteLocationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeleteLocationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteLocationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeleteMatchmakingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3286,6 +3551,56 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1DeregisterComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DeregisterComputeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DeregisterComputeOutput(data, context);
+  const response: DeregisterComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DeregisterComputeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterComputeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1DeregisterGameServerCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3404,6 +3719,56 @@ const deserializeAws_json1_1DescribeBuildCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeBuildCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DescribeComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DescribeComputeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DescribeComputeOutput(data, context);
+  const response: DescribeComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DescribeComputeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeComputeCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -3831,6 +4196,9 @@ const deserializeAws_json1_1DescribeFleetPortSettingsCommandError = async (
     case "UnauthorizedException":
     case "com.amazonaws.gamelift#UnauthorizedException":
       throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    case "UnsupportedRegionException":
+    case "com.amazonaws.gamelift#UnsupportedRegionException":
+      throw await deserializeAws_json1_1UnsupportedRegionExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4751,6 +5119,106 @@ const deserializeAws_json1_1DescribeVpcPeeringConnectionsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1GetComputeAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComputeAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetComputeAccessCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComputeAccessOutput(data, context);
+  const response: GetComputeAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetComputeAccessCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComputeAccessCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1GetComputeAuthTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComputeAuthTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1GetComputeAuthTokenCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1GetComputeAuthTokenOutput(data, context);
+  const response: GetComputeAuthTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1GetComputeAuthTokenCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetComputeAuthTokenCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "NotFoundException":
+    case "com.amazonaws.gamelift#NotFoundException":
+      throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1GetGameSessionLogUrlCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -4945,6 +5413,53 @@ const deserializeAws_json1_1ListBuildsCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1ListComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListComputeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListComputeOutput(data, context);
+  const response: ListComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListComputeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListComputeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListFleetsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -5063,6 +5578,53 @@ const deserializeAws_json1_1ListGameServersCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListGameServersCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ListLocationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLocationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListLocationsCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListLocationsOutput(data, context);
+  const response: ListLocationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListLocationsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLocationsCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -5222,6 +5784,56 @@ const deserializeAws_json1_1PutScalingPolicyCommandError = async (
     case "NotFoundException":
     case "com.amazonaws.gamelift#NotFoundException":
       throw await deserializeAws_json1_1NotFoundExceptionResponse(parsedOutput, context);
+    case "UnauthorizedException":
+    case "com.amazonaws.gamelift#UnauthorizedException":
+      throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1RegisterComputeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterComputeCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1RegisterComputeCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1RegisterComputeOutput(data, context);
+  const response: RegisterComputeCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1RegisterComputeCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterComputeCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ConflictException":
+    case "com.amazonaws.gamelift#ConflictException":
+      throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServiceException":
+    case "com.amazonaws.gamelift#InternalServiceException":
+      throw await deserializeAws_json1_1InternalServiceExceptionResponse(parsedOutput, context);
+    case "InvalidRequestException":
+    case "com.amazonaws.gamelift#InvalidRequestException":
+      throw await deserializeAws_json1_1InvalidRequestExceptionResponse(parsedOutput, context);
     case "UnauthorizedException":
     case "com.amazonaws.gamelift#UnauthorizedException":
       throw await deserializeAws_json1_1UnauthorizedExceptionResponse(parsedOutput, context);
@@ -6893,12 +7505,18 @@ const serializeAws_json1_1AcceptMatchInput = (input: AcceptMatchInput, context: 
   };
 };
 
+const serializeAws_json1_1AnywhereConfiguration = (input: AnywhereConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.Cost != null && { Cost: input.Cost }),
+  };
+};
+
 const serializeAws_json1_1AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return {
     ...(input.N != null && { N: __serializeFloat(input.N) }),
     ...(input.S != null && { S: input.S }),
-    ...(input.SDM != null && { SDM: serializeAws_json1_1StringDoubleMap(input.SDM, context) }),
-    ...(input.SL != null && { SL: serializeAws_json1_1StringList(input.SL, context) }),
+    ...(input.SDM != null && { SDM: serializeAws_json1_1PlayerAttributeStringDoubleMap(input.SDM, context) }),
+    ...(input.SL != null && { SL: serializeAws_json1_1PlayerAttributeStringList(input.SL, context) }),
   };
 };
 
@@ -6934,6 +7552,7 @@ const serializeAws_json1_1CreateBuildInput = (input: CreateBuildInput, context: 
   return {
     ...(input.Name != null && { Name: input.Name }),
     ...(input.OperatingSystem != null && { OperatingSystem: input.OperatingSystem }),
+    ...(input.ServerSdkVersion != null && { ServerSdkVersion: input.ServerSdkVersion }),
     ...(input.StorageLocation != null && {
       StorageLocation: serializeAws_json1_1S3Location(input.StorageLocation, context),
     }),
@@ -6944,10 +7563,14 @@ const serializeAws_json1_1CreateBuildInput = (input: CreateBuildInput, context: 
 
 const serializeAws_json1_1CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): any => {
   return {
+    ...(input.AnywhereConfiguration != null && {
+      AnywhereConfiguration: serializeAws_json1_1AnywhereConfiguration(input.AnywhereConfiguration, context),
+    }),
     ...(input.BuildId != null && { BuildId: input.BuildId }),
     ...(input.CertificateConfiguration != null && {
       CertificateConfiguration: serializeAws_json1_1CertificateConfiguration(input.CertificateConfiguration, context),
     }),
+    ...(input.ComputeType != null && { ComputeType: input.ComputeType }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.EC2InboundPermissions != null && {
       EC2InboundPermissions: serializeAws_json1_1IpPermissionsList(input.EC2InboundPermissions, context),
@@ -7060,6 +7683,13 @@ const serializeAws_json1_1CreateGameSessionQueueInput = (
     }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
     ...(input.TimeoutInSeconds != null && { TimeoutInSeconds: input.TimeoutInSeconds }),
+  };
+};
+
+const serializeAws_json1_1CreateLocationInput = (input: CreateLocationInput, context: __SerdeContext): any => {
+  return {
+    ...(input.LocationName != null && { LocationName: input.LocationName }),
+    ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
   };
 };
 
@@ -7205,6 +7835,12 @@ const serializeAws_json1_1DeleteGameSessionQueueInput = (
   };
 };
 
+const serializeAws_json1_1DeleteLocationInput = (input: DeleteLocationInput, context: __SerdeContext): any => {
+  return {
+    ...(input.LocationName != null && { LocationName: input.LocationName }),
+  };
+};
+
 const serializeAws_json1_1DeleteMatchmakingConfigurationInput = (
   input: DeleteMatchmakingConfigurationInput,
   context: __SerdeContext
@@ -7259,6 +7895,13 @@ const serializeAws_json1_1DeleteVpcPeeringConnectionInput = (
   };
 };
 
+const serializeAws_json1_1DeregisterComputeInput = (input: DeregisterComputeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputeName != null && { ComputeName: input.ComputeName }),
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
+  };
+};
+
 const serializeAws_json1_1DeregisterGameServerInput = (
   input: DeregisterGameServerInput,
   context: __SerdeContext
@@ -7278,6 +7921,13 @@ const serializeAws_json1_1DescribeAliasInput = (input: DescribeAliasInput, conte
 const serializeAws_json1_1DescribeBuildInput = (input: DescribeBuildInput, context: __SerdeContext): any => {
   return {
     ...(input.BuildId != null && { BuildId: input.BuildId }),
+  };
+};
+
+const serializeAws_json1_1DescribeComputeInput = (input: DescribeComputeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputeName != null && { ComputeName: input.ComputeName }),
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
   };
 };
 
@@ -7675,6 +8325,23 @@ const serializeAws_json1_1GameSessionQueueNameOrArnList = (input: string[], cont
     });
 };
 
+const serializeAws_json1_1GetComputeAccessInput = (input: GetComputeAccessInput, context: __SerdeContext): any => {
+  return {
+    ...(input.ComputeName != null && { ComputeName: input.ComputeName }),
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
+  };
+};
+
+const serializeAws_json1_1GetComputeAuthTokenInput = (
+  input: GetComputeAuthTokenInput,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.ComputeName != null && { ComputeName: input.ComputeName }),
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
+  };
+};
+
 const serializeAws_json1_1GetGameSessionLogUrlInput = (
   input: GetGameSessionLogUrlInput,
   context: __SerdeContext
@@ -7761,6 +8428,15 @@ const serializeAws_json1_1ListBuildsInput = (input: ListBuildsInput, context: __
   };
 };
 
+const serializeAws_json1_1ListComputeInput = (input: ListComputeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.Location != null && { Location: input.Location }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+  };
+};
+
 const serializeAws_json1_1ListFleetsInput = (input: ListFleetsInput, context: __SerdeContext): any => {
   return {
     ...(input.BuildId != null && { BuildId: input.BuildId }),
@@ -7786,6 +8462,14 @@ const serializeAws_json1_1ListGameServersInput = (input: ListGameServersInput, c
     ...(input.Limit != null && { Limit: input.Limit }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListLocationsInput = (input: ListLocationsInput, context: __SerdeContext): any => {
+  return {
+    ...(input.Filters != null && { Filters: serializeAws_json1_1LocationFilterList(input.Filters, context) }),
+    ...(input.Limit != null && { Limit: input.Limit }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
   };
 };
 
@@ -7819,6 +8503,14 @@ const serializeAws_json1_1LocationConfigurationList = (
     .filter((e: any) => e != null)
     .map((entry) => {
       return serializeAws_json1_1LocationConfiguration(entry, context);
+    });
+};
+
+const serializeAws_json1_1LocationFilterList = (input: (LocationFilter | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
     });
 };
 
@@ -7884,6 +8576,27 @@ const serializeAws_json1_1PlayerAttributeMap = (
     acc[key] = serializeAws_json1_1AttributeValue(value, context);
     return acc;
   }, {});
+};
+
+const serializeAws_json1_1PlayerAttributeStringDoubleMap = (
+  input: Record<string, number>,
+  context: __SerdeContext
+): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __serializeFloat(value);
+    return acc;
+  }, {});
+};
+
+const serializeAws_json1_1PlayerAttributeStringList = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
 };
 
 const serializeAws_json1_1PlayerDataMap = (input: Record<string, string>, context: __SerdeContext): any => {
@@ -7989,6 +8702,17 @@ const serializeAws_json1_1QueueArnsList = (input: string[], context: __SerdeCont
     .map((entry) => {
       return entry;
     });
+};
+
+const serializeAws_json1_1RegisterComputeInput = (input: RegisterComputeInput, context: __SerdeContext): any => {
+  return {
+    ...(input.CertificatePath != null && { CertificatePath: input.CertificatePath }),
+    ...(input.ComputeName != null && { ComputeName: input.ComputeName }),
+    ...(input.DnsName != null && { DnsName: input.DnsName }),
+    ...(input.FleetId != null && { FleetId: input.FleetId }),
+    ...(input.IpAddress != null && { IpAddress: input.IpAddress }),
+    ...(input.Location != null && { Location: input.Location }),
+  };
 };
 
 const serializeAws_json1_1RegisterGameServerInput = (input: RegisterGameServerInput, context: __SerdeContext): any => {
@@ -8167,16 +8891,6 @@ const serializeAws_json1_1StopMatchmakingInput = (input: StopMatchmakingInput, c
   };
 };
 
-const serializeAws_json1_1StringDoubleMap = (input: Record<string, number>, context: __SerdeContext): any => {
-  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __serializeFloat(value);
-    return acc;
-  }, {});
-};
-
 const serializeAws_json1_1StringList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
@@ -8273,6 +8987,9 @@ const serializeAws_json1_1UpdateFleetAttributesInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AnywhereConfiguration != null && {
+      AnywhereConfiguration: serializeAws_json1_1AnywhereConfiguration(input.AnywhereConfiguration, context),
+    }),
     ...(input.Description != null && { Description: input.Description }),
     ...(input.FleetId != null && { FleetId: input.FleetId }),
     ...(input.MetricGroups != null && {
@@ -8487,12 +9204,18 @@ const deserializeAws_json1_1AliasList = (output: any, context: __SerdeContext): 
   return retVal;
 };
 
+const deserializeAws_json1_1AnywhereConfiguration = (output: any, context: __SerdeContext): AnywhereConfiguration => {
+  return {
+    Cost: __expectString(output.Cost),
+  } as any;
+};
+
 const deserializeAws_json1_1AttributeValue = (output: any, context: __SerdeContext): AttributeValue => {
   return {
     N: __limitedParseDouble(output.N),
     S: __expectString(output.S),
-    SDM: output.SDM != null ? deserializeAws_json1_1StringDoubleMap(output.SDM, context) : undefined,
-    SL: output.SL != null ? deserializeAws_json1_1StringList(output.SL, context) : undefined,
+    SDM: output.SDM != null ? deserializeAws_json1_1PlayerAttributeStringDoubleMap(output.SDM, context) : undefined,
+    SL: output.SL != null ? deserializeAws_json1_1PlayerAttributeStringList(output.SL, context) : undefined,
   } as any;
 };
 
@@ -8514,6 +9237,7 @@ const deserializeAws_json1_1Build = (output: any, context: __SerdeContext): Buil
         : undefined,
     Name: __expectString(output.Name),
     OperatingSystem: __expectString(output.OperatingSystem),
+    ServerSdkVersion: __expectString(output.ServerSdkVersion),
     SizeOnDisk: __expectLong(output.SizeOnDisk),
     Status: __expectString(output.Status),
     Version: __expectString(output.Version),
@@ -8545,6 +9269,38 @@ const deserializeAws_json1_1ClaimGameServerOutput = (output: any, context: __Ser
   return {
     GameServer: output.GameServer != null ? deserializeAws_json1_1GameServer(output.GameServer, context) : undefined,
   } as any;
+};
+
+const deserializeAws_json1_1Compute = (output: any, context: __SerdeContext): Compute => {
+  return {
+    ComputeArn: __expectString(output.ComputeArn),
+    ComputeName: __expectString(output.ComputeName),
+    ComputeStatus: __expectString(output.ComputeStatus),
+    CreationTime:
+      output.CreationTime != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
+        : undefined,
+    DnsName: __expectString(output.DnsName),
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+    GameLiftServiceSdkEndpoint: __expectString(output.GameLiftServiceSdkEndpoint),
+    IpAddress: __expectString(output.IpAddress),
+    Location: __expectString(output.Location),
+    OperatingSystem: __expectString(output.OperatingSystem),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
+const deserializeAws_json1_1ComputeList = (output: any, context: __SerdeContext): Compute[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Compute(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1ConflictException = (output: any, context: __SerdeContext): ConflictException => {
@@ -8629,6 +9385,12 @@ const deserializeAws_json1_1CreateGameSessionQueueOutput = (
       output.GameSessionQueue != null
         ? deserializeAws_json1_1GameSessionQueue(output.GameSessionQueue, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1CreateLocationOutput = (output: any, context: __SerdeContext): CreateLocationOutput => {
+  return {
+    Location: output.Location != null ? deserializeAws_json1_1LocationModel(output.Location, context) : undefined,
   } as any;
 };
 
@@ -8733,6 +9495,10 @@ const deserializeAws_json1_1DeleteGameSessionQueueOutput = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeleteLocationOutput = (output: any, context: __SerdeContext): DeleteLocationOutput => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DeleteMatchmakingConfigurationOutput = (
   output: any,
   context: __SerdeContext
@@ -8761,6 +9527,13 @@ const deserializeAws_json1_1DeleteVpcPeeringConnectionOutput = (
   return {} as any;
 };
 
+const deserializeAws_json1_1DeregisterComputeOutput = (
+  output: any,
+  context: __SerdeContext
+): DeregisterComputeOutput => {
+  return {} as any;
+};
+
 const deserializeAws_json1_1DescribeAliasOutput = (output: any, context: __SerdeContext): DescribeAliasOutput => {
   return {
     Alias: output.Alias != null ? deserializeAws_json1_1Alias(output.Alias, context) : undefined,
@@ -8770,6 +9543,12 @@ const deserializeAws_json1_1DescribeAliasOutput = (output: any, context: __Serde
 const deserializeAws_json1_1DescribeBuildOutput = (output: any, context: __SerdeContext): DescribeBuildOutput => {
   return {
     Build: output.Build != null ? deserializeAws_json1_1Build(output.Build, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DescribeComputeOutput = (output: any, context: __SerdeContext): DescribeComputeOutput => {
+  return {
+    Compute: output.Compute != null ? deserializeAws_json1_1Compute(output.Compute, context) : undefined,
   } as any;
 };
 
@@ -9160,12 +9939,17 @@ const deserializeAws_json1_1FleetActionList = (output: any, context: __SerdeCont
 
 const deserializeAws_json1_1FleetAttributes = (output: any, context: __SerdeContext): FleetAttributes => {
   return {
+    AnywhereConfiguration:
+      output.AnywhereConfiguration != null
+        ? deserializeAws_json1_1AnywhereConfiguration(output.AnywhereConfiguration, context)
+        : undefined,
     BuildArn: __expectString(output.BuildArn),
     BuildId: __expectString(output.BuildId),
     CertificateConfiguration:
       output.CertificateConfiguration != null
         ? deserializeAws_json1_1CertificateConfiguration(output.CertificateConfiguration, context)
         : undefined,
+    ComputeType: __expectString(output.ComputeType),
     CreationTime:
       output.CreationTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
@@ -9601,6 +10385,34 @@ const deserializeAws_json1_1GameSessionQueueList = (output: any, context: __Serd
   return retVal;
 };
 
+const deserializeAws_json1_1GetComputeAccessOutput = (output: any, context: __SerdeContext): GetComputeAccessOutput => {
+  return {
+    ComputeArn: __expectString(output.ComputeArn),
+    ComputeName: __expectString(output.ComputeName),
+    Credentials:
+      output.Credentials != null ? deserializeAws_json1_1AwsCredentials(output.Credentials, context) : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+  } as any;
+};
+
+const deserializeAws_json1_1GetComputeAuthTokenOutput = (
+  output: any,
+  context: __SerdeContext
+): GetComputeAuthTokenOutput => {
+  return {
+    AuthToken: __expectString(output.AuthToken),
+    ComputeArn: __expectString(output.ComputeArn),
+    ComputeName: __expectString(output.ComputeName),
+    ExpirationTimestamp:
+      output.ExpirationTimestamp != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ExpirationTimestamp)))
+        : undefined,
+    FleetArn: __expectString(output.FleetArn),
+    FleetId: __expectString(output.FleetId),
+  } as any;
+};
+
 const deserializeAws_json1_1GetGameSessionLogUrlOutput = (
   output: any,
   context: __SerdeContext
@@ -9783,6 +10595,14 @@ const deserializeAws_json1_1ListBuildsOutput = (output: any, context: __SerdeCon
   } as any;
 };
 
+const deserializeAws_json1_1ListComputeOutput = (output: any, context: __SerdeContext): ListComputeOutput => {
+  return {
+    ComputeList:
+      output.ComputeList != null ? deserializeAws_json1_1ComputeList(output.ComputeList, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
 const deserializeAws_json1_1ListFleetsOutput = (output: any, context: __SerdeContext): ListFleetsOutput => {
   return {
     FleetIds: output.FleetIds != null ? deserializeAws_json1_1FleetIdList(output.FleetIds, context) : undefined,
@@ -9807,6 +10627,14 @@ const deserializeAws_json1_1ListGameServersOutput = (output: any, context: __Ser
   return {
     GameServers:
       output.GameServers != null ? deserializeAws_json1_1GameServers(output.GameServers, context) : undefined,
+    NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListLocationsOutput = (output: any, context: __SerdeContext): ListLocationsOutput => {
+  return {
+    Locations:
+      output.Locations != null ? deserializeAws_json1_1LocationModelList(output.Locations, context) : undefined,
     NextToken: __expectString(output.NextToken),
   } as any;
 };
@@ -9857,6 +10685,25 @@ const deserializeAws_json1_1LocationList = (output: any, context: __SerdeContext
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1LocationModel = (output: any, context: __SerdeContext): LocationModel => {
+  return {
+    LocationArn: __expectString(output.LocationArn),
+    LocationName: __expectString(output.LocationName),
+  } as any;
+};
+
+const deserializeAws_json1_1LocationModelList = (output: any, context: __SerdeContext): LocationModel[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1LocationModel(entry, context);
     });
   return retVal;
 };
@@ -10076,6 +10923,31 @@ const deserializeAws_json1_1PlayerAttributeMap = (
   }, {});
 };
 
+const deserializeAws_json1_1PlayerAttributeStringDoubleMap = (
+  output: any,
+  context: __SerdeContext
+): Record<string, number> => {
+  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = __limitedParseDouble(value) as any;
+    return acc;
+  }, {});
+};
+
+const deserializeAws_json1_1PlayerAttributeStringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1PlayerLatency = (output: any, context: __SerdeContext): PlayerLatency => {
   return {
     LatencyInMilliseconds: __limitedParseFloat32(output.LatencyInMilliseconds),
@@ -10199,6 +11071,12 @@ const deserializeAws_json1_1QueueArnsList = (output: any, context: __SerdeContex
       return __expectString(entry) as any;
     });
   return retVal;
+};
+
+const deserializeAws_json1_1RegisterComputeOutput = (output: any, context: __SerdeContext): RegisterComputeOutput => {
+  return {
+    Compute: output.Compute != null ? deserializeAws_json1_1Compute(output.Compute, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_json1_1RegisterGameServerOutput = (
@@ -10440,16 +11318,6 @@ const deserializeAws_json1_1StopMatchmakingOutput = (output: any, context: __Ser
   return {} as any;
 };
 
-const deserializeAws_json1_1StringDoubleMap = (output: any, context: __SerdeContext): Record<string, number> => {
-  return Object.entries(output).reduce((acc: Record<string, number>, [key, value]: [string, any]) => {
-    if (value === null) {
-      return acc;
-    }
-    acc[key] = __limitedParseDouble(value) as any;
-    return acc;
-  }, {});
-};
-
 const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -10554,6 +11422,7 @@ const deserializeAws_json1_1UpdateFleetAttributesOutput = (
   context: __SerdeContext
 ): UpdateFleetAttributesOutput => {
   return {
+    FleetArn: __expectString(output.FleetArn),
     FleetId: __expectString(output.FleetId),
   } as any;
 };
@@ -10574,6 +11443,7 @@ const deserializeAws_json1_1UpdateFleetPortSettingsOutput = (
   context: __SerdeContext
 ): UpdateFleetPortSettingsOutput => {
   return {
+    FleetArn: __expectString(output.FleetArn),
     FleetId: __expectString(output.FleetId),
   } as any;
 };
