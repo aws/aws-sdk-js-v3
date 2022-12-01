@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-glacier",
   "description": "AWS SDK for JavaScript Glacier Client for Node.js, Browser and React Native",
-  "version": "3.218.0",
+  "version": "3.222.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -50,6 +50,7 @@
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
     "@aws-sdk/util-endpoints": "*",
+    "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-stream-browser": "*",
     "@aws-sdk/util-stream-node": "*",
     "@aws-sdk/util-user-agent-browser": "*",

@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-transcribe",
   "description": "AWS SDK for JavaScript Transcribe Client for Node.js, Browser and React Native",
-  "version": "3.218.0",
+  "version": "3.222.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -47,6 +47,7 @@
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
     "@aws-sdk/util-endpoints": "*",
+    "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-user-agent-browser": "*",
     "@aws-sdk/util-user-agent-node": "*",
     "@aws-sdk/util-utf8-browser": "*",
