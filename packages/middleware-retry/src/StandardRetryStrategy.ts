@@ -2,16 +2,17 @@ import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
-import { v4 } from "uuid";
-
-import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
+  DEFAULT_MAX_ATTEMPTS,
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
   INVOCATION_ID_HEADER,
   REQUEST_HEADER,
+  RETRY_MODES,
   THROTTLING_RETRY_DELAY_BASE,
-} from "./constants";
+} from "@aws-sdk/util-retry";
+import { v4 } from "uuid";
+
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
@@ -26,6 +27,9 @@ export interface StandardRetryStrategyOptions {
   retryQuota?: RetryQuota;
 }
 
+/**
+ * @deprected use StandardRetryStrategy from @aws-sdk/util-retry
+ */
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;

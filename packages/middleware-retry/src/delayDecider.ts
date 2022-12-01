@@ -1,4 +1,4 @@
-import { MAXIMUM_RETRY_DELAY } from "./constants";
+import { MAXIMUM_RETRY_DELAY } from "@aws-sdk/util-retry";
 
 /**
  * Calculate a capped, fully-jittered exponential backoff time.

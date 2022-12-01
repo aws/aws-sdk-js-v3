@@ -6,7 +6,7 @@ import {
   TRANSIENT_ERROR_CODES,
   TRANSIENT_ERROR_STATUS_CODES,
 } from "./constants";
-import { isClockSkewError, isRetryableByTrait, isThrottlingError, isTransientError } from "./index";
+import { isClockSkewError, isRetryableByTrait, isServerError, isThrottlingError, isTransientError } from "./index";
 
 const checkForErrorType = (
   isErrorTypeFunc: (error: SdkError) => boolean,
@@ -126,4 +126,17 @@ describe("isTransientError", () => {
       break;
     }
   }
+});
+
+describe("isServerError", () => {
+  [501, 505, 511].forEach((httpStatusCode) => {
+    it(`should declare error with the HTTP Status Code "${httpStatusCode}" to be a Server error`, () => {
+      checkForErrorType(isServerError, { httpStatusCode }, true);
+    });
+  });
+  TRANSIENT_ERROR_STATUS_CODES.forEach((httpStatusCode) => {
+    it(`should declare error with the HTTP Status Code "${httpStatusCode}" to not be be a Server error`, () => {
+      checkForErrorType(isServerError, { httpStatusCode }, false);
+    });
+  });
 });
