@@ -32,6 +32,11 @@ import {
   DescribeExecutionCommandOutput,
 } from "./commands/DescribeExecutionCommand";
 import {
+  DescribeMapRunCommand,
+  DescribeMapRunCommandInput,
+  DescribeMapRunCommandOutput,
+} from "./commands/DescribeMapRunCommand";
+import {
   DescribeStateMachineCommand,
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -61,6 +66,7 @@ import {
   ListExecutionsCommandInput,
   ListExecutionsCommandOutput,
 } from "./commands/ListExecutionsCommand";
+import { ListMapRunsCommand, ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
 import {
   ListStateMachinesCommand,
   ListStateMachinesCommandInput,
@@ -107,6 +113,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateMapRunCommand,
+  UpdateMapRunCommandInput,
+  UpdateMapRunCommandOutput,
+} from "./commands/UpdateMapRunCommand";
 import {
   UpdateStateMachineCommand,
   UpdateStateMachineCommandInput,
@@ -267,6 +278,11 @@ export class SFN extends SFNClient {
   /**
    * <p>Deletes a state machine. This is an asynchronous operation: It sets the state machine's
    *       status to <code>DELETING</code> and begins the deletion process. </p>
+   *
+   *          <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+   *
+   *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+   *
    *          <note>
    *             <p>For <code>EXPRESS</code> state machines, the deletion will happen eventually (usually
    *         less than a minute). Running executions may emit logs after <code>DeleteStateMachine</code>
@@ -338,11 +354,11 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Describes an execution.</p>
+   * <p>Provides all information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. Use this API action to return the Map Run ARN if the execution was dispatched by a Map Run.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
-   *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+   *          <p>This API action is not supported by <code>EXPRESS</code> state machine executions unless they were dispatched by a Map Run.</p>
    */
   public describeExecution(
     args: DescribeExecutionCommandInput,
@@ -374,7 +390,42 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Describes a state machine.</p>
+   * <p>Provides information about a Map Run's configuration, progress, and results. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
+   */
+  public describeMapRun(
+    args: DescribeMapRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMapRunCommandOutput>;
+  public describeMapRun(
+    args: DescribeMapRunCommandInput,
+    cb: (err: any, data?: DescribeMapRunCommandOutput) => void
+  ): void;
+  public describeMapRun(
+    args: DescribeMapRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMapRunCommandOutput) => void
+  ): void;
+  public describeMapRun(
+    args: DescribeMapRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMapRunCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMapRunCommandOutput) => void
+  ): Promise<DescribeMapRunCommandOutput> | void {
+    const command = new DescribeMapRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Provides information about a state machine's definition, its IAM role Amazon Resource Name (ARN), and configuration. If the state machine ARN is a qualified state machine ARN, the response returned includes the <code>Map</code> state's label.</p>
+   *
+   *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+   *
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
@@ -409,7 +460,7 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Describes the state machine associated with a specific execution.</p>
+   * <p>Provides information about a state machine's definition, its execution role ARN, and configuration. If an execution was dispatched by a Map Run, the Map Run is returned in the response. Additionally, the state machine returned will be the state machine associated with the Map Run.</p>
    *          <note>
    *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
    *          </note>
@@ -568,7 +619,8 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Lists the executions of a state machine that meet the filtering criteria. Results are
+   * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
+   *          <p>Results are
    *       sorted by time, with the most recent execution first.</p>
    *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
@@ -596,6 +648,32 @@ export class SFN extends SFNClient {
     cb?: (err: any, data?: ListExecutionsCommandOutput) => void
   ): Promise<ListExecutionsCommandOutput> | void {
     const command = new ListExecutionsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>
+   */
+  public listMapRuns(args: ListMapRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapRunsCommandOutput>;
+  public listMapRuns(args: ListMapRunsCommandInput, cb: (err: any, data?: ListMapRunsCommandOutput) => void): void;
+  public listMapRuns(
+    args: ListMapRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMapRunsCommandOutput) => void
+  ): void;
+  public listMapRuns(
+    args: ListMapRunsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListMapRunsCommandOutput) => void),
+    cb?: (err: any, data?: ListMapRunsCommandOutput) => void
+  ): Promise<ListMapRunsCommandOutput> | void {
+    const command = new ListMapRunsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -790,7 +868,10 @@ export class SFN extends SFNClient {
   }
 
   /**
-   * <p>Starts a state machine execution.</p>
+   * <p>Starts a state machine execution. If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+   *
+   *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+   *
    *          <note>
    *             <p>
    *                <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For a
@@ -972,11 +1053,45 @@ export class SFN extends SFNClient {
   }
 
   /**
+   * <p>Updates an in-progress Map Run's configuration to include changes to the settings that control maximum concurrency and Map Run failure.</p>
+   */
+  public updateMapRun(
+    args: UpdateMapRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMapRunCommandOutput>;
+  public updateMapRun(args: UpdateMapRunCommandInput, cb: (err: any, data?: UpdateMapRunCommandOutput) => void): void;
+  public updateMapRun(
+    args: UpdateMapRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMapRunCommandOutput) => void
+  ): void;
+  public updateMapRun(
+    args: UpdateMapRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMapRunCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMapRunCommandOutput) => void
+  ): Promise<UpdateMapRunCommandOutput> | void {
+    const command = new UpdateMapRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates an existing state machine by modifying its <code>definition</code>,
    *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
    *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
    *       least one of <code>definition</code> or <code>roleArn</code> or you will receive a
    *         <code>MissingRequiredParameter</code> error.</p>
+   *
+   *          <p>If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+   *
+   *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+   *
    *          <note>
    *             <p>All <code>StartExecution</code> calls within a few seconds will use the updated
    *           <code>definition</code> and <code>roleArn</code>. Executions started immediately after

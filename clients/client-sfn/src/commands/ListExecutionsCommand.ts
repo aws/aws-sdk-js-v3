@@ -29,7 +29,8 @@ export interface ListExecutionsCommandInput extends ListExecutionsInput {}
 export interface ListExecutionsCommandOutput extends ListExecutionsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the executions of a state machine that meet the filtering criteria. Results are
+ * <p>Lists all executions of a state machine or a Map Run. You can list all executions related to a state machine by specifying a state machine Amazon Resource Name (ARN), or those related to a Map Run by specifying a Map Run ARN.</p>
+ *          <p>Results are
  *       sorted by time, with the most recent execution first.</p>
  *          <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
  *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>

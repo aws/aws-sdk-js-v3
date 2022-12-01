@@ -14,44 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  DescribeExecutionInput,
-  DescribeExecutionInputFilterSensitiveLog,
-  DescribeExecutionOutput,
-  DescribeExecutionOutputFilterSensitiveLog,
+  ListMapRunsInput,
+  ListMapRunsInputFilterSensitiveLog,
+  ListMapRunsOutput,
+  ListMapRunsOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_0DescribeExecutionCommand,
-  serializeAws_json1_0DescribeExecutionCommand,
+  deserializeAws_json1_0ListMapRunsCommand,
+  serializeAws_json1_0ListMapRunsCommand,
 } from "../protocols/Aws_json1_0";
 import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "../SFNClient";
 
-export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
-export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
+export interface ListMapRunsCommandInput extends ListMapRunsInput {}
+export interface ListMapRunsCommandOutput extends ListMapRunsOutput, __MetadataBearer {}
 
 /**
- * <p>Provides all information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. Use this API action to return the Map Run ARN if the execution was dispatched by a Map Run.</p>
- *          <note>
- *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
- *          </note>
- *          <p>This API action is not supported by <code>EXPRESS</code> state machine executions unless they were dispatched by a Map Run.</p>
+ * <p>Lists all Map Runs that were started by a given state machine execution. Use this API action to obtain Map Run ARNs, and then call <code>DescribeMapRun</code> to obtain more information, if needed.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SFNClient, DescribeExecutionCommand } from "@aws-sdk/client-sfn"; // ES Modules import
- * // const { SFNClient, DescribeExecutionCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
+ * import { SFNClient, ListMapRunsCommand } from "@aws-sdk/client-sfn"; // ES Modules import
+ * // const { SFNClient, ListMapRunsCommand } = require("@aws-sdk/client-sfn"); // CommonJS import
  * const client = new SFNClient(config);
- * const command = new DescribeExecutionCommand(input);
+ * const command = new ListMapRunsCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeExecutionCommandInput} for command's `input` shape.
- * @see {@link DescribeExecutionCommandOutput} for command's `response` shape.
+ * @see {@link ListMapRunsCommandInput} for command's `input` shape.
+ * @see {@link ListMapRunsCommandOutput} for command's `response` shape.
  * @see {@link SFNClientResolvedConfig | config} for SFNClient's `config` shape.
  *
  */
-export class DescribeExecutionCommand extends $Command<
-  DescribeExecutionCommandInput,
-  DescribeExecutionCommandOutput,
+export class ListMapRunsCommand extends $Command<
+  ListMapRunsCommandInput,
+  ListMapRunsCommandOutput,
   SFNClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +62,7 @@ export class DescribeExecutionCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeExecutionCommandInput) {
+  constructor(readonly input: ListMapRunsCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,23 +75,21 @@ export class DescribeExecutionCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SFNClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeExecutionCommandInput, DescribeExecutionCommandOutput> {
+  ): Handler<ListMapRunsCommandInput, ListMapRunsCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeExecutionCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, ListMapRunsCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SFNClient";
-    const commandName = "DescribeExecutionCommand";
+    const commandName = "ListMapRunsCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: DescribeExecutionInputFilterSensitiveLog,
-      outputFilterSensitiveLog: DescribeExecutionOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: ListMapRunsInputFilterSensitiveLog,
+      outputFilterSensitiveLog: ListMapRunsOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -105,12 +99,12 @@ export class DescribeExecutionCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeExecutionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_0DescribeExecutionCommand(input, context);
+  private serialize(input: ListMapRunsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_0ListMapRunsCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DescribeExecutionCommandOutput> {
-    return deserializeAws_json1_0DescribeExecutionCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListMapRunsCommandOutput> {
+    return deserializeAws_json1_0ListMapRunsCommand(output, context);
   }
 
   // Start section: command_body_extra
