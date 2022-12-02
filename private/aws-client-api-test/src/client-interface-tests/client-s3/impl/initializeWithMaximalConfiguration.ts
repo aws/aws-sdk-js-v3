@@ -11,11 +11,7 @@ import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
 import { readableStreamHasher as streamHasher } from "@aws-sdk/hash-stream-node";
 import { NODE_USE_ARN_REGION_CONFIG_OPTIONS } from "@aws-sdk/middleware-bucket-endpoint";
-import {
-  DEFAULT_RETRY_MODE,
-  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
-  NODE_RETRY_MODE_CONFIG_OPTIONS,
-} from "@aws-sdk/middleware-retry";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { SignatureV4MultiRegion } from "@aws-sdk/signature-v4-multi-region";
@@ -25,6 +21,7 @@ import { parseUrl } from "@aws-sdk/url-parser";
 import { fromBase64, toBase64 } from "@aws-sdk/util-base64";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
 import { resolveDefaultsModeConfig } from "@aws-sdk/util-defaults-mode-node";
+import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";
