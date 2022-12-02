@@ -23,13 +23,10 @@ export const loggerMiddleware =
       logger,
       inputFilterSensitiveLog,
       outputFilterSensitiveLog,
-      dynamoDbDocumentClient = {
-        overrideInputFilterSensitiveLog(_: unknown) {},
-        overrideOutputFilterSensitiveLog(_: unknown) {},
-      },
+      dynamoDbDocumentClientOptions = {},
     } = context;
 
-    const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClient;
+    const { overrideInputFilterSensitiveLog, overrideOutputFilterSensitiveLog } = dynamoDbDocumentClientOptions;
 
     if (!logger) {
       return response;

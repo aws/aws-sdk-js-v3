@@ -410,10 +410,10 @@ export interface HandlerExecutionContext {
   /**
    * Used by DynamoDbDocumentClient.
    */
-  dynamoDbDocumentClientOptions?: {
+  dynamoDbDocumentClientOptions?: Partial<{
     overrideInputFilterSensitiveLog(...args: any[]): string | void;
     overrideOutputFilterSensitiveLog(...args: any[]): string | void;
-  };
+  }>;
 
   [key: string]: any;
 }
