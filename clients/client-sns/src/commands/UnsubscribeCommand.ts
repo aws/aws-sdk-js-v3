@@ -22,11 +22,16 @@ export interface UnsubscribeCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
- *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature
- *             is required. If the <code>Unsubscribe</code> call does not require authentication and
- *             the requester is not the subscription owner, a final cancellation message is delivered
- *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
- *                 <code>Unsubscribe</code> request was unintended.</p>
+ *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
+ *             signature is required. If the <code>Unsubscribe</code> call does not require
+ *             authentication and the requester is not the subscription owner, a final cancellation
+ *             message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
+ *             to the topic if the <code>Unsubscribe</code> request was unintended.</p>
+ *         <note>
+ *             <p>Amazon SQS queue subscriptions require authentication for deletion. Only the owner of
+ *                 the subscription, or the owner of the topic can unsubscribe using the required Amazon Web Services
+ *                 signature.</p>
+ *         </note>
  *         <p>This action is throttled at 100 transactions per second (TPS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

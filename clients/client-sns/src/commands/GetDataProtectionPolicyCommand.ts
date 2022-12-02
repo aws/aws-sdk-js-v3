@@ -29,7 +29,8 @@ export interface GetDataProtectionPolicyCommandInput extends GetDataProtectionPo
 export interface GetDataProtectionPolicyCommandOutput extends GetDataProtectionPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+ * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
+ *             stored in the specified Amazon SNS topic. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

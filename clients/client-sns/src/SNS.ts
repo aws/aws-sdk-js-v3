@@ -187,8 +187,8 @@ import { SNSClient } from "./SNSClient";
 
 /**
  * <fullname>Amazon Simple Notification Service</fullname>
- *         <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you to build
- *             distributed web-enabled applications. Applications can use Amazon SNS to easily push
+ *         <p>Amazon Simple Notification Service (Amazon SNS) is a web service that enables you
+ *             to build distributed web-enabled applications. Applications can use Amazon SNS to easily push
  *             real-time notification messages to interested subscribers over multiple delivery
  *             protocols. For more information about this product see the <a href="http://aws.amazon.com/sns/">Amazon SNS product page</a>. For detailed information about Amazon SNS features
  *             and their associated API calls, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/">Amazon SNS Developer Guide</a>. </p>
@@ -204,6 +204,11 @@ export class SNS extends SNSClient {
   /**
    * <p>Adds a statement to a topic's access control policy, granting access for the specified
    *             Amazon Web Services accounts to the specified actions.</p>
+   *         <note>
+   *             <p>To remove the ability to change topic permissions, you must deny permissions to
+   *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
+   *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
+   *         </note>
    */
   public addPermission(
     args: AddPermissionCommandInput,
@@ -236,8 +241,8 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Accepts a phone number and indicates whether the phone holder has opted out of
-   *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number that
-   *             is opted out.</p>
+   *             receiving SMS messages from your Amazon Web Services account. You cannot send SMS messages to a number
+   *             that is opted out.</p>
    *         <p>To resume sending messages, you can opt in the number by using the
    *                 <code>OptInPhoneNumber</code> action.</p>
    */
@@ -325,14 +330,14 @@ export class SNS extends SNSClient {
    *                     and <code>PlatformCredential</code> is <code>secret key</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate credentials,
-   *                         <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
+   *                 <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using certificate
+   *                     credentials, <code>PlatformPrincipal</code> is <code>SSL certificate</code> and
    *                         <code>PlatformCredential</code> is <code>private key</code>.</p>
    *             </li>
    *             <li>
    *                 <p>For <code>APNS</code> and <code>APNS_SANDBOX</code> using token credentials,
-   *                     <code>PlatformPrincipal</code> is <code>signing key ID</code> and
-   *                     <code>PlatformCredential</code> is <code>signing key</code>.</p>
+   *                         <code>PlatformPrincipal</code> is <code>signing key ID</code> and
+   *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
    *             </li>
    *             <li>
    *                 <p>For <code>GCM</code> (Firebase Cloud Messaging), there is no
@@ -395,8 +400,8 @@ export class SNS extends SNSClient {
    *                 Notifications</a>. </p>
    *         <p>When using <code>CreatePlatformEndpoint</code> with Baidu, two attributes must be
    *             provided: ChannelId and UserId. The token field must also contain the ChannelId. For
-   *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint
-   *                 for Baidu</a>. </p>
+   *             more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html">Creating an Amazon SNS Endpoint for
+   *                 Baidu</a>. </p>
    */
   public createPlatformEndpoint(
     args: CreatePlatformEndpointCommandInput,
@@ -570,7 +575,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS sandbox.</p>
+   * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS
+   *             sandbox.</p>
    *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
@@ -639,7 +645,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is stored in the specified Amazon SNS topic. </p>
+   * <p>Retrieves the specified inline <code>DataProtectionPolicy</code> document that is
+   *             stored in the specified Amazon SNS topic. </p>
    */
   public getDataProtectionPolicy(
     args: GetDataProtectionPolicyCommandInput,
@@ -772,7 +779,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target Amazon Web Services Region.</p>
+   * <p>Retrieves the SMS sandbox status for the calling Amazon Web Services account in the target
+   *             Amazon Web Services Region.</p>
    *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
@@ -918,8 +926,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata. For
-   *             more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
+   * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
+   *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
    *             Guide</i>.</p>
    */
   public listOriginationNumbers(
@@ -1032,8 +1040,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Lists the calling Amazon Web Services account's current verified and pending destination phone numbers
-   *             in the SMS sandbox.</p>
+   * <p>Lists the calling Amazon Web Services account's current verified and pending destination phone
+   *             numbers in the SMS sandbox.</p>
    *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
@@ -1248,8 +1256,8 @@ export class SNS extends SNSClient {
    *         <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
    *             subscribed to the topic. The format of the message depends on the notification protocol
    *             for each subscribed endpoint.</p>
-   *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS
-   *             immediately delivers it to subscribers.</p>
+   *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
+   *             delivers it to subscribers.</p>
    *         <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
    *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
    *             the TargetArn parameter. The EndpointArn is returned when making a call with the
@@ -1257,7 +1265,8 @@ export class SNS extends SNSClient {
    *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
    *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
    *         <important>
-   *             <p>You can publish messages only to topics and endpoints in the same Amazon Web Services Region.</p>
+   *             <p>You can publish messages only to topics and endpoints in the same
+   *                 Amazon Web Services Region.</p>
    *         </important>
    */
   public publish(args: PublishCommandInput, options?: __HttpHandlerOptions): Promise<PublishCommandOutput>;
@@ -1284,16 +1293,27 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Publishes up to ten messages to the specified topic. This is a batch version of <code>Publish</code>. For FIFO topics, multiple messages within a single batch are published in the order they are sent, and messages are deduplicated within the batch and across batches for 5 minutes.</p>
-   *         <p>The result of publishing each message is reported individually in the response. Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of <code>200</code>.</p>
-   *         <p>The maximum allowed individual message size and the maximum total payload size (the sum of the individual lengths of all of the batched messages) are both 256 KB (262,144 bytes). </p>
-   *             <p>Some actions take lists of parameters. These lists are specified using the <code>param.n</code> notation. Values of <code>n</code> are integers starting from 1. For example, a parameter list with two elements looks like this: </p>
-   *             <p>&AttributeName.1=first</p>
-   *             <p>&AttributeName.2=second</p>
-   *         <p>If you send a batch message to a topic, Amazon SNS publishes the batch message to each endpoint that is
-   *             subscribed to the topic. The format of the batch message depends on the notification protocol
-   *             for each subscribed endpoint.</p>
-   *         <p>When a <code>messageId</code> is returned, the batch message is saved and Amazon SNS immediately delivers the message to subscribers.</p>
+   * <p>Publishes up to ten messages to the specified topic. This is a batch version of
+   *                 <code>Publish</code>. For FIFO topics, multiple messages within a single batch are
+   *             published in the order they are sent, and messages are deduplicated within the batch and
+   *             across batches for 5 minutes.</p>
+   *         <p>The result of publishing each message is reported individually in the response.
+   *             Because the batch request can result in a combination of successful and unsuccessful
+   *             actions, you should check for batch errors even when the call returns an HTTP status
+   *             code of <code>200</code>.</p>
+   *         <p>The maximum allowed individual message size and the maximum total payload size (the
+   *             sum of the individual lengths of all of the batched messages) are both 256 KB (262,144
+   *             bytes). </p>
+   *         <p>Some actions take lists of parameters. These lists are specified using the
+   *                 <code>param.n</code> notation. Values of <code>n</code> are integers starting from
+   *             1. For example, a parameter list with two elements looks like this: </p>
+   *         <p>&AttributeName.1=first</p>
+   *         <p>&AttributeName.2=second</p>
+   *         <p>If you send a batch message to a topic, Amazon SNS publishes the batch message to each
+   *             endpoint that is subscribed to the topic. The format of the batch message depends on the
+   *             notification protocol for each subscribed endpoint.</p>
+   *         <p>When a <code>messageId</code> is returned, the batch message is saved and Amazon SNS
+   *             immediately delivers the message to subscribers.</p>
    */
   public publishBatch(
     args: PublishBatchCommandInput,
@@ -1322,7 +1342,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS topic.</p>
+   * <p>Adds or updates an inline policy document that is stored in the specified Amazon SNS
+   *             topic.</p>
    */
   public putDataProtectionPolicy(
     args: PutDataProtectionPolicyCommandInput,
@@ -1355,6 +1376,11 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Removes a statement from a topic's access control policy.</p>
+   *         <note>
+   *             <p>To remove the ability to change topic permissions, you must deny permissions to
+   *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
+   *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
+   *         </note>
    */
   public removePermission(
     args: RemovePermissionCommandInput,
@@ -1532,6 +1558,11 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Allows a topic owner to set an attribute of the topic to a new value.</p>
+   *         <note>
+   *             <p>To remove the ability to change topic permissions, you must deny permissions to
+   *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
+   *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
+   *         </note>
    */
   public setTopicAttributes(
     args: SetTopicAttributesCommandInput,
@@ -1613,8 +1644,8 @@ export class SNS extends SNSClient {
    *                     existing tag.</p>
    *             </li>
    *             <li>
-   *                 <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If your
-   *                     application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
+   *                 <p>Tagging actions are limited to 10 TPS per Amazon Web Services account, per Amazon Web Services Region. If
+   *                     your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p>
    *             </li>
    *          </ul>
    */
@@ -1643,11 +1674,16 @@ export class SNS extends SNSClient {
 
   /**
    * <p>Deletes a subscription. If the subscription requires authentication for deletion, only
-   *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature
-   *             is required. If the <code>Unsubscribe</code> call does not require authentication and
-   *             the requester is not the subscription owner, a final cancellation message is delivered
-   *             to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the
-   *                 <code>Unsubscribe</code> request was unintended.</p>
+   *             the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services
+   *             signature is required. If the <code>Unsubscribe</code> call does not require
+   *             authentication and the requester is not the subscription owner, a final cancellation
+   *             message is delivered to the endpoint, so that the endpoint owner can easily resubscribe
+   *             to the topic if the <code>Unsubscribe</code> request was unintended.</p>
+   *         <note>
+   *             <p>Amazon SQS queue subscriptions require authentication for deletion. Only the owner of
+   *                 the subscription, or the owner of the topic can unsubscribe using the required Amazon Web Services
+   *                 signature.</p>
+   *         </note>
    *         <p>This action is throttled at 100 transactions per second (TPS).</p>
    */
   public unsubscribe(args: UnsubscribeCommandInput, options?: __HttpHandlerOptions): Promise<UnsubscribeCommandOutput>;
@@ -1707,7 +1743,8 @@ export class SNS extends SNSClient {
   }
 
   /**
-   * <p>Verifies a destination phone number with a one-time password (OTP) for the calling Amazon Web Services account.</p>
+   * <p>Verifies a destination phone number with a one-time password (OTP) for the calling
+   *             Amazon Web Services account.</p>
    *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
    *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
    *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your
