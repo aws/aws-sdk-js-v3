@@ -14,14 +14,14 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  GetCredentialsRequest,
-  GetCredentialsRequestFilterSensitiveLog,
-  GetCredentialsResponse,
-  GetCredentialsResponseFilterSensitiveLog,
+  ListTableRestoreStatusRequest,
+  ListTableRestoreStatusRequestFilterSensitiveLog,
+  ListTableRestoreStatusResponse,
+  ListTableRestoreStatusResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetCredentialsCommand,
-  serializeAws_json1_1GetCredentialsCommand,
+  deserializeAws_json1_1ListTableRestoreStatusCommand,
+  serializeAws_json1_1ListTableRestoreStatusCommand,
 } from "../protocols/Aws_json1_1";
 import {
   RedshiftServerlessClientResolvedConfig,
@@ -29,39 +29,29 @@ import {
   ServiceOutputTypes,
 } from "../RedshiftServerlessClient";
 
-export interface GetCredentialsCommandInput extends GetCredentialsRequest {}
-export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __MetadataBearer {}
+export interface ListTableRestoreStatusCommandInput extends ListTableRestoreStatusRequest {}
+export interface ListTableRestoreStatusCommandOutput extends ListTableRestoreStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a database user name and temporary password with
- *          temporary authorization to log in to Amazon Redshift Serverless.</p>
- *          <p>By default, the temporary credentials expire in 900 seconds.
- *          You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p>
- *
- *          <p>The Identity and Access Management (IAM) user or role that runs
- *       GetCredentials must have an IAM policy attached that allows access to all
- *       necessary actions and resources.</p>
- *
- *          <p>If the <code>DbName</code> parameter is specified, the IAM policy must
- *       allow access to the resource dbname for the specified database name.</p>
+ * <p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { RedshiftServerlessClient, GetCredentialsCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
- * // const { RedshiftServerlessClient, GetCredentialsCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
+ * import { RedshiftServerlessClient, ListTableRestoreStatusCommand } from "@aws-sdk/client-redshift-serverless"; // ES Modules import
+ * // const { RedshiftServerlessClient, ListTableRestoreStatusCommand } = require("@aws-sdk/client-redshift-serverless"); // CommonJS import
  * const client = new RedshiftServerlessClient(config);
- * const command = new GetCredentialsCommand(input);
+ * const command = new ListTableRestoreStatusCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetCredentialsCommandInput} for command's `input` shape.
- * @see {@link GetCredentialsCommandOutput} for command's `response` shape.
+ * @see {@link ListTableRestoreStatusCommandInput} for command's `input` shape.
+ * @see {@link ListTableRestoreStatusCommandOutput} for command's `response` shape.
  * @see {@link RedshiftServerlessClientResolvedConfig | config} for RedshiftServerlessClient's `config` shape.
  *
  */
-export class GetCredentialsCommand extends $Command<
-  GetCredentialsCommandInput,
-  GetCredentialsCommandOutput,
+export class ListTableRestoreStatusCommand extends $Command<
+  ListTableRestoreStatusCommandInput,
+  ListTableRestoreStatusCommandOutput,
   RedshiftServerlessClientResolvedConfig
 > {
   // Start section: command_properties
@@ -76,7 +66,7 @@ export class GetCredentialsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetCredentialsCommandInput) {
+  constructor(readonly input: ListTableRestoreStatusCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -89,23 +79,23 @@ export class GetCredentialsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: RedshiftServerlessClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetCredentialsCommandInput, GetCredentialsCommandOutput> {
+  ): Handler<ListTableRestoreStatusCommandInput, ListTableRestoreStatusCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetCredentialsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, ListTableRestoreStatusCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "RedshiftServerlessClient";
-    const commandName = "GetCredentialsCommand";
+    const commandName = "ListTableRestoreStatusCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetCredentialsRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetCredentialsResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListTableRestoreStatusRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListTableRestoreStatusResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -115,12 +105,12 @@ export class GetCredentialsCommand extends $Command<
     );
   }
 
-  private serialize(input: GetCredentialsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetCredentialsCommand(input, context);
+  private serialize(input: ListTableRestoreStatusCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1ListTableRestoreStatusCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetCredentialsCommandOutput> {
-    return deserializeAws_json1_1GetCredentialsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<ListTableRestoreStatusCommandOutput> {
+    return deserializeAws_json1_1ListTableRestoreStatusCommand(output, context);
   }
 
   // Start section: command_body_extra

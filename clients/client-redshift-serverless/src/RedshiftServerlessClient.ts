@@ -77,12 +77,20 @@ import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
+import {
+  GetTableRestoreStatusCommandInput,
+  GetTableRestoreStatusCommandOutput,
+} from "./commands/GetTableRestoreStatusCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "./commands/ListEndpointAccessCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
 import { ListSnapshotsCommandInput, ListSnapshotsCommandOutput } from "./commands/ListSnapshotsCommand";
+import {
+  ListTableRestoreStatusCommandInput,
+  ListTableRestoreStatusCommandOutput,
+} from "./commands/ListTableRestoreStatusCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -98,6 +106,10 @@ import {
   RestoreFromSnapshotCommandInput,
   RestoreFromSnapshotCommandOutput,
 } from "./commands/RestoreFromSnapshotCommand";
+import {
+  RestoreTableFromSnapshotCommandInput,
+  RestoreTableFromSnapshotCommandOutput,
+} from "./commands/RestoreTableFromSnapshotCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -135,18 +147,21 @@ export type ServiceInputTypes =
   | GetRecoveryPointCommandInput
   | GetResourcePolicyCommandInput
   | GetSnapshotCommandInput
+  | GetTableRestoreStatusCommandInput
   | GetUsageLimitCommandInput
   | GetWorkgroupCommandInput
   | ListEndpointAccessCommandInput
   | ListNamespacesCommandInput
   | ListRecoveryPointsCommandInput
   | ListSnapshotsCommandInput
+  | ListTableRestoreStatusCommandInput
   | ListTagsForResourceCommandInput
   | ListUsageLimitsCommandInput
   | ListWorkgroupsCommandInput
   | PutResourcePolicyCommandInput
   | RestoreFromRecoveryPointCommandInput
   | RestoreFromSnapshotCommandInput
+  | RestoreTableFromSnapshotCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateEndpointAccessCommandInput
@@ -174,18 +189,21 @@ export type ServiceOutputTypes =
   | GetRecoveryPointCommandOutput
   | GetResourcePolicyCommandOutput
   | GetSnapshotCommandOutput
+  | GetTableRestoreStatusCommandOutput
   | GetUsageLimitCommandOutput
   | GetWorkgroupCommandOutput
   | ListEndpointAccessCommandOutput
   | ListNamespacesCommandOutput
   | ListRecoveryPointsCommandOutput
   | ListSnapshotsCommandOutput
+  | ListTableRestoreStatusCommandOutput
   | ListTagsForResourceCommandOutput
   | ListUsageLimitsCommandOutput
   | ListWorkgroupsCommandOutput
   | PutResourcePolicyCommandOutput
   | RestoreFromRecoveryPointCommandOutput
   | RestoreFromSnapshotCommandOutput
+  | RestoreTableFromSnapshotCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateEndpointAccessCommandOutput
