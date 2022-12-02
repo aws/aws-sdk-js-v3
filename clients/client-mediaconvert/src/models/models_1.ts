@@ -15,8 +15,6 @@ import {
   CmfcSettings,
   ContainerType,
   DvbNitSettings,
-  DvbSdtSettings,
-  DvbTdtSettings,
   Endpoint,
   EsamSettings,
   ExtendedDataServices,
@@ -34,18 +32,70 @@ import {
   M2tsAudioDuration,
   M2tsBufferModel,
   M2tsDataPtsControl,
-  M2tsEbpAudioInterval,
-  M2tsEbpPlacement,
-  M2tsEsRateInPes,
-  M2tsForceTsVideoEbpOrder,
   MotionImageInserter,
   NielsenConfiguration,
   NielsenNonLinearWatermarkSettings,
   OutputGroupDetail,
   OutputGroupSettings,
+  OutputSdt,
   QueueTransition,
   Rectangle,
 } from "./models_0";
+
+/**
+ * Use these settings to insert a DVB Service Description Table (SDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
+ */
+export interface DvbSdtSettings {
+  /**
+   * Selects method of inserting SDT information into output stream.  "Follow input SDT" copies SDT information from input stream to  output stream. "Follow input SDT if present" copies SDT information from  input stream to output stream if SDT information is present in the input, otherwise it will fall back on the user-defined values. Enter "SDT  Manually" means user will enter the SDT information. "No SDT" means output  stream will not contain SDT information.
+   */
+  OutputSdt?: OutputSdt | string;
+
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  SdtInterval?: number;
+
+  /**
+   * The service name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   */
+  ServiceName?: string;
+
+  /**
+   * The service provider name placed in the service_descriptor in the Service Description Table. Maximum length is 256 characters.
+   */
+  ServiceProviderName?: string;
+}
+
+/**
+ * Use these settings to insert a DVB Time and Date Table (TDT) in the transport stream of this output. When you work directly in your JSON job specification, include this object only when your job has a transport stream output and the container settings contain the object M2tsSettings.
+ */
+export interface DvbTdtSettings {
+  /**
+   * The number of milliseconds between instances of this table in the output transport stream.
+   */
+  TdtInterval?: number;
+}
+
+export enum M2tsEbpAudioInterval {
+  VIDEO_AND_FIXED_INTERVALS = "VIDEO_AND_FIXED_INTERVALS",
+  VIDEO_INTERVAL = "VIDEO_INTERVAL",
+}
+
+export enum M2tsEbpPlacement {
+  VIDEO_AND_AUDIO_PIDS = "VIDEO_AND_AUDIO_PIDS",
+  VIDEO_PID = "VIDEO_PID",
+}
+
+export enum M2tsEsRateInPes {
+  EXCLUDE = "EXCLUDE",
+  INCLUDE = "INCLUDE",
+}
+
+export enum M2tsForceTsVideoEbpOrder {
+  DEFAULT = "DEFAULT",
+  FORCE = "FORCE",
+}
 
 export enum M2tsKlvMetadata {
   NONE = "NONE",
@@ -551,6 +601,11 @@ export enum MpdKlvMetadata {
   PASSTHROUGH = "PASSTHROUGH",
 }
 
+export enum MpdManifestMetadataSignaling {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
 export enum MpdScte35Esam {
   INSERT = "INSERT",
   NONE = "NONE",
@@ -564,6 +619,11 @@ export enum MpdScte35Source {
 export enum MpdTimedMetadata {
   NONE = "NONE",
   PASSTHROUGH = "PASSTHROUGH",
+}
+
+export enum MpdTimedMetadataBoxVersion {
+  VERSION_0 = "VERSION_0",
+  VERSION_1 = "VERSION_1",
 }
 
 /**
@@ -591,6 +651,11 @@ export interface MpdSettings {
   KlvMetadata?: MpdKlvMetadata | string;
 
   /**
+   * To add an InbandEventStream element in your output MPD manifest for each type of event message, set Manifest metadata signaling to Enabled. For ID3 event messages, the InbandEventStream element schemeIdUri will be same value that you specify for ID3 metadata scheme ID URI. For SCTE35 event messages, the InbandEventStream element schemeIdUri will be "urn:scte:scte35:2013:bin". To leave these elements out of your output MPD manifest, set Manifest metadata signaling to Disabled.
+   */
+  ManifestMetadataSignaling?: MpdManifestMetadataSignaling | string;
+
+  /**
    * Use this setting only when you specify SCTE-35 markers from ESAM. Choose INSERT to put SCTE-35 markers in this output at the insertion points that you specify in an ESAM XML document. Provide the document in the setting SCC XML (sccXml).
    */
   Scte35Esam?: MpdScte35Esam | string;
@@ -604,6 +669,24 @@ export interface MpdSettings {
    * To include ID3 metadata in this output: Set ID3 metadata (timedMetadata) to Passthrough (PASSTHROUGH). Specify this ID3 metadata in Custom ID3 metadata inserter (timedMetadataInsertion). MediaConvert writes each instance of ID3 metadata in a separate Event Message (eMSG) box. To exclude this ID3 metadata: Set ID3 metadata to None (NONE) or leave blank.
    */
   TimedMetadata?: MpdTimedMetadata | string;
+
+  /**
+   * Specify the event message box (eMSG) version for ID3 timed metadata in your output.
+   * For more information, see ISO/IEC 23009-1:2022 section 5.10.3.3.3 Syntax.
+   * Leave blank to use the default value Version 0.
+   * When you specify Version 1, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataBoxVersion?: MpdTimedMetadataBoxVersion | string;
+
+  /**
+   * Specify the event message box (eMSG) scheme ID URI (scheme_id_uri) for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. Leave blank to use the default value: https://aomedia.org/emsg/ID3 When you specify a value for ID3 metadata scheme ID URI, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataSchemeIdUri?: string;
+
+  /**
+   * Specify the event message box (eMSG) value for ID3 timed metadata in your output. For more informaiton, see ISO/IEC 23009-1:2022 section 5.10.3.3.4 Semantics. When you specify a value for ID3 Metadata Value, you must also set ID3 metadata (timedMetadata) to Passthrough.
+   */
+  TimedMetadataValue?: string;
 }
 
 export enum MxfAfdSignaling {
@@ -2095,7 +2178,7 @@ export interface Mpeg2Settings {
   SpatialAdaptiveQuantization?: Mpeg2SpatialAdaptiveQuantization | string;
 
   /**
-   * Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to to D10 (D_10).
+   * Specify whether this output's video uses the D10 syntax. Keep the default value to  not use the syntax. Related settings: When you choose D10 (D_10) for your MXF  profile (profile), you must also set this value to D10 (D_10).
    */
   Syntax?: Mpeg2Syntax | string;
 
@@ -4601,78 +4684,19 @@ export interface Policy {
   S3Inputs?: InputPolicy | string;
 }
 
-export interface GetPolicyResponse {
-  /**
-   * A policy configures behavior that you allow or disallow for your account. For information about MediaConvert policies, see the user guide at http://docs.aws.amazon.com/mediaconvert/latest/ug/what-is.html
-   */
-  Policy?: Policy;
-}
+/**
+ * @internal
+ */
+export const DvbSdtSettingsFilterSensitiveLog = (obj: DvbSdtSettings): any => ({
+  ...obj,
+});
 
-export interface GetPresetRequest {
-  /**
-   * The name of the preset.
-   */
-  Name: string | undefined;
-}
-
-export interface GetPresetResponse {
-  /**
-   * A preset is a collection of preconfigured media conversion settings that you want MediaConvert to apply to the output during the conversion process.
-   */
-  Preset?: Preset;
-}
-
-export interface GetQueueRequest {
-  /**
-   * The name of the queue that you want information about.
-   */
-  Name: string | undefined;
-}
-
-export interface GetQueueResponse {
-  /**
-   * You can use queues to manage the resources that are available to your AWS account for running multiple transcoding jobs at the same time. If you don't specify a queue, the service sends all jobs through the default queue. For more information, see https://docs.aws.amazon.com/mediaconvert/latest/ug/working-with-queues.html.
-   */
-  Queue?: Queue;
-}
-
-export enum JobTemplateListBy {
-  CREATION_DATE = "CREATION_DATE",
-  NAME = "NAME",
-  SYSTEM = "SYSTEM",
-}
-
-export enum Order {
-  ASCENDING = "ASCENDING",
-  DESCENDING = "DESCENDING",
-}
-
-export interface ListJobsRequest {
-  /**
-   * Optional. Number of jobs, up to twenty, that will be returned at one time.
-   */
-  MaxResults?: number;
-
-  /**
-   * Optional. Use this string, provided with the response to a previous request, to request the next batch of jobs.
-   */
-  NextToken?: string;
-
-  /**
-   * Optional. When you request lists of resources, you can specify whether they are sorted in ASCENDING or DESCENDING order. Default varies by resource.
-   */
-  Order?: Order | string;
-
-  /**
-   * Optional. Provide a queue name to get back only jobs from that queue.
-   */
-  Queue?: string;
-
-  /**
-   * Optional. A job's status can be SUBMITTED, PROGRESSING, COMPLETE, CANCELED, or ERROR.
-   */
-  Status?: JobStatus | string;
-}
+/**
+ * @internal
+ */
+export const DvbTdtSettingsFilterSensitiveLog = (obj: DvbTdtSettings): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -5301,47 +5325,5 @@ export const GetPolicyRequestFilterSensitiveLog = (obj: GetPolicyRequest): any =
  * @internal
  */
 export const PolicyFilterSensitiveLog = (obj: Policy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPolicyResponseFilterSensitiveLog = (obj: GetPolicyResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetRequestFilterSensitiveLog = (obj: GetPresetRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetPresetResponseFilterSensitiveLog = (obj: GetPresetResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueRequestFilterSensitiveLog = (obj: GetQueueRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetQueueResponseFilterSensitiveLog = (obj: GetQueueResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListJobsRequestFilterSensitiveLog = (obj: ListJobsRequest): any => ({
   ...obj,
 });
