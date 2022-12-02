@@ -7,9 +7,9 @@ import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@aws-
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-browser";
 import { streamCollector } from "@aws-sdk/fetch-http-handler";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { WebSocketHandler, eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { TranscribeStreamingClientConfig } from "./TranscribeStreamingClient";

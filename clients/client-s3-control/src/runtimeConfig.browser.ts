@@ -8,8 +8,8 @@ import { FetchHttpHandler as RequestHandler, streamCollector } from "@aws-sdk/fe
 import { blobHasher as streamHasher } from "@aws-sdk/hash-blob-browser";
 import { invalidProvider } from "@aws-sdk/invalid-dependency";
 import { Md5 } from "@aws-sdk/md5-js";
-import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/middleware-retry";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-browser";
+import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-browser";
 import { S3ControlClientConfig } from "./S3ControlClient";

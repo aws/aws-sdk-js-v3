@@ -48,6 +48,7 @@
     "@aws-sdk/util-body-length-node": "*",
     "@aws-sdk/util-defaults-mode-browser": "*",
     "@aws-sdk/util-defaults-mode-node": "*",
+    "@aws-sdk/util-retry": "*",
     "@aws-sdk/util-stream-browser": "*",
     "@aws-sdk/util-stream-node": "*",
     "@aws-sdk/util-user-agent-browser": "*",
