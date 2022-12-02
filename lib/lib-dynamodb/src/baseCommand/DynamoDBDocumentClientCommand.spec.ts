@@ -14,7 +14,7 @@ class AnyCommand extends DynamoDBDocumentClientCommand<{}, {}, {}, {}, {}> {
   protected readonly clientCommand = {
     middlewareStack: {
       argCaptor: this.argCaptor,
-      add(fn, config) {
+      addRelativeTo(fn, config) {
         this.argCaptor.push([fn, config]);
       },
     },
@@ -41,7 +41,8 @@ describe("DynamoDBDocumentClientCommand", () => {
       expect(options).toEqual({
         name: "DocumentMarshall",
         override: true,
-        step: "initialize",
+        relation: "before",
+        toMiddleware: "serializerMiddleware",
       });
     }
     {
@@ -50,7 +51,8 @@ describe("DynamoDBDocumentClientCommand", () => {
       expect(options).toEqual({
         name: "DocumentUnmarshall",
         override: true,
-        step: "deserialize",
+        relation: "before",
+        toMiddleware: "deserializerMiddleware",
       });
     }
   });
