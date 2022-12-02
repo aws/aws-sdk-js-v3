@@ -1124,7 +1124,7 @@ export interface CreateEnvironmentAccountConnectionInput {
    * <p>The Amazon Resource Name (ARN) of the IAM service role that's created in the environment account. Proton uses this role to provision infrastructure
    *       resources in the associated environment account.</p>
    */
-  roleArn: string | undefined;
+  roleArn?: string;
 
   /**
    * <p>The name of the Proton environment that's created in the associated management account.</p>
