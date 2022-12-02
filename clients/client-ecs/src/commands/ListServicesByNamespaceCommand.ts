@@ -29,11 +29,11 @@ export interface ListServicesByNamespaceCommandInput extends ListServicesByNames
 export interface ListServicesByNamespaceCommandOutput extends ListServicesByNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>This operation lists all of the services that are associated with a Cloud Map namespace. This list
- * 			might include services in different clusters. In contrast, <code>ListServices</code> can
- * 			only list services in one cluster at a time. If you need to filter the list of
- * 			services in a single cluster by various parameters, use <code>ListServices</code>.
- * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * <p>This operation lists all of the services that are associated with a Cloud Map
+ * 			namespace. This list might include services in different clusters. In contrast,
+ * 				<code>ListServices</code> can only list services in one cluster at a time. If you
+ * 			need to filter the list of services in a single cluster by various parameters, use
+ * 				<code>ListServices</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

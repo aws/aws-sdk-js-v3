@@ -322,8 +322,7 @@ export class ECS extends ECSClient {
    * 				required resources in other Amazon Web Services services on your behalf. However, if the IAM user
    * 				that makes the call doesn't have permissions to create the service-linked role, it
    * 				isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
-   * 					service-linked roles for Amazon ECS</a> in the
-   * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </note>
    */
   public createCluster(
@@ -363,8 +362,7 @@ export class ECS extends ECSClient {
    * 		       <p>In addition to maintaining the desired count of tasks in your service, you can
    * 			optionally run your service behind one or more load balancers. The load balancers
    * 			distribute traffic across the tasks that are associated with the service. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>Tasks for services that don't use a load balancer are considered healthy if they're in
    * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
    * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as
@@ -377,8 +375,7 @@ export class ECS extends ECSClient {
    * 					maintains your desired number of tasks across your cluster. By default, the
    * 					service scheduler spreads tasks across Availability Zones. You can use task
    * 					placement strategies and constraints to customize task placement decisions. For
-   * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
-   * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 			         </li>
    *             <li>
    * 				           <p>
@@ -388,8 +385,7 @@ export class ECS extends ECSClient {
    * 					evaluates the task placement constraints for running tasks. It also stops tasks
    * 					that don't meet the placement constraints. When using this strategy, you don't
    * 					need to specify a desired number of tasks, a task placement strategy, or use
-   * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
-   * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 			         </li>
    *          </ul>
    * 		       <p>You can optionally specify a deployment configuration for your service. The deployment
@@ -433,8 +429,9 @@ export class ECS extends ECSClient {
    * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
    * 			can specify only parameters that aren't controlled at the task set level. The only
    * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
-   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For information
-   * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 		       <p>When the service scheduler launches new tasks, it determines task placement. For
+   * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
+   * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public createService(
     args: CreateServiceCommandInput,
@@ -1265,8 +1262,7 @@ export class ECS extends ECSClient {
   /**
    * <p>Returns a list of container instances in a specified cluster. You can filter the
    * 			results of a <code>ListContainerInstances</code> operation with cluster query language
-   * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			statements inside the <code>filter</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public listContainerInstances(
     args: ListContainerInstancesCommandInput,
@@ -1328,11 +1324,11 @@ export class ECS extends ECSClient {
   }
 
   /**
-   * <p>This operation lists all of the services that are associated with a Cloud Map namespace. This list
-   * 			might include services in different clusters. In contrast, <code>ListServices</code> can
-   * 			only list services in one cluster at a time. If you need to filter the list of
-   * 			services in a single cluster by various parameters, use <code>ListServices</code>.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>This operation lists all of the services that are associated with a Cloud Map
+   * 			namespace. This list might include services in different clusters. In contrast,
+   * 				<code>ListServices</code> can only list services in one cluster at a time. If you
+   * 			need to filter the list of services in a single cluster by various parameters, use
+   * 				<code>ListServices</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public listServicesByNamespace(
     args: ListServicesByNamespaceCommandInput,
@@ -1590,8 +1586,7 @@ export class ECS extends ECSClient {
    * <p>Create or update an attribute on an Amazon ECS resource. If the attribute doesn't exist,
    * 			it's created. If the attribute exists, its value is replaced with the specified value.
    * 			To delete an attribute, use <a>DeleteAttributes</a>. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public putAttributes(
     args: PutAttributesCommandInput,
@@ -1756,8 +1751,7 @@ export class ECS extends ECSClient {
    * <p>Starts a new task using the specified task definition.</p>
    * 		       <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
    * 			tasks using placement constraints and placement strategies. For more information, see
-   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
    * 			place tasks manually on specific container instances.</p>
    * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because of the
@@ -1810,8 +1804,7 @@ export class ECS extends ECSClient {
    * <p>Starts a new task from the specified task definition on the specified container
    * 			instance or instances.</p>
    * 		       <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public startTask(args: StartTaskCommandInput, options?: __HttpHandlerOptions): Promise<StartTaskCommandOutput>;
   public startTask(args: StartTaskCommandInput, cb: (err: any, data?: StartTaskCommandOutput) => void): void;
@@ -1848,7 +1841,7 @@ export class ECS extends ECSClient {
    * 			         <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
    * 				the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
    * 					<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS Container Agent Configuration</a> in the
-   * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </note>
    */
   public stopTask(args: StopTaskCommandInput, options?: __HttpHandlerOptions): Promise<StopTaskCommandOutput>;
@@ -2146,8 +2139,7 @@ export class ECS extends ECSClient {
    * 				using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
    * 				you can update the <code>ecs-init</code> package. This updates the agent. For more
    * 				information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating the
-   * 					Amazon ECS container agent</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </note>
    * 		       <note>
    * 			         <p>Agent updates with the <code>UpdateContainerAgent</code> API operation do not
@@ -2156,8 +2148,7 @@ export class ECS extends ECSClient {
    * 		       </note>
    * 		       <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
    * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
-   * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   public updateContainerAgent(
     args: UpdateContainerAgentCommandInput,
@@ -2379,8 +2370,7 @@ export class ECS extends ECSClient {
    * 			         <p>You must have a service-linked role when you update any of the following service
    * 				properties. If you specified a custom IAM role when you created the service, Amazon ECS
    * 				automatically replaces the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Service.html#ECS-Type-Service-roleArn">roleARN</a> associated with the service with the ARN of your
-   * 				service-linked role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked roles</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				service-linked role. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Service-linked roles</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 			         <ul>
    *                <li>
    * 					             <p>

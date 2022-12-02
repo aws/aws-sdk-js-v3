@@ -610,20 +610,22 @@ export interface CapacityProviderStrategyItem {
  */
 export interface ClusterServiceConnectDefaultsRequest {
   /**
-   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's used when you create a service
-   * 			and don't specify a Service Connect configuration. Up to 1024 characters are allowed. The
-   * 			name is case-sensitive. The characters can't include hyphens (-), tilde (~), greater than
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace that's used when you create a service and don't specify
+   * 			a Service Connect configuration. The namespace name can include up to 1024 characters.
+   * 			The name is case-sensitive. The name can't include hyphens (-), tilde (~), greater than
    * 			(>), less than (<), or slash (/).</p>
-   * 		       <p>If you enter an existing namespace name or ARN, then that namespace will be used. Any
-   * 			namespace type is supported. The namespace must be in this account and this Amazon Web Services Region.</p>
+   * 		       <p>If you enter an existing namespace name or ARN, then that namespace will be used.
+   * 			Any namespace type is supported. The namespace must be in this account and this Amazon Web Services
+   * 			Region.</p>
    * 		       <p>If you enter a new name, a Cloud Map namespace will be created. Amazon ECS creates a
    * 			Cloud Map namespace with the "API calls" method of instance discovery only. This instance
-   * 			discovery method is the "HTTP" namespace type in the Command Line Interface. Other types of
-   * 			instance discovery aren't used by Service Connect.</p>
+   * 			discovery method is the "HTTP" namespace type in the Command Line Interface. Other types of instance
+   * 			discovery aren't used by Service Connect.</p>
    * 		       <p>If you update the service with an empty string <code>""</code> for the namespace name,
    * 			the cluster configuration for Service Connect is removed. Note that the namespace will
    * 			remain in Cloud Map and must be deleted separately.</p>
-   * 		       <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
+   * 		       <p>For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working
+   * 				with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
    */
   namespace: string | undefined;
 }
@@ -820,8 +822,8 @@ export interface Attachment {
  */
 export interface ClusterServiceConnectDefaults {
   /**
-   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace. When you create a service
-   * 			and don't specify a Service Connect configuration, this namespace is used.</p>
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace. When you create a service and don't specify a
+   * 			Service Connect configuration, this namespace is used.</p>
    */
   namespace?: string;
 }
@@ -1260,7 +1262,7 @@ export interface LoadBalancer {
    * 			the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>For services using the <code>CODE_DEPLOY</code> deployment controller, you're required
    * 			to define two target groups for the load balancer. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-bluegreen.html">Blue/green deployment with CodeDeploy</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <important>
    * 			         <p>If your service's task definition uses the <code>awsvpc</code> network mode, you
    * 				must choose <code>ip</code> as the target type, not <code>instance</code>. Do this
@@ -1354,7 +1356,7 @@ export enum PlacementConstraintType {
 /**
  * <p>An object representing a constraint on task placement. For more information, see
  * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
  * 			         <p>If you're using the Fargate launch type, task placement constraints
  * 				aren't supported.</p>
@@ -1372,8 +1374,7 @@ export interface PlacementConstraint {
   /**
    * <p>A cluster query language expression to apply to the constraint. The expression can
    * 			have a maximum length of 2000 characters. You can't specify an expression if the
-   * 			constraint type is <code>distinctInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			constraint type is <code>distinctInstance</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   expression?: string;
 }
@@ -1386,7 +1387,7 @@ export enum PlacementStrategyType {
 
 /**
  * <p>The task placement strategy for a task or service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task placement strategies</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface PlacementStrategy {
   /**
@@ -1502,7 +1503,7 @@ export interface Secret {
  * 						<code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before
  * 					containers placed on that instance can use these log configuration options. For
  * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the
- * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *             <li>
  * 				           <p>For tasks that are on Fargate, because you don't have access to the
@@ -1549,8 +1550,8 @@ export interface LogConfiguration {
 }
 
 /**
- * <p>Each alias ("endpoint") is a fully-qualified name and port number that other
- * 			tasks ("clients") can use to connect to this service.</p>
+ * <p>Each alias ("endpoint") is a fully-qualified name and port number that other tasks
+ * 			("clients") can use to connect to this service.</p>
  * 		       <p>Each name and port mapping must be unique within the namespace.</p>
  * 		       <p>Tasks that run in a namespace can use short names to connect
  * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
@@ -1561,30 +1562,24 @@ export interface LogConfiguration {
  */
 export interface ServiceConnectClientAlias {
   /**
-   * <p>The listening port number for the Service Connect proxy. This port is
-   * 			available inside of all of the tasks within the same namespace.</p>
-   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this
-   * 			to the same port that the client application uses by default.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The listening port number for the Service Connect proxy. This port is available
+   * 			inside of all of the tasks within the same namespace.</p>
+   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this to the same
+   * 			port that the client application uses by default. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   port: number | undefined;
 
   /**
-   * <p>The <code>dnsName</code> is the name that you use in the applications
-   * 			of client tasks to connect to this service.
-   * 			The name must be a valid DNS name but doesn't need to be fully-qualified.
-   * 			Up to 127 characters are allowed. The characters can include lowercase letters,
-   * 			numbers, underscores (_), hyphens (-), and periods (.). A hyphen can't be
-   * 			the first character.</p>
-   * 		       <p>If this parameter isn't specified,
-   * 			the default value of <code>discoveryName.namespace</code> is used.
-   * 			If the <code>discoveryName</code> isn't specified, the <code>portName.namespace</code>
-   * 			from the task definition is used.</p>
-   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this
-   * 			to the same name that the client application uses by default. For example, a few common names
-   * 			are <code>database</code>, <code>db</code>, or the lowercase name of a database,
-   * 			such as <code>mysql</code> or <code>redis</code>.
-   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The <code>dnsName</code> is the name that you use in the applications of client tasks
+   * 			to connect to this service. The name must be a valid DNS name but doesn't need to be
+   * 			fully-qualified. The name can include up to 127 characters. The name can include
+   * 			lowercase letters, numbers, underscores (_), hyphens (-), and periods (.). The name
+   * 			can't start with a hyphen.</p>
+   * 		       <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
+   * 		       <p>To avoid changing your applications in client Amazon ECS services, set this to the same
+   * 			name that the client application uses by default. For example, a few common names are
+   * 				<code>database</code>, <code>db</code>, or the lowercase name of a database, such as
+   * 				<code>mysql</code> or <code>redis</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   dnsName?: string;
 }
@@ -1594,48 +1589,49 @@ export interface ServiceConnectClientAlias {
  */
 export interface ServiceConnectService {
   /**
-   * <p>The <code>portName</code> must match the name of one of the
-   * 			<code>portMappings</code> from all the containers in the task
-   * 			definition of this Amazon ECS service.</p>
+   * <p>The <code>portName</code> must match the name of one of the <code>portMappings</code>
+   * 			from all the containers in the task definition of this Amazon ECS service.</p>
    */
   portName: string | undefined;
 
   /**
    * <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
-   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. Up to 64 characters are allowed. The characters can include lowercase letters,
-   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
-   * 		       <p>If this field isn't specified, <code>portName</code> is used.</p>
+   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
+   * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
+   * 			      <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
   /**
    * <p>The list of client aliases for this Service Connect service. You use these to assign
-   * 			names that can be used by client applications. The maximum number of client aliases
-   * 			that you can have in this list is 1.</p>
+   * 			names that can be used by client applications. The maximum number of client aliases that
+   * 			you can have in this list is 1.</p>
    * 		       <p>Each alias ("endpoint") is a fully-qualified name and port number that other Amazon ECS
    * 			tasks ("clients") can use to connect to this service.</p>
    * 		       <p>Each name and port mapping must be unique within the namespace.</p>
-   * 		       <p>For each <code>ServiceConnectService</code>, you must provide at least one <code>clientAlias</code> with one <code>port</code>.</p>
+   * 		       <p>For each <code>ServiceConnectService</code>, you must provide at least one
+   * 				<code>clientAlias</code> with one <code>port</code>.</p>
    */
   clientAliases?: ServiceConnectClientAlias[];
 
   /**
    * <p>The port number for the Service Connect proxy to listen on.</p>
    * 		       <p>Use the value of this field to bypass the proxy for traffic on the port number
-   * 			specified in the named <code>portMapping</code> in the task definition of this application, and
-   * 			then use it in your VPC security groups to allow traffic into the proxy for
-   * 			this Amazon ECS service.</p>
-   * 		       <p>In <code>awsvpc</code> mode and Fargate, the default value is the container port number. The container port number is in the
-   * 			<code>portMapping</code> in the task definition. In bridge mode,
-   * 			the default value is the ephemeral port of the Service Connect proxy.</p>
+   * 			specified in the named <code>portMapping</code> in the task definition of this
+   * 			application, and then use it in your VPC security groups to allow traffic into the proxy
+   * 			for this Amazon ECS service.</p>
+   * 		       <p>In <code>awsvpc</code> mode and Fargate, the default value is the container port
+   * 			number. The container port number is in the <code>portMapping</code> in the task
+   * 			definition. In bridge mode, the default value is the ephemeral port of the
+   * 			Service Connect proxy.</p>
    */
   ingressPortOverride?: number;
 }
 
 /**
- * <p>The Service Connect configuration of your Amazon ECS service. The configuration for
- * 		this service to discover and connect to services, and be discovered by, and
- * 		connected from, other services within a namespace.</p>
+ * <p>The Service Connect configuration of your Amazon ECS service. The configuration for this
+ * 			service to discover and connect to services, and be discovered by, and connected from,
+ * 			other services within a namespace.</p>
  * 		       <p>Tasks that run in a namespace can use short names to connect
  * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
  * 	Tasks connect through a managed proxy container
@@ -1650,24 +1646,24 @@ export interface ServiceConnectConfiguration {
   enabled: boolean | undefined;
 
   /**
-   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for use with Service Connect. The
-   * 			namespace must be in the same Amazon Web Services Region as the Amazon ECS service and
-   * 			cluster. The type of namespace doesn't affect Service Connect.
-   * 			For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the <i>Cloud Map Developer Guide</i>.</p>
+   * <p>The namespace name or full Amazon Resource Name (ARN) of the Cloud Map namespace for use with Service Connect. The namespace must be in
+   * 			the same Amazon Web Services Region as the Amazon ECS service and cluster. The type of namespace doesn't
+   * 			affect Service Connect. For more information about Cloud Map, see <a href="https://docs.aws.amazon.com/">Working with Services</a> in the
+   * 			<i>Cloud Map Developer Guide</i>.</p>
    */
   namespace?: string;
 
   /**
-   * <p>The list of Service Connect service objects. These are names and aliases (also known as endpoints)
-   * 			that are used by other Amazon ECS services to connect to this service. You can specify up to
-   * 			X (30?) objects per Amazon ECS service.</p>
-   * 		       <p>This field is not required for a "client" Amazon ECS service that's a member of a
-   * 			namespace only to connect to other services within the namespace. An example of this
-   * 			would be a frontend application that accepts incoming requests
-   * 			from either a load balancer that's attached to the service or by other means.</p>
-   * 		       <p>An object selects a port from the task definition, assigns a name for the
-   * 			Cloud Map service, and a list of aliases (endpoints) and ports for
-   * 			client applications to refer to this service.</p>
+   * <p>The list of Service Connect service objects. These are names and aliases (also known
+   * 			as endpoints) that are used by other Amazon ECS services to connect to this service.
+   * 			</p>
+   * 		       <p>This field is not required for a "client" Amazon ECS service that's a member of a namespace
+   * 			only to connect to other services within the namespace. An example of this would be a
+   * 			frontend application that accepts incoming requests from either a load balancer that's
+   * 			attached to the service or by other means.</p>
+   * 		       <p>An object selects a port from the task definition, assigns a name for the Cloud Map
+   * 			service, and a list of aliases (endpoints) and ports for client applications to refer to
+   * 			this service.</p>
    */
   services?: ServiceConnectService[];
 
@@ -1701,7 +1697,7 @@ export interface ServiceConnectConfiguration {
    * 						<code>ECS_AVAILABLE_LOGGING_DRIVERS</code> environment variable before
    * 					containers placed on that instance can use these log configuration options. For
    * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS container agent configuration</a> in the
-   * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 			         </li>
    *             <li>
    * 				           <p>For tasks that are on Fargate, because you don't have access to the
@@ -1786,13 +1782,12 @@ export interface CreateServiceRequest {
 
   /**
    * <p>A load balancer object representing the load balancers to use with your service. For
-   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>If the service uses the rolling update (<code>ECS</code>) deployment controller and
    * 			using either an Application Load Balancer or Network Load Balancer, you must specify one or more target group ARNs to attach
    * 			to the service. The service-linked role is required for services that use multiple
    * 			target groups. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using service-linked roles for Amazon ECS</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>If the service uses the <code>CODE_DEPLOY</code> deployment controller, the service is
    * 			required to use either an Application Load Balancer or Network Load Balancer. When creating an CodeDeploy deployment group, you
    * 			specify two target groups (referred to as a <code>targetGroupPair</code>). During a
@@ -1902,8 +1897,7 @@ export interface CreateServiceRequest {
    * 				service is configured to use service discovery, an external deployment controller,
    * 				multiple target groups, or Elastic Inference accelerators in which case you don't
    * 				specify a role here. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
-   * 					service-linked roles for Amazon ECS</a> in the
-   * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 					service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       </important>
    * 		       <p>If your specified role has a path other than <code>/</code>, then you must either
    * 			specify the full role ARN (this is recommended) or prefix the role name with the path.
@@ -1947,8 +1941,8 @@ export interface CreateServiceRequest {
    * 			service is configured to use a load balancer. If your service has a load balancer
    * 			defined and you don't specify a health check grace period value, the default value of
    * 				<code>0</code> is used.</p>
-   * 		       <p>If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code> in the
-   * 			task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
+   * 		       <p>If you do not use an Elastic Load Balancing, we recommend that you use the <code>startPeriod</code> in
+   * 			the task definition health check parameters. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_HealthCheck.html">Health
    * 				check</a>.</p>
    * 		       <p>If your service's tasks take a while to start and respond to Elastic Load Balancing health checks, you
    * 			can specify a health check grace period of up to
@@ -2077,29 +2071,28 @@ export enum DeploymentRolloutState {
 }
 
 /**
- * <p>The Service Connect resource. Each configuration maps a discovery name to a Cloud Map service name.
- * 			The data is stored in Cloud Map as part of the Service Connect configuration
- * 			for each discovery name of this Amazon ECS service.</p>
- * 		       <p>A task can resolve the <code>dnsName</code> for each of the
- * 			<code>clientAliases</code> of a service. However a task can't resolve the discovery names.
- * 			If you want to connect to a service, refer to the
- * 			<code>ServiceConnectConfiguration</code> of
- * 			that service for the list of <code>clientAliases</code> that you can use.</p>
+ * <p>The Service Connect resource. Each configuration maps a discovery name to a
+ * 			Cloud Map service name. The data is stored in Cloud Map as part of the
+ * 			Service Connect configuration for each discovery name of this Amazon ECS service.</p>
+ * 		       <p>A task can resolve the <code>dnsName</code> for each of the <code>clientAliases</code>
+ * 			of a service. However a task can't resolve the discovery names. If you want to connect
+ * 			to a service, refer to the <code>ServiceConnectConfiguration</code> of that service for
+ * 			the list of <code>clientAliases</code> that you can use.</p>
  */
 export interface ServiceConnectServiceResource {
   /**
    * <p>The discovery name of this Service Connect resource.</p>
    * 		       <p>The <code>discoveryName</code> is the name of the new Cloud Map service that Amazon ECS creates
-   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. Up to 64 characters are allowed. The characters can include lowercase letters,
-   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
-   * 		       <p>If this field isn't specified, <code>portName</code> is used.</p>
+   * 			for this Amazon ECS service. This must be unique within the Cloud Map namespace. The name can contain up to 64 characters. The name can include lowercase letters,
+   * 			numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.</p>
+   * 			      <p>If this parameter isn't specified, the default value of <code>discoveryName.namespace</code> is used. If the <code>discoveryName</code> isn't specified, the port mapping name from the task definition is used in <code>portName.namespace</code>.</p>
    */
   discoveryName?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the namespace in Cloud Map that matches the discovery name
-   * 			for this Service Connect resource. You can use this ARN in other integrations
-   * 			with Cloud Map. However, Service Connect can't ensure connectivity outside of Amazon ECS.</p>
+   * <p>The Amazon Resource Name (ARN) for the namespace in Cloud Map that matches the discovery name for this
+   * 			Service Connect resource. You can use this ARN in other integrations with Cloud Map.
+   * 			However, Service Connect can't ensure connectivity outside of Amazon ECS.</p>
    */
   discoveryArn?: string;
 }
@@ -2194,8 +2187,7 @@ export interface Deployment {
   /**
    * <p>The platform version that your tasks in the service run on. A platform version is only
    * 			specified for tasks using the Fargate launch type. If one isn't specified,
-   * 			the <code>LATEST</code> platform version is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform Versions</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			the <code>LATEST</code> platform version is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -2235,9 +2227,9 @@ export interface Deployment {
   rolloutStateReason?: string;
 
   /**
-   * <p>The details of the Service Connect configuration that's used by this deployment. Compare the
-   * 			configuration between multiple deployments when troubleshooting issues with new
-   * 			deployments.</p>
+   * <p>The details of the Service Connect configuration that's used by this deployment.
+   * 			Compare the configuration between multiple deployments when troubleshooting issues with
+   * 			new deployments.</p>
    * 		       <p>The configuration for this service to discover and connect to
    * 	services, and be discovered by, and connected from, other services within a namespace.</p>
    *          <p>Tasks that run in a namespace can use short names to connect
@@ -2250,8 +2242,8 @@ export interface Deployment {
   serviceConnectConfiguration?: ServiceConnectConfiguration;
 
   /**
-   * <p>The list of Service Connect resources that are associated with this deployment.
-   * 			Each list entry maps a discovery name to a Cloud Map service name.</p>
+   * <p>The list of Service Connect resources that are associated with this deployment. Each
+   * 			list entry maps a discovery name to a Cloud Map service name.</p>
    */
   serviceConnectResources?: ServiceConnectServiceResource[];
 }
@@ -2418,8 +2410,7 @@ export interface TaskSet {
 
   /**
    * <p>The Fargate platform version where the tasks in the task set are running. A platform
-   * 			version is only specified for tasks run on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			version is only specified for tasks run on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate platform versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -3577,7 +3568,7 @@ export interface ContainerInstance {
    * 			The <code>DRAINING</code> indicates that new tasks aren't placed on the container
    * 			instance and any service tasks running on the container instance are removed if
    * 			possible. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/container-instance-draining.html">Container instance draining</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   status?: string;
 
@@ -3709,11 +3700,12 @@ export enum ContainerCondition {
  * 			to use container dependencies. However, we recommend using the latest container agent
  * 			version. For information about checking your agent version and updating to the latest
  * 			version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
- * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
- * 			an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the
- * 				<code>ecs-init</code> package. If your container instances are launched from version
- * 				<code>20190301</code> or later, then they contain the required versions of the
- * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using an Amazon ECS-optimized Linux AMI,
+ * 			your instance needs at least version 1.26.0-1 of the <code>ecs-init</code> package. If
+ * 			your container instances are launched from version <code>20190301</code> or later, then
+ * 			they contain the required versions of the container agent and <code>ecs-init</code>. For
+ * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
+ * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
  * 			         <p>For tasks that use the Fargate launch type, the task or service
  * 				requires the following platforms:</p>
@@ -3852,7 +3844,7 @@ export interface FirelensConfiguration {
    * 				<code>"options":{"enable-ecs-log-metadata":"true|false","config-file-type:"s3|file","config-file-value":"arn:aws:s3:::mybucket/fluent.conf|filepath"}</code>.
    * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_firelens.html#firelens-taskdef">Creating
    * 				a task definition that uses a FireLens configuration</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
    * 			         <p>Tasks hosted on Fargate only support the <code>file</code> configuration file
    * 				type.</p>
@@ -4289,22 +4281,23 @@ export interface PortMapping {
   protocol?: TransportProtocol | string;
 
   /**
-   * <p>The name that's used for the port mapping. This parameter only applies to Service Connect.
-   * 			This parameter is the name that you use in the <code>serviceConnectConfiguration</code>
-   * 			of a service. Up to 64 characters are allowed. The characters can include lowercase letters,
-   * 			numbers, underscores (_), and hyphens (-). A hyphen can't be the first character.</p>
-   * 			      <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The name that's used for the port mapping. This parameter only applies to
+   * 			Service Connect. This parameter is the name that you use in the
+   * 				<code>serviceConnectConfiguration</code> of a service. The name can include up to 64
+   * 			characters. The characters can include lowercase letters, numbers, underscores (_), and
+   * 			hyphens (-). The name can't start with a hyphen.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   name?: string;
 
   /**
    * <p>The application protocol that's used for the port mapping. This parameter only applies
-   * 			to Service Connect. We recommend that you set this parameter to be consistent with
-   * 			the protocol that your application uses.
-   * 			If you set this parameter, Amazon ECS adds protocol-specific connection
-   * 			handling to the Service Connect proxy.
-   * 			If you set this parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.</p>
-   * 		       <p>If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't add protocol-specific telemetry for TCP.</p>
+   * 			to Service Connect. We recommend that you set this parameter to be consistent with the
+   * 			protocol that your application uses. If you set this parameter, Amazon ECS adds
+   * 			protocol-specific connection handling to the Service Connect proxy. If you set this
+   * 			parameter, Amazon ECS adds protocol-specific telemetry in the Amazon ECS console and CloudWatch.</p>
+   * 		       <p>If you don't set a value for this parameter, then TCP is used. However, Amazon ECS doesn't
+   * 			add protocol-specific telemetry for TCP.</p>
    * 		       <p>Tasks that run in a namespace can use short names to connect
    * 	to services in the namespace. Tasks can connect to services across all of the clusters in the namespace.
    * 	Tasks connect through a managed proxy container
@@ -4341,8 +4334,7 @@ export enum ResourceType {
  * <p>The type and amount of a resource to assign to a container. The supported resource
  * 			types are GPUs and Elastic Inference accelerators. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-gpu.html">Working with
  * 				GPUs on Amazon ECS</a> or <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with
- * 				Amazon Elastic Inference on Amazon ECS</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>
+ * 				Amazon Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>
  *          </p>
  */
 export interface ResourceRequirement {
@@ -4783,11 +4775,12 @@ export interface ContainerDefinition {
    * 			least version 1.26.0 of the container agent to turn on container dependencies. However,
    * 			we recommend using the latest container agent version. For information about checking
    * 			your agent version and updating to the latest version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
-   * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
-   * 			an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the
-   * 				<code>ecs-init</code> package. If your container instances are launched from version
-   * 				<code>20190301</code> or later, then they contain the required versions of the
-   * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using an Amazon ECS-optimized Linux AMI,
+   * 			your instance needs at least version 1.26.0-1 of the <code>ecs-init</code> package. If
+   * 			your container instances are launched from version <code>20190301</code> or later, then
+   * 			they contain the required versions of the container agent and <code>ecs-init</code>. For
+   * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <p>For tasks using the Fargate launch type, the task or service requires
    * 			the following platforms:</p>
    * 		       <ul>
@@ -4828,11 +4821,12 @@ export interface ContainerDefinition {
    * 			timeout value. However, we recommend using the latest container agent version. For
    * 			information about checking your agent version and updating to the latest version, see
    * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS
-   * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
-   * 			an Amazon ECS-optimized Linux AMI, your instance needs at least version <code>1.26.0-1</code> of the
-   * 				<code>ecs-init</code> package. If your container instances are launched from version
-   * 				<code>20190301</code> or later, then they contain the required versions of the
-   * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using an Amazon ECS-optimized Linux AMI,
+   * 			your instance needs at least version <code>1.26.0-1</code> of the <code>ecs-init</code>
+   * 			package. If your container instances are launched from version <code>20190301</code> or
+   * 			later, then they contain the required versions of the container agent and
+   * 				<code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
+   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   startTimeout?: number;
 
@@ -4859,13 +4853,11 @@ export interface ContainerDefinition {
    * 			containers and 30 seconds on Windows containers are used. Your container instances
    * 			require at least version 1.26.0 of the container agent to use a container stop timeout
    * 			value. However, we recommend using the latest container agent version. For information
-   * 			about checking your agent version and updating to the latest version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS Container Agent</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>. If you're using an Amazon ECS-optimized Linux AMI, your
-   * 			instance needs at least version 1.26.0-1 of the <code>ecs-init</code> package. If your
-   * 			container instances are launched from version <code>20190301</code> or later, then they
-   * 			contain the required versions of the container agent and <code>ecs-init</code>. For more
-   * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a>
-   * 			in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			about checking your agent version and updating to the latest version, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html">Updating the Amazon ECS Container Agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. If you're using
+   * 			an Amazon ECS-optimized Linux AMI, your instance needs at least version 1.26.0-1 of the
+   * 				<code>ecs-init</code> package. If your container instances are launched from version
+   * 				<code>20190301</code> or later, then they contain the required versions of the
+   * 			container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon ECS-optimized Linux AMI</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   stopTimeout?: number;
 
@@ -5054,10 +5046,10 @@ export interface ContainerDefinition {
   dockerLabels?: Record<string, string>;
 
   /**
-   * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value is specified
-   * 			in a task definition, it overrides the default values set by Docker. This parameter maps
-   * 			to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
-   * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. Valid naming values are displayed
+   * <p>A list of <code>ulimits</code> to set in the container. If a <code>ulimit</code> value
+   * 			is specified in a task definition, it overrides the default values set by Docker. This
+   * 			parameter maps to <code>Ulimits</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section
+   * 			of the <a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--ulimit</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. Valid naming values are displayed
    * 			in the <a>Ulimit</a> data type.</p>
    * 		       <p>Amazon ECS tasks hosted on Fargate use the default
    * 							resource limit values set by the operating system with the exception of
@@ -5206,7 +5198,7 @@ export enum TaskDefinitionPlacementConstraintType {
 /**
  * <p>An object representing a constraint on task placement in the task definition. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task placement constraints</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <note>
  * 			         <p>Task placement constraints aren't supported for tasks run on Fargate.</p>
  * 		       </note>
@@ -5220,8 +5212,7 @@ export interface TaskDefinitionPlacementConstraint {
 
   /**
    * <p>A cluster query language expression to apply to the constraint. For more information,
-   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   expression?: string;
 }
@@ -5438,7 +5429,7 @@ export enum EFSTransitEncryption {
 /**
  * <p>This parameter is specified when you're using an Amazon Elastic File System file system for task
  * 			storage. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/efs-volumes.html">Amazon EFS volumes</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface EFSVolumeConfiguration {
   /**
@@ -5546,9 +5537,10 @@ export interface HostVolumeProperties {
 }
 
 /**
- * <p>A data volume that's used in a task definition. For tasks that use the Amazon Elastic File System (Amazon EFS), specify an <code>efsVolumeConfiguration</code>. For Windows
- * 			tasks that use Amazon FSx for Windows File Server file system, specify a
- * 				<code>fsxWindowsFileServerVolumeConfiguration</code>. For tasks that use a Docker
+ * <p>A data volume that's used in a task definition. For tasks that use the Amazon Elastic File System
+ * 			(Amazon EFS), specify an <code>efsVolumeConfiguration</code>. For Windows tasks that use
+ * 			Amazon FSx for Windows File Server file system, specify a
+ * 			<code>fsxWindowsFileServerVolumeConfiguration</code>. For tasks that use a Docker
  * 			volume, specify a <code>DockerVolumeConfiguration</code>. For tasks that use a bind
  * 			mount host volume, specify a <code>host</code> and optional <code>sourcePath</code>. For
  * 			more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using Data Volumes in
@@ -5691,8 +5683,7 @@ export interface TaskDefinition {
   revision?: number;
 
   /**
-   * <p>The list of data volume definitions for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The list of data volume definitions for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    * 		       <note>
    * 			         <p>The <code>host</code> and <code>sourcePath</code> parameters aren't supported for
    * 				tasks run on Fargate. </p>
@@ -6477,8 +6468,7 @@ export interface ContainerOverride {
  * <p>Details on an Elastic Inference accelerator task override. This parameter is used to
  * 			override the Elastic Inference accelerator specified in the task definition. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-inference.html">Working with Amazon
- * 				Elastic Inference on Amazon ECS</a> in the
- * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				Elastic Inference on Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  */
 export interface InferenceAcceleratorOverride {
   /**
@@ -6766,8 +6756,7 @@ export interface Task {
   /**
    * <p>The platform version where your task runs on. A platform version is only specified for
    * 			tasks that use the Fargate launch type. If you didn't specify one, the
-   * 				<code>LATEST</code> platform version is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform Versions</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 				<code>LATEST</code> platform version is used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html">Fargate Platform Versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   platformVersion?: string;
 
@@ -7005,7 +6994,8 @@ export interface DiscoverPollEndpointResponse {
   telemetryEndpoint?: string;
 
   /**
-   * <p>The endpoint for the Amazon ECS agent to poll for Service Connect configuration. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * <p>The endpoint for the Amazon ECS agent to poll for Service Connect configuration.
+   * 			For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-connect.html">Service Connect</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   serviceConnectEndpoint?: string;
 }
@@ -7412,8 +7402,7 @@ export interface ListContainerInstancesRequest {
 
   /**
    * <p>You can filter the results of a <code>ListContainerInstances</code> operation with
-   * 			cluster query language statements. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			cluster query language statements. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   filter?: string;
 
@@ -7544,23 +7533,26 @@ export interface ListServicesByNamespaceRequest {
   namespace: string | undefined;
 
   /**
-   * <p>The <code>nextToken</code> value that's returned from a <code>ListServicesByNamespace</code> request.
-   * 			It indicates that more results are available to fulfill the request and further calls
-   * 			are needed. If <code>maxResults</code> is returned, it is possible the number of results
-   * 			is less than <code>maxResults</code>.</p>
+   * <p>The <code>nextToken</code> value that's returned from a
+   * 				<code>ListServicesByNamespace</code> request. It indicates that more results are
+   * 			available to fulfill the request and further calls are needed. If
+   * 				<code>maxResults</code> is returned, it is possible the number of results is less
+   * 			than <code>maxResults</code>.</p>
    */
   nextToken?: string;
 
   /**
-   * <p>The maximum number of service results that <code>ListServicesByNamespace</code> returns in
-   * 			paginated output. When this parameter is used, <code>ListServicesByNamespace</code> only returns
-   * 			<code>maxResults</code> results in a single page along with a <code>nextToken</code>
-   * 			response element. The remaining results of the initial request can be seen by sending
-   * 			another <code>ListServicesByNamespace</code> request with the returned <code>nextToken</code>
-   * 			value. This value can be between 1 and 100. If
-   * 			this parameter isn't used, then <code>ListServicesByNamespace</code> returns up to
-   * 			10 results and a <code>nextToken</code> value if
-   * 			applicable.</p>
+   * <p>The maximum number of service results that <code>ListServicesByNamespace</code>
+   * 			returns in paginated output. When this parameter is used,
+   * 				<code>ListServicesByNamespace</code> only returns <code>maxResults</code> results in
+   * 			a single page along with a <code>nextToken</code> response element. The remaining
+   * 			results of the initial request can be seen by sending another
+   * 				<code>ListServicesByNamespace</code> request with the returned
+   * 				<code>nextToken</code> value. This value can be between 1 and
+   * 			100. If this parameter isn't used, then
+   * 				<code>ListServicesByNamespace</code> returns up to
+   * 			10 results and a <code>nextToken</code>
+   * 			value if applicable.</p>
    */
   maxResults?: number;
 }
@@ -7573,11 +7565,11 @@ export interface ListServicesByNamespaceResponse {
   serviceArns?: string[];
 
   /**
-   * <p>The <code>nextToken</code> value to include in a future <code>ListServicesByNamespace</code>
-   * 			request. When the results of a <code>ListServicesByNamespace</code> request exceed
-   * 			<code>maxResults</code>, this value can be used to retrieve the next page of
-   * 			results. When there are no more results to
-   * 			return, this value is <code>null</code>.</p>
+   * <p>The <code>nextToken</code> value to include in a future
+   * 				<code>ListServicesByNamespace</code> request. When the results of a
+   * 				<code>ListServicesByNamespace</code> request exceed <code>maxResults</code>, this
+   * 			value can be used to retrieve the next page of results. When there are no more results
+   * 			to return, this value is <code>null</code>.</p>
    */
   nextToken?: string;
 }
@@ -8429,8 +8421,7 @@ export interface RegisterTaskDefinitionRequest {
    * 				<code>1.26.0-1</code> of the <code>ecs-init</code> package to use a proxy
    * 			configuration. If your container instances are launched from the Amazon ECS-optimized
    * 			AMI version <code>20190301</code> or later, then they contain the required versions of
-   * 			the container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html">Amazon ECS-optimized AMI versions</a> in the
-   * 			<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+   * 			the container agent and <code>ecs-init</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-ami-versions.html">Amazon ECS-optimized AMI versions</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   proxyConfiguration?: ProxyConfiguration;
 
@@ -8726,7 +8717,7 @@ export interface StartTaskRequest {
 
   /**
    * <p>Specifies whether to use Amazon ECS managed tags for the task. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
+   * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS
    * 				Resources</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
    */
   enableECSManagedTags?: boolean;
@@ -9506,14 +9497,12 @@ export interface UpdateServiceRequest {
    *                <a href="https://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeployment.html">CreateDeployment</a>
    *             </code> through CodeDeploy. Note that multiple target groups
    * 			are not supported for blue/green deployments. For more information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
-   * 				multiple target groups with a service</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>. </p>
+   * 				multiple target groups with a service</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. </p>
    * 		       <p>For services that use the external deployment controller, you can add, update, or
    * 			remove load balancers by using <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateTaskSet.html">CreateTaskSet</a>.
    * 			Note that multiple target groups are not supported for external deployments. For more
    * 			information see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/register-multiple-targetgroups.html">Register
-   * 				multiple target groups with a service</a> in the
-   * 				<i>Amazon Elastic Container Service Developer Guide</i>. </p>
+   * 				multiple target groups with a service</a> in the <i>Amazon Elastic Container Service Developer Guide</i>. </p>
    * 		       <p>You can remove existing <code>loadBalancers</code> by passing an empty list.</p>
    */
   loadBalancers?: LoadBalancer[];
