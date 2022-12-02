@@ -34,9 +34,13 @@ export interface DescribeKeyCommandOutput extends DescribeKeyResponse, __Metadat
  *         key</a> or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed key</a>.</p>
  *          <p>This detailed information includes the key ARN, creation date (and deletion date, if
  *       applicable), the key state, and the origin and expiration date (if any) of the key material.
- *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of KMS keys. It also displays the key usage (encryption, signing, or generating and verifying MACs) and the algorithms that the KMS key supports. For KMS keys in custom key stores, it includes
- *       information about the custom key store, such as the key store ID and the CloudHSM cluster ID. For
- *       multi-Region keys, it displays the primary key and all related replica keys. </p>
+ *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
+ *       KMS keys. It also displays the key usage (encryption, signing, or generating and verifying
+ *       MACs) and the algorithms that the KMS key supports. For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>, it displays
+ *       the primary key and all related replica keys. For KMS keys in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes information
+ *       about the custom key store, such as the key store ID and the CloudHSM cluster ID. For KMS key in
+ *         <a href="kms/latest/developerguide/keystore-external.html">external key stores</a>, it includes
+ *       the custom key store ID and the ID and status of the associated external key.</p>
  *          <p>
  *             <code>DescribeKey</code> does not return the following information:</p>
  *          <ul>

@@ -19,7 +19,7 @@ import {
   CreateStoreImageTaskRequestFilterSensitiveLog,
   CreateStoreImageTaskResult,
   CreateStoreImageTaskResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateStoreImageTaskCommand,
   serializeAws_ec2CreateStoreImageTaskCommand,

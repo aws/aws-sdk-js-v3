@@ -42,6 +42,11 @@ import {
   BatchGetCustomEntityTypesCommandOutput,
 } from "./commands/BatchGetCustomEntityTypesCommand";
 import {
+  BatchGetDataQualityResultCommand,
+  BatchGetDataQualityResultCommandInput,
+  BatchGetDataQualityResultCommandOutput,
+} from "./commands/BatchGetDataQualityResultCommand";
+import {
   BatchGetDevEndpointsCommand,
   BatchGetDevEndpointsCommandInput,
   BatchGetDevEndpointsCommandOutput,
@@ -76,6 +81,16 @@ import {
   BatchUpdatePartitionCommandInput,
   BatchUpdatePartitionCommandOutput,
 } from "./commands/BatchUpdatePartitionCommand";
+import {
+  CancelDataQualityRuleRecommendationRunCommand,
+  CancelDataQualityRuleRecommendationRunCommandInput,
+  CancelDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/CancelDataQualityRuleRecommendationRunCommand";
+import {
+  CancelDataQualityRulesetEvaluationRunCommand,
+  CancelDataQualityRulesetEvaluationRunCommandInput,
+  CancelDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/CancelDataQualityRulesetEvaluationRunCommand";
 import {
   CancelMLTaskRunCommand,
   CancelMLTaskRunCommandInput,
@@ -121,6 +136,11 @@ import {
   CreateDatabaseCommandInput,
   CreateDatabaseCommandOutput,
 } from "./commands/CreateDatabaseCommand";
+import {
+  CreateDataQualityRulesetCommand,
+  CreateDataQualityRulesetCommandInput,
+  CreateDataQualityRulesetCommandOutput,
+} from "./commands/CreateDataQualityRulesetCommand";
 import {
   CreateDevEndpointCommand,
   CreateDevEndpointCommandInput,
@@ -223,6 +243,11 @@ import {
   DeleteDatabaseCommandInput,
   DeleteDatabaseCommandOutput,
 } from "./commands/DeleteDatabaseCommand";
+import {
+  DeleteDataQualityRulesetCommand,
+  DeleteDataQualityRulesetCommandInput,
+  DeleteDataQualityRulesetCommandOutput,
+} from "./commands/DeleteDataQualityRulesetCommand";
 import {
   DeleteDevEndpointCommand,
   DeleteDevEndpointCommandInput,
@@ -373,6 +398,26 @@ import {
   GetDataflowGraphCommandInput,
   GetDataflowGraphCommandOutput,
 } from "./commands/GetDataflowGraphCommand";
+import {
+  GetDataQualityResultCommand,
+  GetDataQualityResultCommandInput,
+  GetDataQualityResultCommandOutput,
+} from "./commands/GetDataQualityResultCommand";
+import {
+  GetDataQualityRuleRecommendationRunCommand,
+  GetDataQualityRuleRecommendationRunCommandInput,
+  GetDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/GetDataQualityRuleRecommendationRunCommand";
+import {
+  GetDataQualityRulesetCommand,
+  GetDataQualityRulesetCommandInput,
+  GetDataQualityRulesetCommandOutput,
+} from "./commands/GetDataQualityRulesetCommand";
+import {
+  GetDataQualityRulesetEvaluationRunCommand,
+  GetDataQualityRulesetEvaluationRunCommandInput,
+  GetDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/GetDataQualityRulesetEvaluationRunCommand";
 import {
   GetDevEndpointCommand,
   GetDevEndpointCommandInput,
@@ -550,6 +595,26 @@ import {
   ListCustomEntityTypesCommandOutput,
 } from "./commands/ListCustomEntityTypesCommand";
 import {
+  ListDataQualityResultsCommand,
+  ListDataQualityResultsCommandInput,
+  ListDataQualityResultsCommandOutput,
+} from "./commands/ListDataQualityResultsCommand";
+import {
+  ListDataQualityRuleRecommendationRunsCommand,
+  ListDataQualityRuleRecommendationRunsCommandInput,
+  ListDataQualityRuleRecommendationRunsCommandOutput,
+} from "./commands/ListDataQualityRuleRecommendationRunsCommand";
+import {
+  ListDataQualityRulesetEvaluationRunsCommand,
+  ListDataQualityRulesetEvaluationRunsCommandInput,
+  ListDataQualityRulesetEvaluationRunsCommandOutput,
+} from "./commands/ListDataQualityRulesetEvaluationRunsCommand";
+import {
+  ListDataQualityRulesetsCommand,
+  ListDataQualityRulesetsCommandInput,
+  ListDataQualityRulesetsCommandOutput,
+} from "./commands/ListDataQualityRulesetsCommand";
+import {
   ListDevEndpointsCommand,
   ListDevEndpointsCommandInput,
   ListDevEndpointsCommandOutput,
@@ -662,6 +727,16 @@ import {
   StartCrawlerScheduleCommandOutput,
 } from "./commands/StartCrawlerScheduleCommand";
 import {
+  StartDataQualityRuleRecommendationRunCommand,
+  StartDataQualityRuleRecommendationRunCommandInput,
+  StartDataQualityRuleRecommendationRunCommandOutput,
+} from "./commands/StartDataQualityRuleRecommendationRunCommand";
+import {
+  StartDataQualityRulesetEvaluationRunCommand,
+  StartDataQualityRulesetEvaluationRunCommandInput,
+  StartDataQualityRulesetEvaluationRunCommandOutput,
+} from "./commands/StartDataQualityRulesetEvaluationRunCommand";
+import {
   StartExportLabelsTaskRunCommand,
   StartExportLabelsTaskRunCommandInput,
   StartExportLabelsTaskRunCommandOutput,
@@ -751,6 +826,11 @@ import {
   UpdateDatabaseCommandInput,
   UpdateDatabaseCommandOutput,
 } from "./commands/UpdateDatabaseCommand";
+import {
+  UpdateDataQualityRulesetCommand,
+  UpdateDataQualityRulesetCommandInput,
+  UpdateDataQualityRulesetCommandOutput,
+} from "./commands/UpdateDataQualityRulesetCommand";
 import {
   UpdateDevEndpointCommand,
   UpdateDevEndpointCommandInput,
@@ -1077,6 +1157,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieves a list of data quality results for the specified result IDs.</p>
+   */
+  public batchGetDataQualityResult(
+    args: BatchGetDataQualityResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetDataQualityResultCommandOutput>;
+  public batchGetDataQualityResult(
+    args: BatchGetDataQualityResultCommandInput,
+    cb: (err: any, data?: BatchGetDataQualityResultCommandOutput) => void
+  ): void;
+  public batchGetDataQualityResult(
+    args: BatchGetDataQualityResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetDataQualityResultCommandOutput) => void
+  ): void;
+  public batchGetDataQualityResult(
+    args: BatchGetDataQualityResultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: BatchGetDataQualityResultCommandOutput) => void),
+    cb?: (err: any, data?: BatchGetDataQualityResultCommandOutput) => void
+  ): Promise<BatchGetDataQualityResultCommandOutput> | void {
+    const command = new BatchGetDataQualityResultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Returns a list of resource metadata for a given list of development endpoint names. After
    *       calling the <code>ListDevEndpoints</code> operation, you can call this operation to access the
    *       data to which you have been granted permissions. This operation supports all IAM permissions,
@@ -1291,6 +1403,74 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: BatchUpdatePartitionCommandOutput) => void
   ): Promise<BatchUpdatePartitionCommandOutput> | void {
     const command = new BatchUpdatePartitionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels the specified recommendation run that was being used to generate rules.</p>
+   */
+  public cancelDataQualityRuleRecommendationRun(
+    args: CancelDataQualityRuleRecommendationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDataQualityRuleRecommendationRunCommandOutput>;
+  public cancelDataQualityRuleRecommendationRun(
+    args: CancelDataQualityRuleRecommendationRunCommandInput,
+    cb: (err: any, data?: CancelDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public cancelDataQualityRuleRecommendationRun(
+    args: CancelDataQualityRuleRecommendationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public cancelDataQualityRuleRecommendationRun(
+    args: CancelDataQualityRuleRecommendationRunCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelDataQualityRuleRecommendationRunCommandOutput) => void),
+    cb?: (err: any, data?: CancelDataQualityRuleRecommendationRunCommandOutput) => void
+  ): Promise<CancelDataQualityRuleRecommendationRunCommandOutput> | void {
+    const command = new CancelDataQualityRuleRecommendationRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Cancels a run where a ruleset is being evaluated against a data source.</p>
+   */
+  public cancelDataQualityRulesetEvaluationRun(
+    args: CancelDataQualityRulesetEvaluationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDataQualityRulesetEvaluationRunCommandOutput>;
+  public cancelDataQualityRulesetEvaluationRun(
+    args: CancelDataQualityRulesetEvaluationRunCommandInput,
+    cb: (err: any, data?: CancelDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public cancelDataQualityRulesetEvaluationRun(
+    args: CancelDataQualityRulesetEvaluationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public cancelDataQualityRulesetEvaluationRun(
+    args: CancelDataQualityRulesetEvaluationRunCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: CancelDataQualityRulesetEvaluationRunCommandOutput) => void),
+    cb?: (err: any, data?: CancelDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): Promise<CancelDataQualityRulesetEvaluationRunCommandOutput> | void {
+    const command = new CancelDataQualityRulesetEvaluationRunCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1533,7 +1713,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
-   *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
+   *
+   * 	        <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
    */
   public createCustomEntityType(
     args: CreateCustomEntityTypeCommandInput,
@@ -1586,6 +1767,40 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: CreateDatabaseCommandOutput) => void
   ): Promise<CreateDatabaseCommandOutput> | void {
     const command = new CreateDatabaseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
+   *
+   * 	        <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
+   */
+  public createDataQualityRuleset(
+    args: CreateDataQualityRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataQualityRulesetCommandOutput>;
+  public createDataQualityRuleset(
+    args: CreateDataQualityRulesetCommandInput,
+    cb: (err: any, data?: CreateDataQualityRulesetCommandOutput) => void
+  ): void;
+  public createDataQualityRuleset(
+    args: CreateDataQualityRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataQualityRulesetCommandOutput) => void
+  ): void;
+  public createDataQualityRuleset(
+    args: CreateDataQualityRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateDataQualityRulesetCommandOutput) => void),
+    cb?: (err: any, data?: CreateDataQualityRulesetCommandOutput) => void
+  ): Promise<CreateDataQualityRulesetCommandOutput> | void {
+    const command = new CreateDataQualityRulesetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1657,10 +1872,12 @@ export class Glue extends GlueClient {
   /**
    * <p>Creates an Glue machine learning transform. This operation creates the transform and
    *       all the necessary parameters to train it.</p>
-   *          <p>Call this operation as the first step in the process of using a machine learning transform
+   *
+   * 	        <p>Call this operation as the first step in the process of using a machine learning transform
    *       (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an
    *       optional <code>Description</code>, in addition to the parameters that you want to use for your
    *       algorithm.</p>
+   *
    *          <p>You must also specify certain parameters for the tasks that Glue runs on your
    *       behalf as part of learning from your data and creating a high-quality machine learning
    *       transform. These parameters include <code>Role</code>, and optionally,
@@ -2104,7 +2321,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Delete the partition column statistics of a column.</p>
-   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
    */
   public deleteColumnStatisticsForPartition(
     args: DeleteColumnStatisticsForPartitionCommandInput,
@@ -2137,7 +2355,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
-   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
    */
   public deleteColumnStatisticsForTable(
     args: DeleteColumnStatisticsForTableCommandInput,
@@ -2299,6 +2518,38 @@ export class Glue extends GlueClient {
     cb?: (err: any, data?: DeleteDatabaseCommandOutput) => void
   ): Promise<DeleteDatabaseCommandOutput> | void {
     const command = new DeleteDatabaseCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a data quality ruleset.</p>
+   */
+  public deleteDataQualityRuleset(
+    args: DeleteDataQualityRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataQualityRulesetCommandOutput>;
+  public deleteDataQualityRuleset(
+    args: DeleteDataQualityRulesetCommandInput,
+    cb: (err: any, data?: DeleteDataQualityRulesetCommandOutput) => void
+  ): void;
+  public deleteDataQualityRuleset(
+    args: DeleteDataQualityRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataQualityRulesetCommandOutput) => void
+  ): void;
+  public deleteDataQualityRuleset(
+    args: DeleteDataQualityRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteDataQualityRulesetCommandOutput) => void),
+    cb?: (err: any, data?: DeleteDataQualityRulesetCommandOutput) => void
+  ): Promise<DeleteDataQualityRulesetCommandOutput> | void {
+    const command = new DeleteDataQualityRulesetCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -3017,7 +3268,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves partition statistics of columns.</p>
-   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
    */
   public getColumnStatisticsForPartition(
     args: GetColumnStatisticsForPartitionCommandInput,
@@ -3050,6 +3302,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
+   *
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
    */
   public getColumnStatisticsForTable(
@@ -3382,6 +3635,134 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Retrieves the result of a data quality rule evaluation.</p>
+   */
+  public getDataQualityResult(
+    args: GetDataQualityResultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityResultCommandOutput>;
+  public getDataQualityResult(
+    args: GetDataQualityResultCommandInput,
+    cb: (err: any, data?: GetDataQualityResultCommandOutput) => void
+  ): void;
+  public getDataQualityResult(
+    args: GetDataQualityResultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityResultCommandOutput) => void
+  ): void;
+  public getDataQualityResult(
+    args: GetDataQualityResultCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityResultCommandOutput) => void),
+    cb?: (err: any, data?: GetDataQualityResultCommandOutput) => void
+  ): Promise<GetDataQualityResultCommandOutput> | void {
+    const command = new GetDataQualityResultCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Gets the specified recommendation run that was used to generate rules.</p>
+   */
+  public getDataQualityRuleRecommendationRun(
+    args: GetDataQualityRuleRecommendationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityRuleRecommendationRunCommandOutput>;
+  public getDataQualityRuleRecommendationRun(
+    args: GetDataQualityRuleRecommendationRunCommandInput,
+    cb: (err: any, data?: GetDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public getDataQualityRuleRecommendationRun(
+    args: GetDataQualityRuleRecommendationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public getDataQualityRuleRecommendationRun(
+    args: GetDataQualityRuleRecommendationRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityRuleRecommendationRunCommandOutput) => void),
+    cb?: (err: any, data?: GetDataQualityRuleRecommendationRunCommandOutput) => void
+  ): Promise<GetDataQualityRuleRecommendationRunCommandOutput> | void {
+    const command = new GetDataQualityRuleRecommendationRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns an existing ruleset by identifier or name.</p>
+   */
+  public getDataQualityRuleset(
+    args: GetDataQualityRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityRulesetCommandOutput>;
+  public getDataQualityRuleset(
+    args: GetDataQualityRulesetCommandInput,
+    cb: (err: any, data?: GetDataQualityRulesetCommandOutput) => void
+  ): void;
+  public getDataQualityRuleset(
+    args: GetDataQualityRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityRulesetCommandOutput) => void
+  ): void;
+  public getDataQualityRuleset(
+    args: GetDataQualityRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityRulesetCommandOutput) => void),
+    cb?: (err: any, data?: GetDataQualityRulesetCommandOutput) => void
+  ): Promise<GetDataQualityRulesetCommandOutput> | void {
+    const command = new GetDataQualityRulesetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieves a specific run where a ruleset is evaluated against a data source.</p>
+   */
+  public getDataQualityRulesetEvaluationRun(
+    args: GetDataQualityRulesetEvaluationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataQualityRulesetEvaluationRunCommandOutput>;
+  public getDataQualityRulesetEvaluationRun(
+    args: GetDataQualityRulesetEvaluationRunCommandInput,
+    cb: (err: any, data?: GetDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public getDataQualityRulesetEvaluationRun(
+    args: GetDataQualityRulesetEvaluationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public getDataQualityRulesetEvaluationRun(
+    args: GetDataQualityRulesetEvaluationRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetDataQualityRulesetEvaluationRunCommandOutput) => void),
+    cb?: (err: any, data?: GetDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): Promise<GetDataQualityRulesetEvaluationRunCommandOutput> | void {
+    const command = new GetDataQualityRulesetEvaluationRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about a specified development endpoint.</p>
    *          <note>
    *             <p>When you create a development endpoint in a virtual private cloud (VPC), Glue returns only
@@ -3483,8 +3864,10 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Returns information on a job bookmark entry.</p>
-   *          <p>For more information about enabling and using job bookmarks, see:</p>
-   *          <ul>
+   *
+   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+   *
+   * 	        <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
@@ -3674,7 +4057,8 @@ export class Glue extends GlueClient {
    *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
    *         <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code> and other
    *       optional parameters as documented in this section.</p>
-   *          <p>This operation returns a list of historic runs and must be paginated.</p>
+   *
+   * 	        <p>This operation returns a list of historic runs and must be paginated.</p>
    */
   public getMLTaskRuns(
     args: GetMLTaskRunsCommandInput,
@@ -4771,6 +5155,7 @@ export class Glue extends GlueClient {
    * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which
    *       resources are available in your account, and their names.</p>
+   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -4803,8 +5188,9 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
-   *          <p>You may use this API to:</p>
-   *          <ul>
+   *
+   * 	        <p>You may use this API to:</p>
+   * 	        <ul>
    *             <li>
    *                <p>Retrive all the crawls of a specified crawler.</p>
    *             </li>
@@ -4875,9 +5261,140 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Returns all data quality execution results for your account.</p>
+   */
+  public listDataQualityResults(
+    args: ListDataQualityResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityResultsCommandOutput>;
+  public listDataQualityResults(
+    args: ListDataQualityResultsCommandInput,
+    cb: (err: any, data?: ListDataQualityResultsCommandOutput) => void
+  ): void;
+  public listDataQualityResults(
+    args: ListDataQualityResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityResultsCommandOutput) => void
+  ): void;
+  public listDataQualityResults(
+    args: ListDataQualityResultsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataQualityResultsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataQualityResultsCommandOutput) => void
+  ): Promise<ListDataQualityResultsCommandOutput> | void {
+    const command = new ListDataQualityResultsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the recommendation runs meeting the filter criteria.</p>
+   */
+  public listDataQualityRuleRecommendationRuns(
+    args: ListDataQualityRuleRecommendationRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput>;
+  public listDataQualityRuleRecommendationRuns(
+    args: ListDataQualityRuleRecommendationRunsCommandInput,
+    cb: (err: any, data?: ListDataQualityRuleRecommendationRunsCommandOutput) => void
+  ): void;
+  public listDataQualityRuleRecommendationRuns(
+    args: ListDataQualityRuleRecommendationRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityRuleRecommendationRunsCommandOutput) => void
+  ): void;
+  public listDataQualityRuleRecommendationRuns(
+    args: ListDataQualityRuleRecommendationRunsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ListDataQualityRuleRecommendationRunsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataQualityRuleRecommendationRunsCommandOutput) => void
+  ): Promise<ListDataQualityRuleRecommendationRunsCommandOutput> | void {
+    const command = new ListDataQualityRuleRecommendationRunsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists all the runs meeting the filter criteria, where a ruleset is evaluated against a data source.</p>
+   */
+  public listDataQualityRulesetEvaluationRuns(
+    args: ListDataQualityRulesetEvaluationRunsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput>;
+  public listDataQualityRulesetEvaluationRuns(
+    args: ListDataQualityRulesetEvaluationRunsCommandInput,
+    cb: (err: any, data?: ListDataQualityRulesetEvaluationRunsCommandOutput) => void
+  ): void;
+  public listDataQualityRulesetEvaluationRuns(
+    args: ListDataQualityRulesetEvaluationRunsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityRulesetEvaluationRunsCommandOutput) => void
+  ): void;
+  public listDataQualityRulesetEvaluationRuns(
+    args: ListDataQualityRulesetEvaluationRunsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataQualityRulesetEvaluationRunsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataQualityRulesetEvaluationRunsCommandOutput) => void
+  ): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput> | void {
+    const command = new ListDataQualityRulesetEvaluationRunsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns a paginated list of rulesets for the specified list of Glue tables.</p>
+   */
+  public listDataQualityRulesets(
+    args: ListDataQualityRulesetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataQualityRulesetsCommandOutput>;
+  public listDataQualityRulesets(
+    args: ListDataQualityRulesetsCommandInput,
+    cb: (err: any, data?: ListDataQualityRulesetsCommandOutput) => void
+  ): void;
+  public listDataQualityRulesets(
+    args: ListDataQualityRulesetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataQualityRulesetsCommandOutput) => void
+  ): void;
+  public listDataQualityRulesets(
+    args: ListDataQualityRulesetsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListDataQualityRulesetsCommandOutput) => void),
+    cb?: (err: any, data?: ListDataQualityRulesetsCommandOutput) => void
+  ): Promise<ListDataQualityRulesetsCommandOutput> | void {
+    const command = new ListDataQualityRulesetsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which resources are
    *       available in your account, and their names.</p>
+   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -4913,7 +5430,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
-   *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
+   *
+   * 	        <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
    */
@@ -5130,6 +5648,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
+   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -5356,7 +5875,7 @@ export class Glue extends GlueClient {
   /**
    * <p>Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.</p>
    *          <p>If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the <code>GetSchemaVersion</code> API with the <code>SchemaVersionId</code> to check compatibility modes.</p>
-   *          <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
+   * 	        <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
    */
   public registerSchemaVersion(
     args: RegisterSchemaVersionCommandInput,
@@ -5421,8 +5940,10 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Resets a bookmark entry.</p>
-   *          <p>For more information about enabling and using job bookmarks, see:</p>
-   *          <ul>
+   *
+   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
+   *
+   * 	        <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
@@ -5658,6 +6179,72 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Starts a recommendation run that is used to generate rules when you don't know what rules to write. Glue Data Quality analyzes the data and comes up with recommendations for a potential ruleset. You can then triage the ruleset and modify the generated ruleset to your liking.</p>
+   */
+  public startDataQualityRuleRecommendationRun(
+    args: StartDataQualityRuleRecommendationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDataQualityRuleRecommendationRunCommandOutput>;
+  public startDataQualityRuleRecommendationRun(
+    args: StartDataQualityRuleRecommendationRunCommandInput,
+    cb: (err: any, data?: StartDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public startDataQualityRuleRecommendationRun(
+    args: StartDataQualityRuleRecommendationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDataQualityRuleRecommendationRunCommandOutput) => void
+  ): void;
+  public startDataQualityRuleRecommendationRun(
+    args: StartDataQualityRuleRecommendationRunCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: StartDataQualityRuleRecommendationRunCommandOutput) => void),
+    cb?: (err: any, data?: StartDataQualityRuleRecommendationRunCommandOutput) => void
+  ): Promise<StartDataQualityRuleRecommendationRunCommandOutput> | void {
+    const command = new StartDataQualityRuleRecommendationRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Once you have a ruleset definition (either recommended or your own), you call this operation to evaluate the ruleset against a data source (Glue table). The evaluation computes results which you can retrieve with the <code>GetDataQualityResult</code> API.</p>
+   */
+  public startDataQualityRulesetEvaluationRun(
+    args: StartDataQualityRulesetEvaluationRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartDataQualityRulesetEvaluationRunCommandOutput>;
+  public startDataQualityRulesetEvaluationRun(
+    args: StartDataQualityRulesetEvaluationRunCommandInput,
+    cb: (err: any, data?: StartDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public startDataQualityRulesetEvaluationRun(
+    args: StartDataQualityRulesetEvaluationRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): void;
+  public startDataQualityRulesetEvaluationRun(
+    args: StartDataQualityRulesetEvaluationRunCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartDataQualityRulesetEvaluationRunCommandOutput) => void),
+    cb?: (err: any, data?: StartDataQualityRulesetEvaluationRunCommandOutput) => void
+  ): Promise<StartDataQualityRulesetEvaluationRunCommandOutput> | void {
+    const command = new StartDataQualityRulesetEvaluationRunCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Begins an asynchronous task to export all labeled data for a particular transform. This
    *       task is the only label-related API call that is not part of the typical active learning
    *       workflow. You typically use <code>StartExportLabelsTaskRun</code> when you want to work with
@@ -5703,6 +6290,7 @@ export class Glue extends GlueClient {
    *       part of the active learning workflow that starts with the
    *         <code>StartMLLabelingSetGenerationTaskRun</code> call and that ultimately results in
    *       improving the quality of your machine learning transform. </p>
+   *
    *          <p>After the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue machine learning
    *       will have generated a series of questions for humans to answer. (Answering these questions is
    *       often called 'labeling' in the machine learning workflows). In the case of the
@@ -5712,12 +6300,14 @@ export class Glue extends GlueClient {
    *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
    *       all future runs of the machine learning transform use the new and improved labels and perform
    *       a higher-quality transformation.</p>
+   *
    *          <p>By default, <code>StartMLLabelingSetGenerationTaskRun</code> continually learns from and
    *       combines all labels that you upload unless you set <code>Replace</code> to true. If you set
    *         <code>Replace</code> to true, <code>StartImportLabelsTaskRun</code> deletes and forgets all
    *       previously uploaded labels and learns only from the exact set that you upload. Replacing
    *       labels can be helpful if you realize that you previously uploaded incorrect labels, and you
    *       believe that they are having a negative effect on your transform quality.</p>
+   *
    *          <p>You can check on the status of your task run by calling the <code>GetMLTaskRun</code>
    *       operation. </p>
    */
@@ -5778,10 +6368,12 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Starts a task to estimate the quality of the transform. </p>
-   *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
+   *
+   * 	        <p>When you provide label sets as examples of truth, Glue machine learning uses some of
    *       those examples to learn from them. The rest of the labels are used as a test to estimate
    *       quality.</p>
-   *          <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
+   *
+   * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
    *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
    */
   public startMLEvaluationTaskRun(
@@ -5816,11 +6408,14 @@ export class Glue extends GlueClient {
   /**
    * <p>Starts the active learning workflow for your machine learning transform to improve the
    *       transform's quality by generating label sets and adding labels.</p>
-   *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
+   *
+   * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
    *       generated a "labeling set" or a set of questions for humans to answer.</p>
+   *
    *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,
    *       “What is the correct way to group these rows together into groups composed entirely of
    *       matching records?” </p>
+   *
    *          <p>After the labeling process is finished, you can upload your labels with a call to
    *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
    *       all future runs of the machine learning transform will use the new and improved labels and
@@ -6190,6 +6785,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates partition statistics of columns.</p>
+   *
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
    */
   public updateColumnStatisticsForPartition(
@@ -6223,7 +6819,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates table statistics of columns.</p>
-   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+   *
+   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
    */
   public updateColumnStatisticsForTable(
     args: UpdateColumnStatisticsForTableCommandInput,
@@ -6385,6 +6982,38 @@ export class Glue extends GlueClient {
   }
 
   /**
+   * <p>Updates the specified data quality ruleset.</p>
+   */
+  public updateDataQualityRuleset(
+    args: UpdateDataQualityRulesetCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataQualityRulesetCommandOutput>;
+  public updateDataQualityRuleset(
+    args: UpdateDataQualityRulesetCommandInput,
+    cb: (err: any, data?: UpdateDataQualityRulesetCommandOutput) => void
+  ): void;
+  public updateDataQualityRuleset(
+    args: UpdateDataQualityRulesetCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataQualityRulesetCommandOutput) => void
+  ): void;
+  public updateDataQualityRuleset(
+    args: UpdateDataQualityRulesetCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDataQualityRulesetCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDataQualityRulesetCommandOutput) => void
+  ): Promise<UpdateDataQualityRulesetCommandOutput> | void {
+    const command = new UpdateDataQualityRulesetCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Updates a specified development endpoint.</p>
    */
   public updateDevEndpoint(
@@ -6444,7 +7073,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
-   *          <p>This API supports optional parameters which take in the repository information.</p>
+   *
+   * 	        <p>This API supports optional parameters which take in the repository information.</p>
    */
   public updateJobFromSourceControl(
     args: UpdateJobFromSourceControlCommandInput,
@@ -6477,6 +7107,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
+   *
    *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
    *       operation to assess how well your new parameters achieved your goals (such as improving the
    *       quality of your machine learning transform, or making it more cost-effective).</p>
@@ -6576,9 +7207,9 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
-   *          <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
+   * 	        <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
    *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
-   *          <p>This update will happen only if the schema is in the AVAILABLE state.</p>
+   * 	        <p>This update will happen only if the schema is in the AVAILABLE state.</p>
    */
   public updateSchema(
     args: UpdateSchemaCommandInput,
@@ -6608,7 +7239,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
-   *          <p>This API supports optional parameters which take in the repository information.</p>
+   *
+   * 	        <p>This API supports optional parameters which take in the repository information.</p>
    */
   public updateSourceControlFromJob(
     args: UpdateSourceControlFromJobCommandInput,

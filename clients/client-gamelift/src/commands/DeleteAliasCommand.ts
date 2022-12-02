@@ -27,16 +27,10 @@ export interface DeleteAliasCommandOutput extends __MetadataBearer {}
  * <p>Deletes an alias. This operation removes all record of the alias. Game clients
  *             attempting to access a server process using the deleted alias receive an error. To
  *             delete an alias, specify the alias ID to be deleted.</p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateAlias</a> |
- *                     <a>ListAliases</a> |
- *                     <a>DescribeAlias</a> |
- *                     <a>UpdateAlias</a> |
- *                     <a>DeleteAlias</a> |
- *                     <a>ResolveAlias</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

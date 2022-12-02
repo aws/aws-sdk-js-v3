@@ -29,8 +29,8 @@ export interface DescribeMatchmakingRuleSetsCommandInput extends DescribeMatchma
 export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchmakingRuleSetsOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all
- *             existing rule sets for the Region, or provide a list of one or more rule set names. When
+ * <p>Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
+ *             rule sets for the Region, or provide a list of one or more rule set names. When
  *             requesting multiple items, use the pagination parameters to retrieve results as a set of
  *             sequential pages. If successful, a rule set is returned for each requested name. </p>
  *         <p>
@@ -44,20 +44,6 @@ export interface DescribeMatchmakingRuleSetsCommandOutput extends DescribeMatchm
  *                </p>
  *             </li>
  *          </ul>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

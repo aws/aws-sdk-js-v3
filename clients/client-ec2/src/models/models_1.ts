@@ -16,8 +16,8 @@ import {
   AddPrefixListEntry,
   AddressFamily,
   AttachmentStatus,
+  CoipCidr,
   CurrencyCodeValues,
-  HostnameType,
   InstanceEventWindow,
   Ipv4PrefixSpecification,
   PortRange,
@@ -33,6 +33,217 @@ import {
   VpcIpv6CidrBlockAssociation,
   WeekDay,
 } from "./models_0";
+
+export interface CreateCoipCidrResult {
+  /**
+   * <p>
+   *          Information about a range of customer-owned IP addresses.
+   *       </p>
+   */
+  CoipCidr?: CoipCidr;
+}
+
+export interface CreateCoipPoolRequest {
+  /**
+   * <p>
+   *       The ID of the local gateway route table.
+   *       </p>
+   */
+  LocalGatewayRouteTableId: string | undefined;
+
+  /**
+   * <p>
+   *       The tags to assign to the CoIP address pool.
+   *       </p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a customer-owned address pool.</p>
+ */
+export interface CoipPool {
+  /**
+   * <p>The ID of the address pool.</p>
+   */
+  PoolId?: string;
+
+  /**
+   * <p>The address ranges of the address pool.</p>
+   */
+  PoolCidrs?: string[];
+
+  /**
+   * <p>The ID of the local gateway route table.</p>
+   */
+  LocalGatewayRouteTableId?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
+  Tags?: Tag[];
+
+  /**
+   * <p>The ARN of the address pool.</p>
+   */
+  PoolArn?: string;
+}
+
+export interface CreateCoipPoolResult {
+  /**
+   * <p>Information about the CoIP address pool.</p>
+   */
+  CoipPool?: CoipPool;
+}
+
+export enum GatewayType {
+  ipsec_1 = "ipsec.1",
+}
+
+/**
+ * <p>Contains the parameters for CreateCustomerGateway.</p>
+ */
+export interface CreateCustomerGatewayRequest {
+  /**
+   * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
+   *         <p>Default: 65000</p>
+   */
+  BgpAsn: number | undefined;
+
+  /**
+   * <p>
+   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
+   *             address must be static.</p>
+   */
+  PublicIp?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The type of VPN connection that this customer gateway supports
+   *             (<code>ipsec.1</code>).</p>
+   */
+  Type: GatewayType | string | undefined;
+
+  /**
+   * <p>The tags to apply to the customer gateway.</p>
+   */
+  TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A name for the customer gateway device.</p>
+   *         <p>Length Constraints: Up to 255 characters.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>
+   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
+   *         </p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually
+   *             making the request, and provides an error response. If you have the required
+   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
+   *                 <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes a customer gateway.</p>
+ */
+export interface CustomerGateway {
+  /**
+   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
+   *             (ASN).</p>
+   */
+  BgpAsn?: string;
+
+  /**
+   * <p>The ID of the customer gateway.</p>
+   */
+  CustomerGatewayId?: string;
+
+  /**
+   * <p>The IP address of the customer gateway device's outside interface.</p>
+   */
+  IpAddress?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
+   */
+  CertificateArn?: string;
+
+  /**
+   * <p>The current state of the customer gateway (<code>pending | available | deleting |
+   *                 deleted</code>).</p>
+   */
+  State?: string;
+
+  /**
+   * <p>The type of VPN connection the customer gateway supports
+   *             (<code>ipsec.1</code>).</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The name of customer gateway device.</p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>Any tags assigned to the customer gateway.</p>
+   */
+  Tags?: Tag[];
+}
+
+/**
+ * <p>Contains the output of CreateCustomerGateway.</p>
+ */
+export interface CreateCustomerGatewayResult {
+  /**
+   * <p>Information about the customer gateway.</p>
+   */
+  CustomerGateway?: CustomerGateway;
+}
+
+export interface CreateDefaultSubnetRequest {
+  /**
+   * <p>The Availability Zone in which to create the default subnet.</p>
+   */
+  AvailabilityZone: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
+   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
+   */
+  Ipv6Native?: boolean;
+}
+
+export enum HostnameType {
+  ip_name = "ip-name",
+  resource_name = "resource-name",
+}
 
 /**
  * <p>Describes the options for instance hostnames.</p>
@@ -8491,213 +8702,60 @@ export interface CreateSnapshotsRequest {
 }
 
 /**
- * <p>Information about a snapshot.</p>
+ * @internal
  */
-export interface SnapshotInfo {
-  /**
-   * <p>Description specified by the CreateSnapshotRequest that has been applied to all
-   *     snapshots.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Tags associated with this snapshot.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>Indicates whether the snapshot is encrypted.</p>
-   */
-  Encrypted?: boolean;
-
-  /**
-   * <p>Source volume from which this snapshot was created.</p>
-   */
-  VolumeId?: string;
-
-  /**
-   * <p>Current state of the snapshot.</p>
-   */
-  State?: SnapshotState | string;
-
-  /**
-   * <p>Size of the volume from which this snapshot was created.</p>
-   */
-  VolumeSize?: number;
-
-  /**
-   * <p>Time this snapshot was started. This is the same for all snapshots initiated by the
-   *     same request.</p>
-   */
-  StartTime?: Date;
-
-  /**
-   * <p>Progress this snapshot has made towards completing.</p>
-   */
-  Progress?: string;
-
-  /**
-   * <p>Account id used when creating this snapshot.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>Snapshot id that can be used to describe this snapshot.</p>
-   */
-  SnapshotId?: string;
-
-  /**
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
-   */
-  OutpostArn?: string;
-}
-
-export interface CreateSnapshotsResult {
-  /**
-   * <p>List of snapshots.</p>
-   */
-  Snapshots?: SnapshotInfo[];
-}
+export const CreateCoipCidrResultFilterSensitiveLog = (obj: CreateCoipCidrResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the parameters for CreateSpotDatafeedSubscription.</p>
+ * @internal
  */
-export interface CreateSpotDatafeedSubscriptionRequest {
-  /**
-   * <p>The name of the Amazon S3 bucket in which to store the Spot Instance data feed. For
-   *             more information about bucket names, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html#bucketnamingrules">Rules for bucket
-   *                 naming</a> in the <i>Amazon S3 Developer Guide</i>.</p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *             <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The prefix for the data feed file names.</p>
-   */
-  Prefix?: string;
-}
+export const CreateCoipPoolRequestFilterSensitiveLog = (obj: CreateCoipPoolRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes a Spot Instance state change.</p>
+ * @internal
  */
-export interface SpotInstanceStateFault {
-  /**
-   * <p>The reason code for the Spot Instance state change.</p>
-   */
-  Code?: string;
-
-  /**
-   * <p>The message for the Spot Instance state change.</p>
-   */
-  Message?: string;
-}
-
-export enum DatafeedSubscriptionState {
-  Active = "Active",
-  Inactive = "Inactive",
-}
+export const CoipPoolFilterSensitiveLog = (obj: CoipPool): any => ({
+  ...obj,
+});
 
 /**
- * <p>Describes the data feed for a Spot Instance.</p>
+ * @internal
  */
-export interface SpotDatafeedSubscription {
-  /**
-   * <p>The name of the Amazon S3 bucket where the Spot Instance data feed is located.</p>
-   */
-  Bucket?: string;
-
-  /**
-   * <p>The fault codes for the Spot Instance request, if any.</p>
-   */
-  Fault?: SpotInstanceStateFault;
-
-  /**
-   * <p>The Amazon Web Services account ID of the account.</p>
-   */
-  OwnerId?: string;
-
-  /**
-   * <p>The prefix for the data feed files.</p>
-   */
-  Prefix?: string;
-
-  /**
-   * <p>The state of the Spot Instance data feed subscription.</p>
-   */
-  State?: DatafeedSubscriptionState | string;
-}
+export const CreateCoipPoolResultFilterSensitiveLog = (obj: CreateCoipPoolResult): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains the output of CreateSpotDatafeedSubscription.</p>
+ * @internal
  */
-export interface CreateSpotDatafeedSubscriptionResult {
-  /**
-   * <p>The Spot Instance data feed subscription.</p>
-   */
-  SpotDatafeedSubscription?: SpotDatafeedSubscription;
-}
+export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
+  ...obj,
+});
 
 /**
- * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. For more
- *       information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html">Categorizing your storage using
- *         tags</a> in the <i>Amazon Simple Storage Service User Guide</i>.</p>
+ * @internal
  */
-export interface S3ObjectTag {
-  /**
-   * <p>The key of the tag.</p>
-   *          <p>Constraints: Tag keys are case-sensitive and can be up to 128 Unicode characters in
-   *       length. May not begin with <code>aws</code>:.</p>
-   */
-  Key?: string;
+export const CustomerGatewayFilterSensitiveLog = (obj: CustomerGateway): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The value of the tag.</p>
-   *          <p>Constraints: Tag values are case-sensitive and can be up to 256 Unicode characters in
-   *       length.</p>
-   */
-  Value?: string;
-}
+/**
+ * @internal
+ */
+export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
+  ...obj,
+});
 
-export interface CreateStoreImageTaskRequest {
-  /**
-   * <p>The ID of the AMI.</p>
-   */
-  ImageId: string | undefined;
-
-  /**
-   * <p>The name of the Amazon S3 bucket in which the AMI object will be stored. The bucket must be in
-   *       the Region in which the request is being made. The AMI object appears in the bucket only after
-   *       the upload task has completed. </p>
-   */
-  Bucket: string | undefined;
-
-  /**
-   * <p>The tags to apply to the AMI object that will be stored in the Amazon S3 bucket. </p>
-   */
-  S3ObjectTags?: S3ObjectTag[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-export interface CreateStoreImageTaskResult {
-  /**
-   * <p>The name of the stored AMI object in the S3 bucket.</p>
-   */
-  ObjectKey?: string;
-}
+/**
+ * @internal
+ */
+export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10337,72 +10395,5 @@ export const InstanceSpecificationFilterSensitiveLog = (obj: InstanceSpecificati
  * @internal
  */
 export const CreateSnapshotsRequestFilterSensitiveLog = (obj: CreateSnapshotsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SnapshotInfoFilterSensitiveLog = (obj: SnapshotInfo): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSnapshotsResultFilterSensitiveLog = (obj: CreateSnapshotsResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog = (
-  obj: CreateSpotDatafeedSubscriptionRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotInstanceStateFaultFilterSensitiveLog = (obj: SpotInstanceStateFault): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SpotDatafeedSubscriptionFilterSensitiveLog = (obj: SpotDatafeedSubscription): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateSpotDatafeedSubscriptionResultFilterSensitiveLog = (
-  obj: CreateSpotDatafeedSubscriptionResult
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const S3ObjectTagFilterSensitiveLog = (obj: S3ObjectTag): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStoreImageTaskRequestFilterSensitiveLog = (obj: CreateStoreImageTaskRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateStoreImageTaskResultFilterSensitiveLog = (obj: CreateStoreImageTaskResult): any => ({
   ...obj,
 });

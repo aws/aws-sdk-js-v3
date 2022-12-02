@@ -63,13 +63,15 @@ import { FirehoseClient } from "./FirehoseClient";
  * <fullname>Amazon Kinesis Data Firehose API Reference</fullname>
  *          <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time
  *          streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
- *          Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.</p>
+ *          OpenSearch Service, Amazon Redshift, Splunk, and various other supportd
+ *          destinations.</p>
  */
 export class Firehose extends FirehoseClient {
   /**
    * <p>Creates a Kinesis Data Firehose delivery stream.</p>
    *
-   *          <p>By default, you can create up to 50 delivery streams per AWS Region.</p>
+   *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
+   *          Region.</p>
    *          <p>This is an asynchronous operation that immediately returns. The initial status of the
    *          delivery stream is <code>CREATING</code>. After the delivery stream is created, its status
    *          is <code>ACTIVE</code> and it now accepts data. If the delivery stream creation fails, the
@@ -576,12 +578,13 @@ export class Firehose extends FirehoseClient {
 
   /**
    * <p>Adds or updates tags for the specified delivery stream. A tag is a key-value pair
-   *          that you can define and assign to AWS resources. If you specify a tag that already exists,
-   *          the tag value is replaced with the value that you specify in the request. Tags are
-   *          metadata. For example, you can add friendly names and descriptions or other types of
-   *          information that can help you distinguish the delivery stream. For more information about
-   *          tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
-   *             Tags</a> in the <i>AWS Billing and Cost Management User Guide</i>. </p>
+   *          that you can define and assign to Amazon Web Services resources. If you specify a tag that
+   *          already exists, the tag value is replaced with the value that you specify in the request.
+   *          Tags are metadata. For example, you can add friendly names and descriptions or other types
+   *          of information that can help you distinguish the delivery stream. For more information
+   *          about tags, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
+   *             Tags</a> in the <i>Amazon Web Services Billing and Cost Management User
+   *             Guide</i>. </p>
    *          <p>Each delivery stream can have up to 50 tags. </p>
    *          <p>This operation has a limit of five transactions per second per account. </p>
    */

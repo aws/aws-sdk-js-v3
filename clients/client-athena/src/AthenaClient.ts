@@ -58,21 +58,44 @@ import {
 } from "./commands/BatchGetQueryExecutionCommand";
 import { CreateDataCatalogCommandInput, CreateDataCatalogCommandOutput } from "./commands/CreateDataCatalogCommand";
 import { CreateNamedQueryCommandInput, CreateNamedQueryCommandOutput } from "./commands/CreateNamedQueryCommand";
+import { CreateNotebookCommandInput, CreateNotebookCommandOutput } from "./commands/CreateNotebookCommand";
 import {
   CreatePreparedStatementCommandInput,
   CreatePreparedStatementCommandOutput,
 } from "./commands/CreatePreparedStatementCommand";
+import {
+  CreatePresignedNotebookUrlCommandInput,
+  CreatePresignedNotebookUrlCommandOutput,
+} from "./commands/CreatePresignedNotebookUrlCommand";
 import { CreateWorkGroupCommandInput, CreateWorkGroupCommandOutput } from "./commands/CreateWorkGroupCommand";
 import { DeleteDataCatalogCommandInput, DeleteDataCatalogCommandOutput } from "./commands/DeleteDataCatalogCommand";
 import { DeleteNamedQueryCommandInput, DeleteNamedQueryCommandOutput } from "./commands/DeleteNamedQueryCommand";
+import { DeleteNotebookCommandInput, DeleteNotebookCommandOutput } from "./commands/DeleteNotebookCommand";
 import {
   DeletePreparedStatementCommandInput,
   DeletePreparedStatementCommandOutput,
 } from "./commands/DeletePreparedStatementCommand";
 import { DeleteWorkGroupCommandInput, DeleteWorkGroupCommandOutput } from "./commands/DeleteWorkGroupCommand";
+import { ExportNotebookCommandInput, ExportNotebookCommandOutput } from "./commands/ExportNotebookCommand";
+import {
+  GetCalculationExecutionCodeCommandInput,
+  GetCalculationExecutionCodeCommandOutput,
+} from "./commands/GetCalculationExecutionCodeCommand";
+import {
+  GetCalculationExecutionCommandInput,
+  GetCalculationExecutionCommandOutput,
+} from "./commands/GetCalculationExecutionCommand";
+import {
+  GetCalculationExecutionStatusCommandInput,
+  GetCalculationExecutionStatusCommandOutput,
+} from "./commands/GetCalculationExecutionStatusCommand";
 import { GetDatabaseCommandInput, GetDatabaseCommandOutput } from "./commands/GetDatabaseCommand";
 import { GetDataCatalogCommandInput, GetDataCatalogCommandOutput } from "./commands/GetDataCatalogCommand";
 import { GetNamedQueryCommandInput, GetNamedQueryCommandOutput } from "./commands/GetNamedQueryCommand";
+import {
+  GetNotebookMetadataCommandInput,
+  GetNotebookMetadataCommandOutput,
+} from "./commands/GetNotebookMetadataCommand";
 import {
   GetPreparedStatementCommandInput,
   GetPreparedStatementCommandOutput,
@@ -83,12 +106,32 @@ import {
   GetQueryRuntimeStatisticsCommandInput,
   GetQueryRuntimeStatisticsCommandOutput,
 } from "./commands/GetQueryRuntimeStatisticsCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
+import { GetSessionStatusCommandInput, GetSessionStatusCommandOutput } from "./commands/GetSessionStatusCommand";
 import { GetTableMetadataCommandInput, GetTableMetadataCommandOutput } from "./commands/GetTableMetadataCommand";
 import { GetWorkGroupCommandInput, GetWorkGroupCommandOutput } from "./commands/GetWorkGroupCommand";
+import { ImportNotebookCommandInput, ImportNotebookCommandOutput } from "./commands/ImportNotebookCommand";
+import {
+  ListApplicationDPUSizesCommandInput,
+  ListApplicationDPUSizesCommandOutput,
+} from "./commands/ListApplicationDPUSizesCommand";
+import {
+  ListCalculationExecutionsCommandInput,
+  ListCalculationExecutionsCommandOutput,
+} from "./commands/ListCalculationExecutionsCommand";
 import { ListDatabasesCommandInput, ListDatabasesCommandOutput } from "./commands/ListDatabasesCommand";
 import { ListDataCatalogsCommandInput, ListDataCatalogsCommandOutput } from "./commands/ListDataCatalogsCommand";
 import { ListEngineVersionsCommandInput, ListEngineVersionsCommandOutput } from "./commands/ListEngineVersionsCommand";
+import { ListExecutorsCommandInput, ListExecutorsCommandOutput } from "./commands/ListExecutorsCommand";
 import { ListNamedQueriesCommandInput, ListNamedQueriesCommandOutput } from "./commands/ListNamedQueriesCommand";
+import {
+  ListNotebookMetadataCommandInput,
+  ListNotebookMetadataCommandOutput,
+} from "./commands/ListNotebookMetadataCommand";
+import {
+  ListNotebookSessionsCommandInput,
+  ListNotebookSessionsCommandOutput,
+} from "./commands/ListNotebookSessionsCommand";
 import {
   ListPreparedStatementsCommandInput,
   ListPreparedStatementsCommandOutput,
@@ -97,6 +140,7 @@ import {
   ListQueryExecutionsCommandInput,
   ListQueryExecutionsCommandOutput,
 } from "./commands/ListQueryExecutionsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import { ListTableMetadataCommandInput, ListTableMetadataCommandOutput } from "./commands/ListTableMetadataCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -104,14 +148,29 @@ import {
 } from "./commands/ListTagsForResourceCommand";
 import { ListWorkGroupsCommandInput, ListWorkGroupsCommandOutput } from "./commands/ListWorkGroupsCommand";
 import {
+  StartCalculationExecutionCommandInput,
+  StartCalculationExecutionCommandOutput,
+} from "./commands/StartCalculationExecutionCommand";
+import {
   StartQueryExecutionCommandInput,
   StartQueryExecutionCommandOutput,
 } from "./commands/StartQueryExecutionCommand";
+import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
+import {
+  StopCalculationExecutionCommandInput,
+  StopCalculationExecutionCommandOutput,
+} from "./commands/StopCalculationExecutionCommand";
 import { StopQueryExecutionCommandInput, StopQueryExecutionCommandOutput } from "./commands/StopQueryExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { TerminateSessionCommandInput, TerminateSessionCommandOutput } from "./commands/TerminateSessionCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateDataCatalogCommandInput, UpdateDataCatalogCommandOutput } from "./commands/UpdateDataCatalogCommand";
 import { UpdateNamedQueryCommandInput, UpdateNamedQueryCommandOutput } from "./commands/UpdateNamedQueryCommand";
+import { UpdateNotebookCommandInput, UpdateNotebookCommandOutput } from "./commands/UpdateNotebookCommand";
+import {
+  UpdateNotebookMetadataCommandInput,
+  UpdateNotebookMetadataCommandOutput,
+} from "./commands/UpdateNotebookMetadataCommand";
 import {
   UpdatePreparedStatementCommandInput,
   UpdatePreparedStatementCommandOutput,
@@ -131,36 +190,59 @@ export type ServiceInputTypes =
   | BatchGetQueryExecutionCommandInput
   | CreateDataCatalogCommandInput
   | CreateNamedQueryCommandInput
+  | CreateNotebookCommandInput
   | CreatePreparedStatementCommandInput
+  | CreatePresignedNotebookUrlCommandInput
   | CreateWorkGroupCommandInput
   | DeleteDataCatalogCommandInput
   | DeleteNamedQueryCommandInput
+  | DeleteNotebookCommandInput
   | DeletePreparedStatementCommandInput
   | DeleteWorkGroupCommandInput
+  | ExportNotebookCommandInput
+  | GetCalculationExecutionCodeCommandInput
+  | GetCalculationExecutionCommandInput
+  | GetCalculationExecutionStatusCommandInput
   | GetDataCatalogCommandInput
   | GetDatabaseCommandInput
   | GetNamedQueryCommandInput
+  | GetNotebookMetadataCommandInput
   | GetPreparedStatementCommandInput
   | GetQueryExecutionCommandInput
   | GetQueryResultsCommandInput
   | GetQueryRuntimeStatisticsCommandInput
+  | GetSessionCommandInput
+  | GetSessionStatusCommandInput
   | GetTableMetadataCommandInput
   | GetWorkGroupCommandInput
+  | ImportNotebookCommandInput
+  | ListApplicationDPUSizesCommandInput
+  | ListCalculationExecutionsCommandInput
   | ListDataCatalogsCommandInput
   | ListDatabasesCommandInput
   | ListEngineVersionsCommandInput
+  | ListExecutorsCommandInput
   | ListNamedQueriesCommandInput
+  | ListNotebookMetadataCommandInput
+  | ListNotebookSessionsCommandInput
   | ListPreparedStatementsCommandInput
   | ListQueryExecutionsCommandInput
+  | ListSessionsCommandInput
   | ListTableMetadataCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkGroupsCommandInput
+  | StartCalculationExecutionCommandInput
   | StartQueryExecutionCommandInput
+  | StartSessionCommandInput
+  | StopCalculationExecutionCommandInput
   | StopQueryExecutionCommandInput
   | TagResourceCommandInput
+  | TerminateSessionCommandInput
   | UntagResourceCommandInput
   | UpdateDataCatalogCommandInput
   | UpdateNamedQueryCommandInput
+  | UpdateNotebookCommandInput
+  | UpdateNotebookMetadataCommandInput
   | UpdatePreparedStatementCommandInput
   | UpdateWorkGroupCommandInput;
 
@@ -170,36 +252,59 @@ export type ServiceOutputTypes =
   | BatchGetQueryExecutionCommandOutput
   | CreateDataCatalogCommandOutput
   | CreateNamedQueryCommandOutput
+  | CreateNotebookCommandOutput
   | CreatePreparedStatementCommandOutput
+  | CreatePresignedNotebookUrlCommandOutput
   | CreateWorkGroupCommandOutput
   | DeleteDataCatalogCommandOutput
   | DeleteNamedQueryCommandOutput
+  | DeleteNotebookCommandOutput
   | DeletePreparedStatementCommandOutput
   | DeleteWorkGroupCommandOutput
+  | ExportNotebookCommandOutput
+  | GetCalculationExecutionCodeCommandOutput
+  | GetCalculationExecutionCommandOutput
+  | GetCalculationExecutionStatusCommandOutput
   | GetDataCatalogCommandOutput
   | GetDatabaseCommandOutput
   | GetNamedQueryCommandOutput
+  | GetNotebookMetadataCommandOutput
   | GetPreparedStatementCommandOutput
   | GetQueryExecutionCommandOutput
   | GetQueryResultsCommandOutput
   | GetQueryRuntimeStatisticsCommandOutput
+  | GetSessionCommandOutput
+  | GetSessionStatusCommandOutput
   | GetTableMetadataCommandOutput
   | GetWorkGroupCommandOutput
+  | ImportNotebookCommandOutput
+  | ListApplicationDPUSizesCommandOutput
+  | ListCalculationExecutionsCommandOutput
   | ListDataCatalogsCommandOutput
   | ListDatabasesCommandOutput
   | ListEngineVersionsCommandOutput
+  | ListExecutorsCommandOutput
   | ListNamedQueriesCommandOutput
+  | ListNotebookMetadataCommandOutput
+  | ListNotebookSessionsCommandOutput
   | ListPreparedStatementsCommandOutput
   | ListQueryExecutionsCommandOutput
+  | ListSessionsCommandOutput
   | ListTableMetadataCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkGroupsCommandOutput
+  | StartCalculationExecutionCommandOutput
   | StartQueryExecutionCommandOutput
+  | StartSessionCommandOutput
+  | StopCalculationExecutionCommandOutput
   | StopQueryExecutionCommandOutput
   | TagResourceCommandOutput
+  | TerminateSessionCommandOutput
   | UntagResourceCommandOutput
   | UpdateDataCatalogCommandOutput
   | UpdateNamedQueryCommandOutput
+  | UpdateNotebookCommandOutput
+  | UpdateNotebookMetadataCommandOutput
   | UpdatePreparedStatementCommandOutput
   | UpdateWorkGroupCommandOutput;
 

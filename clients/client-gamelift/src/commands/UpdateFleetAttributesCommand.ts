@@ -37,25 +37,9 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  *         <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleetLocations</a> |
- *                     <a>UpdateFleetAttributes</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>UpdateFleetPortSettings</a> |
- *                     <a>UpdateRuntimeConfiguration</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DeleteFleet</a> |
- *                     <a>DeleteFleetLocations</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

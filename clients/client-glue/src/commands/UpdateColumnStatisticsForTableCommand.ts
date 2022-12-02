@@ -32,7 +32,8 @@ export interface UpdateColumnStatisticsForTableCommandOutput
 
 /**
  * <p>Creates or updates table statistics of columns.</p>
- *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+ *
+ * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

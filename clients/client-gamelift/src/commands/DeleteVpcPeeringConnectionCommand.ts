@@ -30,23 +30,15 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
 
 /**
  * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
- *             authorization for the VPC peering connection that you want to delete. You can check for
- *             an authorization by calling <a>DescribeVpcPeeringAuthorizations</a> or
- *             request a new one using <a>CreateVpcPeeringAuthorization</a>. </p>
+ *             authorization for the VPC peering connection that you want to delete.. </p>
  *         <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
- *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection
- *             ID and fleet ID. If successful, the connection is removed. </p>
- *         <p>
+ *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection ID
+ *             and fleet ID. If successful, the connection is removed. </p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateVpcPeeringAuthorization</a> |
- *                     <a>DescribeVpcPeeringAuthorizations</a> |
- *                     <a>DeleteVpcPeeringAuthorization</a> |
- *                     <a>CreateVpcPeeringConnection</a> |
- *                     <a>DescribeVpcPeeringConnections</a> |
- *                     <a>DeleteVpcPeeringConnection</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

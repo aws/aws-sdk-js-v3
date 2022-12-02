@@ -286,6 +286,10 @@ import {
   BatchDetectTargetedSentimentResponse,
   BatchItemError,
   BatchSizeLimitExceededException,
+  Block,
+  BlockReference,
+  BoundingBox,
+  ChildBlock,
   ClassifierEvaluationMetrics,
   ClassifierMetadata,
   ClassifyDocumentRequest,
@@ -356,8 +360,10 @@ import {
   DocumentClassifierProperties,
   DocumentClassifierSummary,
   DocumentLabel,
+  DocumentMetadata,
   DocumentReaderConfig,
   DocumentReadFeatureTypes,
+  DocumentTypeListItem,
   DominantLanguage,
   DominantLanguageDetectionJobFilter,
   DominantLanguageDetectionJobProperties,
@@ -379,13 +385,17 @@ import {
   EntityRecognizerSummary,
   EntityTypesEvaluationMetrics,
   EntityTypesListItem,
+  ErrorsListItem,
   EventsDetectionJobFilter,
   EventsDetectionJobProperties,
+  ExtractedCharactersListItem,
+  Geometry,
   ImportModelRequest,
   ImportModelResponse,
   InputDataConfig,
   InternalServerException,
   InvalidFilterException,
+  InvalidRequestDetail,
   InvalidRequestException,
   JobNotFoundException,
   KeyPhrase,
@@ -430,9 +440,11 @@ import {
   PiiEntity,
   PiiEntityType,
   PiiOutputDataConfig,
+  Point,
   PutResourcePolicyRequest,
   PutResourcePolicyResponse,
   RedactionConfig,
+  RelationshipsListItem,
   ResourceInUseException,
   ResourceLimitExceededException,
   ResourceNotFoundException,
@@ -5483,6 +5495,10 @@ const serializeAws_json1_1BatchDetectTargetedSentimentRequest = (
 
 const serializeAws_json1_1ClassifyDocumentRequest = (input: ClassifyDocumentRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.DocumentReaderConfig != null && {
+      DocumentReaderConfig: serializeAws_json1_1DocumentReaderConfig(input.DocumentReaderConfig, context),
+    }),
     ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
     ...(input.Text != null && { Text: input.Text }),
   };
@@ -5722,6 +5738,10 @@ const serializeAws_json1_1DetectDominantLanguageRequest = (
 
 const serializeAws_json1_1DetectEntitiesRequest = (input: DetectEntitiesRequest, context: __SerdeContext): any => {
   return {
+    ...(input.Bytes != null && { Bytes: context.base64Encoder(input.Bytes) }),
+    ...(input.DocumentReaderConfig != null && {
+      DocumentReaderConfig: serializeAws_json1_1DocumentReaderConfig(input.DocumentReaderConfig, context),
+    }),
     ...(input.EndpointArn != null && { EndpointArn: input.EndpointArn }),
     ...(input.LanguageCode != null && { LanguageCode: input.LanguageCode }),
     ...(input.Text != null && { Text: input.Text }),
@@ -6827,6 +6847,47 @@ const deserializeAws_json1_1BatchSizeLimitExceededException = (
   } as any;
 };
 
+const deserializeAws_json1_1Block = (output: any, context: __SerdeContext): Block => {
+  return {
+    BlockType: __expectString(output.BlockType),
+    Geometry: output.Geometry != null ? deserializeAws_json1_1Geometry(output.Geometry, context) : undefined,
+    Id: __expectString(output.Id),
+    Page: __expectInt32(output.Page),
+    Relationships:
+      output.Relationships != null
+        ? deserializeAws_json1_1ListOfRelationships(output.Relationships, context)
+        : undefined,
+    Text: __expectString(output.Text),
+  } as any;
+};
+
+const deserializeAws_json1_1BlockReference = (output: any, context: __SerdeContext): BlockReference => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    BlockId: __expectString(output.BlockId),
+    ChildBlocks:
+      output.ChildBlocks != null ? deserializeAws_json1_1ListOfChildBlocks(output.ChildBlocks, context) : undefined,
+    EndOffset: __expectInt32(output.EndOffset),
+  } as any;
+};
+
+const deserializeAws_json1_1BoundingBox = (output: any, context: __SerdeContext): BoundingBox => {
+  return {
+    Height: __limitedParseFloat32(output.Height),
+    Left: __limitedParseFloat32(output.Left),
+    Top: __limitedParseFloat32(output.Top),
+    Width: __limitedParseFloat32(output.Width),
+  } as any;
+};
+
+const deserializeAws_json1_1ChildBlock = (output: any, context: __SerdeContext): ChildBlock => {
+  return {
+    BeginOffset: __expectInt32(output.BeginOffset),
+    ChildBlockId: __expectString(output.ChildBlockId),
+    EndOffset: __expectInt32(output.EndOffset),
+  } as any;
+};
+
 const deserializeAws_json1_1ClassifierEvaluationMetrics = (
   output: any,
   context: __SerdeContext
@@ -6861,6 +6922,13 @@ const deserializeAws_json1_1ClassifyDocumentResponse = (
 ): ClassifyDocumentResponse => {
   return {
     Classes: output.Classes != null ? deserializeAws_json1_1ListOfClasses(output.Classes, context) : undefined,
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    DocumentType:
+      output.DocumentType != null ? deserializeAws_json1_1ListOfDocumentType(output.DocumentType, context) : undefined,
+    Errors: output.Errors != null ? deserializeAws_json1_1ListOfErrors(output.Errors, context) : undefined,
     Labels: output.Labels != null ? deserializeAws_json1_1ListOfLabels(output.Labels, context) : undefined,
   } as any;
 };
@@ -7112,7 +7180,15 @@ const deserializeAws_json1_1DetectDominantLanguageResponse = (
 
 const deserializeAws_json1_1DetectEntitiesResponse = (output: any, context: __SerdeContext): DetectEntitiesResponse => {
   return {
+    Blocks: output.Blocks != null ? deserializeAws_json1_1ListOfBlocks(output.Blocks, context) : undefined,
+    DocumentMetadata:
+      output.DocumentMetadata != null
+        ? deserializeAws_json1_1DocumentMetadata(output.DocumentMetadata, context)
+        : undefined,
+    DocumentType:
+      output.DocumentType != null ? deserializeAws_json1_1ListOfDocumentType(output.DocumentType, context) : undefined,
     Entities: output.Entities != null ? deserializeAws_json1_1ListOfEntities(output.Entities, context) : undefined,
+    Errors: output.Errors != null ? deserializeAws_json1_1ListOfErrors(output.Errors, context) : undefined,
   } as any;
 };
 
@@ -7168,6 +7244,7 @@ const deserializeAws_json1_1DetectTargetedSentimentResponse = (
 const deserializeAws_json1_1DocumentClass = (output: any, context: __SerdeContext): DocumentClass => {
   return {
     Name: __expectString(output.Name),
+    Page: __expectInt32(output.Page),
     Score: __limitedParseFloat32(output.Score),
   } as any;
 };
@@ -7349,7 +7426,18 @@ const deserializeAws_json1_1DocumentClassifierSummary = (
 const deserializeAws_json1_1DocumentLabel = (output: any, context: __SerdeContext): DocumentLabel => {
   return {
     Name: __expectString(output.Name),
+    Page: __expectInt32(output.Page),
     Score: __limitedParseFloat32(output.Score),
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentMetadata = (output: any, context: __SerdeContext): DocumentMetadata => {
+  return {
+    ExtractedCharacters:
+      output.ExtractedCharacters != null
+        ? deserializeAws_json1_1ListOfExtractedCharacters(output.ExtractedCharacters, context)
+        : undefined,
+    Pages: __expectInt32(output.Pages),
   } as any;
 };
 
@@ -7361,6 +7449,13 @@ const deserializeAws_json1_1DocumentReaderConfig = (output: any, context: __Serd
       output.FeatureTypes != null
         ? deserializeAws_json1_1ListOfDocumentReadFeatureTypes(output.FeatureTypes, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1DocumentTypeListItem = (output: any, context: __SerdeContext): DocumentTypeListItem => {
+  return {
+    Page: __expectInt32(output.Page),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -7496,6 +7591,10 @@ const deserializeAws_json1_1EntitiesDetectionJobPropertiesList = (
 const deserializeAws_json1_1Entity = (output: any, context: __SerdeContext): Entity => {
   return {
     BeginOffset: __expectInt32(output.BeginOffset),
+    BlockReferences:
+      output.BlockReferences != null
+        ? deserializeAws_json1_1ListOfBlockReferences(output.BlockReferences, context)
+        : undefined,
     EndOffset: __expectInt32(output.EndOffset),
     Score: __limitedParseFloat32(output.Score),
     Text: __expectString(output.Text),
@@ -7751,6 +7850,14 @@ const deserializeAws_json1_1EntityTypesListItem = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1ErrorsListItem = (output: any, context: __SerdeContext): ErrorsListItem => {
+  return {
+    ErrorCode: __expectString(output.ErrorCode),
+    ErrorMessage: __expectString(output.ErrorMessage),
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
 const deserializeAws_json1_1EventsDetectionJobProperties = (
   output: any,
   context: __SerdeContext
@@ -7797,6 +7904,24 @@ const deserializeAws_json1_1EventsDetectionJobPropertiesList = (
   return retVal;
 };
 
+const deserializeAws_json1_1ExtractedCharactersListItem = (
+  output: any,
+  context: __SerdeContext
+): ExtractedCharactersListItem => {
+  return {
+    Count: __expectInt32(output.Count),
+    Page: __expectInt32(output.Page),
+  } as any;
+};
+
+const deserializeAws_json1_1Geometry = (output: any, context: __SerdeContext): Geometry => {
+  return {
+    BoundingBox:
+      output.BoundingBox != null ? deserializeAws_json1_1BoundingBox(output.BoundingBox, context) : undefined,
+    Polygon: output.Polygon != null ? deserializeAws_json1_1Polygon(output.Polygon, context) : undefined,
+  } as any;
+};
+
 const deserializeAws_json1_1ImportModelResponse = (output: any, context: __SerdeContext): ImportModelResponse => {
   return {
     ModelArn: __expectString(output.ModelArn),
@@ -7829,12 +7954,20 @@ const deserializeAws_json1_1InvalidFilterException = (output: any, context: __Se
   } as any;
 };
 
+const deserializeAws_json1_1InvalidRequestDetail = (output: any, context: __SerdeContext): InvalidRequestDetail => {
+  return {
+    Reason: __expectString(output.Reason),
+  } as any;
+};
+
 const deserializeAws_json1_1InvalidRequestException = (
   output: any,
   context: __SerdeContext
 ): InvalidRequestException => {
   return {
+    Detail: output.Detail != null ? deserializeAws_json1_1InvalidRequestDetail(output.Detail, context) : undefined,
     Message: __expectString(output.Message),
+    Reason: __expectString(output.Reason),
   } as any;
 };
 
@@ -8042,6 +8175,42 @@ const deserializeAws_json1_1ListKeyPhrasesDetectionJobsResponse = (
   } as any;
 };
 
+const deserializeAws_json1_1ListOfBlockReferences = (output: any, context: __SerdeContext): BlockReference[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1BlockReference(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfBlocks = (output: any, context: __SerdeContext): Block[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Block(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfChildBlocks = (output: any, context: __SerdeContext): ChildBlock[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ChildBlock(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfClasses = (output: any, context: __SerdeContext): DocumentClass[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8171,6 +8340,18 @@ const deserializeAws_json1_1ListOfDocumentReadFeatureTypes = (
   return retVal;
 };
 
+const deserializeAws_json1_1ListOfDocumentType = (output: any, context: __SerdeContext): DocumentTypeListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DocumentTypeListItem(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ListOfDominantLanguages = (output: any, context: __SerdeContext): DominantLanguage[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
@@ -8203,6 +8384,33 @@ const deserializeAws_json1_1ListOfEntityLabels = (output: any, context: __SerdeC
         return null as any;
       }
       return deserializeAws_json1_1EntityLabel(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfErrors = (output: any, context: __SerdeContext): ErrorsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ErrorsListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfExtractedCharacters = (
+  output: any,
+  context: __SerdeContext
+): ExtractedCharactersListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1ExtractedCharactersListItem(entry, context);
     });
   return retVal;
 };
@@ -8266,6 +8474,18 @@ const deserializeAws_json1_1ListOfPiiEntityTypes = (
         return null as any;
       }
       return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1ListOfRelationships = (output: any, context: __SerdeContext): RelationshipsListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1RelationshipsListItem(entry, context);
     });
   return retVal;
 };
@@ -8450,6 +8670,25 @@ const deserializeAws_json1_1PiiOutputDataConfig = (output: any, context: __Serde
   } as any;
 };
 
+const deserializeAws_json1_1Point = (output: any, context: __SerdeContext): Point => {
+  return {
+    X: __limitedParseFloat32(output.X),
+    Y: __limitedParseFloat32(output.Y),
+  } as any;
+};
+
+const deserializeAws_json1_1Polygon = (output: any, context: __SerdeContext): Point[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1Point(entry, context);
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1PutResourcePolicyResponse = (
   output: any,
   context: __SerdeContext
@@ -8467,6 +8706,13 @@ const deserializeAws_json1_1RedactionConfig = (output: any, context: __SerdeCont
       output.PiiEntityTypes != null
         ? deserializeAws_json1_1ListOfPiiEntityTypes(output.PiiEntityTypes, context)
         : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RelationshipsListItem = (output: any, context: __SerdeContext): RelationshipsListItem => {
+  return {
+    Ids: output.Ids != null ? deserializeAws_json1_1StringList(output.Ids, context) : undefined,
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -8749,6 +8995,18 @@ const deserializeAws_json1_1StopTrainingEntityRecognizerResponse = (
   context: __SerdeContext
 ): StopTrainingEntityRecognizerResponse => {
   return {} as any;
+};
+
+const deserializeAws_json1_1StringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
 };
 
 const deserializeAws_json1_1Subnets = (output: any, context: __SerdeContext): string[] => {

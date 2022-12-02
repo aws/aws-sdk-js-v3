@@ -19,7 +19,7 @@ import {
   CreateSessionRequestFilterSensitiveLog,
   CreateSessionResponse,
   CreateSessionResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateSessionCommand,
   serializeAws_json1_1CreateSessionCommand,

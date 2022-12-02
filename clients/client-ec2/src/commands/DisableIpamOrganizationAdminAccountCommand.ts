@@ -19,7 +19,7 @@ import {
   DisableIpamOrganizationAdminAccountRequestFilterSensitiveLog,
   DisableIpamOrganizationAdminAccountResult,
   DisableIpamOrganizationAdminAccountResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableIpamOrganizationAdminAccountCommand,
   serializeAws_ec2DisableIpamOrganizationAdminAccountCommand,

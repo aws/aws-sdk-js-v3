@@ -3471,6 +3471,7 @@ const deserializeAws_restJson1FindingSource = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1FindingSourceDetail = (output: any, context: __SerdeContext): FindingSourceDetail => {
   return {
+    accessPointAccount: __expectString(output.accessPointAccount),
     accessPointArn: __expectString(output.accessPointArn),
   } as any;
 };

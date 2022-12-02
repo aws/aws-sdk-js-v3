@@ -19,7 +19,7 @@ import {
   ModifyLaunchTemplateRequestFilterSensitiveLog,
   ModifyLaunchTemplateResult,
   ModifyLaunchTemplateResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyLaunchTemplateCommand,
   serializeAws_ec2ModifyLaunchTemplateCommand,

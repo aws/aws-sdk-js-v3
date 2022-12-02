@@ -32,19 +32,19 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Terminates a game server group and permanently deletes the game server group record.
- *             You have several options for how these resources are impacted when deleting the game
- *             server group. Depending on the type of delete operation selected, this operation might
- *             affect these resources:</p>
- *             <ul>
+ *          <p>Terminates a game server group
+ *             and permanently deletes the game server group record. You have several options for how
+ *             these resources are impacted when deleting the game server group. Depending on the type
+ *             of delete operation selected, this operation might affect these resources:</p>
+ *         <ul>
  *             <li>
- *                <p>The game server group</p>
+ *                 <p>The game server group</p>
  *             </li>
  *             <li>
- *                <p>The corresponding Auto Scaling group</p>
+ *                 <p>The corresponding Auto Scaling group</p>
  *             </li>
  *             <li>
- *                <p>All game servers that are currently running in the group</p>
+ *                 <p>All game servers that are currently running in the group</p>
  *             </li>
  *          </ul>
  *         <p>To delete a game server group, identify the game server group to delete and specify
@@ -61,22 +61,9 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

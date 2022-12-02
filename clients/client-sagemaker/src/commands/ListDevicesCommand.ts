@@ -18,7 +18,7 @@ import {
   ListDevicesRequestFilterSensitiveLog,
   ListDevicesResponse,
   ListDevicesResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListDevicesCommand,
   serializeAws_json1_1ListDevicesCommand,

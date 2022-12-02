@@ -18,7 +18,7 @@ import {
   UpdateWorkforceRequestFilterSensitiveLog,
   UpdateWorkforceResponse,
   UpdateWorkforceResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateWorkforceCommand,
   serializeAws_json1_1UpdateWorkforceCommand,

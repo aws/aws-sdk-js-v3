@@ -29,7 +29,10 @@ export interface StartExecutionCommandInput extends StartExecutionInput {}
 export interface StartExecutionCommandOutput extends StartExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Starts a state machine execution.</p>
+ * <p>Starts a state machine execution. If the given state machine Amazon Resource Name (ARN) is a qualified state machine ARN, it will fail with ValidationException.</p>
+ *
+ *          <p>A qualified state machine ARN refers to a <i>Distributed Map state</i> defined within a state machine. For example, the qualified state machine ARN <code>arn:partition:states:region:account-id:stateMachine:stateMachineName/mapStateLabel</code> refers to a <i>Distributed Map state</i> with a label <code>mapStateLabel</code> in the state machine named <code>stateMachineName</code>.</p>
+ *
  *          <note>
  *             <p>
  *                <code>StartExecution</code> is idempotent for <code>STANDARD</code> workflows. For a

@@ -17,7 +17,7 @@ import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 import {
   DisableVgwRoutePropagationRequest,
   DisableVgwRoutePropagationRequestFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableVgwRoutePropagationCommand,
   serializeAws_ec2DisableVgwRoutePropagationCommand,

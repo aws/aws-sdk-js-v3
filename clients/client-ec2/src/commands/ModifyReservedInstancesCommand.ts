@@ -19,7 +19,7 @@ import {
   ModifyReservedInstancesRequestFilterSensitiveLog,
   ModifyReservedInstancesResult,
   ModifyReservedInstancesResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyReservedInstancesCommand,
   serializeAws_ec2ModifyReservedInstancesCommand,

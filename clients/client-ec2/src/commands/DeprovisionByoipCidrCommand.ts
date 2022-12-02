@@ -19,7 +19,7 @@ import {
   DeprovisionByoipCidrRequestFilterSensitiveLog,
   DeprovisionByoipCidrResult,
   DeprovisionByoipCidrResultFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_ec2DeprovisionByoipCidrCommand,
   serializeAws_ec2DeprovisionByoipCidrCommand,

@@ -29,10 +29,10 @@ export interface GetQueryRuntimeStatisticsCommandInput extends GetQueryRuntimeSt
 export interface GetQueryRuntimeStatisticsCommandOutput extends GetQueryRuntimeStatisticsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns query execution runtime statistics related to a single execution of a query if you
- *             have access to the workgroup in which the query ran. The query execution runtime statistics
- *             is returned only when <a>QueryExecutionStatus$State</a> is in a SUCCEEDED
- *             or FAILED state.</p>
+ * <p>Returns query execution runtime statistics related to a single execution of a query if
+ *             you have access to the workgroup in which the query ran. The query execution runtime
+ *             statistics is returned only when <a>QueryExecutionStatus$State</a> is in a
+ *             SUCCEEDED or FAILED state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

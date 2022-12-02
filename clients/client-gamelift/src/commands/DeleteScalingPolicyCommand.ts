@@ -24,25 +24,11 @@ export interface DeleteScalingPolicyCommandInput extends DeleteScalingPolicyInpu
 export interface DeleteScalingPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in
- *             force and GameLift removes all record of it. To delete a scaling policy, specify both the scaling
+ * <p>Deletes a fleet scaling policy. Once deleted, the policy is no longer in force and
+ *             GameLift removes all record of it. To delete a scaling policy, specify both the scaling
  *             policy name and the fleet ID it is associated with.</p>
- *         <p>To temporarily suspend scaling policies, call <a>StopFleetActions</a>.
- *             This operation suspends all policies for the fleet.</p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>DescribeFleetCapacity</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
- *                     <a>PutScalingPolicy</a> |
- *                     <a>DescribeScalingPolicies</a> |
- *                     <a>DeleteScalingPolicy</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>StartFleetActions</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
- *          </p>
+ *         <p>To temporarily suspend scaling policies, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_StopFleetActions.html">StopFleetActions</a>. This operation suspends all policies for the
+ *             fleet.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

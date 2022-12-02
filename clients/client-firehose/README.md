@@ -13,7 +13,8 @@ AWS SDK for JavaScript Firehose Client for Node.js, Browser and React Native.
 
 <p>Amazon Kinesis Data Firehose is a fully managed service that delivers real-time
 streaming data to destinations such as Amazon Simple Storage Service (Amazon S3), Amazon
-Elasticsearch Service (Amazon ES), Amazon Redshift, and Splunk.</p>
+OpenSearch Service, Amazon Redshift, Splunk, and various other supportd
+destinations.</p>
 
 ## Installing
 

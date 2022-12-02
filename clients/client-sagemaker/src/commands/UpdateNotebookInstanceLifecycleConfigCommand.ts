@@ -18,7 +18,7 @@ import {
   UpdateNotebookInstanceLifecycleConfigInputFilterSensitiveLog,
   UpdateNotebookInstanceLifecycleConfigOutput,
   UpdateNotebookInstanceLifecycleConfigOutputFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,
   serializeAws_json1_1UpdateNotebookInstanceLifecycleConfigCommand,

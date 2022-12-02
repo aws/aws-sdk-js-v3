@@ -58,6 +58,11 @@ import { UpdateDestinationCommandInput, UpdateDestinationCommandOutput } from ".
 import { FirehoseServiceException as __BaseException } from "../models/FirehoseServiceException";
 import {
   _Record,
+  AmazonOpenSearchServerlessBufferingHints,
+  AmazonOpenSearchServerlessDestinationConfiguration,
+  AmazonOpenSearchServerlessDestinationDescription,
+  AmazonOpenSearchServerlessDestinationUpdate,
+  AmazonOpenSearchServerlessRetryOptions,
   AmazonopensearchserviceBufferingHints,
   AmazonopensearchserviceDestinationConfiguration,
   AmazonopensearchserviceDestinationDescription,
@@ -973,6 +978,79 @@ const deserializeAws_json1_1ServiceUnavailableExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+  input: AmazonOpenSearchServerlessBufferingHints,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.IntervalInSeconds != null && { IntervalInSeconds: input.IntervalInSeconds }),
+    ...(input.SizeInMBs != null && { SizeInMBs: input.SizeInMBs }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration = (
+  input: AmazonOpenSearchServerlessDestinationConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints != null && {
+      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+    }),
+    ...(input.CloudWatchLoggingOptions != null && {
+      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+    }),
+    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
+    ...(input.IndexName != null && { IndexName: input.IndexName }),
+    ...(input.ProcessingConfiguration != null && {
+      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+    }),
+    ...(input.RetryOptions != null && {
+      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+    }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
+    ...(input.S3BackupMode != null && { S3BackupMode: input.S3BackupMode }),
+    ...(input.S3Configuration != null && {
+      S3Configuration: serializeAws_json1_1S3DestinationConfiguration(input.S3Configuration, context),
+    }),
+    ...(input.VpcConfiguration != null && {
+      VpcConfiguration: serializeAws_json1_1VpcConfiguration(input.VpcConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate = (
+  input: AmazonOpenSearchServerlessDestinationUpdate,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.BufferingHints != null && {
+      BufferingHints: serializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(input.BufferingHints, context),
+    }),
+    ...(input.CloudWatchLoggingOptions != null && {
+      CloudWatchLoggingOptions: serializeAws_json1_1CloudWatchLoggingOptions(input.CloudWatchLoggingOptions, context),
+    }),
+    ...(input.CollectionEndpoint != null && { CollectionEndpoint: input.CollectionEndpoint }),
+    ...(input.IndexName != null && { IndexName: input.IndexName }),
+    ...(input.ProcessingConfiguration != null && {
+      ProcessingConfiguration: serializeAws_json1_1ProcessingConfiguration(input.ProcessingConfiguration, context),
+    }),
+    ...(input.RetryOptions != null && {
+      RetryOptions: serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(input.RetryOptions, context),
+    }),
+    ...(input.RoleARN != null && { RoleARN: input.RoleARN }),
+    ...(input.S3Update != null && { S3Update: serializeAws_json1_1S3DestinationUpdate(input.S3Update, context) }),
+  };
+};
+
+const serializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+  input: AmazonOpenSearchServerlessRetryOptions,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DurationInSeconds != null && { DurationInSeconds: input.DurationInSeconds }),
+  };
+};
+
 const serializeAws_json1_1AmazonopensearchserviceBufferingHints = (
   input: AmazonopensearchserviceBufferingHints,
   context: __SerdeContext
@@ -1093,6 +1171,13 @@ const serializeAws_json1_1CreateDeliveryStreamInput = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AmazonOpenSearchServerlessDestinationConfiguration != null && {
+      AmazonOpenSearchServerlessDestinationConfiguration:
+        serializeAws_json1_1AmazonOpenSearchServerlessDestinationConfiguration(
+          input.AmazonOpenSearchServerlessDestinationConfiguration,
+          context
+        ),
+    }),
     ...(input.AmazonopensearchserviceDestinationConfiguration != null && {
       AmazonopensearchserviceDestinationConfiguration:
         serializeAws_json1_1AmazonopensearchserviceDestinationConfiguration(
@@ -1983,6 +2068,12 @@ const serializeAws_json1_1UntagDeliveryStreamInput = (
 
 const serializeAws_json1_1UpdateDestinationInput = (input: UpdateDestinationInput, context: __SerdeContext): any => {
   return {
+    ...(input.AmazonOpenSearchServerlessDestinationUpdate != null && {
+      AmazonOpenSearchServerlessDestinationUpdate: serializeAws_json1_1AmazonOpenSearchServerlessDestinationUpdate(
+        input.AmazonOpenSearchServerlessDestinationUpdate,
+        context
+      ),
+    }),
     ...(input.AmazonopensearchserviceDestinationUpdate != null && {
       AmazonopensearchserviceDestinationUpdate: serializeAws_json1_1AmazonopensearchserviceDestinationUpdate(
         input.AmazonopensearchserviceDestinationUpdate,
@@ -2035,6 +2126,61 @@ const serializeAws_json1_1VpcConfiguration = (input: VpcConfiguration, context: 
     }),
     ...(input.SubnetIds != null && { SubnetIds: serializeAws_json1_1SubnetIdList(input.SubnetIds, context) }),
   };
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessBufferingHints => {
+  return {
+    IntervalInSeconds: __expectInt32(output.IntervalInSeconds),
+    SizeInMBs: __expectInt32(output.SizeInMBs),
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessDestinationDescription => {
+  return {
+    BufferingHints:
+      output.BufferingHints != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessBufferingHints(output.BufferingHints, context)
+        : undefined,
+    CloudWatchLoggingOptions:
+      output.CloudWatchLoggingOptions != null
+        ? deserializeAws_json1_1CloudWatchLoggingOptions(output.CloudWatchLoggingOptions, context)
+        : undefined,
+    CollectionEndpoint: __expectString(output.CollectionEndpoint),
+    IndexName: __expectString(output.IndexName),
+    ProcessingConfiguration:
+      output.ProcessingConfiguration != null
+        ? deserializeAws_json1_1ProcessingConfiguration(output.ProcessingConfiguration, context)
+        : undefined,
+    RetryOptions:
+      output.RetryOptions != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions(output.RetryOptions, context)
+        : undefined,
+    RoleARN: __expectString(output.RoleARN),
+    S3BackupMode: __expectString(output.S3BackupMode),
+    S3DestinationDescription:
+      output.S3DestinationDescription != null
+        ? deserializeAws_json1_1S3DestinationDescription(output.S3DestinationDescription, context)
+        : undefined,
+    VpcConfigurationDescription:
+      output.VpcConfigurationDescription != null
+        ? deserializeAws_json1_1VpcConfigurationDescription(output.VpcConfigurationDescription, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1AmazonOpenSearchServerlessRetryOptions = (
+  output: any,
+  context: __SerdeContext
+): AmazonOpenSearchServerlessRetryOptions => {
+  return {
+    DurationInSeconds: __expectInt32(output.DurationInSeconds),
+  } as any;
 };
 
 const deserializeAws_json1_1AmazonopensearchserviceBufferingHints = (
@@ -2268,6 +2414,13 @@ const deserializeAws_json1_1Deserializer = (output: any, context: __SerdeContext
 
 const deserializeAws_json1_1DestinationDescription = (output: any, context: __SerdeContext): DestinationDescription => {
   return {
+    AmazonOpenSearchServerlessDestinationDescription:
+      output.AmazonOpenSearchServerlessDestinationDescription != null
+        ? deserializeAws_json1_1AmazonOpenSearchServerlessDestinationDescription(
+            output.AmazonOpenSearchServerlessDestinationDescription,
+            context
+          )
+        : undefined,
     AmazonopensearchserviceDestinationDescription:
       output.AmazonopensearchserviceDestinationDescription != null
         ? deserializeAws_json1_1AmazonopensearchserviceDestinationDescription(

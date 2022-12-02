@@ -1,5 +1,6 @@
 export * from "./abort";
 export * from "./auth";
+export * from "./checksum";
 export * from "./client";
 export * from "./command";
 export * from "./credentials";
@@ -13,6 +14,7 @@ export * from "./middleware";
 export * from "./pagination";
 export * from "./profile";
 export * from "./response";
+export * from "./retry";
 export * from "./serde";
 export * from "./shapes";
 export * from "./signature";

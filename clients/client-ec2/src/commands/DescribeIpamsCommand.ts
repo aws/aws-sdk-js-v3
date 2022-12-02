@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
-import { DescribeIpamsRequest, DescribeIpamsRequestFilterSensitiveLog } from "../models/models_3";
-import { DescribeIpamsResult, DescribeIpamsResultFilterSensitiveLog } from "../models/models_4";
+import {
+  DescribeIpamsRequest,
+  DescribeIpamsRequestFilterSensitiveLog,
+  DescribeIpamsResult,
+  DescribeIpamsResultFilterSensitiveLog,
+} from "../models/models_4";
 import { deserializeAws_ec2DescribeIpamsCommand, serializeAws_ec2DescribeIpamsCommand } from "../protocols/Aws_ec2";
 
 export interface DescribeIpamsCommandInput extends DescribeIpamsRequest {}

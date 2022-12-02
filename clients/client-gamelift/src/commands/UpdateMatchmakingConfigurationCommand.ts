@@ -19,7 +19,7 @@ import {
   UpdateMatchmakingConfigurationInputFilterSensitiveLog,
   UpdateMatchmakingConfigurationOutput,
   UpdateMatchmakingConfigurationOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateMatchmakingConfigurationCommand,
   serializeAws_json1_1UpdateMatchmakingConfigurationCommand,
@@ -31,29 +31,15 @@ export interface UpdateMatchmakingConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all matches and game sessions
- *             that are created after the update. To update settings,
- *             specify the configuration name to be updated and provide the new settings. </p>
+ * <p>Updates settings for a FlexMatch matchmaking configuration. These changes affect all
+ *             matches and game sessions that are created after the update. To update settings, specify
+ *             the configuration name to be updated and provide the new settings. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html">
- *             Design a FlexMatch matchmaker</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateMatchmakingConfiguration</a> |
- *                     <a>DescribeMatchmakingConfigurations</a> |
- *                     <a>UpdateMatchmakingConfiguration</a> |
- *                     <a>DeleteMatchmakingConfiguration</a> |
- *                     <a>CreateMatchmakingRuleSet</a> |
- *                     <a>DescribeMatchmakingRuleSets</a> |
- *                     <a>ValidateMatchmakingRuleSet</a> |
- *                     <a>DeleteMatchmakingRuleSet</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-configuration.html"> Design a FlexMatch
+ *                 matchmaker</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

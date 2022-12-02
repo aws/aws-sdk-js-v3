@@ -19,7 +19,7 @@ import {
   CreateSecurityConfigurationRequestFilterSensitiveLog,
   CreateSecurityConfigurationResponse,
   CreateSecurityConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1CreateSecurityConfigurationCommand,
   serializeAws_json1_1CreateSecurityConfigurationCommand,

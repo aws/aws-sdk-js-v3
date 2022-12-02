@@ -19,7 +19,7 @@ import {
   PutResourcePolicyRequestFilterSensitiveLog,
   PutResourcePolicyResponse,
   PutResourcePolicyResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1PutResourcePolicyCommand,
   serializeAws_json1_1PutResourcePolicyCommand,

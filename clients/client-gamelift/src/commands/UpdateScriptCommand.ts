@@ -19,7 +19,7 @@ import {
   UpdateScriptInputFilterSensitiveLog,
   UpdateScriptOutput,
   UpdateScriptOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_json1_1UpdateScriptCommand,
   serializeAws_json1_1UpdateScriptCommand,
@@ -45,15 +45,10 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateScript</a> |
- *                     <a>ListScripts</a> |
- *                     <a>DescribeScript</a> |
- *                     <a>UpdateScript</a> |
- *                     <a>DeleteScript</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

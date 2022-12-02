@@ -30,23 +30,18 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
 
 /**
  * <p>Retrieves properties for a Realtime script. </p>
- *         <p>To request a script record, specify the script ID. If successful, an object containing the script properties
- *         is returned.</p>
+ *         <p>To request a script record, specify the script ID. If successful, an object containing
+ *             the script properties is returned.</p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
  *         </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateScript</a> |
- *                     <a>ListScripts</a> |
- *                     <a>DescribeScript</a> |
- *                     <a>UpdateScript</a> |
- *                     <a>DeleteScript</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

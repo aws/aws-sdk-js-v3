@@ -41,21 +41,20 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *       signature.</p>
  *          <p>You can also verify the digital signature by using the public key of the KMS key outside
  *       of KMS. Use the <a>GetPublicKey</a> operation to download the public key in the
- *       asymmetric KMS key and then use the public key to verify the signature outside of KMS. To
- *       verify a signature outside of KMS with an SM2 public key, you must specify the distinguishing
- *       ID. By default, KMS uses <code>1234567812345678</code> as the distinguishing ID. For more
- *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
- *       verification with SM2 key pairs</a> in <i>Key Management Service Developer Guide</i>. The
+ *       asymmetric KMS key and then use the public key to verify the signature outside of KMS. The
  *       advantage of using the <code>Verify</code> operation is that it is performed within KMS. As
  *       a result, it's easy to call, the operation is performed within the FIPS boundary, it is logged
  *       in CloudTrail, and you can use key policy and IAM policy to determine who is authorized to use
  *       the KMS key to verify signatures.</p>
+ *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you must
+ *       specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as the
+ *       distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline verification
+ *         with SM2 key pairs</a>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
- *
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:Verify</a> (key policy)</p>
  *          <p>

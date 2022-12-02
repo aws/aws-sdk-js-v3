@@ -55,22 +55,22 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *                </p>
  *             </li>
  *          </ul>
- *          <p>You can use this operation to decrypt ciphertext that was encrypted under a symmetric encryption KMS key or an
- *       asymmetric encryption KMS key. When the KMS key is asymmetric, you must specify the KMS key and the
- *       encryption algorithm that was used to encrypt the ciphertext. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>The <code>Decrypt</code> operation also decrypts ciphertext that was encrypted outside of KMS by the
- *       public key in an KMS asymmetric KMS key. However, it cannot decrypt ciphertext produced by
- *       other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services
- *         Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
+ *          <p>You can use this operation to decrypt ciphertext that was encrypted under a symmetric
+ *       encryption KMS key or an asymmetric encryption KMS key. When the KMS key is asymmetric, you
+ *       must specify the KMS key and the encryption algorithm that was used to encrypt the ciphertext.
+ *       For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *          <p>The <code>Decrypt</code> operation also decrypts ciphertext that was encrypted outside of
+ *       KMS by the public key in an KMS asymmetric KMS key. However, it cannot decrypt symmetric
+ *       ciphertext produced by other libraries, such as the <a href="https://docs.aws.amazon.com/encryption-sdk/latest/developer-guide/">Amazon Web Services Encryption SDK</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 client-side encryption</a>.
  *       These libraries return a ciphertext format that is incompatible with KMS.</p>
- *          <p>If the ciphertext was encrypted under a symmetric encryption KMS key, the <code>KeyId</code>
- *       parameter is optional. KMS can get this information from metadata that it adds to the
- *       symmetric ciphertext blob. This feature adds durability to your implementation by ensuring
- *       that authorized users can decrypt ciphertext decades after it was encrypted, even if they've
- *       lost track of the key ID. However, specifying the KMS key is always recommended as a best
- *       practice. When you use the <code>KeyId</code> parameter to specify a KMS key, KMS only uses
- *       the KMS key you specify. If the ciphertext was encrypted under a different KMS key, the
- *         <code>Decrypt</code> operation fails. This practice ensures that you use the KMS key that
+ *          <p>If the ciphertext was encrypted under a symmetric encryption KMS key, the
+ *         <code>KeyId</code> parameter is optional. KMS can get this information from metadata that
+ *       it adds to the symmetric ciphertext blob. This feature adds durability to your implementation
+ *       by ensuring that authorized users can decrypt ciphertext decades after it was encrypted, even
+ *       if they've lost track of the key ID. However, specifying the KMS key is always recommended as
+ *       a best practice. When you use the <code>KeyId</code> parameter to specify a KMS key, KMS
+ *       only uses the KMS key you specify. If the ciphertext was encrypted under a different KMS key,
+ *       the <code>Decrypt</code> operation fails. This practice ensures that you use the KMS key that
  *       you intend.</p>
  *          <p>Whenever possible, use key policies to give users permission to call the
  *         <code>Decrypt</code> operation on a particular KMS key, instead of using IAM policies.
@@ -84,8 +84,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
- *             <b>Cross-account
- *         use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
+ *             <b>Cross-account use</b>: Yes. To perform this operation with a KMS key in a different Amazon Web Services account, specify
  *   the key ARN or alias ARN in the value of the <code>KeyId</code> parameter. </p>
  *
  *          <p>

@@ -155,6 +155,10 @@ import {
   AttachNetworkInterfaceCommandInput,
   AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand";
+import {
+  AttachVerifiedAccessTrustProviderCommandInput,
+  AttachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/AttachVerifiedAccessTrustProviderCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "./commands/AttachVolumeCommand";
 import { AttachVpnGatewayCommandInput, AttachVpnGatewayCommandOutput } from "./commands/AttachVpnGatewayCommand";
 import {
@@ -416,6 +420,22 @@ import {
   CreateTransitGatewayVpcAttachmentCommandInput,
   CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
+import {
+  CreateVerifiedAccessEndpointCommandInput,
+  CreateVerifiedAccessEndpointCommandOutput,
+} from "./commands/CreateVerifiedAccessEndpointCommand";
+import {
+  CreateVerifiedAccessGroupCommandInput,
+  CreateVerifiedAccessGroupCommandOutput,
+} from "./commands/CreateVerifiedAccessGroupCommand";
+import {
+  CreateVerifiedAccessInstanceCommandInput,
+  CreateVerifiedAccessInstanceCommandOutput,
+} from "./commands/CreateVerifiedAccessInstanceCommand";
+import {
+  CreateVerifiedAccessTrustProviderCommandInput,
+  CreateVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/CreateVerifiedAccessTrustProviderCommand";
 import { CreateVolumeCommandInput, CreateVolumeCommandOutput } from "./commands/CreateVolumeCommand";
 import { CreateVpcCommandInput, CreateVpcCommandOutput } from "./commands/CreateVpcCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
@@ -625,6 +645,22 @@ import {
   DeleteTransitGatewayVpcAttachmentCommandInput,
   DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
+import {
+  DeleteVerifiedAccessEndpointCommandInput,
+  DeleteVerifiedAccessEndpointCommandOutput,
+} from "./commands/DeleteVerifiedAccessEndpointCommand";
+import {
+  DeleteVerifiedAccessGroupCommandInput,
+  DeleteVerifiedAccessGroupCommandOutput,
+} from "./commands/DeleteVerifiedAccessGroupCommand";
+import {
+  DeleteVerifiedAccessInstanceCommandInput,
+  DeleteVerifiedAccessInstanceCommandOutput,
+} from "./commands/DeleteVerifiedAccessInstanceCommand";
+import {
+  DeleteVerifiedAccessTrustProviderCommandInput,
+  DeleteVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DeleteVerifiedAccessTrustProviderCommand";
 import { DeleteVolumeCommandInput, DeleteVolumeCommandOutput } from "./commands/DeleteVolumeCommand";
 import { DeleteVpcCommandInput, DeleteVpcCommandOutput } from "./commands/DeleteVpcCommand";
 import {
@@ -1098,6 +1134,26 @@ import {
   DescribeTrunkInterfaceAssociationsCommandOutput,
 } from "./commands/DescribeTrunkInterfaceAssociationsCommand";
 import {
+  DescribeVerifiedAccessEndpointsCommandInput,
+  DescribeVerifiedAccessEndpointsCommandOutput,
+} from "./commands/DescribeVerifiedAccessEndpointsCommand";
+import {
+  DescribeVerifiedAccessGroupsCommandInput,
+  DescribeVerifiedAccessGroupsCommandOutput,
+} from "./commands/DescribeVerifiedAccessGroupsCommand";
+import {
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstanceLoggingConfigurationsCommand";
+import {
+  DescribeVerifiedAccessInstancesCommandInput,
+  DescribeVerifiedAccessInstancesCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstancesCommand";
+import {
+  DescribeVerifiedAccessTrustProvidersCommandInput,
+  DescribeVerifiedAccessTrustProvidersCommandOutput,
+} from "./commands/DescribeVerifiedAccessTrustProvidersCommand";
+import {
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
 } from "./commands/DescribeVolumeAttributeCommand";
@@ -1171,6 +1227,10 @@ import {
   DetachNetworkInterfaceCommandInput,
   DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand";
+import {
+  DetachVerifiedAccessTrustProviderCommandInput,
+  DetachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DetachVerifiedAccessTrustProviderCommand";
 import { DetachVolumeCommandInput, DetachVolumeCommandOutput } from "./commands/DetachVolumeCommand";
 import { DetachVpnGatewayCommandInput, DetachVpnGatewayCommandOutput } from "./commands/DetachVpnGatewayCommand";
 import {
@@ -1462,6 +1522,14 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVerifiedAccessEndpointPolicyCommandInput,
+  GetVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessGroupPolicyCommandInput,
+  GetVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessGroupPolicyCommand";
+import {
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
   GetVpnConnectionDeviceSampleConfigurationCommandOutput,
 } from "./commands/GetVpnConnectionDeviceSampleConfigurationCommand";
@@ -1633,6 +1701,34 @@ import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand";
+import {
+  ModifyVerifiedAccessEndpointCommandInput,
+  ModifyVerifiedAccessEndpointCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointCommand";
+import {
+  ModifyVerifiedAccessEndpointPolicyCommandInput,
+  ModifyVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointPolicyCommand";
+import {
+  ModifyVerifiedAccessGroupCommandInput,
+  ModifyVerifiedAccessGroupCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupCommand";
+import {
+  ModifyVerifiedAccessGroupPolicyCommandInput,
+  ModifyVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupPolicyCommand";
+import {
+  ModifyVerifiedAccessInstanceCommandInput,
+  ModifyVerifiedAccessInstanceCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceCommand";
+import {
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceLoggingConfigurationCommand";
+import {
+  ModifyVerifiedAccessTrustProviderCommandInput,
+  ModifyVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/ModifyVerifiedAccessTrustProviderCommand";
 import {
   ModifyVolumeAttributeCommandInput,
   ModifyVolumeAttributeCommandOutput,
@@ -1931,6 +2027,7 @@ export type ServiceInputTypes =
   | AttachClassicLinkVpcCommandInput
   | AttachInternetGatewayCommandInput
   | AttachNetworkInterfaceCommandInput
+  | AttachVerifiedAccessTrustProviderCommandInput
   | AttachVolumeCommandInput
   | AttachVpnGatewayCommandInput
   | AuthorizeClientVpnIngressCommandInput
@@ -2018,6 +2115,10 @@ export type ServiceInputTypes =
   | CreateTransitGatewayRouteTableAnnouncementCommandInput
   | CreateTransitGatewayRouteTableCommandInput
   | CreateTransitGatewayVpcAttachmentCommandInput
+  | CreateVerifiedAccessEndpointCommandInput
+  | CreateVerifiedAccessGroupCommandInput
+  | CreateVerifiedAccessInstanceCommandInput
+  | CreateVerifiedAccessTrustProviderCommandInput
   | CreateVolumeCommandInput
   | CreateVpcCommandInput
   | CreateVpcEndpointCommandInput
@@ -2086,6 +2187,10 @@ export type ServiceInputTypes =
   | DeleteTransitGatewayRouteTableAnnouncementCommandInput
   | DeleteTransitGatewayRouteTableCommandInput
   | DeleteTransitGatewayVpcAttachmentCommandInput
+  | DeleteVerifiedAccessEndpointCommandInput
+  | DeleteVerifiedAccessGroupCommandInput
+  | DeleteVerifiedAccessInstanceCommandInput
+  | DeleteVerifiedAccessTrustProviderCommandInput
   | DeleteVolumeCommandInput
   | DeleteVpcCommandInput
   | DeleteVpcEndpointConnectionNotificationsCommandInput
@@ -2222,6 +2327,11 @@ export type ServiceInputTypes =
   | DescribeTransitGatewayVpcAttachmentsCommandInput
   | DescribeTransitGatewaysCommandInput
   | DescribeTrunkInterfaceAssociationsCommandInput
+  | DescribeVerifiedAccessEndpointsCommandInput
+  | DescribeVerifiedAccessGroupsCommandInput
+  | DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput
+  | DescribeVerifiedAccessInstancesCommandInput
+  | DescribeVerifiedAccessTrustProvidersCommandInput
   | DescribeVolumeAttributeCommandInput
   | DescribeVolumeStatusCommandInput
   | DescribeVolumesCommandInput
@@ -2242,6 +2352,7 @@ export type ServiceInputTypes =
   | DetachClassicLinkVpcCommandInput
   | DetachInternetGatewayCommandInput
   | DetachNetworkInterfaceCommandInput
+  | DetachVerifiedAccessTrustProviderCommandInput
   | DetachVolumeCommandInput
   | DetachVpnGatewayCommandInput
   | DisableAddressTransferCommandInput
@@ -2322,6 +2433,8 @@ export type ServiceInputTypes =
   | GetTransitGatewayPrefixListReferencesCommandInput
   | GetTransitGatewayRouteTableAssociationsCommandInput
   | GetTransitGatewayRouteTablePropagationsCommandInput
+  | GetVerifiedAccessEndpointPolicyCommandInput
+  | GetVerifiedAccessGroupPolicyCommandInput
   | GetVpnConnectionDeviceSampleConfigurationCommandInput
   | GetVpnConnectionDeviceTypesCommandInput
   | ImportClientVpnClientCertificateRevocationListCommandInput
@@ -2374,6 +2487,13 @@ export type ServiceInputTypes =
   | ModifyTransitGatewayCommandInput
   | ModifyTransitGatewayPrefixListReferenceCommandInput
   | ModifyTransitGatewayVpcAttachmentCommandInput
+  | ModifyVerifiedAccessEndpointCommandInput
+  | ModifyVerifiedAccessEndpointPolicyCommandInput
+  | ModifyVerifiedAccessGroupCommandInput
+  | ModifyVerifiedAccessGroupPolicyCommandInput
+  | ModifyVerifiedAccessInstanceCommandInput
+  | ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput
+  | ModifyVerifiedAccessTrustProviderCommandInput
   | ModifyVolumeAttributeCommandInput
   | ModifyVolumeCommandInput
   | ModifyVpcAttributeCommandInput
@@ -2485,6 +2605,7 @@ export type ServiceOutputTypes =
   | AttachClassicLinkVpcCommandOutput
   | AttachInternetGatewayCommandOutput
   | AttachNetworkInterfaceCommandOutput
+  | AttachVerifiedAccessTrustProviderCommandOutput
   | AttachVolumeCommandOutput
   | AttachVpnGatewayCommandOutput
   | AuthorizeClientVpnIngressCommandOutput
@@ -2572,6 +2693,10 @@ export type ServiceOutputTypes =
   | CreateTransitGatewayRouteTableAnnouncementCommandOutput
   | CreateTransitGatewayRouteTableCommandOutput
   | CreateTransitGatewayVpcAttachmentCommandOutput
+  | CreateVerifiedAccessEndpointCommandOutput
+  | CreateVerifiedAccessGroupCommandOutput
+  | CreateVerifiedAccessInstanceCommandOutput
+  | CreateVerifiedAccessTrustProviderCommandOutput
   | CreateVolumeCommandOutput
   | CreateVpcCommandOutput
   | CreateVpcEndpointCommandOutput
@@ -2640,6 +2765,10 @@ export type ServiceOutputTypes =
   | DeleteTransitGatewayRouteTableAnnouncementCommandOutput
   | DeleteTransitGatewayRouteTableCommandOutput
   | DeleteTransitGatewayVpcAttachmentCommandOutput
+  | DeleteVerifiedAccessEndpointCommandOutput
+  | DeleteVerifiedAccessGroupCommandOutput
+  | DeleteVerifiedAccessInstanceCommandOutput
+  | DeleteVerifiedAccessTrustProviderCommandOutput
   | DeleteVolumeCommandOutput
   | DeleteVpcCommandOutput
   | DeleteVpcEndpointConnectionNotificationsCommandOutput
@@ -2776,6 +2905,11 @@ export type ServiceOutputTypes =
   | DescribeTransitGatewayVpcAttachmentsCommandOutput
   | DescribeTransitGatewaysCommandOutput
   | DescribeTrunkInterfaceAssociationsCommandOutput
+  | DescribeVerifiedAccessEndpointsCommandOutput
+  | DescribeVerifiedAccessGroupsCommandOutput
+  | DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput
+  | DescribeVerifiedAccessInstancesCommandOutput
+  | DescribeVerifiedAccessTrustProvidersCommandOutput
   | DescribeVolumeAttributeCommandOutput
   | DescribeVolumeStatusCommandOutput
   | DescribeVolumesCommandOutput
@@ -2796,6 +2930,7 @@ export type ServiceOutputTypes =
   | DetachClassicLinkVpcCommandOutput
   | DetachInternetGatewayCommandOutput
   | DetachNetworkInterfaceCommandOutput
+  | DetachVerifiedAccessTrustProviderCommandOutput
   | DetachVolumeCommandOutput
   | DetachVpnGatewayCommandOutput
   | DisableAddressTransferCommandOutput
@@ -2876,6 +3011,8 @@ export type ServiceOutputTypes =
   | GetTransitGatewayPrefixListReferencesCommandOutput
   | GetTransitGatewayRouteTableAssociationsCommandOutput
   | GetTransitGatewayRouteTablePropagationsCommandOutput
+  | GetVerifiedAccessEndpointPolicyCommandOutput
+  | GetVerifiedAccessGroupPolicyCommandOutput
   | GetVpnConnectionDeviceSampleConfigurationCommandOutput
   | GetVpnConnectionDeviceTypesCommandOutput
   | ImportClientVpnClientCertificateRevocationListCommandOutput
@@ -2928,6 +3065,13 @@ export type ServiceOutputTypes =
   | ModifyTransitGatewayCommandOutput
   | ModifyTransitGatewayPrefixListReferenceCommandOutput
   | ModifyTransitGatewayVpcAttachmentCommandOutput
+  | ModifyVerifiedAccessEndpointCommandOutput
+  | ModifyVerifiedAccessEndpointPolicyCommandOutput
+  | ModifyVerifiedAccessGroupCommandOutput
+  | ModifyVerifiedAccessGroupPolicyCommandOutput
+  | ModifyVerifiedAccessInstanceCommandOutput
+  | ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput
+  | ModifyVerifiedAccessTrustProviderCommandOutput
   | ModifyVolumeAttributeCommandOutput
   | ModifyVolumeCommandOutput
   | ModifyVpcAttributeCommandOutput

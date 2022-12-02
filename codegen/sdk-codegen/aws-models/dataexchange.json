@@ -113,7 +113,7 @@
         "Bucket": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket that is the destination for the asset.</p>",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that is the destination for the asset.</p>",
             "smithy.api#required": {}
           }
         },
@@ -134,7 +134,7 @@
         "S3SnapshotAsset": {
           "target": "com.amazonaws.dataexchange#S3SnapshotAsset",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 object that is the asset.</p>"
+            "smithy.api#documentation": "<p>The Amazon S3 object that is the asset.</p>"
           }
         },
         "RedshiftDataShareAsset": {
@@ -148,10 +148,22 @@
           "traits": {
             "smithy.api#documentation": "<p>Information about the API Gateway API asset.</p>"
           }
+        },
+        "S3DataAccessAsset": {
+          "target": "com.amazonaws.dataexchange#S3DataAccessAsset",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 data access that is the asset.</p>"
+          }
+        },
+        "LakeFormationDataPermissionAsset": {
+          "target": "com.amazonaws.dataexchange#LakeFormationDataPermissionAsset",
+          "traits": {
+            "smithy.api#documentation": "<p>The AWS Lake Formation data permission that is the asset.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the asset.</p>"
+        "smithy.api#documentation": "<p>Details about the asset.</p>"
       }
     },
     "com.amazonaws.dataexchange#AssetEntry": {
@@ -167,7 +179,7 @@
         "AssetDetails": {
           "target": "com.amazonaws.dataexchange#AssetDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the asset.</p>",
+            "smithy.api#documentation": "<p>Details about the asset.</p>",
             "smithy.api#required": {}
           }
         },
@@ -202,7 +214,7 @@
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>",
+            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used\n         as the asset name. When exporting to Amazon S3, the asset name is used as default target\n         Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as\n         the asset name. When importing from Amazon Redshift, the datashare name is used as the\n         asset name. When importing from AWS Lake Formation, the static values of \"Database(s)\n         included in LF-tag policy\" or \"Table(s) included in LF-tag policy\" are used as the asset\n         name.</p>",
             "smithy.api#required": {}
           }
         },
@@ -228,7 +240,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An asset in AWS Data Exchange is a piece of data (S3 object) or a means of fulfilling data (Amazon Redshift datashare or Amazon API Gateway API). The asset can be a structured data file, an image file, or some other data file that can be stored as an S3 object, an Amazon API Gateway API, or an Amazon Redshift datashare. When you create an import job for your files, API Gateway APIs, or Amazon Redshift datashares, you create an asset in AWS Data Exchange.</p>"
+        "smithy.api#documentation": "<p>An asset in AWS Data Exchange is a piece of data (Amazon S3 object) or a means of\n         fulfilling data (Amazon Redshift datashare or Amazon API Gateway API, AWS Lake Formation\n         data permission, or Amazon S3 data access). The asset can be a structured data file, an\n         image file, or some other data file that can be stored as an Amazon S3 object, an Amazon\n         API Gateway API, or an Amazon Redshift datashare, an AWS Lake Formation data permission, or\n         an Amazon S3 data access. When you create an import job for your files, API Gateway APIs,\n         Amazon Redshift datashares, AWS Lake Formation data permission, or Amazon S3 data access,\n         you create an asset in AWS Data Exchange.</p>"
       }
     },
     "com.amazonaws.dataexchange#AssetName": {
@@ -240,7 +252,7 @@
         "Bucket": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket that's part of the source of the asset.</p>",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that's part of the source of the asset.</p>",
             "smithy.api#required": {}
           }
         },
@@ -271,6 +283,14 @@
           {
             "value": "API_GATEWAY_API",
             "name": "API_GATEWAY_API"
+          },
+          {
+            "value": "S3_DATA_ACCESS",
+            "name": "S3_DATA_ACCESS"
+          },
+          {
+            "value": "LAKE_FORMATION_DATA_PERMISSION",
+            "name": "LAKE_FORMATION_DATA_PERMISSION"
           }
         ]
       }
@@ -281,7 +301,7 @@
         "Bucket": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket that is the destination for the event action.</p>",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that is the destination for the event action.</p>",
             "smithy.api#required": {}
           }
         },
@@ -315,6 +335,16 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Details of the operation to be performed by the job.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#AwsAccountId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 12,
+          "max": 12
+        },
+        "smithy.api#pattern": "/^[\\d]{12}$/"
       }
     },
     "com.amazonaws.dataexchange#CancelJob": {
@@ -851,7 +881,7 @@
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the data set revision.</p>"
           }
         },
         "Finalized": {
@@ -904,6 +934,64 @@
             "smithy.api#documentation": "<p>The date and time that the revision was revoked, in ISO 8601 format.</p>"
           }
         }
+      }
+    },
+    "com.amazonaws.dataexchange#CreateS3DataAccessFromS3BucketRequestDetails": {
+      "type": "structure",
+      "members": {
+        "AssetSource": {
+          "target": "com.amazonaws.dataexchange#S3DataAccessAssetSourceEntry",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the S3 data access source asset.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DataSetId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the creation of this Amazon S3 data access.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for a revision.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details of the operation to create an Amazon S3 data access from an S3 bucket.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#CreateS3DataAccessFromS3BucketResponseDetails": {
+      "type": "structure",
+      "members": {
+        "AssetSource": {
+          "target": "com.amazonaws.dataexchange#S3DataAccessAssetSourceEntry",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the asset source from an Amazon S3 bucket.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DataSetId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for this data set.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the revision.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the response of the operation to create an S3 data access from an S3 bucket.</p>"
       }
     },
     "com.amazonaws.dataexchange#DataExchange": {
@@ -1009,14 +1097,14 @@
           "name": "dataexchange"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>\n         <p>As a subscriber, you can view and access the data sets that you have an entitlement to through a subscription. You can use the APIS to download or copy your entitled data sets to Amazon S3 for use across a variety of AWS analytics and machine learning services.</p>\n         <p>As a provider, you can create and manage your data sets that you would like to publish to a product. Being able to package and provide your data sets into products requires a few steps to determine eligibility. For more information, visit the AWS Data Exchange User Guide.</p>\n         <p>A data set is a collection of data that can be changed or updated over time. Data sets can be updated using revisions, which represent a new version or incremental change to a data set.  A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data that can be stored as an Amazon S3 object. The asset can be a structured data file, an image file, or some other data file. Jobs are asynchronous import or export operations used to create or copy assets.</p>",
+        "smithy.api#documentation": "<p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>\n         <p>As a subscriber, you can view and access the data sets that you have an entitlement to through\n         a subscription. You can use the APIs to download or copy your entitled data sets to Amazon\n         Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and machine\n         learning services.</p>\n         <p>As a provider, you can create and manage your data sets that you would like to publish to a\n         product. Being able to package and provide your data sets into products requires a few\n         steps to determine eligibility. For more information, visit the <i>AWS Data Exchange\n            User Guide</i>.</p>\n         <p>A data set is a collection of data that can be changed or updated over time. Data sets can be\n         updated using revisions, which represent a new version or incremental change to a data set.\n         A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data\n         that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS Lake\n         Formation data permission, or Amazon S3 data access. The asset can be a structured data\n         file, an image file, or some other data file. Jobs are asynchronous import or export\n         operations used to create or copy assets.</p>",
         "smithy.api#title": "AWS Data Exchange",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -1336,8 +1424,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
+                "Region": "eu-central-1",
                 "UseFIPS": true
               }
             },
@@ -1349,8 +1437,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
+                "Region": "eu-central-1",
                 "UseFIPS": true
               }
             },
@@ -1362,8 +1450,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": true,
+                "Region": "eu-central-1",
                 "UseFIPS": false
               }
             },
@@ -1375,8 +1463,8 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
                 "UseDualStack": false,
+                "Region": "eu-central-1",
                 "UseFIPS": false
               }
             },
@@ -1388,8 +1476,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
+                "Region": "us-west-1",
                 "UseFIPS": true
               }
             },
@@ -1401,8 +1489,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
+                "Region": "us-west-1",
                 "UseFIPS": true
               }
             },
@@ -1414,8 +1502,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": true,
+                "Region": "us-west-1",
                 "UseFIPS": false
               }
             },
@@ -1427,8 +1515,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-1",
                 "UseDualStack": false,
+                "Region": "us-west-1",
                 "UseFIPS": false
               }
             },
@@ -1440,8 +1528,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
+                "Region": "us-west-2",
                 "UseFIPS": true
               }
             },
@@ -1453,8 +1541,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
+                "Region": "us-west-2",
                 "UseFIPS": true
               }
             },
@@ -1466,8 +1554,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": true,
+                "Region": "us-west-2",
                 "UseFIPS": false
               }
             },
@@ -1479,8 +1567,8 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
                 "UseDualStack": false,
+                "Region": "us-west-2",
                 "UseFIPS": false
               }
             },
@@ -1492,8 +1580,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
+                "Region": "eu-west-2",
                 "UseFIPS": true
               }
             },
@@ -1505,8 +1593,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
+                "Region": "eu-west-2",
                 "UseFIPS": true
               }
             },
@@ -1518,8 +1606,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": true,
+                "Region": "eu-west-2",
                 "UseFIPS": false
               }
             },
@@ -1531,8 +1619,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-2",
                 "UseDualStack": false,
+                "Region": "eu-west-2",
                 "UseFIPS": false
               }
             },
@@ -1544,8 +1632,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
+                "Region": "eu-west-1",
                 "UseFIPS": true
               }
             },
@@ -1557,8 +1645,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
+                "Region": "eu-west-1",
                 "UseFIPS": true
               }
             },
@@ -1570,8 +1658,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": true,
+                "Region": "eu-west-1",
                 "UseFIPS": false
               }
             },
@@ -1583,8 +1671,8 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
                 "UseDualStack": false,
+                "Region": "eu-west-1",
                 "UseFIPS": false
               }
             },
@@ -1596,8 +1684,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
+                "Region": "ap-northeast-2",
                 "UseFIPS": true
               }
             },
@@ -1609,8 +1697,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": true
               }
             },
@@ -1622,8 +1710,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": true,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false
               }
             },
@@ -1635,8 +1723,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
                 "UseDualStack": false,
+                "Region": "ap-northeast-2",
                 "UseFIPS": false
               }
             },
@@ -1648,8 +1736,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
+                "Region": "ap-northeast-1",
                 "UseFIPS": true
               }
             },
@@ -1661,8 +1749,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": true
               }
             },
@@ -1674,8 +1762,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": true,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false
               }
             },
@@ -1687,8 +1775,8 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
                 "UseDualStack": false,
+                "Region": "ap-northeast-1",
                 "UseFIPS": false
               }
             },
@@ -1700,8 +1788,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
+                "Region": "ap-southeast-1",
                 "UseFIPS": true
               }
             },
@@ -1713,8 +1801,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
+                "Region": "ap-southeast-1",
                 "UseFIPS": true
               }
             },
@@ -1726,8 +1814,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": true,
+                "Region": "ap-southeast-1",
                 "UseFIPS": false
               }
             },
@@ -1739,8 +1827,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-1",
                 "UseDualStack": false,
+                "Region": "ap-southeast-1",
                 "UseFIPS": false
               }
             },
@@ -1752,8 +1840,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
+                "Region": "ap-southeast-2",
                 "UseFIPS": true
               }
             },
@@ -1765,8 +1853,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
+                "Region": "ap-southeast-2",
                 "UseFIPS": true
               }
             },
@@ -1778,8 +1866,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": true,
+                "Region": "ap-southeast-2",
                 "UseFIPS": false
               }
             },
@@ -1791,8 +1879,8 @@
                 }
               },
               "params": {
-                "Region": "ap-southeast-2",
                 "UseDualStack": false,
+                "Region": "ap-southeast-2",
                 "UseFIPS": false
               }
             },
@@ -1804,8 +1892,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": true
               }
             },
@@ -1817,8 +1905,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true
               }
             },
@@ -1830,8 +1918,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false
               }
             },
@@ -1843,8 +1931,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false
               }
             },
@@ -1856,8 +1944,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
+                "Region": "us-east-2",
                 "UseFIPS": true
               }
             },
@@ -1869,8 +1957,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
+                "Region": "us-east-2",
                 "UseFIPS": true
               }
             },
@@ -1882,8 +1970,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": true,
+                "Region": "us-east-2",
                 "UseFIPS": false
               }
             },
@@ -1895,8 +1983,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
                 "UseDualStack": false,
+                "Region": "us-east-2",
                 "UseFIPS": false
               }
             },
@@ -1908,8 +1996,8 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -1920,8 +2008,8 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": false,
+                "Region": "us-east-1",
                 "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
@@ -1932,8 +2020,8 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
                 "UseDualStack": true,
+                "Region": "us-east-1",
                 "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
@@ -2017,6 +2105,54 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>A data set is an AWS resource with one or more revisions.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#DatabaseLFTagPolicy": {
+      "type": "structure",
+      "members": {
+        "Expression": {
+          "target": "com.amazonaws.dataexchange#ListOfLFTags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of LF-tag conditions that apply to database resources.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The LF-tag policy for database resources.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#DatabaseLFTagPolicyAndPermissions": {
+      "type": "structure",
+      "members": {
+        "Expression": {
+          "target": "com.amazonaws.dataexchange#ListOfLFTags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of LF-tag conditions that apply to database resources.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.dataexchange#ListOfDatabaseLFTagPolicyPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The permissions granted to subscribers on database resources.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The LF-tag policy and permissions for database resources.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#DatabaseLFTagPolicyPermission": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DESCRIBE",
+            "name": "DESCRIBE"
+          }
+        ]
       }
     },
     "com.amazonaws.dataexchange#DeleteAsset": {
@@ -2252,7 +2388,7 @@
         "ImportAssetsFromS3JobErrorDetails": {
           "target": "com.amazonaws.dataexchange#ListOfAssetSourceEntry",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the job error.</p>"
+            "smithy.api#documentation": "<p>Details about the job error.</p>"
           }
         }
       },
@@ -2635,7 +2771,7 @@
         "AssetDetails": {
           "target": "com.amazonaws.dataexchange#AssetDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the asset.</p>"
+            "smithy.api#documentation": "<p>Details about the asset.</p>"
           }
         },
         "AssetType": {
@@ -2665,7 +2801,7 @@
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>"
+            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used\n         as the asset name. When exporting to Amazon S3, the asset name is used as default target\n         Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as\n         the asset name. When importing from Amazon Redshift, the datashare name is used as the\n         asset name. When importing from AWS Lake Formation, the static values of \"Database(s) included\n         in the LF-tag policy\" or \"Table(s) included in the LF-tag policy\" are used as the asset\n         name.</p>"
           }
         },
         "RevisionId": {
@@ -3065,7 +3201,7 @@
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the data set revision.</p>"
           }
         },
         "Finalized": {
@@ -3281,13 +3417,13 @@
         "AssetName": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the job error.</p>",
+            "smithy.api#documentation": "<p>Details about the job error.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the job error.</p>"
+        "smithy.api#documentation": "<p>Details about the job error.</p>"
       }
     },
     "com.amazonaws.dataexchange#ImportAssetFromSignedUrlRequestDetails": {
@@ -3296,7 +3432,7 @@
         "AssetName": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name.</p>",
+            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used as the asset name.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3373,6 +3509,102 @@
         "smithy.api#documentation": "<p>The details in the response for an import request, including the signed URL and other information.</p>"
       }
     },
+    "com.amazonaws.dataexchange#ImportAssetsFromLakeFormationTagPolicyRequestDetails": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.dataexchange#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the AWS Glue Data Catalog.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Database": {
+          "target": "com.amazonaws.dataexchange#DatabaseLFTagPolicyAndPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure for the database object.</p>"
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.dataexchange#TableLFTagPolicyAndPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure for the table object.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.dataexchange#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions of subscribers to AWS Lake Formation data permissions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DataSetId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the assets imported from an AWS Lake Formation tag policy request.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#ImportAssetsFromLakeFormationTagPolicyResponseDetails": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.dataexchange#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the AWS Glue Data Catalog.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Database": {
+          "target": "com.amazonaws.dataexchange#DatabaseLFTagPolicyAndPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure for the database object.</p>"
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.dataexchange#TableLFTagPolicyAndPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>A structure for the table object.</p>"
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.dataexchange#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DataSetId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this import job.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RevisionId": {
+          "target": "com.amazonaws.dataexchange#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the revision associated with this import job.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details from an import AWS Lake Formation tag policy job response.</p>"
+      }
+    },
     "com.amazonaws.dataexchange#ImportAssetsFromRedshiftDataSharesRequestDetails": {
       "type": "structure",
       "members": {
@@ -3437,7 +3669,7 @@
         "AssetSources": {
           "target": "com.amazonaws.dataexchange#ListOfAssetSourceEntry",
           "traits": {
-            "smithy.api#documentation": "<p>Is a list of S3 bucket and object key pairs.</p>",
+            "smithy.api#documentation": "<p>Is a list of Amazon S3 bucket and object key pairs.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3637,6 +3869,14 @@
           {
             "value": "Amazon Redshift datashare assets per revision",
             "name": "Amazon_Redshift_datashare_assets_per_revision"
+          },
+          {
+            "value": "AWS Lake Formation data permission assets per revision",
+            "name": "AWS_Lake_Formation_data_permission_assets_per_revision"
+          },
+          {
+            "value": "Amazon S3 data access assets per revision",
+            "name": "Amazon_S3_data_access_assets_per_revision"
           }
         ]
       }
@@ -3656,6 +3896,167 @@
           {
             "value": "DATA_SET",
             "name": "DATA_SET"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dataexchange#LFPermission": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DESCRIBE",
+            "name": "DESCRIBE"
+          },
+          {
+            "value": "SELECT",
+            "name": "SELECT"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dataexchange#LFResourceDetails": {
+      "type": "structure",
+      "members": {
+        "Database": {
+          "target": "com.amazonaws.dataexchange#DatabaseLFTagPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the database resource included in the AWS Lake Formation data permission.</p>"
+          }
+        },
+        "Table": {
+          "target": "com.amazonaws.dataexchange#TableLFTagPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the table resource included in the AWS Lake Formation data permission.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the AWS Lake Formation resource (Table or Database) included in the AWS Lake Formation data permission.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#LFResourceType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "TABLE",
+            "name": "TABLE"
+          },
+          {
+            "value": "DATABASE",
+            "name": "DATABASE"
+          }
+        ]
+      }
+    },
+    "com.amazonaws.dataexchange#LFTag": {
+      "type": "structure",
+      "members": {
+        "TagKey": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The key name for the LF-tag.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TagValues": {
+          "target": "com.amazonaws.dataexchange#ListOfLFTagValues",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of LF-tag values.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A structure that allows an LF-admin to grant permissions on certain conditions.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#LFTagPolicyDetails": {
+      "type": "structure",
+      "members": {
+        "CatalogId": {
+          "target": "com.amazonaws.dataexchange#AwsAccountId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the AWS Glue Data Catalog.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceType": {
+          "target": "com.amazonaws.dataexchange#LFResourceType",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource type for which the LF-tag policy applies.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceDetails": {
+          "target": "com.amazonaws.dataexchange#LFResourceDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details for the Lake Formation Resources included in the LF-tag policy.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the LF-tag policy.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#LakeFormationDataPermissionAsset": {
+      "type": "structure",
+      "members": {
+        "LakeFormationDataPermissionDetails": {
+          "target": "com.amazonaws.dataexchange#LakeFormationDataPermissionDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the AWS Lake Formation data permission.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "LakeFormationDataPermissionType": {
+          "target": "com.amazonaws.dataexchange#LakeFormationDataPermissionType",
+          "traits": {
+            "smithy.api#documentation": "<p>The data permission type.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.dataexchange#ListOfLFPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The permissions granted to the subscribers on the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "RoleArn": {
+          "target": "com.amazonaws.dataexchange#RoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM role's ARN that allows AWS Data Exchange to assume the role and grant and revoke permissions to AWS Lake Formation data permissions.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The AWS Lake Formation data permission asset.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#LakeFormationDataPermissionDetails": {
+      "type": "structure",
+      "members": {
+        "LFTagPolicy": {
+          "target": "com.amazonaws.dataexchange#LFTagPolicyDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details about the LF-tag policy.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the AWS Lake Formation data permission.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#LakeFormationDataPermissionType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "LFTagPolicy",
+            "name": "LFTagPolicy"
           }
         ]
       }
@@ -3751,6 +4152,30 @@
           {
             "value": "Revisions per Amazon API Gateway API data set",
             "name": "Revisions_per_Amazon_API_Gateway_API_data_set"
+          },
+          {
+            "value": "Concurrent in progress jobs to import assets from an AWS Lake Formation tag policy",
+            "name": "Concurrent_in_progress_jobs_to_import_assets_from_an_AWS_Lake_Formation_tag_policy"
+          },
+          {
+            "value": "AWS Lake Formation data permission assets per revision",
+            "name": "AWS_Lake_Formation_data_permission_assets_per_revision"
+          },
+          {
+            "value": "Revisions per AWS Lake Formation data permission data set",
+            "name": "Revisions_per_AWS_Lake_Formation_data_permission_data_set"
+          },
+          {
+            "value": "Revisions per Amazon S3 data access data set",
+            "name": "Revisions_per_Amazon_S3_data_access_data_set"
+          },
+          {
+            "value": "Amazon S3 data access assets per revision",
+            "name": "Amazon_S3_data_access_assets_per_revision"
+          },
+          {
+            "value": "Concurrent in progress jobs to create Amazon S3 data access assets from S3 buckets",
+            "name": "Concurrent_in_progress_jobs_to_create_Amazon_S3_data_access_assets_from_S3_buckets"
           }
         ]
       }
@@ -4115,6 +4540,12 @@
         "target": "com.amazonaws.dataexchange#DataSetEntry"
       }
     },
+    "com.amazonaws.dataexchange#ListOfDatabaseLFTagPolicyPermissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dataexchange#DatabaseLFTagPolicyPermission"
+      }
+    },
     "com.amazonaws.dataexchange#ListOfEventActionEntry": {
       "type": "list",
       "member": {
@@ -4133,6 +4564,24 @@
         "target": "com.amazonaws.dataexchange#JobError"
       }
     },
+    "com.amazonaws.dataexchange#ListOfLFPermissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dataexchange#LFPermission"
+      }
+    },
+    "com.amazonaws.dataexchange#ListOfLFTagValues": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      }
+    },
+    "com.amazonaws.dataexchange#ListOfLFTags": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dataexchange#LFTag"
+      }
+    },
     "com.amazonaws.dataexchange#ListOfRedshiftDataShareAssetSourceEntry": {
       "type": "list",
       "member": {
@@ -4149,6 +4598,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.dataexchange#RevisionEntry"
+      }
+    },
+    "com.amazonaws.dataexchange#ListOfTableTagPolicyLFPermissions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.dataexchange#TableTagPolicyLFPermission"
       }
     },
     "com.amazonaws.dataexchange#ListOf__string": {
@@ -4343,7 +4798,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about the origin of the data set.</p>"
+        "smithy.api#documentation": "<p>Details about the origin of the data set.</p>"
       }
     },
     "com.amazonaws.dataexchange#ProtocolType": {
@@ -4417,7 +4872,7 @@
         "ImportAssetsFromS3": {
           "target": "com.amazonaws.dataexchange#ImportAssetsFromS3RequestDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the import asset from API Gateway API request.</p>"
+            "smithy.api#documentation": "<p>Details about the import asset from API Gateway API request.</p>"
           }
         },
         "ImportAssetsFromRedshiftDataShares": {
@@ -4430,6 +4885,18 @@
           "target": "com.amazonaws.dataexchange#ImportAssetFromApiGatewayApiRequestDetails",
           "traits": {
             "smithy.api#documentation": "<p>Details about the import from signed URL request.</p>"
+          }
+        },
+        "CreateS3DataAccessFromS3Bucket": {
+          "target": "com.amazonaws.dataexchange#CreateS3DataAccessFromS3BucketRequestDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Details of the request to create S3 data access from the Amazon S3 bucket.</p>"
+          }
+        },
+        "ImportAssetsFromLakeFormationTagPolicy": {
+          "target": "com.amazonaws.dataexchange#ImportAssetsFromLakeFormationTagPolicyRequestDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Request details for the ImportAssetsFromLakeFormationTagPolicy job.</p>"
           }
         }
       },
@@ -4537,6 +5004,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The response details.</p>"
           }
+        },
+        "CreateS3DataAccessFromS3Bucket": {
+          "target": "com.amazonaws.dataexchange#CreateS3DataAccessFromS3BucketResponseDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Response details from the CreateS3DataAccessFromS3Bucket job.</p>"
+          }
+        },
+        "ImportAssetsFromLakeFormationTagPolicy": {
+          "target": "com.amazonaws.dataexchange#ImportAssetsFromLakeFormationTagPolicyResponseDetails",
+          "traits": {
+            "smithy.api#documentation": "<p>Response details from the ImportAssetsFromLakeFormationTagPolicy job.</p>"
+          }
         }
       },
       "traits": {
@@ -4549,7 +5028,7 @@
         "Bucket": {
           "target": "com.amazonaws.dataexchange#__string",
           "traits": {
-            "smithy.api#documentation": "<p>The S3 bucket that is the destination for the assets in the revision.</p>",
+            "smithy.api#documentation": "<p>The Amazon S3 bucket that is the destination for the assets in the revision.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4597,7 +5076,7 @@
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>",
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the data set revision.</p>",
             "smithy.api#required": {}
           }
         },
@@ -4756,7 +5235,7 @@
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the data set revision.</p>"
           }
         },
         "Finalized": {
@@ -4805,6 +5284,78 @@
         }
       }
     },
+    "com.amazonaws.dataexchange#RoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws:iam::(\\d{12}):role\\/.+$"
+      }
+    },
+    "com.amazonaws.dataexchange#S3DataAccessAsset": {
+      "type": "structure",
+      "members": {
+        "Bucket": {
+          "target": "com.amazonaws.dataexchange#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket hosting data to be shared in the S3 data access.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KeyPrefixes": {
+          "target": "com.amazonaws.dataexchange#ListOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>"
+          }
+        },
+        "Keys": {
+          "target": "com.amazonaws.dataexchange#ListOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>S3 keys made available using this asset.</p>"
+          }
+        },
+        "S3AccessPointAlias": {
+          "target": "com.amazonaws.dataexchange#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The automatically-generated bucket-style alias for your Amazon S3 Access Point. Customers can access their entitled data using the S3 Access Point alias.</p>"
+          }
+        },
+        "S3AccessPointArn": {
+          "target": "com.amazonaws.dataexchange#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN for your Amazon S3 Access Point. Customers can also access their entitled data using the S3 Access Point ARN.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon S3 data access that is the asset.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#S3DataAccessAssetSourceEntry": {
+      "type": "structure",
+      "members": {
+        "Bucket": {
+          "target": "com.amazonaws.dataexchange#__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon S3 bucket used for hosting shared data in the Amazon S3 data access.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "KeyPrefixes": {
+          "target": "com.amazonaws.dataexchange#ListOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>Organizes Amazon S3 asset key prefixes stored in an Amazon S3 bucket.</p>"
+          }
+        },
+        "Keys": {
+          "target": "com.amazonaws.dataexchange#ListOf__string",
+          "traits": {
+            "smithy.api#documentation": "<p>The keys used to create the Amazon S3 data access.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Source details for an Amazon S3 data access asset.</p>"
+      }
+    },
     "com.amazonaws.dataexchange#S3SnapshotAsset": {
       "type": "structure",
       "members": {
@@ -4812,13 +5363,13 @@
           "target": "com.amazonaws.dataexchange#__doubleMin0",
           "traits": {
             "smithy.api#default": 0,
-            "smithy.api#documentation": "<p>The size of the S3 object that is the object.</p>",
+            "smithy.api#documentation": "<p>The size of the Amazon S3 object that is the object.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The S3 object that is the asset.</p>"
+        "smithy.api#documentation": "<p>The Amazon S3 object that is the asset.</p>"
       }
     },
     "com.amazonaws.dataexchange#SendApiAsset": {
@@ -5071,6 +5622,58 @@
         ]
       }
     },
+    "com.amazonaws.dataexchange#TableLFTagPolicy": {
+      "type": "structure",
+      "members": {
+        "Expression": {
+          "target": "com.amazonaws.dataexchange#ListOfLFTags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of LF-tag conditions that apply to table resources.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The LF-tag policy for a table resource.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#TableLFTagPolicyAndPermissions": {
+      "type": "structure",
+      "members": {
+        "Expression": {
+          "target": "com.amazonaws.dataexchange#ListOfLFTags",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of LF-tag conditions that apply to table resources.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Permissions": {
+          "target": "com.amazonaws.dataexchange#ListOfTableTagPolicyLFPermissions",
+          "traits": {
+            "smithy.api#documentation": "<p>The permissions granted to subscribers on table resources.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The LF-tag policy and permissions that apply to table resources.</p>"
+      }
+    },
+    "com.amazonaws.dataexchange#TableTagPolicyLFPermission": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "DESCRIBE",
+            "name": "DESCRIBE"
+          },
+          {
+            "value": "SELECT",
+            "name": "SELECT"
+          }
+        ]
+      }
+    },
     "com.amazonaws.dataexchange#TagResource": {
       "type": "operation",
       "input": {
@@ -5163,6 +5766,14 @@
           {
             "value": "IMPORT_ASSET_FROM_API_GATEWAY_API",
             "name": "IMPORT_ASSET_FROM_API_GATEWAY_API"
+          },
+          {
+            "value": "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET",
+            "name": "CREATE_S3_DATA_ACCESS_FROM_S3_BUCKET"
+          },
+          {
+            "value": "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY",
+            "name": "IMPORT_ASSETS_FROM_LAKE_FORMATION_TAG_POLICY"
           }
         ]
       }
@@ -5265,7 +5876,7 @@
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>",
+            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used\n         as the asset name. When exporting to Amazon S3, the asset name is used as default target\n         Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as\n         the asset name. When importing from Amazon Redshift, the datashare name is used as the\n         asset name. When importing from AWS Lake Formation, the static values of \"Database(s)\n         included in the LF-tag policy\" or \"Table(s) included in LF-tag policy\" are used as the\n         name.</p>",
             "smithy.api#required": {}
           }
         },
@@ -5291,7 +5902,7 @@
         "AssetDetails": {
           "target": "com.amazonaws.dataexchange#AssetDetails",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the asset.</p>"
+            "smithy.api#documentation": "<p>Details about the asset.</p>"
           }
         },
         "AssetType": {
@@ -5321,7 +5932,7 @@
         "Name": {
           "target": "com.amazonaws.dataexchange#AssetName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the S3 object key is used as the asset name. When exporting to Amazon S3, the asset name is used as default target S3 object key. When importing from Amazon API Gateway API, the API name is used as the asset name. When importing from Amazon Redshift, the datashare name is used as the asset name.</p>"
+            "smithy.api#documentation": "<p>The name of the asset. When importing from Amazon S3, the Amazon S3 object key is used\n         as the asset name. When exporting to Amazon S3, the asset name is used as default target\n         Amazon S3 object key. When importing from Amazon API Gateway API, the API name is used as\n         the asset name. When importing from Amazon Redshift, the datashare name is used as the\n         asset name. When importing from AWS Lake Formation, the static values of \"Database(s)\n         included in the LF-tag policy\"- or \"Table(s) included in LF-tag policy\" are used as the\n         asset name.</p>"
           }
         },
         "RevisionId": {
@@ -5657,7 +6268,7 @@
         "DataSetId": {
           "target": "com.amazonaws.dataexchange#Id",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier for the data set associated with this revision.</p>"
+            "smithy.api#documentation": "<p>The unique identifier for the data set associated with the data set revision.</p>"
           }
         },
         "Finalized": {

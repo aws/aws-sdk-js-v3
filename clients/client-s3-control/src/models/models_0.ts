@@ -72,6 +72,11 @@ export interface AccessPoint {
    * <p>The name or alias of the access point.</p>
    */
   Alias?: string;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 /**
@@ -503,8 +508,7 @@ export interface AwsLambdaTransformation {
 
 export interface CreateAccessPointRequest {
   /**
-   * <p>The Amazon Web Services account ID for the owner of the bucket for which you want to create an
-   *          access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -534,6 +538,11 @@ export interface CreateAccessPointRequest {
    *       </p>
    */
   PublicAccessBlockConfiguration?: PublicAccessBlockConfiguration;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 export interface CreateAccessPointResult {
@@ -1856,7 +1865,7 @@ export interface CreateMultiRegionAccessPointResult {
 
 export interface DeleteAccessPointRequest {
   /**
-   * <p>The account ID for the account that owns the specified access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -2297,7 +2306,7 @@ export interface DescribeMultiRegionAccessPointOperationResult {
 
 export interface GetAccessPointRequest {
   /**
-   * <p>The account ID for the account that owns the specified access point.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access point.</p>
    */
   AccountId?: string;
 
@@ -2367,6 +2376,11 @@ export interface GetAccessPointResult {
    * <p>The VPC endpoint for the access point.</p>
    */
   Endpoints?: Record<string, string>;
+
+  /**
+   * <p>The Amazon Web Services account ID associated with the S3 bucket associated with this access point.</p>
+   */
+  BucketAccountId?: string;
 }
 
 export interface GetAccessPointConfigurationForObjectLambdaRequest {
@@ -3434,7 +3448,7 @@ export interface GetStorageLensConfigurationTaggingResult {
 
 export interface ListAccessPointsRequest {
   /**
-   * <p>The Amazon Web Services account ID for owner of the bucket whose access points you want to list.</p>
+   * <p>The Amazon Web Services account ID for the account that owns the specified access points.</p>
    */
   AccountId?: string;
 

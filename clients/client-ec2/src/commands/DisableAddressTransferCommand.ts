@@ -19,7 +19,7 @@ import {
   DisableAddressTransferRequestFilterSensitiveLog,
   DisableAddressTransferResult,
   DisableAddressTransferResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableAddressTransferCommand,
   serializeAws_ec2DisableAddressTransferCommand,

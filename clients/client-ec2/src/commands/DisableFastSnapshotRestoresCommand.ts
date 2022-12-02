@@ -19,7 +19,7 @@ import {
   DisableFastSnapshotRestoresRequestFilterSensitiveLog,
   DisableFastSnapshotRestoresResult,
   DisableFastSnapshotRestoresResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableFastSnapshotRestoresCommand,
   serializeAws_ec2DisableFastSnapshotRestoresCommand,

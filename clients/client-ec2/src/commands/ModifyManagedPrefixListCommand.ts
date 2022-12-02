@@ -19,7 +19,7 @@ import {
   ModifyManagedPrefixListRequestFilterSensitiveLog,
   ModifyManagedPrefixListResult,
   ModifyManagedPrefixListResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   deserializeAws_ec2ModifyManagedPrefixListCommand,
   serializeAws_ec2ModifyManagedPrefixListCommand,

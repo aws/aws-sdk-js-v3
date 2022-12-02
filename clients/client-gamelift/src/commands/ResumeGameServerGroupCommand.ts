@@ -32,35 +32,23 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  * <p>
  *             <b>This operation is used with the GameLift FleetIQ solution and game server groups.</b>
  *          </p>
- *         <p>Reinstates activity on a game server group after it has been suspended. A game server
- *             group might be suspended by the<a>SuspendGameServerGroup</a> operation, or it
- *             might be suspended involuntarily due to a configuration problem. In the second case, you
- *             can manually resume activity on the group once the configuration problem has been
- *             resolved. Refer to the game server group status and status reason for more information
- *             on why group activity is suspended.</p>
+ *          <p>Reinstates activity on a game
+ *             server group after it has been suspended. A game server group might be suspended by the
+ *                 <a href="gamelift/latest/apireference/API_SuspendGameServerGroup.html">SuspendGameServerGroup</a> operation, or it might be suspended involuntarily
+ *             due to a configuration problem. In the second case, you can manually resume activity on
+ *             the group once the configuration problem has been resolved. Refer to the game server
+ *             group status and status reason for more information on why group activity is
+ *             suspended.</p>
  *         <p>To resume activity, specify a game server group ARN and the type of activity to be
- *             resumed. If successful, a <a>GameServerGroup</a> object is returned showing
- *             that the resumed activity is no longer listed in <code>SuspendedActions</code>. </p>
+ *             resumed. If successful, a <code>GameServerGroup</code> object is returned showing that
+ *             the resumed activity is no longer listed in <code>SuspendedActions</code>. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ Guide</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">GameLift FleetIQ
+ *                 Guide</a>
  *         </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateGameServerGroup</a> |
- *                     <a>ListGameServerGroups</a> |
- *                     <a>DescribeGameServerGroup</a> |
- *                     <a>UpdateGameServerGroup</a> |
- *                     <a>DeleteGameServerGroup</a> |
- *                     <a>ResumeGameServerGroup</a> |
- *                     <a>SuspendGameServerGroup</a> |
- *                     <a>DescribeGameServerInstances</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/reference-awssdk-fleetiq.html">All APIs by task</a>
- *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

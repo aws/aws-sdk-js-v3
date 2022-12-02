@@ -248,6 +248,21 @@ import {
   VerifyMacResponse,
   VerifyRequest,
   VerifyResponse,
+  XksKeyAlreadyInUseException,
+  XksKeyConfigurationType,
+  XksKeyInvalidConfigurationException,
+  XksKeyNotFoundException,
+  XksProxyAuthenticationCredentialType,
+  XksProxyConfigurationType,
+  XksProxyIncorrectAuthenticationCredentialException,
+  XksProxyInvalidConfigurationException,
+  XksProxyInvalidResponseException,
+  XksProxyUriEndpointInUseException,
+  XksProxyUriInUseException,
+  XksProxyUriUnreachableException,
+  XksProxyVpcEndpointServiceInUseException,
+  XksProxyVpcEndpointServiceInvalidConfigurationException,
+  XksProxyVpcEndpointServiceNotFoundException,
 } from "../models/models_0";
 
 export const serializeAws_json1_1CancelKeyDeletionCommand = async (
@@ -1110,6 +1125,42 @@ const deserializeAws_json1_1CreateCustomKeyStoreCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "LimitExceededException":
+    case "com.amazonaws.kms#LimitExceededException":
+      throw await deserializeAws_json1_1LimitExceededExceptionResponse(parsedOutput, context);
+    case "XksProxyIncorrectAuthenticationCredentialException":
+    case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
+      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksProxyInvalidResponseException":
+    case "com.amazonaws.kms#XksProxyInvalidResponseException":
+      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriEndpointInUseException":
+    case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
+      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriInUseException":
+    case "com.amazonaws.kms#XksProxyUriInUseException":
+      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriUnreachableException":
+    case "com.amazonaws.kms#XksProxyUriUnreachableException":
+      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInUseException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyVpcEndpointServiceNotFoundException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1240,6 +1291,15 @@ const deserializeAws_json1_1CreateKeyCommandError = async (
     case "UnsupportedOperationException":
     case "com.amazonaws.kms#UnsupportedOperationException":
       throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
+    case "XksKeyAlreadyInUseException":
+    case "com.amazonaws.kms#XksKeyAlreadyInUseException":
+      throw await deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse(parsedOutput, context);
+    case "XksKeyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksKeyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksKeyNotFoundException":
+    case "com.amazonaws.kms#XksKeyNotFoundException":
+      throw await deserializeAws_json1_1XksKeyNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2242,6 +2302,9 @@ const deserializeAws_json1_1GenerateRandomCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.kms#UnsupportedOperationException":
+      throw await deserializeAws_json1_1UnsupportedOperationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3492,6 +3555,39 @@ const deserializeAws_json1_1UpdateCustomKeyStoreCommandError = async (
     case "KMSInternalException":
     case "com.amazonaws.kms#KMSInternalException":
       throw await deserializeAws_json1_1KMSInternalExceptionResponse(parsedOutput, context);
+    case "XksProxyIncorrectAuthenticationCredentialException":
+    case "com.amazonaws.kms#XksProxyIncorrectAuthenticationCredentialException":
+      throw await deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse(parsedOutput, context);
+    case "XksProxyInvalidResponseException":
+    case "com.amazonaws.kms#XksProxyInvalidResponseException":
+      throw await deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriEndpointInUseException":
+    case "com.amazonaws.kms#XksProxyUriEndpointInUseException":
+      throw await deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriInUseException":
+    case "com.amazonaws.kms#XksProxyUriInUseException":
+      throw await deserializeAws_json1_1XksProxyUriInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyUriUnreachableException":
+    case "com.amazonaws.kms#XksProxyUriUnreachableException":
+      throw await deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInUseException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInUseException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse(parsedOutput, context);
+    case "XksProxyVpcEndpointServiceInvalidConfigurationException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceInvalidConfigurationException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse(
+        parsedOutput,
+        context
+      );
+    case "XksProxyVpcEndpointServiceNotFoundException":
+    case "com.amazonaws.kms#XksProxyVpcEndpointServiceNotFoundException":
+      throw await deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4175,6 +4271,165 @@ const deserializeAws_json1_1UnsupportedOperationExceptionResponse = async (
   return __decorateServiceException(exception, body);
 };
 
+const deserializeAws_json1_1XksKeyAlreadyInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyAlreadyInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyAlreadyInUseException(body, context);
+  const exception = new XksKeyAlreadyInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksKeyInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyInvalidConfigurationException(body, context);
+  const exception = new XksKeyInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksKeyNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksKeyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksKeyNotFoundException(body, context);
+  const exception = new XksKeyNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyIncorrectAuthenticationCredentialException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException(body, context);
+  const exception = new XksProxyIncorrectAuthenticationCredentialException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyInvalidConfigurationException(body, context);
+  const exception = new XksProxyInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyInvalidResponseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyInvalidResponseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyInvalidResponseException(body, context);
+  const exception = new XksProxyInvalidResponseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriEndpointInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriEndpointInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriEndpointInUseException(body, context);
+  const exception = new XksProxyUriEndpointInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriInUseException(body, context);
+  const exception = new XksProxyUriInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyUriUnreachableExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyUriUnreachableException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyUriUnreachableException(body, context);
+  const exception = new XksProxyUriUnreachableException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceInUseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException(body, context);
+  const exception = new XksProxyVpcEndpointServiceInUseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceInvalidConfigurationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException(
+    body,
+    context
+  );
+  const exception = new XksProxyVpcEndpointServiceInvalidConfigurationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundExceptionResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<XksProxyVpcEndpointServiceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException(body, context);
+  const exception = new XksProxyVpcEndpointServiceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const serializeAws_json1_1CancelKeyDeletionRequest = (
   input: CancelKeyDeletionRequest,
   context: __SerdeContext
@@ -4207,8 +4462,21 @@ const serializeAws_json1_1CreateCustomKeyStoreRequest = (
   return {
     ...(input.CloudHsmClusterId != null && { CloudHsmClusterId: input.CloudHsmClusterId }),
     ...(input.CustomKeyStoreName != null && { CustomKeyStoreName: input.CustomKeyStoreName }),
+    ...(input.CustomKeyStoreType != null && { CustomKeyStoreType: input.CustomKeyStoreType }),
     ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
     ...(input.TrustAnchorCertificate != null && { TrustAnchorCertificate: input.TrustAnchorCertificate }),
+    ...(input.XksProxyAuthenticationCredential != null && {
+      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
+        input.XksProxyAuthenticationCredential,
+        context
+      ),
+    }),
+    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
+    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
+    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
+    ...(input.XksProxyVpcEndpointServiceName != null && {
+      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
+    }),
   };
 };
 
@@ -4238,6 +4506,7 @@ const serializeAws_json1_1CreateKeyRequest = (input: CreateKeyRequest, context: 
     ...(input.Origin != null && { Origin: input.Origin }),
     ...(input.Policy != null && { Policy: input.Policy }),
     ...(input.Tags != null && { Tags: serializeAws_json1_1TagList(input.Tags, context) }),
+    ...(input.XksKeyId != null && { XksKeyId: input.XksKeyId }),
   };
 };
 
@@ -4690,6 +4959,18 @@ const serializeAws_json1_1UpdateCustomKeyStoreRequest = (
     ...(input.CustomKeyStoreId != null && { CustomKeyStoreId: input.CustomKeyStoreId }),
     ...(input.KeyStorePassword != null && { KeyStorePassword: input.KeyStorePassword }),
     ...(input.NewCustomKeyStoreName != null && { NewCustomKeyStoreName: input.NewCustomKeyStoreName }),
+    ...(input.XksProxyAuthenticationCredential != null && {
+      XksProxyAuthenticationCredential: serializeAws_json1_1XksProxyAuthenticationCredentialType(
+        input.XksProxyAuthenticationCredential,
+        context
+      ),
+    }),
+    ...(input.XksProxyConnectivity != null && { XksProxyConnectivity: input.XksProxyConnectivity }),
+    ...(input.XksProxyUriEndpoint != null && { XksProxyUriEndpoint: input.XksProxyUriEndpoint }),
+    ...(input.XksProxyUriPath != null && { XksProxyUriPath: input.XksProxyUriPath }),
+    ...(input.XksProxyVpcEndpointServiceName != null && {
+      XksProxyVpcEndpointServiceName: input.XksProxyVpcEndpointServiceName,
+    }),
   };
 };
 
@@ -4731,6 +5012,16 @@ const serializeAws_json1_1VerifyRequest = (input: VerifyRequest, context: __Serd
     ...(input.MessageType != null && { MessageType: input.MessageType }),
     ...(input.Signature != null && { Signature: context.base64Encoder(input.Signature) }),
     ...(input.SigningAlgorithm != null && { SigningAlgorithm: input.SigningAlgorithm }),
+  };
+};
+
+const serializeAws_json1_1XksProxyAuthenticationCredentialType = (
+  input: XksProxyAuthenticationCredentialType,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.AccessKeyId != null && { AccessKeyId: input.AccessKeyId }),
+    ...(input.RawSecretAccessKey != null && { RawSecretAccessKey: input.RawSecretAccessKey }),
   };
 };
 
@@ -4917,7 +5208,12 @@ const deserializeAws_json1_1CustomKeyStoresListEntry = (
         : undefined,
     CustomKeyStoreId: __expectString(output.CustomKeyStoreId),
     CustomKeyStoreName: __expectString(output.CustomKeyStoreName),
+    CustomKeyStoreType: __expectString(output.CustomKeyStoreType),
     TrustAnchorCertificate: __expectString(output.TrustAnchorCertificate),
+    XksProxyConfiguration:
+      output.XksProxyConfiguration != null
+        ? deserializeAws_json1_1XksProxyConfigurationType(output.XksProxyConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -5351,6 +5647,10 @@ const deserializeAws_json1_1KeyMetadata = (output: any, context: __SerdeContext)
         : undefined,
     ValidTo:
       output.ValidTo != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.ValidTo))) : undefined,
+    XksKeyConfiguration:
+      output.XksKeyConfiguration != null
+        ? deserializeAws_json1_1XksKeyConfigurationType(output.XksKeyConfiguration, context)
+        : undefined,
   } as any;
 };
 
@@ -5633,6 +5933,136 @@ const deserializeAws_json1_1VerifyResponse = (output: any, context: __SerdeConte
     KeyId: __expectString(output.KeyId),
     SignatureValid: __expectBoolean(output.SignatureValid),
     SigningAlgorithm: __expectString(output.SigningAlgorithm),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyAlreadyInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyAlreadyInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyConfigurationType = (
+  output: any,
+  context: __SerdeContext
+): XksKeyConfigurationType => {
+  return {
+    Id: __expectString(output.Id),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksKeyNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): XksKeyNotFoundException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyConfigurationType = (
+  output: any,
+  context: __SerdeContext
+): XksProxyConfigurationType => {
+  return {
+    AccessKeyId: __expectString(output.AccessKeyId),
+    Connectivity: __expectString(output.Connectivity),
+    UriEndpoint: __expectString(output.UriEndpoint),
+    UriPath: __expectString(output.UriPath),
+    VpcEndpointServiceName: __expectString(output.VpcEndpointServiceName),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyIncorrectAuthenticationCredentialException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyIncorrectAuthenticationCredentialException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyInvalidResponseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyInvalidResponseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriEndpointInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriEndpointInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyUriUnreachableException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyUriUnreachableException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInUseException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceInUseException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceInvalidConfigurationException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceInvalidConfigurationException => {
+  return {
+    message: __expectString(output.message),
+  } as any;
+};
+
+const deserializeAws_json1_1XksProxyVpcEndpointServiceNotFoundException = (
+  output: any,
+  context: __SerdeContext
+): XksProxyVpcEndpointServiceNotFoundException => {
+  return {
+    message: __expectString(output.message),
   } as any;
 };
 

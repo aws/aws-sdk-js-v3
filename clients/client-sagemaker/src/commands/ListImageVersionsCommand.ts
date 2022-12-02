@@ -18,7 +18,7 @@ import {
   ListImageVersionsRequestFilterSensitiveLog,
   ListImageVersionsResponse,
   ListImageVersionsResponseFilterSensitiveLog,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   deserializeAws_json1_1ListImageVersionsCommand,
   serializeAws_json1_1ListImageVersionsCommand,

@@ -19,7 +19,7 @@ import {
   DisableEbsEncryptionByDefaultRequestFilterSensitiveLog,
   DisableEbsEncryptionByDefaultResult,
   DisableEbsEncryptionByDefaultResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableEbsEncryptionByDefaultCommand,
   serializeAws_ec2DisableEbsEncryptionByDefaultCommand,

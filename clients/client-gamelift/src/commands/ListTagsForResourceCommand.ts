@@ -29,11 +29,9 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>
- *             Retrieves all tags that are assigned to a GameLift resource.
- *             Resource tags are used to organize Amazon Web Services resources for a range of purposes.
- *             This operation handles the permissions necessary to manage tags for the following
- *             GameLift resource types:</p>
+ * <p>Retrieves all tags that are assigned to a GameLift resource. Resource tags are used to
+ *             organize Amazon Web Services resources for a range of purposes. This operation handles the permissions
+ *             necessary to manage tags for the following GameLift resource types:</p>
  *         <ul>
  *             <li>
  *                 <p>Build</p>
@@ -62,21 +60,18 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a> in the
- *             <i>Amazon Web Services General Reference</i>
+ *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *                 Resources</a> in the <i>Amazon Web Services General Reference</i>
  *          </p>
  *         <p>
  *             <a href="http://aws.amazon.com/answers/account-management/aws-tagging-strategies/">
- *             Amazon Web Services Tagging Strategies</a>
+ *                 Amazon Web Services Tagging Strategies</a>
  *          </p>
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>TagResource</a> |
- *                     <a>UntagResource</a> |
- *                     <a>ListTagsForResource</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -29,11 +29,11 @@ export interface DescribeExecutionCommandInput extends DescribeExecutionInput {}
 export interface DescribeExecutionCommandOutput extends DescribeExecutionOutput, __MetadataBearer {}
 
 /**
- * <p>Describes an execution.</p>
+ * <p>Provides all information about a state machine execution, such as the state machine associated with the execution, the execution input and output, and relevant execution metadata. Use this API action to return the Map Run ARN if the execution was dispatched by a Map Run.</p>
  *          <note>
  *             <p>This operation is eventually consistent. The results are best effort and may not reflect very recent updates and changes.</p>
  *          </note>
- *          <p>This API action is not supported by <code>EXPRESS</code> state machines.</p>
+ *          <p>This API action is not supported by <code>EXPRESS</code> state machine executions unless they were dispatched by a Map Run.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -49,26 +49,15 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-client.html">
- *             Add FlexMatch to a game client</a>
+ *                 Add FlexMatch to a game client</a>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html">
- *             Set Up FlexMatch event notification</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/match-notification.html"> Set Up FlexMatch event
+ *                 notification</a>
  *          </p>
  *         <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *             How GameLift FlexMatch works</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>StartMatchmaking</a> |
- *                     <a>DescribeMatchmaking</a> |
- *                     <a>StopMatchmaking</a> |
- *                     <a>AcceptMatch</a> |
- *                     <a>StartMatchBackfill</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *                 How GameLift FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

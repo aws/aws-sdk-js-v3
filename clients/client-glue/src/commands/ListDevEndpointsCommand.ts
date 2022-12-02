@@ -19,7 +19,7 @@ import {
   ListDevEndpointsRequestFilterSensitiveLog,
   ListDevEndpointsResponse,
   ListDevEndpointsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListDevEndpointsCommand,
   serializeAws_json1_1ListDevEndpointsCommand,
@@ -32,6 +32,7 @@ export interface ListDevEndpointsCommandOutput extends ListDevEndpointsResponse,
  * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
  *       resources with the specified tag. This operation allows you to see which resources are
  *       available in your account, and their names.</p>
+ *
  *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
  *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
  *       filtering, only resources with the tag are retrieved.</p>

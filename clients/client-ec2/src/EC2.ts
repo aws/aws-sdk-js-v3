@@ -152,6 +152,11 @@ import {
   AttachNetworkInterfaceCommandOutput,
 } from "./commands/AttachNetworkInterfaceCommand";
 import {
+  AttachVerifiedAccessTrustProviderCommand,
+  AttachVerifiedAccessTrustProviderCommandInput,
+  AttachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/AttachVerifiedAccessTrustProviderCommand";
+import {
   AttachVolumeCommand,
   AttachVolumeCommandInput,
   AttachVolumeCommandOutput,
@@ -563,6 +568,26 @@ import {
   CreateTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/CreateTransitGatewayVpcAttachmentCommand";
 import {
+  CreateVerifiedAccessEndpointCommand,
+  CreateVerifiedAccessEndpointCommandInput,
+  CreateVerifiedAccessEndpointCommandOutput,
+} from "./commands/CreateVerifiedAccessEndpointCommand";
+import {
+  CreateVerifiedAccessGroupCommand,
+  CreateVerifiedAccessGroupCommandInput,
+  CreateVerifiedAccessGroupCommandOutput,
+} from "./commands/CreateVerifiedAccessGroupCommand";
+import {
+  CreateVerifiedAccessInstanceCommand,
+  CreateVerifiedAccessInstanceCommandInput,
+  CreateVerifiedAccessInstanceCommandOutput,
+} from "./commands/CreateVerifiedAccessInstanceCommand";
+import {
+  CreateVerifiedAccessTrustProviderCommand,
+  CreateVerifiedAccessTrustProviderCommandInput,
+  CreateVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/CreateVerifiedAccessTrustProviderCommand";
+import {
   CreateVolumeCommand,
   CreateVolumeCommandInput,
   CreateVolumeCommandOutput,
@@ -886,6 +911,26 @@ import {
   DeleteTransitGatewayVpcAttachmentCommandInput,
   DeleteTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/DeleteTransitGatewayVpcAttachmentCommand";
+import {
+  DeleteVerifiedAccessEndpointCommand,
+  DeleteVerifiedAccessEndpointCommandInput,
+  DeleteVerifiedAccessEndpointCommandOutput,
+} from "./commands/DeleteVerifiedAccessEndpointCommand";
+import {
+  DeleteVerifiedAccessGroupCommand,
+  DeleteVerifiedAccessGroupCommandInput,
+  DeleteVerifiedAccessGroupCommandOutput,
+} from "./commands/DeleteVerifiedAccessGroupCommand";
+import {
+  DeleteVerifiedAccessInstanceCommand,
+  DeleteVerifiedAccessInstanceCommandInput,
+  DeleteVerifiedAccessInstanceCommandOutput,
+} from "./commands/DeleteVerifiedAccessInstanceCommand";
+import {
+  DeleteVerifiedAccessTrustProviderCommand,
+  DeleteVerifiedAccessTrustProviderCommandInput,
+  DeleteVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DeleteVerifiedAccessTrustProviderCommand";
 import {
   DeleteVolumeCommand,
   DeleteVolumeCommandInput,
@@ -1563,6 +1608,31 @@ import {
   DescribeTrunkInterfaceAssociationsCommandOutput,
 } from "./commands/DescribeTrunkInterfaceAssociationsCommand";
 import {
+  DescribeVerifiedAccessEndpointsCommand,
+  DescribeVerifiedAccessEndpointsCommandInput,
+  DescribeVerifiedAccessEndpointsCommandOutput,
+} from "./commands/DescribeVerifiedAccessEndpointsCommand";
+import {
+  DescribeVerifiedAccessGroupsCommand,
+  DescribeVerifiedAccessGroupsCommandInput,
+  DescribeVerifiedAccessGroupsCommandOutput,
+} from "./commands/DescribeVerifiedAccessGroupsCommand";
+import {
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommand,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+  DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstanceLoggingConfigurationsCommand";
+import {
+  DescribeVerifiedAccessInstancesCommand,
+  DescribeVerifiedAccessInstancesCommandInput,
+  DescribeVerifiedAccessInstancesCommandOutput,
+} from "./commands/DescribeVerifiedAccessInstancesCommand";
+import {
+  DescribeVerifiedAccessTrustProvidersCommand,
+  DescribeVerifiedAccessTrustProvidersCommandInput,
+  DescribeVerifiedAccessTrustProvidersCommandOutput,
+} from "./commands/DescribeVerifiedAccessTrustProvidersCommand";
+import {
   DescribeVolumeAttributeCommand,
   DescribeVolumeAttributeCommandInput,
   DescribeVolumeAttributeCommandOutput,
@@ -1662,6 +1732,11 @@ import {
   DetachNetworkInterfaceCommandInput,
   DetachNetworkInterfaceCommandOutput,
 } from "./commands/DetachNetworkInterfaceCommand";
+import {
+  DetachVerifiedAccessTrustProviderCommand,
+  DetachVerifiedAccessTrustProviderCommandInput,
+  DetachVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/DetachVerifiedAccessTrustProviderCommand";
 import {
   DetachVolumeCommand,
   DetachVolumeCommandInput,
@@ -2059,6 +2134,16 @@ import {
   GetTransitGatewayRouteTablePropagationsCommandOutput,
 } from "./commands/GetTransitGatewayRouteTablePropagationsCommand";
 import {
+  GetVerifiedAccessEndpointPolicyCommand,
+  GetVerifiedAccessEndpointPolicyCommandInput,
+  GetVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessEndpointPolicyCommand";
+import {
+  GetVerifiedAccessGroupPolicyCommand,
+  GetVerifiedAccessGroupPolicyCommandInput,
+  GetVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/GetVerifiedAccessGroupPolicyCommand";
+import {
   GetVpnConnectionDeviceSampleConfigurationCommand,
   GetVpnConnectionDeviceSampleConfigurationCommandInput,
   GetVpnConnectionDeviceSampleConfigurationCommandOutput,
@@ -2302,6 +2387,41 @@ import {
   ModifyTransitGatewayVpcAttachmentCommandInput,
   ModifyTransitGatewayVpcAttachmentCommandOutput,
 } from "./commands/ModifyTransitGatewayVpcAttachmentCommand";
+import {
+  ModifyVerifiedAccessEndpointCommand,
+  ModifyVerifiedAccessEndpointCommandInput,
+  ModifyVerifiedAccessEndpointCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointCommand";
+import {
+  ModifyVerifiedAccessEndpointPolicyCommand,
+  ModifyVerifiedAccessEndpointPolicyCommandInput,
+  ModifyVerifiedAccessEndpointPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessEndpointPolicyCommand";
+import {
+  ModifyVerifiedAccessGroupCommand,
+  ModifyVerifiedAccessGroupCommandInput,
+  ModifyVerifiedAccessGroupCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupCommand";
+import {
+  ModifyVerifiedAccessGroupPolicyCommand,
+  ModifyVerifiedAccessGroupPolicyCommandInput,
+  ModifyVerifiedAccessGroupPolicyCommandOutput,
+} from "./commands/ModifyVerifiedAccessGroupPolicyCommand";
+import {
+  ModifyVerifiedAccessInstanceCommand,
+  ModifyVerifiedAccessInstanceCommandInput,
+  ModifyVerifiedAccessInstanceCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceCommand";
+import {
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommand,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+  ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput,
+} from "./commands/ModifyVerifiedAccessInstanceLoggingConfigurationCommand";
+import {
+  ModifyVerifiedAccessTrustProviderCommand,
+  ModifyVerifiedAccessTrustProviderCommandInput,
+  ModifyVerifiedAccessTrustProviderCommandOutput,
+} from "./commands/ModifyVerifiedAccessTrustProviderCommand";
 import {
   ModifyVolumeAttributeCommand,
   ModifyVolumeAttributeCommandInput,
@@ -3834,6 +3954,35 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: AttachNetworkInterfaceCommandOutput) => void
   ): Promise<AttachNetworkInterfaceCommandOutput> | void {
     const command = new AttachNetworkInterfaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AttachVerifiedAccessTrustProviderCommandOutput>;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public attachVerifiedAccessTrustProvider(
+    args: AttachVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: AttachVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<AttachVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new AttachVerifiedAccessTrustProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -7182,6 +7331,122 @@ export class EC2 extends EC2Client {
     }
   }
 
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessEndpointCommandOutput>;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public createVerifiedAccessEndpoint(
+    args: CreateVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<CreateVerifiedAccessEndpointCommandOutput> | void {
+    const command = new CreateVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessGroupCommandOutput>;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public createVerifiedAccessGroup(
+    args: CreateVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessGroupCommandOutput) => void
+  ): Promise<CreateVerifiedAccessGroupCommandOutput> | void {
+    const command = new CreateVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessInstanceCommandOutput>;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public createVerifiedAccessInstance(
+    args: CreateVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<CreateVerifiedAccessInstanceCommandOutput> | void {
+    const command = new CreateVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVerifiedAccessTrustProviderCommandOutput>;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public createVerifiedAccessTrustProvider(
+    args: CreateVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: CreateVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<CreateVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new CreateVerifiedAccessTrustProviderCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Creates an EBS volume that can be attached to an instance in the same Availability Zone.</p>
    *          <p>You can create a new empty volume or restore a volume from an EBS snapshot.
@@ -9504,6 +9769,122 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DeleteTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<DeleteTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new DeleteTransitGatewayVpcAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessEndpointCommandOutput>;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessEndpoint(
+    args: DeleteVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessEndpointCommandOutput> | void {
+    const command = new DeleteVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessGroupCommandOutput>;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessGroup(
+    args: DeleteVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessGroupCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessGroupCommandOutput> | void {
+    const command = new DeleteVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessInstanceCommandOutput>;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessInstance(
+    args: DeleteVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessInstanceCommandOutput> | void {
+    const command = new DeleteVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput>;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public deleteVerifiedAccessTrustProvider(
+    args: DeleteVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: DeleteVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<DeleteVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new DeleteVerifiedAccessTrustProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -14351,6 +14732,153 @@ export class EC2 extends EC2Client {
     }
   }
 
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessEndpointsCommandOutput>;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessEndpoints(
+    args: DescribeVerifiedAccessEndpointsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessEndpointsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessEndpointsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessEndpointsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessGroupsCommandOutput>;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessGroups(
+    args: DescribeVerifiedAccessGroupsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessGroupsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessGroupsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessGroupsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput>;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstanceLoggingConfigurations(
+    args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput> | void {
+    const command = new DescribeVerifiedAccessInstanceLoggingConfigurationsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessInstancesCommandOutput>;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessInstances(
+    args: DescribeVerifiedAccessInstancesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessInstancesCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessInstancesCommandOutput> | void {
+    const command = new DescribeVerifiedAccessInstancesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput>;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    cb: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): void;
+  public describeVerifiedAccessTrustProviders(
+    args: DescribeVerifiedAccessTrustProvidersCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void),
+    cb?: (err: any, data?: DescribeVerifiedAccessTrustProvidersCommandOutput) => void
+  ): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput> | void {
+    const command = new DescribeVerifiedAccessTrustProvidersCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Describes the specified attribute of the specified volume. You can specify only one
    *       attribute at a time.</p>
@@ -15061,6 +15589,35 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: DetachNetworkInterfaceCommandOutput) => void
   ): Promise<DetachNetworkInterfaceCommandOutput> | void {
     const command = new DetachNetworkInterfaceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DetachVerifiedAccessTrustProviderCommandOutput>;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public detachVerifiedAccessTrustProvider(
+    args: DetachVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: DetachVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<DetachVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new DetachVerifiedAccessTrustProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -17902,6 +18459,64 @@ export class EC2 extends EC2Client {
     }
   }
 
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput>;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    cb: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessEndpointPolicy(
+    args: GetVerifiedAccessEndpointPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): Promise<GetVerifiedAccessEndpointPolicyCommandOutput> | void {
+    const command = new GetVerifiedAccessEndpointPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetVerifiedAccessGroupPolicyCommandOutput>;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    cb: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public getVerifiedAccessGroupPolicy(
+    args: GetVerifiedAccessGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: GetVerifiedAccessGroupPolicyCommandOutput) => void
+  ): Promise<GetVerifiedAccessGroupPolicyCommandOutput> | void {
+    const command = new GetVerifiedAccessGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
   /**
    * <p>Download an Amazon Web Services-provided sample configuration file to be used with the customer
    *             gateway device specified for your Site-to-Site VPN connection.</p>
@@ -19829,6 +20444,211 @@ export class EC2 extends EC2Client {
     cb?: (err: any, data?: ModifyTransitGatewayVpcAttachmentCommandOutput) => void
   ): Promise<ModifyTransitGatewayVpcAttachmentCommandOutput> | void {
     const command = new ModifyTransitGatewayVpcAttachmentCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessEndpointCommandOutput>;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpoint(
+    args: ModifyVerifiedAccessEndpointCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessEndpointCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessEndpointCommandOutput> | void {
+    const command = new ModifyVerifiedAccessEndpointCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput>;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessEndpointPolicy(
+    args: ModifyVerifiedAccessEndpointPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessEndpointPolicyCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessEndpointPolicyCommandOutput> | void {
+    const command = new ModifyVerifiedAccessEndpointPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessGroupCommandOutput>;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroup(
+    args: ModifyVerifiedAccessGroupCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessGroupCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessGroupCommandOutput> | void {
+    const command = new ModifyVerifiedAccessGroupCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput>;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessGroupPolicy(
+    args: ModifyVerifiedAccessGroupPolicyCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessGroupPolicyCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessGroupPolicyCommandOutput> | void {
+    const command = new ModifyVerifiedAccessGroupPolicyCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessInstanceCommandOutput>;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstance(
+    args: ModifyVerifiedAccessInstanceCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessInstanceCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessInstanceCommandOutput> | void {
+    const command = new ModifyVerifiedAccessInstanceCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput>;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessInstanceLoggingConfiguration(
+    args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
+    optionsOrCb?:
+      | __HttpHandlerOptions
+      | ((err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessInstanceLoggingConfigurationCommandOutput> | void {
+    const command = new ModifyVerifiedAccessInstanceLoggingConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput>;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    cb: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): void;
+  public modifyVerifiedAccessTrustProvider(
+    args: ModifyVerifiedAccessTrustProviderCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void),
+    cb?: (err: any, data?: ModifyVerifiedAccessTrustProviderCommandOutput) => void
+  ): Promise<ModifyVerifiedAccessTrustProviderCommandOutput> | void {
+    const command = new ModifyVerifiedAccessTrustProviderCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

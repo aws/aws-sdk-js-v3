@@ -19,7 +19,7 @@ import {
   DescribeVpcPeeringConnectionsRequestFilterSensitiveLog,
   DescribeVpcPeeringConnectionsResult,
   DescribeVpcPeeringConnectionsResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DescribeVpcPeeringConnectionsCommand,
   serializeAws_ec2DescribeVpcPeeringConnectionsCommand,

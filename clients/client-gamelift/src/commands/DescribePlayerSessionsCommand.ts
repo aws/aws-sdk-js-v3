@@ -45,23 +45,15 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  *                     only.</p>
  *             </li>
  *          </ul>
- *          <p>To request player sessions, specify either a player session ID, game session ID, or player
- *             ID. You can filter this request by player session status. Use the pagination parameters
- *             to retrieve results as a set of sequential pages. </p>
+ *         <p>To request player sessions, specify either a player session ID, game session ID, or
+ *             player ID. You can filter this request by player session status. Use the pagination
+ *             parameters to retrieve results as a set of sequential pages. </p>
  *         <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
- *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
- *          </p>
  *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreatePlayerSession</a> |
- *                     <a>CreatePlayerSessions</a> |
- *                     <a>DescribePlayerSessions</a> |
- *                     <a>StartGameSessionPlacement</a> |
- *                     <a>DescribeGameSessionPlacement</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

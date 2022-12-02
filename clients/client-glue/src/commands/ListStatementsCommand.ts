@@ -19,7 +19,7 @@ import {
   ListStatementsRequestFilterSensitiveLog,
   ListStatementsResponse,
   ListStatementsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_json1_1ListStatementsCommand,
   serializeAws_json1_1ListStatementsCommand,

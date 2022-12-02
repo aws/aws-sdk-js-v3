@@ -887,6 +887,22 @@
             }
           }
         },
+        "api.ecr-public": {
+          "endpoints": {
+            "us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "hostname": "api.ecr-public.us-east-1.amazonaws.com"
+            },
+            "us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "hostname": "api.ecr-public.us-west-2.amazonaws.com"
+            }
+          }
+        },
         "api.elastic-inference": {
           "endpoints": {
             "ap-northeast-1": {
@@ -2978,6 +2994,15 @@
               "hostname": "codebuild-fips.us-west-2.amazonaws.com"
             }
           }
+        },
+        "codecatalyst": {
+          "endpoints": {
+            "aws-global": {
+              "hostname": "codecatalyst.global.api.aws"
+            }
+          },
+          "isRegionalized": false,
+          "partitionEndpoint": "aws-global"
         },
         "codecommit": {
           "endpoints": {
@@ -7711,18 +7736,6 @@
             "ap-southeast-1": {},
             "ap-southeast-2": {},
             "ca-central-1": {},
-            "dataplane-ap-south-1": {
-              "credentialScope": {
-                "region": "ap-south-1"
-              },
-              "hostname": "greengrass-ats.iot.ap-south-1.amazonaws.com"
-            },
-            "dataplane-us-east-2": {
-              "credentialScope": {
-                "region": "us-east-2"
-              },
-              "hostname": "greengrass-ats.iot.us-east-2.amazonaws.com"
-            },
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
@@ -11574,6 +11587,33 @@
             }
           }
         },
+        "pipes": {
+          "endpoints": {
+            "af-south-1": {},
+            "ap-east-1": {},
+            "ap-northeast-1": {},
+            "ap-northeast-2": {},
+            "ap-northeast-3": {},
+            "ap-south-1": {},
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "ap-southeast-3": {},
+            "ca-central-1": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-south-1": {},
+            "eu-west-1": {},
+            "eu-west-2": {},
+            "eu-west-3": {},
+            "me-central-1": {},
+            "me-south-1": {},
+            "sa-east-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-1": {},
+            "us-west-2": {}
+          }
+        },
         "polly": {
           "endpoints": {
             "af-south-1": {},
@@ -13849,6 +13889,11 @@
             }
           }
         },
+        "sagemaker-geospatial": {
+          "endpoints": {
+            "us-west-2": {}
+          }
+        },
         "savingsplans": {
           "endpoints": {
             "aws-global": {
@@ -14093,6 +14138,17 @@
                 }
               ]
             }
+          }
+        },
+        "securitylake": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "ap-southeast-2": {},
+            "eu-central-1": {},
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
           }
         },
         "serverlessrepo": {
@@ -14564,6 +14620,18 @@
           },
           "isRegionalized": false,
           "partitionEndpoint": "aws-global"
+        },
+        "simspaceweaver": {
+          "endpoints": {
+            "ap-southeast-1": {},
+            "ap-southeast-2": {},
+            "eu-central-1": {},
+            "eu-north-1": {},
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
+            "us-west-2": {}
+          }
         },
         "sms": {
           "endpoints": {
@@ -18010,13 +18078,7 @@
             "protocols": ["https"]
           },
           "endpoints": {
-            "cn-north-1": {},
-            "dataplane-cn-north-1": {
-              "credentialScope": {
-                "region": "cn-north-1"
-              },
-              "hostname": "greengrass.ats.iot.cn-north-1.amazonaws.com.cn"
-            }
+            "cn-north-1": {}
           },
           "isRegionalized": true
         },

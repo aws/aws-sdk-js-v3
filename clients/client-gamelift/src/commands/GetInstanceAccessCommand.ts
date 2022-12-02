@@ -40,9 +40,7 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *             as part of the <code>GetInstanceAccess</code> request, as shown in one of the examples
  *             for this operation. </p>
  *         <p>To request access to a specific instance, specify the IDs of both the instance and the
- *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a>DescribeInstances</a>. If successful, an <a>InstanceAccess</a>
- *             object is returned that contains the instance's IP address and a set of
- *             credentials.</p>
+ *             fleet it belongs to. You can retrieve a fleet's instance IDs by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a>. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
@@ -54,14 +52,10 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-creating-debug.html">Debug Fleet
  *                 Issues</a>
  *          </p>
- *
- *         <p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>DescribeInstances</a> |
- *                     <a>GetInstanceAccess</a> |
- *                     <a>DescribeEC2InstanceLimits</a> |
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

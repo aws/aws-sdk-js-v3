@@ -162,6 +162,11 @@ export enum ResourceType {
   transit_gateway_policy_table = "transit-gateway-policy-table",
   transit_gateway_route_table = "transit-gateway-route-table",
   transit_gateway_route_table_announcement = "transit-gateway-route-table-announcement",
+  verified_access_endpoint = "verified-access-endpoint",
+  verified_access_group = "verified-access-group",
+  verified_access_instance = "verified-access-instance",
+  verified_access_policy = "verified-access-policy",
+  verified_access_trust_provider = "verified-access-trust-provider",
   volume = "volume",
   vpc = "vpc",
   vpc_endpoint = "vpc-endpoint",
@@ -3757,6 +3762,78 @@ export interface AttachNetworkInterfaceResult {
   NetworkCardIndex?: number;
 }
 
+export interface AttachVerifiedAccessTrustProviderRequest {
+  VerifiedAccessInstanceId: string | undefined;
+  VerifiedAccessTrustProviderId: string | undefined;
+  ClientToken?: string;
+  DryRun?: boolean;
+}
+
+export enum DeviceTrustProviderType {
+  crowdstrike = "crowdstrike",
+  jamf = "jamf",
+}
+
+export enum TrustProviderType {
+  device = "device",
+  user = "user",
+}
+
+export enum UserTrustProviderType {
+  iam_identity_center = "iam-identity-center",
+  oidc = "oidc",
+}
+
+export interface VerifiedAccessTrustProviderCondensed {
+  VerifiedAccessTrustProviderId?: string;
+  Description?: string;
+  TrustProviderType?: TrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+}
+
+export interface VerifiedAccessInstance {
+  VerifiedAccessInstanceId?: string;
+  Description?: string;
+  VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[];
+  CreationTime?: string;
+  LastUpdatedTime?: string;
+  Tags?: Tag[];
+}
+
+export interface DeviceOptions {
+  TenantId?: string;
+}
+
+export interface OidcOptions {
+  Issuer?: string;
+  AuthorizationEndpoint?: string;
+  TokenEndpoint?: string;
+  UserInfoEndpoint?: string;
+  ClientId?: string;
+  ClientSecret?: string;
+  Scope?: string;
+}
+
+export interface VerifiedAccessTrustProvider {
+  VerifiedAccessTrustProviderId?: string;
+  Description?: string;
+  TrustProviderType?: TrustProviderType | string;
+  UserTrustProviderType?: UserTrustProviderType | string;
+  DeviceTrustProviderType?: DeviceTrustProviderType | string;
+  OidcOptions?: OidcOptions;
+  DeviceOptions?: DeviceOptions;
+  PolicyReferenceName?: string;
+  CreationTime?: string;
+  LastUpdatedTime?: string;
+  Tags?: Tag[];
+}
+
+export interface AttachVerifiedAccessTrustProviderResult {
+  VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+  VerifiedAccessInstance?: VerifiedAccessInstance;
+}
+
 export interface AttachVolumeRequest {
   /**
    * <p>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
@@ -5927,6 +6004,7 @@ export enum _InstanceType {
   h1_8xlarge = "h1.8xlarge",
   hi1_4xlarge = "hi1.4xlarge",
   hpc6a_48xlarge = "hpc6a.48xlarge",
+  hpc6id_32xlarge = "hpc6id.32xlarge",
   hs1_8xlarge = "hs1.8xlarge",
   i2_2xlarge = "i2.2xlarge",
   i2_4xlarge = "i2.4xlarge",
@@ -7104,217 +7182,6 @@ export interface CoipCidr {
   LocalGatewayRouteTableId?: string;
 }
 
-export interface CreateCoipCidrResult {
-  /**
-   * <p>
-   *          Information about a range of customer-owned IP addresses.
-   *       </p>
-   */
-  CoipCidr?: CoipCidr;
-}
-
-export interface CreateCoipPoolRequest {
-  /**
-   * <p>
-   *       The ID of the local gateway route table.
-   *       </p>
-   */
-  LocalGatewayRouteTableId: string | undefined;
-
-  /**
-   * <p>
-   *       The tags to assign to the CoIP address pool.
-   *       </p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a customer-owned address pool.</p>
- */
-export interface CoipPool {
-  /**
-   * <p>The ID of the address pool.</p>
-   */
-  PoolId?: string;
-
-  /**
-   * <p>The address ranges of the address pool.</p>
-   */
-  PoolCidrs?: string[];
-
-  /**
-   * <p>The ID of the local gateway route table.</p>
-   */
-  LocalGatewayRouteTableId?: string;
-
-  /**
-   * <p>The tags.</p>
-   */
-  Tags?: Tag[];
-
-  /**
-   * <p>The ARN of the address pool.</p>
-   */
-  PoolArn?: string;
-}
-
-export interface CreateCoipPoolResult {
-  /**
-   * <p>Information about the CoIP address pool.</p>
-   */
-  CoipPool?: CoipPool;
-}
-
-export enum GatewayType {
-  ipsec_1 = "ipsec.1",
-}
-
-/**
- * <p>Contains the parameters for CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayRequest {
-  /**
-   * <p>For devices that support BGP, the customer gateway's BGP ASN.</p>
-   *         <p>Default: 65000</p>
-   */
-  BgpAsn: number | undefined;
-
-  /**
-   * <p>
-   *             <i>This member has been deprecated.</i> The Internet-routable IP address for the customer gateway's outside interface. The
-   *             address must be static.</p>
-   */
-  PublicIp?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The type of VPN connection that this customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type: GatewayType | string | undefined;
-
-  /**
-   * <p>The tags to apply to the customer gateway.</p>
-   */
-  TagSpecifications?: TagSpecification[];
-
-  /**
-   * <p>A name for the customer gateway device.</p>
-   *         <p>Length Constraints: Up to 255 characters.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>
-   *             IPv4 address for the customer gateway device's outside interface. The address must be static.
-   *         </p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually
-   *             making the request, and provides an error response. If you have the required
-   *             permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is
-   *                 <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes a customer gateway.</p>
- */
-export interface CustomerGateway {
-  /**
-   * <p>The customer gateway's Border Gateway Protocol (BGP) Autonomous System Number
-   *             (ASN).</p>
-   */
-  BgpAsn?: string;
-
-  /**
-   * <p>The ID of the customer gateway.</p>
-   */
-  CustomerGatewayId?: string;
-
-  /**
-   * <p>The IP address of the customer gateway device's outside interface.</p>
-   */
-  IpAddress?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) for the customer gateway certificate.</p>
-   */
-  CertificateArn?: string;
-
-  /**
-   * <p>The current state of the customer gateway (<code>pending | available | deleting |
-   *                 deleted</code>).</p>
-   */
-  State?: string;
-
-  /**
-   * <p>The type of VPN connection the customer gateway supports
-   *             (<code>ipsec.1</code>).</p>
-   */
-  Type?: string;
-
-  /**
-   * <p>The name of customer gateway device.</p>
-   */
-  DeviceName?: string;
-
-  /**
-   * <p>Any tags assigned to the customer gateway.</p>
-   */
-  Tags?: Tag[];
-}
-
-/**
- * <p>Contains the output of CreateCustomerGateway.</p>
- */
-export interface CreateCustomerGatewayResult {
-  /**
-   * <p>Information about the customer gateway.</p>
-   */
-  CustomerGateway?: CustomerGateway;
-}
-
-export interface CreateDefaultSubnetRequest {
-  /**
-   * <p>The Availability Zone in which to create the default subnet.</p>
-   */
-  AvailabilityZone: string | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Indicates whether to create an IPv6 only subnet. If you already have a default subnet
-   *             for this Availability Zone, you must delete it before you can create an IPv6 only subnet.</p>
-   */
-  Ipv6Native?: boolean;
-}
-
-export enum HostnameType {
-  ip_name = "ip-name",
-  resource_name = "resource-name",
-}
-
 /**
  * @internal
  */
@@ -8347,6 +8214,61 @@ export const AttachNetworkInterfaceResultFilterSensitiveLog = (obj: AttachNetwor
 /**
  * @internal
  */
+export const AttachVerifiedAccessTrustProviderRequestFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderCondensedFilterSensitiveLog = (
+  obj: VerifiedAccessTrustProviderCondensed
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessInstanceFilterSensitiveLog = (obj: VerifiedAccessInstance): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeviceOptionsFilterSensitiveLog = (obj: DeviceOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const OidcOptionsFilterSensitiveLog = (obj: OidcOptions): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VerifiedAccessTrustProviderFilterSensitiveLog = (obj: VerifiedAccessTrustProvider): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AttachVerifiedAccessTrustProviderResultFilterSensitiveLog = (
+  obj: AttachVerifiedAccessTrustProviderResult
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AttachVolumeRequestFilterSensitiveLog = (obj: AttachVolumeRequest): any => ({
   ...obj,
 });
@@ -8978,61 +8900,5 @@ export const CreateCoipCidrRequestFilterSensitiveLog = (obj: CreateCoipCidrReque
  * @internal
  */
 export const CoipCidrFilterSensitiveLog = (obj: CoipCidr): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipCidrResultFilterSensitiveLog = (obj: CreateCoipCidrResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolRequestFilterSensitiveLog = (obj: CreateCoipPoolRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CoipPoolFilterSensitiveLog = (obj: CoipPool): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCoipPoolResultFilterSensitiveLog = (obj: CreateCoipPoolResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayRequestFilterSensitiveLog = (obj: CreateCustomerGatewayRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CustomerGatewayFilterSensitiveLog = (obj: CustomerGateway): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateCustomerGatewayResultFilterSensitiveLog = (obj: CreateCustomerGatewayResult): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const CreateDefaultSubnetRequestFilterSensitiveLog = (obj: CreateDefaultSubnetRequest): any => ({
   ...obj,
 });

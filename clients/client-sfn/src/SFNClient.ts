@@ -53,6 +53,7 @@ import { DeleteActivityCommandInput, DeleteActivityCommandOutput } from "./comma
 import { DeleteStateMachineCommandInput, DeleteStateMachineCommandOutput } from "./commands/DeleteStateMachineCommand";
 import { DescribeActivityCommandInput, DescribeActivityCommandOutput } from "./commands/DescribeActivityCommand";
 import { DescribeExecutionCommandInput, DescribeExecutionCommandOutput } from "./commands/DescribeExecutionCommand";
+import { DescribeMapRunCommandInput, DescribeMapRunCommandOutput } from "./commands/DescribeMapRunCommand";
 import {
   DescribeStateMachineCommandInput,
   DescribeStateMachineCommandOutput,
@@ -68,6 +69,7 @@ import {
 } from "./commands/GetExecutionHistoryCommand";
 import { ListActivitiesCommandInput, ListActivitiesCommandOutput } from "./commands/ListActivitiesCommand";
 import { ListExecutionsCommandInput, ListExecutionsCommandOutput } from "./commands/ListExecutionsCommand";
+import { ListMapRunsCommandInput, ListMapRunsCommandOutput } from "./commands/ListMapRunsCommand";
 import { ListStateMachinesCommandInput, ListStateMachinesCommandOutput } from "./commands/ListStateMachinesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -81,6 +83,7 @@ import { StartSyncExecutionCommandInput, StartSyncExecutionCommandOutput } from 
 import { StopExecutionCommandInput, StopExecutionCommandOutput } from "./commands/StopExecutionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateMapRunCommandInput, UpdateMapRunCommandOutput } from "./commands/UpdateMapRunCommand";
 import { UpdateStateMachineCommandInput, UpdateStateMachineCommandOutput } from "./commands/UpdateStateMachineCommand";
 import {
   ClientInputEndpointParameters,
@@ -97,12 +100,14 @@ export type ServiceInputTypes =
   | DeleteStateMachineCommandInput
   | DescribeActivityCommandInput
   | DescribeExecutionCommandInput
+  | DescribeMapRunCommandInput
   | DescribeStateMachineCommandInput
   | DescribeStateMachineForExecutionCommandInput
   | GetActivityTaskCommandInput
   | GetExecutionHistoryCommandInput
   | ListActivitiesCommandInput
   | ListExecutionsCommandInput
+  | ListMapRunsCommandInput
   | ListStateMachinesCommandInput
   | ListTagsForResourceCommandInput
   | SendTaskFailureCommandInput
@@ -113,6 +118,7 @@ export type ServiceInputTypes =
   | StopExecutionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateMapRunCommandInput
   | UpdateStateMachineCommandInput;
 
 export type ServiceOutputTypes =
@@ -122,12 +128,14 @@ export type ServiceOutputTypes =
   | DeleteStateMachineCommandOutput
   | DescribeActivityCommandOutput
   | DescribeExecutionCommandOutput
+  | DescribeMapRunCommandOutput
   | DescribeStateMachineCommandOutput
   | DescribeStateMachineForExecutionCommandOutput
   | GetActivityTaskCommandOutput
   | GetExecutionHistoryCommandOutput
   | ListActivitiesCommandOutput
   | ListExecutionsCommandOutput
+  | ListMapRunsCommandOutput
   | ListStateMachinesCommandOutput
   | ListTagsForResourceCommandOutput
   | SendTaskFailureCommandOutput
@@ -138,6 +146,7 @@ export type ServiceOutputTypes =
   | StopExecutionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateMapRunCommandOutput
   | UpdateStateMachineCommandOutput;
 
 export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {

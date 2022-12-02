@@ -19,7 +19,7 @@ import {
   DescribeIpamPoolsRequestFilterSensitiveLog,
   DescribeIpamPoolsResult,
   DescribeIpamPoolsResultFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   deserializeAws_ec2DescribeIpamPoolsCommand,
   serializeAws_ec2DescribeIpamPoolsCommand,

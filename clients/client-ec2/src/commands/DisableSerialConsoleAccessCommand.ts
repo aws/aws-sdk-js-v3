@@ -19,7 +19,7 @@ import {
   DisableSerialConsoleAccessRequestFilterSensitiveLog,
   DisableSerialConsoleAccessResult,
   DisableSerialConsoleAccessResultFilterSensitiveLog,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   deserializeAws_ec2DisableSerialConsoleAccessCommand,
   serializeAws_ec2DisableSerialConsoleAccessCommand,

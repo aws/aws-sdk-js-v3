@@ -293,7 +293,7 @@ export interface CreateActivityOutput {
 }
 
 /**
- * <p>The provided name is invalid.</p>
+ * <p>The provided name is not valid.</p>
  */
 export class InvalidName extends __BaseException {
   readonly name: "InvalidName" = "InvalidName";
@@ -486,7 +486,7 @@ export interface CreateStateMachineOutput {
 }
 
 /**
- * <p>The provided Amazon Resource Name (ARN) is invalid.</p>
+ * <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  */
 export class InvalidArn extends __BaseException {
   readonly name: "InvalidArn" = "InvalidArn";
@@ -505,7 +505,7 @@ export class InvalidArn extends __BaseException {
 }
 
 /**
- * <p>The provided Amazon States Language definition is invalid.</p>
+ * <p>The provided Amazon States Language definition is not valid.</p>
  */
 export class InvalidDefinition extends __BaseException {
   readonly name: "InvalidDefinition" = "InvalidDefinition";
@@ -657,6 +657,37 @@ export interface DeleteStateMachineInput {
 }
 
 export interface DeleteStateMachineOutput {}
+
+export enum ValidationExceptionReason {
+  API_DOES_NOT_SUPPORT_LABELED_ARNS = "API_DOES_NOT_SUPPORT_LABELED_ARNS",
+  CANNOT_UPDATE_COMPLETED_MAP_RUN = "CANNOT_UPDATE_COMPLETED_MAP_RUN",
+  MISSING_REQUIRED_PARAMETER = "MISSING_REQUIRED_PARAMETER",
+}
+
+/**
+ * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+ */
+export class ValidationException extends __BaseException {
+  readonly name: "ValidationException" = "ValidationException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
+   */
+  reason?: ValidationExceptionReason | string;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ValidationException, __BaseException>) {
+    super({
+      name: "ValidationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ValidationException.prototype);
+    this.reason = opts.reason;
+  }
+}
 
 export interface DescribeActivityInput {
   /**
@@ -811,6 +842,21 @@ export interface DescribeExecutionOutput {
    * <p>The X-Ray trace header that was passed to the execution.</p>
    */
   traceHeader?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run, which dispatched this execution.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>The error string if the state machine execution failed.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>The cause string if the state machine execution failed.</p>
+   */
+  cause?: string;
 }
 
 /**
@@ -829,6 +875,184 @@ export class ExecutionDoesNotExist extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExecutionDoesNotExist.prototype);
+  }
+}
+
+export interface DescribeMapRunInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+}
+
+/**
+ * <p>Contains details about all of the child workflow executions started by a Map Run.</p>
+ */
+export interface MapRunExecutionCounts {
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run, but haven't started executing yet. </p>
+   */
+  pending: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and are currently in-progress.</p>
+   */
+  running: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and have completed successfully.</p>
+   */
+  succeeded: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run, but have failed.</p>
+   */
+  failed: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and have timed out.</p>
+   */
+  timedOut: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run and were running, but were either stopped by the user or by Step Functions because the Map Run failed. </p>
+   */
+  aborted: number | undefined;
+
+  /**
+   * <p>The total number of child workflow executions that were started by a Map Run.</p>
+   */
+  total: number | undefined;
+
+  /**
+   * <p>Returns the count of child workflow executions whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
+   */
+  resultsWritten: number | undefined;
+}
+
+/**
+ * <p>Contains details about items that were processed in all of the child workflow executions that were started by a Map Run.</p>
+ */
+export interface MapRunItemCounts {
+  /**
+   * <p>The total number of items to process in child workflow executions that haven't started running yet.</p>
+   */
+  pending: number | undefined;
+
+  /**
+   * <p>The total number of items being processed in child workflow executions that are currently in-progress.</p>
+   */
+  running: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have completed successfully.</p>
+   */
+  succeeded: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have failed.</p>
+   */
+  failed: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that have timed out.</p>
+   */
+  timedOut: number | undefined;
+
+  /**
+   * <p>The total number of items processed in child workflow executions that were either stopped by the user or by Step Functions, because the Map Run failed.</p>
+   */
+  aborted: number | undefined;
+
+  /**
+   * <p>The total number of items processed in all the child workflow executions started by a Map Run.</p>
+   */
+  total: number | undefined;
+
+  /**
+   * <p>Returns the count of items whose results were written by <code>ResultWriter</code>. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultwriter.html">ResultWriter</a> in the <i>Step Functions Developer Guide</i>.</p>
+   */
+  resultsWritten: number | undefined;
+}
+
+export enum MapRunStatus {
+  ABORTED = "ABORTED",
+  FAILED = "FAILED",
+  RUNNING = "RUNNING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+export interface DescribeMapRunOutput {
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) that identifies the execution in which the Map Run was started.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The current status of the Map Run.</p>
+   */
+  status: MapRunStatus | string | undefined;
+
+  /**
+   * <p>The date when the Map Run was started.</p>
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The date when the Map Run was stopped.</p>
+   */
+  stopDate?: Date;
+
+  /**
+   * <p>The maximum number of child workflow executions configured to run in parallel for the Map Run at the same time.</p>
+   */
+  maxConcurrency: number | undefined;
+
+  /**
+   * <p>The maximum percentage of failed child workflow executions before the Map Run fails.</p>
+   */
+  toleratedFailurePercentage: number | undefined;
+
+  /**
+   * <p>The maximum number of failed child workflow executions before the Map Run fails.</p>
+   */
+  toleratedFailureCount: number | undefined;
+
+  /**
+   * <p>A JSON object that contains information about the total number of items, and the item count for each processing status, such as <code>pending</code> and <code>failed</code>.</p>
+   */
+  itemCounts: MapRunItemCounts | undefined;
+
+  /**
+   * <p>A JSON object that contains information about the total number of child workflow executions for the Map Run, and the count of child workflow executions for each status, such as <code>failed</code> and <code>succeeded</code>.</p>
+   */
+  executionCounts: MapRunExecutionCounts | undefined;
+}
+
+/**
+ * <p>Could not find the referenced resource. Only state machine and activity ARNs are
+ *       supported.</p>
+ */
+export class ResourceNotFound extends __BaseException {
+  readonly name: "ResourceNotFound" = "ResourceNotFound";
+  readonly $fault: "client" = "client";
+  resourceName?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
+    super({
+      name: "ResourceNotFound",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFound.prototype);
+    this.resourceName = opts.resourceName;
   }
 }
 
@@ -914,6 +1138,11 @@ export interface DescribeStateMachineOutput {
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>
+   */
+  label?: string;
 }
 
 /**
@@ -979,6 +1208,16 @@ export interface DescribeStateMachineForExecutionOutput {
    * <p>Selects whether X-Ray tracing is enabled.</p>
    */
   tracingConfiguration?: TracingConfiguration;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow execution. This field is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
+   */
+  label?: string;
 }
 
 export interface GetActivityTaskInput {
@@ -1251,6 +1490,31 @@ export interface MapIterationEventDetails {
    * <p>The index of the array belonging to the Map state iteration.</p>
    */
   index?: number;
+}
+
+/**
+ * <p>Contains details about a Map Run failure event that occurred during a state machine execution.</p>
+ */
+export interface MapRunFailedEventDetails {
+  /**
+   * <p>The error code of the Map Run failure.</p>
+   */
+  error?: string;
+
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   */
+  cause?: string;
+}
+
+/**
+ * <p>Contains details about a Map Run that was started during a state machine execution.</p>
+ */
+export interface MapRunStartedEventDetails {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>
+   */
+  mapRunArn?: string;
 }
 
 /**
@@ -1558,6 +1822,10 @@ export enum HistoryEventType {
   MapIterationFailed = "MapIterationFailed",
   MapIterationStarted = "MapIterationStarted",
   MapIterationSucceeded = "MapIterationSucceeded",
+  MapRunAborted = "MapRunAborted",
+  MapRunFailed = "MapRunFailed",
+  MapRunStarted = "MapRunStarted",
+  MapRunSucceeded = "MapRunSucceeded",
   MapStateAborted = "MapStateAborted",
   MapStateEntered = "MapStateEntered",
   MapStateExited = "MapStateExited",
@@ -1776,6 +2044,16 @@ export interface HistoryEvent {
    * <p>Contains details about an exit from a state during an execution.</p>
    */
   stateExitedEventDetails?: StateExitedEventDetails;
+
+  /**
+   * <p>Contains details, such as <code>mapRunArn</code>, and the start date and time of a Map Run. <code>mapRunArn</code> is the Amazon Resource Name (ARN) of the Map Run that was started.</p>
+   */
+  mapRunStartedEventDetails?: MapRunStartedEventDetails;
+
+  /**
+   * <p>Contains error and cause details about a Map Run that failed.</p>
+   */
+  mapRunFailedEventDetails?: MapRunFailedEventDetails;
 }
 
 export interface GetExecutionHistoryOutput {
@@ -1792,7 +2070,7 @@ export interface GetExecutionHistoryOutput {
 }
 
 /**
- * <p>The provided token is invalid.</p>
+ * <p>The provided token is not valid.</p>
  */
 export class InvalidToken extends __BaseException {
   readonly name: "InvalidToken" = "InvalidToken";
@@ -1841,8 +2119,9 @@ export interface ListActivitiesOutput {
 export interface ListExecutionsInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine whose executions is listed.</p>
+   *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    */
-  stateMachineArn: string | undefined;
+  stateMachineArn?: string;
 
   /**
    * <p>If specified, only list the executions whose current execution status matches the given
@@ -1862,6 +2141,12 @@ export interface ListExecutionsInput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    */
   nextToken?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
+   *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
+   */
+  mapRunArn?: string;
 }
 
 /**
@@ -1919,6 +2204,16 @@ export interface ExecutionListItem {
    * <p>If the execution already ended, the date the execution stopped.</p>
    */
   stopDate?: Date;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>mapRunArn</code> isn't returned.</p>
+   */
+  mapRunArn?: string;
+
+  /**
+   * <p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>
+   */
+  itemCount?: number;
 }
 
 export interface ListExecutionsOutput {
@@ -1926,6 +2221,69 @@ export interface ListExecutionsOutput {
    * <p>The list of matching executions.</p>
    */
   executions: ExecutionListItem[] | undefined;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListMapRunsInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the execution for which the Map Runs must be listed.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
+   *     The default is 100 and the maximum allowed page size is 1000. A value of 0 uses the default.</p>
+   *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
+   *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>Contains details about a specific Map Run.</p>
+ */
+export interface MapRunListItem {
+  /**
+   * <p>The <code>executionArn</code> of the execution from which the Map Run was started.</p>
+   */
+  executionArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the executed state machine.</p>
+   */
+  stateMachineArn: string | undefined;
+
+  /**
+   * <p>The date on which the Map Run started.</p>
+   */
+  startDate: Date | undefined;
+
+  /**
+   * <p>The date on which the Map Run stopped.</p>
+   */
+  stopDate?: Date;
+}
+
+export interface ListMapRunsOutput {
+  /**
+   * <p>An array that lists information related to a Map Run, such as the Amazon Resource Name (ARN) of the Map Run and the ARN of the state machine that started the Map Run.</p>
+   */
+  mapRuns: MapRunListItem[] | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
@@ -2019,28 +2377,6 @@ export interface ListTagsForResourceOutput {
   tags?: Tag[];
 }
 
-/**
- * <p>Could not find the referenced resource. Only state machine and activity ARNs are
- *       supported.</p>
- */
-export class ResourceNotFound extends __BaseException {
-  readonly name: "ResourceNotFound" = "ResourceNotFound";
-  readonly $fault: "client" = "client";
-  resourceName?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFound, __BaseException>) {
-    super({
-      name: "ResourceNotFound",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFound.prototype);
-    this.resourceName = opts.resourceName;
-  }
-}
-
 export interface SendTaskFailureInput {
   /**
    * <p>The token that represents this task. Task tokens are generated by Step Functions when
@@ -2106,7 +2442,7 @@ export interface SendTaskHeartbeatInput {
 export interface SendTaskHeartbeatOutput {}
 
 /**
- * <p>The provided JSON output data is invalid.</p>
+ * <p>The provided JSON output data is not valid.</p>
  */
 export class InvalidOutput extends __BaseException {
   readonly name: "InvalidOutput" = "InvalidOutput";
@@ -2185,7 +2521,7 @@ export class ExecutionLimitExceeded extends __BaseException {
 }
 
 /**
- * <p>The provided JSON input data is invalid.</p>
+ * <p>The provided JSON input data is not valid.</p>
  */
 export class InvalidExecutionInput extends __BaseException {
   readonly name: "InvalidExecutionInput" = "InvalidExecutionInput";
@@ -2454,6 +2790,30 @@ export interface UntagResourceInput {
 
 export interface UntagResourceOutput {}
 
+export interface UpdateMapRunInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of a Map Run.</p>
+   */
+  mapRunArn: string | undefined;
+
+  /**
+   * <p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>
+   */
+  maxConcurrency?: number;
+
+  /**
+   * <p>The maximum percentage of failed items before the Map Run fails.</p>
+   */
+  toleratedFailurePercentage?: number;
+
+  /**
+   * <p>The maximum number of failed items before the Map Run fails.</p>
+   */
+  toleratedFailureCount?: number;
+}
+
+export interface UpdateMapRunOutput {}
+
 /**
  * <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
  *       and <code>roleArn</code> are not specified.</p>
@@ -2702,6 +3062,36 @@ export const DescribeExecutionOutputFilterSensitiveLog = (obj: DescribeExecution
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
   ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapRunInputFilterSensitiveLog = (obj: DescribeMapRunInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunExecutionCountsFilterSensitiveLog = (obj: MapRunExecutionCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunItemCountsFilterSensitiveLog = (obj: MapRunItemCounts): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMapRunOutputFilterSensitiveLog = (obj: DescribeMapRunOutput): any => ({
+  ...obj,
 });
 
 /**
@@ -2874,6 +3264,22 @@ export const LambdaFunctionTimedOutEventDetailsFilterSensitiveLog = (obj: Lambda
  * @internal
  */
 export const MapIterationEventDetailsFilterSensitiveLog = (obj: MapIterationEventDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunFailedEventDetailsFilterSensitiveLog = (obj: MapRunFailedEventDetails): any => ({
+  ...obj,
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const MapRunStartedEventDetailsFilterSensitiveLog = (obj: MapRunStartedEventDetails): any => ({
   ...obj,
 });
 
@@ -3063,6 +3469,9 @@ export const HistoryEventFilterSensitiveLog = (obj: HistoryEvent): any => ({
   ...(obj.stateExitedEventDetails && {
     stateExitedEventDetails: StateExitedEventDetailsFilterSensitiveLog(obj.stateExitedEventDetails),
   }),
+  ...(obj.mapRunFailedEventDetails && {
+    mapRunFailedEventDetails: MapRunFailedEventDetailsFilterSensitiveLog(obj.mapRunFailedEventDetails),
+  }),
 });
 
 /**
@@ -3105,6 +3514,27 @@ export const ExecutionListItemFilterSensitiveLog = (obj: ExecutionListItem): any
  * @internal
  */
 export const ListExecutionsOutputFilterSensitiveLog = (obj: ListExecutionsOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapRunsInputFilterSensitiveLog = (obj: ListMapRunsInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MapRunListItemFilterSensitiveLog = (obj: MapRunListItem): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListMapRunsOutputFilterSensitiveLog = (obj: ListMapRunsOutput): any => ({
   ...obj,
 });
 
@@ -3270,6 +3700,20 @@ export const UntagResourceInputFilterSensitiveLog = (obj: UntagResourceInput): a
  * @internal
  */
 export const UntagResourceOutputFilterSensitiveLog = (obj: UntagResourceOutput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRunInputFilterSensitiveLog = (obj: UpdateMapRunInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMapRunOutputFilterSensitiveLog = (obj: UpdateMapRunOutput): any => ({
   ...obj,
 });
 

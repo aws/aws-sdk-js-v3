@@ -24,26 +24,18 @@ export interface DeleteBuildCommandInput extends DeleteBuildInput {}
 export interface DeleteBuildCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a build. This operation permanently deletes the build resource and any uploaded
- *             build files. Deleting a build does not affect the status of any active fleets using the
- *             build, but you can no longer create new fleets with the deleted build.</p>
+ * <p>Deletes a build. This operation permanently deletes the build resource and any
+ *             uploaded build files. Deleting a build does not affect the status of any active fleets
+ *             using the build, but you can no longer create new fleets with the deleted build.</p>
  *         <p>To delete a build, specify the build ID. </p>
  *         <p>
  *             <b>Learn more</b>
  *          </p>
  *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">
- *                 Upload a Custom Server Build</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html"> Upload a Custom
+ *                 Server Build</a>
  *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateBuild</a> |
- *                     <a>ListBuilds</a> |
- *                     <a>DescribeBuild</a> |
- *                     <a>UpdateBuild</a> |
- *                     <a>DeleteBuild</a> |
+ *          <p>
  *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example

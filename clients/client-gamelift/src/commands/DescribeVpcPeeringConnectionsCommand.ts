@@ -33,22 +33,16 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
 /**
  * <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
- *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that
- *             is used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty
- *             to retrieve all connection records. If successful, the retrieved information includes
- *             both active and pending connections. Active connections identify the IpV4 CIDR block
- *             that the VPC uses to connect. </p>
- *         <p>
+ *         <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
+ *             used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty to
+ *             retrieve all connection records. If successful, the retrieved information includes both
+ *             active and pending connections. Active connections identify the IpV4 CIDR block that the
+ *             VPC uses to connect. </p>
+ *          <p>
  *             <b>Related actions</b>
  *          </p>
  *                     <p>
- *             <a>CreateVpcPeeringAuthorization</a> |
- *                     <a>DescribeVpcPeeringAuthorizations</a> |
- *                     <a>DeleteVpcPeeringAuthorization</a> |
- *                     <a>CreateVpcPeeringConnection</a> |
- *                     <a>DescribeVpcPeeringConnections</a> |
- *                     <a>DeleteVpcPeeringConnection</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

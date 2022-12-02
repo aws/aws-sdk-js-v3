@@ -39,24 +39,9 @@ export interface DeleteFleetLocationsCommandOutput extends DeleteFleetLocationsO
  *         <p>
  *             <b>Learn more</b>
  *          </p>
- *         <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift fleets</a>
- *          </p>
- *         <p>
- *             <b>Related actions</b>
- *          </p>
- *                     <p>
- *             <a>CreateFleetLocations</a> |
- *                     <a>DescribeFleetLocationAttributes</a> |
- *                     <a>DescribeFleetLocationCapacity</a> |
- *                     <a>DescribeFleetLocationUtilization</a> |
- *                     <a>DescribeFleetAttributes</a> |
- *                     <a>DescribeFleetCapacity</a> |
- *                     <a>DescribeFleetUtilization</a> |
- *                     <a>UpdateFleetCapacity</a> |
- *                     <a>StopFleetActions</a> |
- *                     <a>DeleteFleetLocations</a> |
- *                     <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/reference-awssdk.html#reference-awssdk-resources-fleets">All APIs by task</a>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up GameLift
+ *                 fleets</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

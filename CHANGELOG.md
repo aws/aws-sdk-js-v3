@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
+
+
+### Features
+
+* **client-codecatalyst:** This release adds operations that support customers using the AWS Toolkits and Amazon CodeCatalyst, a unified software development service that helps developers develop, deploy, and maintain applications in the cloud. For more information, see the documentation. ([cb94b0c](https://github.com/aws/aws-sdk-js-v3/commit/cb94b0cbfb748aa85ddfe2ec60bc193adf1e6975))
+* **client-comprehend:** Comprehend now supports semi-structured documents (such as PDF files or image files) as inputs for custom analysis using the synchronous APIs (ClassifyDocument and DetectEntities). ([5c0d056](https://github.com/aws/aws-sdk-js-v3/commit/5c0d05693f838037f608237af3a3f1a56a512976))
+* **client-gamelift:** GameLift introduces a new feature, GameLift Anywhere. GameLift Anywhere allows you to integrate your own compute resources with GameLift. You can also use GameLift Anywhere to iteratively test your game servers without uploading the build to GameLift for every iteration. ([b38a48f](https://github.com/aws/aws-sdk-js-v3/commit/b38a48f97a4531372b4fcbc598cf9d14f83c1a5c))
+* **client-pipes:** AWS introduces new Amazon EventBridge Pipes which allow you to connect sources (SQS, Kinesis, DDB, Kafka, MQ) to Targets (14+ EventBridge Targets) without any code, with filtering, batching, input transformation, and an optional Enrichment stage (Lambda, StepFunctions, ApiGateway, ApiDestinations) ([c2e00d5](https://github.com/aws/aws-sdk-js-v3/commit/c2e00d5fa8a641d65a11c5ad5b5c5d9cf903380d))
+* **client-sfn:** This release adds support for the AWS Step Functions Map state in Distributed mode. The changes include a new MapRun resource and several new and modified APIs. ([31a78be](https://github.com/aws/aws-sdk-js-v3/commit/31a78bea855a264d5d77ffc58a7c4b1725ef12e9))
+* **clients:** update client endpoints as of 2022-12-01 ([75af76d](https://github.com/aws/aws-sdk-js-v3/commit/75af76d3d87051bc1021368e343bd9ced7dcce6a))
+* **types:** add checksum interface ([#4216](https://github.com/aws/aws-sdk-js-v3/issues/4216)) ([89598b6](https://github.com/aws/aws-sdk-js-v3/commit/89598b6c44d4733d8b0329946516fcde3a2c3997))
+* **utl-retry:** add util-retry package and its types ([#4224](https://github.com/aws/aws-sdk-js-v3/issues/4224)) ([a2579b7](https://github.com/aws/aws-sdk-js-v3/commit/a2579b770d929ad038cafed565028608a20dd911))
+
+
+
+
+
+# [3.221.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.220.0...v3.221.0) (2022-11-30)
+
+
+### Features
+
+* **client-accessanalyzer:** This release adds support for S3 cross account access points. IAM Access Analyzer will now produce public or cross account findings when it detects bucket delegation to external account access points. ([fe4de8f](https://github.com/aws/aws-sdk-js-v3/commit/fe4de8f5876632c77023ea9e3f46f6ff6dad633b))
+* **client-athena:** This release includes support for using Apache Spark in Amazon Athena. ([db81e83](https://github.com/aws/aws-sdk-js-v3/commit/db81e835e02810a6e0f53d3967792df7a21525ab))
+* **client-dataexchange:** This release enables data providers to license direct access to data in their Amazon S3 buckets or AWS Lake Formation data lakes through AWS Data Exchange. Subscribers get read-only access to the data and can use it in downstream AWS services, like Amazon Athena, without creating or managing copies. ([b4c67af](https://github.com/aws/aws-sdk-js-v3/commit/b4c67afc003eb0526d8a3e7e33b7d3ddecc956bb))
+* **client-docdb-elastic:** Launched Amazon DocumentDB Elastic Clusters. You can now use the SDK to create, list, update and delete Amazon DocumentDB Elastic Cluster resources ([20f5609](https://github.com/aws/aws-sdk-js-v3/commit/20f5609c3cc51a076ac2d79e799cc53289b2e907))
+* **client-glue:** This release adds support for AWS Glue Data Quality, which helps you evaluate and monitor the quality of your data and includes the API for creating, deleting, or updating data quality rulesets, runs and evaluations. ([73a2fe8](https://github.com/aws/aws-sdk-js-v3/commit/73a2fe8e286f3d437cc617f3d69da08ab38e4bba))
+* **client-s3-control:** Amazon S3 now supports cross-account access points. S3 bucket owners can now allow trusted AWS accounts to create access points associated with their bucket. ([cf4344e](https://github.com/aws/aws-sdk-js-v3/commit/cf4344e226956822337e2b9df7e1a316f5a729e5))
+* **client-sagemaker-geospatial:** This release provides Amazon SageMaker geospatial APIs to build, train, deploy and visualize geospatial models. ([2351172](https://github.com/aws/aws-sdk-js-v3/commit/23511727a0d7b1de1799a51f98735c7f4870c0db))
+* **client-sagemaker:** Added Models as part of the Search API. Added Model shadow deployments in realtime inference, and shadow testing in managed inference. Added support for shared spaces, geospatial APIs, Model Cards, AutoMLJobStep in pipelines, Git repositories on user profiles and domains, Model sharing in Jumpstart. ([b28c278](https://github.com/aws/aws-sdk-js-v3/commit/b28c2787aec8f97cf81dd67f5dba7935bfc2e88b))
+* **clients:** update client endpoints as of 2022-11-30 ([b252e94](https://github.com/aws/aws-sdk-js-v3/commit/b252e947929fd6457815e850e26fb7516171bbc2))
+
+
+
+
+
+# [3.220.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.219.0...v3.220.0) (2022-11-29)
+
+
+### Features
+
+* **client-ec2:** This release adds support for AWS Verified Access and the Hpc6id Amazon EC2 compute optimized instance type, which features 3rd generation Intel Xeon Scalable processors. ([e0d2198](https://github.com/aws/aws-sdk-js-v3/commit/e0d219808aa30864e04ed31da29d1d2563d2e757))
+* **client-firehose:** Allow support for the Serverless offering for Amazon OpenSearch Service as a Kinesis Data Firehose delivery destination. ([eb21147](https://github.com/aws/aws-sdk-js-v3/commit/eb211476739406378f466f7c0185048463bb4b49))
+* **client-kms:** AWS KMS introduces the External Key Store (XKS), a new feature for customers who want to protect their data with encryption keys stored in an external key management system under their control. ([cb66e2e](https://github.com/aws/aws-sdk-js-v3/commit/cb66e2e96ad67f05f3d945a78ab0af8dade1f9b9))
+* **client-omics:** Amazon Omics is a new, purpose-built service that can be used by healthcare and life science organizations to store, query, and analyze omics data. The insights from that data can be used to accelerate scientific discoveries and improve healthcare. ([838da6f](https://github.com/aws/aws-sdk-js-v3/commit/838da6f94d6e038ae49db68c924d02ceb463e6eb))
+* **client-opensearchserverless:** Publish SDK for Amazon OpenSearch Serverless ([6b0dfae](https://github.com/aws/aws-sdk-js-v3/commit/6b0dfae3674d0a0337dc07e590917d5ef07f80f9))
+* **client-securitylake:** Amazon Security Lake automatically centralizes security data from cloud, on-premises, and custom sources into a purpose-built data lake stored in your account. Security Lake makes it easier to analyze security data, so you can improve the protection of your workloads, applications, and data ([8b0dd1d](https://github.com/aws/aws-sdk-js-v3/commit/8b0dd1db10056d0eceec3ca53d2111e672b17463))
+* **client-simspaceweaver:** AWS SimSpace Weaver is a new service that helps customers build spatial simulations at new levels of scale - resulting in virtual worlds with millions of dynamic entities. See the AWS SimSpace Weaver developer guide for more details on how to get started. https://docs.aws.amazon.com/simspaceweaver ([219849b](https://github.com/aws/aws-sdk-js-v3/commit/219849be2d9db216f478881d3012b58680cbb661))
+* **clients:** update client endpoints as of 2022-11-29 ([f64d4e8](https://github.com/aws/aws-sdk-js-v3/commit/f64d4e81cff5478541fc04b1b368f14ecc71e136))
+* **codegen:** add TokenAuthPlugin ([#4238](https://github.com/aws/aws-sdk-js-v3/issues/4238)) ([20c9947](https://github.com/aws/aws-sdk-js-v3/commit/20c9947b0d0d3af7212983088c673587528d4558))
+
+
+
+
+
 # [3.219.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.218.0...v3.219.0) (2022-11-29)
 
 

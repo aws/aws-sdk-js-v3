@@ -19,7 +19,7 @@ import {
   CreateSpotDatafeedSubscriptionRequestFilterSensitiveLog,
   CreateSpotDatafeedSubscriptionResult,
   CreateSpotDatafeedSubscriptionResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
   serializeAws_ec2CreateSpotDatafeedSubscriptionCommand,
