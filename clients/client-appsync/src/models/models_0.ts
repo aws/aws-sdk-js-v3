@@ -509,7 +509,7 @@ export enum RuntimeName {
 }
 
 /**
- * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+ * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
  *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
  */
 export interface AppSyncRuntime {
@@ -1450,7 +1450,7 @@ export interface CreateFunctionRequest {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
@@ -1521,7 +1521,7 @@ export interface FunctionConfiguration {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
@@ -1868,7 +1868,7 @@ export interface CreateResolverRequest {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
@@ -1953,7 +1953,7 @@ export interface Resolver {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
@@ -3099,7 +3099,7 @@ export interface UpdateFunctionRequest {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
@@ -3246,7 +3246,7 @@ export interface UpdateResolverRequest {
   maxBatchSize?: number;
 
   /**
-   * <p>Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and
+   * <p>Describes a runtime used by an Amazon Web Services AppSync pipeline resolver or Amazon Web Services AppSync function. Specifies the name and
    *          version of the runtime to use. Note that if a runtime is specified, code must also be specified.</p>
    */
   runtime?: AppSyncRuntime;
