@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.223.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.222.0...v3.223.0) (2022-12-02)
+
+
+### Bug Fixes
+
+* **clients:** remove unconditional inclusion of util-retry ([#4246](https://github.com/aws/aws-sdk-js-v3/issues/4246)) ([3baeb44](https://github.com/aws/aws-sdk-js-v3/commit/3baeb445fb399fa3b6d81e89e88c22b0c0a691cc))
+
+
+### Features
+
+* **client-appsync:** Fixes the URI for the evaluatecode endpoint to include the /v1 prefix (ie. "/v1/dataplane-evaluatecode"). ([8fd2c31](https://github.com/aws/aws-sdk-js-v3/commit/8fd2c31ddb3f50d4974b86937303ea0d802d4f08))
+* **client-fms:** AWS Firewall Manager now supports Fortigate Cloud Native Firewall as a Service as a third-party policy type. ([4f42dff](https://github.com/aws/aws-sdk-js-v3/commit/4f42dff3a9c56370eb124da86aff0e0d1b2a1d35))
+* **client-mediaconvert:** The AWS Elemental MediaConvert SDK has added support for configurable ID3 eMSG box attributes and the ability to signal them with InbandEventStream tags in DASH and CMAF outputs. ([009743a](https://github.com/aws/aws-sdk-js-v3/commit/009743ae81f27a010002a92f4dd4b4894b6aac7b))
+* **client-medialive:** Updates to Event Signaling and Management (ESAM) API and documentation. ([a684000](https://github.com/aws/aws-sdk-js-v3/commit/a68400099e3ca5f9944d63675fd97023ffa9e827))
+* **client-polly:** Add language code for Finnish (fi-FI) ([a89edbc](https://github.com/aws/aws-sdk-js-v3/commit/a89edbc1880e4bdf7dba7cf3a6927ff45bb86a95))
+* **client-proton:** CreateEnvironmentAccountConnection RoleArn input is now optional ([3bdfef6](https://github.com/aws/aws-sdk-js-v3/commit/3bdfef67e4c3f44ea95d06a255a87b72d9bcc24e))
+* **client-redshift-serverless:** Add Table Level Restore operations for Amazon Redshift Serverless. Add multi-port support for Amazon Redshift Serverless endpoints. Add Tagging support to Snapshots and Recovery Points in Amazon Redshift Serverless. ([dc361a5](https://github.com/aws/aws-sdk-js-v3/commit/dc361a5f7f88468de8ffdccbec8bddb1257cf187))
+
+
+
+
+
 # [3.222.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.221.0...v3.222.0) (2022-12-01)
 
 
