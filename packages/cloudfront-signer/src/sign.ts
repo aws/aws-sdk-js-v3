@@ -12,7 +12,7 @@ export interface CloudfrontSignInputBase {
   /** The content of the Cloudfront private key. */
   privateKey: string | Buffer;
   /** The passphrase of RSA-SHA1 key*/
-  passphrase: string;
+  passphrase?: string;
   /** The date string for when the signed URL or cookie can no longer be accessed. */
   dateLessThan?: string;
   /** The IP address string to restrict signed URL access to. */
@@ -213,7 +213,7 @@ class CloudfrontURLParser {
 class CloudfrontSignBuilder {
   private keyPairId: string;
   private privateKey: string | Buffer;
-  private passphrase: string;
+  private passphrase?: string;
   private policy: string;
   private customPolicy = false;
   private dateLessThan?: number | undefined;
@@ -225,7 +225,7 @@ class CloudfrontSignBuilder {
   }: {
     keyPairId: string;
     privateKey: string | Buffer;
-    passphrase: string;
+    passphrase?: string;
   }) {
     this.keyPairId = keyPairId;
     this.privateKey = privateKey;
@@ -343,19 +343,13 @@ class CloudfrontSignBuilder {
     };
   }
 
-  private signData(data: string, privateKey: string | Buffer, passphrase: string): string {
+  private signData(data: string, privateKey: string | Buffer, passphrase?: string): string {
     const sign = createSign("RSA-SHA1");
     sign.update(data);
-    return sign.sign(
-      {
-        key: privateKey,
-        passphrase: passphrase,
-      },
-      "base64"
-    );
+    return sign.sign({ key: privateKey, passphrase }, "base64");
   }
 
-  private signPolicy(policy: string, privateKey: string | Buffer, passphrase: string): string {
+  private signPolicy(policy: string, privateKey: string | Buffer, passphrase?: string): string {
     return this.normalizeBase64(this.signData(policy, privateKey, passphrase));
   }
 
