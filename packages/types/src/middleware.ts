@@ -407,6 +407,14 @@ export interface HandlerExecutionContext {
    */
   authSchemes?: AuthScheme[];
 
+  /**
+   * Used by DynamoDbDocumentClient.
+   */
+  dynamoDbDocumentClientOptions?: Partial<{
+    overrideInputFilterSensitiveLog(...args: any[]): string | void;
+    overrideOutputFilterSensitiveLog(...args: any[]): string | void;
+  }>;
+
   [key: string]: any;
 }
 
