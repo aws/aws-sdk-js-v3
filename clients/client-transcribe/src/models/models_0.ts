@@ -1104,11 +1104,13 @@ export interface CategoryProperties {
 }
 
 export enum CLMLanguageCode {
+  DE_DE = "de-DE",
   EN_AU = "en-AU",
   EN_GB = "en-GB",
   EN_US = "en-US",
   ES_US = "es-US",
   HI_IN = "hi-IN",
+  JA_JP = "ja-JP",
 }
 
 /**
