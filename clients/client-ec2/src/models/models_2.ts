@@ -2129,46 +2129,174 @@ export enum VerifiedAccessEndpointProtocol {
   https = "https",
 }
 
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ */
 export interface CreateVerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
+
+  /**
+   * <p>The ARN of the load balancer.</p>
+   */
   LoadBalancerArn?: string;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   */
   SubnetIds?: string[];
 }
 
+/**
+ * <p>Options for a network interface-type endpoint.</p>
+ */
 export interface CreateVerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The ID of the network interface.</p>
+   */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
 }
 
 export interface CreateVerifiedAccessEndpointRequest {
+  /**
+   * <p>The ID of the Verified Access group to associate the endpoint with.</p>
+   */
   VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The type of Amazon Web Services Verified Access endpoint to create.</p>
+   */
   EndpointType: VerifiedAccessEndpointType | string | undefined;
+
+  /**
+   * <p>The Amazon Web Services network component Verified Access attaches to.</p>
+   */
   AttachmentType: VerifiedAccessEndpointAttachmentType | string | undefined;
+
+  /**
+   * <p>The ARN of the public TLS/SSL certificate in Amazon Web Services Certificate Manager to associate with the endpoint.
+   *          The CN in the certificate must match the DNS name your end users will use to reach your
+   *          application.</p>
+   */
   DomainCertificateArn: string | undefined;
+
+  /**
+   * <p>The DNS name for users to reach your application.</p>
+   */
   ApplicationDomain: string | undefined;
+
+  /**
+   * <p>A custom identifier that gets prepended to a DNS name that is generated for the endpoint.</p>
+   */
   EndpointDomainPrefix: string | undefined;
+
+  /**
+   * <p>The Amazon EC2 security groups to associate with the Amazon Web Services Verified Access endpoint.</p>
+   */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   */
   LoadBalancerOptions?: CreateVerifiedAccessEndpointLoadBalancerOptions;
+
+  /**
+   * <p>The network interface details if creating the Amazon Web Services Verified Access endpoint as
+   *             <code>network-interface</code>type.</p>
+   */
   NetworkInterfaceOptions?: CreateVerifiedAccessEndpointEniOptions;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access endpoint.</p>
+   */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ */
 export interface VerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
+
+  /**
+   * <p>The ARN of the load balancer.</p>
+   */
   LoadBalancerArn?: string;
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   */
   SubnetIds?: string[];
 }
 
+/**
+ * <p>Options for a network-interface type endpoint.</p>
+ */
 export interface VerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The ID of the network interface.</p>
+   */
   NetworkInterfaceId?: string;
+
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
 }
 
@@ -2180,100 +2308,362 @@ export enum VerifiedAccessEndpointStatusCode {
   updating = "updating",
 }
 
+/**
+ * <p>Describes the status of a Verified Access endpoint.</p>
+ */
 export interface VerifiedAccessEndpointStatus {
+  /**
+   * <p>The status code of the Verified Access endpoint.</p>
+   */
   Code?: VerifiedAccessEndpointStatusCode | string;
+
+  /**
+   * <p>The status message of the Verified Access endpoint.</p>
+   */
   Message?: string;
 }
 
+/**
+ * <p>An Amazon Web Services Verified Access endpoint specifies the application that Amazon Web Services Verified Access provides access to. It must be
+ *          attached to an Amazon Web Services Verified Access group. An Amazon Web Services Verified Access endpoint must also have an attached access policy
+ *          before you attached it to a group.</p>
+ */
 export interface VerifiedAccessEndpoint {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointId?: string;
+
+  /**
+   * <p>The DNS name for users to reach your application.</p>
+   */
   ApplicationDomain?: string;
+
+  /**
+   * <p>The type of Amazon Web Services Verified Access endpoint. Incoming application requests will be sent to an IP
+   *          address, load balancer or a network interface depending on the endpoint type
+   *          specified.</p>
+   */
   EndpointType?: VerifiedAccessEndpointType | string;
+
+  /**
+   * <p>The type of attachment used to provide connectivity between the Amazon Web Services Verified Access endpoint and the
+   *          application.</p>
+   */
   AttachmentType?: VerifiedAccessEndpointAttachmentType | string;
+
+  /**
+   * <p>The ARN of a public TLS/SSL certificate imported into or created with ACM.</p>
+   */
   DomainCertificateArn?: string;
+
+  /**
+   * <p>A DNS name that is generated for the endpoint.</p>
+   */
   EndpointDomain?: string;
+
+  /**
+   * <p>Returned if endpoint has a device trust provider attached.</p>
+   */
   DeviceValidationDomain?: string;
+
+  /**
+   * <p>The IDs of the security groups for the endpoint.</p>
+   */
   SecurityGroupIds?: string[];
+
+  /**
+   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   */
   LoadBalancerOptions?: VerifiedAccessEndpointLoadBalancerOptions;
+
+  /**
+   * <p>The options for network-interface type endpoint.</p>
+   */
   NetworkInterfaceOptions?: VerifiedAccessEndpointEniOptions;
+
+  /**
+   * <p>The endpoint status.</p>
+   */
   Status?: VerifiedAccessEndpointStatus;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
   CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
   LastUpdatedTime?: string;
+
+  /**
+   * <p>The deletion time.</p>
+   */
   DeletionTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
   Tags?: Tag[];
 }
 
 export interface CreateVerifiedAccessEndpointResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
 
 export interface CreateVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access group.</p>
+   */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
+/**
+ * <p>Describes a Verified Access group.</p>
+ */
 export interface VerifiedAccessGroup {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   */
   VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the group.</p>
+   */
   Owner?: string;
+
+  /**
+   * <p>The ARN of the Verified Access group.</p>
+   */
   VerifiedAccessGroupArn?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
   CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
   LastUpdatedTime?: string;
+
+  /**
+   * <p>The deletion time.</p>
+   */
   DeletionTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
   Tags?: Tag[];
 }
 
 export interface CreateVerifiedAccessGroupResult {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
 
 export interface CreateVerifiedAccessInstanceRequest {
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access instance.</p>
+   */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface CreateVerifiedAccessInstanceResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * <p>Options for a device-identity type trust provider.</p>
+ */
 export interface CreateVerifiedAccessTrustProviderDeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   */
   TenantId?: string;
 }
 
+/**
+ * <p>Options for an OIDC-based, user-identity type trust provider.</p>
+ */
 export interface CreateVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
   Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
   AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
   TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
   UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
   ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
   ClientSecret?: string;
+
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   */
   Scope?: string;
 }
 
 export interface CreateVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The type of trust provider can be either user or device-based.</p>
+   */
   TrustProviderType: TrustProviderType | string | undefined;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
   UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
   DeviceTrustProviderType?: DeviceTrustProviderType | string;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
   OidcOptions?: CreateVerifiedAccessTrustProviderOidcOptions;
+
+  /**
+   * <p>The options for device identity based trust providers.</p>
+   */
   DeviceOptions?: CreateVerifiedAccessTrustProviderDeviceOptions;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   */
   PolicyReferenceName: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The tags to assign to the Amazon Web Services Verified Access trust provider.</p>
+   */
   TagSpecifications?: TagSpecification[];
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface CreateVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 

@@ -818,14 +818,39 @@ export interface DetachNetworkInterfaceRequest {
 }
 
 export interface DetachVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DetachVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
@@ -2075,10 +2100,18 @@ export interface EnableIpamOrganizationAdminAccountResult {
 }
 
 export interface EnableReachabilityAnalyzerOrganizationSharingRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface EnableReachabilityAnalyzerOrganizationSharingResult {
+  /**
+   * <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+   */
   ReturnValue?: boolean;
 }
 
@@ -4884,22 +4917,54 @@ export interface GetTransitGatewayRouteTablePropagationsResult {
 }
 
 export interface GetVerifiedAccessEndpointPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface GetVerifiedAccessEndpointPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
 }
 
 export interface GetVerifiedAccessGroupPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface GetVerifiedAccessGroupPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
 }
 

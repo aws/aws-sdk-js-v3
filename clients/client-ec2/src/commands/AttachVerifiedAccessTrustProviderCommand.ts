@@ -30,6 +30,25 @@ export interface AttachVerifiedAccessTrustProviderCommandOutput
   extends AttachVerifiedAccessTrustProviderResult,
     __MetadataBearer {}
 
+/**
+ * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+ *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
+ *          instance.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, AttachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, AttachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new AttachVerifiedAccessTrustProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link AttachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
+ * @see {@link AttachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class AttachVerifiedAccessTrustProviderCommand extends $Command<
   AttachVerifiedAccessTrustProviderCommandInput,
   AttachVerifiedAccessTrustProviderCommandOutput,

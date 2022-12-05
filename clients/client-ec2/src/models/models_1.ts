@@ -7070,8 +7070,16 @@ export interface NetworkInsightsPath {
    */
   Destination?: string;
 
+  /**
+   * <p>The Amazon Resource Name (ARN) of the source.</p>
+   */
   SourceArn?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the destination.</p>
+   */
   DestinationArn?: string;
+
   /**
    * <p>The IP address of the Amazon Web Services resource that is the source of the path.</p>
    */

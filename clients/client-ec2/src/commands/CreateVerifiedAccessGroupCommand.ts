@@ -28,6 +28,26 @@ import {
 export interface CreateVerifiedAccessGroupCommandInput extends CreateVerifiedAccessGroupRequest {}
 export interface CreateVerifiedAccessGroupCommandOutput extends CreateVerifiedAccessGroupResult, __MetadataBearer {}
 
+/**
+ * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
+ *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
+ *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
+ *          use one common Amazon Web Services Verified Access policy.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateVerifiedAccessGroupCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateVerifiedAccessGroupCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateVerifiedAccessGroupCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVerifiedAccessGroupCommandInput} for command's `input` shape.
+ * @see {@link CreateVerifiedAccessGroupCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class CreateVerifiedAccessGroupCommand extends $Command<
   CreateVerifiedAccessGroupCommandInput,
   CreateVerifiedAccessGroupCommandOutput,

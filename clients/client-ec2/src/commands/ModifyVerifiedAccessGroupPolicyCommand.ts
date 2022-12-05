@@ -30,6 +30,23 @@ export interface ModifyVerifiedAccessGroupPolicyCommandOutput
   extends ModifyVerifiedAccessGroupPolicyResult,
     __MetadataBearer {}
 
+/**
+ * <p>Modifies the specified Verified Access group policy.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ModifyVerifiedAccessGroupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
+ * @see {@link ModifyVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class ModifyVerifiedAccessGroupPolicyCommand extends $Command<
   ModifyVerifiedAccessGroupPolicyCommandInput,
   ModifyVerifiedAccessGroupPolicyCommandOutput,
