@@ -9182,6 +9182,9 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);

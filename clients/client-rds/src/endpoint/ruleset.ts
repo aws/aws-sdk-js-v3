@@ -58,15 +58,6 @@ export const ruleSet: RuleSetObject = {
                 },
               ],
             },
-            {
-              fn: "parseURL",
-              argv: [
-                {
-                  ref: "Endpoint",
-                },
-              ],
-              assign: "url",
-            },
           ],
           type: "tree",
           rules: [
