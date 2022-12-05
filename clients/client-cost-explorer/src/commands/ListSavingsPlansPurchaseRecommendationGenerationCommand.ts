@@ -15,45 +15,43 @@ import {
 
 import { CostExplorerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CostExplorerClient";
 import {
-  GetSavingsPlansPurchaseRecommendationRequest,
-  GetSavingsPlansPurchaseRecommendationRequestFilterSensitiveLog,
-  GetSavingsPlansPurchaseRecommendationResponse,
-  GetSavingsPlansPurchaseRecommendationResponseFilterSensitiveLog,
+  ListSavingsPlansPurchaseRecommendationGenerationRequest,
+  ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
+  ListSavingsPlansPurchaseRecommendationGenerationResponse,
+  ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,
-  serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand,
+  deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
+  serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand,
 } from "../protocols/Aws_json1_1";
 
-export interface GetSavingsPlansPurchaseRecommendationCommandInput
-  extends GetSavingsPlansPurchaseRecommendationRequest {}
-export interface GetSavingsPlansPurchaseRecommendationCommandOutput
-  extends GetSavingsPlansPurchaseRecommendationResponse,
+export interface ListSavingsPlansPurchaseRecommendationGenerationCommandInput
+  extends ListSavingsPlansPurchaseRecommendationGenerationRequest {}
+export interface ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
+  extends ListSavingsPlansPurchaseRecommendationGenerationResponse,
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans recommendations for your account. First use
- *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
- *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
- *       them.</p>
+ * <p>Retrieves a list of your historical recommendation generations within the past 30
+ *       days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { CostExplorerClient, GetSavingsPlansPurchaseRecommendationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
- * // const { CostExplorerClient, GetSavingsPlansPurchaseRecommendationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
+ * import { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } from "@aws-sdk/client-cost-explorer"; // ES Modules import
+ * // const { CostExplorerClient, ListSavingsPlansPurchaseRecommendationGenerationCommand } = require("@aws-sdk/client-cost-explorer"); // CommonJS import
  * const client = new CostExplorerClient(config);
- * const command = new GetSavingsPlansPurchaseRecommendationCommand(input);
+ * const command = new ListSavingsPlansPurchaseRecommendationGenerationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetSavingsPlansPurchaseRecommendationCommandInput} for command's `input` shape.
- * @see {@link GetSavingsPlansPurchaseRecommendationCommandOutput} for command's `response` shape.
+ * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandInput} for command's `input` shape.
+ * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommandOutput} for command's `response` shape.
  * @see {@link CostExplorerClientResolvedConfig | config} for CostExplorerClient's `config` shape.
  *
  */
-export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
-  GetSavingsPlansPurchaseRecommendationCommandInput,
-  GetSavingsPlansPurchaseRecommendationCommandOutput,
+export class ListSavingsPlansPurchaseRecommendationGenerationCommand extends $Command<
+  ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
   CostExplorerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -68,7 +66,7 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetSavingsPlansPurchaseRecommendationCommandInput) {
+  constructor(readonly input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -81,23 +79,29 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: CostExplorerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetSavingsPlansPurchaseRecommendationCommandInput, GetSavingsPlansPurchaseRecommendationCommandOutput> {
+  ): Handler<
+    ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+    ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
+  > {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, GetSavingsPlansPurchaseRecommendationCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(
+        configuration,
+        ListSavingsPlansPurchaseRecommendationGenerationCommand.getEndpointParameterInstructions()
+      )
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "CostExplorerClient";
-    const commandName = "GetSavingsPlansPurchaseRecommendationCommand";
+    const commandName = "ListSavingsPlansPurchaseRecommendationGenerationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetSavingsPlansPurchaseRecommendationRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetSavingsPlansPurchaseRecommendationResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -108,17 +112,17 @@ export class GetSavingsPlansPurchaseRecommendationCommand extends $Command<
   }
 
   private serialize(
-    input: GetSavingsPlansPurchaseRecommendationCommandInput,
+    input: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
     context: __SerdeContext
   ): Promise<__HttpRequest> {
-    return serializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(input, context);
+    return serializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(input, context);
   }
 
   private deserialize(
     output: __HttpResponse,
     context: __SerdeContext
-  ): Promise<GetSavingsPlansPurchaseRecommendationCommandOutput> {
-    return deserializeAws_json1_1GetSavingsPlansPurchaseRecommendationCommand(output, context);
+  ): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput> {
+    return deserializeAws_json1_1ListSavingsPlansPurchaseRecommendationGenerationCommand(output, context);
   }
 
   // Start section: command_body_extra

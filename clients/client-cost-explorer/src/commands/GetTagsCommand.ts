@@ -26,7 +26,8 @@ export interface GetTagsCommandInput extends GetTagsRequest {}
 export interface GetTagsCommandOutput extends GetTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Queries for available tag keys and tag values for a specified period. You can search the tag values for an arbitrary string. </p>
+ * <p>Queries for available tag keys and tag values for a specified period. You can search
+ *       the tag values for an arbitrary string. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

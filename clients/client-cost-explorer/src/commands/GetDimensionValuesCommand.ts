@@ -29,7 +29,8 @@ export interface GetDimensionValuesCommandInput extends GetDimensionValuesReques
 export interface GetDimensionValuesCommandOutput extends GetDimensionValuesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all available filter values for a specified filter over a period of time. You can search the dimension values for an arbitrary string. </p>
+ * <p>Retrieves all available filter values for a specified filter over a period of time. You
+ *       can search the dimension values for an arbitrary string. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

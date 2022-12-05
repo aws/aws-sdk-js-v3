@@ -29,8 +29,8 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of resource tags associated with the resource specified by the Amazon Resource Name (ARN).
- *     </p>
+ * <p>Returns a list of resource tags associated with the resource specified by the Amazon
+ *       Resource Name (ARN). </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
