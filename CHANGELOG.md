@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.225.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.224.0...v3.225.0) (2022-12-06)
+
+
+### Features
+
+* **client-billingconductor:** This release adds the Tiering Pricing Rule feature. ([6ebdcd8](https://github.com/aws/aws-sdk-js-v3/commit/6ebdcd8aed01fe515d936a9f4c0c7ef4f2e1e459))
+* **client-connect:** This release provides APIs that enable you to programmatically manage rules for Contact Lens conversational analytics and third party applications. For more information, see   https://docs.aws.amazon.com/connect/latest/APIReference/rules-api.html ([7ed68cc](https://github.com/aws/aws-sdk-js-v3/commit/7ed68ccc37318145119d97b7f2b818d2de670314))
+* **client-dynamodb-streams:** Endpoint Ruleset update: Use http instead of https for the "local" region. ([7ff89f0](https://github.com/aws/aws-sdk-js-v3/commit/7ff89f0a9af6b5659717fc600cdcfae7572aab51))
+* **client-dynamodb:** Endpoint Ruleset update: Use http instead of https for the "local" region. ([29cbf1a](https://github.com/aws/aws-sdk-js-v3/commit/29cbf1a2914f97c2c0a9d9a134033888d9602e0a))
+* **client-rds:** This release adds the BlueGreenDeploymentNotFoundFault to the AddTagsToResource, ListTagsForResource, and RemoveTagsFromResource operations. ([cdbae39](https://github.com/aws/aws-sdk-js-v3/commit/cdbae395c1810061a1a68f405f56266cc15ce5d5))
+* **client-sagemaker-featurestore-runtime:** For online + offline Feature Groups, added ability to target PutRecord and DeleteRecord actions to only online store, or only offline store. If target store parameter is not specified, actions will apply to both stores. ([01b0b8c](https://github.com/aws/aws-sdk-js-v3/commit/01b0b8c859d9171953fa644344ded06f506e1979))
+* **clients:** update client endpoints as of 2022-12-06 ([d382fbc](https://github.com/aws/aws-sdk-js-v3/commit/d382fbcb4fcb8a9127193c42ef38fc660c7181c0))
+
+
+
+
+
 # [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.225.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.224.0...v3.225.0) (2022-12-06)
+
+
+### Features
+
+* **client-connect:** This release provides APIs that enable you to programmatically manage rules for Contact Lens conversational analytics and third party applications. For more information, see   https://docs.aws.amazon.com/connect/latest/APIReference/rules-api.html ([7ed68cc](https://github.com/aws/aws-sdk-js-v3/commit/7ed68ccc37318145119d97b7f2b818d2de670314))
+
+
+
+
+
 # [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

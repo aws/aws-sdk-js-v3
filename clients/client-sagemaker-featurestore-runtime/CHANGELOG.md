@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.225.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.224.0...v3.225.0) (2022-12-06)
+
+
+### Features
+
+* **client-sagemaker-featurestore-runtime:** For online + offline Feature Groups, added ability to target PutRecord and DeleteRecord actions to only online store, or only offline store. If target store parameter is not specified, actions will apply to both stores. ([01b0b8c](https://github.com/aws/aws-sdk-js-v3/commit/01b0b8c859d9171953fa644344ded06f506e1979))
+
+
+
+
+
 # [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker-featurestore-runtime

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.225.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.224.0...v3.225.0) (2022-12-06)
+
+
+### Features
+
+* **client-dynamodb:** Endpoint Ruleset update: Use http instead of https for the "local" region. ([29cbf1a](https://github.com/aws/aws-sdk-js-v3/commit/29cbf1a2914f97c2c0a9d9a134033888d9602e0a))
+
+
+
+
+
 # [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-dynamodb
