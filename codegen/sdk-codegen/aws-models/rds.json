@@ -324,6 +324,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault"
+        },
+        {
           "target": "com.amazonaws.rds#DBClusterNotFoundFault"
         },
         {
@@ -16124,6 +16127,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault"
+        },
+        {
           "target": "com.amazonaws.rds#DBClusterNotFoundFault"
         },
         {
@@ -19854,6 +19860,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault"
+        },
+        {
           "target": "com.amazonaws.rds#DBClusterNotFoundFault"
         },
         {
@@ -22578,6 +22587,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "db-proxy"
+          }
+        },
+        "blue_green_deployment": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "blue-green-deployment"
           }
         }
       }

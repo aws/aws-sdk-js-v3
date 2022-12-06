@@ -533,6 +533,26 @@ export interface AddTagsToResourceMessage {
 }
 
 /**
+ * <p>
+ *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
+ */
+export class BlueGreenDeploymentNotFoundFault extends __BaseException {
+  readonly name: "BlueGreenDeploymentNotFoundFault" = "BlueGreenDeploymentNotFoundFault";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentNotFoundFault, __BaseException>) {
+    super({
+      name: "BlueGreenDeploymentNotFoundFault",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BlueGreenDeploymentNotFoundFault.prototype);
+  }
+}
+
+/**
  * <p>The specified proxy name doesn't correspond to a proxy owned by your Amazon Web Services account in the specified Amazon Web Services Region.</p>
  */
 export class DBProxyNotFoundFault extends __BaseException {
@@ -9714,26 +9734,6 @@ export interface CreateOptionGroupResult {
    * <p></p>
    */
   OptionGroup?: OptionGroup;
-}
-
-/**
- * <p>
- *             <code>BlueGreenDeploymentIdentifier</code> doesn't refer to an existing blue/green deployment.</p>
- */
-export class BlueGreenDeploymentNotFoundFault extends __BaseException {
-  readonly name: "BlueGreenDeploymentNotFoundFault" = "BlueGreenDeploymentNotFoundFault";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BlueGreenDeploymentNotFoundFault, __BaseException>) {
-    super({
-      name: "BlueGreenDeploymentNotFoundFault",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BlueGreenDeploymentNotFoundFault.prototype);
-  }
 }
 
 export interface DeleteBlueGreenDeploymentRequest {
