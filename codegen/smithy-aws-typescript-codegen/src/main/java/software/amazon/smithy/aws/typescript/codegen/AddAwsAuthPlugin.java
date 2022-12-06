@@ -28,6 +28,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
+import java.util.logging.Logger;
+
+import jdk.internal.net.http.common.Log;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
 import software.amazon.smithy.codegen.core.Symbol;
@@ -62,6 +65,8 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
     static final String STS_ROLE_ASSUMERS_FILE = "defaultStsRoleAssumers";
 
+    private static final Logger LOGGER = Logger.getLogger(AddAwsAuthPlugin.class.getName());
+
     @Override
     public void addConfigInterfaceFields(
         TypeScriptSettings settings,
@@ -70,6 +75,14 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
         TypeScriptWriter writer
     ) {
         ServiceShape service = settings.getService(model);
+        if (!isSigV4Service(service) && isAwsService(service)) {
+            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
+            settings.setDefaultSigningName(
+                serviceTrait.getArnNamespace()
+            );
+            return;
+        }
+
         if (!isSigV4Service(service)) {
             return;
         }
@@ -84,6 +97,16 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             writer.writeDocs("Default credentials provider; Not available in browser runtime.\n"
                             + "@internal");
             writer.write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
+        }
+
+        try {
+            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
+            settings.setDefaultSigningName(
+                service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
+                    .orElse(serviceTrait.getArnNamespace())
+            );
+        } catch (Exception e) {
+            LOGGER.warning("Unable to set service default signing name. A SigV4 or Service trait is needed.");
         }
     }
 
