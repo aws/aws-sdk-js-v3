@@ -15,41 +15,39 @@ import {
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import {
-  MonitorContactRequest,
-  MonitorContactRequestFilterSensitiveLog,
-  MonitorContactResponse,
-  MonitorContactResponseFilterSensitiveLog,
-} from "../models/models_1";
+  CreateRuleRequest,
+  CreateRuleRequestFilterSensitiveLog,
+  CreateRuleResponse,
+  CreateRuleResponseFilterSensitiveLog,
+} from "../models/models_0";
 import {
-  deserializeAws_restJson1MonitorContactCommand,
-  serializeAws_restJson1MonitorContactCommand,
+  deserializeAws_restJson1CreateRuleCommand,
+  serializeAws_restJson1CreateRuleCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface MonitorContactCommandInput extends MonitorContactRequest {}
-export interface MonitorContactCommandOutput extends MonitorContactResponse, __MetadataBearer {}
+export interface CreateRuleCommandInput extends CreateRuleRequest {}
+export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
- *    specified by <i>userId</i> will be set to silent monitoring mode on the
- *    contact.</p>
+ * <p>Creates a rule for the specified Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ConnectClient, MonitorContactCommand } from "@aws-sdk/client-connect"; // ES Modules import
- * // const { ConnectClient, MonitorContactCommand } = require("@aws-sdk/client-connect"); // CommonJS import
+ * import { ConnectClient, CreateRuleCommand } from "@aws-sdk/client-connect"; // ES Modules import
+ * // const { ConnectClient, CreateRuleCommand } = require("@aws-sdk/client-connect"); // CommonJS import
  * const client = new ConnectClient(config);
- * const command = new MonitorContactCommand(input);
+ * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link MonitorContactCommandInput} for command's `input` shape.
- * @see {@link MonitorContactCommandOutput} for command's `response` shape.
+ * @see {@link CreateRuleCommandInput} for command's `input` shape.
+ * @see {@link CreateRuleCommandOutput} for command's `response` shape.
  * @see {@link ConnectClientResolvedConfig | config} for ConnectClient's `config` shape.
  *
  */
-export class MonitorContactCommand extends $Command<
-  MonitorContactCommandInput,
-  MonitorContactCommandOutput,
+export class CreateRuleCommand extends $Command<
+  CreateRuleCommandInput,
+  CreateRuleCommandOutput,
   ConnectClientResolvedConfig
 > {
   // Start section: command_properties
@@ -64,7 +62,7 @@ export class MonitorContactCommand extends $Command<
     };
   }
 
-  constructor(readonly input: MonitorContactCommandInput) {
+  constructor(readonly input: CreateRuleCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -77,23 +75,21 @@ export class MonitorContactCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: ConnectClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<MonitorContactCommandInput, MonitorContactCommandOutput> {
+  ): Handler<CreateRuleCommandInput, CreateRuleCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(
-      getEndpointPlugin(configuration, MonitorContactCommand.getEndpointParameterInstructions())
-    );
+    this.middlewareStack.use(getEndpointPlugin(configuration, CreateRuleCommand.getEndpointParameterInstructions()));
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "ConnectClient";
-    const commandName = "MonitorContactCommand";
+    const commandName = "CreateRuleCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: MonitorContactRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: MonitorContactResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: CreateRuleRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: CreateRuleResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +99,12 @@ export class MonitorContactCommand extends $Command<
     );
   }
 
-  private serialize(input: MonitorContactCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1MonitorContactCommand(input, context);
+  private serialize(input: CreateRuleCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1CreateRuleCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<MonitorContactCommandOutput> {
-    return deserializeAws_restJson1MonitorContactCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateRuleCommandOutput> {
+    return deserializeAws_restJson1CreateRuleCommand(output, context);
   }
 
   // Start section: command_body_extra

@@ -3,18 +3,32 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 
 import { ConnectServiceException as __BaseException } from "./ConnectServiceException";
 import {
+  ActionSummary,
   AgentStatusState,
+  AttachmentReference,
+  AttachmentReferenceFilterSensitiveLog,
+  Attribute,
   Channel,
   ContactFlowModuleState,
   ContactFlowState,
+  DateReference,
+  DateReferenceFilterSensitiveLog,
+  DirectoryType,
+  EmailReference,
+  EmailReferenceFilterSensitiveLog,
+  EventSourceName,
   HierarchyGroupSummary,
   HoursOfOperationConfig,
   InstanceAttributeType,
+  InstanceStatus,
   InstanceStorageConfig,
   InstanceStorageResourceType,
+  IntegrationType,
   LexBot,
   MediaConcurrency,
   MonitorCapability,
+  NumberReference,
+  NumberReferenceFilterSensitiveLog,
   OutboundCallerConfig,
   PhoneNumberCountryCode,
   PhoneNumberType,
@@ -22,9 +36,12 @@ import {
   QueueStatus,
   QuickConnectConfig,
   QuickConnectType,
-  ReferenceType,
+  Reference,
   RoutingProfile,
   RoutingProfileQueueConfig,
+  RuleAction,
+  RulePublishStatus,
+  SourceType,
   TaskTemplateConstraints,
   TaskTemplateDefaults,
   TaskTemplateField,
@@ -37,6 +54,515 @@ import {
   VocabularyLanguageCode,
   VocabularyState,
 } from "./models_0";
+
+/**
+ * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+ *    Otherwise, null.</p>
+ */
+export interface StringReference {
+  /**
+   * <p>Identifier of the string reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid string.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>The URL reference.</p>
+ */
+export interface UrlReference {
+  /**
+   * <p>Identifier of the URL reference.</p>
+   */
+  Name?: string;
+
+  /**
+   * <p>A valid URL.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Contains summary information about a reference. <code>ReferenceSummary</code> contains only
+ *    one non null field between the URL and attachment based on the reference type.</p>
+ */
+export type ReferenceSummary =
+  | ReferenceSummary.AttachmentMember
+  | ReferenceSummary.DateMember
+  | ReferenceSummary.EmailMember
+  | ReferenceSummary.NumberMember
+  | ReferenceSummary.StringMember
+  | ReferenceSummary.UrlMember
+  | ReferenceSummary.$UnknownMember;
+
+export namespace ReferenceSummary {
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is <code>URL</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface UrlMember {
+    Url: UrlReference;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about the reference when the <code>referenceType</code> is
+   *     <code>ATTACHMENT</code>. Otherwise, null.</p>
+   */
+  export interface AttachmentMember {
+    Url?: never;
+    Attachment: AttachmentReference;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>STRING</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface StringMember {
+    Url?: never;
+    Attachment?: never;
+    String: StringReference;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>NUMBER</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface NumberMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number: NumberReference;
+    Date?: never;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>DATE</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface DateMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date: DateReference;
+    Email?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Information about a reference when the <code>referenceType</code> is <code>EMAIL</code>.
+   *    Otherwise, null.</p>
+   */
+  export interface EmailMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email: EmailReference;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    Url?: never;
+    Attachment?: never;
+    String?: never;
+    Number?: never;
+    Date?: never;
+    Email?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    Url: (value: UrlReference) => T;
+    Attachment: (value: AttachmentReference) => T;
+    String: (value: StringReference) => T;
+    Number: (value: NumberReference) => T;
+    Date: (value: DateReference) => T;
+    Email: (value: EmailReference) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ReferenceSummary, visitor: Visitor<T>): T => {
+    if (value.Url !== undefined) return visitor.Url(value.Url);
+    if (value.Attachment !== undefined) return visitor.Attachment(value.Attachment);
+    if (value.String !== undefined) return visitor.String(value.String);
+    if (value.Number !== undefined) return visitor.Number(value.Number);
+    if (value.Date !== undefined) return visitor.Date(value.Date);
+    if (value.Email !== undefined) return visitor.Email(value.Email);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface ListContactReferencesResponse {
+  /**
+   * <p>Information about the flows.</p>
+   */
+  ReferenceSummaryList?: ReferenceSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   *          <important>
+   *             <p>This is always returned as null in the response.</p>
+   *          </important>
+   */
+  NextToken?: string;
+}
+
+export interface ListDefaultVocabulariesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode?: VocabularyLanguageCode | string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>Contains information about a default vocabulary.</p>
+ */
+export interface DefaultVocabulary {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see
+   * <a href="https://docs.aws.amazon.com/transcribe/latest/dg/transcribe-whatis.html">What is Amazon Transcribe?</a>
+   *          </p>
+   */
+  LanguageCode: VocabularyLanguageCode | string | undefined;
+
+  /**
+   * <p>The identifier of the custom vocabulary.</p>
+   */
+  VocabularyId: string | undefined;
+
+  /**
+   * <p>A unique name of the custom vocabulary.</p>
+   */
+  VocabularyName: string | undefined;
+}
+
+export interface ListDefaultVocabulariesResponse {
+  /**
+   * <p>A list of default vocabularies.</p>
+   */
+  DefaultVocabularyList: DefaultVocabulary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListHoursOfOperationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page. The default MaxResult size is 100.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains summary information about hours of operation for a contact center.</p>
+ */
+export interface HoursOfOperationSummary {
+  /**
+   * <p>The identifier of the hours of operation.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the hours of operation.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The name of the hours of operation.</p>
+   */
+  Name?: string;
+}
+
+export interface ListHoursOfOperationsResponse {
+  /**
+   * <p>Information about the hours of operation.</p>
+   */
+  HoursOfOperationSummaryList?: HoursOfOperationSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInstanceAttributesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListInstanceAttributesResponse {
+  /**
+   * <p>The attribute types.</p>
+   */
+  Attributes?: Attribute[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInstancesRequest {
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Information about the instance.</p>
+ */
+export interface InstanceSummary {
+  /**
+   * <p>The identifier of the instance.</p>
+   */
+  Id?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the instance.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The identity management type of the instance.</p>
+   */
+  IdentityManagementType?: DirectoryType | string;
+
+  /**
+   * <p>The alias of the instance.</p>
+   */
+  InstanceAlias?: string;
+
+  /**
+   * <p>When the instance was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * <p>The service role of the instance.</p>
+   */
+  ServiceRole?: string;
+
+  /**
+   * <p>The state of the instance.</p>
+   */
+  InstanceStatus?: InstanceStatus | string;
+
+  /**
+   * <p>Whether inbound calls are enabled.</p>
+   */
+  InboundCallsEnabled?: boolean;
+
+  /**
+   * <p>Whether outbound calls are enabled.</p>
+   */
+  OutboundCallsEnabled?: boolean;
+}
+
+export interface ListInstancesResponse {
+  /**
+   * <p>Information about the instances.</p>
+   */
+  InstanceSummaryList?: InstanceSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListInstanceStorageConfigsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>A valid resource type.</p>
+   */
+  ResourceType: InstanceStorageResourceType | string | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+export interface ListInstanceStorageConfigsResponse {
+  /**
+   * <p>A valid storage type.</p>
+   */
+  StorageConfigs?: InstanceStorageConfig[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListIntegrationAssociationsRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The integration type.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>Contains summary information about the associated AppIntegrations.</p>
+ */
+export interface IntegrationAssociationSummary {
+  /**
+   * <p>The identifier for the AppIntegration association.</p>
+   */
+  IntegrationAssociationId?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
+   */
+  IntegrationAssociationArn?: string;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId?: string;
+
+  /**
+   * <p>The integration type.</p>
+   */
+  IntegrationType?: IntegrationType | string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
+   */
+  IntegrationArn?: string;
+
+  /**
+   * <p>The URL for the external application.</p>
+   */
+  SourceApplicationUrl?: string;
+
+  /**
+   * <p>The user-provided, friendly name for the external application.</p>
+   */
+  SourceApplicationName?: string;
+
+  /**
+   * <p>The name of the source.</p>
+   */
+  SourceType?: SourceType | string;
+}
+
+export interface ListIntegrationAssociationsResponse {
+  /**
+   * <p>The associations.</p>
+   */
+  IntegrationAssociationSummaryList?: IntegrationAssociationSummary[];
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
 
 export interface ListLambdaFunctionsRequest {
   /**
@@ -589,6 +1115,91 @@ export interface ListRoutingProfilesResponse {
   NextToken?: string;
 }
 
+export interface ListRulesRequest {
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   */
+  PublishStatus?: RulePublishStatus | string;
+
+  /**
+   * <p>The name of the event source.</p>
+   */
+  EventSourceName?: EventSourceName | string;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A list of <code>ActionTypes</code> associated with a rule. </p>
+ */
+export interface RuleSummary {
+  /**
+   * <p>The name of the rule.</p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>A unique identifier for the rule.</p>
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the rule.</p>
+   */
+  RuleArn: string | undefined;
+
+  /**
+   * <p>The name of the event source.</p>
+   */
+  EventSourceName: EventSourceName | string | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   */
+  PublishStatus: RulePublishStatus | string | undefined;
+
+  /**
+   * <p>A list of ActionTypes associated with a rule. </p>
+   */
+  ActionSummaries: ActionSummary[] | undefined;
+
+  /**
+   * <p>The timestamp for when the rule was created. </p>
+   */
+  CreatedTime: Date | undefined;
+
+  /**
+   * <p>The timestamp for when the rule was last updated.</p>
+   */
+  LastUpdatedTime: Date | undefined;
+}
+
+export interface ListRulesResponse {
+  /**
+   * <p>Summary information about a rule.</p>
+   */
+  RuleSummaryList: RuleSummary[] | undefined;
+
+  /**
+   * <p>If there are additional results, this is the token for the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListSecurityKeysRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -1069,7 +1680,8 @@ export interface ListUsersResponse {
 
 export interface MonitorContactRequest {
   /**
-   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the
+   *    instance.</p>
    */
   InstanceId: string | undefined;
 
@@ -1084,8 +1696,8 @@ export interface MonitorContactRequest {
   UserId: string | undefined;
 
   /**
-   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user is
-   *    allowed to escalate from silent monitoring to barge.</p>
+   * <p>Specify which monitoring actions the user is allowed to take. For example, whether the user
+   *    is allowed to escalate from silent monitoring to barge.</p>
    */
   AllowedMonitorCapabilities?: (MonitorCapability | string)[];
 
@@ -2054,24 +2666,6 @@ export interface StartOutboundVoiceContactResponse {
   ContactId?: string;
 }
 
-/**
- * <p>Well-formed data on a contact, used by agents to complete a contact request. You can have up
- *    to 4,096 UTF-8 bytes across all references for a contact.</p>
- */
-export interface Reference {
-  /**
-   * <p>A valid value for the reference. For example, for a URL reference, a formatted URL that is
-   *    displayed to an agent in the Contact Control Panel (CCP).</p>
-   */
-  Value: string | undefined;
-
-  /**
-   * <p>The type of the reference. <code>DATE</code> must be of type Epoch timestamp.
-   *    </p>
-   */
-  Type: ReferenceType | string | undefined;
-}
-
 export interface StartTaskContactRequest {
   /**
    * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
@@ -2852,6 +3446,41 @@ export interface UpdateRoutingProfileQueuesRequest {
   QueueConfigs: RoutingProfileQueueConfig[] | undefined;
 }
 
+export interface UpdateRuleRequest {
+  /**
+   * <p>A unique identifier for the rule.</p>
+   */
+  RuleId: string | undefined;
+
+  /**
+   * <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+   */
+  InstanceId: string | undefined;
+
+  /**
+   * <p>The name of the rule. You can change the name only if <code>TriggerEventSource</code> is one
+   *    of the following values: <code>OnZendeskTicketCreate</code> |
+   *     <code>OnZendeskTicketStatusUpdate</code> | <code>OnSalesforceCaseCreate</code>
+   *          </p>
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>The conditions of the rule.</p>
+   */
+  Function: string | undefined;
+
+  /**
+   * <p>A list of actions to be run when the rule is triggered.</p>
+   */
+  Actions: RuleAction[] | undefined;
+
+  /**
+   * <p>The publish status of the rule.</p>
+   */
+  PublishStatus: RulePublishStatus | string | undefined;
+}
+
 export interface UpdateSecurityProfileRequest {
   /**
    * <p>The description of the security profile.</p>
@@ -3211,6 +3840,7 @@ export interface QueueSearchCriteria {
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
  *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
  *     outside of this range will throw invalid results. </p>
+ *
  *          </note>
  */
 export interface RoutingProfileSearchCriteria {
@@ -3270,8 +3900,7 @@ export interface SecurityProfileSearchCriteria {
  *          <note>
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
  *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
- *     outside of this range will throw invalid results.
- *     </p>
+ *     outside of this range will throw invalid results.  </p>
  *          </note>
  */
 export interface UserSearchCriteria {
@@ -3384,7 +4013,9 @@ export interface SearchSecurityProfilesRequest {
   /**
    * <p>The search criteria to be used to return security profiles. </p>
    *          <note>
-   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and maximum of 25 characters. Any queries with character lengths outside of this range will throw invalid results.</p>
+   *             <p>The <code>name</code> field support "contains" queries with a minimum of 2 characters and
+   *     maximum of 25 characters. Any queries with character lengths outside of this range will throw
+   *     invalid results.</p>
    *          </note>
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
@@ -3427,12 +4058,166 @@ export interface SearchUsersRequest {
    *          <note>
    *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
    *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
-   *     outside of this range will throw invalid results.
-   *     </p>
+   *     outside of this range will throw invalid results.  </p>
    *          </note>
    */
   SearchCriteria?: UserSearchCriteria;
 }
+
+/**
+ * @internal
+ */
+export const StringReferenceFilterSensitiveLog = (obj: StringReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UrlReferenceFilterSensitiveLog = (obj: UrlReference): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ReferenceSummaryFilterSensitiveLog = (obj: ReferenceSummary): any => {
+  if (obj.Url !== undefined) return { Url: UrlReferenceFilterSensitiveLog(obj.Url) };
+  if (obj.Attachment !== undefined) return { Attachment: AttachmentReferenceFilterSensitiveLog(obj.Attachment) };
+  if (obj.String !== undefined) return { String: StringReferenceFilterSensitiveLog(obj.String) };
+  if (obj.Number !== undefined) return { Number: NumberReferenceFilterSensitiveLog(obj.Number) };
+  if (obj.Date !== undefined) return { Date: DateReferenceFilterSensitiveLog(obj.Date) };
+  if (obj.Email !== undefined) return { Email: EmailReferenceFilterSensitiveLog(obj.Email) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListContactReferencesResponseFilterSensitiveLog = (obj: ListContactReferencesResponse): any => ({
+  ...obj,
+  ...(obj.ReferenceSummaryList && {
+    ReferenceSummaryList: obj.ReferenceSummaryList.map((item) => ReferenceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListDefaultVocabulariesRequestFilterSensitiveLog = (obj: ListDefaultVocabulariesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DefaultVocabularyFilterSensitiveLog = (obj: DefaultVocabulary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListDefaultVocabulariesResponseFilterSensitiveLog = (obj: ListDefaultVocabulariesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHoursOfOperationsRequestFilterSensitiveLog = (obj: ListHoursOfOperationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const HoursOfOperationSummaryFilterSensitiveLog = (obj: HoursOfOperationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListHoursOfOperationsResponseFilterSensitiveLog = (obj: ListHoursOfOperationsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceAttributesRequestFilterSensitiveLog = (obj: ListInstanceAttributesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceAttributesResponseFilterSensitiveLog = (obj: ListInstanceAttributesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesRequestFilterSensitiveLog = (obj: ListInstancesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const InstanceSummaryFilterSensitiveLog = (obj: InstanceSummary): any => ({
+  ...obj,
+  ...(obj.InstanceAlias && { InstanceAlias: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListInstancesResponseFilterSensitiveLog = (obj: ListInstancesResponse): any => ({
+  ...obj,
+  ...(obj.InstanceSummaryList && {
+    InstanceSummaryList: obj.InstanceSummaryList.map((item) => InstanceSummaryFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceStorageConfigsRequestFilterSensitiveLog = (obj: ListInstanceStorageConfigsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListInstanceStorageConfigsResponseFilterSensitiveLog = (obj: ListInstanceStorageConfigsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationAssociationsRequestFilterSensitiveLog = (obj: ListIntegrationAssociationsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IntegrationAssociationSummaryFilterSensitiveLog = (obj: IntegrationAssociationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListIntegrationAssociationsResponseFilterSensitiveLog = (
+  obj: ListIntegrationAssociationsResponse
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -3620,6 +4405,27 @@ export const RoutingProfileSummaryFilterSensitiveLog = (obj: RoutingProfileSumma
  * @internal
  */
 export const ListRoutingProfilesResponseFilterSensitiveLog = (obj: ListRoutingProfilesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesRequestFilterSensitiveLog = (obj: ListRulesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleSummaryFilterSensitiveLog = (obj: RuleSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListRulesResponseFilterSensitiveLog = (obj: ListRulesResponse): any => ({
   ...obj,
 });
 
@@ -4106,13 +4912,6 @@ export const StartOutboundVoiceContactResponseFilterSensitiveLog = (obj: StartOu
 /**
  * @internal
  */
-export const ReferenceFilterSensitiveLog = (obj: Reference): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
 export const StartTaskContactRequestFilterSensitiveLog = (obj: StartTaskContactRequest): any => ({
   ...obj,
 });
@@ -4429,6 +5228,13 @@ export const UpdateRoutingProfileNameRequestFilterSensitiveLog = (obj: UpdateRou
  * @internal
  */
 export const UpdateRoutingProfileQueuesRequestFilterSensitiveLog = (obj: UpdateRoutingProfileQueuesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateRuleRequestFilterSensitiveLog = (obj: UpdateRuleRequest): any => ({
   ...obj,
 });
 

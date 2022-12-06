@@ -103,6 +103,7 @@ import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import { CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSecurityProfileCommandInput,
   CreateSecurityProfileCommandOutput,
@@ -134,6 +135,7 @@ import {
   DeleteIntegrationAssociationCommandOutput,
 } from "./commands/DeleteIntegrationAssociationCommand";
 import { DeleteQuickConnectCommandInput, DeleteQuickConnectCommandOutput } from "./commands/DeleteQuickConnectCommand";
+import { DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommandInput,
   DeleteSecurityProfileCommandOutput,
@@ -189,6 +191,7 @@ import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
 } from "./commands/DescribeRoutingProfileCommand";
+import { DescribeRuleCommandInput, DescribeRuleCommandOutput } from "./commands/DescribeRuleCommand";
 import {
   DescribeSecurityProfileCommandInput,
   DescribeSecurityProfileCommandOutput,
@@ -312,6 +315,7 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
+import { ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import { ListSecurityKeysCommandInput, ListSecurityKeysCommandOutput } from "./commands/ListSecurityKeysCommand";
 import {
   ListSecurityProfilePermissionsCommandInput,
@@ -470,6 +474,7 @@ import {
   UpdateRoutingProfileQueuesCommandInput,
   UpdateRoutingProfileQueuesCommandOutput,
 } from "./commands/UpdateRoutingProfileQueuesCommand";
+import { UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSecurityProfileCommandInput,
   UpdateSecurityProfileCommandOutput,
@@ -536,6 +541,7 @@ export type ServiceInputTypes =
   | CreateQueueCommandInput
   | CreateQuickConnectCommandInput
   | CreateRoutingProfileCommandInput
+  | CreateRuleCommandInput
   | CreateSecurityProfileCommandInput
   | CreateTaskTemplateCommandInput
   | CreateTrafficDistributionGroupCommandInput
@@ -549,6 +555,7 @@ export type ServiceInputTypes =
   | DeleteInstanceCommandInput
   | DeleteIntegrationAssociationCommandInput
   | DeleteQuickConnectCommandInput
+  | DeleteRuleCommandInput
   | DeleteSecurityProfileCommandInput
   | DeleteTaskTemplateCommandInput
   | DeleteTrafficDistributionGroupCommandInput
@@ -568,6 +575,7 @@ export type ServiceInputTypes =
   | DescribeQueueCommandInput
   | DescribeQuickConnectCommandInput
   | DescribeRoutingProfileCommandInput
+  | DescribeRuleCommandInput
   | DescribeSecurityProfileCommandInput
   | DescribeTrafficDistributionGroupCommandInput
   | DescribeUserCommandInput
@@ -613,6 +621,7 @@ export type ServiceInputTypes =
   | ListQuickConnectsCommandInput
   | ListRoutingProfileQueuesCommandInput
   | ListRoutingProfilesCommandInput
+  | ListRulesCommandInput
   | ListSecurityKeysCommandInput
   | ListSecurityProfilePermissionsCommandInput
   | ListSecurityProfilesCommandInput
@@ -669,6 +678,7 @@ export type ServiceInputTypes =
   | UpdateRoutingProfileDefaultOutboundQueueCommandInput
   | UpdateRoutingProfileNameCommandInput
   | UpdateRoutingProfileQueuesCommandInput
+  | UpdateRuleCommandInput
   | UpdateSecurityProfileCommandInput
   | UpdateTaskTemplateCommandInput
   | UpdateTrafficDistributionCommandInput
@@ -701,6 +711,7 @@ export type ServiceOutputTypes =
   | CreateQueueCommandOutput
   | CreateQuickConnectCommandOutput
   | CreateRoutingProfileCommandOutput
+  | CreateRuleCommandOutput
   | CreateSecurityProfileCommandOutput
   | CreateTaskTemplateCommandOutput
   | CreateTrafficDistributionGroupCommandOutput
@@ -714,6 +725,7 @@ export type ServiceOutputTypes =
   | DeleteInstanceCommandOutput
   | DeleteIntegrationAssociationCommandOutput
   | DeleteQuickConnectCommandOutput
+  | DeleteRuleCommandOutput
   | DeleteSecurityProfileCommandOutput
   | DeleteTaskTemplateCommandOutput
   | DeleteTrafficDistributionGroupCommandOutput
@@ -733,6 +745,7 @@ export type ServiceOutputTypes =
   | DescribeQueueCommandOutput
   | DescribeQuickConnectCommandOutput
   | DescribeRoutingProfileCommandOutput
+  | DescribeRuleCommandOutput
   | DescribeSecurityProfileCommandOutput
   | DescribeTrafficDistributionGroupCommandOutput
   | DescribeUserCommandOutput
@@ -778,6 +791,7 @@ export type ServiceOutputTypes =
   | ListQuickConnectsCommandOutput
   | ListRoutingProfileQueuesCommandOutput
   | ListRoutingProfilesCommandOutput
+  | ListRulesCommandOutput
   | ListSecurityKeysCommandOutput
   | ListSecurityProfilePermissionsCommandOutput
   | ListSecurityProfilesCommandOutput
@@ -834,6 +848,7 @@ export type ServiceOutputTypes =
   | UpdateRoutingProfileDefaultOutboundQueueCommandOutput
   | UpdateRoutingProfileNameCommandOutput
   | UpdateRoutingProfileQueuesCommandOutput
+  | UpdateRuleCommandOutput
   | UpdateSecurityProfileCommandOutput
   | UpdateTaskTemplateCommandOutput
   | UpdateTrafficDistributionCommandOutput
