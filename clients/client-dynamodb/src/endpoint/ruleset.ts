@@ -6,7 +6,7 @@ export const ruleSet: RuleSetObject = {
   parameters: {
     Region: {
       builtIn: "AWS::Region",
-      required: false,
+      required: true,
       documentation: "The AWS region used to dispatch the request.",
       type: "String",
     },
@@ -57,15 +57,6 @@ export const ruleSet: RuleSetObject = {
                   ref: "Endpoint",
                 },
               ],
-            },
-            {
-              fn: "parseURL",
-              argv: [
-                {
-                  ref: "Endpoint",
-                },
-              ],
-              assign: "url",
             },
           ],
           type: "tree",
@@ -347,7 +338,7 @@ export const ruleSet: RuleSetObject = {
                 },
               ],
               endpoint: {
-                url: "https://localhost:8000",
+                url: "http://localhost:8000",
                 properties: {
                   authSchemes: [
                     {
