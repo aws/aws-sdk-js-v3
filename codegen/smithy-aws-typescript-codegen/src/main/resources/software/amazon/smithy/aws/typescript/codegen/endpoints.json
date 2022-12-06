@@ -3376,6 +3376,7 @@
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
+            "eu-south-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
@@ -11008,6 +11009,7 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
+            "ap-southeast-3": {},
             "ca-central-1": {
               "variants": [
                 {
@@ -12738,6 +12740,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.aws",
             "variants": [
               {
                 "dnsSuffix": "api.aws",
@@ -18334,6 +18337,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.amazonwebservices.com.cn",
             "variants": [
               {
                 "dnsSuffix": "api.amazonwebservices.com.cn",
@@ -21729,6 +21733,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.aws",
             "variants": [
               {
                 "dnsSuffix": "api.aws",
