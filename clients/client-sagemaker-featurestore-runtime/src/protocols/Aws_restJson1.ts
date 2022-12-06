@@ -29,6 +29,7 @@ import {
   InternalFailure,
   ResourceNotFound,
   ServiceUnavailable,
+  TargetStore,
   ValidationError,
 } from "../models/models_0";
 import { SageMakerFeatureStoreRuntimeServiceException as __BaseException } from "../models/SageMakerFeatureStoreRuntimeServiceException";
@@ -81,6 +82,10 @@ export const serializeAws_restJson1DeleteRecordCommand = async (
       __expectNonNull(input.RecordIdentifierValueAsString!, `RecordIdentifierValueAsString`),
     ],
     EventTime: [, __expectNonNull(input.EventTime!, `EventTime`)],
+    TargetStores: [
+      () => input.TargetStores !== void 0,
+      () => (input.TargetStores! || []).map((_entry) => _entry as any),
+    ],
   });
   let body: any;
   return new __HttpRequest({
@@ -155,6 +160,9 @@ export const serializeAws_restJson1PutRecordCommand = async (
   let body: any;
   body = JSON.stringify({
     ...(input.Record != null && { Record: serializeAws_restJson1Record(input.Record, context) }),
+    ...(input.TargetStores != null && {
+      TargetStores: serializeAws_restJson1TargetStores(input.TargetStores, context),
+    }),
   });
   return new __HttpRequest({
     protocol,
@@ -507,6 +515,14 @@ const serializeAws_restJson1Record = (input: FeatureValue[], context: __SerdeCon
 };
 
 const serializeAws_restJson1RecordIdentifiers = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_restJson1TargetStores = (input: (TargetStore | string)[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
