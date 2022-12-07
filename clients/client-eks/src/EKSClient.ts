@@ -72,6 +72,10 @@ import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "./com
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "./commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "./commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "./commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "./commands/DescribeAddonVersionsCommand";
@@ -147,6 +151,7 @@ export type ServiceInputTypes =
   | DeleteNodegroupCommandInput
   | DeregisterClusterCommandInput
   | DescribeAddonCommandInput
+  | DescribeAddonConfigurationCommandInput
   | DescribeAddonVersionsCommandInput
   | DescribeClusterCommandInput
   | DescribeFargateProfileCommandInput
@@ -183,6 +188,7 @@ export type ServiceOutputTypes =
   | DeleteNodegroupCommandOutput
   | DeregisterClusterCommandOutput
   | DescribeAddonCommandOutput
+  | DescribeAddonConfigurationCommandOutput
   | DescribeAddonVersionsCommandOutput
   | DescribeClusterCommandOutput
   | DescribeFargateProfileCommandOutput

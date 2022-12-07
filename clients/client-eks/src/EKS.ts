@@ -54,6 +54,11 @@ import {
   DescribeAddonCommandOutput,
 } from "./commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommand,
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "./commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommand,
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
@@ -613,6 +618,38 @@ export class EKS extends EKSClient {
     cb?: (err: any, data?: DescribeAddonCommandOutput) => void
   ): Promise<DescribeAddonCommandOutput> | void {
     const command = new DescribeAddonCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns configuration options.</p>
+   */
+  public describeAddonConfiguration(
+    args: DescribeAddonConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAddonConfigurationCommandOutput>;
+  public describeAddonConfiguration(
+    args: DescribeAddonConfigurationCommandInput,
+    cb: (err: any, data?: DescribeAddonConfigurationCommandOutput) => void
+  ): void;
+  public describeAddonConfiguration(
+    args: DescribeAddonConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAddonConfigurationCommandOutput) => void
+  ): void;
+  public describeAddonConfiguration(
+    args: DescribeAddonConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeAddonConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeAddonConfigurationCommandOutput) => void
+  ): Promise<DescribeAddonConfigurationCommandOutput> | void {
+    const command = new DescribeAddonConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

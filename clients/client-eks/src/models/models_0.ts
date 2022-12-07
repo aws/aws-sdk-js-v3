@@ -164,6 +164,11 @@ export interface Addon {
    * <p>Information about an Amazon EKS add-on from the Amazon Web Services Marketplace.</p>
    */
   marketplaceInformation?: MarketplaceInformation;
+
+  /**
+   * <p>The provided configuration values.</p>
+   */
+  configurationValues?: string;
 }
 
 /**
@@ -897,6 +902,14 @@ export interface CreateAddonRequest {
    *             Each tag consists of a key and an optional value. You define both.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * <p> The set of configuration values for the add-on being created. Whatever values
+   *             provided here are validated against the schema from <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html">
+   *                <code>DescribeAddonConfiguration</code>
+   *             </a>.</p>
+   */
+  configurationValues?: string;
 }
 
 export interface CreateAddonResponse {
@@ -1855,13 +1868,13 @@ export interface LaunchTemplateSpecification {
  */
 export interface RemoteAccessConfig {
   /**
-   * <p>The Amazon EC2 SSH key that provides access for SSH communication with the
+   * <p>The Amazon EC2 SSH key name that provides access for SSH communication with the
    *             nodes in the managed node group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs and Linux instances</a> in the <i>Amazon Elastic Compute Cloud User Guide for Linux Instances</i>.</p>
    */
   ec2SshKey?: string;
 
   /**
-   * <p>The security groups that are allowed SSH access (port 22) to the nodes. If you specify
+   * <p>The security group ids that are allowed SSH access (port 22) to the nodes. If you specify
    *             an Amazon EC2 SSH key but do not specify a source security group when you create
    *             a managed node group, then port 22 on the nodes is opened to the internet (0.0.0.0/0).
    *             For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">Security Groups for Your VPC</a> in the
@@ -2554,6 +2567,41 @@ export interface DescribeAddonResponse {
    *             the <i>Amazon EKS User Guide</i>.</p>
    */
   addon?: Addon;
+}
+
+export interface DescribeAddonConfigurationRequest {
+  /**
+   * <p>The name of the add-on. The name must match one of the names returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+   *                <code>DescribeAddonVersions</code>
+   *             </a>.</p>
+   */
+  addonName: string | undefined;
+
+  /**
+   * <p>The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+   *                <code>DescribeAddonVersions</code>
+   *             </a>.</p>
+   */
+  addonVersion: string | undefined;
+}
+
+export interface DescribeAddonConfigurationResponse {
+  /**
+   * <p>The name of the add-on.</p>
+   */
+  addonName?: string;
+
+  /**
+   * <p>The version of the add-on. The version must match one of the versions returned by <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonVersions.html">
+   *                <code>DescribeAddonVersions</code>
+   *             </a>.</p>
+   */
+  addonVersion?: string;
+
+  /**
+   * <p>A JSON schema used to validate provided configuration values when creating or updating an addon.</p>
+   */
+  configurationSchema?: string;
 }
 
 export interface DescribeAddonVersionsRequest {
@@ -3380,6 +3428,12 @@ export interface UpdateAddonRequest {
    *             request.</p>
    */
   clientRequestToken?: string;
+
+  /**
+   * <p>The set of configuration values for the add-on being created. Whatever values provided here are validated against the schema from <a href="https://docs.aws.amazon.com/eks/latest/APIReference/API_DescribeAddonConfiguration.html">DescribeAddonConfiguration</a>
+   *          </p>
+   */
+  configurationValues?: string;
 }
 
 export interface UpdateAddonResponse {
@@ -4059,6 +4113,20 @@ export const DescribeAddonRequestFilterSensitiveLog = (obj: DescribeAddonRequest
  * @internal
  */
 export const DescribeAddonResponseFilterSensitiveLog = (obj: DescribeAddonResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddonConfigurationRequestFilterSensitiveLog = (obj: DescribeAddonConfigurationRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeAddonConfigurationResponseFilterSensitiveLog = (obj: DescribeAddonConfigurationResponse): any => ({
   ...obj,
 });
 
