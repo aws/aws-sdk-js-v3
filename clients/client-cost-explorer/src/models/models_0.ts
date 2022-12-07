@@ -45,8 +45,9 @@ export interface Impact {
 }
 
 /**
- * <p>The combination of Amazon Web Service, linked account, Region, and usage type
- *             where a cost anomaly is observed. </p>
+ * <p>The combination of Amazon Web Service, linked account, linked account name,
+ *             Region, and usage type where a cost anomaly is observed. The linked account name will
+ *             only be available when the account name can be identified.</p>
  */
 export interface RootCause {
   /**
@@ -68,6 +69,11 @@ export interface RootCause {
    * <p>The <code>UsageType</code> value that's associated with the cost anomaly. </p>
    */
   UsageType?: string;
+
+  /**
+   * <p>The member account name value that's associated with the cost anomaly.</p>
+   */
+  LinkedAccountName?: string;
 }
 
 /**
@@ -154,10 +160,10 @@ export enum MatchOption {
 
 /**
  * <p>The Cost Categories values used for filtering the costs.</p>
- *         <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
+ *          <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all Cost Categories. That is, it filters on
  *             resources that aren't mapped to any Cost Categories.</p>
- *         <p>If <code>Values</code> is provided and <code>Key</code> isn't specified, the
+ *          <p>If <code>Values</code> is provided and <code>Key</code> isn't specified, the
  *                 <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to the Cost Categories <code>Key</code> only. That
  *             is, it filters on resources without the given Cost Categories key.</p>
@@ -247,10 +253,10 @@ export interface DimensionValues {
 
 /**
  * <p>The values that are available for a tag.</p>
- *         <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
+ *          <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all tags. That is, it's filtered on resources
  *             with no tags.</p>
- *         <p>If <code>Key</code> is provided and <code>Values</code> isn't specified, the
+ *          <p>If <code>Key</code> is provided and <code>Values</code> isn't specified, the
  *                 <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to the tag <code>Key</code> only. That is, it's
  *             filtered on resources without the given tag key.</p>
@@ -362,7 +368,7 @@ export interface AnomalySubscription {
 
 /**
  * <p>The tag structure that contains a tag key and value. </p>
- *         <note>
+ *          <note>
  *             <p>Tagging is supported only for the following Cost Explorer resource types:
  *                     <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
  *                   <code>AnomalyMonitor</code>
@@ -371,7 +377,7 @@ export interface AnomalySubscription {
  *                </a>, <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategory.html">
  *                   <code>CostCategory</code>
  *                </a>.</p>
- *         </note>
+ *          </note>
  */
 export interface ResourceTag {
   /**
@@ -503,7 +509,7 @@ export enum CostCategoryInheritedValueDimensionName {
 export interface CostCategoryInheritedValueDimension {
   /**
    * <p>The name of the dimension that's used to group costs.</p>
-   *         <p>If you specify <code>LINKED_ACCOUNT_NAME</code>, the cost category value is based on
+   *          <p>If you specify <code>LINKED_ACCOUNT_NAME</code>, the cost category value is based on
    *             account name. If you specify <code>TAG</code>, the cost category value is based on the
    *             value of the specified tag key.</p>
    */
@@ -569,13 +575,13 @@ export interface CostCategorySplitChargeRule {
 
   /**
    * <p>The method that's used to define how to split your source costs across your targets. </p>
-   *         <p>
+   *          <p>
    *             <code>Proportional</code> - Allocates charges across your targets based on the
    *             proportional weighted cost of each target.</p>
-   *         <p>
+   *          <p>
    *             <code>Fixed</code> - Allocates charges across your targets based on your defined
    *             allocation percentage.</p>
-   *         <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
+   *          <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
    */
   Method: CostCategorySplitChargeMethod | string | undefined;
 
@@ -1426,7 +1432,7 @@ export interface CoverageHours {
  *             the xlarge instance, even though both instances show only one instance-hour. When you
  *             use normalized units instead of instance-hours, the xlarge instance used 8 normalized
  *             units, and the 2xlarge instance used 16 normalized units.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a>
  *             in the <i>Amazon Elastic Compute Cloud User Guide for Linux
  *             Instances</i>.</p>
  */
@@ -3404,7 +3410,7 @@ export interface ListCostCategoryDefinitionsRequest {
 /**
  * <p>A reference to a Cost Category containing only enough information to identify the Cost
  *             Category.</p>
- *         <p>You can use this information to retrieve the full Cost Category information using
+ *          <p>You can use this information to retrieve the full Cost Category information using
  *                 <code>DescribeCostCategory</code>.</p>
  */
 export interface CostCategoryReference {
@@ -3826,25 +3832,25 @@ export interface UpdateCostCategoryDefinitionResponse {
 
 /**
  * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Simple dimension values - You can set the dimension name and values for the
+ *                <p>Simple dimension values - You can set the dimension name and values for the
  *                     filters that you plan to use. For example, you can filter for
  *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
  *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
  *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
  *                     example is as follows:</p>
- *                 <p>
- *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+ *                <p>
+ *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
  *                         } }</code>
- *                 </p>
- *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+ *                </p>
+ *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
  *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
  *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
  *                     lines. </p>
  *             </li>
  *             <li>
- *                 <p>Compound dimension values with logical operations - You can use multiple
+ *                <p>Compound dimension values with logical operations - You can use multiple
  *                         <code>Expression</code> types and the logical operators
  *                         <code>AND/OR/NOT</code> to create a list of one or more
  *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -3852,25 +3858,25 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
  *                         DataTransfer)</code>. The <code>Expression</code> for that is as
  *                     follows:</p>
- *                 <p>
- *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+ *                <p>
+ *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
  *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
  *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
  *                         ["DataTransfer"] }}} ] } </code>
- *                 </p>
- *                 <note>
- *                     <p>Because each <code>Expression</code> can have only one operator, the
+ *                </p>
+ *                <note>
+ *                   <p>Because each <code>Expression</code> can have only one operator, the
  *                         service returns an error if more than one is specified. The following
  *                         example shows an <code>Expression</code> object that creates an
  *                         error.</p>
- *                 </note>
- *                 <p>
- *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+ *                </note>
+ *                <p>
+ *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
  *                         "Values": [ "DataTransfer" ] } } </code>
- *                 </p>
+ *                </p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
  *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
  *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -3879,7 +3885,7 @@ export interface UpdateCostCategoryDefinitionResponse {
  *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
  *                 supported. AND and OR aren't supported. Dimensions are limited to
  *                     <code>LINKED_ACCOUNT</code>.</p>
- *         </note>
+ *          </note>
  */
 export interface Expression {
   /**
@@ -3956,25 +3962,25 @@ export interface AnomalyMonitor {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -3982,25 +3988,25 @@ export interface AnomalyMonitor {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4009,7 +4015,7 @@ export interface AnomalyMonitor {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   MonitorSpecification?: Expression;
 
@@ -4036,9 +4042,9 @@ export interface CostCategoryRule {
    *             Currently the only dimensions supported are <code>LINKED_ACCOUNT</code>,
    *                 <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, and
    *                 <code>LINKED_ACCOUNT_NAME</code>.</p>
-   *         <p>Root level <code>OR</code> isn't supported. We recommend that you create a separate
+   *          <p>Root level <code>OR</code> isn't supported. We recommend that you create a separate
    *             rule instead.</p>
-   *         <p>
+   *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
    *             supported for Cost Category expressions. This dimension uses different terms, depending
    *             on whether you're using the console or API/JSON editor. For a detailed comparison, see
@@ -4232,25 +4238,25 @@ export interface GetCostCategoriesRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -4258,25 +4264,25 @@ export interface GetCostCategoriesRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4285,7 +4291,7 @@ export interface GetCostCategoriesRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -4396,7 +4402,6 @@ export interface GetCostForecastRequest {
   /**
    * <p>The filters that you want to use to filter your forecast. The
    *         <code>GetCostForecast</code> API supports filtering by the following dimensions:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -4731,25 +4736,25 @@ export interface GetDimensionValuesRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -4757,25 +4762,25 @@ export interface GetDimensionValuesRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4784,7 +4789,7 @@ export interface GetDimensionValuesRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5064,25 +5069,25 @@ export interface GetReservationPurchaseRecommendationRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -5090,25 +5095,25 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -5117,7 +5122,7 @@ export interface GetReservationPurchaseRecommendationRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5348,25 +5353,25 @@ export interface GetReservationUtilizationRequest {
 export interface GetRightsizingRecommendationRequest {
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -5374,25 +5379,25 @@ export interface GetRightsizingRecommendationRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -5401,7 +5406,7 @@ export interface GetRightsizingRecommendationRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5828,25 +5833,25 @@ export interface GetTagsRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -5854,25 +5859,25 @@ export interface GetTagsRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -5881,7 +5886,7 @@ export interface GetTagsRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5984,7 +5989,6 @@ export interface GetUsageForecastRequest {
   /**
    * <p>The filters that you want to use to filter your forecast. The
    *         <code>GetUsageForecast</code> API supports filtering by the following dimensions:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>

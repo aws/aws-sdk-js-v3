@@ -5101,6 +5101,7 @@ const deserializeAws_json1_1RightsizingRecommendationSummary = (
 const deserializeAws_json1_1RootCause = (output: any, context: __SerdeContext): RootCause => {
   return {
     LinkedAccount: __expectString(output.LinkedAccount),
+    LinkedAccountName: __expectString(output.LinkedAccountName),
     Region: __expectString(output.Region),
     Service: __expectString(output.Service),
     UsageType: __expectString(output.UsageType),
