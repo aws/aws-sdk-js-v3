@@ -580,8 +580,7 @@ export interface CreateCustomKeyStoreRequest {
   CloudHsmClusterId?: string;
 
   /**
-   * <p>* CreateCustom</p>
-   *          <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom
+   * <p>Specifies the certificate for an CloudHSM key store. This parameter is required for custom
    *       key stores with a <code>CustomKeyStoreType</code> of <code>AWS_CLOUDHSM</code>.</p>
    *          <p>Enter the content of the trust anchor certificate for the CloudHSM cluster. This is the
    *       content of the <code>customerCA.crt</code> file that you created when you <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/initialize-cluster.html">initialized the
@@ -1665,7 +1664,7 @@ export enum SigningAlgorithmSpec {
 /**
  * <p>Information about the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html#concept-external-key">external key </a>that is associated with a KMS key in an
  *       external key store. </p>
- *          <p>These fields appear in a <a>CreateKey</a> or <a>DescribeKey</a>
+ *          <p>This element appears in a <a>CreateKey</a> or <a>DescribeKey</a>
  *       response only for a KMS key in an external key store.</p>
  *          <p>The <i>external key</i> is a symmetric encryption key that is hosted by
  *       an external key manager outside of Amazon Web Services. When you use the KMS key in an external key store

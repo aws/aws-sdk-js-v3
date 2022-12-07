@@ -1351,11 +1351,13 @@ export class KMS extends KMSClient {
    *       applicable), the key state, and the origin and expiration date (if any) of the key material.
    *       It includes fields, like <code>KeySpec</code>, that help you distinguish different types of
    *       KMS keys. It also displays the key usage (encryption, signing, or generating and verifying
-   *       MACs) and the algorithms that the KMS key supports. For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>, it displays
-   *       the primary key and all related replica keys. For KMS keys in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes information
-   *       about the custom key store, such as the key store ID and the CloudHSM cluster ID. For KMS key in
-   *         <a href="kms/latest/developerguide/keystore-external.html">external key stores</a>, it includes
-   *       the custom key store ID and the ID and status of the associated external key.</p>
+   *       MACs) and the algorithms that the KMS key supports. </p>
+   *          <p>For <a href="kms/latest/developerguide/multi-region-keys-overview.html">multi-Region keys</a>,
+   *         <code>DescribeKey</code> displays the primary key and all related replica keys. For KMS keys
+   *       in <a href="kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key stores</a>, it includes
+   *       information about the key store, such as the key store ID and the CloudHSM cluster ID. For KMS
+   *       keys in <a href="kms/latest/developerguide/keystore-external.html">external key stores</a>, it
+   *       includes the custom key store ID and the ID of the external key.</p>
    *          <p>
    *             <code>DescribeKey</code> does not return the following information:</p>
    *          <ul>
