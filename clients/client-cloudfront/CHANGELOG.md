@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+
+### Features
+
+* **client-cloudfront:** Introducing UpdateDistributionWithStagingConfig that can be used to promote the staging configuration to the production. ([ce728a2](https://github.com/aws/aws-sdk-js-v3/commit/ce728a2c0175abf27ce0f8a96bc69171a7f121e3))
+
+
+
+
+
 # [3.224.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.223.0...v3.224.0) (2022-12-05)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudfront

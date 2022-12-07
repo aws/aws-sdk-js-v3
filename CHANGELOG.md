@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
+
+
+### Bug Fixes
+
+* **codegen:** remove unused import ([#4260](https://github.com/aws/aws-sdk-js-v3/issues/4260)) ([d65ca1b](https://github.com/aws/aws-sdk-js-v3/commit/d65ca1bc347f085936d6e12edaffda507383c745))
+* **types:** add missing `tslib` dependency to `types` ([#4128](https://github.com/aws/aws-sdk-js-v3/issues/4128)) ([5dab646](https://github.com/aws/aws-sdk-js-v3/commit/5dab6461affef3539c2fea61fc1217d528981cdd))
+
+
+### Features
+
+* **client-cloudfront:** Introducing UpdateDistributionWithStagingConfig that can be used to promote the staging configuration to the production. ([ce728a2](https://github.com/aws/aws-sdk-js-v3/commit/ce728a2c0175abf27ce0f8a96bc69171a7f121e3))
+* **client-cost-explorer:** This release adds the LinkedAccountName field to the GetAnomalies API response under RootCause ([cef502f](https://github.com/aws/aws-sdk-js-v3/commit/cef502f015f505970d91d3928ea7c14488dae588))
+* **client-eks:** Adds support for EKS add-ons configurationValues fields and DescribeAddonConfiguration function ([47f65dd](https://github.com/aws/aws-sdk-js-v3/commit/47f65dd339f53da08532e01fec5acaae7434c66d))
+* **clients:** update client endpoints as of 2022-12-07 ([eea62b4](https://github.com/aws/aws-sdk-js-v3/commit/eea62b44c50cad47d4c3dfd49a96a0359c195381))
+
+
+
+
+
 # [3.225.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.224.0...v3.225.0) (2022-12-06)
 
 
