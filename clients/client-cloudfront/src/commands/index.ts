@@ -94,6 +94,7 @@ export * from "./UpdateCachePolicyCommand";
 export * from "./UpdateCloudFrontOriginAccessIdentityCommand";
 export * from "./UpdateContinuousDeploymentPolicyCommand";
 export * from "./UpdateDistributionCommand";
+export * from "./UpdateDistributionWithStagingConfigCommand";
 export * from "./UpdateFieldLevelEncryptionConfigCommand";
 export * from "./UpdateFieldLevelEncryptionProfileCommand";
 export * from "./UpdateFunctionCommand";

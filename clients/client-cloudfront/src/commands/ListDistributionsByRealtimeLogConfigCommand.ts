@@ -31,10 +31,10 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of distributions that have a cache behavior that’s associated with the specified
- * 			real-time log configuration.</p>
- * 		       <p>You can specify the real-time log configuration by its name or its Amazon Resource Name
- * 			(ARN). You must provide at least one. If you provide both, CloudFront uses the name to
+ * <p>Gets a list of distributions that have a cache behavior that’s associated with the
+ * 			specified real-time log configuration.</p>
+ * 		       <p>You can specify the real-time log configuration by its name or its Amazon Resource
+ * 			Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to
  * 			identify the real-time log configuration to list distributions for.</p>
  * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the

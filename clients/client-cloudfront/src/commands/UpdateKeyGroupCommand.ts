@@ -36,7 +36,7 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
  * 		       <ol>
  *             <li>
  * 				           <p>Get the current key group with <code>GetKeyGroup</code> or
- * 					<code>GetKeyGroupConfig</code>.</p>
+ * 						<code>GetKeyGroupConfig</code>.</p>
  * 			         </li>
  *             <li>
  * 				           <p>Locally modify the fields in the key group that you want to update. For

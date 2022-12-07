@@ -28,9 +28,9 @@ export interface DeleteOriginAccessControlCommandOutput extends __MetadataBearer
 
 /**
  * <p>Deletes a CloudFront origin access control.</p>
- * 		       <p>You cannot delete an origin access control if it's in use. First, update all distributions
- * 			to remove the origin access control from all origins, then delete the origin access
- * 			control.</p>
+ * 		       <p>You cannot delete an origin access control if it's in use. First, update all
+ * 			distributions to remove the origin access control from all origins, then delete the
+ * 			origin access control.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

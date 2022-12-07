@@ -29,8 +29,8 @@ export interface ListDistributionsByKeyGroupCommandInput extends ListDistributio
 export interface ListDistributionsByKeyGroupCommandOutput extends ListDistributionsByKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
- * 			the specified key group.</p>
+ * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
+ * 			references the specified key group.</p>
  * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a

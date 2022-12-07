@@ -33,8 +33,8 @@ export interface AssociateAliasCommandOutput extends __MetadataBearer {}
  * 		       <p>To use this operation to associate an alias with a distribution, you provide the alias
  * 			and the ID of the target distribution for the alias. For more information, including how
  * 			to set up the target distribution, prerequisites that you must complete, and other
- * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
- * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different
+ * 				distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

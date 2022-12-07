@@ -25,11 +25,11 @@ export interface DeleteCachePolicyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a cache policy.</p>
- * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update your
- * 			distributions to remove the cache policy from all cache behaviors, then delete the cache
- * 			policy.</p>
- * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
- * 			values, you can use <code>ListCachePolicies</code> or
+ * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update
+ * 			your distributions to remove the cache policy from all cache behaviors, then delete the
+ * 			cache policy.</p>
+ * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get
+ * 			these values, you can use <code>ListCachePolicies</code> or
  * 			<code>GetCachePolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
