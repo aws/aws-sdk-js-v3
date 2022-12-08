@@ -36,30 +36,26 @@ export enum Severity {
 }
 
 /**
- * <p>
- *       Contains the summary of anti-patterns and their severity.
- *     </p>
+ * <p> Contains the summary of anti-patterns and their severity. </p>
  */
 export interface AntipatternSeveritySummary {
   /**
-   * <p>
-   *       Contains the severity of anti-patterns.
-   *     </p>
+   * <p> Contains the severity of anti-patterns. </p>
    */
   severity?: Severity | string;
 
   /**
-   * <p>
-   *       Contains the count of anti-patterns.
-   *     </p>
+   * <p> Contains the count of anti-patterns. </p>
    */
   count?: number;
 }
 
 export enum ApplicationComponentCriteria {
+  ANALYSIS_STATUS = "ANALYSIS_STATUS",
   APP_NAME = "APP_NAME",
   APP_TYPE = "APP_TYPE",
   DESTINATION = "DESTINATION",
+  ERROR_CATEGORY = "ERROR_CATEGORY",
   NOT_DEFINED = "NOT_DEFINED",
   SERVER_ID = "SERVER_ID",
   STRATEGY = "STRATEGY",
@@ -67,9 +63,12 @@ export enum ApplicationComponentCriteria {
 
 export enum SrcCodeOrDbAnalysisStatus {
   ANALYSIS_FAILED = "ANALYSIS_FAILED",
+  ANALYSIS_PARTIAL_SUCCESS = "ANALYSIS_PARTIAL_SUCCESS",
   ANALYSIS_STARTED = "ANALYSIS_STARTED",
   ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
   ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
+  CONFIGURED = "CONFIGURED",
+  UNCONFIGURED = "UNCONFIGURED",
 }
 
 /**
@@ -89,22 +88,53 @@ export interface S3Object {
 
 export enum AppType {
   IIS = "IIS",
+  cassandra = "Cassandra",
+  db2 = "DB2",
   dotNetFramework = "DotNetFramework",
+  dotnet = "Dotnet",
+  dotnetcore = "DotnetCore",
   java = "Java",
+  jboss = "JBoss",
+  mariadb = "Maria DB",
+  mongodb = "Mongo DB",
+  mysql = "MySQL",
   oracle = "Oracle",
   other = "Other",
+  postgresqlserver = "PostgreSQLServer",
+  spring = "Spring",
   sqlServer = "SQLServer",
+  sybase = "Sybase",
+  tomcat = "Tomcat",
+  unknown = "Unknown",
+  visualbasic = "Visual Basic",
+  weblogic = "Oracle WebLogic",
+  websphere = "IBM WebSphere",
+}
+
+export enum AppUnitErrorCategory {
+  CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
+  CREDENTIAL_ERROR = "CREDENTIAL_ERROR",
+  OTHER_ERROR = "OTHER_ERROR",
+  PERMISSION_ERROR = "PERMISSION_ERROR",
+  UNSUPPORTED_ERROR = "UNSUPPORTED_ERROR",
 }
 
 /**
- * <p>
- *       Configuration information used for assessing databases.
- *     </p>
+ * <p>Error in the analysis of the application unit.</p>
+ */
+export interface AppUnitError {
+  /**
+   * <p>The category of the error.</p>
+   */
+  appUnitErrorCategory?: AppUnitErrorCategory | string;
+}
+
+/**
+ * <p> Configuration information used for assessing databases. </p>
  */
 export interface DatabaseConfigDetail {
   /**
-   * <p>
-   *       AWS Secrets Manager key that holds the credentials that you use to connect to a database.
+   * <p> AWS Secrets Manager key that holds the credentials that you use to connect to a database.
    *     </p>
    */
   secretName?: string;
@@ -138,6 +168,7 @@ export enum TargetDestination {
   AURORA_POSTGRESQL = "Aurora PostgreSQL",
   AWS_ELASTIC_BEANSTALK = "AWS Elastic BeanStalk",
   AWS_FARGATE = "AWS Fargate",
+  BABELFISH_AURORA_POSTGRESQL = "Babelfish for Aurora PostgreSQL",
   NONE_SPECIFIED = "None specified",
 }
 
@@ -155,57 +186,42 @@ export enum TransformationToolName {
 }
 
 /**
- * <p>
- *       Information of the transformation tool that can be used to migrate and modernize the application.
- *     </p>
+ * <p> Information of the transformation tool that can be used to migrate and modernize the
+ *       application. </p>
  */
 export interface TransformationTool {
   /**
-   * <p>
-   *       Name of the tool.
-   *     </p>
+   * <p> Name of the tool. </p>
    */
   name?: TransformationToolName | string;
 
   /**
-   * <p>
-   *       Description of the tool.
-   *     </p>
+   * <p> Description of the tool. </p>
    */
   description?: string;
 
   /**
-   * <p>
-   *       URL for installing the tool.
-   *     </p>
+   * <p> URL for installing the tool. </p>
    */
   tranformationToolInstallationLink?: string;
 }
 
 /**
- * <p>
- *       Contains a recommendation set.
- *     </p>
+ * <p> Contains a recommendation set. </p>
  */
 export interface RecommendationSet {
   /**
-   * <p>
-   *       The target destination for the recommendation set.
-   *     </p>
+   * <p> The target destination for the recommendation set. </p>
    */
   transformationTool?: TransformationTool;
 
   /**
-   * <p>
-   *       The recommended target destination.
-   *     </p>
+   * <p> The recommended target destination. </p>
    */
   targetDestination?: TargetDestination | string;
 
   /**
-   * <p>
-   *       The recommended strategy.
-   *     </p>
+   * <p> The recommended strategy. </p>
    */
   strategy?: Strategy | string;
 }
@@ -216,32 +232,37 @@ export enum ResourceSubType {
   PROCESS = "Process",
 }
 
+export enum RuntimeAnalysisStatus {
+  ANALYSIS_FAILED = "ANALYSIS_FAILED",
+  ANALYSIS_STARTED = "ANALYSIS_STARTED",
+  ANALYSIS_SUCCESS = "ANALYSIS_SUCCESS",
+  ANALYSIS_TO_BE_SCHEDULED = "ANALYSIS_TO_BE_SCHEDULED",
+}
+
 /**
- * <p>
- *       Object containing source code information that is linked to an application component.
+ * <p> Object containing source code information that is linked to an application component.
  *     </p>
  */
 export interface SourceCodeRepository {
   /**
-   * <p>
-   *       The repository name for the source code.
-   *     </p>
+   * <p> The repository name for the source code. </p>
    */
   repository?: string;
 
   /**
-   * <p>
-   *       The branch of the source code.
-   *     </p>
+   * <p> The branch of the source code. </p>
    */
   branch?: string;
 
   /**
-   * <p>
-   *       The type of repository to use for the source code.
-   *     </p>
+   * <p> The type of repository to use for the source code. </p>
    */
   versionControlType?: string;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  projectName?: string;
 }
 
 /**
@@ -345,10 +366,42 @@ export interface ApplicationComponentDetail {
    * <p> Set to true if the application component is running on multiple servers.</p>
    */
   moreServerAssociationExists?: boolean;
+
+  /**
+   * <p>The status of the application unit.</p>
+   */
+  runtimeStatus?: RuntimeAnalysisStatus | string;
+
+  /**
+   * <p>The status message for the application unit.</p>
+   */
+  runtimeStatusMessage?: string;
+
+  /**
+   * <p>The error in the analysis of the source code or database.</p>
+   */
+  appUnitError?: AppUnitError;
+}
+
+/**
+ * <p>Summary of the analysis status of the application component.</p>
+ */
+export interface ApplicationComponentStatusSummary {
+  /**
+   * <p>The status of database analysis.</p>
+   */
+  srcCodeOrDbAnalysisStatus?: SrcCodeOrDbAnalysisStatus | string;
+
+  /**
+   * <p>The number of application components successfully analyzed, partially successful or failed
+   *       analysis.</p>
+   */
+  count?: number;
 }
 
 export enum StrategyRecommendation {
   NOT_RECOMMENDED = "notRecommended",
+  POTENTIAL = "potential",
   RECOMMENDED = "recommended",
   VIABLE_OPTION = "viableOption",
 }
@@ -375,24 +428,24 @@ export interface ApplicationComponentStrategy {
 }
 
 /**
- * <p>
- *       Contains the summary of application components.
- *     </p>
+ * <p> Contains the summary of application components. </p>
  */
 export interface ApplicationComponentSummary {
   /**
-   * <p>
-   *       Contains the name of application types.
-   *     </p>
+   * <p> Contains the name of application types. </p>
    */
   appType?: AppType | string;
 
   /**
-   * <p>
-   *       Contains the count of application type.
-   *     </p>
+   * <p> Contains the count of application type. </p>
    */
   count?: number;
+}
+
+export enum ApplicationMode {
+  ALL = "ALL",
+  KNOWN = "KNOWN",
+  UNKNOWN = "UNKNOWN",
 }
 
 export enum AwsManagedTargetDestination {
@@ -402,15 +455,11 @@ export enum AwsManagedTargetDestination {
 }
 
 /**
- * <p>
- *       Object containing the choice of application destination that you specify.
- *     </p>
+ * <p> Object containing the choice of application destination that you specify. </p>
  */
 export interface AwsManagedResources {
   /**
-   * <p>
-   *       The choice of application destination that you specify.
-   *     </p>
+   * <p> The choice of application destination that you specify. </p>
    */
   targetDestination: (AwsManagedTargetDestination | string)[] | undefined;
 }
@@ -425,15 +474,11 @@ export enum NoPreferenceTargetDestination {
 }
 
 /**
- * <p>
- *       Object containing the choice of application destination that you specify.
- *     </p>
+ * <p> Object containing the choice of application destination that you specify. </p>
  */
 export interface NoManagementPreference {
   /**
-   * <p>
-   *       The choice of application destination that you specify.
-   *     </p>
+   * <p> The choice of application destination that you specify. </p>
    */
   targetDestination: (NoPreferenceTargetDestination | string)[] | undefined;
 }
@@ -456,9 +501,7 @@ export interface SelfManageResources {
 }
 
 /**
- * <p>
- *       Preferences for migrating an application to AWS.
- *     </p>
+ * <p> Preferences for migrating an application to AWS. </p>
  */
 export type ManagementPreference =
   | ManagementPreference.AwsManagedResourcesMember
@@ -468,9 +511,7 @@ export type ManagementPreference =
 
 export namespace ManagementPreference {
   /**
-   * <p>
-   *       Indicates interest in solutions that are managed by AWS.
-   *     </p>
+   * <p> Indicates interest in solutions that are managed by AWS. </p>
    */
   export interface AwsManagedResourcesMember {
     awsManagedResources: AwsManagedResources;
@@ -480,9 +521,7 @@ export namespace ManagementPreference {
   }
 
   /**
-   * <p>
-   *       Indicates interest in managing your own resources on AWS.
-   *     </p>
+   * <p> Indicates interest in managing your own resources on AWS. </p>
    */
   export interface SelfManageResourcesMember {
     awsManagedResources?: never;
@@ -492,9 +531,7 @@ export namespace ManagementPreference {
   }
 
   /**
-   * <p>
-   *       No specific preference.
-   *     </p>
+   * <p> No specific preference. </p>
    */
   export interface NoPreferenceMember {
     awsManagedResources?: never;
@@ -526,15 +563,11 @@ export namespace ManagementPreference {
 }
 
 /**
- * <p>
- *       Application preferences that you specify.
- *     </p>
+ * <p> Application preferences that you specify. </p>
  */
 export interface ApplicationPreferences {
   /**
-   * <p>
-   *       Application preferences that you specify to prefer managed environment.
-   *     </p>
+   * <p> Application preferences that you specify to prefer managed environment. </p>
    */
   managementPreference?: ManagementPreference;
 }
@@ -547,22 +580,42 @@ export enum AssessmentStatus {
 }
 
 /**
- * <p>
- *       Object containing the summary of the strategy recommendations.
- *     </p>
+ * <p> Object containing the summary of the strategy recommendations. </p>
  */
 export interface StrategySummary {
   /**
-   * <p>
-   *       The name of recommended strategy.
-   *     </p>
+   * <p> The name of recommended strategy. </p>
    */
   strategy?: Strategy | string;
 
   /**
-   * <p>
-   *       The count of recommendations per strategy.
-   *     </p>
+   * <p> The count of recommendations per strategy. </p>
+   */
+  count?: number;
+}
+
+export enum RunTimeAssessmentStatus {
+  DC_FAILED = "dataCollectionTaskFailed",
+  DC_PARTIAL_SUCCESS = "dataCollectionTaskPartialSuccess",
+  DC_REQ_SENT = "dataCollectionTaskScheduled",
+  DC_STARTED = "dataCollectionTaskStarted",
+  DC_STOPPED = "dataCollectionTaskStopped",
+  DC_SUCCESS = "dataCollectionTaskSuccess",
+  DC_TO_BE_SCHEDULED = "dataCollectionTaskToBeScheduled",
+}
+
+/**
+ * <p>The status summary of the server analysis.</p>
+ */
+export interface ServerStatusSummary {
+  /**
+   * <p>The status of the run time.</p>
+   */
+  runTimeAssessmentStatus?: RunTimeAssessmentStatus | string;
+
+  /**
+   * <p>The number of servers successfully analyzed, partially successful or failed
+   *       analysis.</p>
    */
   count?: number;
 }
@@ -576,115 +629,126 @@ export enum ServerOsType {
 }
 
 /**
- * <p>
- *       Object containing details about the servers imported by Application Discovery Service
- *     </p>
+ * <p> Object containing details about the servers imported by Application Discovery Service </p>
  */
 export interface ServerSummary {
   /**
-   * <p>
-   *       Type of operating system for the servers.
-   *     </p>
+   * <p> Type of operating system for the servers. </p>
    */
   ServerOsType?: ServerOsType | string;
 
   /**
-   * <p>
-   *       Number of servers.
-   *     </p>
+   * <p> Number of servers. </p>
    */
   count?: number;
 }
 
 /**
- * <p>
- *       Contains the summary of the assessment results.
- *     </p>
+ * <p> Contains the summary of the assessment results. </p>
  */
 export interface AssessmentSummary {
   /**
-   * <p>
-   *       List of ServerStrategySummary.
-   *     </p>
+   * <p> List of ServerStrategySummary. </p>
    */
   listServerStrategySummary?: StrategySummary[];
 
   /**
-   * <p>
-   *       List of ApplicationComponentStrategySummary.
-   *     </p>
+   * <p> List of ApplicationComponentStrategySummary. </p>
    */
   listApplicationComponentStrategySummary?: StrategySummary[];
 
   /**
-   * <p>
-   *       List of AntipatternSeveritySummary.
-   *     </p>
+   * <p> List of AntipatternSeveritySummary. </p>
    */
   listAntipatternSeveritySummary?: AntipatternSeveritySummary[];
 
   /**
-   * <p>
-   *       List of ApplicationComponentSummary.
-   *     </p>
+   * <p> List of ApplicationComponentSummary. </p>
    */
   listApplicationComponentSummary?: ApplicationComponentSummary[];
 
   /**
-   * <p>
-   *       List of ServerSummary.
-   *     </p>
+   * <p> List of ServerSummary. </p>
    */
   listServerSummary?: ServerSummary[];
 
   /**
-   * <p>
-   *       The Amazon S3 object containing the anti-pattern report.
-   *     </p>
+   * <p> The Amazon S3 object containing the anti-pattern report. </p>
    */
   antipatternReportS3Object?: S3Object;
 
   /**
-   * <p>
-   *       The status of the anti-pattern report.
-   *     </p>
+   * <p> The status of the anti-pattern report. </p>
    */
   antipatternReportStatus?: AntipatternReportStatus | string;
 
   /**
-   * <p>
-   *       The status message of the anti-pattern report.
-   *     </p>
+   * <p> The status message of the anti-pattern report. </p>
    */
   antipatternReportStatusMessage?: string;
 
   /**
-   * <p>
-   *       The time the assessment was performed.
-   *     </p>
+   * <p> The time the assessment was performed. </p>
    */
   lastAnalyzedTimestamp?: Date;
+
+  /**
+   * <p>List of status summaries of the analyzed application components.</p>
+   */
+  listApplicationComponentStatusSummary?: ApplicationComponentStatusSummary[];
+
+  /**
+   * <p>List of status summaries of the analyzed servers.</p>
+   */
+  listServerStatusSummary?: ServerStatusSummary[];
+}
+
+export enum Condition {
+  CONTAINS = "CONTAINS",
+  EQUALS = "EQUALS",
+  NOT_CONTAINS = "NOT_CONTAINS",
+  NOT_EQUALS = "NOT_EQUALS",
 }
 
 /**
- * <p>
- *       Object containing details about applications as defined in Application Discovery Service.
- *     </p>
+ * <p>Defines the criteria of assessment.</p>
+ */
+export interface AssessmentTarget {
+  /**
+   * <p>Condition of an assessment.</p>
+   */
+  condition: Condition | string | undefined;
+
+  /**
+   * <p>Name of an assessment.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Values of an assessment.</p>
+   */
+  values: string[] | undefined;
+}
+
+/**
+ * <p> Object containing details about applications as defined in Application Discovery Service. </p>
  */
 export interface AssociatedApplication {
   /**
-   * <p>
-   *       Name of the application as defined in Application Discovery Service.
-   *     </p>
+   * <p> Name of the application as defined in Application Discovery Service. </p>
    */
   name?: string;
 
   /**
-   * <p>
-   *       ID of the application as defined in Application Discovery Service.
-   *     </p>
+   * <p> ID of the application as defined in Application Discovery Service. </p>
    */
   id?: string;
+}
+
+export enum AuthType {
+  CERT = "CERT",
+  NTLM = "NTLM",
+  SSH = "SSH",
 }
 
 export interface GetApplicationComponentDetailsRequest {
@@ -833,6 +897,11 @@ export interface DataCollectionDetails {
    * <p> The time the assessment completes. </p>
    */
   completionTime?: Date;
+
+  /**
+   * <p>The status message of the assessment.</p>
+   */
+  statusMessage?: string;
 }
 
 export interface GetAssessmentResponse {
@@ -845,12 +914,16 @@ export interface GetAssessmentResponse {
    * <p> Detailed information about the assessment. </p>
    */
   dataCollectionDetails?: DataCollectionDetails;
+
+  /**
+   * <p>List of criteria for assessment.</p>
+   */
+  assessmentTargets?: AssessmentTarget[];
 }
 
 export interface GetImportFileTaskRequest {
   /**
-   * <p> The ID of the import file task. This ID is returned in the response of
-   *       <a>StartImportFileTask</a>. </p>
+   * <p> The ID of the import file task. This ID is returned in the response of <a>StartImportFileTask</a>. </p>
    */
   id: string | undefined;
 }
@@ -943,6 +1016,34 @@ export class ValidationException extends __BaseException {
   }
 }
 
+/**
+ * <p>Dependency encountered an error.</p>
+ */
+export class DependencyException extends __BaseException {
+  readonly name: "DependencyException" = "DependencyException";
+  readonly $fault: "server" = "server";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DependencyException, __BaseException>) {
+    super({
+      name: "DependencyException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DependencyException.prototype);
+  }
+}
+
+export interface GetLatestAssessmentIdRequest {}
+
+export interface GetLatestAssessmentIdResponse {
+  /**
+   * <p>The latest ID for the specific assessment task.</p>
+   */
+  id?: string;
+}
+
 export interface GetPortfolioPreferencesRequest {}
 
 export enum DatabaseManagementPreference {
@@ -965,15 +1066,11 @@ export enum HeterogeneousTargetDatabaseEngine {
 }
 
 /**
- * <p>
- *       The object containing details about heterogeneous database preferences.
- *     </p>
+ * <p> The object containing details about heterogeneous database preferences. </p>
  */
 export interface Heterogeneous {
   /**
-   * <p>
-   *       The target database engine for heterogeneous database migration preference.
-   *     </p>
+   * <p> The target database engine for heterogeneous database migration preference. </p>
    */
   targetDatabaseEngine: (HeterogeneousTargetDatabaseEngine | string)[] | undefined;
 }
@@ -983,15 +1080,11 @@ export enum HomogeneousTargetDatabaseEngine {
 }
 
 /**
- * <p>
- *       The object containing details about homogeneous database preferences.
- *     </p>
+ * <p> The object containing details about homogeneous database preferences. </p>
  */
 export interface Homogeneous {
   /**
-   * <p>
-   *       The target database engine for homogeneous database migration preferences.
-   *     </p>
+   * <p> The target database engine for homogeneous database migration preferences. </p>
    */
   targetDatabaseEngine?: (HomogeneousTargetDatabaseEngine | string)[];
 }
@@ -1015,17 +1108,13 @@ export enum TargetDatabaseEngine {
  */
 export interface NoDatabaseMigrationPreference {
   /**
-   * <p>
-   *       The target database engine for database migration preference that you specify.
-   *     </p>
+   * <p> The target database engine for database migration preference that you specify. </p>
    */
   targetDatabaseEngine: (TargetDatabaseEngine | string)[] | undefined;
 }
 
 /**
- * <p>
- *       Preferences for migrating a database to AWS.
- *     </p>
+ * <p> Preferences for migrating a database to AWS. </p>
  */
 export type DatabaseMigrationPreference =
   | DatabaseMigrationPreference.HeterogeneousMember
@@ -1057,9 +1146,7 @@ export namespace DatabaseMigrationPreference {
   }
 
   /**
-   * <p>
-   *       Indicated that you do not prefer heterogeneous or homogeneous.
-   *     </p>
+   * <p> Indicated that you do not prefer heterogeneous or homogeneous. </p>
    */
   export interface NoPreferenceMember {
     heterogeneous?: never;
@@ -1091,9 +1178,7 @@ export namespace DatabaseMigrationPreference {
 }
 
 /**
- * <p>
- *       Preferences on managing your databases on AWS.
- *     </p>
+ * <p> Preferences on managing your databases on AWS. </p>
  */
 export interface DatabasePreferences {
   /**
@@ -1103,58 +1188,43 @@ export interface DatabasePreferences {
   databaseManagementPreference?: DatabaseManagementPreference | string;
 
   /**
-   * <p>
-   *       Specifies your preferred migration path.
-   *     </p>
+   * <p> Specifies your preferred migration path. </p>
    */
   databaseMigrationPreference?: DatabaseMigrationPreference;
 }
 
 /**
- * <p>
- *       Business goals that you specify.
- *     </p>
+ * <p> Business goals that you specify. </p>
  */
 export interface BusinessGoals {
   /**
-   * <p>
-   *       Business goal to achieve migration at a fast pace.
-   *     </p>
+   * <p> Business goal to achieve migration at a fast pace. </p>
    */
   speedOfMigration?: number;
 
   /**
-   * <p>
-   *       Business goal to reduce the operational overhead on the team by moving into managed services.
-   *     </p>
+   * <p> Business goal to reduce the operational overhead on the team by moving into managed
+   *       services. </p>
    */
   reduceOperationalOverheadWithManagedServices?: number;
 
   /**
-   * <p>
-   *       Business goal to modernize infrastructure by moving to cloud native technologies.
-   *     </p>
+   * <p> Business goal to modernize infrastructure by moving to cloud native technologies. </p>
    */
   modernizeInfrastructureWithCloudNativeTechnologies?: number;
 
   /**
-   * <p>
-   *       Business goal to reduce license costs.
-   *     </p>
+   * <p> Business goal to reduce license costs. </p>
    */
   licenseCostReduction?: number;
 }
 
 /**
- * <p>
- *       Rank of business goals based on priority.
- *     </p>
+ * <p> Rank of business goals based on priority. </p>
  */
 export interface PrioritizeBusinessGoals {
   /**
-   * <p>
-   *       Rank of business goals based on priority.
-   *     </p>
+   * <p> Rank of business goals based on priority. </p>
    */
   businessGoals?: BusinessGoals;
 }
@@ -1174,6 +1244,11 @@ export interface GetPortfolioPreferencesResponse {
    * <p> The transformation preferences for database applications. </p>
    */
   databasePreferences?: DatabasePreferences;
+
+  /**
+   * <p>The classification for application component types.</p>
+   */
+  applicationMode?: ApplicationMode | string;
 }
 
 export interface GetPortfolioSummaryRequest {}
@@ -1188,8 +1263,7 @@ export interface GetPortfolioSummaryResponse {
 
 export interface GetRecommendationReportDetailsRequest {
   /**
-   * <p> The recommendation report generation task <code>id</code> returned by
-   *       <a>StartRecommendationReportGeneration</a>. </p>
+   * <p> The recommendation report generation task <code>id</code> returned by <a>StartRecommendationReportGeneration</a>. </p>
    */
   id: string | undefined;
 }
@@ -1201,50 +1275,36 @@ export enum RecommendationReportStatus {
 }
 
 /**
- * <p>
- *      Contains detailed information about a recommendation report.
- *     </p>
+ * <p> Contains detailed information about a recommendation report. </p>
  */
 export interface RecommendationReportDetails {
   /**
-   * <p>
-   *       The status of the recommendation report generation task.
-   *     </p>
+   * <p> The status of the recommendation report generation task. </p>
    */
   status?: RecommendationReportStatus | string;
 
   /**
-   * <p>
-   *       The status message for recommendation report generation.
-   *     </p>
+   * <p> The status message for recommendation report generation. </p>
    */
   statusMessage?: string;
 
   /**
-   * <p>
-   *       The time that the recommendation report generation task starts.
-   *     </p>
+   * <p> The time that the recommendation report generation task starts. </p>
    */
   startTime?: Date;
 
   /**
-   * <p>
-   *       The time that the recommendation report generation task completes.
-   *     </p>
+   * <p> The time that the recommendation report generation task completes. </p>
    */
   completionTime?: Date;
 
   /**
-   * <p>
-   *       The S3 bucket where the report file is located.
-   *     </p>
+   * <p> The S3 bucket where the report file is located. </p>
    */
   s3Bucket?: string;
 
   /**
-   * <p>
-   *       The Amazon S3 key name of the report file.
-   *     </p>
+   * <p> The Amazon S3 key name of the report file. </p>
    */
   s3Keys?: string[];
 }
@@ -1280,47 +1340,46 @@ export interface GetServerDetailsRequest {
   maxResults?: number;
 }
 
-export enum RunTimeAssessmentStatus {
-  DC_FAILED = "dataCollectionTaskFailed",
-  DC_PARTIAL_SUCCESS = "dataCollectionTaskPartialSuccess",
-  DC_REQ_SENT = "dataCollectionTaskScheduled",
-  DC_STARTED = "dataCollectionTaskStarted",
-  DC_STOPPED = "dataCollectionTaskStopped",
-  DC_SUCCESS = "dataCollectionTaskSuccess",
-  DC_TO_BE_SCHEDULED = "dataCollectionTaskToBeScheduled",
+export enum ServerErrorCategory {
+  ARCHITECTURE_ERROR = "ARCHITECTURE_ERROR",
+  CONNECTIVITY_ERROR = "CONNECTIVITY_ERROR",
+  CREDENTIAL_ERROR = "CREDENTIAL_ERROR",
+  OTHER_ERROR = "OTHER_ERROR",
+  PERMISSION_ERROR = "PERMISSION_ERROR",
 }
 
 /**
- * <p>
- *       Information about the server's network for which the assessment was run.
- *     </p>
+ * <p>The error in server analysis.</p>
+ */
+export interface ServerError {
+  /**
+   * <p>The error category of server analysis.</p>
+   */
+  serverErrorCategory?: ServerErrorCategory | string;
+}
+
+/**
+ * <p> Information about the server's network for which the assessment was run. </p>
  */
 export interface NetworkInfo {
   /**
-   * <p>
-   *       Information about the name of the interface of the server for which the assessment was run.
-   *     </p>
+   * <p> Information about the name of the interface of the server for which the assessment was
+   *       run. </p>
    */
   interfaceName: string | undefined;
 
   /**
-   * <p>
-   *       Information about the IP address of the server for which the assessment was run.
-   *     </p>
+   * <p> Information about the IP address of the server for which the assessment was run. </p>
    */
   ipAddress: string | undefined;
 
   /**
-   * <p>
-   *       Information about the MAC address of the server for which the assessment was run.
-   *     </p>
+   * <p> Information about the MAC address of the server for which the assessment was run. </p>
    */
   macAddress: string | undefined;
 
   /**
-   * <p>
-   *       Information about the subnet mask of the server for which the assessment was run.
-   *     </p>
+   * <p> Information about the subnet mask of the server for which the assessment was run. </p>
    */
   netMask: string | undefined;
 }
@@ -1331,57 +1390,41 @@ export enum OSType {
 }
 
 /**
- * <p>
- *       Information about the operating system.
- *     </p>
+ * <p> Information about the operating system. </p>
  */
 export interface OSInfo {
   /**
-   * <p>
-   *       Information about the type of operating system.
-   *     </p>
+   * <p> Information about the type of operating system. </p>
    */
   type?: OSType | string;
 
   /**
-   * <p>
-   *       Information about the version of operating system.
-   *     </p>
+   * <p> Information about the version of operating system. </p>
    */
   version?: string;
 }
 
 /**
- * <p>
- *       Information about the server that hosts application components.
- *     </p>
+ * <p> Information about the server that hosts application components. </p>
  */
 export interface SystemInfo {
   /**
-   * <p>
-   *       Operating system corresponding to a server.
-   *     </p>
+   * <p> Operating system corresponding to a server. </p>
    */
   osInfo?: OSInfo;
 
   /**
-   * <p>
-   *       File system type for the server.
-   *     </p>
+   * <p> File system type for the server. </p>
    */
   fileSystemType?: string;
 
   /**
-   * <p>
-   *       Networking information related to a server.
-   *     </p>
+   * <p> Networking information related to a server. </p>
    */
   networkInfoList?: NetworkInfo[];
 
   /**
-   * <p>
-   *       CPU architecture type for the server.
-   *     </p>
+   * <p> CPU architecture type for the server. </p>
    */
   cpuArchitecture?: string;
 }
@@ -1455,6 +1498,11 @@ export interface ServerDetail {
    * <p> The timestamp of when the server was assessed. </p>
    */
   lastAnalyzedTimestamp?: Date;
+
+  /**
+   * <p>The error in server analysis.</p>
+   */
+  serverError?: ServerError;
 }
 
 export interface GetServerDetailsResponse {
@@ -1520,22 +1568,16 @@ export enum GroupName {
 }
 
 /**
- * <p>
- *       The object containing information about distinct imports or groups for Strategy Recommendations.
- *     </p>
+ * <p> The object containing information about distinct imports or groups for Strategy Recommendations. </p>
  */
 export interface Group {
   /**
-   * <p>
-   *       The key of the specific import group.
-   *     </p>
+   * <p> The key of the specific import group. </p>
    */
   name?: GroupName | string;
 
   /**
-   * <p>
-   *       The value of the specific import group.
-   *     </p>
+   * <p> The value of the specific import group. </p>
    */
   value?: string;
 }
@@ -1561,7 +1603,7 @@ export interface ListApplicationComponentsRequest {
 
   /**
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
-   *       (<code>DESC</code>) order. </p>
+   *         (<code>DESC</code>) order. </p>
    */
   sort?: SortOrder | string;
 
@@ -1597,9 +1639,7 @@ export interface ListApplicationComponentsResponse {
 }
 
 /**
- * <p>
- *       Exception to indicate that the service-linked role (SLR) is locked.
- *     </p>
+ * <p> Exception to indicate that the service-linked role (SLR) is locked. </p>
  */
 export class ServiceLinkedRoleLockClientException extends __BaseException {
   readonly name: "ServiceLinkedRoleLockClientException" = "ServiceLinkedRoleLockClientException";
@@ -1637,59 +1677,164 @@ export enum CollectorHealth {
 }
 
 /**
- * <p>
- *       Process data collector that runs in the environment that you specify.
- *     </p>
+ * <p>IP address based configurations.</p>
+ */
+export interface IPAddressBasedRemoteInfo {
+  /**
+   * <p>The time stamp of the configuration.</p>
+   */
+  ipAddressConfigurationTimeStamp?: string;
+
+  /**
+   * <p>The type of authorization.</p>
+   */
+  authType?: AuthType | string;
+
+  /**
+   * <p>The type of the operating system.</p>
+   */
+  osType?: OSType | string;
+}
+
+export enum PipelineType {
+  AZURE_DEVOPS = "AZURE_DEVOPS",
+}
+
+/**
+ * <p>Detailed information of the pipeline.</p>
+ */
+export interface PipelineInfo {
+  /**
+   * <p>The type of pipeline.</p>
+   */
+  pipelineType?: PipelineType | string;
+
+  /**
+   * <p>The time when the pipeline info was configured.</p>
+   */
+  pipelineConfigurationTimeStamp?: string;
+}
+
+/**
+ * <p>Information about the server configured for source code analysis.</p>
+ */
+export interface RemoteSourceCodeAnalysisServerInfo {
+  /**
+   * <p>The time when the remote source code server was configured.</p>
+   */
+  remoteSourceCodeAnalysisServerConfigurationTimestamp?: string;
+}
+
+/**
+ * <p>Details about the server in vCenter.</p>
+ */
+export interface VcenterBasedRemoteInfo {
+  /**
+   * <p>The time when the remote server based on vCenter was last configured.</p>
+   */
+  vcenterConfigurationTimeStamp?: string;
+
+  /**
+   * <p>The type of the operating system.</p>
+   */
+  osType?: OSType | string;
+}
+
+export enum VersionControlType {
+  AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
+  GITHUB = "GITHUB",
+  GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
+}
+
+/**
+ * <p>Details about the version control configuration.</p>
+ */
+export interface VersionControlInfo {
+  /**
+   * <p>The type of version control.</p>
+   */
+  versionControlType?: VersionControlType | string;
+
+  /**
+   * <p>The time when the version control system was last configured.</p>
+   */
+  versionControlConfigurationTimeStamp?: string;
+}
+
+/**
+ * <p>Summary of the collector configuration.</p>
+ */
+export interface ConfigurationSummary {
+  /**
+   * <p>The list of vCenter configurations.</p>
+   */
+  vcenterBasedRemoteInfoList?: VcenterBasedRemoteInfo[];
+
+  /**
+   * <p>IP address based configurations.</p>
+   */
+  ipAddressBasedRemoteInfoList?: IPAddressBasedRemoteInfo[];
+
+  /**
+   * <p>The list of the version control configurations.</p>
+   */
+  versionControlInfoList?: VersionControlInfo[];
+
+  /**
+   * <p>The list of pipeline info configurations.</p>
+   */
+  pipelineInfoList?: PipelineInfo[];
+
+  /**
+   * <p>Info about the remote server source code configuration.</p>
+   */
+  remoteSourceCodeAnalysisServerInfo?: RemoteSourceCodeAnalysisServerInfo;
+}
+
+/**
+ * <p> Process data collector that runs in the environment that you specify. </p>
  */
 export interface Collector {
   /**
-   * <p>
-   *       The ID of the collector.
-   *     </p>
+   * <p> The ID of the collector. </p>
    */
   collectorId?: string;
 
   /**
-   * <p>
-   *       IP address of the server that is hosting the collector.
-   *     </p>
+   * <p> IP address of the server that is hosting the collector. </p>
    */
   ipAddress?: string;
 
   /**
-   * <p>
-   *       Hostname of the server that is hosting the collector.
-   *     </p>
+   * <p> Hostname of the server that is hosting the collector. </p>
    */
   hostName?: string;
 
   /**
-   * <p>
-   *       Indicates the health of a collector.
-   *     </p>
+   * <p> Indicates the health of a collector. </p>
    */
   collectorHealth?: CollectorHealth | string;
 
   /**
-   * <p>
-   *       Current version of the collector that is running in the environment that you specify.
+   * <p> Current version of the collector that is running in the environment that you specify.
    *     </p>
    */
   collectorVersion?: string;
 
   /**
-   * <p>
-   *       Time when the collector registered with the service.
-   *     </p>
+   * <p> Time when the collector registered with the service. </p>
    */
   registeredTimeStamp?: string;
 
   /**
-   * <p>
-   *       Time when the collector last pinged the service.
-   *     </p>
+   * <p> Time when the collector last pinged the service. </p>
    */
   lastActivityTimeStamp?: string;
+
+  /**
+   * <p>Summary of the collector configuration.</p>
+   */
+  configurationSummary?: ConfigurationSummary;
 }
 
 export interface ListCollectorsResponse {
@@ -1753,7 +1898,7 @@ export interface ImportFileTaskInformation {
   statusReportS3Bucket?: string;
 
   /**
-   * <p> The Amazon S3 key name for status report of import task. The report contains  details about
+   * <p> The Amazon S3 key name for status report of import task. The report contains details about
    *       whether each record imported successfully or why it did not. </p>
    */
   statusReportS3Key?: string;
@@ -1792,7 +1937,9 @@ export interface ListImportFileTaskResponse {
 }
 
 export enum ServerCriteria {
+  ANALYSIS_STATUS = "ANALYSIS_STATUS",
   DESTINATION = "DESTINATION",
+  ERROR_CATEGORY = "ERROR_CATEGORY",
   NOT_DEFINED = "NOT_DEFINED",
   OS_NAME = "OS_NAME",
   SERVER_ID = "SERVER_ID",
@@ -1815,7 +1962,7 @@ export interface ListServersRequest {
 
   /**
    * <p> Specifies whether to sort by ascending (<code>ASC</code>) or descending
-   *       (<code>DESC</code>) order. </p>
+   *         (<code>DESC</code>) order. </p>
    */
   sort?: SortOrder | string;
 
@@ -1850,10 +1997,8 @@ export interface ListServersResponse {
 }
 
 /**
- * <p>
- *       Exception to indicate that there is an ongoing task when a new task is created.
- *       Return when once the existing tasks are complete.
- *     </p>
+ * <p> Exception to indicate that there is an ongoing task when a new task is created. Return
+ *       when once the existing tasks are complete. </p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -1886,6 +2031,11 @@ export interface PutPortfolioPreferencesRequest {
    * <p> The transformation preferences for database applications. </p>
    */
   databasePreferences?: DatabasePreferences;
+
+  /**
+   * <p>The classification for application component types.</p>
+   */
+  applicationMode?: ApplicationMode | string;
 }
 
 export interface PutPortfolioPreferencesResponse {}
@@ -1912,27 +2062,26 @@ export class ServiceQuotaExceededException extends __BaseException {
 
 export interface StartAssessmentRequest {
   /**
-   * <p>
-   *       The S3 bucket used by the collectors to send analysis data to the service.
-   *       The bucket name must begin with <code>migrationhub-strategy-</code>.
-   *     </p>
+   * <p> The S3 bucket used by the collectors to send analysis data to the service. The bucket
+   *       name must begin with <code>migrationhub-strategy-</code>. </p>
    */
   s3bucketForAnalysisData?: string;
 
   /**
-   * <p>
-   *       The S3 bucket where all the reports generated by the service are stored.
-   *       The bucket name must begin with <code>migrationhub-strategy-</code>.
-   *     </p>
+   * <p> The S3 bucket where all the reports generated by the service are stored. The bucket name
+   *       must begin with <code>migrationhub-strategy-</code>. </p>
    */
   s3bucketForReportData?: string;
+
+  /**
+   * <p>List of criteria for assessment.</p>
+   */
+  assessmentTargets?: AssessmentTarget[];
 }
 
 export interface StartAssessmentResponse {
   /**
-   * <p>
-   *       The ID of the assessment.
-   *     </p>
+   * <p> The ID of the assessment. </p>
    */
   assessmentId?: string;
 }
@@ -1992,7 +2141,8 @@ export enum OutputFormat {
 
 export interface StartRecommendationReportGenerationRequest {
   /**
-   * <p> The output format for the recommendation report file. The default format is Microsoft Excel. </p>
+   * <p> The output format for the recommendation report file. The default format is Microsoft
+   *       Excel. </p>
    */
   outputFormat?: OutputFormat | string;
 
@@ -2019,69 +2169,61 @@ export interface StopAssessmentRequest {
 export interface StopAssessmentResponse {}
 
 export enum VersionControl {
+  AZURE_DEVOPS_GIT = "AZURE_DEVOPS_GIT",
   GITHUB = "GITHUB",
   GITHUB_ENTERPRISE = "GITHUB_ENTERPRISE",
 }
 
 /**
- * <p>
- *       Object containing source code information that is linked to an application component.
+ * <p> Object containing source code information that is linked to an application component.
  *     </p>
  */
 export interface SourceCode {
   /**
-   * <p>
-   *       The type of repository to use for the source code.
-   *     </p>
+   * <p> The type of repository to use for the source code. </p>
    */
   versionControl?: VersionControl | string;
 
   /**
-   * <p>
-   *       The branch of the source code.
-   *     </p>
+   * <p> The branch of the source code. </p>
    */
   sourceVersion?: string;
 
   /**
-   * <p>
-   *       The repository name for the source code.
-   *     </p>
+   * <p> The repository name for the source code. </p>
    */
   location?: string;
+
+  /**
+   * <p>The name of the project.</p>
+   */
+  projectName?: string;
 }
 
 /**
- * <p>
- *       Information about all the available strategy options for migrating and modernizing an application component.
- *     </p>
+ * <p> Information about all the available strategy options for migrating and modernizing an
+ *       application component. </p>
  */
 export interface StrategyOption {
   /**
-   * <p>
-   *       Type of transformation. For example, Rehost, Replatform, and so on.
-   *     </p>
+   * <p> Type of transformation. For example, Rehost, Replatform, and so on. </p>
    */
   strategy?: Strategy | string;
 
   /**
-   * <p>
-   *       The name of the tool that can be used to transform an application component using this strategy.
-   *     </p>
+   * <p> The name of the tool that can be used to transform an application component using this
+   *       strategy. </p>
    */
   toolName?: TransformationToolName | string;
 
   /**
-   * <p>
-   *       Destination information about where the application component can migrate to. For example, <code>EC2</code>, <code>ECS</code>, and so on.
-   *     </p>
+   * <p> Destination information about where the application component can migrate to. For
+   *       example, <code>EC2</code>, <code>ECS</code>, and so on. </p>
    */
   targetDestination?: TargetDestination | string;
 
   /**
-   * <p>
-   *       Indicates if a specific strategy is preferred for the application component.
-   *     </p>
+   * <p> Indicates if a specific strategy is preferred for the application component. </p>
    */
   isPreferred?: boolean;
 }
@@ -2112,6 +2254,18 @@ export interface UpdateApplicationComponentConfigRequest {
    * <p> Database credentials. </p>
    */
   secretsManagerKey?: string;
+
+  /**
+   * <p>Update the configuration request of an application component. If it is set to true, the
+   *       source code and/or database credentials are updated. If it is set to false, the source code
+   *       and/or database credentials are updated and an analysis is initiated.</p>
+   */
+  configureOnly?: boolean;
+
+  /**
+   * <p>The type of known component.</p>
+   */
+  appType?: AppType | string;
 }
 
 export interface UpdateApplicationComponentConfigResponse {}
@@ -2147,6 +2301,13 @@ export const S3ObjectFilterSensitiveLog = (obj: S3Object): any => ({
 /**
  * @internal
  */
+export const AppUnitErrorFilterSensitiveLog = (obj: AppUnitError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const DatabaseConfigDetailFilterSensitiveLog = (obj: DatabaseConfigDetail): any => ({
   ...obj,
 });
@@ -2176,6 +2337,13 @@ export const SourceCodeRepositoryFilterSensitiveLog = (obj: SourceCodeRepository
  * @internal
  */
 export const ApplicationComponentDetailFilterSensitiveLog = (obj: ApplicationComponentDetail): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ApplicationComponentStatusSummaryFilterSensitiveLog = (obj: ApplicationComponentStatusSummary): any => ({
   ...obj,
 });
 
@@ -2247,6 +2415,13 @@ export const StrategySummaryFilterSensitiveLog = (obj: StrategySummary): any => 
 /**
  * @internal
  */
+export const ServerStatusSummaryFilterSensitiveLog = (obj: ServerStatusSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ServerSummaryFilterSensitiveLog = (obj: ServerSummary): any => ({
   ...obj,
 });
@@ -2255,6 +2430,13 @@ export const ServerSummaryFilterSensitiveLog = (obj: ServerSummary): any => ({
  * @internal
  */
 export const AssessmentSummaryFilterSensitiveLog = (obj: AssessmentSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AssessmentTargetFilterSensitiveLog = (obj: AssessmentTarget): any => ({
   ...obj,
 });
 
@@ -2333,6 +2515,20 @@ export const GetImportFileTaskRequestFilterSensitiveLog = (obj: GetImportFileTas
  * @internal
  */
 export const GetImportFileTaskResponseFilterSensitiveLog = (obj: GetImportFileTaskResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLatestAssessmentIdRequestFilterSensitiveLog = (obj: GetLatestAssessmentIdRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetLatestAssessmentIdResponseFilterSensitiveLog = (obj: GetLatestAssessmentIdResponse): any => ({
   ...obj,
 });
 
@@ -2461,6 +2657,13 @@ export const GetServerDetailsRequestFilterSensitiveLog = (obj: GetServerDetailsR
 /**
  * @internal
  */
+export const ServerErrorFilterSensitiveLog = (obj: ServerError): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const NetworkInfoFilterSensitiveLog = (obj: NetworkInfo): any => ({
   ...obj,
 });
@@ -2539,6 +2742,48 @@ export const ListApplicationComponentsResponseFilterSensitiveLog = (obj: ListApp
  * @internal
  */
 export const ListCollectorsRequestFilterSensitiveLog = (obj: ListCollectorsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const IPAddressBasedRemoteInfoFilterSensitiveLog = (obj: IPAddressBasedRemoteInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PipelineInfoFilterSensitiveLog = (obj: PipelineInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RemoteSourceCodeAnalysisServerInfoFilterSensitiveLog = (obj: RemoteSourceCodeAnalysisServerInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VcenterBasedRemoteInfoFilterSensitiveLog = (obj: VcenterBasedRemoteInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const VersionControlInfoFilterSensitiveLog = (obj: VersionControlInfo): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ConfigurationSummaryFilterSensitiveLog = (obj: ConfigurationSummary): any => ({
   ...obj,
 });
 
