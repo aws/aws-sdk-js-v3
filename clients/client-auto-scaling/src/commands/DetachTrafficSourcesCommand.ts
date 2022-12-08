@@ -14,39 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
-import { CreateOrUpdateTagsType, CreateOrUpdateTagsTypeFilterSensitiveLog } from "../models/models_0";
 import {
-  deserializeAws_queryCreateOrUpdateTagsCommand,
-  serializeAws_queryCreateOrUpdateTagsCommand,
+  DetachTrafficSourcesResultType,
+  DetachTrafficSourcesResultTypeFilterSensitiveLog,
+  DetachTrafficSourcesType,
+  DetachTrafficSourcesTypeFilterSensitiveLog,
+} from "../models/models_0";
+import {
+  deserializeAws_queryDetachTrafficSourcesCommand,
+  serializeAws_queryDetachTrafficSourcesCommand,
 } from "../protocols/Aws_query";
 
-export interface CreateOrUpdateTagsCommandInput extends CreateOrUpdateTagsType {}
-export interface CreateOrUpdateTagsCommandOutput extends __MetadataBearer {}
+export interface DetachTrafficSourcesCommandInput extends DetachTrafficSourcesType {}
+export interface DetachTrafficSourcesCommandOutput extends DetachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>Creates or updates tags for the specified Auto Scaling group.</p>
- *          <p>When you specify a tag with a key that already exists, the operation overwrites the
- *             previous tag definition, and you do not get an error message.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-tagging.html">Tag Auto Scaling groups and
- *                 instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ * <p>
+ *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+ *             Do not use this API for production workloads. This API is also subject to change.</b>
+ *          </p>
+ *          <p>Detaches one or more traffic sources from the specified Auto Scaling group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, CreateOrUpdateTagsCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, CreateOrUpdateTagsCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, DetachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, DetachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const command = new CreateOrUpdateTagsCommand(input);
+ * const command = new DetachTrafficSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link CreateOrUpdateTagsCommandInput} for command's `input` shape.
- * @see {@link CreateOrUpdateTagsCommandOutput} for command's `response` shape.
+ * @see {@link DetachTrafficSourcesCommandInput} for command's `input` shape.
+ * @see {@link DetachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
-export class CreateOrUpdateTagsCommand extends $Command<
-  CreateOrUpdateTagsCommandInput,
-  CreateOrUpdateTagsCommandOutput,
+export class DetachTrafficSourcesCommand extends $Command<
+  DetachTrafficSourcesCommandInput,
+  DetachTrafficSourcesCommandOutput,
   AutoScalingClientResolvedConfig
 > {
   // Start section: command_properties
@@ -61,7 +66,7 @@ export class CreateOrUpdateTagsCommand extends $Command<
     };
   }
 
-  constructor(readonly input: CreateOrUpdateTagsCommandInput) {
+  constructor(readonly input: DetachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -74,23 +79,23 @@ export class CreateOrUpdateTagsCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<CreateOrUpdateTagsCommandInput, CreateOrUpdateTagsCommandOutput> {
+  ): Handler<DetachTrafficSourcesCommandInput, DetachTrafficSourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, CreateOrUpdateTagsCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DetachTrafficSourcesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AutoScalingClient";
-    const commandName = "CreateOrUpdateTagsCommand";
+    const commandName = "DetachTrafficSourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: CreateOrUpdateTagsTypeFilterSensitiveLog,
-      outputFilterSensitiveLog: (output: any) => output,
+      inputFilterSensitiveLog: DetachTrafficSourcesTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: DetachTrafficSourcesResultTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +105,12 @@ export class CreateOrUpdateTagsCommand extends $Command<
     );
   }
 
-  private serialize(input: CreateOrUpdateTagsCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryCreateOrUpdateTagsCommand(input, context);
+  private serialize(input: DetachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryDetachTrafficSourcesCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<CreateOrUpdateTagsCommandOutput> {
-    return deserializeAws_queryCreateOrUpdateTagsCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<DetachTrafficSourcesCommandOutput> {
+    return deserializeAws_queryDetachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

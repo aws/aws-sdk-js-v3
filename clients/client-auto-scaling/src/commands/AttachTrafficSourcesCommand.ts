@@ -15,50 +15,47 @@ import {
 
 import { AutoScalingClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AutoScalingClient";
 import {
-  DescribeLifecycleHookTypesAnswer,
-  DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
+  AttachTrafficSourcesResultType,
+  AttachTrafficSourcesResultTypeFilterSensitiveLog,
+  AttachTrafficSourcesType,
+  AttachTrafficSourcesTypeFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_queryDescribeLifecycleHookTypesCommand,
-  serializeAws_queryDescribeLifecycleHookTypesCommand,
+  deserializeAws_queryAttachTrafficSourcesCommand,
+  serializeAws_queryAttachTrafficSourcesCommand,
 } from "../protocols/Aws_query";
 
-export interface DescribeLifecycleHookTypesCommandInput {}
-export interface DescribeLifecycleHookTypesCommandOutput extends DescribeLifecycleHookTypesAnswer, __MetadataBearer {}
+export interface AttachTrafficSourcesCommandInput extends AttachTrafficSourcesType {}
+export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesResultType, __MetadataBearer {}
 
 /**
- * <p>Describes the available types of lifecycle hooks.</p>
- *          <p>The following hook types are supported:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>autoscaling:EC2_INSTANCE_LAUNCHING</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>autoscaling:EC2_INSTANCE_TERMINATING</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>
+ *             <b>Reserved for use with Amazon VPC Lattice, which is in preview and subject to change.
+ *             Do not use this API for production workloads. This API is also subject to change.</b>
+ *          </p>
+ *          <p>Attaches one or more traffic sources to the specified Auto Scaling group.</p>
+ *          <p>To describe the traffic sources for an Auto Scaling group, call the <a>DescribeTrafficSources</a> API. To detach a traffic source from the Auto Scaling
+ *             group, call the <a>DetachTrafficSources</a> API.</p>
+ *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
+ *             group.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { AutoScalingClient, DescribeLifecycleHookTypesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
- * // const { AutoScalingClient, DescribeLifecycleHookTypesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
+ * import { AutoScalingClient, AttachTrafficSourcesCommand } from "@aws-sdk/client-auto-scaling"; // ES Modules import
+ * // const { AutoScalingClient, AttachTrafficSourcesCommand } = require("@aws-sdk/client-auto-scaling"); // CommonJS import
  * const client = new AutoScalingClient(config);
- * const command = new DescribeLifecycleHookTypesCommand(input);
+ * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link DescribeLifecycleHookTypesCommandInput} for command's `input` shape.
- * @see {@link DescribeLifecycleHookTypesCommandOutput} for command's `response` shape.
+ * @see {@link AttachTrafficSourcesCommandInput} for command's `input` shape.
+ * @see {@link AttachTrafficSourcesCommandOutput} for command's `response` shape.
  * @see {@link AutoScalingClientResolvedConfig | config} for AutoScalingClient's `config` shape.
  *
  */
-export class DescribeLifecycleHookTypesCommand extends $Command<
-  DescribeLifecycleHookTypesCommandInput,
-  DescribeLifecycleHookTypesCommandOutput,
+export class AttachTrafficSourcesCommand extends $Command<
+  AttachTrafficSourcesCommandInput,
+  AttachTrafficSourcesCommandOutput,
   AutoScalingClientResolvedConfig
 > {
   // Start section: command_properties
@@ -73,7 +70,7 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     };
   }
 
-  constructor(readonly input: DescribeLifecycleHookTypesCommandInput) {
+  constructor(readonly input: AttachTrafficSourcesCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -86,23 +83,23 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: AutoScalingClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<DescribeLifecycleHookTypesCommandInput, DescribeLifecycleHookTypesCommandOutput> {
+  ): Handler<AttachTrafficSourcesCommandInput, AttachTrafficSourcesCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, DescribeLifecycleHookTypesCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, AttachTrafficSourcesCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "AutoScalingClient";
-    const commandName = "DescribeLifecycleHookTypesCommand";
+    const commandName = "AttachTrafficSourcesCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: (input: any) => input,
-      outputFilterSensitiveLog: DescribeLifecycleHookTypesAnswerFilterSensitiveLog,
+      inputFilterSensitiveLog: AttachTrafficSourcesTypeFilterSensitiveLog,
+      outputFilterSensitiveLog: AttachTrafficSourcesResultTypeFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -112,15 +109,12 @@ export class DescribeLifecycleHookTypesCommand extends $Command<
     );
   }
 
-  private serialize(input: DescribeLifecycleHookTypesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_queryDescribeLifecycleHookTypesCommand(input, context);
+  private serialize(input: AttachTrafficSourcesCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_queryAttachTrafficSourcesCommand(input, context);
   }
 
-  private deserialize(
-    output: __HttpResponse,
-    context: __SerdeContext
-  ): Promise<DescribeLifecycleHookTypesCommandOutput> {
-    return deserializeAws_queryDescribeLifecycleHookTypesCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<AttachTrafficSourcesCommandOutput> {
+    return deserializeAws_queryAttachTrafficSourcesCommand(output, context);
   }
 
   // Start section: command_body_extra

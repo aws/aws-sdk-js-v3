@@ -31,7 +31,7 @@ export interface DescribeScheduledActionsCommandOutput extends ScheduledActionsT
 /**
  * <p>Gets information about the scheduled actions that haven't run or that have not reached
  *             their end time.</p>
- *         <p>To describe the scaling activities for scheduled actions that have already run, call
+ *          <p>To describe the scaling activities for scheduled actions that have already run, call
  *             the <a>DescribeScalingActivities</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

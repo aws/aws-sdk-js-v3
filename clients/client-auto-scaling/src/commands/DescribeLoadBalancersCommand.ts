@@ -30,9 +30,9 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
 
 /**
  * <p>Gets information about the load balancers for the specified Auto Scaling group.</p>
- *         <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
+ *          <p>This operation describes only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or Gateway Load Balancer, use the
  *                 <a>DescribeLoadBalancerTargetGroups</a> API instead.</p>
- *         <p>To determine the attachment status of the load balancer, use the <code>State</code>
+ *          <p>To determine the attachment status of the load balancer, use the <code>State</code>
  *             element in the response. When you attach a load balancer to an Auto Scaling group, the initial
  *                 <code>State</code> value is <code>Adding</code>. The state transitions to
  *                 <code>Added</code> after all Auto Scaling instances are registered with the load balancer.
@@ -42,12 +42,12 @@ export interface DescribeLoadBalancersCommandOutput extends DescribeLoadBalancer
  *             and replace any instances that are reported as unhealthy. If no registered instances
  *             pass the health checks, the load balancer doesn't enter the <code>InService</code>
  *             state. </p>
- *         <p>Load balancers also have an <code>InService</code> state if you attach them in the
+ *          <p>Load balancers also have an <code>InService</code> state if you attach them in the
  *                 <a>CreateAutoScalingGroup</a> API call. If your load balancer state is
  *                 <code>InService</code>, but it is not working properly, check the scaling activities
  *             by calling <a>DescribeScalingActivities</a> and take any corrective actions
  *             necessary.</p>
- *         <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
+ *          <p>For help with failed health checks, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ts-as-healthchecks.html">Troubleshooting Amazon EC2 Auto Scaling:
  *                 Health checks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more
  *             information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-load-balancer.html">Use Elastic Load Balancing to
  *                 distribute traffic across the instances in your Auto Scaling group</a> in the

@@ -30,47 +30,47 @@ export interface PutLifecycleHookCommandOutput extends PutLifecycleHookAnswer, _
 
 /**
  * <p>Creates or updates a lifecycle hook for the specified Auto Scaling group.</p>
- *         <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
+ *          <p>Lifecycle hooks let you create solutions that are aware of events in the Auto Scaling instance
  *             lifecycle, and then perform a custom action on instances when the corresponding
  *             lifecycle event occurs.</p>
- *         <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
+ *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
  *             group:</p>
- *         <ol>
+ *          <ol>
  *             <li>
- *                 <p>(Optional) Create a launch template or launch configuration with a user data
+ *                <p>(Optional) Create a launch template or launch configuration with a user data
  *                     script that runs while an instance is in a wait state due to a lifecycle
  *                     hook.</p>
  *             </li>
  *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+ *                <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
  *                     your Lambda function when an instance is put into a wait state due to a
  *                     lifecycle hook.</p>
  *             </li>
  *             <li>
- *                 <p>(Optional) Create a notification target and an IAM role. The target can be
+ *                <p>(Optional) Create a notification target and an IAM role. The target can be
  *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish
  *                     lifecycle notifications to the target.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>Create the lifecycle hook. Specify whether the hook is
+ *                <p>
+ *                   <b>Create the lifecycle hook. Specify whether the hook is
  *                         used when the instances launch or terminate.</b>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>If you need more time, record the lifecycle action heartbeat to keep the
+ *                <p>If you need more time, record the lifecycle action heartbeat to keep the
  *                     instance in a wait state using the <a>RecordLifecycleActionHeartbeat</a> API call.</p>
  *             </li>
  *             <li>
- *                 <p>If you finish before the timeout period ends, send a callback by using the
+ *                <p>If you finish before the timeout period ends, send a callback by using the
  *                         <a>CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling
+ *          <p>If you exceed your maximum limit of lifecycle hooks, which by default is 50 per Auto Scaling
  *             group, the call fails.</p>
- *         <p>You can view the lifecycle hooks for an Auto Scaling group using the <a>DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
+ *          <p>You can view the lifecycle hooks for an Auto Scaling group using the <a>DescribeLifecycleHooks</a> API call. If you are no longer using a lifecycle
  *             hook, you can delete it by calling the <a>DeleteLifecycleHook</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

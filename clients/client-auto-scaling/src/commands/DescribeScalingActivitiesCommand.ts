@@ -30,10 +30,10 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
 
 /**
  * <p>Gets information about the scaling activities in the account and Region.</p>
- *         <p>When scaling events occur, you see a record of the scaling activity in the scaling
+ *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
  *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
  *                 activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the
+ *          <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the
  *             response is <code>Successful</code>. If an attempt to launch instances failed, the
  *                 <code>StatusCode</code> value is <code>Failed</code> or <code>Cancelled</code> and
  *             the <code>StatusMessage</code> element in the response indicates the cause of the

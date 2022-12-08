@@ -30,9 +30,9 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
 
 /**
  * <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
- *         <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
+ *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
  *             Gateway Load Balancer, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
- *         <p>When you detach a load balancer, it enters the <code>Removing</code> state while
+ *          <p>When you detach a load balancer, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
  * @example
