@@ -98,6 +98,8 @@ export interface Actuator {
   max?: number;
 
   /**
+   * @deprecated
+   *
    * <p>A specified value for the actuator.</p>
    */
   assignedValue?: string;
@@ -306,6 +308,8 @@ export interface Attribute {
   max?: number;
 
   /**
+   * @deprecated
+   *
    * <p>A specified value for the attribute.</p>
    */
   assignedValue?: string;
@@ -1592,6 +1596,7 @@ export class DecoderManifestValidationException extends __BaseException {
    * <p>The request couldn't be completed because of invalid network interfaces in the request.</p>
    */
   invalidNetworkInterfaces?: InvalidNetworkInterface[];
+
   /**
    * @internal
    */
@@ -1910,6 +1915,7 @@ export class InvalidNodeException extends __BaseException {
    * <p>The reason the node validation failed.</p>
    */
   reason?: string;
+
   /**
    * @internal
    */
