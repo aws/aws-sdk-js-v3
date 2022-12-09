@@ -17,6 +17,7 @@ import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { DelayDecider, RetryDecider, RetryQuota } from "./types";
+import { asSdkError } from "./util";
 
 /**
  * Strategy options to be passed to StandardRetryStrategy
@@ -133,7 +134,6 @@ const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => 
 
   const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
   if (!retryAfterHeaderName) return;
-
   const retryAfter = response.headers[retryAfterHeaderName];
 
   const retryAfterSeconds = Number(retryAfter);
@@ -141,11 +141,4 @@ const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => 
 
   const retryAfterDate = new Date(retryAfter);
   return retryAfterDate.getTime() - Date.now();
-};
-
-const asSdkError = (error: unknown): SdkError => {
-  if (error instanceof Error) return error;
-  if (error instanceof Object) return Object.assign(new Error(), error);
-  if (typeof error === "string") return new Error(error);
-  return new Error(`AWS SDK error wrapper for ${error}`);
 };

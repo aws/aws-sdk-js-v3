@@ -20,6 +20,7 @@ import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "@aws-sdk/util-retry";
 import { v4 } from "uuid";
 
 import { RetryResolvedConfig } from "./configurations";
+import { asSdkError } from "./util";
 
 export const retryMiddleware =
   (options: RetryResolvedConfig) =>
@@ -35,7 +36,8 @@ export const retryMiddleware =
       retryStrategy = retryStrategy as RetryStrategyV2;
       let retryToken: RetryToken = await retryStrategy.acquireInitialRetryToken(context["partition_id"]);
       let lastError: SdkError = new Error();
-      let retryCount = retryToken.getRetryCount();
+      let attempts = 0;
+      let totalRetryDelay = 0;
       const { request } = args;
       if (HttpRequest.isInstance(request)) {
         request.headers[INVOCATION_ID_HEADER] = v4();
@@ -43,21 +45,29 @@ export const retryMiddleware =
       while (true) {
         try {
           if (HttpRequest.isInstance(request)) {
-            request.headers[REQUEST_HEADER] = `attempt=${retryCount + 1}; max=${maxAttempts}`;
+            request.headers[REQUEST_HEADER] = `attempt=${attempts + 1}; max=${maxAttempts}`;
           }
-          const response = await next(args);
+          const { response, output } = await next(args);
           retryStrategy.recordSuccess(retryToken);
-          return response;
+          output.$metadata.attempts = attempts + 1;
+          output.$metadata.totalRetryDelay = totalRetryDelay;
+          return { response, output };
         } catch (e) {
           const retryErrorInfo = getRetyErrorInto(e);
-          lastError = e;
+          lastError = asSdkError(e);
           try {
             retryToken = await retryStrategy.refreshRetryTokenForRetry(retryToken, retryErrorInfo);
           } catch (refreshError) {
+            if (!lastError.$metadata) {
+              lastError.$metadata = {};
+            }
+            lastError.$metadata.attempts = attempts + 1;
+            lastError.$metadata.totalRetryDelay = totalRetryDelay;
             throw lastError;
           }
-          retryCount = retryToken.getRetryCount();
+          attempts = retryToken.getRetryCount();
           const delay = retryToken.getRetryDelay();
+          totalRetryDelay += delay;
           await new Promise((resolve) => setTimeout(resolve, delay));
         }
       }
@@ -86,20 +96,6 @@ const getRetyErrorInto = (error: SdkError): RetryErrorInfo => {
   return errorInfo;
 };
 
-const getRetryAfterHint = (response: unknown): Date | undefined => {
-  if (!HttpResponse.isInstance(response)) return;
-
-  const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
-  if (!retryAfterHeaderName) return;
-  const retryAfter = response.headers[retryAfterHeaderName];
-
-  const retryAfterSeconds = Number(retryAfter);
-  const retryAfterDate = new Date(retryAfter);
-  if (!Number.isNaN(retryAfterSeconds)) return new Date(retryAfterSeconds * 1000);
-
-  return retryAfterDate;
-};
-
 const getRetryErrorType = (error: SdkError): RetryErrorType => {
   if (isThrottlingError(error)) return "THROTTLING";
   if (isTransientError(error)) return "TRANSIENT";
@@ -120,3 +116,17 @@ export const getRetryPlugin = (options: RetryResolvedConfig): Pluggable<any, any
     clientStack.add(retryMiddleware(options), retryMiddlewareOptions);
   },
 });
+
+export const getRetryAfterHint = (response: unknown): Date | undefined => {
+  if (!HttpResponse.isInstance(response)) return;
+
+  const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
+  if (!retryAfterHeaderName) return;
+  const retryAfter = response.headers[retryAfterHeaderName];
+
+  const retryAfterSeconds = Number(retryAfter);
+  if (!Number.isNaN(retryAfterSeconds)) return new Date(retryAfterSeconds * 1000);
+
+  const retryAfterDate = new Date(retryAfter);
+  return retryAfterDate;
+};
