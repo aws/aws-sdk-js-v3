@@ -388,6 +388,7 @@
               "deprecated": true,
               "hostname": "acm-pca-fips.us-west-2.amazonaws.com"
             },
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {
@@ -505,6 +506,15 @@
             "us-east-1": {},
             "us-east-2": {},
             "us-west-1": {},
+            "us-west-2": {}
+          }
+        },
+        "aoss": {
+          "endpoints": {
+            "ap-northeast-1": {},
+            "eu-west-1": {},
+            "us-east-1": {},
+            "us-east-2": {},
             "us-west-2": {}
           }
         },
@@ -3367,6 +3377,7 @@
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
+            "eu-south-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
@@ -3430,6 +3441,7 @@
             "ca-central-1": {},
             "eu-central-1": {},
             "eu-north-1": {},
+            "eu-south-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
@@ -4688,6 +4700,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
@@ -12729,6 +12742,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.aws",
             "variants": [
               {
                 "dnsSuffix": "api.aws",
@@ -17669,8 +17683,22 @@
         },
         "athena": {
           "endpoints": {
-            "cn-north-1": {},
-            "cn-northwest-1": {}
+            "cn-north-1": {
+              "variants": [
+                {
+                  "hostname": "athena.cn-north-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            },
+            "cn-northwest-1": {
+              "variants": [
+                {
+                  "hostname": "athena.cn-northwest-1.api.amazonwebservices.com.cn",
+                  "tags": ["dualstack"]
+                }
+              ]
+            }
           }
         },
         "autoscaling": {
@@ -18325,6 +18353,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.amazonwebservices.com.cn",
             "variants": [
               {
                 "dnsSuffix": "api.amazonwebservices.com.cn",
@@ -19196,6 +19225,10 @@
                 {
                   "hostname": "athena-fips.us-gov-east-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "athena.us-gov-east-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             },
@@ -19204,6 +19237,10 @@
                 {
                   "hostname": "athena-fips.us-gov-west-1.amazonaws.com",
                   "tags": ["fips"]
+                },
+                {
+                  "hostname": "athena.us-gov-west-1.api.aws",
+                  "tags": ["dualstack"]
                 }
               ]
             }
@@ -21720,6 +21757,7 @@
         },
         "resource-explorer-2": {
           "defaults": {
+            "dnsSuffix": "api.aws",
             "variants": [
               {
                 "dnsSuffix": "api.aws",

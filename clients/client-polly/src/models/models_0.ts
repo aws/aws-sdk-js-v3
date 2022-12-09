@@ -80,6 +80,7 @@ export enum LanguageCode {
   es_ES = "es-ES",
   es_MX = "es-MX",
   es_US = "es-US",
+  fi_FI = "fi-FI",
   fr_CA = "fr-CA",
   fr_FR = "fr-FR",
   hi_IN = "hi-IN",

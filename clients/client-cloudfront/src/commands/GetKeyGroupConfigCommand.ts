@@ -34,7 +34,7 @@ export interface GetKeyGroupConfigCommandOutput extends GetKeyGroupConfigResult,
  * 			key group is referenced in a distribution’s cache behavior, you can get the key group’s
  * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
  * 			key group is not referenced in a cache behavior, you can get the identifier using
- * 			<code>ListKeyGroups</code>.</p>
+ * 				<code>ListKeyGroups</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -466,6 +466,11 @@ import {
   UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand";
 import {
+  UpdateDistributionWithStagingConfigCommand,
+  UpdateDistributionWithStagingConfigCommandInput,
+  UpdateDistributionWithStagingConfigCommandOutput,
+} from "./commands/UpdateDistributionWithStagingConfigCommand";
+import {
   UpdateFieldLevelEncryptionConfigCommand,
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
@@ -518,9 +523,10 @@ import {
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
- *             is for developers who need detailed information about
- * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers
+ * 			who need detailed information about CloudFront API actions, data types, and errors. For
+ * 			detailed information about CloudFront features, see the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFront extends CloudFrontClient {
   /**
@@ -533,8 +539,8 @@ export class CloudFront extends CloudFrontClient {
    * 		       <p>To use this operation to associate an alias with a distribution, you provide the alias
    * 			and the ID of the target distribution for the alias. For more information, including how
    * 			to set up the target distribution, prerequisites that you must complete, and other
-   * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
-   * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 			restrictions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different
+   * 				distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public associateAlias(
     args: AssociateAliasCommandInput,
@@ -566,11 +572,11 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a staging distribution using the configuration of the provided primary distribution.
-   * 			A staging distribution is a copy of an existing distribution (called the primary
-   * 			distribution) that you can use in a continuous deployment workflow.</p>
-   * 		       <p>After you create a staging distribution, you can use <code>UpdateDistribution</code> to
-   * 			modify the staging distribution’s configuration. Then you can use
+   * <p>Creates a staging distribution using the configuration of the provided primary
+   * 			distribution. A staging distribution is a copy of an existing distribution (called the
+   * 			primary distribution) that you can use in a continuous deployment workflow.</p>
+   * 		       <p>After you create a staging distribution, you can use <code>UpdateDistribution</code>
+   * 			to modify the staging distribution’s configuration. Then you can use
    * 				<code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the
    * 			staging distribution.</p>
    */
@@ -605,26 +611,28 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Creates a cache policy.</p>
-   * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it’s
-   * 			attached to a cache behavior, the cache policy determines the following:</p>
+   * 		       <p>After you create a cache policy, you can attach it to one or more cache behaviors.
+   * 			When it’s attached to a cache behavior, the cache policy determines the
+   * 			following:</p>
    * 		       <ul>
    *             <li>
-   * 				           <p>The values that CloudFront includes in the <i>cache key</i>. These values can
-   * 					include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to
-   * 					find an object in its cache that it can return to the viewer.</p>
+   * 				           <p>The values that CloudFront includes in the <i>cache key</i>. These
+   * 					values can include HTTP headers, cookies, and URL query strings. CloudFront uses the
+   * 					cache key to find an object in its cache that it can return to the
+   * 					viewer.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay
-   * 					in the CloudFront cache.</p>
+   * 				           <p>The default, minimum, and maximum time to live (TTL) values that you want
+   * 					objects to stay in the CloudFront cache.</p>
    * 			         </li>
    *          </ul>
-   * 		       <p>The headers, cookies, and query strings that are included in the cache key are automatically
-   * 			included in requests that CloudFront sends to the origin. CloudFront sends a request when it can’t
-   * 			find an object in its cache that matches the request’s cache key. If you want to send
-   * 			values to the origin but <i>not</i> include them in the cache key, use
-   * 			<code>OriginRequestPolicy</code>.</p>
+   * 		       <p>The headers, cookies, and query strings that are included in the cache key are
+   * 			automatically included in requests that CloudFront sends to the origin. CloudFront sends a request
+   * 			when it can’t find an object in its cache that matches the request’s cache key. If you
+   * 			want to send values to the origin but <i>not</i> include them in the cache
+   * 			key, use <code>OriginRequestPolicy</code>.</p>
    * 		       <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createCachePolicy(
     args: CreateCachePolicyCommandInput,
@@ -657,9 +665,10 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Creates a new origin access identity. If you're using Amazon S3 for your origin, you can
-   * 			use an origin access identity to require users to access your content using a CloudFront URL instead
-   * 			of the Amazon S3 URL. For more information about how to use origin access identities, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private Content through CloudFront</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 			use an origin access identity to require users to access your content using a CloudFront URL
+   * 			instead of the Amazon S3 URL. For more information about how to use origin access identities,
+   * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
+   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createCloudFrontOriginAccessIdentity(
     args: CreateCloudFrontOriginAccessIdentityCommandInput,
@@ -691,16 +700,15 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a continuous deployment policy that distributes traffic for a custom domain name to
-   * 			two different CloudFront distributions.</p>
-   * 		       <p>To use a continuous deployment policy, first use
-   * 			<code>CopyDistribution</code> to create a staging distribution, then use
-   * 			<code>UpdateDistribution</code> to modify the staging distribution’s
-   * 			configuration.</p>
-   * 		       <p>After you create and update a staging distribution, you can use a continuous deployment
-   * 			policy to incrementally move traffic to the staging distribution. This workflow enables
-   * 			you to test changes to a distribution’s configuration before moving all of your domain’s
-   * 			production traffic to the new configuration.</p>
+   * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
+   * 			name to two different CloudFront distributions.</p>
+   * 		       <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
+   * 			create a staging distribution, then use <code>UpdateDistribution</code> to modify the
+   * 			staging distribution’s configuration.</p>
+   * 		       <p>After you create and update a staging distribution, you can use a continuous
+   * 			deployment policy to incrementally move traffic to the staging distribution. This
+   * 			workflow enables you to test changes to a distribution’s configuration before moving all
+   * 			of your domain’s production traffic to the new configuration.</p>
    */
   public createContinuousDeploymentPolicy(
     args: CreateContinuousDeploymentPolicyCommandInput,
@@ -864,11 +872,11 @@ export class CloudFront extends CloudFrontClient {
    * 		       <p>To create a function, you provide the function code and some configuration information
    * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
    * 			identifies the function.</p>
-   * 		       <p>When you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage, you
-   * 			can test the function with <code>TestFunction</code>, and update it with
-   * 			<code>UpdateFunction</code>.</p>
+   * 		       <p>When you create a function, it’s in the <code>DEVELOPMENT</code> stage. In this stage,
+   * 			you can test the function with <code>TestFunction</code>, and update it with
+   * 				<code>UpdateFunction</code>.</p>
    * 		       <p>When you’re ready to use your function with a CloudFront distribution, use
-   * 			<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
+   * 				<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
    * 			stage to <code>LIVE</code>. When it’s live, you can attach the function to a
    * 			distribution’s cache behavior, using the function’s ARN.</p>
    */
@@ -935,13 +943,14 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
-   * 		       <p>To create a key group, you must specify at least one public key for the key group. After you
-   * 			create a key group, you can reference it from one or more cache behaviors. When you
-   * 			reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies
-   * 			for all requests that match the cache behavior. The URLs or cookies must be signed with
-   * 			a private key whose corresponding public key is in the key group. The signed URL or
-   * 			cookie contains information about which public key CloudFront should use to verify the
-   * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>To create a key group, you must specify at least one public key for the key group.
+   * 			After you create a key group, you can reference it from one or more cache behaviors.
+   * 			When you reference a key group in a cache behavior, CloudFront requires signed URLs or signed
+   * 			cookies for all requests that match the cache behavior. The URLs or cookies must be
+   * 			signed with a private key whose corresponding public key is in the key group. The signed
+   * 			URL or cookie contains information about which public key CloudFront should use to verify the
+   * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createKeyGroup(
     args: CreateKeyGroupCommandInput,
@@ -975,8 +984,8 @@ export class CloudFront extends CloudFrontClient {
   /**
    * <p>Enables additional CloudWatch metrics for the specified CloudFront distribution. The
    * 			additional metrics incur an additional cost.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/viewing-cloudfront-metrics.html#monitoring-console.distributions-additional">Viewing additional CloudFront distribution metrics</a> in
+   * 			the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createMonitoringSubscription(
     args: CreateMonitoringSubscriptionCommandInput,
@@ -1008,13 +1017,13 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Creates a new origin access control in CloudFront. After you create an origin access control, you
-   * 			can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed)
-   * 			requests to the origin.</p>
+   * <p>Creates a new origin access control in CloudFront. After you create an origin access
+   * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
+   * 			authenticated (signed) requests to the origin.</p>
    * 		       <p>For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket
    * 			so that viewers (users) can access the content in the bucket only through CloudFront.</p>
    * 		       <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting access to an Amazon S3 origin</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createOriginAccessControl(
     args: CreateOriginAccessControlCommandInput,
@@ -1047,30 +1056,32 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Creates an origin request policy.</p>
-   * 		       <p>After you create an origin request policy, you can attach it to one or more cache behaviors.
-   * 			When it’s attached to a cache behavior, the origin request policy determines the values
-   * 			that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends
-   * 			to the origin includes the following:</p>
+   * 		       <p>After you create an origin request policy, you can attach it to one or more cache
+   * 			behaviors. When it’s attached to a cache behavior, the origin request policy determines
+   * 			the values that CloudFront includes in requests that it sends to the origin. Each request that
+   * 			CloudFront sends to the origin includes the following:</p>
    * 		       <ul>
    *             <li>
    * 				           <p>The request body and the URL path (without the domain name) from the viewer
    * 					request.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>The headers that CloudFront automatically includes in every origin request, including
-   * 					<code>Host</code>, <code>User-Agent</code>, and <code>X-Amz-Cf-Id</code>.</p>
+   * 				           <p>The headers that CloudFront automatically includes in every origin request,
+   * 					including <code>Host</code>, <code>User-Agent</code>, and
+   * 						<code>X-Amz-Cf-Id</code>.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>All HTTP headers, cookies, and URL query strings that are specified in the cache policy or
-   * 					the origin request policy. These can include items from the viewer request and,
-   * 					in the case of headers, additional ones that are added by CloudFront.</p>
+   * 				           <p>All HTTP headers, cookies, and URL query strings that are specified in the
+   * 					cache policy or the origin request policy. These can include items from the
+   * 					viewer request and, in the case of headers, additional ones that are added by
+   * 					CloudFront.</p>
    * 			         </li>
    *          </ul>
    * 		       <p>CloudFront sends a request when it can’t find a valid object in its cache that matches the
    * 			request. If you want to send values to the origin and also include them in the cache
    * 			key, use <code>CachePolicy</code>.</p>
    * 		       <p>For more information about origin request policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-origin-requests.html">Controlling origin requests</a> in the
-   * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createOriginRequestPolicy(
     args: CreateOriginRequestPolicyCommandInput,
@@ -1137,7 +1148,8 @@ export class CloudFront extends CloudFrontClient {
    * <p>Creates a real-time log configuration.</p>
    * 		       <p>After you create a real-time log configuration, you can attach it to one or more cache
    * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
-   * 		       <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the
+   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public createRealtimeLogConfig(
     args: CreateRealtimeLogConfigCommandInput,
@@ -1173,10 +1185,10 @@ export class CloudFront extends CloudFrontClient {
    * 		       <p>A response headers policy contains information about a set of HTTP response headers
    * 			and their values. To create a response headers policy, you provide some metadata about
    * 			the policy, and a set of configurations that specify the response headers.</p>
-   * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or more
-   * 			cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront
-   * 			adds the headers in the policy to HTTP responses that it sends for requests that match
-   * 			the cache behavior.</p>
+   * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or
+   * 			more cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior,
+   * 			CloudFront adds the headers in the policy to HTTP responses that it sends for requests that
+   * 			match the cache behavior.</p>
    */
   public createResponseHeadersPolicy(
     args: CreateResponseHeadersPolicyCommandInput,
@@ -1208,9 +1220,9 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>This API is deprecated.
-   *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
-   *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+   * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
+   * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
+   * 			forum.</p>
    */
   public createStreamingDistribution(
     args: CreateStreamingDistributionCommandInput,
@@ -1242,9 +1254,9 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>This API is deprecated.
-   *             Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020.
-   *             For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
+   * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
+   * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
+   * 			forum.</p>
    */
   public createStreamingDistributionWithTags(
     args: CreateStreamingDistributionWithTagsCommandInput,
@@ -1277,11 +1289,11 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Deletes a cache policy.</p>
-   * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update your
-   * 			distributions to remove the cache policy from all cache behaviors, then delete the cache
-   * 			policy.</p>
-   * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get these
-   * 			values, you can use <code>ListCachePolicies</code> or
+   * 		       <p>You cannot delete a cache policy if it’s attached to a cache behavior. First update
+   * 			your distributions to remove the cache policy from all cache behaviors, then delete the
+   * 			cache policy.</p>
+   * 		       <p>To delete a cache policy, you must provide the policy’s identifier and version. To get
+   * 			these values, you can use <code>ListCachePolicies</code> or
    * 			<code>GetCachePolicy</code>.</p>
    */
   public deleteCachePolicy(
@@ -1478,12 +1490,12 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Deletes a CloudFront function.</p>
-   * 		       <p>You cannot delete a function if it’s associated with a cache behavior. First, update your
-   * 			distributions to remove the function association from all cache behaviors, then delete
-   * 			the function.</p>
+   * 		       <p>You cannot delete a function if it’s associated with a cache behavior. First, update
+   * 			your distributions to remove the function association from all cache behaviors, then
+   * 			delete the function.</p>
    * 		       <p>To delete a function, you must provide the function’s name and version
-   * 			(<code>ETag</code> value). To get these values, you can use <code>ListFunctions</code>
-   * 			and <code>DescribeFunction</code>.</p>
+   * 				(<code>ETag</code> value). To get these values, you can use
+   * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
    */
   public deleteFunction(
     args: DeleteFunctionCommandInput,
@@ -1521,7 +1533,7 @@ export class CloudFront extends CloudFrontClient {
    * 			group.</p>
    * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
    * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
-   * 			<code>GetKeyGroupConfig</code>.</p>
+   * 				<code>GetKeyGroupConfig</code>.</p>
    */
   public deleteKeyGroup(
     args: DeleteKeyGroupCommandInput,
@@ -1553,7 +1565,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Disables additional CloudWatch metrics for the specified CloudFront distribution.</p>
+   * <p>Disables additional CloudWatch metrics for the specified CloudFront
+   * 			distribution.</p>
    */
   public deleteMonitoringSubscription(
     args: DeleteMonitoringSubscriptionCommandInput,
@@ -1586,9 +1599,9 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Deletes a CloudFront origin access control.</p>
-   * 		       <p>You cannot delete an origin access control if it's in use. First, update all distributions
-   * 			to remove the origin access control from all origins, then delete the origin access
-   * 			control.</p>
+   * 		       <p>You cannot delete an origin access control if it's in use. First, update all
+   * 			distributions to remove the origin access control from all origins, then delete the
+   * 			origin access control.</p>
    */
   public deleteOriginAccessControl(
     args: DeleteOriginAccessControlCommandInput,
@@ -1621,12 +1634,12 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Deletes an origin request policy.</p>
-   * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors. First
-   * 			update your distributions to remove the origin request policy from all cache behaviors,
-   * 			then delete the origin request policy.</p>
-   * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and version. To
-   * 			get the identifier, you can use <code>ListOriginRequestPolicies</code> or
-   * 			<code>GetOriginRequestPolicy</code>.</p>
+   * 		       <p>You cannot delete an origin request policy if it’s attached to any cache behaviors.
+   * 			First update your distributions to remove the origin request policy from all cache
+   * 			behaviors, then delete the origin request policy.</p>
+   * 		       <p>To delete an origin request policy, you must provide the policy’s identifier and
+   * 			version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or
+   * 				<code>GetOriginRequestPolicy</code>.</p>
    */
   public deleteOriginRequestPolicy(
     args: DeleteOriginRequestPolicyCommandInput,
@@ -1694,8 +1707,8 @@ export class CloudFront extends CloudFrontClient {
    * 		       <p>You cannot delete a real-time log configuration if it’s attached to a cache behavior.
    * 			First update your distributions to remove the real-time log configuration from all cache
    * 			behaviors, then delete the real-time log configuration.</p>
-   * 		       <p>To delete a real-time log configuration, you can provide the configuration’s name or its
-   * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+   * 		       <p>To delete a real-time log configuration, you can provide the configuration’s name or
+   * 			its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
    * 			uses the name to identify the real-time log configuration to delete.</p>
    */
   public deleteRealtimeLogConfig(
@@ -1777,43 +1790,45 @@ export class CloudFront extends CloudFrontClient {
    * 				           <p>Disable the RTMP distribution.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Submit a <code>GET Streaming Distribution Config</code> request to get the current
-   * 					configuration and the <code>Etag</code> header for the distribution. </p>
+   * 				           <p>Submit a <code>GET Streaming Distribution Config</code> request to get the
+   * 					current configuration and the <code>Etag</code> header for the distribution.
+   * 				</p>
    * 			         </li>
    *             <li>
    * 				           <p>Update the XML document that was returned in the response to your <code>GET
-   * 						Streaming Distribution Config</code> request to change the value of <code>Enabled</code>
-   * 					to <code>false</code>.</p>
+   * 						Streaming Distribution Config</code> request to change the value of
+   * 						<code>Enabled</code> to <code>false</code>.</p>
    * 			         </li>
    *             <li>
    * 				           <p>Submit a <code>PUT Streaming Distribution Config</code> request to update the
-   * 					configuration for your distribution. In the request body, include the XML document that
-   * 					you updated in Step 3. Then set the value of the HTTP <code>If-Match</code> header to the
-   * 					value of the <code>ETag</code> header that CloudFront returned when you submitted the <code>GET
-   * 						Streaming Distribution Config</code> request in Step 2.</p>
+   * 					configuration for your distribution. In the request body, include the XML
+   * 					document that you updated in Step 3. Then set the value of the HTTP
+   * 						<code>If-Match</code> header to the value of the <code>ETag</code> header
+   * 					that CloudFront returned when you submitted the <code>GET Streaming Distribution
+   * 						Config</code> request in Step 2.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Review the response to the <code>PUT Streaming Distribution Config</code> request
-   * 					to confirm that the distribution was successfully disabled.</p>
+   * 				           <p>Review the response to the <code>PUT Streaming Distribution Config</code>
+   * 					request to confirm that the distribution was successfully disabled.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Submit a <code>GET Streaming Distribution Config</code> request to confirm that
-   * 					your changes have propagated. When propagation is complete, the value of
+   * 				           <p>Submit a <code>GET Streaming Distribution Config</code> request to confirm
+   * 					that your changes have propagated. When propagation is complete, the value of
    * 						<code>Status</code> is <code>Deployed</code>.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Submit a <code>DELETE Streaming Distribution</code> request. Set the value of the
-   * 					HTTP <code>If-Match</code> header to the value of the <code>ETag</code> header that CloudFront
-   * 					returned when you submitted the <code>GET Streaming Distribution Config</code> request in
-   * 					Step 2.</p>
+   * 				           <p>Submit a <code>DELETE Streaming Distribution</code> request. Set the value of
+   * 					the HTTP <code>If-Match</code> header to the value of the <code>ETag</code>
+   * 					header that CloudFront returned when you submitted the <code>GET Streaming
+   * 						Distribution Config</code> request in Step 2.</p>
    * 			         </li>
    *             <li>
-   * 				           <p>Review the response to your <code>DELETE Streaming Distribution</code> request to
-   * 					confirm that the distribution was successfully deleted.</p>
+   * 				           <p>Review the response to your <code>DELETE Streaming Distribution</code> request
+   * 					to confirm that the distribution was successfully deleted.</p>
    * 			         </li>
    *          </ol>
-   * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a Distribution</a> in the
-   * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a
+   * 				Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   public deleteStreamingDistribution(
     args: DeleteStreamingDistributionCommandInput,
@@ -1845,8 +1860,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets configuration information and metadata about a CloudFront function, but not the function’s
-   * 			code. To get a function’s code, use <code>GetFunction</code>.</p>
+   * <p>Gets configuration information and metadata about a CloudFront function, but not the
+   * 			function’s code. To get a function’s code, use <code>GetFunction</code>.</p>
    * 		       <p>To get configuration information and metadata about a function, you must provide the
    * 			function’s name and stage. To get these values, you can use
    * 			<code>ListFunctions</code>.</p>
@@ -1890,11 +1905,11 @@ export class CloudFront extends CloudFrontClient {
    * 				           <p>The date and time when the policy was last modified.</p>
    * 			         </li>
    *          </ul>
-   * 		       <p>To get a cache policy, you must provide the policy’s identifier. If the cache policy is
-   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
-   * 			<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is
-   * 			not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListCachePolicies</code>.</p>
+   * 		       <p>To get a cache policy, you must provide the policy’s identifier. If the cache policy
+   * 			is attached to a distribution’s cache behavior, you can get the policy’s identifier
+   * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the cache
+   * 			policy is not attached to a cache behavior, you can get the identifier using
+   * 				<code>ListCachePolicies</code>.</p>
    */
   public getCachePolicy(
     args: GetCachePolicyCommandInput,
@@ -1927,11 +1942,11 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a cache policy configuration.</p>
-   * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the cache
-   * 			policy is attached to a distribution’s cache behavior, you can get the policy’s
+   * 		       <p>To get a cache policy configuration, you must provide the policy’s identifier. If the
+   * 			cache policy is attached to a distribution’s cache behavior, you can get the policy’s
    * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
    * 			cache policy is not attached to a cache behavior, you can get the identifier using
-   * 			<code>ListCachePolicies</code>.</p>
+   * 				<code>ListCachePolicies</code>.</p>
    */
   public getCachePolicyConfig(
     args: GetCachePolicyConfigCommandInput,
@@ -2347,12 +2362,13 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a key group, including the date and time when the key group was last modified.</p>
+   * <p>Gets a key group, including the date and time when the key group was last
+   * 			modified.</p>
    * 		       <p>To get a key group, you must provide the key group’s identifier. If the key group is
    * 			referenced in a distribution’s cache behavior, you can get the key group’s identifier
    * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
    * 			is not referenced in a cache behavior, you can get the identifier using
-   * 			<code>ListKeyGroups</code>.</p>
+   * 				<code>ListKeyGroups</code>.</p>
    */
   public getKeyGroup(args: GetKeyGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyGroupCommandOutput>;
   public getKeyGroup(args: GetKeyGroupCommandInput, cb: (err: any, data?: GetKeyGroupCommandOutput) => void): void;
@@ -2383,7 +2399,7 @@ export class CloudFront extends CloudFrontClient {
    * 			key group is referenced in a distribution’s cache behavior, you can get the key group’s
    * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
    * 			key group is not referenced in a cache behavior, you can get the identifier using
-   * 			<code>ListKeyGroups</code>.</p>
+   * 				<code>ListKeyGroups</code>.</p>
    */
   public getKeyGroupConfig(
     args: GetKeyGroupConfigCommandInput,
@@ -2415,8 +2431,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets information about whether additional CloudWatch metrics are enabled for the specified
-   * 			CloudFront distribution.</p>
+   * <p>Gets information about whether additional CloudWatch metrics are enabled for the
+   * 			specified CloudFront distribution.</p>
    */
   public getMonitoringSubscription(
     args: GetMonitoringSubscriptionCommandInput,
@@ -2521,11 +2537,12 @@ export class CloudFront extends CloudFrontClient {
    * 				           <p>The date and time when the policy was last modified.</p>
    * 			         </li>
    *          </ul>
-   * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the origin
-   * 			request policy is attached to a distribution’s cache behavior, you can get the policy’s
-   * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
-   * 			origin request policy is not attached to a cache behavior, you can get the identifier
-   * 			using <code>ListOriginRequestPolicies</code>.</p>
+   * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the
+   * 			origin request policy is attached to a distribution’s cache behavior, you can get the
+   * 			policy’s identifier using <code>ListDistributions</code> or
+   * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
+   * 			behavior, you can get the identifier using
+   * 			<code>ListOriginRequestPolicies</code>.</p>
    */
   public getOriginRequestPolicy(
     args: GetOriginRequestPolicyCommandInput,
@@ -2558,11 +2575,11 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets an origin request policy configuration.</p>
-   * 		       <p>To get an origin request policy configuration, you must provide the policy’s identifier. If
-   * 			the origin request policy is attached to a distribution’s cache behavior, you can get
-   * 			the policy’s identifier using <code>ListDistributions</code> or
-   * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
-   * 			behavior, you can get the identifier using
+   * 		       <p>To get an origin request policy configuration, you must provide the policy’s
+   * 			identifier. If the origin request policy is attached to a distribution’s cache behavior,
+   * 			you can get the policy’s identifier using <code>ListDistributions</code> or
+   * 				<code>GetDistribution</code>. If the origin request policy is not attached to a
+   * 			cache behavior, you can get the identifier using
    * 			<code>ListOriginRequestPolicies</code>.</p>
    */
   public getOriginRequestPolicyConfig(
@@ -2657,9 +2674,9 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a real-time log configuration.</p>
-   * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its Amazon
-   * 			Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the
-   * 			name to identify the real-time log configuration to get.</p>
+   * 		       <p>To get a real-time log configuration, you can provide the configuration’s name or its
+   * 			Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
+   * 			uses the name to identify the real-time log configuration to get.</p>
    */
   public getRealtimeLogConfig(
     args: GetRealtimeLogConfigCommandInput,
@@ -2691,8 +2708,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a response headers policy, including metadata (the policy’s identifier and the date and
-   * 			time when the policy was last modified).</p>
+   * <p>Gets a response headers policy, including metadata (the policy’s identifier and the
+   * 			date and time when the policy was last modified).</p>
    * 		       <p>To get a response headers policy, you must provide the policy’s identifier. If the
    * 			response headers policy is attached to a distribution’s cache behavior, you can get the
    * 			policy’s identifier using <code>ListDistributions</code> or
@@ -2734,9 +2751,9 @@ export class CloudFront extends CloudFrontClient {
    * 		       <p>To get a response headers policy configuration, you must provide the policy’s
    * 			identifier. If the response headers policy is attached to a distribution’s cache
    * 			behavior, you can get the policy’s identifier using <code>ListDistributions</code> or
-   * 			<code>GetDistribution</code>. If the response headers policy is not attached to a
+   * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
    * 			cache behavior, you can get the identifier using
-   * 			<code>ListResponseHeadersPolicies</code>.</p>
+   * 				<code>ListResponseHeadersPolicies</code>.</p>
    */
   public getResponseHeadersPolicyConfig(
     args: GetResponseHeadersPolicyConfigCommandInput,
@@ -2768,7 +2785,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
+   * <p>Gets information about a specified RTMP distribution, including the distribution
+   * 			configuration.</p>
    */
   public getStreamingDistribution(
     args: GetStreamingDistributionCommandInput,
@@ -2833,8 +2851,8 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a list of cache policies.</p>
-   * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
-   * 			only the custom policies created in your Amazon Web Services account.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by
+   * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -2913,14 +2931,14 @@ export class CloudFront extends CloudFrontClient {
    * 			input, the returned list can include <code>www.example.com</code> and the overlapping
    * 			wildcard alternate domain name (<code>*.example.com</code>), if they exist. If you
    * 			provide <code>*.example.com</code> as input, the returned list can include
-   * 			<code>*.example.com</code> and any alternate domain names covered by that wildcard (for
-   * 			example, <code>www.example.com</code>, <code>test.example.com</code>,
-   * 			<code>dev.example.com</code>, and so on), if they exist.</p>
-   * 		       <p>To list conflicting aliases, you provide the alias to search and the ID of a distribution in
-   * 			your account that has an attached SSL/TLS certificate that includes the provided alias.
-   * 			For more information, including how to set up the distribution and certificate, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different distribution</a>
-   * 			in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 				<code>*.example.com</code> and any alternate domain names covered by that wildcard
+   * 			(for example, <code>www.example.com</code>, <code>test.example.com</code>,
+   * 				<code>dev.example.com</code>, and so on), if they exist.</p>
+   * 		       <p>To list conflicting aliases, you provide the alias to search and the ID of a
+   * 			distribution in your account that has an attached SSL/TLS certificate that includes the
+   * 			provided alias. For more information, including how to set up the distribution and
+   * 			certificate, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/CNAMEs.html#alternate-domain-names-move">Moving an alternate domain name to a different
+   * 				distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -3064,8 +3082,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that references
-   * 			the specified key group.</p>
+   * <p>Gets a list of distribution IDs for distributions that have a cache behavior that
+   * 			references the specified key group.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -3142,10 +3160,10 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Gets a list of distributions that have a cache behavior that’s associated with the specified
-   * 			real-time log configuration.</p>
-   * 		       <p>You can specify the real-time log configuration by its name or its Amazon Resource Name
-   * 			(ARN). You must provide at least one. If you provide both, CloudFront uses the name to
+   * <p>Gets a list of distributions that have a cache behavior that’s associated with the
+   * 			specified real-time log configuration.</p>
+   * 		       <p>You can specify the real-time log configuration by its name or its Amazon Resource
+   * 			Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to
    * 			identify the real-time log configuration to list distributions for.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
@@ -3255,7 +3273,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>List all field-level encryption configurations that have been created in CloudFront for this account.</p>
+   * <p>List all field-level encryption configurations that have been created in CloudFront for this
+   * 			account.</p>
    */
   public listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
@@ -3287,7 +3306,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
+   * <p>Request a list of field-level encryption profiles that have been created in CloudFront for
+   * 			this account.</p>
    */
   public listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
@@ -3428,11 +3448,11 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
-   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If the
-   * 			total number of items in the list exceeds the maximum that you specify, or the default
-   * 			maximum, the response is paginated. To get the next page of items, send another request
-   * 			that specifies the <code>NextMarker</code> value from the current response as the
-   * 			<code>Marker</code> value in the next request.</p>
+   * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+   * 			the total number of items in the list exceeds the maximum that you specify, or the
+   * 			default maximum, the response is paginated. To get the next page of items, send another
+   * 			request that specifies the <code>NextMarker</code> value from the current response as
+   * 			the <code>Marker</code> value in the next request.</p>
    */
   public listOriginAccessControls(
     args: ListOriginAccessControlsCommandInput,
@@ -3465,8 +3485,8 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Gets a list of origin request policies.</p>
-   * 		       <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or
-   * 			only the custom policies created in your Amazon Web Services account.</p>
+   * 		       <p>You can optionally apply a filter to return only the managed policies created by
+   * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
    * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
    * 			the total number of items in the list exceeds the maximum that you specify, or the
    * 			default maximum, the response is paginated. To get the next page of items, send a
@@ -3675,15 +3695,16 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code>
-   * 			stage to <code>LIVE</code>. This automatically updates all cache behaviors that are
-   * 			using this function to use the newly published copy in the <code>LIVE</code>
-   * 			stage.</p>
-   * 		       <p>When a function is published to the <code>LIVE</code> stage, you can attach the function to
-   * 			a distribution’s cache behavior, using the function’s Amazon Resource Name (ARN).</p>
-   * 		       <p>To publish a function, you must provide the function’s name and version (<code>ETag</code>
-   * 			value). To get these values, you can use <code>ListFunctions</code> and
-   * 			<code>DescribeFunction</code>.</p>
+   * <p>Publishes a CloudFront function by copying the function code from the
+   * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
+   * 			cache behaviors that are using this function to use the newly published copy in the
+   * 				<code>LIVE</code> stage.</p>
+   * 		       <p>When a function is published to the <code>LIVE</code> stage, you can attach the
+   * 			function to a distribution’s cache behavior, using the function’s Amazon Resource Name
+   * 			(ARN).</p>
+   * 		       <p>To publish a function, you must provide the function’s name and version
+   * 				(<code>ETag</code> value). To get these values, you can use
+   * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
    */
   public publishFunction(
     args: PublishFunctionCommandInput,
@@ -3742,15 +3763,15 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Tests a CloudFront function.</p>
-   * 		       <p>To test a function, you provide an <i>event object</i> that represents an HTTP
-   * 			request or response that your CloudFront distribution could receive in production. CloudFront runs
-   * 			the function, passing it the event object that you provided, and returns the function’s
-   * 			result (the modified event object) in the response. The response also contains function
-   * 			logs and error messages, if any exist. For more information about testing functions, see
-   * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
-   * 		       <p>To test a function, you provide the function’s name and version (<code>ETag</code> value)
-   * 			along with the event object. To get the function’s name and version, you can use
-   * 			<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+   * 		       <p>To test a function, you provide an <i>event object</i> that represents
+   * 			an HTTP request or response that your CloudFront distribution could receive in production.
+   * 			CloudFront runs the function, passing it the event object that you provided, and returns the
+   * 			function’s result (the modified event object) in the response. The response also
+   * 			contains function logs and error messages, if any exist. For more information about
+   * 			testing functions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
+   * 		       <p>To test a function, you provide the function’s name and version (<code>ETag</code>
+   * 			value) along with the event object. To get the function’s name and version, you can use
+   * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
    */
   public testFunction(
     args: TestFunctionCommandInput,
@@ -3892,9 +3913,10 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Updates a continuous deployment policy. You can update a continuous deployment policy to
-   * 			enable or disable it, to change the percentage of traffic that it sends to the staging
-   * 			distribution, or to change the staging distribution that it sends traffic to.</p>
+   * <p>Updates a continuous deployment policy. You can update a continuous deployment policy
+   * 			to enable or disable it, to change the percentage of traffic that it sends to the
+   * 			staging distribution, or to change the staging distribution that it sends traffic
+   * 			to.</p>
    * 		       <p>When you update a continuous deployment policy configuration, all the fields are
    * 			updated with the values that are provided in the request. You cannot update some fields
    * 			independent of others. To update a continuous deployment policy configuration:</p>
@@ -3945,21 +3967,22 @@ export class CloudFront extends CloudFrontClient {
 
   /**
    * <p>Updates the configuration for a CloudFront distribution.</p>
-   * 		       <p>The update process includes getting the current distribution configuration, updating it to
-   * 			make your changes, and then submitting an <code>UpdateDistribution</code> request to
-   * 			make the updates.</p>
+   * 		       <p>The update process includes getting the current distribution configuration, updating
+   * 			it to make your changes, and then submitting an <code>UpdateDistribution</code> request
+   * 			to make the updates.</p>
    *
    * 		       <p>
-   *             <b>To update a web distribution using the CloudFront API</b>
+   *             <b>To update a web distribution using the CloudFront
+   * 			API</b>
    *          </p>
    * 		       <ol>
    *             <li>
-   *                <p>Use <code>GetDistributionConfig</code> to get the current configuration, including the version
-   * 					identifier (<code>ETag</code>).</p>
+   * 				           <p>Use <code>GetDistributionConfig</code> to get the current configuration,
+   * 					including the version identifier (<code>ETag</code>).</p>
    * 			         </li>
    *             <li>
-   *                <p>Update the distribution configuration that was returned in the response. Note the following
-   * 					important requirements and restrictions:</p>
+   * 				           <p>Update the distribution configuration that was returned in the response. Note
+   * 					the following important requirements and restrictions:</p>
    * 				           <ul>
    *                   <li>
    * 						               <p>You must rename the <code>ETag</code> field to <code>IfMatch</code>,
@@ -3973,11 +3996,11 @@ export class CloudFront extends CloudFrontClient {
    *                </ul>
    * 			         </li>
    *             <li>
-   *                <p>Submit an <code>UpdateDistribution</code> request, providing the distribution configuration.
-   * 					The new configuration replaces the existing configuration. The values that you
-   * 					specify in an <code>UpdateDistribution</code> request are not merged into your
-   * 					existing configuration. Make sure to include all fields: the ones that you
-   * 					modified and also the ones that you didn’t.</p>
+   * 				           <p>Submit an <code>UpdateDistribution</code> request, providing the distribution
+   * 					configuration. The new configuration replaces the existing configuration. The
+   * 					values that you specify in an <code>UpdateDistribution</code> request are not
+   * 					merged into your existing configuration. Make sure to include all fields: the
+   * 					ones that you modified and also the ones that you didn’t.</p>
    * 			         </li>
    *          </ol>
    */
@@ -4000,6 +4023,47 @@ export class CloudFront extends CloudFrontClient {
     cb?: (err: any, data?: UpdateDistributionCommandOutput) => void
   ): Promise<UpdateDistributionCommandOutput> | void {
     const command = new UpdateDistributionCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Copies the staging distribution's configuration to its corresponding primary
+   * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
+   * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
+   * 			but otherwise its configuration is overwritten to match the staging distribution.</p>
+   * 		       <p>You can use this operation in a continuous deployment workflow after you have tested
+   * 			configuration changes on the staging distribution. After using a continuous deployment
+   * 			policy to move a portion of your domain name’s traffic to the staging distribution and
+   * 			verifying that it works as intended, you can use this operation to copy the staging
+   * 			distribution’s configuration to the primary distribution. This action will disable the
+   * 			continuous deployment policy and move your domain’s traffic back to the primary distribution.</p>
+   */
+  public updateDistributionWithStagingConfig(
+    args: UpdateDistributionWithStagingConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDistributionWithStagingConfigCommandOutput>;
+  public updateDistributionWithStagingConfig(
+    args: UpdateDistributionWithStagingConfigCommandInput,
+    cb: (err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void
+  ): void;
+  public updateDistributionWithStagingConfig(
+    args: UpdateDistributionWithStagingConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void
+  ): void;
+  public updateDistributionWithStagingConfig(
+    args: UpdateDistributionWithStagingConfigCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void),
+    cb?: (err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void
+  ): Promise<UpdateDistributionWithStagingConfigCommandOutput> | void {
+    const command = new UpdateDistributionWithStagingConfigCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -4078,9 +4142,9 @@ export class CloudFront extends CloudFrontClient {
    * <p>Updates a CloudFront function.</p>
    * 		       <p>You can update a function’s code or the comment that describes the function. You
    * 			cannot update a function’s name.</p>
-   * 		       <p>To update a function, you provide the function’s name and version (<code>ETag</code> value)
-   * 			along with the updated function code. To get the name and version, you can use
-   * 			<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+   * 		       <p>To update a function, you provide the function’s name and version (<code>ETag</code>
+   * 			value) along with the updated function code. To get the name and version, you can use
+   * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
    */
   public updateFunction(
     args: UpdateFunctionCommandInput,
@@ -4119,7 +4183,7 @@ export class CloudFront extends CloudFrontClient {
    * 		       <ol>
    *             <li>
    * 				           <p>Get the current key group with <code>GetKeyGroup</code> or
-   * 					<code>GetKeyGroupConfig</code>.</p>
+   * 						<code>GetKeyGroupConfig</code>.</p>
    * 			         </li>
    *             <li>
    * 				           <p>Locally modify the fields in the key group that you want to update. For
@@ -4199,7 +4263,8 @@ export class CloudFront extends CloudFrontClient {
    * 			others. To update an origin request policy configuration:</p>
    * 		       <ol>
    *             <li>
-   * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current configuration.</p>
+   * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current
+   * 					configuration.</p>
    * 			         </li>
    *             <li>
    * 				           <p>Locally modify the fields in the origin request policy configuration that you
@@ -4242,7 +4307,8 @@ export class CloudFront extends CloudFrontClient {
   }
 
   /**
-   * <p>Update public key information. Note that the only value you can change is the comment.</p>
+   * <p>Update public key information. Note that the only value you can change is the
+   * 			comment.</p>
    */
   public updatePublicKey(
     args: UpdatePublicKeyCommandInput,
@@ -4294,7 +4360,7 @@ export class CloudFront extends CloudFrontClient {
    * 			         </li>
    *          </ol>
    * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
-   * 			<code>ARN</code>.</p>
+   * 				<code>ARN</code>.</p>
    */
   public updateRealtimeLogConfig(
     args: UpdateRealtimeLogConfigCommandInput,

@@ -30,6 +30,26 @@ export interface CreateVerifiedAccessTrustProviderCommandOutput
   extends CreateVerifiedAccessTrustProviderResult,
     __MetadataBearer {}
 
+/**
+ * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+ *          information for users and devices. When an application request is made, the identity
+ *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
+ *          denying the application request.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, CreateVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, CreateVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new CreateVerifiedAccessTrustProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link CreateVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
+ * @see {@link CreateVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class CreateVerifiedAccessTrustProviderCommand extends $Command<
   CreateVerifiedAccessTrustProviderCommandInput,
   CreateVerifiedAccessTrustProviderCommandOutput,

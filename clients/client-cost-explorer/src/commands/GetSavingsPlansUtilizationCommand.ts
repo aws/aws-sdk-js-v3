@@ -29,9 +29,13 @@ export interface GetSavingsPlansUtilizationCommandInput extends GetSavingsPlansU
 export interface GetSavingsPlansUtilizationCommandOutput extends GetSavingsPlansUtilizationResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or monthly granularity. Management account in an organization have access to member accounts. You can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the possible dimension values.</p>
- * 	        <note>
- *             <p>You can't group by any dimension values for <code>GetSavingsPlansUtilization</code>.</p>
+ * <p>Retrieves the Savings Plans utilization for your account across date ranges with daily or
+ *       monthly granularity. Management account in an organization have access to member accounts. You
+ *       can use <code>GetDimensionValues</code> in <code>SAVINGS_PLANS</code> to determine the
+ *       possible dimension values.</p>
+ *          <note>
+ *             <p>You can't group by any dimension values for
+ *         <code>GetSavingsPlansUtilization</code>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

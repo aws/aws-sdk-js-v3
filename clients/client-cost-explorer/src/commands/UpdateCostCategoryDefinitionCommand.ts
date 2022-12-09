@@ -31,7 +31,9 @@ export interface UpdateCostCategoryDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to categorize the current month’s expenses and future expenses. This won’t change categorization for the previous months.</p>
+ * <p>Updates an existing Cost Category. Changes made to the Cost Category rules will be used to
+ *       categorize the current month’s expenses and future expenses. This won’t change categorization
+ *       for the previous months.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -69,7 +69,8 @@ export interface BatchGetRecordError {
   RecordIdentifierValueAsString: string | undefined;
 
   /**
-   * <p>The error code of an error that has occured when attempting to retrieve a batch of Records. For more information on errors, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors"> Errors</a>.</p>
+   * <p>The error code of an error that has occured when attempting to retrieve a batch of
+   *          Records. For more information on errors, see <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_feature_store_GetRecord.html#API_feature_store_GetRecord_Errors">Errors</a>.</p>
    */
   ErrorCode: string | undefined;
 
@@ -122,7 +123,7 @@ export interface BatchGetRecordResponse {
   Records: BatchGetRecordResultDetail[] | undefined;
 
   /**
-   * <p>A list of errors that have occured when retrieving a batch of Records.</p>
+   * <p>A list of errors that have occurred when retrieving a batch of Records.</p>
    */
   Errors: BatchGetRecordError[] | undefined;
 
@@ -135,7 +136,7 @@ export interface BatchGetRecordResponse {
 
 /**
  * <p>An internal failure occurred. Try your request again. If the problem
- *       persists, contact AWS customer support.</p>
+ *          persists, contact Amazon Web Services customer support.</p>
  */
 export class InternalFailure extends __BaseException {
   readonly name: "InternalFailure" = "InternalFailure";
@@ -197,6 +198,11 @@ export class ValidationError extends __BaseException {
   }
 }
 
+export enum TargetStore {
+  OFFLINE_STORE = "OfflineStore",
+  ONLINE_STORE = "OnlineStore",
+}
+
 export interface DeleteRecordRequest {
   /**
    * <p>The name of the feature group to delete the record from. </p>
@@ -214,11 +220,16 @@ export interface DeleteRecordRequest {
    *          used to query data at a certain point in time.</p>
    */
   EventTime: string | undefined;
+
+  /**
+   * <p>A list of stores from which you're deleting the record. By default, Feature Store deletes the record from all of the stores that you're using for the <code>FeatureGroup</code>.</p>
+   */
+  TargetStores?: (TargetStore | string)[];
 }
 
 export interface GetRecordRequest {
   /**
-   * <p>The name of the feature group in which you want to put the records.</p>
+   * <p>The name of the feature group from which you want to retrieve a record.</p>
    */
   FeatureGroupName: string | undefined;
 
@@ -285,6 +296,11 @@ export interface PutRecordRequest {
    *          </ul>
    */
   Record: FeatureValue[] | undefined;
+
+  /**
+   * <p>A list of stores to which you're adding the record. By default, Feature Store adds the record to all of the stores that you're using for the <code>FeatureGroup</code>.</p>
+   */
+  TargetStores?: (TargetStore | string)[];
 }
 
 /**

@@ -35,7 +35,8 @@ export interface UpdateOriginRequestPolicyCommandOutput extends UpdateOriginRequ
  * 			others. To update an origin request policy configuration:</p>
  * 		       <ol>
  *             <li>
- * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current configuration.</p>
+ * 				           <p>Use <code>GetOriginRequestPolicyConfig</code> to get the current
+ * 					configuration.</p>
  * 			         </li>
  *             <li>
  * 				           <p>Locally modify the fields in the origin request policy configuration that you

@@ -3964,6 +3964,11 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+   *          information for users and devices. One or more trust providers can be attached to an Amazon Web Services Verified Access
+   *          instance.</p>
+   */
   public attachVerifiedAccessTrustProvider(
     args: AttachVerifiedAccessTrustProviderCommandInput,
     options?: __HttpHandlerOptions
@@ -7331,6 +7336,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>An Amazon Web Services Verified Access endpoint is where you define your application along with an optional endpoint-level access policy.</p>
+   */
   public createVerifiedAccessEndpoint(
     args: CreateVerifiedAccessEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -7360,6 +7368,12 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>An Amazon Web Services Verified Access group is a collection of Amazon Web Services Verified Access endpoints who's associated applications have
+   *          similar security requirements. Each instance within an Amazon Web Services Verified Access group shares an Amazon Web Services Verified Access policy. For
+   *          example, you can group all Amazon Web Services Verified Access instances associated with “sales” applications together and
+   *          use one common Amazon Web Services Verified Access policy.</p>
+   */
   public createVerifiedAccessGroup(
     args: CreateVerifiedAccessGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -7389,6 +7403,10 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>An Amazon Web Services Verified Access instance is a regional entity that evaluates application requests and grants
+   *          access only when your security requirements are met.</p>
+   */
   public createVerifiedAccessInstance(
     args: CreateVerifiedAccessInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -7418,6 +7436,12 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>A trust provider is a third-party entity that creates, maintains, and manages identity
+   *          information for users and devices. When an application request is made, the identity
+   *          information sent by the trust provider will be evaluated by Amazon Web Services Verified Access, before allowing or
+   *          denying the application request.</p>
+   */
   public createVerifiedAccessTrustProvider(
     args: CreateVerifiedAccessTrustProviderCommandInput,
     options?: __HttpHandlerOptions
@@ -9779,6 +9803,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+   */
   public deleteVerifiedAccessEndpoint(
     args: DeleteVerifiedAccessEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -9808,6 +9835,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Delete an Amazon Web Services Verified Access group.</p>
+   */
   public deleteVerifiedAccessGroup(
     args: DeleteVerifiedAccessGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -9837,6 +9867,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Delete an Amazon Web Services Verified Access instance.</p>
+   */
   public deleteVerifiedAccessInstance(
     args: DeleteVerifiedAccessInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -9866,6 +9899,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Delete an Amazon Web Services Verified Access trust provider.</p>
+   */
   public deleteVerifiedAccessTrustProvider(
     args: DeleteVerifiedAccessTrustProviderCommandInput,
     options?: __HttpHandlerOptions
@@ -10734,7 +10770,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+   * <p>Describes the current Infrastructure Performance metric subscriptions.</p>
    */
   public describeAwsNetworkPerformanceMetricSubscriptions(
     args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
@@ -14732,6 +14768,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Describe Amazon Web Services Verified Access endpoints.</p>
+   */
   public describeVerifiedAccessEndpoints(
     args: DescribeVerifiedAccessEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -14761,6 +14800,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Describe details of existing Verified Access groups.</p>
+   */
   public describeVerifiedAccessGroups(
     args: DescribeVerifiedAccessGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -14790,6 +14832,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Describes the current logging configuration for the Amazon Web Services Verified Access instances.</p>
+   */
   public describeVerifiedAccessInstanceLoggingConfigurations(
     args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -14821,6 +14866,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Describe Verified Access instances.</p>
+   */
   public describeVerifiedAccessInstances(
     args: DescribeVerifiedAccessInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -14850,6 +14898,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Describe details of existing Verified Access trust providers.</p>
+   */
   public describeVerifiedAccessTrustProviders(
     args: DescribeVerifiedAccessTrustProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -15599,6 +15650,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+   */
   public detachVerifiedAccessTrustProvider(
     args: DetachVerifiedAccessTrustProviderCommandInput,
     options?: __HttpHandlerOptions
@@ -16809,6 +16863,13 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
+   *          This operation must be performed by the management account for the organization.</p>
+   *          <p>After you establish a trust relationship, a user in the management account or
+   *          a delegated administrator account can run a cross-account analysis using resources
+   *          from the member accounts.</p>
+   */
   public enableReachabilityAnalyzerOrganizationSharing(
     args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
     options?: __HttpHandlerOptions
@@ -18459,6 +18520,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Get the Verified Access policy associated with the endpoint.</p>
+   */
   public getVerifiedAccessEndpointPolicy(
     args: GetVerifiedAccessEndpointPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -18488,6 +18552,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Shows the contents of the Verified Access policy associated with the group.</p>
+   */
   public getVerifiedAccessGroupPolicy(
     args: GetVerifiedAccessGroupPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -20454,6 +20521,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the configuration of an Amazon Web Services Verified Access endpoint.</p>
+   */
   public modifyVerifiedAccessEndpoint(
     args: ModifyVerifiedAccessEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -20483,6 +20553,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the specified Verified Access endpoint policy.</p>
+   */
   public modifyVerifiedAccessEndpointPolicy(
     args: ModifyVerifiedAccessEndpointPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -20512,6 +20585,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the specified Verified Access group configuration.</p>
+   */
   public modifyVerifiedAccessGroup(
     args: ModifyVerifiedAccessGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -20541,6 +20617,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the specified Verified Access group policy.</p>
+   */
   public modifyVerifiedAccessGroupPolicy(
     args: ModifyVerifiedAccessGroupPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -20570,6 +20649,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the configuration of the specified Verified Access instance.</p>
+   */
   public modifyVerifiedAccessInstance(
     args: ModifyVerifiedAccessInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -20599,6 +20681,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the logging configuration for the specified Amazon Web Services Verified Access instance.</p>
+   */
   public modifyVerifiedAccessInstanceLoggingConfiguration(
     args: ModifyVerifiedAccessInstanceLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -20630,6 +20715,9 @@ export class EC2 extends EC2Client {
     }
   }
 
+  /**
+   * <p>Modifies the configuration of the specified Amazon Web Services Verified Access trust provider.</p>
+   */
   public modifyVerifiedAccessTrustProvider(
     args: ModifyVerifiedAccessTrustProviderCommandInput,
     options?: __HttpHandlerOptions

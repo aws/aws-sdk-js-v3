@@ -237,6 +237,7 @@ export class ResourceNotFoundException extends __BaseException {
 }
 
 export enum ThirdPartyFirewall {
+  FORTIGATE_CLOUD_NATIVE_FIREWALL = "FORTIGATE_CLOUD_NATIVE_FIREWALL",
   PALO_ALTO_NETWORKS_CLOUD_NGFW = "PALO_ALTO_NETWORKS_CLOUD_NGFW",
 }
 

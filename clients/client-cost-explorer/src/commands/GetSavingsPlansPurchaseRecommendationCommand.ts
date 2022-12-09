@@ -32,7 +32,10 @@ export interface GetSavingsPlansPurchaseRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves your request parameters, Savings Plan Recommendations Summary and Details. </p>
+ * <p>Retrieves the Savings Plans recommendations for your account. First use
+ *         <code>StartSavingsPlansPurchaseRecommendationGeneration</code> to generate a new set of
+ *       recommendations, and then use <code>GetSavingsPlansPurchaseRecommendation</code> to retrieve
+ *       them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

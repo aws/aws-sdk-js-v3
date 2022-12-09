@@ -3,6 +3,7 @@ import { AwsCredentialIdentity, ParsedIniData } from "@aws-sdk/types";
 
 import { FromIniInit } from "./fromIni";
 import { isAssumeRoleProfile, resolveAssumeRoleCredentials } from "./resolveAssumeRoleCredentials";
+import { isProcessProfile, resolveProcessCredentials } from "./resolveProcessCredentials";
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 import { isWebIdentityProfile, resolveWebIdentityCredentials } from "./resolveWebIdentityCredentials";
@@ -38,6 +39,12 @@ export const resolveProfileData = async (
   // web identity if web_identity_token_file and role_arn is available
   if (isWebIdentityProfile(data)) {
     return resolveWebIdentityCredentials(data, options);
+  }
+
+  // If no web identity is present, attempt to assume role with
+  // process if credential_process is available
+  if (isProcessProfile(data)) {
+    return resolveProcessCredentials(options, profileName);
   }
 
   if (isSsoProfile(data)) {

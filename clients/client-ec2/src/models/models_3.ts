@@ -152,42 +152,110 @@ export interface DeleteTransitGatewayVpcAttachmentResult {
 }
 
 export interface DeleteVerifiedAccessEndpointRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DeleteVerifiedAccessEndpointResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
 
 export interface DeleteVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DeleteVerifiedAccessGroupResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
 
 export interface DeleteVerifiedAccessInstanceRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
 }
 
 export interface DeleteVerifiedAccessInstanceResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
 export interface DeleteVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
 }
 
 export interface DeleteVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 

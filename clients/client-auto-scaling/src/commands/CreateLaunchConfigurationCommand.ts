@@ -25,13 +25,13 @@ export interface CreateLaunchConfigurationCommandOutput extends __MetadataBearer
 
 /**
  * <p>Creates a launch configuration.</p>
- *         <p>If you exceed your maximum limit of launch configurations, the call fails. To query
+ *          <p>If you exceed your maximum limit of launch configurations, the call fails. To query
  *             this limit, call the <a>DescribeAccountLimits</a> API. For information about
  *             updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-quotas.html">Quotas for
  *                 Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/LaunchConfiguration.html">Launch
  *                 configurations</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>Amazon EC2 Auto Scaling configures instances launched as part of an Auto Scaling group using either a
  *                 launch template or a launch configuration. We strongly recommend that you do not use
  *                 launch configurations. They do not provide full functionality for Amazon EC2 Auto Scaling or Amazon EC2.

@@ -30,6 +30,23 @@ export interface DetachVerifiedAccessTrustProviderCommandOutput
   extends DetachVerifiedAccessTrustProviderResult,
     __MetadataBearer {}
 
+/**
+ * <p>Detach a trust provider from an Amazon Web Services Verified Access instance.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DetachVerifiedAccessTrustProviderCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DetachVerifiedAccessTrustProviderCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DetachVerifiedAccessTrustProviderCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DetachVerifiedAccessTrustProviderCommandInput} for command's `input` shape.
+ * @see {@link DetachVerifiedAccessTrustProviderCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class DetachVerifiedAccessTrustProviderCommand extends $Command<
   DetachVerifiedAccessTrustProviderCommandInput,
   DetachVerifiedAccessTrustProviderCommandOutput,

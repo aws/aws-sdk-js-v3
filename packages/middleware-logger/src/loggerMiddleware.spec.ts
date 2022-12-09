@@ -1,4 +1,4 @@
-import { Logger, MiddlewareStack } from "@aws-sdk/types";
+import { HandlerExecutionContext, Logger, MiddlewareStack } from "@aws-sdk/types";
 
 import { getLoggerPlugin, loggerMiddleware, loggerMiddlewareOptions } from "./loggerMiddleware";
 
@@ -91,6 +91,55 @@ describe("loggerMiddleware", () => {
         commandName,
         inputFilterSensitiveLog,
         outputFilterSensitiveLog,
+      };
+
+      const response = await loggerMiddleware()(mockNext, context)(mockArgs);
+      expect(mockNext).toHaveBeenCalledTimes(1);
+      expect(response).toStrictEqual(mockResponse);
+
+      expect(inputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(inputFilterSensitiveLog).toHaveBeenCalledWith(mockArgs.input);
+
+      const { $metadata, ...outputWithoutMetadata } = mockOutput;
+      expect(outputFilterSensitiveLog).toHaveBeenCalledTimes(1);
+      expect(outputFilterSensitiveLog).toHaveBeenCalledWith(outputWithoutMetadata);
+
+      expect(logger.info).toHaveBeenCalledTimes(1);
+      expect(logger.info).toHaveBeenCalledWith({
+        clientName,
+        commandName,
+        input: mockInputLog,
+        output: mockOutputLog,
+        metadata: $metadata,
+      });
+    });
+
+    it("should use override log filters for DynamoDBDocumentClient if present", async () => {
+      mockNext.mockResolvedValueOnce(mockResponse);
+
+      const logger = { info: jest.fn() } as unknown as Logger;
+      const clientName = "mockClientName";
+      const commandName = "mockCommandName";
+
+      const mockInputLog = { inputKey: "inputKey", inputSensitiveKey: "SENSITIVE_VALUE" };
+      const inputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockInputLog);
+      const mockOutputLog = { outputKey: "outputKey", outputSensitiveKey: "SENSITIVE_VALUE" };
+      const outputFilterSensitiveLog = jest.fn().mockReturnValueOnce(mockOutputLog);
+
+      const context: HandlerExecutionContext = {
+        logger,
+        clientName,
+        commandName,
+        dynamoDbDocumentClientOptions: {
+          overrideInputFilterSensitiveLog: inputFilterSensitiveLog,
+          overrideOutputFilterSensitiveLog: outputFilterSensitiveLog,
+        },
+        inputFilterSensitiveLog() {
+          throw new Error("should not be called");
+        },
+        outputFilterSensitiveLog() {
+          throw new Error("should not be called");
+        },
       };
 
       const response = await loggerMiddleware()(mockNext, context)(mockArgs);

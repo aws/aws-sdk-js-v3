@@ -29,13 +29,13 @@ export interface CreateOriginAccessControlCommandInput extends CreateOriginAcces
 export interface CreateOriginAccessControlCommandOutput extends CreateOriginAccessControlResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new origin access control in CloudFront. After you create an origin access control, you
- * 			can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed)
- * 			requests to the origin.</p>
+ * <p>Creates a new origin access control in CloudFront. After you create an origin access
+ * 			control, you can add it to an origin in a CloudFront distribution so that CloudFront sends
+ * 			authenticated (signed) requests to the origin.</p>
  * 		       <p>For an Amazon S3 origin, this makes it possible to block public access to the Amazon S3 bucket
  * 			so that viewers (users) can access the content in the bucket only through CloudFront.</p>
  * 		       <p>For more information about using a CloudFront origin access control, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Restricting access to an Amazon S3 origin</a> in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

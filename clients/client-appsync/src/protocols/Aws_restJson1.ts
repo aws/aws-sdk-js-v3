@@ -651,7 +651,7 @@ export const serializeAws_restJson1EvaluateCodeCommand = async (
     "content-type": "application/json",
   };
   const resolvedPath =
-    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dataplane-evaluatecode";
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v1/dataplane-evaluatecode";
   let body: any;
   body = JSON.stringify({
     ...(input.code != null && { code: input.code }),

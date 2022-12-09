@@ -1657,127 +1657,395 @@ export interface ModifyTransitGatewayVpcAttachmentResult {
   TransitGatewayVpcAttachment?: TransitGatewayVpcAttachment;
 }
 
+/**
+ * <p>Describes a load balancer when creating an Amazon Web Services Verified Access endpoint using the
+ *             <code>load-balancer</code> type.</p>
+ */
 export interface ModifyVerifiedAccessEndpointLoadBalancerOptions {
+  /**
+   * <p>The IDs of the subnets.</p>
+   */
   SubnetIds?: string[];
+
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
 }
 
+/**
+ * <p>Options for a network-interface type Verified Access endpoint.</p>
+ */
 export interface ModifyVerifiedAccessEndpointEniOptions {
+  /**
+   * <p>The IP protocol.</p>
+   */
   Protocol?: VerifiedAccessEndpointProtocol | string;
+
+  /**
+   * <p>The IP port number.</p>
+   */
   Port?: number;
 }
 
 export interface ModifyVerifiedAccessEndpointRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The load balancer details if creating the Amazon Web Services Verified Access endpoint as
+   *          <code>load-balancer</code>type.</p>
+   */
   LoadBalancerOptions?: ModifyVerifiedAccessEndpointLoadBalancerOptions;
+
+  /**
+   * <p>The network interface options.</p>
+   */
   NetworkInterfaceOptions?: ModifyVerifiedAccessEndpointEniOptions;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access endpoint.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface ModifyVerifiedAccessEndpointResult {
+  /**
+   * <p>The Amazon Web Services Verified Access endpoint details.</p>
+   */
   VerifiedAccessEndpoint?: VerifiedAccessEndpoint;
 }
 
 export interface ModifyVerifiedAccessEndpointPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointId: string | undefined;
+
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface ModifyVerifiedAccessEndpointPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
 }
 
 export interface ModifyVerifiedAccessGroupRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access group.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface ModifyVerifiedAccessGroupResult {
+  /**
+   * <p>Details of Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroup?: VerifiedAccessGroup;
 }
 
 export interface ModifyVerifiedAccessGroupPolicyRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId: string | undefined;
+
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled: boolean | undefined;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface ModifyVerifiedAccessGroupPolicyResult {
+  /**
+   * <p>The status of the Verified Access policy.</p>
+   */
   PolicyEnabled?: boolean;
+
+  /**
+   * <p>The Amazon Web Services Verified Access policy document.</p>
+   */
   PolicyDocument?: string;
 }
 
 export interface ModifyVerifiedAccessInstanceRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
 }
 
 export interface ModifyVerifiedAccessInstanceResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 
+/**
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ */
 export interface VerifiedAccessLogCloudWatchLogsDestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   */
   LogGroup?: string;
 }
 
+/**
+ * <p>Describes Amazon Kinesis Data Firehose logging options.</p>
+ */
 export interface VerifiedAccessLogKinesisDataFirehoseDestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   */
   DeliveryStream?: string;
 }
 
+/**
+ * <p>Options for Amazon S3 as a logging destination.</p>
+ */
 export interface VerifiedAccessLogS3DestinationOptions {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled: boolean | undefined;
+
+  /**
+   * <p>The bucket name.</p>
+   */
   BucketName?: string;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
   Prefix?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services account that owns the Amazon S3 bucket.</p>
+   */
   BucketOwner?: string;
 }
 
+/**
+ * <p>Describes the destinations for Verified Access logs.</p>
+ */
 export interface VerifiedAccessLogOptions {
+  /**
+   * <p>Sends Verified Access logs to Amazon S3.</p>
+   */
   S3?: VerifiedAccessLogS3DestinationOptions;
+
+  /**
+   * <p>Sends Verified Access logs to CloudWatch Logs.</p>
+   */
   CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestinationOptions;
+
+  /**
+   * <p>Sends Verified Access logs to Kinesis.</p>
+   */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestinationOptions;
 }
 
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The configuration options for Amazon Web Services Verified Access instances.</p>
+   */
   AccessLogs: VerifiedAccessLogOptions | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
 }
 
 export interface ModifyVerifiedAccessInstanceLoggingConfigurationResult {
+  /**
+   * <p>The logging configuration for Amazon Web Services Verified Access instance.</p>
+   */
   LoggingConfiguration?: VerifiedAccessInstanceLoggingConfiguration;
 }
 
+/**
+ * <p>OpenID Connect options for an <code>oidc</code>-type, user-identity based trust
+ *          provider.</p>
+ */
 export interface ModifyVerifiedAccessTrustProviderOidcOptions {
+  /**
+   * <p>OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to a user's details. Each scope returns a specific set of user attributes.</p>
+   */
   Scope?: string;
 }
 
 export interface ModifyVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
   OidcOptions?: ModifyVerifiedAccessTrustProviderOidcOptions;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
 }
 
 export interface ModifyVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
 }
 
@@ -6066,7 +6334,11 @@ export interface StartNetworkInsightsAnalysisRequest {
    */
   NetworkInsightsPathId: string | undefined;
 
+  /**
+   * <p>The member accounts that contain resources that the path can traverse.</p>
+   */
   AdditionalAccounts?: string[];
+
   /**
    * <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
    */

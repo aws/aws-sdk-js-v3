@@ -96,6 +96,9 @@
           "target": "com.amazonaws.redshiftserverless#ServiceQuotaExceededException"
         },
         {
+          "target": "com.amazonaws.redshiftserverless#TooManyTagsException"
+        },
+        {
           "target": "com.amazonaws.redshiftserverless#ValidationException"
         }
       ],
@@ -124,6 +127,12 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#documentation": "<p>How long to retain the snapshot.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.redshiftserverless#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> \n         to associate with the created snapshot.</p>"
           }
         }
       },
@@ -353,6 +362,9 @@
           "target": "com.amazonaws.redshiftserverless#ServiceQuotaExceededException"
         },
         {
+          "target": "com.amazonaws.redshiftserverless#TooManyTagsException"
+        },
+        {
           "target": "com.amazonaws.redshiftserverless#ValidationException"
         }
       ],
@@ -382,6 +394,12 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#documentation": "<p>How long to retain the created snapshot.</p>"
+          }
+        },
+        "tags": {
+          "target": "com.amazonaws.redshiftserverless#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>An array of <a href=\"https://docs.aws.amazon.com/redshift-serverless/latest/APIReference/API_Tag.html\">Tag objects</a> to associate with the snapshot.</p>"
           }
         }
       },
@@ -578,6 +596,12 @@
           "target": "com.amazonaws.redshiftserverless#TagList",
           "traits": {
             "smithy.api#documentation": "<p>A array of tag instances.</p>"
+          }
+        },
+        "port": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>"
           }
         }
       },
@@ -1094,7 +1118,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a database user name and temporary password with\n         temporary authorization to log in to Amazon Redshift Serverless.</p>\n         <p>By default, the temporary credentials expire in 900 seconds. \n         You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p>\n      \n         <p>\n         The Identity and Access Management (IAM) user or role that runs \n         GetCredentials must have an IAM policy attached that allows access to all \n         necessary actions and resources.\n         </p>\n      \n         <p>\n         If the <code>DbName</code> parameter is specified, the IAM policy must \n         allow access to the resource dbname for the specified database name.</p>"
+        "smithy.api#documentation": "<p>Returns a database user name and temporary password with\n         temporary authorization to log in to Amazon Redshift Serverless.</p>\n         <p>By default, the temporary credentials expire in 900 seconds. \n         You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p>\n      \n         <p>The Identity and Access Management (IAM) user or role that runs \n      GetCredentials must have an IAM policy attached that allows access to all \n      necessary actions and resources.</p>\n   \n         <p>If the <code>DbName</code> parameter is specified, the IAM policy must \n      allow access to the resource dbname for the specified database name.</p>"
       }
     },
     "com.amazonaws.redshiftserverless#GetCredentialsRequest": {
@@ -1110,7 +1134,7 @@
         "dbName": {
           "target": "com.amazonaws.redshiftserverless#DbName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the database to get temporary authorization to log on to.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must be 1 to 64 alphanumeric characters or hyphens.</p>\n            </li>\n            <li>\n               <p>Must contain only lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>\n            </li>\n            <li>\n               <p>The first character must be a letter.</p>\n            </li>\n            <li>\n               <p>Must not contain a colon ( : ) or slash ( / ).</p>\n            </li>\n            <li>\n               <p>Cannot be a reserved word. A list of reserved words can be found \n               in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words </a> \n               in the Amazon Redshift Database Developer Guide</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the database to get temporary authorization to log on to.</p>\n         <p>Constraints:</p>\n         <ul>\n            <li>\n               <p>Must be 1 to 64 alphanumeric characters or hyphens.</p>\n            </li>\n            <li>\n               <p>Must contain only uppercase or lowercase letters, numbers, underscore, plus sign, period (dot), at symbol (@), or hyphen.</p>\n            </li>\n            <li>\n               <p>The first character must be a letter.</p>\n            </li>\n            <li>\n               <p>Must not contain a colon ( : ) or slash ( / ).</p>\n            </li>\n            <li>\n               <p>Cannot be a reserved word. A list of reserved words can be found \n               in <a href=\"https://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html\">Reserved Words </a> \n               in the Amazon Redshift Database Developer Guide</p>\n            </li>\n         </ul>"
           }
         },
         "durationSeconds": {
@@ -1439,6 +1463,56 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.redshiftserverless#GetTableRestoreStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshiftserverless#GetTableRestoreStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.redshiftserverless#GetTableRestoreStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshiftserverless#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about a <code>TableRestoreStatus</code> object.</p>",
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#GetTableRestoreStatusRequest": {
+      "type": "structure",
+      "members": {
+        "tableRestoreRequestId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the <code>RestoreTableFromSnapshot</code> request to return status for.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#GetTableRestoreStatusResponse": {
+      "type": "structure",
+      "members": {
+        "tableRestoreStatus": {
+          "target": "com.amazonaws.redshiftserverless#TableRestoreStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The returned <code>TableRestoreStatus</code> object that contains information about\n         the status of your <code>RestoreTableFromSnapshot</code> request.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.redshiftserverless#GetUsageLimit": {
       "type": "operation",
       "input": {
@@ -1650,7 +1724,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in subsequent <code>ListEndpointAccess</code> operations,\n         which returns results in the next page.</p>",
+            "smithy.api#documentation": "<p>If your initial <code>ListEndpointAccess</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in following <code>ListEndpointAccess</code> operations,\n         which returns results in the next page.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
@@ -1658,7 +1732,7 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to get the next page of results.</p>",
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to display the next page of results.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
               "min": 1,
@@ -1737,7 +1811,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in subsequent <code>ListNamespaces</code> operations,\n         which returns results in the next page.</p>",
+            "smithy.api#documentation": "<p>If your initial <code>ListNamespaces</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in following <code>ListNamespaces</code> operations,\n         which returns results in the next page.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
@@ -1745,7 +1819,7 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to get the next page of results.</p>",
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to display the next page of results.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
               "min": 1,
@@ -1812,7 +1886,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in subsequent <code>ListRecoveryPoints</code> operations,\n         which returns results in the next page.</p>",
+            "smithy.api#documentation": "<p>If your initial <code>ListRecoveryPoints</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in following <code>ListRecoveryPoints</code> operations,\n         which returns results in the next page.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
@@ -1820,7 +1894,7 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to get the next page of results.</p>",
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to display the next page of results.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
               "min": 1,
@@ -1844,6 +1918,12 @@
           "target": "com.amazonaws.redshiftserverless#NamespaceName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the namespace to list recovery points for.</p>"
+          }
+        },
+        "namespaceArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the namespace from which to list recovery points.</p>"
           }
         }
       },
@@ -1915,7 +1995,7 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to get the next page of results.</p>",
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to display the next page of results.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
               "min": 1,
@@ -1971,6 +2051,95 @@
           "target": "com.amazonaws.redshiftserverless#SnapshotList",
           "traits": {
             "smithy.api#documentation": "<p>All of the returned snapshot objects.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#ListTableRestoreStatus": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshiftserverless#ListTableRestoreStatusRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.redshiftserverless#ListTableRestoreStatusResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshiftserverless#InvalidPaginationException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about an array of <code>TableRestoreStatus</code> objects.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "nextToken",
+          "outputToken": "nextToken",
+          "pageSize": "maxResults",
+          "items": "tableRestoreStatuses"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#ListTableRestoreStatusRequest": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.redshiftserverless#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If your initial <code>ListTableRestoreStatus</code> operation returns a nextToken, \n         you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>\n         operations. This will return results on the next page.</p>",
+            "smithy.api#httpQuery": "nextToken"
+          }
+        },
+        "maxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to \n         return. You can use nextToken to display the next page of results.</p>",
+            "smithy.api#httpQuery": "maxResults",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 100
+            }
+          }
+        },
+        "namespaceName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations .</p>"
+          }
+        },
+        "workgroupName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The workgroup from which to list all of the statuses of <code>RestoreTableFromSnapshot</code> operations.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#ListTableRestoreStatusResponse": {
+      "type": "structure",
+      "members": {
+        "nextToken": {
+          "target": "com.amazonaws.redshiftserverless#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If your initial <code>ListTableRestoreStatus</code> operation returns a <code>nextToken</code>, \n         you can include the returned <code>nextToken</code> in following <code>ListTableRestoreStatus</code>\n         operations. This will returns results on the next page.</p>"
+          }
+        },
+        "tableRestoreStatuses": {
+          "target": "com.amazonaws.redshiftserverless#TableRestoreStatusList",
+          "traits": {
+            "smithy.api#documentation": "<p>The array of returned <code>TableRestoreStatus</code> objects.</p>"
           }
         }
       },
@@ -2088,7 +2257,7 @@
         "nextToken": {
           "target": "com.amazonaws.redshiftserverless#PaginationToken",
           "traits": {
-            "smithy.api#documentation": "<p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in subsequent <code>ListUsageLimits</code> operations,\n         which returns results in the next page.\n      </p>",
+            "smithy.api#documentation": "<p>If your initial <code>ListUsageLimits</code> operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in following <code>ListUsageLimits</code> operations,\n         which returns results in the next page.\n      </p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
@@ -2162,7 +2331,7 @@
         "nextToken": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>If your initial ListWorkgroups operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in subsequent ListNamespaces operations,\n         which returns results in the next page.</p>",
+            "smithy.api#documentation": "<p>If your initial ListWorkgroups operation returns a <code>nextToken</code>,\n         you can include the returned <code>nextToken</code> in following ListNamespaces operations,\n         which returns results in the next page.</p>",
             "smithy.api#httpQuery": "nextToken"
           }
         },
@@ -2170,7 +2339,7 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to get the next page of results.</p>",
+            "smithy.api#documentation": "<p>An optional parameter that specifies the maximum number of results to return.\n         You can use <code>nextToken</code> to display the next page of results.</p>",
             "smithy.api#httpQuery": "maxResults",
             "smithy.api#range": {
               "min": 1,
@@ -2525,6 +2694,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The name of the workgroup the recovery point is associated with.</p>"
           }
+        },
+        "namespaceArn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the namespace the recovery point is associated with.</p>"
+          }
         }
       },
       "traits": {
@@ -2608,12 +2783,7 @@
         "aws.auth#sigv4": {
           "name": "redshift-serverless"
         },
-        "aws.iam#supportedPrincipalTypes": [
-          "Root",
-          "IAMUser",
-          "IAMRole",
-          "FederatedUser"
-        ],
+        "aws.iam#supportedPrincipalTypes": ["Root", "IAMUser", "IAMRole", "FederatedUser"],
         "aws.protocols#awsJson1_1": {},
         "smithy.api#cors": {},
         "smithy.api#documentation": "<p>This is an interface reference for Amazon Redshift Serverless. \n           It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.\n        </p>\n        <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the \n           underlying resources based on workload demands. Amazon Redshift Serverless adjusts capacity in seconds to deliver consistently high \n           performance and simplified operations for even the most demanding and volatile workloads. Amazon Redshift Serverless lets you\n           focus on using your data to acquire new insights for your business and customers.\n        </p>\n        <p>\n           To learn more about Amazon Redshift Serverless, \n           see <a href=\"https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html\">What is Amazon Redshift Serverless</a>.\n        </p>",
@@ -2943,9 +3113,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -2956,9 +3126,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -2969,9 +3139,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -2982,9 +3152,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-central-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -2995,9 +3165,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3008,9 +3178,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3021,9 +3191,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3034,9 +3204,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3047,9 +3217,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3060,9 +3230,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3073,9 +3243,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3086,9 +3256,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-north-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3099,9 +3269,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3112,9 +3282,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3125,9 +3295,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3138,9 +3308,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3151,9 +3321,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3164,9 +3334,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3177,9 +3347,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3190,9 +3360,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "eu-west-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3203,9 +3373,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3216,9 +3386,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3229,9 +3399,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3242,9 +3412,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3255,9 +3425,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3268,9 +3438,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3281,9 +3451,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3294,9 +3464,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-northeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3307,9 +3477,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3320,9 +3490,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3333,9 +3503,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3346,9 +3516,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3359,9 +3529,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3372,9 +3542,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3385,9 +3555,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3398,9 +3568,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "ap-southeast-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3411,9 +3581,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3424,9 +3594,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3437,9 +3607,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3450,9 +3620,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3463,9 +3633,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": true
+                "UseDualStack": true
               }
             },
             {
@@ -3476,9 +3646,9 @@
                 }
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": true
+                "UseDualStack": false
               }
             },
             {
@@ -3489,9 +3659,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": true,
-                "UseFIPS": false
+                "UseDualStack": true
               }
             },
             {
@@ -3502,9 +3672,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-2",
-                "UseDualStack": false,
-                "UseFIPS": false
+                "UseDualStack": false
               }
             },
             {
@@ -3515,9 +3685,9 @@
                 }
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3527,9 +3697,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": true,
                 "Region": "us-east-1",
                 "UseDualStack": false,
-                "UseFIPS": true,
                 "Endpoint": "https://example.com"
               }
             },
@@ -3539,9 +3709,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
+                "UseFIPS": false,
                 "Region": "us-east-1",
                 "UseDualStack": true,
-                "UseFIPS": false,
                 "Endpoint": "https://example.com"
               }
             }
@@ -3717,13 +3887,13 @@
         "snapshotName": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the snapshot to restore from.</p>"
+            "smithy.api#documentation": "<p>The name of the snapshot to restore from. Must not be specified at the same time as <code>snapshotArn</code>.</p>"
           }
         },
         "snapshotArn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the snapshot to restore from.</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the snapshot to restore from. Required if restoring from Amazon Redshift Serverless to a provisioned cluster.\n      Must not be specified at the same time as <code>snapshotName</code>.</p>\n         <p>The format of the ARN is arn:aws:redshift:&lt;region&gt;:&lt;account_id&gt;:snapshot:&lt;cluster_identifier&gt;/&lt;snapshot_identifier&gt;.</p>"
           }
         },
         "ownerAccount": {
@@ -3754,6 +3924,120 @@
         },
         "namespace": {
           "target": "com.amazonaws.redshiftserverless#Namespace"
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#RestoreTableFromSnapshot": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.redshiftserverless#RestoreTableFromSnapshotRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.redshiftserverless#RestoreTableFromSnapshotResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.redshiftserverless#ConflictException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#ValidationException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Restores a table from a snapshot to your Amazon Redshift Serverless instance.</p>"
+      }
+    },
+    "com.amazonaws.redshiftserverless#RestoreTableFromSnapshotRequest": {
+      "type": "structure",
+      "members": {
+        "namespaceName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the snapshot to restore from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "workgroupName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The workgroup to restore the table to.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "snapshotName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the snapshot to restore the table from.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sourceDatabaseName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source database that contains the table being restored.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "sourceSchemaName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source schema that contains the table being restored.</p>"
+          }
+        },
+        "sourceTableName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source table being restored.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "targetDatabaseName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database to restore the table to.</p>"
+          }
+        },
+        "targetSchemaName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema to restore the table to.</p>"
+          }
+        },
+        "newTableName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table to create from the restore operation.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "activateCaseSensitiveIdentifier": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether name identifiers for database, schema, and table \n         are case sensitive. If true, the names are case sensitive. If \n         false, the names are not case sensitive. The default is false.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.redshiftserverless#RestoreTableFromSnapshotResponse": {
+      "type": "structure",
+      "members": {
+        "tableRestoreStatus": {
+          "target": "com.amazonaws.redshiftserverless#TableRestoreStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The TableRestoreStatus object that contains the status of the restore operation.</p>"
+          }
         }
       },
       "traits": {
@@ -3934,10 +4218,19 @@
           "target": "com.amazonaws.redshiftserverless#GetSnapshot"
         },
         {
+          "target": "com.amazonaws.redshiftserverless#GetTableRestoreStatus"
+        },
+        {
           "target": "com.amazonaws.redshiftserverless#ListSnapshots"
         },
         {
+          "target": "com.amazonaws.redshiftserverless#ListTableRestoreStatus"
+        },
+        {
           "target": "com.amazonaws.redshiftserverless#RestoreFromSnapshot"
+        },
+        {
+          "target": "com.amazonaws.redshiftserverless#RestoreTableFromSnapshot"
         },
         {
           "target": "com.amazonaws.redshiftserverless#UpdateSnapshot"
@@ -3982,6 +4275,110 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.redshiftserverless#SubnetId"
+      }
+    },
+    "com.amazonaws.redshiftserverless#TableRestoreStatus": {
+      "type": "structure",
+      "members": {
+        "tableRestoreRequestId": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the RestoreTableFromSnapshot request.</p>"
+          }
+        },
+        "status": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A value that describes the current state of the table restore request. \n         Possible values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>"
+          }
+        },
+        "message": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the status of the table restore request. \n         Status values include <code>SUCCEEDED</code>, <code>FAILED</code>, <code>CANCELED</code>, <code>PENDING</code>, <code>IN_PROGRESS</code>.</p>"
+          }
+        },
+        "requestTime": {
+          "target": "smithy.api#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the table restore request was made, \n         in Universal Coordinated Time (UTC).</p>"
+          }
+        },
+        "namespaceName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The namespace of the table being restored from.</p>"
+          }
+        },
+        "workgroupName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the workgroup being restored from.</p>"
+          }
+        },
+        "snapshotName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the snapshot being restored from.</p>"
+          }
+        },
+        "progressInMegaBytes": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of data restored to the new table so far, in megabytes (MB).</p>"
+          }
+        },
+        "totalDataInMegaBytes": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total amount of data to restore to the new table, in megabytes (MB).</p>"
+          }
+        },
+        "sourceDatabaseName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source database being restored from.</p>"
+          }
+        },
+        "sourceSchemaName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source schema being restored from.</p>"
+          }
+        },
+        "sourceTableName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the source table being restored from.</p>"
+          }
+        },
+        "targetDatabaseName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the database to restore to.</p>"
+          }
+        },
+        "targetSchemaName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the schema to restore to.</p>"
+          }
+        },
+        "newTableName": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the table to create from the restore operation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains information about a table restore request.</p>"
+      }
+    },
+    "com.amazonaws.redshiftserverless#TableRestoreStatusList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.redshiftserverless#TableRestoreStatus"
       }
     },
     "com.amazonaws.redshiftserverless#Tag": {
@@ -4453,7 +4850,7 @@
         "amount": {
           "target": "smithy.api#Long",
           "traits": {
-            "smithy.api#documentation": "<p>The new limit amount. For more information about this parameter.</p>"
+            "smithy.api#documentation": "<p>The new limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. \n         If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. \n         The value must be a positive number.</p>"
           }
         },
         "breachAction": {
@@ -4554,6 +4951,12 @@
           "target": "com.amazonaws.redshiftserverless#SecurityGroupIdList",
           "traits": {
             "smithy.api#documentation": "<p>An array of security group IDs to associate with the workgroup.</p>"
+          }
+        },
+        "port": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>"
           }
         }
       },
@@ -4874,6 +5277,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The creation date of the workgroup.</p>",
             "smithy.api#timestampFormat": "date-time"
+          }
+        },
+        "port": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.</p>"
           }
         }
       },

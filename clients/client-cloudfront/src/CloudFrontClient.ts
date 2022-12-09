@@ -326,6 +326,10 @@ import {
 } from "./commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "./commands/UpdateDistributionCommand";
 import {
+  UpdateDistributionWithStagingConfigCommandInput,
+  UpdateDistributionWithStagingConfigCommandOutput,
+} from "./commands/UpdateDistributionWithStagingConfigCommand";
+import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
 } from "./commands/UpdateFieldLevelEncryptionConfigCommand";
@@ -460,6 +464,7 @@ export type ServiceInputTypes =
   | UpdateCloudFrontOriginAccessIdentityCommandInput
   | UpdateContinuousDeploymentPolicyCommandInput
   | UpdateDistributionCommandInput
+  | UpdateDistributionWithStagingConfigCommandInput
   | UpdateFieldLevelEncryptionConfigCommandInput
   | UpdateFieldLevelEncryptionProfileCommandInput
   | UpdateFunctionCommandInput
@@ -567,6 +572,7 @@ export type ServiceOutputTypes =
   | UpdateCloudFrontOriginAccessIdentityCommandOutput
   | UpdateContinuousDeploymentPolicyCommandOutput
   | UpdateDistributionCommandOutput
+  | UpdateDistributionWithStagingConfigCommandOutput
   | UpdateFieldLevelEncryptionConfigCommandOutput
   | UpdateFieldLevelEncryptionProfileCommandOutput
   | UpdateFunctionCommandOutput
@@ -729,9 +735,10 @@ export interface CloudFrontClientResolvedConfig extends CloudFrontClientResolved
 
 /**
  * <fullname>Amazon CloudFront</fullname>
- * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide
- *             is for developers who need detailed information about
- * 			CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <i>Amazon CloudFront Developer Guide</i>.</p>
+ * 		       <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers
+ * 			who need detailed information about CloudFront API actions, data types, and errors. For
+ * 			detailed information about CloudFront features, see the
+ * 			<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class CloudFrontClient extends __Client<
   __HttpHandlerOptions,

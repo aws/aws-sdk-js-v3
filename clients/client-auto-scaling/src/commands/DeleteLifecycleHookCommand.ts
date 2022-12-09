@@ -30,7 +30,7 @@ export interface DeleteLifecycleHookCommandOutput extends DeleteLifecycleHookAns
 
 /**
  * <p>Deletes the specified lifecycle hook.</p>
- *         <p>If there are any outstanding lifecycle actions, they are completed first
+ *          <p>If there are any outstanding lifecycle actions, they are completed first
  *                 (<code>ABANDON</code> for launching instances, <code>CONTINUE</code> for terminating
  *             instances).</p>
  * @example

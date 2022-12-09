@@ -132,6 +132,10 @@ import {
   ListCostCategoryDefinitionsCommandOutput,
 } from "./commands/ListCostCategoryDefinitionsCommand";
 import {
+  ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  ListSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "./commands/ListSavingsPlansPurchaseRecommendationGenerationCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
@@ -139,6 +143,10 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
+  StartSavingsPlansPurchaseRecommendationGenerationCommandOutput,
+} from "./commands/StartSavingsPlansPurchaseRecommendationGenerationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import {
@@ -193,8 +201,10 @@ export type ServiceInputTypes =
   | GetUsageForecastCommandInput
   | ListCostAllocationTagsCommandInput
   | ListCostCategoryDefinitionsCommandInput
+  | ListSavingsPlansPurchaseRecommendationGenerationCommandInput
   | ListTagsForResourceCommandInput
   | ProvideAnomalyFeedbackCommandInput
+  | StartSavingsPlansPurchaseRecommendationGenerationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAnomalyMonitorCommandInput
@@ -230,8 +240,10 @@ export type ServiceOutputTypes =
   | GetUsageForecastCommandOutput
   | ListCostAllocationTagsCommandOutput
   | ListCostCategoryDefinitionsCommandOutput
+  | ListSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | ListTagsForResourceCommandOutput
   | ProvideAnomalyFeedbackCommandOutput
+  | StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAnomalyMonitorCommandOutput
@@ -389,20 +401,20 @@ type CostExplorerClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface CostExplorerClientResolvedConfig extends CostExplorerClientResolvedConfigType {}
 
 /**
- * <p>You can use the Cost Explorer API to programmatically query your cost and usage data. You
- *       can query for aggregated data such as total monthly costs or total daily usage. You can also
- *       query for granular data. This might include the number of daily write operations for Amazon
- *       DynamoDB database tables in your production environment. </p>
- * 		       <p>Service Endpoint</p>
- * 		       <p>The Cost Explorer API provides the following endpoint:</p>
- * 		       <ul>
+ * <p>You can use the Cost Explorer API to programmatically query your cost and usage data.
+ *       You can query for aggregated data such as total monthly costs or total daily usage. You can
+ *       also query for granular data. This might include the number of daily write operations for
+ *       Amazon DynamoDB database tables in your production environment. </p>
+ *          <p>Service Endpoint</p>
+ *          <p>The Cost Explorer API provides the following endpoint:</p>
+ *          <ul>
  *             <li>
- * 				           <p>
+ *                <p>
  *                   <code>https://ce.us-east-1.amazonaws.com</code>
  *                </p>
- * 			         </li>
+ *             </li>
  *          </ul>
- * 		       <p>For information about the costs that are associated with the Cost Explorer API, see
+ *          <p>For information about the costs that are associated with the Cost Explorer API, see
  *         <a href="http://aws.amazon.com/aws-cost-management/pricing/">Amazon Web Services Cost
  *         Management Pricing</a>.</p>
  */

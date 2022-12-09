@@ -22,6 +22,11 @@ import {
   GetImportFileTaskCommandOutput,
 } from "./commands/GetImportFileTaskCommand";
 import {
+  GetLatestAssessmentIdCommand,
+  GetLatestAssessmentIdCommandInput,
+  GetLatestAssessmentIdCommandOutput,
+} from "./commands/GetLatestAssessmentIdCommand";
+import {
   GetPortfolioPreferencesCommand,
   GetPortfolioPreferencesCommandInput,
   GetPortfolioPreferencesCommandOutput,
@@ -104,9 +109,9 @@ import { MigrationHubStrategyClient } from "./MigrationHubStrategyClient";
  *
  *          <p>This API reference provides descriptions, syntax, and other details about each of the
  *       actions and data types for Migration Hub Strategy Recommendations (Strategy Recommendations). The topic for each action shows the API
- *       request parameters and the response. Alternatively, you can use one of the AWS SDKs to access
- *       an API that is tailored to the programming language or platform that you're using. For more
- *       information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
+ *       request parameters and the response. Alternatively, you can use one of the AWS SDKs to
+ *       access an API that is tailored to the programming language or platform that you're using. For
+ *       more information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.</p>
  */
 export class MigrationHubStrategy extends MigrationHubStrategyClient {
   /**
@@ -228,6 +233,38 @@ export class MigrationHubStrategy extends MigrationHubStrategyClient {
     cb?: (err: any, data?: GetImportFileTaskCommandOutput) => void
   ): Promise<GetImportFileTaskCommandOutput> | void {
     const command = new GetImportFileTaskCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Retrieve the latest ID of a specific assessment task.</p>
+   */
+  public getLatestAssessmentId(
+    args: GetLatestAssessmentIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetLatestAssessmentIdCommandOutput>;
+  public getLatestAssessmentId(
+    args: GetLatestAssessmentIdCommandInput,
+    cb: (err: any, data?: GetLatestAssessmentIdCommandOutput) => void
+  ): void;
+  public getLatestAssessmentId(
+    args: GetLatestAssessmentIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetLatestAssessmentIdCommandOutput) => void
+  ): void;
+  public getLatestAssessmentId(
+    args: GetLatestAssessmentIdCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetLatestAssessmentIdCommandOutput) => void),
+    cb?: (err: any, data?: GetLatestAssessmentIdCommandOutput) => void
+  ): Promise<GetLatestAssessmentIdCommandOutput> | void {
+    const command = new GetLatestAssessmentIdCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

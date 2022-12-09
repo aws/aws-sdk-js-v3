@@ -2,6 +2,7 @@
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import {
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
@@ -111,6 +112,8 @@ import {
   BillingGroupListElement,
   ComputationPreference,
   ConflictException,
+  CreateFreeTierConfig,
+  CreateTieringInput,
   CustomLineItemBillingPeriodRange,
   CustomLineItemChargeDetails,
   CustomLineItemFlatChargeDetails,
@@ -118,6 +121,7 @@ import {
   CustomLineItemPercentageChargeDetails,
   CustomLineItemVersionListElement,
   DisassociateResourceResponseElement,
+  FreeTierConfig,
   InternalServerException,
   ListAccountAssociationsFilter,
   ListBillingGroupCostReportsFilter,
@@ -137,9 +141,12 @@ import {
   ResourceNotFoundException,
   ServiceLimitExceededException,
   ThrottlingException,
+  Tiering,
   UpdateCustomLineItemChargeDetails,
   UpdateCustomLineItemFlatChargeDetails,
   UpdateCustomLineItemPercentageChargeDetails,
+  UpdateFreeTierConfig,
+  UpdateTieringInput,
   ValidationException,
   ValidationExceptionField,
 } from "../models/models_0";
@@ -379,6 +386,7 @@ export const serializeAws_restJson1CreatePricingRuleCommand = async (
     ...(input.Scope != null && { Scope: input.Scope }),
     ...(input.Service != null && { Service: input.Service }),
     ...(input.Tags != null && { Tags: serializeAws_restJson1TagMap(input.Tags, context) }),
+    ...(input.Tiering != null && { Tiering: serializeAws_restJson1CreateTieringInput(input.Tiering, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -1009,6 +1017,7 @@ export const serializeAws_restJson1UpdatePricingRuleCommand = async (
     ...(input.Description != null && { Description: input.Description }),
     ...(input.ModifierPercentage != null && { ModifierPercentage: __serializeFloat(input.ModifierPercentage) }),
     ...(input.Name != null && { Name: input.Name }),
+    ...(input.Tiering != null && { Tiering: serializeAws_restJson1UpdateTieringInput(input.Tiering, context) }),
     ...(input.Type != null && { Type: input.Type }),
   });
   return new __HttpRequest({
@@ -2812,6 +2821,9 @@ export const deserializeAws_restJson1UpdatePricingRuleCommand = async (
   if (data.Service != null) {
     contents.Service = __expectString(data.Service);
   }
+  if (data.Tiering != null) {
+    contents.Tiering = deserializeAws_restJson1UpdateTieringInput(data.Tiering, context);
+  }
   if (data.Type != null) {
     contents.Type = __expectString(data.Type);
   }
@@ -3040,6 +3052,18 @@ const serializeAws_restJson1BillingGroupArnList = (input: string[], context: __S
 const serializeAws_restJson1ComputationPreference = (input: ComputationPreference, context: __SerdeContext): any => {
   return {
     ...(input.PricingPlanArn != null && { PricingPlanArn: input.PricingPlanArn }),
+  };
+};
+
+const serializeAws_restJson1CreateFreeTierConfig = (input: CreateFreeTierConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Activated != null && { Activated: input.Activated }),
+  };
+};
+
+const serializeAws_restJson1CreateTieringInput = (input: CreateTieringInput, context: __SerdeContext): any => {
+  return {
+    ...(input.FreeTier != null && { FreeTier: serializeAws_restJson1CreateFreeTierConfig(input.FreeTier, context) }),
   };
 };
 
@@ -3295,6 +3319,18 @@ const serializeAws_restJson1UpdateCustomLineItemPercentageChargeDetails = (
   };
 };
 
+const serializeAws_restJson1UpdateFreeTierConfig = (input: UpdateFreeTierConfig, context: __SerdeContext): any => {
+  return {
+    ...(input.Activated != null && { Activated: input.Activated }),
+  };
+};
+
+const serializeAws_restJson1UpdateTieringInput = (input: UpdateTieringInput, context: __SerdeContext): any => {
+  return {
+    ...(input.FreeTier != null && { FreeTier: serializeAws_restJson1UpdateFreeTierConfig(input.FreeTier, context) }),
+  };
+};
+
 const deserializeAws_restJson1AccountAssociationsList = (
   output: any,
   context: __SerdeContext
@@ -3523,6 +3559,12 @@ const deserializeAws_restJson1DisassociateResourcesResponseList = (
   return retVal;
 };
 
+const deserializeAws_restJson1FreeTierConfig = (output: any, context: __SerdeContext): FreeTierConfig => {
+  return {
+    Activated: __expectBoolean(output.Activated),
+  } as any;
+};
+
 const deserializeAws_restJson1ListCustomLineItemChargeDetails = (
   output: any,
   context: __SerdeContext
@@ -3661,6 +3703,7 @@ const deserializeAws_restJson1PricingRuleListElement = (
     Name: __expectString(output.Name),
     Scope: __expectString(output.Scope),
     Service: __expectString(output.Service),
+    Tiering: output.Tiering != null ? deserializeAws_restJson1Tiering(output.Tiering, context) : undefined,
     Type: __expectString(output.Type),
   } as any;
 };
@@ -3673,6 +3716,25 @@ const deserializeAws_restJson1TagMap = (output: any, context: __SerdeContext): R
     acc[key] = __expectString(value) as any;
     return acc;
   }, {});
+};
+
+const deserializeAws_restJson1Tiering = (output: any, context: __SerdeContext): Tiering => {
+  return {
+    FreeTier: output.FreeTier != null ? deserializeAws_restJson1FreeTierConfig(output.FreeTier, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1UpdateFreeTierConfig = (output: any, context: __SerdeContext): UpdateFreeTierConfig => {
+  return {
+    Activated: __expectBoolean(output.Activated),
+  } as any;
+};
+
+const deserializeAws_restJson1UpdateTieringInput = (output: any, context: __SerdeContext): UpdateTieringInput => {
+  return {
+    FreeTier:
+      output.FreeTier != null ? deserializeAws_restJson1UpdateFreeTierConfig(output.FreeTier, context) : undefined,
+  } as any;
 };
 
 const deserializeAws_restJson1ValidationExceptionField = (

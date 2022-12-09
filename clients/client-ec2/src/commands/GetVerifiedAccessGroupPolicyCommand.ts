@@ -30,6 +30,23 @@ export interface GetVerifiedAccessGroupPolicyCommandOutput
   extends GetVerifiedAccessGroupPolicyResult,
     __MetadataBearer {}
 
+/**
+ * <p>Shows the contents of the Verified Access policy associated with the group.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, GetVerifiedAccessGroupPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, GetVerifiedAccessGroupPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new GetVerifiedAccessGroupPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link GetVerifiedAccessGroupPolicyCommandInput} for command's `input` shape.
+ * @see {@link GetVerifiedAccessGroupPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class GetVerifiedAccessGroupPolicyCommand extends $Command<
   GetVerifiedAccessGroupPolicyCommandInput,
   GetVerifiedAccessGroupPolicyCommandOutput,

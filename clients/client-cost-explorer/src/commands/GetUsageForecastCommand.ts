@@ -29,7 +29,8 @@ export interface GetUsageForecastCommandInput extends GetUsageForecastRequest {}
 export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use over the forecast time period that you select, based on your past usage. </p>
+ * <p>Retrieves a forecast for how much Amazon Web Services predicts that you will use
+ *       over the forecast time period that you select, based on your past usage. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

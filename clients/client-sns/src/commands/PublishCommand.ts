@@ -32,8 +32,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *         <p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is
  *             subscribed to the topic. The format of the message depends on the notification protocol
  *             for each subscribed endpoint.</p>
- *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS
- *             immediately delivers it to subscribers.</p>
+ *         <p>When a <code>messageId</code> is returned, the message is saved and Amazon SNS immediately
+ *             delivers it to subscribers.</p>
  *         <p>To use the <code>Publish</code> action for publishing a message to a mobile endpoint,
  *             such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for
  *             the TargetArn parameter. The EndpointArn is returned when making a call with the
@@ -41,7 +41,8 @@ export interface PublishCommandOutput extends PublishResponse, __MetadataBearer 
  *         <p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom
  *                 Platform-Specific Payloads in Messages to Mobile Devices</a>. </p>
  *         <important>
- *             <p>You can publish messages only to topics and endpoints in the same Amazon Web Services Region.</p>
+ *             <p>You can publish messages only to topics and endpoints in the same
+ *                 Amazon Web Services Region.</p>
  *         </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

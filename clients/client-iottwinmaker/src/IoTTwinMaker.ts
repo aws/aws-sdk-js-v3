@@ -18,6 +18,11 @@ import {
 } from "./commands/CreateEntityCommand";
 import { CreateSceneCommand, CreateSceneCommandInput, CreateSceneCommandOutput } from "./commands/CreateSceneCommand";
 import {
+  CreateSyncJobCommand,
+  CreateSyncJobCommandInput,
+  CreateSyncJobCommandOutput,
+} from "./commands/CreateSyncJobCommand";
+import {
   CreateWorkspaceCommand,
   CreateWorkspaceCommandInput,
   CreateWorkspaceCommandOutput,
@@ -33,6 +38,11 @@ import {
   DeleteEntityCommandOutput,
 } from "./commands/DeleteEntityCommand";
 import { DeleteSceneCommand, DeleteSceneCommandInput, DeleteSceneCommandOutput } from "./commands/DeleteSceneCommand";
+import {
+  DeleteSyncJobCommand,
+  DeleteSyncJobCommandInput,
+  DeleteSyncJobCommandOutput,
+} from "./commands/DeleteSyncJobCommand";
 import {
   DeleteWorkspaceCommand,
   DeleteWorkspaceCommandInput,
@@ -65,6 +75,7 @@ import {
   GetPropertyValueHistoryCommandOutput,
 } from "./commands/GetPropertyValueHistoryCommand";
 import { GetSceneCommand, GetSceneCommandInput, GetSceneCommandOutput } from "./commands/GetSceneCommand";
+import { GetSyncJobCommand, GetSyncJobCommandInput, GetSyncJobCommandOutput } from "./commands/GetSyncJobCommand";
 import {
   GetWorkspaceCommand,
   GetWorkspaceCommandInput,
@@ -81,6 +92,16 @@ import {
   ListEntitiesCommandOutput,
 } from "./commands/ListEntitiesCommand";
 import { ListScenesCommand, ListScenesCommandInput, ListScenesCommandOutput } from "./commands/ListScenesCommand";
+import {
+  ListSyncJobsCommand,
+  ListSyncJobsCommandInput,
+  ListSyncJobsCommandOutput,
+} from "./commands/ListSyncJobsCommand";
+import {
+  ListSyncResourcesCommand,
+  ListSyncResourcesCommandInput,
+  ListSyncResourcesCommandOutput,
+} from "./commands/ListSyncResourcesCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -248,6 +269,38 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * <p>This action creates a SyncJob.</p>
+   */
+  public createSyncJob(
+    args: CreateSyncJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSyncJobCommandOutput>;
+  public createSyncJob(
+    args: CreateSyncJobCommandInput,
+    cb: (err: any, data?: CreateSyncJobCommandOutput) => void
+  ): void;
+  public createSyncJob(
+    args: CreateSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSyncJobCommandOutput) => void
+  ): void;
+  public createSyncJob(
+    args: CreateSyncJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateSyncJobCommandOutput) => void),
+    cb?: (err: any, data?: CreateSyncJobCommandOutput) => void
+  ): Promise<CreateSyncJobCommandOutput> | void {
+    const command = new CreateSyncJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Creates a workplace.</p>
    */
   public createWorkspace(
@@ -356,6 +409,38 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
     cb?: (err: any, data?: DeleteSceneCommandOutput) => void
   ): Promise<DeleteSceneCommandOutput> | void {
     const command = new DeleteSceneCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Delete the SyncJob.</p>
+   */
+  public deleteSyncJob(
+    args: DeleteSyncJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSyncJobCommandOutput>;
+  public deleteSyncJob(
+    args: DeleteSyncJobCommandInput,
+    cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
+  ): void;
+  public deleteSyncJob(
+    args: DeleteSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSyncJobCommandOutput) => void
+  ): void;
+  public deleteSyncJob(
+    args: DeleteSyncJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteSyncJobCommandOutput) => void),
+    cb?: (err: any, data?: DeleteSyncJobCommandOutput) => void
+  ): Promise<DeleteSyncJobCommandOutput> | void {
+    const command = new DeleteSyncJobCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -611,6 +696,32 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
   }
 
   /**
+   * <p>Gets the SyncJob.</p>
+   */
+  public getSyncJob(args: GetSyncJobCommandInput, options?: __HttpHandlerOptions): Promise<GetSyncJobCommandOutput>;
+  public getSyncJob(args: GetSyncJobCommandInput, cb: (err: any, data?: GetSyncJobCommandOutput) => void): void;
+  public getSyncJob(
+    args: GetSyncJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSyncJobCommandOutput) => void
+  ): void;
+  public getSyncJob(
+    args: GetSyncJobCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetSyncJobCommandOutput) => void),
+    cb?: (err: any, data?: GetSyncJobCommandOutput) => void
+  ): Promise<GetSyncJobCommandOutput> | void {
+    const command = new GetSyncJobCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Retrieves information about a workspace.</p>
    */
   public getWorkspace(
@@ -716,6 +827,67 @@ export class IoTTwinMaker extends IoTTwinMakerClient {
     cb?: (err: any, data?: ListScenesCommandOutput) => void
   ): Promise<ListScenesCommandOutput> | void {
     const command = new ListScenesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>List all SyncJobs.</p>
+   */
+  public listSyncJobs(
+    args: ListSyncJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSyncJobsCommandOutput>;
+  public listSyncJobs(args: ListSyncJobsCommandInput, cb: (err: any, data?: ListSyncJobsCommandOutput) => void): void;
+  public listSyncJobs(
+    args: ListSyncJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyncJobsCommandOutput) => void
+  ): void;
+  public listSyncJobs(
+    args: ListSyncJobsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSyncJobsCommandOutput) => void),
+    cb?: (err: any, data?: ListSyncJobsCommandOutput) => void
+  ): Promise<ListSyncJobsCommandOutput> | void {
+    const command = new ListSyncJobsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Lists the sync resources.</p>
+   */
+  public listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSyncResourcesCommandOutput>;
+  public listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
+  ): void;
+  public listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSyncResourcesCommandOutput) => void
+  ): void;
+  public listSyncResources(
+    args: ListSyncResourcesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListSyncResourcesCommandOutput) => void),
+    cb?: (err: any, data?: ListSyncResourcesCommandOutput) => void
+  ): Promise<ListSyncResourcesCommandOutput> | void {
+    const command = new ListSyncResourcesCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

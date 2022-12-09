@@ -14,12 +14,8 @@ import {
 } from "@aws-sdk/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
-import {
-  ListContactReferencesRequest,
-  ListContactReferencesRequestFilterSensitiveLog,
-  ListContactReferencesResponse,
-  ListContactReferencesResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { ListContactReferencesRequest, ListContactReferencesRequestFilterSensitiveLog } from "../models/models_0";
+import { ListContactReferencesResponse, ListContactReferencesResponseFilterSensitiveLog } from "../models/models_1";
 import {
   deserializeAws_restJson1ListContactReferencesCommand,
   serializeAws_restJson1ListContactReferencesCommand,

@@ -31,6 +31,27 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
   extends EnableReachabilityAnalyzerOrganizationSharingResult,
     __MetadataBearer {}
 
+/**
+ * <p>Establishes a trust relationship between Reachability Analyzer and Organizations.
+ *          This operation must be performed by the management account for the organization.</p>
+ *          <p>After you establish a trust relationship, a user in the management account or
+ *          a delegated administrator account can run a cross-account analysis using resources
+ *          from the member accounts.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, EnableReachabilityAnalyzerOrganizationSharingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new EnableReachabilityAnalyzerOrganizationSharingCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandInput} for command's `input` shape.
+ * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Command<
   EnableReachabilityAnalyzerOrganizationSharingCommandInput,
   EnableReachabilityAnalyzerOrganizationSharingCommandOutput,

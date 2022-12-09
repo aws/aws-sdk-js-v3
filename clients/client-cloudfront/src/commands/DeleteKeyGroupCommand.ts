@@ -30,7 +30,7 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
  * 			group.</p>
  * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
- * 			<code>GetKeyGroupConfig</code>.</p>
+ * 				<code>GetKeyGroupConfig</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -33,40 +33,40 @@ export interface RecordLifecycleActionHeartbeatCommandOutput
 /**
  * <p>Records a heartbeat for the lifecycle action associated with the specified token or
  *             instance. This extends the timeout by the length of time defined using the <a>PutLifecycleHook</a> API call.</p>
- *         <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
+ *          <p>This step is a part of the procedure for adding a lifecycle hook to an Auto Scaling
  *             group:</p>
- *         <ol>
+ *          <ol>
  *             <li>
- *                 <p>(Optional) Create a launch template or launch configuration with a user data
+ *                <p>(Optional) Create a launch template or launch configuration with a user data
  *                     script that runs while an instance is in a wait state due to a lifecycle
  *                     hook.</p>
  *             </li>
  *             <li>
- *                 <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
+ *                <p>(Optional) Create a Lambda function and a rule that allows Amazon EventBridge to invoke
  *                     your Lambda function when an instance is put into a wait state due to a
  *                     lifecycle hook.</p>
  *             </li>
  *             <li>
- *                 <p>(Optional) Create a notification target and an IAM role. The target can be
+ *                <p>(Optional) Create a notification target and an IAM role. The target can be
  *                     either an Amazon SQS queue or an Amazon SNS topic. The role allows Amazon EC2 Auto Scaling to publish
  *                     lifecycle notifications to the target.</p>
  *             </li>
  *             <li>
- *                 <p>Create the lifecycle hook. Specify whether the hook is used when the instances
+ *                <p>Create the lifecycle hook. Specify whether the hook is used when the instances
  *                     launch or terminate.</p>
  *             </li>
  *             <li>
- *                 <p>
- *                     <b>If you need more time, record the lifecycle action
+ *                <p>
+ *                   <b>If you need more time, record the lifecycle action
  *                         heartbeat to keep the instance in a wait state.</b>
- *                 </p>
+ *                </p>
  *             </li>
  *             <li>
- *                 <p>If you finish before the timeout period ends, send a callback by using the
+ *                <p>If you finish before the timeout period ends, send a callback by using the
  *                         <a>CompleteLifecycleAction</a> API call.</p>
  *             </li>
  *          </ol>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/lifecycle-hooks.html">Amazon EC2 Auto Scaling lifecycle
  *                 hooks</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

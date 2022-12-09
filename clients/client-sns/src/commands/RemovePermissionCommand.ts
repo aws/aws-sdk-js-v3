@@ -25,6 +25,11 @@ export interface RemovePermissionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Removes a statement from a topic's access control policy.</p>
+ *         <note>
+ *             <p>To remove the ability to change topic permissions, you must deny permissions to
+ *                 the <code>AddPermission</code>, <code>RemovePermission</code>, and
+ *                     <code>SetTopicAttributes</code> actions in your IAM policy.</p>
+ *         </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,11 +30,11 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * <p>Configures an Auto Scaling group to send notifications when specified events take place.
  *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
  *             web server or an email address.</p>
- *         <p>This configuration overwrites any existing configuration.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS
+ *          <p>This configuration overwrites any existing configuration.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS
  *                 notifications when your Auto Scaling group scales</a> in the
  *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
+ *          <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
  *             fails.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

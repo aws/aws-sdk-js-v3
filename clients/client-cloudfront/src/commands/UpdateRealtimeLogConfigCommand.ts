@@ -49,7 +49,7 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * 			         </li>
  *          </ol>
  * 		       <p>You cannot update a real-time log configuration’s <code>Name</code> or
- * 			<code>ARN</code>.</p>
+ * 				<code>ARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

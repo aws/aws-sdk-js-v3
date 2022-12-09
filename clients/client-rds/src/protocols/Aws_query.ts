@@ -3381,6 +3381,9 @@ const deserializeAws_queryAddTagsToResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -7428,6 +7431,9 @@ const deserializeAws_queryListTagsForResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -8931,6 +8937,9 @@ const deserializeAws_queryRemoveTagsFromResourceCommandError = async (
   };
   const errorCode = loadQueryErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "BlueGreenDeploymentNotFoundFault":
+    case "com.amazonaws.rds#BlueGreenDeploymentNotFoundFault":
+      throw await deserializeAws_queryBlueGreenDeploymentNotFoundFaultResponse(parsedOutput, context);
     case "DBClusterNotFoundFault":
     case "com.amazonaws.rds#DBClusterNotFoundFault":
       throw await deserializeAws_queryDBClusterNotFoundFaultResponse(parsedOutput, context);
@@ -9182,6 +9191,9 @@ const deserializeAws_queryRestoreDBClusterFromSnapshotCommandError = async (
     case "InvalidDBClusterSnapshotStateFault":
     case "com.amazonaws.rds#InvalidDBClusterSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBClusterSnapshotStateFaultResponse(parsedOutput, context);
+    case "InvalidDBInstanceState":
+    case "com.amazonaws.rds#InvalidDBInstanceStateFault":
+      throw await deserializeAws_queryInvalidDBInstanceStateFaultResponse(parsedOutput, context);
     case "InvalidDBSnapshotState":
     case "com.amazonaws.rds#InvalidDBSnapshotStateFault":
       throw await deserializeAws_queryInvalidDBSnapshotStateFaultResponse(parsedOutput, context);

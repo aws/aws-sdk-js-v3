@@ -2436,7 +2436,11 @@ export interface NetworkInsightsAnalysis {
    */
   NetworkInsightsPathId?: string;
 
+  /**
+   * <p>The member accounts that contain resources that the path can traverse.</p>
+   */
   AdditionalAccounts?: string[];
+
   /**
    * <p>The Amazon Resource Names (ARN) of the Amazon Web Services resources that the path must traverse.</p>
    */
@@ -2487,7 +2491,11 @@ export interface NetworkInsightsAnalysis {
    */
   AlternatePathHints?: AlternatePathHint[];
 
+  /**
+   * <p>Potential intermediate accounts.</p>
+   */
   SuggestedAccounts?: string[];
+
   /**
    * <p>The tags.</p>
    */
@@ -8436,39 +8444,131 @@ export interface DescribeTrunkInterfaceAssociationsResult {
 }
 
 export interface DescribeVerifiedAccessEndpointsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpointIds?: string[];
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access group.</p>
+   */
   VerifiedAccessGroupId?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DescribeVerifiedAccessEndpointsResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access endpoint.</p>
+   */
   VerifiedAccessEndpoints?: VerifiedAccessEndpoint[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
   NextToken?: string;
 }
 
 export interface DescribeVerifiedAccessGroupsRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access groups.</p>
+   */
   VerifiedAccessGroupIds?: string[];
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DescribeVerifiedAccessGroupsResult {
+  /**
+   * <p>The ID of the Verified Access group.</p>
+   */
   VerifiedAccessGroups?: VerifiedAccessGroup[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
   NextToken?: string;
 }
 
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsRequest {
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   */
   VerifiedAccessInstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
@@ -8477,70 +8577,219 @@ export enum VerifiedAccessLogDeliveryStatusCode {
   SUCCESS = "success",
 }
 
+/**
+ * <p>Describes a log delivery status.</p>
+ */
 export interface VerifiedAccessLogDeliveryStatus {
+  /**
+   * <p>The status code.</p>
+   */
   Code?: VerifiedAccessLogDeliveryStatusCode | string;
+
+  /**
+   * <p>The status message.</p>
+   */
   Message?: string;
 }
 
+/**
+ * <p>Options for CloudWatch Logs as a logging destination.</p>
+ */
 export interface VerifiedAccessLogCloudWatchLogsDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled?: boolean;
+
+  /**
+   * <p>The delivery status for access logs.</p>
+   */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The ID of the CloudWatch Logs log group.</p>
+   */
   LogGroup?: string;
 }
 
+/**
+ * <p>Options for Kinesis as a logging destination.</p>
+ */
 export interface VerifiedAccessLogKinesisDataFirehoseDestination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled?: boolean;
+
+  /**
+   * <p>The delivery status.</p>
+   */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The ID of the delivery stream.</p>
+   */
   DeliveryStream?: string;
 }
 
+/**
+ * <p>Options for Amazon S3 as a logging destination.</p>
+ */
 export interface VerifiedAccessLogS3Destination {
+  /**
+   * <p>Indicates whether logging is enabled.</p>
+   */
   Enabled?: boolean;
+
+  /**
+   * <p>The delivery status.</p>
+   */
   DeliveryStatus?: VerifiedAccessLogDeliveryStatus;
+
+  /**
+   * <p>The bucket name.</p>
+   */
   BucketName?: string;
+
+  /**
+   * <p>The bucket prefix.</p>
+   */
   Prefix?: string;
+
+  /**
+   * <p>The Amazon Web Services account number that owns the bucket.</p>
+   */
   BucketOwner?: string;
 }
 
+/**
+ * <p>Describes the destinations for Verified Access logs.</p>
+ */
 export interface VerifiedAccessLogs {
+  /**
+   * <p>Amazon S3 logging options.</p>
+   */
   S3?: VerifiedAccessLogS3Destination;
+
+  /**
+   * <p>CloudWatch Logs logging destination.</p>
+   */
   CloudWatchLogs?: VerifiedAccessLogCloudWatchLogsDestination;
+
+  /**
+   * <p>Kinesis logging destination.</p>
+   */
   KinesisDataFirehose?: VerifiedAccessLogKinesisDataFirehoseDestination;
 }
 
+/**
+ * <p>Describes logging options for an Amazon Web Services Verified Access instance.</p>
+ */
 export interface VerifiedAccessInstanceLoggingConfiguration {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>Details about the logging options.</p>
+   */
   AccessLogs?: VerifiedAccessLogs;
 }
 
 export interface DescribeVerifiedAccessInstanceLoggingConfigurationsResult {
+  /**
+   * <p>The current logging configuration for the Amazon Web Services Verified Access instances.</p>
+   */
   LoggingConfigurations?: VerifiedAccessInstanceLoggingConfiguration[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
   NextToken?: string;
 }
 
 export interface DescribeVerifiedAccessInstancesRequest {
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   */
   VerifiedAccessInstanceIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DescribeVerifiedAccessInstancesResult {
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access instances.</p>
+   */
   VerifiedAccessInstances?: VerifiedAccessInstance[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
   NextToken?: string;
 }
 
 export interface DescribeVerifiedAccessTrustProvidersRequest {
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   */
   VerifiedAccessTrustProviderIds?: string[];
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
   MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
   NextToken?: string;
+
+  /**
+   * <p>One or more filters. Filter names and values are case-sensitive.</p>
+   */
   Filters?: Filter[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
 export interface DescribeVerifiedAccessTrustProvidersResult {
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProvider[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
   NextToken?: string;
 }
 

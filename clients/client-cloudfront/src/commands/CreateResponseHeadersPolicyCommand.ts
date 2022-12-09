@@ -33,10 +33,10 @@ export interface CreateResponseHeadersPolicyCommandOutput extends CreateResponse
  * 		       <p>A response headers policy contains information about a set of HTTP response headers
  * 			and their values. To create a response headers policy, you provide some metadata about
  * 			the policy, and a set of configurations that specify the response headers.</p>
- * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or more
- * 			cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior, CloudFront
- * 			adds the headers in the policy to HTTP responses that it sends for requests that match
- * 			the cache behavior.</p>
+ * 		       <p>After you create a response headers policy, you can use its ID to attach it to one or
+ * 			more cache behaviors in a CloudFront distribution. When it’s attached to a cache behavior,
+ * 			CloudFront adds the headers in the policy to HTTP responses that it sends for requests that
+ * 			match the cache behavior.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

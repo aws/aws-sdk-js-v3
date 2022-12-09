@@ -262,7 +262,7 @@ export type DestinationConfiguration =
 
 export namespace DestinationConfiguration {
   /**
-   * <p>Name of the Amazon S3 bucket where chat activity will be logged.</p>
+   * <p>An Amazon S3 destination configuration where chat activity will be logged.</p>
    */
   export interface S3Member {
     s3: S3DestinationConfiguration;
@@ -272,7 +272,8 @@ export namespace DestinationConfiguration {
   }
 
   /**
-   * <p>Name of the Amazon CloudWatch Logs destination where chat activity will be logged.</p>
+   * <p>An Amazon CloudWatch Logs destination configuration where chat activity will be
+   *       logged.</p>
    */
   export interface CloudWatchLogsMember {
     s3?: never;
@@ -282,8 +283,8 @@ export namespace DestinationConfiguration {
   }
 
   /**
-   * <p>Name of the Amazon Kinesis Data Firehose destination where chat activity will be
-   *       logged</p>
+   * <p>An Amazon Kinesis Data Firehose destination configuration where chat activity will be
+   *       logged.</p>
    */
   export interface FirehoseMember {
     s3?: never;

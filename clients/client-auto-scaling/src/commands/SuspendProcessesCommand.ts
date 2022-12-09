@@ -26,11 +26,11 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
 /**
  * <p>Suspends the specified auto scaling processes, or all processes, for the specified
  *             Auto Scaling group.</p>
- *         <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
+ *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
  *             it can prevent other process types from functioning properly. For more information, see
  *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
  *                 resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *         <p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
+ *          <p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

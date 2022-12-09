@@ -32,7 +32,7 @@ export interface DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the curent Infrastructure Performance metric subscriptions.</p>
+ * <p>Describes the current Infrastructure Performance metric subscriptions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

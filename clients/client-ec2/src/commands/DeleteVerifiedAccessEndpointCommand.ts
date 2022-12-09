@@ -30,6 +30,23 @@ export interface DeleteVerifiedAccessEndpointCommandOutput
   extends DeleteVerifiedAccessEndpointResult,
     __MetadataBearer {}
 
+/**
+ * <p>Delete an Amazon Web Services Verified Access endpoint.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DeleteVerifiedAccessEndpointCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DeleteVerifiedAccessEndpointCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DeleteVerifiedAccessEndpointCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DeleteVerifiedAccessEndpointCommandInput} for command's `input` shape.
+ * @see {@link DeleteVerifiedAccessEndpointCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class DeleteVerifiedAccessEndpointCommand extends $Command<
   DeleteVerifiedAccessEndpointCommandInput,
   DeleteVerifiedAccessEndpointCommandOutput,

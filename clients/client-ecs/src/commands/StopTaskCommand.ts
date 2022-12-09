@@ -37,7 +37,7 @@ export interface StopTaskCommandOutput extends StopTaskResponse, __MetadataBeare
  * 			         <p>The default 30-second timeout can be configured on the Amazon ECS container agent with
  * 				the <code>ECS_CONTAINER_STOP_TIMEOUT</code> variable. For more information, see
  * 					<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html">Amazon ECS Container Agent Configuration</a> in the
- * 					<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

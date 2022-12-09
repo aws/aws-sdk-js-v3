@@ -395,6 +395,57 @@ export interface CreateSceneResponse {
   creationDateTime: Date | undefined;
 }
 
+export interface CreateSyncJobRequest {
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync source.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The SyncJob IAM role. This IAM role is used by the sync job to read from the syncSource, and create,
+   *          update or delete the corresponding resources.</p>
+   */
+  syncRole: string | undefined;
+
+  /**
+   * <p>The SyncJob tags.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export enum SyncJobState {
+  ACTIVE = "ACTIVE",
+  CREATING = "CREATING",
+  DELETING = "DELETING",
+  ERROR = "ERROR",
+  INITIALIZING = "INITIALIZING",
+}
+
+export interface CreateSyncJobResponse {
+  /**
+   * <p>The SyncJob ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The date and time for the SyncJob creation.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * <p>The SyncJob response state.</p>
+   */
+  state: SyncJobState | string | undefined;
+}
+
 export interface CreateWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -490,6 +541,28 @@ export interface DeleteSceneRequest {
 }
 
 export interface DeleteSceneResponse {}
+
+export interface DeleteSyncJobRequest {
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync source.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+}
+
+export interface DeleteSyncJobResponse {
+  /**
+   * <p>The SyncJob response state.</p>
+   */
+  state: SyncJobState | string | undefined;
+}
 
 export interface DeleteWorkspaceRequest {
   /**
@@ -650,6 +723,9 @@ export interface PropertyGroupResponse {
 
 export enum ErrorCode {
   INTERNAL_FAILURE = "INTERNAL_FAILURE",
+  SYNC_CREATING_ERROR = "SYNC_CREATING_ERROR",
+  SYNC_INITIALIZING_ERROR = "SYNC_INITIALIZING_ERROR",
+  SYNC_PROCESSING_ERROR = "SYNC_PROCESSING_ERROR",
   VALIDATION_ERROR = "VALIDATION_ERROR",
 }
 
@@ -936,6 +1012,76 @@ export interface GetSceneResponse {
   capabilities?: string[];
 }
 
+export interface GetSyncJobRequest {
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The workspace Id.</p>
+   */
+  workspaceId?: string;
+}
+
+/**
+ * <p>The SyncJob status.</p>
+ */
+export interface SyncJobStatus {
+  /**
+   * <p>The SyncJob status state.</p>
+   */
+  state?: SyncJobState | string;
+
+  /**
+   * <p>The SyncJob error.</p>
+   */
+  error?: ErrorDetails;
+}
+
+export interface GetSyncJobResponse {
+  /**
+   * <p>The sync job ARN.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>The sync IAM role.</p>
+   */
+  syncRole: string | undefined;
+
+  /**
+   * <p>The SyncJob response status.</p>
+   */
+  status: SyncJobStatus | undefined;
+
+  /**
+   * <p>The creation date and time.</p>
+   */
+  creationDateTime: Date | undefined;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime: Date | undefined;
+}
+
 export interface GetWorkspaceRequest {
   /**
    * <p>The ID of the workspace.</p>
@@ -1101,6 +1247,11 @@ export interface ComponentTypeSummary {
    * <p>The current status of the component type.</p>
    */
   status?: Status;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface ListComponentTypesResponse {
@@ -1332,6 +1483,252 @@ export interface ListScenesResponse {
    * <p>A list of objects that contain information about the scenes.</p>
    */
   sceneSummaries?: SceneSummary[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export interface ListSyncJobsRequest {
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 50.</p>
+   *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The SyncJob summary.</p>
+ */
+export interface SyncJobSummary {
+  /**
+   * <p>The SyncJob summary ARN.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId?: string;
+
+  /**
+   * <p>The sync source.</p>
+   */
+  syncSource?: string;
+
+  /**
+   * <p>The SyncJob summaries status.</p>
+   */
+  status?: SyncJobStatus;
+
+  /**
+   * <p>The creation date and time.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime?: Date;
+}
+
+export interface ListSyncJobsResponse {
+  /**
+   * <p>The listed SyncJob summaries.</p>
+   */
+  syncJobSummaries?: SyncJobSummary[];
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+export enum SyncResourceType {
+  COMPONENT_TYPE = "COMPONENT_TYPE",
+  ENTITY = "ENTITY",
+}
+
+export enum SyncResourceState {
+  DELETED = "DELETED",
+  ERROR = "ERROR",
+  INITIALIZING = "INITIALIZING",
+  IN_SYNC = "IN_SYNC",
+  PROCESSING = "PROCESSING",
+}
+
+/**
+ * <p>The sync resource filter.</p>
+ */
+export type SyncResourceFilter =
+  | SyncResourceFilter.ExternalIdMember
+  | SyncResourceFilter.ResourceIdMember
+  | SyncResourceFilter.ResourceTypeMember
+  | SyncResourceFilter.StateMember
+  | SyncResourceFilter.$UnknownMember;
+
+export namespace SyncResourceFilter {
+  /**
+   * <p>The sync resource filter's state.</p>
+   */
+  export interface StateMember {
+    state: SyncResourceState | string;
+    resourceType?: never;
+    resourceId?: never;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sync resource filter resoucre type</p>
+   */
+  export interface ResourceTypeMember {
+    state?: never;
+    resourceType: SyncResourceType | string;
+    resourceId?: never;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sync resource filter resource Id.</p>
+   */
+  export interface ResourceIdMember {
+    state?: never;
+    resourceType?: never;
+    resourceId: string;
+    externalId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The external Id.</p>
+   */
+  export interface ExternalIdMember {
+    state?: never;
+    resourceType?: never;
+    resourceId?: never;
+    externalId: string;
+    $unknown?: never;
+  }
+
+  export interface $UnknownMember {
+    state?: never;
+    resourceType?: never;
+    resourceId?: never;
+    externalId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    state: (value: SyncResourceState | string) => T;
+    resourceType: (value: SyncResourceType | string) => T;
+    resourceId: (value: string) => T;
+    externalId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SyncResourceFilter, visitor: Visitor<T>): T => {
+    if (value.state !== undefined) return visitor.state(value.state);
+    if (value.resourceType !== undefined) return visitor.resourceType(value.resourceType);
+    if (value.resourceId !== undefined) return visitor.resourceId(value.resourceId);
+    if (value.externalId !== undefined) return visitor.externalId(value.externalId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+export interface ListSyncResourcesRequest {
+  /**
+   * <p>The ID of the workspace that contains the sync job.</p>
+   */
+  workspaceId: string | undefined;
+
+  /**
+   * <p>The sync soucre.</p>
+   *          <note>
+   *             <p>Currently the only supported syncSoucre is <code>SITEWISE </code>.</p>
+   *          </note>
+   */
+  syncSource: string | undefined;
+
+  /**
+   * <p>A list of objects that filter the request.</p>
+   */
+  filters?: SyncResourceFilter[];
+
+  /**
+   * <p>The maximum number of results to return at one time. The default is 50.</p>
+   *          <p>Valid Range: Minimum value of 0. Maximum value of 200.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>The string that specifies the next page of results.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * <p>The sync resource status.</p>
+ */
+export interface SyncResourceStatus {
+  /**
+   * <p>The sync resource status state.</p>
+   */
+  state?: SyncResourceState | string;
+
+  /**
+   * <p>The status error.</p>
+   */
+  error?: ErrorDetails;
+}
+
+/**
+ * <p>The sync resource summary.</p>
+ */
+export interface SyncResourceSummary {
+  /**
+   * <p>The resource type.</p>
+   */
+  resourceType?: SyncResourceType | string;
+
+  /**
+   * <p>The external Id.</p>
+   */
+  externalId?: string;
+
+  /**
+   * <p>The resource Id.</p>
+   */
+  resourceId?: string;
+
+  /**
+   * <p>The sync resource summary status.</p>
+   */
+  status?: SyncResourceStatus;
+
+  /**
+   * <p>The update date and time.</p>
+   */
+  updateDateTime?: Date;
+}
+
+export interface ListSyncResourcesResponse {
+  /**
+   * <p>The sync resources.</p>
+   */
+  syncResources?: SyncResourceSummary[];
 
   /**
    * <p>The string that specifies the next page of results.</p>
@@ -2063,6 +2460,11 @@ export interface PropertyDefinitionRequest {
    *          specify information that you read from and write to an external source.</p>
    */
   configuration?: Record<string, string>;
+
+  /**
+   * <p>A friendly name for the property.</p>
+   */
+  displayName?: string;
 }
 
 /**
@@ -2118,6 +2520,11 @@ export interface PropertyDefinitionResponse {
    * <p>A mapping that specifies configuration information about the property.</p>
    */
   configuration?: Record<string, string>;
+
+  /**
+   * <p>A friendly name for the property.</p>
+   */
+  displayName?: string;
 }
 
 export interface BatchPutPropertyValuesResponse {
@@ -2193,6 +2600,11 @@ export interface CreateComponentTypeRequest {
    * <p/>
    */
   propertyGroups?: Record<string, PropertyGroupRequest>;
+
+  /**
+   * <p>A friendly name for the component type.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface GetComponentTypeResponse {
@@ -2270,11 +2682,21 @@ export interface GetComponentTypeResponse {
    *          <p>Valid Range: Minimum value of 1. Maximum value of 250.</p>
    */
   propertyGroups?: Record<string, PropertyGroupResponse>;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 export interface UpdateComponentTypeRequest {
   /**
-   * <p>The ID of the workspace that contains the component type.</p>
+   * <p>The ID of the workspace.</p>
    */
   workspaceId: string | undefined;
 
@@ -2315,6 +2737,11 @@ export interface UpdateComponentTypeRequest {
    * <p>The property groups</p>
    */
   propertyGroups?: Record<string, PropertyGroupRequest>;
+
+  /**
+   * <p>The component type name.</p>
+   */
+  componentTypeName?: string;
 }
 
 /**
@@ -2417,6 +2844,11 @@ export interface ComponentResponse {
    * <p>The property groups.</p>
    */
   propertyGroups?: Record<string, ComponentPropertyGroupResponse>;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
 }
 
 /**
@@ -2544,6 +2976,11 @@ export interface GetEntityResponse {
    * <p>The date and time when the entity was last updated.</p>
    */
   updateDateTime: Date | undefined;
+
+  /**
+   * <p>The syncSource of the sync job, if this entity was created by a sync job.</p>
+   */
+  syncSource?: string;
 }
 
 export interface UpdateEntityRequest {
@@ -2666,6 +3103,20 @@ export const CreateSceneResponseFilterSensitiveLog = (obj: CreateSceneResponse):
 /**
  * @internal
  */
+export const CreateSyncJobRequestFilterSensitiveLog = (obj: CreateSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateSyncJobResponseFilterSensitiveLog = (obj: CreateSyncJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreateWorkspaceRequestFilterSensitiveLog = (obj: CreateWorkspaceRequest): any => ({
   ...obj,
 });
@@ -2716,6 +3167,20 @@ export const DeleteSceneRequestFilterSensitiveLog = (obj: DeleteSceneRequest): a
  * @internal
  */
 export const DeleteSceneResponseFilterSensitiveLog = (obj: DeleteSceneResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSyncJobRequestFilterSensitiveLog = (obj: DeleteSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeleteSyncJobResponseFilterSensitiveLog = (obj: DeleteSyncJobResponse): any => ({
   ...obj,
 });
 
@@ -2869,6 +3334,27 @@ export const GetSceneResponseFilterSensitiveLog = (obj: GetSceneResponse): any =
 /**
  * @internal
  */
+export const GetSyncJobRequestFilterSensitiveLog = (obj: GetSyncJobRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncJobStatusFilterSensitiveLog = (obj: SyncJobStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetSyncJobResponseFilterSensitiveLog = (obj: GetSyncJobResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetWorkspaceRequestFilterSensitiveLog = (obj: GetWorkspaceRequest): any => ({
   ...obj,
 });
@@ -2962,6 +3448,67 @@ export const SceneSummaryFilterSensitiveLog = (obj: SceneSummary): any => ({
  * @internal
  */
 export const ListScenesResponseFilterSensitiveLog = (obj: ListScenesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSyncJobsRequestFilterSensitiveLog = (obj: ListSyncJobsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncJobSummaryFilterSensitiveLog = (obj: SyncJobSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSyncJobsResponseFilterSensitiveLog = (obj: ListSyncJobsResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceFilterFilterSensitiveLog = (obj: SyncResourceFilter): any => {
+  if (obj.state !== undefined) return { state: obj.state };
+  if (obj.resourceType !== undefined) return { resourceType: obj.resourceType };
+  if (obj.resourceId !== undefined) return { resourceId: obj.resourceId };
+  if (obj.externalId !== undefined) return { externalId: obj.externalId };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ListSyncResourcesRequestFilterSensitiveLog = (obj: ListSyncResourcesRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => SyncResourceFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceStatusFilterSensitiveLog = (obj: SyncResourceStatus): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const SyncResourceSummaryFilterSensitiveLog = (obj: SyncResourceSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSyncResourcesResponseFilterSensitiveLog = (obj: ListSyncResourcesResponse): any => ({
   ...obj,
 });
 

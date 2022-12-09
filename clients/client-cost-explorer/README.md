@@ -9,10 +9,10 @@
 
 AWS SDK for JavaScript CostExplorer Client for Node.js, Browser and React Native.
 
-<p>You can use the Cost Explorer API to programmatically query your cost and usage data. You
-can query for aggregated data such as total monthly costs or total daily usage. You can also
-query for granular data. This might include the number of daily write operations for Amazon
-DynamoDB database tables in your production environment. </p>
+<p>You can use the Cost Explorer API to programmatically query your cost and usage data.
+You can query for aggregated data such as total monthly costs or total daily usage. You can
+also query for granular data. This might include the number of daily write operations for
+Amazon DynamoDB database tables in your production environment. </p>
 <p>Service Endpoint</p>
 <p>The Cost Explorer API provides the following endpoint:</p>
 <ul>

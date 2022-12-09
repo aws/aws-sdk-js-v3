@@ -30,6 +30,23 @@ export interface DescribeVerifiedAccessGroupsCommandOutput
   extends DescribeVerifiedAccessGroupsResult,
     __MetadataBearer {}
 
+/**
+ * <p>Describe details of existing Verified Access groups.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, DescribeVerifiedAccessGroupsCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, DescribeVerifiedAccessGroupsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new DescribeVerifiedAccessGroupsCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link DescribeVerifiedAccessGroupsCommandInput} for command's `input` shape.
+ * @see {@link DescribeVerifiedAccessGroupsCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class DescribeVerifiedAccessGroupsCommand extends $Command<
   DescribeVerifiedAccessGroupsCommandInput,
   DescribeVerifiedAccessGroupsCommandOutput,

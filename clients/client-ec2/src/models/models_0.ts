@@ -3763,9 +3763,27 @@ export interface AttachNetworkInterfaceResult {
 }
 
 export interface AttachVerifiedAccessTrustProviderRequest {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId: string | undefined;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProviderId: string | undefined;
+
+  /**
+   * <p>A unique, case-sensitive token that you provide to ensure idempotency of your
+   *             modification request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring Idempotency</a>.</p>
+   */
   ClientToken?: string;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   */
   DryRun?: boolean;
 }
 
@@ -3784,53 +3802,190 @@ export enum UserTrustProviderType {
   oidc = "oidc",
 }
 
+/**
+ * <p>Condensed information about a trust provider.</p>
+ */
 export interface VerifiedAccessTrustProviderCondensed {
+  /**
+   * <p>The ID of the trust provider.</p>
+   */
   VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>The description of trust provider.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The type of trust provider (user- or device-based).</p>
+   */
   TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
   UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
   DeviceTrustProviderType?: DeviceTrustProviderType | string;
 }
 
+/**
+ * <p>Describes a Verified Access instance.</p>
+ */
 export interface VerifiedAccessInstance {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstanceId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access instance.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The IDs of the Amazon Web Services Verified Access trust providers.</p>
+   */
   VerifiedAccessTrustProviders?: VerifiedAccessTrustProviderCondensed[];
+
+  /**
+   * <p>The creation time.</p>
+   */
   CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
   LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
   Tags?: Tag[];
 }
 
+/**
+ * <p>Options for an Amazon Web Services Verified Access device-identity based trust provider.</p>
+ */
 export interface DeviceOptions {
+  /**
+   * <p>The ID of the tenant application with the device-identity provider.</p>
+   */
   TenantId?: string;
 }
 
+/**
+ * <p>Options for OIDC-based, user-identity type trust provider.</p>
+ */
 export interface OidcOptions {
+  /**
+   * <p>The OIDC issuer.</p>
+   */
   Issuer?: string;
+
+  /**
+   * <p>The OIDC authorization endpoint.</p>
+   */
   AuthorizationEndpoint?: string;
+
+  /**
+   * <p>The OIDC token endpoint.</p>
+   */
   TokenEndpoint?: string;
+
+  /**
+   * <p>The OIDC user info endpoint.</p>
+   */
   UserInfoEndpoint?: string;
+
+  /**
+   * <p>The client identifier.</p>
+   */
   ClientId?: string;
+
+  /**
+   * <p>The client secret.</p>
+   */
   ClientSecret?: string;
+
+  /**
+   * <p>The OpenID Connect (OIDC) scope specified.</p>
+   */
   Scope?: string;
 }
 
+/**
+ * <p>Describes a Verified Access trust provider.</p>
+ */
 export interface VerifiedAccessTrustProvider {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProviderId?: string;
+
+  /**
+   * <p>A description for the Amazon Web Services Verified Access trust provider.</p>
+   */
   Description?: string;
+
+  /**
+   * <p>The type of Verified Access trust provider.</p>
+   */
   TrustProviderType?: TrustProviderType | string;
+
+  /**
+   * <p>The type of user-based trust provider.</p>
+   */
   UserTrustProviderType?: UserTrustProviderType | string;
+
+  /**
+   * <p>The type of device-based trust provider.</p>
+   */
   DeviceTrustProviderType?: DeviceTrustProviderType | string;
+
+  /**
+   * <p>The OpenID Connect details for an <code>oidc</code>-type, user-identity based trust provider.</p>
+   */
   OidcOptions?: OidcOptions;
+
+  /**
+   * <p>The options for device-identity type trust provider.</p>
+   */
   DeviceOptions?: DeviceOptions;
+
+  /**
+   * <p>The identifier to be used when working with policy rules.</p>
+   */
   PolicyReferenceName?: string;
+
+  /**
+   * <p>The creation time.</p>
+   */
   CreationTime?: string;
+
+  /**
+   * <p>The last updated time.</p>
+   */
   LastUpdatedTime?: string;
+
+  /**
+   * <p>The tags.</p>
+   */
   Tags?: Tag[];
 }
 
 export interface AttachVerifiedAccessTrustProviderResult {
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access trust provider.</p>
+   */
   VerifiedAccessTrustProvider?: VerifiedAccessTrustProvider;
+
+  /**
+   * <p>The ID of the Amazon Web Services Verified Access instance.</p>
+   */
   VerifiedAccessInstance?: VerifiedAccessInstance;
 }
 

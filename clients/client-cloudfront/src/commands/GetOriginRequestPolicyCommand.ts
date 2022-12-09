@@ -38,11 +38,12 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * 				           <p>The date and time when the policy was last modified.</p>
  * 			         </li>
  *          </ul>
- * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the origin
- * 			request policy is attached to a distribution’s cache behavior, you can get the policy’s
- * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
- * 			origin request policy is not attached to a cache behavior, you can get the identifier
- * 			using <code>ListOriginRequestPolicies</code>.</p>
+ * 		       <p>To get an origin request policy, you must provide the policy’s identifier. If the
+ * 			origin request policy is attached to a distribution’s cache behavior, you can get the
+ * 			policy’s identifier using <code>ListDistributions</code> or
+ * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
+ * 			behavior, you can get the identifier using
+ * 			<code>ListOriginRequestPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

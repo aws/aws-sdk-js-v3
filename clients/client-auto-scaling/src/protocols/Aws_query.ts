@@ -32,6 +32,10 @@ import {
   AttachLoadBalancerTargetGroupsCommandOutput,
 } from "../commands/AttachLoadBalancerTargetGroupsCommand";
 import {
+  AttachTrafficSourcesCommandInput,
+  AttachTrafficSourcesCommandOutput,
+} from "../commands/AttachTrafficSourcesCommand";
+import {
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
 } from "../commands/BatchDeleteScheduledActionCommand";
@@ -149,6 +153,10 @@ import {
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
 } from "../commands/DescribeTerminationPolicyTypesCommand";
+import {
+  DescribeTrafficSourcesCommandInput,
+  DescribeTrafficSourcesCommandOutput,
+} from "../commands/DescribeTrafficSourcesCommand";
 import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "../commands/DescribeWarmPoolCommand";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "../commands/DetachInstancesCommand";
 import {
@@ -159,6 +167,10 @@ import {
   DetachLoadBalancerTargetGroupsCommandInput,
   DetachLoadBalancerTargetGroupsCommandOutput,
 } from "../commands/DetachLoadBalancerTargetGroupsCommand";
+import {
+  DetachTrafficSourcesCommandInput,
+  DetachTrafficSourcesCommandOutput,
+} from "../commands/DetachTrafficSourcesCommand";
 import {
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
@@ -228,6 +240,8 @@ import {
   AttachLoadBalancersType,
   AttachLoadBalancerTargetGroupsResultType,
   AttachLoadBalancerTargetGroupsType,
+  AttachTrafficSourcesResultType,
+  AttachTrafficSourcesType,
   AutoScalingGroup,
   AutoScalingGroupNamesType,
   AutoScalingGroupsType,
@@ -279,6 +293,8 @@ import {
   DescribeScheduledActionsType,
   DescribeTagsType,
   DescribeTerminationPolicyTypesAnswer,
+  DescribeTrafficSourcesRequest,
+  DescribeTrafficSourcesResponse,
   DescribeWarmPoolAnswer,
   DescribeWarmPoolType,
   DesiredConfiguration,
@@ -288,6 +304,8 @@ import {
   DetachLoadBalancersType,
   DetachLoadBalancerTargetGroupsResultType,
   DetachLoadBalancerTargetGroupsType,
+  DetachTrafficSourcesResultType,
+  DetachTrafficSourcesType,
   DisableMetricsCollectionQuery,
   Ebs,
   EnabledMetric,
@@ -384,8 +402,12 @@ import {
   TagDescription,
   TagsType,
   TargetTrackingConfiguration,
+  TargetTrackingMetricDataQuery,
+  TargetTrackingMetricStat,
   TerminateInstanceInAutoScalingGroupType,
   TotalLocalStorageGBRequest,
+  TrafficSourceIdentifier,
+  TrafficSourceState,
   UpdateAutoScalingGroupType,
   VCpuCountRequest,
   WarmPoolConfiguration,
@@ -434,6 +456,22 @@ export const serializeAws_queryAttachLoadBalancerTargetGroupsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryAttachLoadBalancerTargetGroupsType(input, context),
     Action: "AttachLoadBalancerTargetGroups",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryAttachTrafficSourcesCommand = async (
+  input: AttachTrafficSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryAttachTrafficSourcesType(input, context),
+    Action: "AttachTrafficSources",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -969,6 +1007,22 @@ export const serializeAws_queryDescribeTerminationPolicyTypesCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_queryDescribeTrafficSourcesCommand = async (
+  input: DescribeTrafficSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDescribeTrafficSourcesRequest(input, context),
+    Action: "DescribeTrafficSources",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_queryDescribeWarmPoolCommand = async (
   input: DescribeWarmPoolCommandInput,
   context: __SerdeContext
@@ -1028,6 +1082,22 @@ export const serializeAws_queryDetachLoadBalancerTargetGroupsCommand = async (
   body = buildFormUrlencodedString({
     ...serializeAws_queryDetachLoadBalancerTargetGroupsType(input, context),
     Action: "DetachLoadBalancerTargetGroups",
+    Version: "2011-01-01",
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_queryDetachTrafficSourcesCommand = async (
+  input: DetachTrafficSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-www-form-urlencoded",
+  };
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...serializeAws_queryDetachTrafficSourcesType(input, context),
+    Action: "DetachTrafficSources",
     Version: "2011-01-01",
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1462,6 +1532,50 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<AttachLoadBalancerTargetGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContention":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
+    case "ServiceLinkedRoleFailure":
+    case "com.amazonaws.autoscaling#ServiceLinkedRoleFailure":
+      throw await deserializeAws_queryServiceLinkedRoleFailureResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryAttachTrafficSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachTrafficSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryAttachTrafficSourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryAttachTrafficSourcesResultType(data.AttachTrafficSourcesResult, context);
+  const response: AttachTrafficSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryAttachTrafficSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AttachTrafficSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -2963,6 +3077,50 @@ const deserializeAws_queryDescribeTerminationPolicyTypesCommandError = async (
   }
 };
 
+export const deserializeAws_queryDescribeTrafficSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrafficSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDescribeTrafficSourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDescribeTrafficSourcesResponse(data.DescribeTrafficSourcesResult, context);
+  const response: DescribeTrafficSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDescribeTrafficSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeTrafficSourcesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidNextToken":
+    case "com.amazonaws.autoscaling#InvalidNextToken":
+      throw await deserializeAws_queryInvalidNextTokenResponse(parsedOutput, context);
+    case "ResourceContention":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_queryDescribeWarmPoolCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3116,6 +3274,47 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DetachLoadBalancerTargetGroupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadQueryErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceContention":
+    case "com.amazonaws.autoscaling#ResourceContentionFault":
+      throw await deserializeAws_queryResourceContentionFaultResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody: parsedBody.Error,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_queryDetachTrafficSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachTrafficSourcesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_queryDetachTrafficSourcesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_queryDetachTrafficSourcesResultType(data.DetachTrafficSourcesResult, context);
+  const response: DetachTrafficSourcesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_queryDetachTrafficSourcesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DetachTrafficSourcesCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -4250,6 +4449,24 @@ const serializeAws_queryAttachLoadBalancerTargetGroupsType = (
   return entries;
 };
 
+const serializeAws_queryAttachTrafficSourcesType = (input: AttachTrafficSourcesType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName != null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.TrafficSources != null) {
+    const memberEntries = serializeAws_queryTrafficSources(input.TrafficSources, context);
+    if (input.TrafficSources?.length === 0) {
+      entries.TrafficSources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TrafficSources.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
 const serializeAws_queryAutoScalingGroupNames = (input: string[], context: __SerdeContext): any => {
   const entries: any = {};
   let counter = 1;
@@ -4625,6 +4842,16 @@ const serializeAws_queryCreateAutoScalingGroupType = (
   if (input.DefaultInstanceWarmup != null) {
     entries["DefaultInstanceWarmup"] = input.DefaultInstanceWarmup;
   }
+  if (input.TrafficSources != null) {
+    const memberEntries = serializeAws_queryTrafficSources(input.TrafficSources, context);
+    if (input.TrafficSources?.length === 0) {
+      entries.TrafficSources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TrafficSources.${key}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -4763,6 +4990,16 @@ const serializeAws_queryCustomizedMetricSpecification = (
   }
   if (input.Unit != null) {
     entries["Unit"] = input.Unit;
+  }
+  if (input.Metrics != null) {
+    const memberEntries = serializeAws_queryTargetTrackingMetricDataQueries(input.Metrics, context);
+    if (input.Metrics?.length === 0) {
+      entries.Metrics = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Metrics.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -5105,6 +5342,26 @@ const serializeAws_queryDescribeTagsType = (input: DescribeTagsType, context: __
   return entries;
 };
 
+const serializeAws_queryDescribeTrafficSourcesRequest = (
+  input: DescribeTrafficSourcesRequest,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName != null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.TrafficSourceType != null) {
+    entries["TrafficSourceType"] = input.TrafficSourceType;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
+  if (input.MaxRecords != null) {
+    entries["MaxRecords"] = input.MaxRecords;
+  }
+  return entries;
+};
+
 const serializeAws_queryDescribeWarmPoolType = (input: DescribeWarmPoolType, context: __SerdeContext): any => {
   const entries: any = {};
   if (input.AutoScalingGroupName != null) {
@@ -5192,6 +5449,24 @@ const serializeAws_queryDetachLoadBalancerTargetGroupsType = (
     }
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetGroupARNs.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+const serializeAws_queryDetachTrafficSourcesType = (input: DetachTrafficSourcesType, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.AutoScalingGroupName != null) {
+    entries["AutoScalingGroupName"] = input.AutoScalingGroupName;
+  }
+  if (input.TrafficSources != null) {
+    const memberEntries = serializeAws_queryTrafficSources(input.TrafficSources, context);
+    if (input.TrafficSources?.length === 0) {
+      entries.TrafficSources = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TrafficSources.${key}`;
       entries[loc] = value;
     });
   }
@@ -6834,6 +7109,70 @@ const serializeAws_queryTargetTrackingConfiguration = (
   return entries;
 };
 
+const serializeAws_queryTargetTrackingMetricDataQueries = (
+  input: TargetTrackingMetricDataQuery[],
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryTargetTrackingMetricDataQuery(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+const serializeAws_queryTargetTrackingMetricDataQuery = (
+  input: TargetTrackingMetricDataQuery,
+  context: __SerdeContext
+): any => {
+  const entries: any = {};
+  if (input.Id != null) {
+    entries["Id"] = input.Id;
+  }
+  if (input.Expression != null) {
+    entries["Expression"] = input.Expression;
+  }
+  if (input.MetricStat != null) {
+    const memberEntries = serializeAws_queryTargetTrackingMetricStat(input.MetricStat, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `MetricStat.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Label != null) {
+    entries["Label"] = input.Label;
+  }
+  if (input.ReturnData != null) {
+    entries["ReturnData"] = input.ReturnData;
+  }
+  return entries;
+};
+
+const serializeAws_queryTargetTrackingMetricStat = (input: TargetTrackingMetricStat, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Metric != null) {
+    const memberEntries = serializeAws_queryMetric(input.Metric, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Metric.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input.Stat != null) {
+    entries["Stat"] = input.Stat;
+  }
+  if (input.Unit != null) {
+    entries["Unit"] = input.Unit;
+  }
+  return entries;
+};
+
 const serializeAws_queryTerminateInstanceInAutoScalingGroupType = (
   input: TerminateInstanceInAutoScalingGroupType,
   context: __SerdeContext
@@ -6871,6 +7210,30 @@ const serializeAws_queryTotalLocalStorageGBRequest = (
   }
   if (input.Max != null) {
     entries["Max"] = __serializeFloat(input.Max);
+  }
+  return entries;
+};
+
+const serializeAws_queryTrafficSourceIdentifier = (input: TrafficSourceIdentifier, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input.Identifier != null) {
+    entries["Identifier"] = input.Identifier;
+  }
+  return entries;
+};
+
+const serializeAws_queryTrafficSources = (input: TrafficSourceIdentifier[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = serializeAws_queryTrafficSourceIdentifier(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
   }
   return entries;
 };
@@ -7228,6 +7591,14 @@ const deserializeAws_queryAttachLoadBalancerTargetGroupsResultType = (
   return contents;
 };
 
+const deserializeAws_queryAttachTrafficSourcesResultType = (
+  output: any,
+  context: __SerdeContext
+): AttachTrafficSourcesResultType => {
+  const contents: any = {};
+  return contents;
+};
+
 const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeContext): AutoScalingGroup => {
   const contents: any = {
     AutoScalingGroupName: undefined,
@@ -7263,6 +7634,7 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
     Context: undefined,
     DesiredCapacityType: undefined,
     DefaultInstanceWarmup: undefined,
+    TrafficSources: undefined,
   };
   if (output["AutoScalingGroupName"] !== undefined) {
     contents.AutoScalingGroupName = __expectString(output["AutoScalingGroupName"]);
@@ -7399,6 +7771,14 @@ const deserializeAws_queryAutoScalingGroup = (output: any, context: __SerdeConte
   }
   if (output["DefaultInstanceWarmup"] !== undefined) {
     contents.DefaultInstanceWarmup = __strictParseInt32(output["DefaultInstanceWarmup"]) as number;
+  }
+  if (output.TrafficSources === "") {
+    contents.TrafficSources = [];
+  } else if (output["TrafficSources"] !== undefined && output["TrafficSources"]["member"] !== undefined) {
+    contents.TrafficSources = deserializeAws_queryTrafficSources(
+      __getArrayIfSingleItem(output["TrafficSources"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7696,6 +8076,7 @@ const deserializeAws_queryCustomizedMetricSpecification = (
     Dimensions: undefined,
     Statistic: undefined,
     Unit: undefined,
+    Metrics: undefined,
   };
   if (output["MetricName"] !== undefined) {
     contents.MetricName = __expectString(output["MetricName"]);
@@ -7716,6 +8097,14 @@ const deserializeAws_queryCustomizedMetricSpecification = (
   }
   if (output["Unit"] !== undefined) {
     contents.Unit = __expectString(output["Unit"]);
+  }
+  if (output.Metrics === "") {
+    contents.Metrics = [];
+  } else if (output["Metrics"] !== undefined && output["Metrics"]["member"] !== undefined) {
+    contents.Metrics = deserializeAws_queryTargetTrackingMetricDataQueries(
+      __getArrayIfSingleItem(output["Metrics"]["member"]),
+      context
+    );
   }
   return contents;
 };
@@ -7975,6 +8364,28 @@ const deserializeAws_queryDescribeTerminationPolicyTypesAnswer = (
   return contents;
 };
 
+const deserializeAws_queryDescribeTrafficSourcesResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeTrafficSourcesResponse => {
+  const contents: any = {
+    TrafficSources: undefined,
+    NextToken: undefined,
+  };
+  if (output.TrafficSources === "") {
+    contents.TrafficSources = [];
+  } else if (output["TrafficSources"] !== undefined && output["TrafficSources"]["member"] !== undefined) {
+    contents.TrafficSources = deserializeAws_queryTrafficSourceStates(
+      __getArrayIfSingleItem(output["TrafficSources"]["member"]),
+      context
+    );
+  }
+  if (output["NextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["NextToken"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryDescribeWarmPoolAnswer = (output: any, context: __SerdeContext): DescribeWarmPoolAnswer => {
   const contents: any = {
     WarmPoolConfiguration: undefined,
@@ -8039,6 +8450,14 @@ const deserializeAws_queryDetachLoadBalancerTargetGroupsResultType = (
   output: any,
   context: __SerdeContext
 ): DetachLoadBalancerTargetGroupsResultType => {
+  const contents: any = {};
+  return contents;
+};
+
+const deserializeAws_queryDetachTrafficSourcesResultType = (
+  output: any,
+  context: __SerdeContext
+): DetachTrafficSourcesResultType => {
   const contents: any = {};
   return contents;
 };
@@ -9981,6 +10400,67 @@ const deserializeAws_queryTargetTrackingConfiguration = (
   return contents;
 };
 
+const deserializeAws_queryTargetTrackingMetricDataQueries = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDataQuery[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryTargetTrackingMetricDataQuery(entry, context);
+    });
+};
+
+const deserializeAws_queryTargetTrackingMetricDataQuery = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricDataQuery => {
+  const contents: any = {
+    Id: undefined,
+    Expression: undefined,
+    MetricStat: undefined,
+    Label: undefined,
+    ReturnData: undefined,
+  };
+  if (output["Id"] !== undefined) {
+    contents.Id = __expectString(output["Id"]);
+  }
+  if (output["Expression"] !== undefined) {
+    contents.Expression = __expectString(output["Expression"]);
+  }
+  if (output["MetricStat"] !== undefined) {
+    contents.MetricStat = deserializeAws_queryTargetTrackingMetricStat(output["MetricStat"], context);
+  }
+  if (output["Label"] !== undefined) {
+    contents.Label = __expectString(output["Label"]);
+  }
+  if (output["ReturnData"] !== undefined) {
+    contents.ReturnData = __parseBoolean(output["ReturnData"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTargetTrackingMetricStat = (
+  output: any,
+  context: __SerdeContext
+): TargetTrackingMetricStat => {
+  const contents: any = {
+    Metric: undefined,
+    Stat: undefined,
+    Unit: undefined,
+  };
+  if (output["Metric"] !== undefined) {
+    contents.Metric = deserializeAws_queryMetric(output["Metric"], context);
+  }
+  if (output["Stat"] !== undefined) {
+    contents.Stat = __expectString(output["Stat"]);
+  }
+  if (output["Unit"] !== undefined) {
+    contents.Unit = __expectString(output["Unit"]);
+  }
+  return contents;
+};
+
 const deserializeAws_queryTerminationPolicies = (output: any, context: __SerdeContext): string[] => {
   return (output || [])
     .filter((e: any) => e != null)
@@ -10004,6 +10484,46 @@ const deserializeAws_queryTotalLocalStorageGBRequest = (
     contents.Max = __strictParseFloat(output["Max"]) as number;
   }
   return contents;
+};
+
+const deserializeAws_queryTrafficSourceIdentifier = (output: any, context: __SerdeContext): TrafficSourceIdentifier => {
+  const contents: any = {
+    Identifier: undefined,
+  };
+  if (output["Identifier"] !== undefined) {
+    contents.Identifier = __expectString(output["Identifier"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTrafficSources = (output: any, context: __SerdeContext): TrafficSourceIdentifier[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryTrafficSourceIdentifier(entry, context);
+    });
+};
+
+const deserializeAws_queryTrafficSourceState = (output: any, context: __SerdeContext): TrafficSourceState => {
+  const contents: any = {
+    TrafficSource: undefined,
+    State: undefined,
+  };
+  if (output["TrafficSource"] !== undefined) {
+    contents.TrafficSource = __expectString(output["TrafficSource"]);
+  }
+  if (output["State"] !== undefined) {
+    contents.State = __expectString(output["State"]);
+  }
+  return contents;
+};
+
+const deserializeAws_queryTrafficSourceStates = (output: any, context: __SerdeContext): TrafficSourceState[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return deserializeAws_queryTrafficSourceState(entry, context);
+    });
 };
 
 const deserializeAws_queryVCpuCountRequest = (output: any, context: __SerdeContext): VCpuCountRequest => {

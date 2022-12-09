@@ -29,7 +29,8 @@ export interface DeleteSMSSandboxPhoneNumberCommandInput extends DeleteSMSSandbo
 export interface DeleteSMSSandboxPhoneNumberCommandOutput extends DeleteSMSSandboxPhoneNumberResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS sandbox.</p>
+ * <p>Deletes an Amazon Web Services account's verified or pending phone number from the SMS
+ *             sandbox.</p>
  *         <p>When you start using Amazon SNS to send SMS messages, your Amazon Web Services account is in the
  *                 <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for
  *                 you to try Amazon SNS features without risking your reputation as an SMS sender. While your

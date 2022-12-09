@@ -38,8 +38,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 				using the Amazon ECS-optimized Amazon Linux 2 (arm64) AMI. To update the container agent,
  * 				you can update the <code>ecs-init</code> package. This updates the agent. For more
  * 				information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/agent-update-ecs-ami.html">Updating the
- * 					Amazon ECS container agent</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       </note>
  * 		       <note>
  * 			         <p>Agent updates with the <code>UpdateContainerAgent</code> API operation do not
@@ -48,8 +47,7 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 		       </note>
  * 		       <p>The <code>UpdateContainerAgent</code> API requires an Amazon ECS-optimized AMI or Amazon
  * 			Linux AMI with the <code>ecs-init</code> service installed and running. For help
- * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			updating the Amazon ECS container agent on other operating systems, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-update.html#manually_update_agent">Manually updating the Amazon ECS container agent</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -45,8 +45,9 @@ export interface Impact {
 }
 
 /**
- * <p>The combination of Amazon Web Service, linked account, Region, and usage type
- *             where a cost anomaly is observed. </p>
+ * <p>The combination of Amazon Web Service, linked account, linked account name,
+ *             Region, and usage type where a cost anomaly is observed. The linked account name will
+ *             only be available when the account name can be identified.</p>
  */
 export interface RootCause {
   /**
@@ -68,6 +69,11 @@ export interface RootCause {
    * <p>The <code>UsageType</code> value that's associated with the cost anomaly. </p>
    */
   UsageType?: string;
+
+  /**
+   * <p>The member account name value that's associated with the cost anomaly.</p>
+   */
+  LinkedAccountName?: string;
 }
 
 /**
@@ -154,10 +160,10 @@ export enum MatchOption {
 
 /**
  * <p>The Cost Categories values used for filtering the costs.</p>
- *         <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
+ *          <p>If <code>Values</code> and <code>Key</code> are not specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all Cost Categories. That is, it filters on
  *             resources that aren't mapped to any Cost Categories.</p>
- *         <p>If <code>Values</code> is provided and <code>Key</code> isn't specified, the
+ *          <p>If <code>Values</code> is provided and <code>Key</code> isn't specified, the
  *                 <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to the Cost Categories <code>Key</code> only. That
  *             is, it filters on resources without the given Cost Categories key.</p>
@@ -224,7 +230,9 @@ export enum Dimension {
 export interface DimensionValues {
   /**
    * <p>The names of the metadata types that you can use to filter and group your results. For
-   *             example, <code>AZ</code> returns a list of Availability Zones. <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.</p>
+   *             example, <code>AZ</code> returns a list of Availability Zones.
+   *                 <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in
+   *                 <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.</p>
    */
   Key?: Dimension | string;
 
@@ -245,10 +253,10 @@ export interface DimensionValues {
 
 /**
  * <p>The values that are available for a tag.</p>
- *         <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
+ *          <p>If <code>Values</code> and <code>Key</code> aren't specified, the <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to all tags. That is, it's filtered on resources
  *             with no tags.</p>
- *         <p>If <code>Key</code> is provided and <code>Values</code> isn't specified, the
+ *          <p>If <code>Key</code> is provided and <code>Values</code> isn't specified, the
  *                 <code>ABSENT</code>
  *             <code>MatchOption</code> is applied to the tag <code>Key</code> only. That is, it's
  *             filtered on resources without the given tag key.</p>
@@ -360,8 +368,9 @@ export interface AnomalySubscription {
 
 /**
  * <p>The tag structure that contains a tag key and value. </p>
- *         <note>
- *             <p>Tagging is supported only for the following Cost Explorer resource types: <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
+ *          <note>
+ *             <p>Tagging is supported only for the following Cost Explorer resource types:
+ *                     <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalyMonitor.html">
  *                   <code>AnomalyMonitor</code>
  *                </a>, <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_AnomalySubscription.html">
  *                   <code>AnomalySubscription</code>
@@ -421,10 +430,12 @@ export interface CreateAnomalySubscriptionRequest {
    *                <code>AnomalySubscription</code>
    *             </a>. You can use resource tags to control access to
    *       your <code>subscription</code> using IAM policies.</p>
-   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The
+   *       following restrictions apply to resource tags:</p>
    *          <ul>
    *             <li>
-   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50
+   *           user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
    *             </li>
    *             <li>
    *                <p>The maximum length of a key is 128 characters</p>
@@ -433,7 +444,8 @@ export interface CreateAnomalySubscriptionRequest {
    *                <p>The maximum length of a value is 256 characters</p>
    *             </li>
    *             <li>
-   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>
+   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the
+   *           following: <code>_.:/=+@-</code>
    *                </p>
    *             </li>
    *             <li>
@@ -443,7 +455,8 @@ export interface CreateAnomalySubscriptionRequest {
    *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
    *             </li>
    *             <li>
-   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
+   *             Amazon Web Services use</p>
    *             </li>
    *          </ul>
    */
@@ -458,8 +471,7 @@ export interface CreateAnomalySubscriptionResponse {
 }
 
 /**
- * <p>The cost anomaly monitor does not exist for the account.
- *         </p>
+ * <p>The cost anomaly monitor does not exist for the account. </p>
  */
 export class UnknownMonitorException extends __BaseException {
   readonly name: "UnknownMonitorException" = "UnknownMonitorException";
@@ -497,7 +509,7 @@ export enum CostCategoryInheritedValueDimensionName {
 export interface CostCategoryInheritedValueDimension {
   /**
    * <p>The name of the dimension that's used to group costs.</p>
-   *         <p>If you specify <code>LINKED_ACCOUNT_NAME</code>, the cost category value is based on
+   *          <p>If you specify <code>LINKED_ACCOUNT_NAME</code>, the cost category value is based on
    *             account name. If you specify <code>TAG</code>, the cost category value is based on the
    *             value of the specified tag key.</p>
    */
@@ -550,7 +562,8 @@ export interface CostCategorySplitChargeRuleParameter {
 export interface CostCategorySplitChargeRule {
   /**
    * <p>The Cost Category value that you want to split. That value can't be used as a source
-   *             or a target in other split charge rules. To indicate uncategorized costs, you can use an empty string as the source.</p>
+   *             or a target in other split charge rules. To indicate uncategorized costs, you can use an
+   *             empty string as the source.</p>
    */
   Source: string | undefined;
 
@@ -562,13 +575,13 @@ export interface CostCategorySplitChargeRule {
 
   /**
    * <p>The method that's used to define how to split your source costs across your targets. </p>
-   *         <p>
+   *          <p>
    *             <code>Proportional</code> - Allocates charges across your targets based on the
    *             proportional weighted cost of each target.</p>
-   *         <p>
+   *          <p>
    *             <code>Fixed</code> - Allocates charges across your targets based on your defined
    *             allocation percentage.</p>
-   *         <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
+   *          <p>><code>Even</code> - Allocates costs evenly across all targets.</p>
    */
   Method: CostCategorySplitChargeMethod | string | undefined;
 
@@ -632,8 +645,7 @@ export interface DeleteAnomalySubscriptionRequest {
 export interface DeleteAnomalySubscriptionResponse {}
 
 /**
- * <p>The cost anomaly subscription does not exist for the account.
- *         </p>
+ * <p>The cost anomaly subscription does not exist for the account. </p>
  */
 export class UnknownSubscriptionException extends __BaseException {
   readonly name: "UnknownSubscriptionException" = "UnknownSubscriptionException";
@@ -674,9 +686,7 @@ export interface DeleteCostCategoryDefinitionResponse {
 }
 
 /**
- * <p>
- *             The specified ARN in the request doesn't exist.
- *         </p>
+ * <p> The specified ARN in the request doesn't exist. </p>
  */
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
@@ -878,7 +888,8 @@ export interface GetAnomalySubscriptionsRequest {
 
 export interface GetAnomalySubscriptionsResponse {
   /**
-   * <p>A list of cost anomaly subscriptions that includes the detailed metadata for each one. </p>
+   * <p>A list of cost anomaly subscriptions that includes the detailed metadata for each one.
+   *     </p>
    */
   AnomalySubscriptions: AnomalySubscription[] | undefined;
 
@@ -1052,12 +1063,14 @@ export interface ResultByTime {
 
 export interface GetCostAndUsageResponse {
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
   /**
-   * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code> parameters in the request.</p>
+   * <p>The groups that are specified by the <code>Filter</code> or <code>GroupBy</code>
+   *       parameters in the request.</p>
    */
   GroupDefinitions?: GroupDefinition[];
 
@@ -1067,7 +1080,8 @@ export interface GetCostAndUsageResponse {
   ResultsByTime?: ResultByTime[];
 
   /**
-   * <p>The attributes that apply to a specific dimension value. For example, if the value is a linked account, the attribute is that account name.</p>
+   * <p>The attributes that apply to a specific dimension value. For example, if the value is a
+   *       linked account, the attribute is that account name.</p>
    */
   DimensionValueAttributes?: DimensionValuesWithAttributes[];
 }
@@ -1096,7 +1110,8 @@ export class RequestChangedException extends __BaseException {
 
 export interface GetCostAndUsageWithResourcesResponse {
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
@@ -1112,7 +1127,8 @@ export interface GetCostAndUsageWithResourcesResponse {
   ResultsByTime?: ResultByTime[];
 
   /**
-   * <p>The attributes that apply to a specific dimension value. For example, if the value is a linked account, the attribute is that account name.</p>
+   * <p>The attributes that apply to a specific dimension value. For example, if the value is a
+   *       linked account, the attribute is that account name.</p>
    */
   DimensionValueAttributes?: DimensionValuesWithAttributes[];
 }
@@ -1209,8 +1225,8 @@ export interface GetCostForecastResponse {
   Total?: MetricValue;
 
   /**
-   * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
-   * 			this is a list of months.</p>
+   * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list
+   *       of days. For <code>MONTHLY</code> forecasts, this is a list of months.</p>
    */
   ForecastResultsByTime?: ForecastResult[];
 }
@@ -1223,110 +1239,131 @@ export enum Context {
 
 export interface GetDimensionValuesResponse {
   /**
-   * <p>The filters that you used to filter your request. Some dimensions are available only for a specific context.</p>
-   * 		       <p>If you set the context to <code>COST_AND_USAGE</code>, you can use the following
-   *            dimensions for searching:</p>
-   *            <ul>
+   * <p>The filters that you used to filter your request. Some dimensions are available only
+   *       for a specific context.</p>
+   *          <p>If you set the context to <code>COST_AND_USAGE</code>, you can use the following
+   *       dimensions for searching:</p>
+   *          <ul>
    *             <li>
    *                <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>
    *             </li>
    *             <li>
-   *                <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora or MySQL.</p>
+   *                <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are
+   *           Aurora or MySQL.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>
+   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
+   *             <code>m4.xlarge</code>.</p>
    *             </li>
    *             <li>
-   *                <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services services, such as Amazon Web Services.</p>
+   *                <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
+   *           services, such as Amazon Web Services.</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</p>
    *             </li>
    *             <li>
-   *                <p>OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.</p>
+   *                <p>OPERATION - The action performed. Examples include <code>RunInstance</code> and
+   *             <code>CreateBucket</code>.</p>
    *             </li>
    *             <li>
-   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>
+   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
-   *                <p>PURCHASE_TYPE - The reservation type of the purchase to which this usage is related. Examples include On-Demand
-   *                Instances and Standard Reserved Instances.</p>
+   *                <p>PURCHASE_TYPE - The reservation type of the purchase to which this usage is
+   *           related. Examples include On-Demand Instances and Standard Reserved Instances.</p>
    *             </li>
    *             <li>
    *                <p>SERVICE - The Amazon Web Services service such as Amazon DynamoDB.</p>
    *             </li>
    *             <li>
-   *                <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response for the <code>GetDimensionValues</code> operation
-   *            includes a unit attribute. Examples include GB and Hrs.</p>
+   *                <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
+   *           for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
+   *           include GB and Hrs.</p>
    *             </li>
    *             <li>
-   *                <p>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms. The response for this
-   *                operation includes a unit attribute.</p>
+   *                <p>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2:
+   *           CloudWatch – Alarms. The response for this operation includes a unit attribute.</p>
    *             </li>
    *             <li>
-   *                <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax refunds, and credits.</p>
+   *                <p>RECORD_TYPE - The different types of charges such as RI fees, usage costs, tax
+   *           refunds, and credits.</p>
    *             </li>
    *             <li>
-   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service. You can opt-in by enabling <code>Hourly</code> and <code>Resource Level Data</code> in Cost Management Console preferences.</p>
+   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in
+   *           feature only available for last 14 days for EC2-Compute Service. You can opt-in by
+   *           enabling <code>Hourly</code> and <code>Resource Level Data</code> in Cost Management Console preferences.</p>
    *             </li>
    *          </ul>
    *          <p>If you set the context to <code>RESERVATIONS</code>, you can use the following
-   *            dimensions for searching:</p>
+   *       dimensions for searching:</p>
    *          <ul>
    *             <li>
    *                <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>
    *             </li>
    *             <li>
-   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>
+   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
-   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid
-   *           values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
+   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments.
+   *           Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>
+   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
+   *             <code>m4.xlarge</code>.</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
-   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>
+   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are regional or a single Availability Zone.</p>
+   *                <p>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are
+   *           regional or a single Availability Zone.</p>
    *             </li>
    *             <li>
-   *                <p>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</p>
+   *                <p>TAG (Coverage only) - The tags that are associated with a Reserved Instance
+   *           (RI).</p>
    *             </li>
    *             <li>
    *                <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>
    *             </li>
    *          </ul>
-   *          <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions for searching:</p>
+   *          <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following
+   *       dimensions for searching:</p>
    *          <ul>
    *             <li>
    *                <p>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</p>
    *             </li>
    *             <li>
-   *                <p>PAYMENT_OPTION - Payment option for the given Savings Plans (for example, All Upfront)</p>
+   *                <p>PAYMENT_OPTION - Payment option for the given Savings Plans (for example, All
+   *           Upfront)</p>
    *             </li>
    *             <li>
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</p>
+   *                <p>INSTANCE_TYPE_FAMILY - The family of instances (For example,
+   *           <code>m5</code>)</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plan</p>
@@ -1346,7 +1383,8 @@ export interface GetDimensionValuesResponse {
   TotalSize: number | undefined;
 
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -1394,7 +1432,7 @@ export interface CoverageHours {
  *             the xlarge instance, even though both instances show only one instance-hour. When you
  *             use normalized units instead of instance-hours, the xlarge instance used 8 normalized
  *             units, and the 2xlarge instance used 16 normalized units.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved Instances</a>
  *             in the <i>Amazon Elastic Compute Cloud User Guide for Linux
  *             Instances</i>.</p>
  */
@@ -1489,7 +1527,8 @@ export interface GetReservationCoverageResponse {
   Total?: Coverage;
 
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -1641,8 +1680,8 @@ export interface ElastiCacheInstanceDetails {
 }
 
 /**
- * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends that you
- *             purchase.</p>
+ * <p>Details about the Amazon OpenSearch Service instances that Amazon Web Services recommends
+ *             that you purchase.</p>
  */
 export interface ESInstanceDetails {
   /**
@@ -1781,7 +1820,8 @@ export interface InstanceDetails {
   ElastiCacheInstanceDetails?: ElastiCacheInstanceDetails;
 
   /**
-   * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you purchase.</p>
+   * <p>The Amazon OpenSearch Service instances that Amazon Web Services recommends that you
+   *             purchase.</p>
    */
   ESInstanceDetails?: ESInstanceDetails;
 }
@@ -1977,7 +2017,8 @@ export interface ReservationPurchaseRecommendation {
 
 export interface GetReservationPurchaseRecommendationResponse {
   /**
-   * <p>Information about this specific recommendation call, such as the time stamp for when Cost Explorer generated this recommendation.</p>
+   * <p>Information about this specific recommendation call, such as the time stamp for when
+   *       Cost Explorer generated this recommendation.</p>
    */
   Metadata?: ReservationPurchaseRecommendationMetadata;
 
@@ -2151,7 +2192,8 @@ export interface GetReservationUtilizationResponse {
   Total?: ReservationAggregates;
 
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -2335,7 +2377,8 @@ export interface NetworkResourceUtilization {
   NetworkInBytesPerSecond?: string;
 
   /**
-   * <p>The network outbound throughput utilization measured in Bytes per second (Bps). </p>
+   * <p>The network outbound throughput utilization measured in Bytes per second (Bps).
+   *         </p>
    */
   NetworkOutBytesPerSecond?: string;
 
@@ -2714,7 +2757,8 @@ export interface GetSavingsPlansCoverageResponse {
   SavingsPlansCoverages: SavingsPlansCoverage[] | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
+   *       the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
 }
@@ -2988,12 +3032,14 @@ export interface GetSavingsPlansPurchaseRecommendationResponse {
   Metadata?: SavingsPlansPurchaseRecommendationMetadata;
 
   /**
-   * <p>Contains your request parameters, Savings Plan Recommendations Summary, and Details.</p>
+   * <p>Contains your request parameters, Savings Plan Recommendations Summary, and
+   *       Details.</p>
    */
   SavingsPlansPurchaseRecommendation?: SavingsPlansPurchaseRecommendation;
 
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -3181,7 +3227,8 @@ export interface SavingsPlansUtilizationDetail {
 
 export interface GetSavingsPlansUtilizationDetailsResponse {
   /**
-   * <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your account.</p>
+   * <p>Retrieves a single daily or monthly Savings Plans utilization rate and details for your
+   *       account.</p>
    */
   SavingsPlansUtilizationDetails: SavingsPlansUtilizationDetail[] | undefined;
 
@@ -3196,14 +3243,16 @@ export interface GetSavingsPlansUtilizationDetailsResponse {
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
+   *       the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
 }
 
 export interface GetTagsResponse {
   /**
-   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token for the next set of retrievable results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
@@ -3230,14 +3279,16 @@ export interface GetUsageForecastResponse {
   Total?: MetricValue;
 
   /**
-   * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a list of days. For <code>MONTHLY</code> forecasts,
-   * 			this is a list of months.</p>
+   * <p>The forecasts for your query, in order. For <code>DAILY</code> forecasts, this is a
+   *       list of days. For <code>MONTHLY</code> forecasts, this is a list of months.</p>
    */
   ForecastResultsByTime?: ForecastResult[];
 }
 
 /**
- * <p>Cost Explorer was unable to identify the usage unit. Provide <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units, for example: <code>hours</code>.</p>
+ * <p>Cost Explorer was unable to identify the usage unit. Provide
+ *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
+ *             for example: <code>hours</code>.</p>
  */
 export class UnresolvableUsageUnitException extends __BaseException {
   readonly name: "UnresolvableUsageUnitException" = "UnresolvableUsageUnitException";
@@ -3282,7 +3333,8 @@ export interface ListCostAllocationTagsRequest {
    * <p>The type of <code>CostAllocationTag</code> object that are returned for this request. The
    *         <code>AWSGenerated</code> type tags are tags that Amazon Web Services defines and applies to
    *       support Amazon Web Services resources for cost allocation purposes. The
-   *         <code>UserDefined</code> type tags are tags that you define, create, and apply to resources. </p>
+   *         <code>UserDefined</code> type tags are tags that you define, create, and apply to resources.
+   *     </p>
    */
   Type?: CostAllocationTagType | string;
 
@@ -3358,7 +3410,7 @@ export interface ListCostCategoryDefinitionsRequest {
 /**
  * <p>A reference to a Cost Category containing only enough information to identify the Cost
  *             Category.</p>
- *         <p>You can use this information to retrieve the full Cost Category information using
+ *          <p>You can use this information to retrieve the full Cost Category information using
  *                 <code>DescribeCostCategory</code>.</p>
  */
 export interface CostCategoryReference {
@@ -3419,17 +3471,89 @@ export interface ListCostCategoryDefinitionsResponse {
   NextToken?: string;
 }
 
+export enum GenerationStatus {
+  FAILED = "FAILED",
+  PROCESSING = "PROCESSING",
+  SUCCEEDED = "SUCCEEDED",
+}
+
+export interface ListSavingsPlansPurchaseRecommendationGenerationRequest {
+  /**
+   * <p>The status of the recommendation generation.</p>
+   */
+  GenerationStatus?: GenerationStatus | string;
+
+  /**
+   * <p>The IDs for each specific recommendation.</p>
+   */
+  RecommendationIds?: string[];
+
+  /**
+   * <p>The number of recommendations that you want returned in a single response object.</p>
+   */
+  PageSize?: number;
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextPageToken?: string;
+}
+
+/**
+ * <p>The summary of the Savings Plans recommendation generation.</p>
+ */
+export interface GenerationSummary {
+  /**
+   * <p>Indicates the ID for this specific recommendation.</p>
+   */
+  RecommendationId?: string;
+
+  /**
+   * <p>Indicates whether the recommendation generation succeeded, is processing, or
+   *             failed.</p>
+   */
+  GenerationStatus?: GenerationStatus | string;
+
+  /**
+   * <p>Indicates the start time of the recommendation generation.</p>
+   */
+  GenerationStartedTime?: string;
+
+  /**
+   * <p>Indicates the completion time of the recommendation generation.</p>
+   */
+  GenerationCompletionTime?: string;
+
+  /**
+   * <p>Indicates the estimated time for when the recommendation generation will
+   *             complete.</p>
+   */
+  EstimatedCompletionTime?: string;
+}
+
+export interface ListSavingsPlansPurchaseRecommendationGenerationResponse {
+  /**
+   * <p>The list of historical recommendation generations.</p>
+   */
+  GenerationSummaryList?: GenerationSummary[];
+
+  /**
+   * <p>The token to retrieve the next set of results.</p>
+   */
+  NextPageToken?: string;
+}
+
 export interface ListTagsForResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.</p>
+   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
+   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.</p>
    */
   ResourceArn: string | undefined;
 }
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A list of tag key value pairs that are associated with the resource.
-   *     </p>
+   * <p>A list of tag key value pairs that are associated with the resource. </p>
    */
   ResourceTags?: ResourceTag[];
 }
@@ -3441,7 +3565,8 @@ export interface ProvideAnomalyFeedbackRequest {
   AnomalyId: string | undefined;
 
   /**
-   * <p>Describes whether the cost anomaly was a planned activity or you considered it an anomaly. </p>
+   * <p>Describes whether the cost anomaly was a planned activity or you considered it an anomaly.
+   *     </p>
    */
   Feedback: AnomalyFeedbackType | string | undefined;
 }
@@ -3453,20 +3578,62 @@ export interface ProvideAnomalyFeedbackResponse {
   AnomalyId: string | undefined;
 }
 
+/**
+ * <p>A request to generate a recommendation is already in progress.</p>
+ */
+export class GenerationExistsException extends __BaseException {
+  readonly name: "GenerationExistsException" = "GenerationExistsException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GenerationExistsException, __BaseException>) {
+    super({
+      name: "GenerationExistsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GenerationExistsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+export interface StartSavingsPlansPurchaseRecommendationGenerationRequest {}
+
+export interface StartSavingsPlansPurchaseRecommendationGenerationResponse {
+  /**
+   * <p>The ID for this specific recommendation.</p>
+   */
+  RecommendationId?: string;
+
+  /**
+   * <p>The start time of the recommendation generation.</p>
+   */
+  GenerationStartedTime?: string;
+
+  /**
+   * <p>The estimated time for when the recommendation generation will complete.</p>
+   */
+  EstimatedCompletionTime?: string;
+}
+
 export interface TagResourceRequest {
   /**
-   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.
+   * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
+   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.
    *     </p>
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>
-   *       A list of tag key-value pairs to be added to the resource.</p>
-   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   * <p> A list of tag key-value pairs to be added to the resource.</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The
+   *       following restrictions apply to resource tags:</p>
    *          <ul>
    *             <li>
-   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50
+   *           user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
    *             </li>
    *             <li>
    *                <p>The maximum length of a key is 128 characters</p>
@@ -3475,7 +3642,8 @@ export interface TagResourceRequest {
    *                <p>The maximum length of a value is 256 characters</p>
    *             </li>
    *             <li>
-   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>
+   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the
+   *           following: <code>_.:/=+@-</code>
    *                </p>
    *             </li>
    *             <li>
@@ -3485,7 +3653,8 @@ export interface TagResourceRequest {
    *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
    *             </li>
    *             <li>
-   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
+   *             Amazon Web Services use</p>
    *             </li>
    *          </ul>
    */
@@ -3495,7 +3664,8 @@ export interface TagResourceRequest {
 export interface TagResourceResponse {}
 
 /**
- * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50 user tags per resource.</p>
+ * <p>Can occur if you specify a number of tags for a resource greater than the maximum 50
+ *             user tags per resource.</p>
  */
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
@@ -3520,14 +3690,16 @@ export class TooManyTagsException extends __BaseException {
 export interface UntagResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource. For a list of supported resources, see
-   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>. </p>
+   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_ResourceTag.html">ResourceTag</a>.
+   *     </p>
    */
   ResourceArn: string | undefined;
 
   /**
    * <p>A list of tag keys associated with tags that need to be removed from the resource. If you
    *       specify a tag key that doesn't exist, it's ignored. Although the maximum number of array
-   *       members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use. </p>
+   *       members is 200, user-tag maximum is 50. The remaining are reserved for Amazon Web Services use.
+   *     </p>
    */
   ResourceTagKeys: string[] | undefined;
 }
@@ -3593,7 +3765,8 @@ export interface UpdateAnomalySubscriptionResponse {
 }
 
 /**
- * <p>The cost allocation tag status. The status of a key can either be active or inactive. </p>
+ * <p>The cost allocation tag status. The status of a key can either be active or inactive.
+ *         </p>
  */
 export interface CostAllocationTagStatusEntry {
   /**
@@ -3659,25 +3832,25 @@ export interface UpdateCostCategoryDefinitionResponse {
 
 /**
  * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Simple dimension values - You can set the dimension name and values for the
+ *                <p>Simple dimension values - You can set the dimension name and values for the
  *                     filters that you plan to use. For example, you can filter for
  *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
  *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
  *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
  *                     example is as follows:</p>
- *                 <p>
- *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+ *                <p>
+ *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
  *                         } }</code>
- *                 </p>
- *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+ *                </p>
+ *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
  *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
  *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
  *                     lines. </p>
  *             </li>
  *             <li>
- *                 <p>Compound dimension values with logical operations - You can use multiple
+ *                <p>Compound dimension values with logical operations - You can use multiple
  *                         <code>Expression</code> types and the logical operators
  *                         <code>AND/OR/NOT</code> to create a list of one or more
  *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -3685,25 +3858,25 @@ export interface UpdateCostCategoryDefinitionResponse {
  *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
  *                         DataTransfer)</code>. The <code>Expression</code> for that is as
  *                     follows:</p>
- *                 <p>
- *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+ *                <p>
+ *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
  *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
  *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
  *                         ["DataTransfer"] }}} ] } </code>
- *                 </p>
- *                 <note>
- *                     <p>Because each <code>Expression</code> can have only one operator, the
+ *                </p>
+ *                <note>
+ *                   <p>Because each <code>Expression</code> can have only one operator, the
  *                         service returns an error if more than one is specified. The following
  *                         example shows an <code>Expression</code> object that creates an
  *                         error.</p>
- *                 </note>
- *                 <p>
- *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+ *                </note>
+ *                <p>
+ *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
  *                         "Values": [ "DataTransfer" ] } } </code>
- *                 </p>
+ *                </p>
  *             </li>
  *          </ul>
- *         <note>
+ *          <note>
  *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
  *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
  *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -3712,7 +3885,7 @@ export interface UpdateCostCategoryDefinitionResponse {
  *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
  *                 supported. AND and OR aren't supported. Dimensions are limited to
  *                     <code>LINKED_ACCOUNT</code>.</p>
- *         </note>
+ *          </note>
  */
 export interface Expression {
   /**
@@ -3789,25 +3962,25 @@ export interface AnomalyMonitor {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -3815,25 +3988,25 @@ export interface AnomalyMonitor {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -3842,7 +4015,7 @@ export interface AnomalyMonitor {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   MonitorSpecification?: Expression;
 
@@ -3869,9 +4042,9 @@ export interface CostCategoryRule {
    *             Currently the only dimensions supported are <code>LINKED_ACCOUNT</code>,
    *                 <code>SERVICE_CODE</code>, <code>RECORD_TYPE</code>, and
    *                 <code>LINKED_ACCOUNT_NAME</code>.</p>
-   *         <p>Root level <code>OR</code> isn't supported. We recommend that you create a separate
+   *          <p>Root level <code>OR</code> isn't supported. We recommend that you create a separate
    *             rule instead.</p>
-   *         <p>
+   *          <p>
    *             <code>RECORD_TYPE</code> is a dimension used for Cost Explorer APIs, and is also
    *             supported for Cost Category expressions. This dimension uses different terms, depending
    *             on whether you're using the console or API/JSON editor. For a detailed comparison, see
@@ -3901,7 +4074,81 @@ export interface CostCategoryRule {
 
 export interface GetCostAndUsageRequest {
   /**
-   * <p>Sets the start date and end date for retrieving Amazon Web Services costs. The start date
+   * <p>Sets the start date and end date for retrieving Amazon Web Services costs. The start
+   *       date is inclusive, but the end date is exclusive. For example, if <code>start</code> is
+   *         <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and
+   *       usage data is retrieved from <code>2017-01-01</code> up to and including
+   *         <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
+   */
+  TimePeriod: DateInterval | undefined;
+
+  /**
+   * <p>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code> or
+   *         <code>DAILY</code>, or <code>HOURLY</code>. If <code>Granularity</code> isn't set, the
+   *       response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or
+   *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
+   */
+  Granularity: Granularity | string | undefined;
+
+  /**
+   * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify
+   *         <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
+   *       with that account's usage of that service. You can nest <code>Expression</code> objects to
+   *       define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
+   *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
+   *         <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and
+   *         <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and
+   *         <code>CASE_SENSITIVE</code>.</p>
+   */
+  Filter?: Expression;
+
+  /**
+   * <p>Which metrics are returned in the query. For more information about blended and
+   *       unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended" annotation
+   *         appear on some line items in my bill?</a>. </p>
+   *          <p>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>,
+   *         <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
+   *         <code>UsageQuantity</code>. </p>
+   *          <note>
+   *             <p>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
+   *         numbers without taking into account the units. For example, if you aggregate
+   *           <code>usageQuantity</code> across all of Amazon EC2, the results aren't meaningful because
+   *         Amazon EC2 compute hours and data transfer are measured in different units (for example,
+   *         hours and GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
+   *           <code>UsageType</code> or <code>UsageTypeGroups</code>. </p>
+   *          </note>
+   *          <p>
+   *             <code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</p>
+   */
+  Metrics: string[] | undefined;
+
+  /**
+   * <p>You can group Amazon Web Services costs using up to two different groups, either
+   *       dimensions, tag keys, cost categories, or any two group by types.</p>
+   *          <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>,
+   *         <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>,
+   *         <code>LINKED_ACCOUNT</code>, <code>OPERATION</code>, <code>PLATFORM</code>,
+   *         <code>PURCHASE_TYPE</code>, <code>SERVICE</code>, <code>TENANCY</code>,
+   *         <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
+   *          <p>When you group by the <code>TAG</code> type and include a valid tag key, you get all
+   *       tag values, including empty strings.</p>
+   */
+  GroupBy?: GroupDefinition[];
+
+  /**
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
+   */
+  NextPageToken?: string;
+}
+
+export interface GetCostAndUsageWithResourcesRequest {
+  /**
+   * <p>Sets the start and end dates for retrieving Amazon Web Services costs. The range must
+   *       be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date
    *       is inclusive, but the end date is exclusive. For example, if <code>start</code> is
    *         <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and
    *       usage data is retrieved from <code>2017-01-01</code> up to and including
@@ -3910,91 +4157,38 @@ export interface GetCostAndUsageRequest {
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. If <code>Granularity</code> isn't set,
-   * 	    the response object doesn't include the <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>, or <code>HOURLY</code>. </p>
-   */
-  Granularity: Granularity | string | undefined;
-
-  /**
-   * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify <code>SERVICE</code> and <code>LINKED_ACCOUNT</code>
-   * 			and get the costs that are associated with that account's usage of that service. You can nest <code>Expression</code> objects
-   * 			to define any combination of dimension filters. For more information, see
-   * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   * 	        <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
-   * 	        <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
-   */
-  Filter?: Expression;
-
-  /**
-   * <p>Which metrics are returned in the query. For more information about blended and unblended rates, see
-   * 			<a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended" annotation
-   * 				appear on some line items in my bill?</a>. </p>
-   * 		       <p>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>, <code>NetAmortizedCost</code>,
-   * 			<code>NetUnblendedCost</code>, <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and <code>UsageQuantity</code>. </p>
-   * 		       <note>
-   * 			         <p>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
-   *         numbers without taking into account the units. For example, if you aggregate
-   *           <code>usageQuantity</code> across all of Amazon EC2, the results aren't meaningful because
-   *         Amazon EC2 compute hours and data transfer are measured in different units (for example,
-   *         hours and GB). To get more meaningful <code>UsageQuantity</code> metrics, filter by
-   *           <code>UsageType</code> or <code>UsageTypeGroups</code>. </p>
-   * 		       </note>
-   * 		       <p>
-   *             <code>Metrics</code> is required for <code>GetCostAndUsage</code> requests.</p>
-   */
-  Metrics: string[] | undefined;
-
-  /**
-   * <p>You can group Amazon Web Services costs using up to two different groups, either dimensions, tag keys,
-   *       cost categories, or any two group by types.</p>
-   * 	        <p>Valid values for the <code>DIMENSION</code> type are <code>AZ</code>, <code>INSTANCE_TYPE</code>, <code>LEGAL_ENTITY_NAME</code>, <code>INVOICING_ENTITY</code>, <code>LINKED_ACCOUNT</code>,
-   * 			<code>OPERATION</code>, <code>PLATFORM</code>, <code>PURCHASE_TYPE</code>, <code>SERVICE</code>,
-   * 		  <code>TENANCY</code>, <code>RECORD_TYPE</code>, and <code>USAGE_TYPE</code>.</p>
-   * 	        <p>When you group by the <code>TAG</code>  type and include a valid tag key, you get all tag values, including empty strings.</p>
-   */
-  GroupBy?: GroupDefinition[];
-
-  /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
-   */
-  NextPageToken?: string;
-}
-
-export interface GetCostAndUsageWithResourcesRequest {
-  /**
-   * <p>Sets the start and end dates for retrieving Amazon Web Services costs. The range must be within the last 14 days (the start date cannot be earlier than 14 days ago). The start date is inclusive,  but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
-   *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
-   */
-  TimePeriod: DateInterval | undefined;
-
-  /**
-   * <p>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. If
-   * 	    <code>Granularity</code> isn't set, the response object doesn't include the
-   * 	    <code>Granularity</code>, <code>MONTHLY</code>, <code>DAILY</code>, or <code>HOURLY</code>. </p>
+   * <p>Sets the Amazon Web Services cost granularity to <code>MONTHLY</code>,
+   *         <code>DAILY</code>, or <code>HOURLY</code>. If <code>Granularity</code> isn't set, the
+   *       response object doesn't include the <code>Granularity</code>, <code>MONTHLY</code>,
+   *         <code>DAILY</code>, or <code>HOURLY</code>. </p>
    */
   Granularity: Granularity | string | undefined;
 
   /**
    * <p>Filters Amazon Web Services costs by different dimensions. For example, you can specify
-   *       <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
+   *         <code>SERVICE</code> and <code>LINKED_ACCOUNT</code> and get the costs that are associated
    *       with that account's usage of that service. You can nest <code>Expression</code> objects to
    *       define any combination of dimension filters. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>. </p>
-   *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group by or filter by a
-   *       <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
+   *          <p>The <code>GetCostAndUsageWithResources</code> operation requires that you either group
+   *       by or filter by a <code>ResourceId</code>. It requires the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a>
    *             <code>"SERVICE = Amazon Elastic Compute Cloud - Compute"</code> in the filter.</p>
-   *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
-   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>Dimensions</code> are
+   *         <code>EQUALS</code> and <code>CASE_SENSITIVE</code>.</p>
+   *          <p>Valid values for <code>MatchOptions</code> for <code>CostCategories</code> and
+   *         <code>Tags</code> are <code>EQUALS</code>, <code>ABSENT</code>, and
+   *         <code>CASE_SENSITIVE</code>. Default values are <code>EQUALS</code> and
+   *         <code>CASE_SENSITIVE</code>.</p>
    */
   Filter: Expression | undefined;
 
   /**
    * <p>Which metrics are returned in the query. For more information about blended and
-   *       unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does
-   *         the "blended" annotation appear on some line items in my bill?</a>. </p>
+   *       unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended" annotation
+   *         appear on some line items in my bill?</a>. </p>
    *          <p>Valid values are <code>AmortizedCost</code>, <code>BlendedCost</code>,
-   *       <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
-   *       <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
-   *       <code>UsageQuantity</code>. </p>
+   *         <code>NetAmortizedCost</code>, <code>NetUnblendedCost</code>,
+   *         <code>NormalizedUsageAmount</code>, <code>UnblendedCost</code>, and
+   *         <code>UsageQuantity</code>. </p>
    *          <note>
    *             <p>If you return the <code>UsageQuantity</code> metric, the service aggregates all usage
    *         numbers without taking the units into account. For example, if you aggregate
@@ -4004,17 +4198,20 @@ export interface GetCostAndUsageWithResourcesRequest {
    *           <code>UsageType</code> or <code>UsageTypeGroups</code>. </p>
    *          </note>
    *          <p>
-   *             <code>Metrics</code> is required for <code>GetCostAndUsageWithResources</code> requests.</p>
+   *             <code>Metrics</code> is required for <code>GetCostAndUsageWithResources</code>
+   *       requests.</p>
    */
   Metrics?: string[];
 
   /**
-   * <p>You can group Amazon Web Services costs using up to two different groups: <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>.</p>
+   * <p>You can group Amazon Web Services costs using up to two different groups:
+   *         <code>DIMENSION</code>, <code>TAG</code>, <code>COST_CATEGORY</code>.</p>
    */
   GroupBy?: GroupDefinition[];
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -4041,25 +4238,25 @@ export interface GetCostCategoriesRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -4067,25 +4264,25 @@ export interface GetCostCategoriesRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4094,7 +4291,7 @@ export interface GetCostCategoriesRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -4164,45 +4361,48 @@ export interface GetCostCategoriesRequest {
 
 export interface GetCostForecastRequest {
   /**
-   * <p>The period of time that you want the forecast to cover. The start date must be equal to or no later than the current date to avoid a validation error.</p>
+   * <p>The period of time that you want the forecast to cover. The start date must be equal to or
+   *       no later than the current date to avoid a validation error.</p>
    */
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>Which metric Cost Explorer uses to create your forecast. For more information about blended and unblended rates, see
-   * 			<a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended" annotation
-   * 				appear on some line items in my bill?</a>. </p>
-   * 		       <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
-   * 		       <ul>
+   * <p>Which metric Cost Explorer uses to create your forecast. For more information about
+   *       blended and unblended rates, see <a href="http://aws.amazon.com/premiumsupport/knowledge-center/blended-rates-intro/">Why does the "blended" annotation
+   *         appear on some line items in my bill?</a>. </p>
+   *          <p>Valid values for a <code>GetCostForecast</code> call are the following:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>AMORTIZED_COST</p>
-   * 			         </li>
+   *                <p>AMORTIZED_COST</p>
+   *             </li>
    *             <li>
-   * 				           <p>BLENDED_COST</p>
-   * 			         </li>
+   *                <p>BLENDED_COST</p>
+   *             </li>
    *             <li>
-   * 				           <p>NET_AMORTIZED_COST</p>
-   * 			         </li>
+   *                <p>NET_AMORTIZED_COST</p>
+   *             </li>
    *             <li>
-   * 				           <p>NET_UNBLENDED_COST</p>
-   * 			         </li>
+   *                <p>NET_UNBLENDED_COST</p>
+   *             </li>
    *             <li>
-   * 				           <p>UNBLENDED_COST</p>
-   * 			         </li>
+   *                <p>UNBLENDED_COST</p>
+   *             </li>
    *          </ul>
    */
   Metric: Metric | string | undefined;
 
   /**
-   * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code> forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
-   * 		       <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
+   *       forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
+   *          <p>The <code>GetCostForecast</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity: Granularity | string | undefined;
 
   /**
-   * <p>The filters that you want to use to filter your forecast. The <code>GetCostForecast</code> API supports filtering by the following dimensions:</p>
-   *
-   * 	        <ul>
+   * <p>The filters that you want to use to filter your forecast. The
+   *         <code>GetCostForecast</code> API supports filtering by the following dimensions:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AZ</code>
@@ -4323,9 +4523,10 @@ export interface GetCostForecastRequest {
   Filter?: Expression;
 
   /**
-   * <p>Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean
-   * 			by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value
-   * 			falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
+   * <p>Cost Explorer always returns the mean forecast as a single point. You can request a
+   *       prediction interval around the mean by specifying a confidence level. The higher the
+   *       confidence level, the more confident Cost Explorer is about the actual value falling in the
+   *       prediction interval. Higher confidence levels result in wider prediction intervals.</p>
    */
   PredictionIntervalLevel?: number;
 }
@@ -4346,76 +4547,88 @@ export interface GetDimensionValuesRequest {
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>The name of the dimension. Each <code>Dimension</code> is available for a different <code>Context</code>.
-   * 		  For more information, see <code>Context</code>. <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>.
-   * 		</p>
+   * <p>The name of the dimension. Each <code>Dimension</code> is available for a different
+   *         <code>Context</code>. For more information, see <code>Context</code>.
+   *         <code>LINK_ACCOUNT_NAME</code> and <code>SERVICE_CODE</code> can only be used in <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/AAPI_CostCategoryRule.html">CostCategoryRule</a>. </p>
    */
   Dimension: Dimension | string | undefined;
 
   /**
-   * <p>The context for the call to <code>GetDimensionValues</code>. This can be <code>RESERVATIONS</code> or <code>COST_AND_USAGE</code>.
-   * 			The default value is <code>COST_AND_USAGE</code>. If the context is set to <code>RESERVATIONS</code>, the resulting dimension values
-   * 			can be used in the <code>GetReservationUtilization</code> operation. If the context is set to <code>COST_AND_USAGE</code>,
-   * 			the resulting dimension values can be used in the <code>GetCostAndUsage</code> operation.</p>
-   * 		       <p>If you set the context to <code>COST_AND_USAGE</code>, you can use the following
-   *            dimensions for searching:</p>
-   *            <ul>
+   * <p>The context for the call to <code>GetDimensionValues</code>. This can be
+   *         <code>RESERVATIONS</code> or <code>COST_AND_USAGE</code>. The default value is
+   *         <code>COST_AND_USAGE</code>. If the context is set to <code>RESERVATIONS</code>, the
+   *       resulting dimension values can be used in the <code>GetReservationUtilization</code>
+   *       operation. If the context is set to <code>COST_AND_USAGE</code>, the resulting dimension
+   *       values can be used in the <code>GetCostAndUsage</code> operation.</p>
+   *          <p>If you set the context to <code>COST_AND_USAGE</code>, you can use the following
+   *       dimensions for searching:</p>
+   *          <ul>
    *             <li>
    *                <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>
    *             </li>
    *             <li>
-   *                <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible values are the following:</p>
+   *                <p>BILLING_ENTITY - The Amazon Web Services seller that your account is with. Possible
+   *           values are the following:</p>
    *                <p>- Amazon Web Services(Amazon Web Services): The entity that sells Amazon Web Services.</p>
-   *                <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an
-   *           acting reseller for Amazon Web Services in India.</p>
-   *                <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions that are
-   *           built on Amazon Web Services by third-party software providers.</p>
-   *              </li>
-   *             <li>
-   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>
+   *                <p>- AISPL (Amazon Internet Services Pvt. Ltd.): The local Indian entity that's an acting
+   *           reseller for Amazon Web Services in India.</p>
+   *                <p>- Amazon Web Services Marketplace: The entity that supports the sale of solutions that are built on
+   *             Amazon Web Services by third-party software providers.</p>
    *             </li>
    *             <li>
-   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
+   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
-   *                <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are Aurora or MySQL.</p>
+   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments.
+   *           Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>
+   *                <p>DATABASE_ENGINE - The Amazon Relational Database Service database. Examples are
+   *           Aurora or MySQL.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use cases.
-   *           Examples are <code>Compute Optimized</code> (for example, <code>C4</code>,
-   *           <code>C5</code>, <code>C6g</code>, and <code>C7g</code>), <code>Memory Optimization</code>
-   *           (for example, <code>R4</code>, <code>R5n</code>, <code>R5b</code>, and
-   *           <code>R6g</code>).</p>
+   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
+   *             <code>m4.xlarge</code>.</p>
+   *             </li>
+   *             <li>
+   *                <p>INSTANCE_TYPE_FAMILY - A family of instance types optimized to fit different use
+   *           cases. Examples are <code>Compute Optimized</code> (for example, <code>C4</code>,
+   *             <code>C5</code>, <code>C6g</code>, and <code>C7g</code>), <code>Memory
+   *             Optimization</code> (for example, <code>R4</code>, <code>R5n</code>, <code>R5b</code>,
+   *           and <code>R6g</code>).</p>
    *             </li>
    *             <li>
    *                <p>INVOICING_ENTITY - The name of the entity that issues the Amazon Web Services
    *           invoice.</p>
    *             </li>
    *             <li>
-   *                <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services services, such as Amazon Web Services.</p>
+   *                <p>LEGAL_ENTITY_NAME - The name of the organization that sells you Amazon Web Services
+   *           services, such as Amazon Web Services.</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>OPERATING_SYSTEM - The operating system. Examples are Windows or Linux.</p>
    *             </li>
    *             <li>
-   *                <p>OPERATION - The action performed. Examples include <code>RunInstance</code> and <code>CreateBucket</code>.</p>
+   *                <p>OPERATION - The action performed. Examples include <code>RunInstance</code> and
+   *             <code>CreateBucket</code>.</p>
    *             </li>
    *             <li>
-   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>
+   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
    *                <p>PURCHASE_TYPE - The reservation type of the purchase that this usage is related to.
    *           Examples include On-Demand Instances and Standard Reserved Instances.</p>
    *             </li>
    *             <li>
-   *                <p>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation Instance.</p>
+   *                <p>RESERVATION_ID - The unique identifier for an Amazon Web Services Reservation
+   *           Instance.</p>
    *             </li>
    *             <li>
    *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>
@@ -4430,60 +4643,70 @@ export interface GetDimensionValuesRequest {
    *                <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>
    *             </li>
    *             <li>
-   *                <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response for the <code>GetDimensionValues</code> operation
-   *            includes a unit attribute. Examples include GB and Hrs.</p>
+   *                <p>USAGE_TYPE - The type of usage. An example is DataTransfer-In-Bytes. The response
+   *           for the <code>GetDimensionValues</code> operation includes a unit attribute. Examples
+   *           include GB and Hrs.</p>
    *             </li>
    *             <li>
-   *                <p>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2: CloudWatch – Alarms. The response for this
-   *                operation includes a unit attribute.</p>
+   *                <p>USAGE_TYPE_GROUP - The grouping of common usage types. An example is Amazon EC2:
+   *           CloudWatch – Alarms. The response for this operation includes a unit attribute.</p>
    *             </li>
    *             <li>
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>RECORD_TYPE - The different types of charges such as Reserved Instance (RI) fees, usage
-   *           costs, tax refunds, and credits.</p>
+   *                <p>RECORD_TYPE - The different types of charges such as Reserved Instance (RI) fees,
+   *           usage costs, tax refunds, and credits.</p>
    *             </li>
    *             <li>
-   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in feature only available for last 14 days for EC2-Compute Service.</p>
+   *                <p>RESOURCE_ID - The unique identifier of the resource. ResourceId is an opt-in
+   *           feature only available for last 14 days for EC2-Compute Service.</p>
    *             </li>
    *          </ul>
    *          <p>If you set the context to <code>RESERVATIONS</code>, you can use the following
-   *            dimensions for searching:</p>
+   *       dimensions for searching:</p>
    *          <ul>
    *             <li>
    *                <p>AZ - The Availability Zone. An example is <code>us-east-1a</code>.</p>
    *             </li>
    *             <li>
-   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or Linux.</p>
+   *                <p>CACHE_ENGINE - The Amazon ElastiCache operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
-   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments. Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
+   *                <p>DEPLOYMENT_OPTION - The scope of Amazon Relational Database Service deployments.
+   *           Valid values are <code>SingleAZ</code> and <code>MultiAZ</code>.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is <code>m4.xlarge</code>.</p>
+   *                <p>INSTANCE_TYPE - The type of Amazon EC2 instance. An example is
+   *             <code>m4.xlarge</code>.</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
-   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or Linux.</p>
+   *                <p>PLATFORM - The Amazon EC2 operating system. Examples are Windows or
+   *           Linux.</p>
    *             </li>
    *             <li>
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are regional or a single Availability Zone.</p>
+   *                <p>SCOPE (Utilization only) - The scope of a Reserved Instance (RI). Values are
+   *           regional or a single Availability Zone.</p>
    *             </li>
    *             <li>
-   *                <p>TAG (Coverage only) - The tags that are associated with a Reserved Instance (RI).</p>
+   *                <p>TAG (Coverage only) - The tags that are associated with a Reserved Instance
+   *           (RI).</p>
    *             </li>
    *             <li>
    *                <p>TENANCY - The tenancy of a resource. Examples are shared or dedicated.</p>
    *             </li>
    *          </ul>
-   *          <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following dimensions for searching:</p>
+   *          <p>If you set the context to <code>SAVINGS_PLANS</code>, you can use the following
+   *       dimensions for searching:</p>
    *          <ul>
    *             <li>
    *                <p>SAVINGS_PLANS_TYPE - Type of Savings Plans (EC2 Instance or Compute)</p>
@@ -4496,11 +4719,13 @@ export interface GetDimensionValuesRequest {
    *                <p>REGION - The Amazon Web Services Region.</p>
    *             </li>
    *             <li>
-   *                <p>INSTANCE_TYPE_FAMILY - The family of instances (For example, <code>m5</code>)</p>
+   *                <p>INSTANCE_TYPE_FAMILY - The family of instances (For example,
+   *           <code>m5</code>)</p>
    *             </li>
    *             <li>
-   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name of the member account. The value
-   *                field contains the Amazon Web Services ID of the member account.</p>
+   *                <p>LINKED_ACCOUNT - The description in the attribute map that includes the full name
+   *           of the member account. The value field contains the Amazon Web Services ID of the member
+   *           account.</p>
    *             </li>
    *             <li>
    *                <p>SAVINGS_PLAN_ARN - The unique identifier for your Savings Plans.</p>
@@ -4511,25 +4736,25 @@ export interface GetDimensionValuesRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -4537,25 +4762,25 @@ export interface GetDimensionValuesRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4564,7 +4789,7 @@ export interface GetDimensionValuesRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -4625,25 +4850,31 @@ export interface GetDimensionValuesRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
 
 /**
- * <p>You can use the following request parameters to query for how much of your instance usage a reservation covered.</p>
+ * <p>You can use the following request parameters to query for how much of your instance
+ *       usage a reservation covered.</p>
  */
 export interface GetReservationCoverageRequest {
   /**
-   * <p>The start and end dates of the period that you want to retrieve data about reservation coverage for. You can retrieve data
-   * 			for a maximum of 13 months: the last 12 months and the current month. The start date is inclusive,  but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
-   *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>. </p>
+   * <p>The start and end dates of the period that you want to retrieve data about reservation
+   *       coverage for. You can retrieve data for a maximum of 13 months: the last 12 months and the
+   *       current month. The start date is inclusive, but the end date is exclusive. For example, if
+   *         <code>start</code> is <code>2017-01-01</code> and <code>end</code> is
+   *         <code>2017-05-01</code>, then the cost and usage data is retrieved from
+   *         <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including
+   *         <code>2017-05-01</code>. </p>
    */
   TimePeriod: DateInterval | undefined;
 
   /**
    * <p>You can group the data by the following attributes:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>AZ</p>
    *             </li>
@@ -4682,16 +4913,20 @@ export interface GetReservationCoverageRequest {
   GroupBy?: GroupDefinition[];
 
   /**
-   * <p>The granularity of the Amazon Web Services cost data for the reservation. Valid values are <code>MONTHLY</code> and <code>DAILY</code>.</p>
-   * 		       <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set,
-   * 			the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.</p>
-   * 		       <p>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>The granularity of the Amazon Web Services cost data for the reservation. Valid values
+   *       are <code>MONTHLY</code> and <code>DAILY</code>.</p>
+   *          <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If
+   *         <code>Granularity</code> isn't set, the response object doesn't include
+   *         <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.</p>
+   *          <p>The <code>GetReservationCoverage</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity?: Granularity | string;
 
   /**
-   * <p>Filters utilization data by dimensions. You can filter by the following dimensions:</p>
-   * 		       <ul>
+   * <p>Filters utilization data by dimensions. You can filter by the following
+   *       dimensions:</p>
+   *          <ul>
    *             <li>
    *                <p>AZ</p>
    *             </li>
@@ -4729,24 +4964,27 @@ export interface GetReservationCoverageRequest {
    *                <p>TENANCY</p>
    *             </li>
    *          </ul>
-   * 		       <p>
-   *             <code>GetReservationCoverage</code> uses the same
-   * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   * 			as the other operations, but only <code>AND</code> is supported among each dimension. You can nest only one level deep.
-   * 			If there are multiple values for a dimension, they are OR'd together.</p>
-   * 		       <p>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to EC2.</p>
-   * 	        <p>Cost category is also supported.</p>
+   *          <p>
+   *             <code>GetReservationCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
+   *       as the other operations, but only <code>AND</code> is supported among each dimension. You can
+   *       nest only one level deep. If there are multiple values for a dimension, they are OR'd
+   *       together.</p>
+   *          <p>If you don't provide a <code>SERVICE</code> filter, Cost Explorer defaults to
+   *       EC2.</p>
+   *          <p>Cost category is also supported.</p>
    */
   Filter?: Expression;
 
   /**
    * <p>The measurement that you want your reservation coverage reported in.</p>
-   * 		       <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use multiple values in a request.</p>
+   *          <p>Valid values are <code>Hour</code>, <code>Unit</code>, and <code>Cost</code>. You can use
+   *       multiple values in a request.</p>
    */
   Metrics?: string[];
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
@@ -4805,8 +5043,8 @@ export interface GetReservationCoverageRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *          <p>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or <code>DESCENDING</code>.</p>
+   *          <p>Supported values for <code>SortOrder</code> are <code>ASCENDING</code> or
+   *         <code>DESCENDING</code>.</p>
    */
   SortBy?: SortDefinition;
 
@@ -4831,25 +5069,25 @@ export interface GetReservationPurchaseRecommendationRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -4857,25 +5095,25 @@ export interface GetReservationPurchaseRecommendationRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -4884,17 +5122,21 @@ export interface GetReservationPurchaseRecommendationRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
   /**
-   * <p>The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for individual member accounts only.</p>
+   * <p>The account scope that you want your recommendations for. Amazon Web Services
+   *       calculates recommendations including the management account and member accounts if the value
+   *       is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are
+   *       calculated for individual member accounts only.</p>
    */
   AccountScope?: AccountScope | string;
 
   /**
-   * <p>The number of previous days that you want Amazon Web Services to consider when it calculates your recommendations.</p>
+   * <p>The number of previous days that you want Amazon Web Services to consider when it
+   *       calculates your recommendations.</p>
    */
   LookbackPeriodInDays?: LookbackPeriodInDays | string;
 
@@ -4909,25 +5151,28 @@ export interface GetReservationPurchaseRecommendationRequest {
   PaymentOption?: PaymentOption | string;
 
   /**
-   * <p>The hardware specifications for the service instances that you want recommendations for, such as standard or convertible Amazon EC2 instances.</p>
+   * <p>The hardware specifications for the service instances that you want recommendations
+   *       for, such as standard or convertible Amazon EC2 instances.</p>
    */
   ServiceSpecification?: ServiceSpecification;
 
   /**
-   * <p>The number of recommendations that you want returned in a single response object.</p>
+   * <p>The number of recommendations that you want returned in a single response
+   *       object.</p>
    */
   PageSize?: number;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * <p>The pagination token that indicates the next set of results that you want to
+   *       retrieve.</p>
    */
   NextPageToken?: string;
 }
 
 export interface GetReservationUtilizationRequest {
   /**
-   * <p>Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The start
-   *       date is inclusive, but the end date is exclusive. For example, if <code>start</code> is
+   * <p>Sets the start and end dates for retrieving Reserved Instance (RI) utilization. The
+   *       start date is inclusive, but the end date is exclusive. For example, if <code>start</code> is
    *         <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and
    *       usage data is retrieved from <code>2017-01-01</code> up to and including
    *         <code>2017-04-30</code> but not including <code>2017-05-01</code>. </p>
@@ -4940,16 +5185,20 @@ export interface GetReservationUtilizationRequest {
   GroupBy?: GroupDefinition[];
 
   /**
-   * <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If <code>Granularity</code> isn't set,
-   * 			the response object doesn't include <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>.
-   * 			If both <code>GroupBy</code> and <code>Granularity</code> aren't set, <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
-   * 		       <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>If <code>GroupBy</code> is set, <code>Granularity</code> can't be set. If
+   *         <code>Granularity</code> isn't set, the response object doesn't include
+   *         <code>Granularity</code>, either <code>MONTHLY</code> or <code>DAILY</code>. If both
+   *         <code>GroupBy</code> and <code>Granularity</code> aren't set,
+   *         <code>GetReservationUtilization</code> defaults to <code>DAILY</code>.</p>
+   *          <p>The <code>GetReservationUtilization</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity?: Granularity | string;
 
   /**
-   * <p>Filters utilization data by dimensions. You can filter by the following dimensions:</p>
-   * 		       <ul>
+   * <p>Filters utilization data by dimensions. You can filter by the following
+   *       dimensions:</p>
+   *          <ul>
    *             <li>
    *                <p>AZ</p>
    *             </li>
@@ -4984,17 +5233,16 @@ export interface GetReservationUtilizationRequest {
    *                <p>TENANCY</p>
    *             </li>
    *          </ul>
-   * 		       <p>
-   *             <code>GetReservationUtilization</code> uses the same
-   * 			<a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   * 			as the other operations, but only <code>AND</code> is supported among each dimension, and nesting is supported up to
-   * 			only one level deep. If there are multiple values for a dimension, they are OR'd together.</p>
+   *          <p>
+   *             <code>GetReservationUtilization</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
+   *       as the other operations, but only <code>AND</code> is supported among each dimension, and
+   *       nesting is supported up to only one level deep. If there are multiple values for a dimension,
+   *       they are OR'd together.</p>
    */
   Filter?: Expression;
 
   /**
    * <p>The value that you want to sort the data by.</p>
-   *
    *          <p>The following values are supported for <code>Key</code>:</p>
    *          <ul>
    *             <li>
@@ -5083,14 +5331,14 @@ export interface GetReservationUtilizationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and
    *         <code>DESCENDING</code>.</p>
    */
   SortBy?: SortDefinition;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
@@ -5105,25 +5353,25 @@ export interface GetReservationUtilizationRequest {
 export interface GetRightsizingRecommendationRequest {
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -5131,25 +5379,25 @@ export interface GetRightsizingRecommendationRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -5158,7 +5406,7 @@ export interface GetRightsizingRecommendationRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5172,8 +5420,8 @@ export interface GetRightsizingRecommendationRequest {
   Configuration?: RightsizingRecommendationConfiguration;
 
   /**
-   * <p>The specific service that you want recommendations for. The only valid value for <code>GetRightsizingRecommendation</code> is
-   *     	"<code>AmazonEC2</code>".</p>
+   * <p>The specific service that you want recommendations for. The only valid value for
+   *         <code>GetRightsizingRecommendation</code> is "<code>AmazonEC2</code>".</p>
    */
   Service: string | undefined;
 
@@ -5183,30 +5431,37 @@ export interface GetRightsizingRecommendationRequest {
   PageSize?: number;
 
   /**
-   * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
+   * <p>The pagination token that indicates the next set of results that you want to
+   *       retrieve.</p>
    */
   NextPageToken?: string;
 }
 
 export interface GetSavingsPlansCoverageRequest {
   /**
-   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and before the current date. Future dates can't be used as an <code>End</code> date.</p>
+   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
+   *       within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and
+   *       before the current date. Future dates can't be used as an <code>End</code> date.</p>
    */
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>You can group the data using the attributes <code>INSTANCE_FAMILY</code>, <code>REGION</code>, or <code>SERVICE</code>.</p>
+   * <p>You can group the data using the attributes <code>INSTANCE_FAMILY</code>,
+   *         <code>REGION</code>, or <code>SERVICE</code>.</p>
    */
   GroupBy?: GroupDefinition[];
 
   /**
-   * <p>The granularity of the Amazon Web Services cost data for your Savings Plans. <code>Granularity</code> can't be set if <code>GroupBy</code> is set.</p>
-   * 	        <p>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>The granularity of the Amazon Web Services cost data for your Savings Plans.
+   *         <code>Granularity</code> can't be set if <code>GroupBy</code> is set.</p>
+   *          <p>The <code>GetSavingsPlansCoverage</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity?: Granularity | string;
 
   /**
-   * <p>Filters Savings Plans coverage data by dimensions. You can filter data for Savings Plans usage with the following dimensions:</p>
+   * <p>Filters Savings Plans coverage data by dimensions. You can filter data for Savings Plans
+   *       usage with the following dimensions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5230,26 +5485,28 @@ export interface GetSavingsPlansCoverageRequest {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>GetSavingsPlansCoverage</code> uses the same
-   *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
-   *       as the other operations, but only <code>AND</code> is supported among each dimension. If there are multiple values for a dimension, they are OR'd together.</p>
+   *             <code>GetSavingsPlansCoverage</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
+   *       as the other operations, but only <code>AND</code> is supported among each dimension. If there
+   *       are multiple values for a dimension, they are OR'd together.</p>
    *          <p>Cost category is also supported.</p>
    */
   Filter?: Expression;
 
   /**
-   * <p>The measurement that you want your Savings Plans coverage reported in. The only valid value is <code>SpendCoveredBySavingsPlans</code>.</p>
+   * <p>The measurement that you want your Savings Plans coverage reported in. The only valid
+   *       value is <code>SpendCoveredBySavingsPlans</code>.</p>
    */
   Metrics?: string[];
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has
-   *       more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
+   *       the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
+   * <p>The number of items to be returned in a response. The default is <code>20</code>, with a
+   *       minimum value of <code>1</code>.</p>
    */
   MaxResults?: number;
 
@@ -5293,7 +5550,6 @@ export interface GetSavingsPlansCoverageRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and
    *         <code>DESCENDING</code>.</p>
    */
@@ -5317,12 +5573,16 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
   PaymentOption: PaymentOption | string | undefined;
 
   /**
-   * <p>The account scope that you want your recommendations for. Amazon Web Services calculates recommendations including the management account and member accounts if the value is set to <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for individual member accounts only.</p>
+   * <p>The account scope that you want your recommendations for. Amazon Web Services calculates
+   *       recommendations including the management account and member accounts if the value is set to
+   *         <code>PAYER</code>. If the value is <code>LINKED</code>, recommendations are calculated for
+   *       individual member accounts only.</p>
    */
   AccountScope?: AccountScope | string;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
+   *       the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 
@@ -5353,12 +5613,15 @@ export interface GetSavingsPlansPurchaseRecommendationRequest {
 
 export interface GetSavingsPlansUtilizationDetailsRequest {
   /**
-   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and before the current date. Future dates can't be used as an <code>End</code> date.</p>
+   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
+   *       within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and
+   *       before the current date. Future dates can't be used as an <code>End</code> date.</p>
    */
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.  You can filter data with the following dimensions:</p>
+   * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You
+   *       can filter data with the following dimensions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5387,8 +5650,7 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>GetSavingsPlansUtilizationDetails</code> uses the same
-   *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
+   *             <code>GetSavingsPlansUtilizationDetails</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
    */
   Filter?: Expression;
@@ -5399,18 +5661,19 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
   DataType?: (SavingsPlansDataType | string)[];
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when
+   *       the response from a previous call has more results than the maximum page size.</p>
    */
   NextToken?: string;
 
   /**
-   * <p>The number of items to be returned in a response. The default is <code>20</code>, with a minimum value of <code>1</code>.</p>
+   * <p>The number of items to be returned in a response. The default is <code>20</code>, with a
+   *       minimum value of <code>1</code>.</p>
    */
   MaxResults?: number;
 
   /**
    * <p>The value that you want to sort the data by.</p>
-   *
    *          <p>The following values are supported for <code>Key</code>:</p>
    *          <ul>
    *             <li>
@@ -5449,7 +5712,6 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and
    *         <code>DESCENDING</code>.</p>
    */
@@ -5458,18 +5720,23 @@ export interface GetSavingsPlansUtilizationDetailsRequest {
 
 export interface GetSavingsPlansUtilizationRequest {
   /**
-   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and before the current date. Future dates can't be used as an <code>End</code> date.</p>
+   * <p>The time period that you want the usage and costs for. The <code>Start</code> date must be
+   *       within 13 months. The <code>End</code> date must be after the <code>Start</code> date, and
+   *       before the current date. Future dates can't be used as an <code>End</code> date.</p>
    */
   TimePeriod: DateInterval | undefined;
 
   /**
-   * <p>The granularity of the Amazon Web Services utillization data for your Savings Plans.</p>
-   * 	        <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>The granularity of the Amazon Web Services utillization data for your Savings
+   *       Plans.</p>
+   *          <p>The <code>GetSavingsPlansUtilization</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity?: Granularity | string;
 
   /**
-   * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions.  You can filter data with the following dimensions:</p>
+   * <p>Filters Savings Plans utilization coverage data for active Savings Plans dimensions. You
+   *       can filter data with the following dimensions:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -5503,8 +5770,7 @@ export interface GetSavingsPlansUtilizationRequest {
    *             </li>
    *          </ul>
    *          <p>
-   *             <code>GetSavingsPlansUtilization</code> uses the same
-   *       <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
+   *             <code>GetSavingsPlansUtilization</code> uses the same <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_Expression.html">Expression</a> object
    *       as the other operations, but only <code>AND</code> is supported among each dimension.</p>
    */
   Filter?: Expression;
@@ -5539,7 +5805,6 @@ export interface GetSavingsPlansUtilizationRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The supported values for <code>SortOrder</code> are <code>ASCENDING</code> and
    *         <code>DESCENDING</code>.</p>
    */
@@ -5553,8 +5818,11 @@ export interface GetTagsRequest {
   SearchString?: string;
 
   /**
-   * <p>The start and end dates for retrieving the dimension values. The start date is inclusive,  but the end date is exclusive. For example, if <code>start</code> is <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and usage data is
-   *             retrieved from <code>2017-01-01</code> up to and including <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
+   * <p>The start and end dates for retrieving the dimension values. The start date is
+   *       inclusive, but the end date is exclusive. For example, if <code>start</code> is
+   *         <code>2017-01-01</code> and <code>end</code> is <code>2017-05-01</code>, then the cost and
+   *       usage data is retrieved from <code>2017-01-01</code> up to and including
+   *         <code>2017-04-30</code> but not including <code>2017-05-01</code>.</p>
    */
   TimePeriod: DateInterval | undefined;
 
@@ -5565,25 +5833,25 @@ export interface GetTagsRequest {
 
   /**
    * <p>Use <code>Expression</code> to filter by cost or by usage. There are two patterns: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Simple dimension values - You can set the dimension name and values for the
+   *                <p>Simple dimension values - You can set the dimension name and values for the
    *                     filters that you plan to use. For example, you can filter for
    *                         <code>REGION==us-east-1 OR REGION==us-west-1</code>. For
    *                         <code>GetRightsizingRecommendation</code>, the Region is a full name (for
    *                     example, <code>REGION==US East (N. Virginia)</code>. The <code>Expression</code>
    *                     example is as follows:</p>
-   *                 <p>
-   *                     <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
+   *                <p>
+   *                   <code>{ "Dimensions": { "Key": "REGION", "Values": [ "us-east-1", “us-west-1” ]
    *                         } }</code>
-   *                 </p>
-   *                 <p>The list of dimension values are OR'd together to retrieve cost or usage data.
+   *                </p>
+   *                <p>The list of dimension values are OR'd together to retrieve cost or usage data.
    *                     You can create <code>Expression</code> and <code>DimensionValues</code> objects
    *                     using either <code>with*</code> methods or <code>set*</code> methods in multiple
    *                     lines. </p>
    *             </li>
    *             <li>
-   *                 <p>Compound dimension values with logical operations - You can use multiple
+   *                <p>Compound dimension values with logical operations - You can use multiple
    *                         <code>Expression</code> types and the logical operators
    *                         <code>AND/OR/NOT</code> to create a list of one or more
    *                         <code>Expression</code> objects. By doing this, you can filter on more
@@ -5591,25 +5859,25 @@ export interface GetTagsRequest {
    *                         REGION == us-west-1) OR (TAG.Type == Type1)) AND (USAGE_TYPE !=
    *                         DataTransfer)</code>. The <code>Expression</code> for that is as
    *                     follows:</p>
-   *                 <p>
-   *                     <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
+   *                <p>
+   *                   <code>{ "And": [ {"Or": [ {"Dimensions": { "Key": "REGION", "Values": [
    *                         "us-east-1", "us-west-1" ] }}, {"Tags": { "Key": "TagName", "Values":
    *                         ["Value1"] } } ]}, {"Not": {"Dimensions": { "Key": "USAGE_TYPE", "Values":
    *                         ["DataTransfer"] }}} ] } </code>
-   *                 </p>
-   *                 <note>
-   *                     <p>Because each <code>Expression</code> can have only one operator, the
+   *                </p>
+   *                <note>
+   *                   <p>Because each <code>Expression</code> can have only one operator, the
    *                         service returns an error if more than one is specified. The following
    *                         example shows an <code>Expression</code> object that creates an
    *                         error.</p>
-   *                 </note>
-   *                 <p>
-   *                     <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
+   *                </note>
+   *                <p>
+   *                   <code> { "And": [ ... ], "DimensionValues": { "Dimension": "USAGE_TYPE",
    *                         "Values": [ "DataTransfer" ] } } </code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>For the <code>GetRightsizingRecommendation</code> action, a combination of OR and
    *                 NOT isn't supported. OR isn't supported between different dimensions, or dimensions
    *                 and tags. NOT operators aren't supported. Dimensions are also limited to
@@ -5618,7 +5886,7 @@ export interface GetTagsRequest {
    *             <p>For the <code>GetReservationPurchaseRecommendation</code> action, only NOT is
    *                 supported. AND and OR aren't supported. Dimensions are limited to
    *                     <code>LINKED_ACCOUNT</code>.</p>
-   *         </note>
+   *          </note>
    */
   Filter?: Expression;
 
@@ -5678,7 +5946,8 @@ export interface GetTagsRequest {
   MaxResults?: number;
 
   /**
-   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token when the response from a previous call has more results than the maximum page size.</p>
+   * <p>The token to retrieve the next set of results. Amazon Web Services provides the token
+   *       when the response from a previous call has more results than the maximum page size.</p>
    */
   NextPageToken?: string;
 }
@@ -5697,28 +5966,30 @@ export interface GetUsageForecastRequest {
 
   /**
    * <p>Which metric Cost Explorer uses to create your forecast.</p>
-   * 		       <p>Valid values for a <code>GetUsageForecast</code> call are the following:</p>
-   * 		       <ul>
+   *          <p>Valid values for a <code>GetUsageForecast</code> call are the following:</p>
+   *          <ul>
    *             <li>
-   * 				           <p>USAGE_QUANTITY</p>
-   * 			         </li>
+   *                <p>USAGE_QUANTITY</p>
+   *             </li>
    *             <li>
-   * 				           <p>NORMALIZED_USAGE_AMOUNT</p>
-   * 			         </li>
+   *                <p>NORMALIZED_USAGE_AMOUNT</p>
+   *             </li>
    *          </ul>
    */
   Metric: Metric | string | undefined;
 
   /**
-   * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code> forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
-   * 		       <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and <code>MONTHLY</code> granularities.</p>
+   * <p>How granular you want the forecast to be. You can get 3 months of <code>DAILY</code>
+   *       forecasts or 12 months of <code>MONTHLY</code> forecasts.</p>
+   *          <p>The <code>GetUsageForecast</code> operation supports only <code>DAILY</code> and
+   *         <code>MONTHLY</code> granularities.</p>
    */
   Granularity: Granularity | string | undefined;
 
   /**
-   * <p>The filters that you want to use to filter your forecast. The <code>GetUsageForecast</code> API supports filtering by the following dimensions:</p>
-   *
-   * 	        <ul>
+   * <p>The filters that you want to use to filter your forecast. The
+   *         <code>GetUsageForecast</code> API supports filtering by the following dimensions:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>AZ</code>
@@ -5839,9 +6110,11 @@ export interface GetUsageForecastRequest {
   Filter?: Expression;
 
   /**
-   * <p>Amazon Web Services Cost Explorer always returns the mean forecast as a single point. You can request a prediction interval around the mean
-   * 			by specifying a confidence level. The higher the confidence level, the more confident Cost Explorer is about the actual value
-   * 			falling in the prediction interval. Higher confidence levels result in wider prediction intervals.</p>
+   * <p>Amazon Web Services Cost Explorer always returns the mean forecast as a single point.
+   *       You can request a prediction interval around the mean by specifying a confidence level. The
+   *       higher the confidence level, the more confident Cost Explorer is about the actual value
+   *       falling in the prediction interval. Higher confidence levels result in wider prediction
+   *       intervals.</p>
    */
   PredictionIntervalLevel?: number;
 }
@@ -5857,10 +6130,12 @@ export interface CreateAnomalyMonitorRequest {
    *                <code>AnomalyMonitor</code>
    *             </a>. You can use resource tags to control access to your
    *         <code>monitor</code> using IAM policies.</p>
-   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The
+   *       following restrictions apply to resource tags:</p>
    *          <ul>
    *             <li>
-   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50
+   *           user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
    *             </li>
    *             <li>
    *                <p>The maximum length of a key is 128 characters</p>
@@ -5869,7 +6144,8 @@ export interface CreateAnomalyMonitorRequest {
    *                <p>The maximum length of a value is 256 characters</p>
    *             </li>
    *             <li>
-   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>
+   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the
+   *           following: <code>_.:/=+@-</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5879,7 +6155,8 @@ export interface CreateAnomalyMonitorRequest {
    *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
    *             </li>
    *             <li>
-   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
+   *             Amazon Web Services use</p>
    *             </li>
    *          </ul>
    */
@@ -5959,8 +6236,7 @@ export interface CreateCostCategoryDefinitionRequest {
   RuleVersion: CostCategoryRuleVersion | string | undefined;
 
   /**
-   * <p>The Cost Category rules used to categorize costs. For more information, see
-   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
+   * <p>The Cost Category rules used to categorize costs. For more information, see <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule</a>.</p>
    */
   Rules: CostCategoryRule[] | undefined;
 
@@ -5971,8 +6247,7 @@ export interface CreateCostCategoryDefinitionRequest {
   DefaultValue?: string;
 
   /**
-   * <p>
-   *       The split charge rules used to allocate your charges between your Cost Category values.
+   * <p> The split charge rules used to allocate your charges between your Cost Category values.
    *     </p>
    */
   SplitChargeRules?: CostCategorySplitChargeRule[];
@@ -5982,10 +6257,12 @@ export interface CreateCostCategoryDefinitionRequest {
    *                <code>CostCategory</code>
    *             </a>. You can use resource tags to control access to your
    *         <code>cost category</code> using IAM policies.</p>
-   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The following restrictions apply to resource tags:</p>
+   *          <p>Each tag consists of a key and a value, and each key must be unique for the resource. The
+   *       following restrictions apply to resource tags:</p>
    *          <ul>
    *             <li>
-   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50 user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
+   *                <p>Although the maximum number of array members is 200, you can assign a maximum of 50
+   *           user-tags to one resource. The remaining are reserved for Amazon Web Services use</p>
    *             </li>
    *             <li>
    *                <p>The maximum length of a key is 128 characters</p>
@@ -5994,7 +6271,8 @@ export interface CreateCostCategoryDefinitionRequest {
    *                <p>The maximum length of a value is 256 characters</p>
    *             </li>
    *             <li>
-   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the following: <code>_.:/=+@-</code>
+   *                <p>Keys and values can only contain alphanumeric characters, spaces, and any of the
+   *           following: <code>_.:/=+@-</code>
    *                </p>
    *             </li>
    *             <li>
@@ -6004,7 +6282,8 @@ export interface CreateCostCategoryDefinitionRequest {
    *                <p>Keys and values are trimmed for any leading or trailing whitespaces</p>
    *             </li>
    *             <li>
-   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for Amazon Web Services use</p>
+   *                <p>Don’t use <code>aws:</code> as a prefix for your keys. This prefix is reserved for
+   *             Amazon Web Services use</p>
    *             </li>
    *          </ul>
    */
@@ -6013,7 +6292,8 @@ export interface CreateCostCategoryDefinitionRequest {
 
 export interface GetAnomalyMonitorsResponse {
   /**
-   * <p>A list of cost anomaly monitors that includes the detailed metadata for each monitor. </p>
+   * <p>A list of cost anomaly monitors that includes the detailed metadata for each monitor.
+   *     </p>
    */
   AnomalyMonitors: AnomalyMonitor[] | undefined;
 
@@ -6042,7 +6322,8 @@ export interface UpdateCostCategoryDefinitionRequest {
 
   /**
    * <p>The <code>Expression</code> object used to categorize costs. For more information, see
-   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule </a>. </p>
+   *         <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_CostCategoryRule.html">CostCategoryRule
+   *       </a>. </p>
    */
   Rules: CostCategoryRule[] | undefined;
 
@@ -6053,8 +6334,7 @@ export interface UpdateCostCategoryDefinitionRequest {
   DefaultValue?: string;
 
   /**
-   * <p>
-   *       The split charge rules used to allocate your charges between your Cost Category values.
+   * <p> The split charge rules used to allocate your charges between your Cost Category values.
    *     </p>
    */
   SplitChargeRules?: CostCategorySplitChargeRule[];
@@ -6879,6 +7159,31 @@ export const ListCostCategoryDefinitionsResponseFilterSensitiveLog = (
 /**
  * @internal
  */
+export const ListSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog = (
+  obj: ListSavingsPlansPurchaseRecommendationGenerationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GenerationSummaryFilterSensitiveLog = (obj: GenerationSummary): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog = (
+  obj: ListSavingsPlansPurchaseRecommendationGenerationResponse
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListTagsForResourceRequestFilterSensitiveLog = (obj: ListTagsForResourceRequest): any => ({
   ...obj,
 });
@@ -6901,6 +7206,24 @@ export const ProvideAnomalyFeedbackRequestFilterSensitiveLog = (obj: ProvideAnom
  * @internal
  */
 export const ProvideAnomalyFeedbackResponseFilterSensitiveLog = (obj: ProvideAnomalyFeedbackResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSavingsPlansPurchaseRecommendationGenerationRequestFilterSensitiveLog = (
+  obj: StartSavingsPlansPurchaseRecommendationGenerationRequest
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartSavingsPlansPurchaseRecommendationGenerationResponseFilterSensitiveLog = (
+  obj: StartSavingsPlansPurchaseRecommendationGenerationResponse
+): any => ({
   ...obj,
 });
 

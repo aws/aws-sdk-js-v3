@@ -46,6 +46,10 @@ import { DeleteNodegroupCommandInput, DeleteNodegroupCommandOutput } from "../co
 import { DeregisterClusterCommandInput, DeregisterClusterCommandOutput } from "../commands/DeregisterClusterCommand";
 import { DescribeAddonCommandInput, DescribeAddonCommandOutput } from "../commands/DescribeAddonCommand";
 import {
+  DescribeAddonConfigurationCommandInput,
+  DescribeAddonConfigurationCommandOutput,
+} from "../commands/DescribeAddonConfigurationCommand";
+import {
   DescribeAddonVersionsCommandInput,
   DescribeAddonVersionsCommandOutput,
 } from "../commands/DescribeAddonVersionsCommand";
@@ -241,6 +245,7 @@ export const serializeAws_restJson1CreateAddonCommand = async (
     ...(input.addonName != null && { addonName: input.addonName }),
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
@@ -532,6 +537,31 @@ export const serializeAws_restJson1DescribeAddonCommand = async (
     method: "GET",
     headers,
     path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  input: DescribeAddonConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/addons/configuration-schemas";
+  const query: any = map({
+    addonName: [, __expectNonNull(input.addonName!, `addonName`)],
+    addonVersion: [, __expectNonNull(input.addonVersion!, `addonVersion`)],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
     body,
   });
 };
@@ -1007,6 +1037,7 @@ export const serializeAws_restJson1UpdateAddonCommand = async (
   body = JSON.stringify({
     ...(input.addonVersion != null && { addonVersion: input.addonVersion }),
     clientRequestToken: input.clientRequestToken ?? generateIdempotencyToken(),
+    ...(input.configurationValues != null && { configurationValues: input.configurationValues }),
     ...(input.resolveConflicts != null && { resolveConflicts: input.resolveConflicts }),
     ...(input.serviceAccountRoleArn != null && { serviceAccountRoleArn: input.serviceAccountRoleArn }),
   });
@@ -1810,6 +1841,59 @@ const deserializeAws_restJson1DescribeAddonCommandError = async (
     case "InvalidRequestException":
     case "com.amazonaws.eks#InvalidRequestException":
       throw await deserializeAws_restJson1InvalidRequestExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.eks#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ServerException":
+    case "com.amazonaws.eks#ServerException":
+      throw await deserializeAws_restJson1ServerExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeAddonConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeAddonConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.addonName != null) {
+    contents.addonName = __expectString(data.addonName);
+  }
+  if (data.addonVersion != null) {
+    contents.addonVersion = __expectString(data.addonVersion);
+  }
+  if (data.configurationSchema != null) {
+    contents.configurationSchema = __expectString(data.configurationSchema);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeAddonConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeAddonConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidParameterException":
+    case "com.amazonaws.eks#InvalidParameterException":
+      throw await deserializeAws_restJson1InvalidParameterExceptionResponse(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.eks#ResourceNotFoundException":
       throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
@@ -3552,6 +3636,7 @@ const deserializeAws_restJson1Addon = (output: any, context: __SerdeContext): Ad
     addonName: __expectString(output.addonName),
     addonVersion: __expectString(output.addonVersion),
     clusterName: __expectString(output.clusterName),
+    configurationValues: __expectString(output.configurationValues),
     createdAt:
       output.createdAt != null ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.createdAt))) : undefined,
     health: output.health != null ? deserializeAws_restJson1AddonHealth(output.health, context) : undefined,

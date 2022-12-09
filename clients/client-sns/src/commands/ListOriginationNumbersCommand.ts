@@ -29,8 +29,8 @@ export interface ListOriginationNumbersCommandInput extends ListOriginationNumbe
 export interface ListOriginationNumbersCommandOutput extends ListOriginationNumbersResult, __MetadataBearer {}
 
 /**
- * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata. For
- *             more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
+ * <p>Lists the calling Amazon Web Services account's dedicated origination numbers and their metadata.
+ *             For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer
  *             Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -28,8 +28,7 @@ export interface DeleteRecordCommandInput extends DeleteRecordRequest {}
 export interface DeleteRecordCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. A new record will show
- *          up in the <code>OfflineStore</code> when the <code>DeleteRecord</code> API is called. This
+ * <p>Deletes a <code>Record</code> from a <code>FeatureGroup</code>. When the <code>DeleteRecord</code> API is called a new record will be added to the <code>OfflineStore</code> and the <code>Record</code> will be removed from the <code>OnlineStore</code>. This
  *          record will have a value of <code>True</code> in the <code>is_deleted</code> column.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

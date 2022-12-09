@@ -29,8 +29,7 @@ export interface RunTaskCommandOutput extends RunTaskResponse, __MetadataBearer 
  * <p>Starts a new task using the specified task definition.</p>
  * 		       <p>You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS places
  * 			tasks using placement constraints and placement strategies. For more information, see
- * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 				<a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>Alternatively, you can use <a>StartTask</a> to use your own scheduler or
  * 			place tasks manually on specific container instances.</p>
  * 		       <p>The Amazon ECS API follows an eventual consistency model. This is because of the

@@ -19,7 +19,7 @@ import {
   ListDefaultVocabulariesRequestFilterSensitiveLog,
   ListDefaultVocabulariesResponse,
   ListDefaultVocabulariesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListDefaultVocabulariesCommand,
   serializeAws_restJson1ListDefaultVocabulariesCommand,

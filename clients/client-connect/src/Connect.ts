@@ -97,6 +97,7 @@ import {
   CreateRoutingProfileCommandInput,
   CreateRoutingProfileCommandOutput,
 } from "./commands/CreateRoutingProfileCommand";
+import { CreateRuleCommand, CreateRuleCommandInput, CreateRuleCommandOutput } from "./commands/CreateRuleCommand";
 import {
   CreateSecurityProfileCommand,
   CreateSecurityProfileCommandInput,
@@ -158,6 +159,7 @@ import {
   DeleteQuickConnectCommandInput,
   DeleteQuickConnectCommandOutput,
 } from "./commands/DeleteQuickConnectCommand";
+import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
   DeleteSecurityProfileCommand,
   DeleteSecurityProfileCommandInput,
@@ -249,6 +251,11 @@ import {
   DescribeRoutingProfileCommandInput,
   DescribeRoutingProfileCommandOutput,
 } from "./commands/DescribeRoutingProfileCommand";
+import {
+  DescribeRuleCommand,
+  DescribeRuleCommandInput,
+  DescribeRuleCommandOutput,
+} from "./commands/DescribeRuleCommand";
 import {
   DescribeSecurityProfileCommand,
   DescribeSecurityProfileCommandInput,
@@ -458,6 +465,7 @@ import {
   ListRoutingProfilesCommandInput,
   ListRoutingProfilesCommandOutput,
 } from "./commands/ListRoutingProfilesCommand";
+import { ListRulesCommand, ListRulesCommandInput, ListRulesCommandOutput } from "./commands/ListRulesCommand";
 import {
   ListSecurityKeysCommand,
   ListSecurityKeysCommandInput,
@@ -722,6 +730,7 @@ import {
   UpdateRoutingProfileQueuesCommandInput,
   UpdateRoutingProfileQueuesCommandOutput,
 } from "./commands/UpdateRoutingProfileQueuesCommand";
+import { UpdateRuleCommand, UpdateRuleCommandInput, UpdateRuleCommandOutput } from "./commands/UpdateRuleCommand";
 import {
   UpdateSecurityProfileCommand,
   UpdateSecurityProfileCommandInput,
@@ -1138,8 +1147,12 @@ export class Connect extends ConnectClient {
   /**
    * <p>Claims an available phone number to your Amazon Connect instance or traffic distribution
    *    group. You can call this API only in the same Amazon Web Services Region where the Amazon Connect instance or traffic distribution group was created.</p>
+   *          <p>For more information about how to use this operation, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-number.html">Claim a phone number in your
+   *     country</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/claim-phone-numbers-traffic-distribution-groups.html">Claim phone
+   *     numbers to traffic distribution groups</a> in the <i>Amazon Connect Administrator
+   *     Guide</i>. </p>
    *          <important>
-   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
+   *             <p>You can call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_SearchAvailablePhoneNumbers.html">SearchAvailablePhoneNumbers</a> API for available phone numbers that you can claim. Call the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribePhoneNumber.html">DescribePhoneNumber</a> API
    *     to verify the status of a previous <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ClaimPhoneNumber.html">ClaimPhoneNumber</a>
    *     operation.</p>
    *          </important>
@@ -1468,6 +1481,32 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: CreateRoutingProfileCommandOutput) => void
   ): Promise<CreateRoutingProfileCommandOutput> | void {
     const command = new CreateRoutingProfileCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Creates a rule for the specified Amazon Connect instance.</p>
+   */
+  public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
+  public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
+  public createRule(
+    args: CreateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRuleCommandOutput) => void
+  ): void;
+  public createRule(
+    args: CreateRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: CreateRuleCommandOutput) => void),
+    cb?: (err: any, data?: CreateRuleCommandOutput) => void
+  ): Promise<CreateRuleCommandOutput> | void {
+    const command = new CreateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -1892,6 +1931,32 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: DeleteQuickConnectCommandOutput) => void
   ): Promise<DeleteQuickConnectCommandOutput> | void {
     const command = new DeleteQuickConnectCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Deletes a rule for the specified Amazon Connect instance.</p>
+   */
+  public deleteRule(args: DeleteRuleCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRuleCommandOutput>;
+  public deleteRule(args: DeleteRuleCommandInput, cb: (err: any, data?: DeleteRuleCommandOutput) => void): void;
+  public deleteRule(
+    args: DeleteRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): void;
+  public deleteRule(
+    args: DeleteRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DeleteRuleCommandOutput) => void),
+    cb?: (err: any, data?: DeleteRuleCommandOutput) => void
+  ): Promise<DeleteRuleCommandOutput> | void {
+    const command = new DeleteRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -2546,6 +2611,35 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>Describes a rule for the specified Amazon Connect instance.</p>
+   */
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRuleCommandOutput>;
+  public describeRule(args: DescribeRuleCommandInput, cb: (err: any, data?: DescribeRuleCommandOutput) => void): void;
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRuleCommandOutput) => void
+  ): void;
+  public describeRule(
+    args: DescribeRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeRuleCommandOutput) => void),
+    cb?: (err: any, data?: DescribeRuleCommandOutput) => void
+  ): Promise<DescribeRuleCommandOutput> | void {
+    const command = new DescribeRuleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Gets basic information about the security profle.</p>
    */
@@ -3048,7 +3142,7 @@ export class Connect extends ConnectClient {
   /**
    * <p>Dismisses contacts from an agent’s CCP and returns the agent to an available state, which
    *    allows the agent to receive a new routed contact. Contacts can only be dismissed if they are in a
-   *     <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
+   *    <code>MISSED</code>, <code>ERROR</code>, <code>ENDED</code>, or <code>REJECTED</code> state in
    *    the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">Agent
    *     Event Stream</a>.</p>
    */
@@ -4054,6 +4148,32 @@ export class Connect extends ConnectClient {
   }
 
   /**
+   * <p>List all rules for the specified Amazon Connect instance.</p>
+   */
+  public listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
+  public listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
+  public listRules(
+    args: ListRulesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRulesCommandOutput) => void
+  ): void;
+  public listRules(
+    args: ListRulesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListRulesCommandOutput) => void),
+    cb?: (err: any, data?: ListRulesCommandOutput) => void
+  ): Promise<ListRulesCommandOutput> | void {
+    const command = new ListRulesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
    *          <p>Returns a paginated list of all security keys associated with the instance.</p>
    */
@@ -4344,8 +4464,9 @@ export class Connect extends ConnectClient {
   }
 
   /**
-   * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user specified by
-   *    <i>userId</i> will be set to silent monitoring mode on the contact.</p>
+   * <p>Initiates silent monitoring of a contact. The Contact Control Panel (CCP) of the user
+   *    specified by <i>userId</i> will be set to silent monitoring mode on the
+   *    contact.</p>
    */
   public monitorContact(
     args: MonitorContactCommandInput,
@@ -6019,6 +6140,32 @@ export class Connect extends ConnectClient {
     cb?: (err: any, data?: UpdateRoutingProfileQueuesCommandOutput) => void
   ): Promise<UpdateRoutingProfileQueuesCommandOutput> | void {
     const command = new UpdateRoutingProfileQueuesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates a rule for the specified Amazon Connect instance.</p>
+   */
+  public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
+  public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
+  public updateRule(
+    args: UpdateRuleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): void;
+  public updateRule(
+    args: UpdateRuleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateRuleCommandOutput) => void),
+    cb?: (err: any, data?: UpdateRuleCommandOutput) => void
+  ): Promise<UpdateRuleCommandOutput> | void {
+    const command = new UpdateRuleCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

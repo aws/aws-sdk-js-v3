@@ -32,10 +32,15 @@ export interface DetachLoadBalancerTargetGroupsCommandOutput
 
 /**
  * <p>Detaches one or more target groups from the specified Auto Scaling group.</p>
- *         <p>When you detach a target group, it enters the <code>Removing</code> state while
+ *          <p>When you detach a target group, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
  *             can no longer describe the target group using the <a>DescribeLoadBalancerTargetGroups</a> API call. The instances remain
  *             running.</p>
+ *          <note>
+ *             <p>You can use this operation to detach target groups that were attached by using
+ *                     <a>AttachLoadBalancerTargetGroups</a>, but not for target groups that
+ *                 were attached by using <a>AttachTrafficSources</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

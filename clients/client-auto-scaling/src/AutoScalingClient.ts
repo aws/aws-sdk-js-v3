@@ -57,6 +57,10 @@ import {
   AttachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/AttachLoadBalancerTargetGroupsCommand";
 import {
+  AttachTrafficSourcesCommandInput,
+  AttachTrafficSourcesCommandOutput,
+} from "./commands/AttachTrafficSourcesCommand";
+import {
   BatchDeleteScheduledActionCommandInput,
   BatchDeleteScheduledActionCommandOutput,
 } from "./commands/BatchDeleteScheduledActionCommand";
@@ -174,6 +178,10 @@ import {
   DescribeTerminationPolicyTypesCommandInput,
   DescribeTerminationPolicyTypesCommandOutput,
 } from "./commands/DescribeTerminationPolicyTypesCommand";
+import {
+  DescribeTrafficSourcesCommandInput,
+  DescribeTrafficSourcesCommandOutput,
+} from "./commands/DescribeTrafficSourcesCommand";
 import { DescribeWarmPoolCommandInput, DescribeWarmPoolCommandOutput } from "./commands/DescribeWarmPoolCommand";
 import { DetachInstancesCommandInput, DetachInstancesCommandOutput } from "./commands/DetachInstancesCommand";
 import {
@@ -184,6 +192,10 @@ import {
   DetachLoadBalancerTargetGroupsCommandInput,
   DetachLoadBalancerTargetGroupsCommandOutput,
 } from "./commands/DetachLoadBalancerTargetGroupsCommand";
+import {
+  DetachTrafficSourcesCommandInput,
+  DetachTrafficSourcesCommandOutput,
+} from "./commands/DetachTrafficSourcesCommand";
 import {
   DisableMetricsCollectionCommandInput,
   DisableMetricsCollectionCommandOutput,
@@ -246,6 +258,7 @@ export type ServiceInputTypes =
   | AttachInstancesCommandInput
   | AttachLoadBalancerTargetGroupsCommandInput
   | AttachLoadBalancersCommandInput
+  | AttachTrafficSourcesCommandInput
   | BatchDeleteScheduledActionCommandInput
   | BatchPutScheduledUpdateGroupActionCommandInput
   | CancelInstanceRefreshCommandInput
@@ -280,10 +293,12 @@ export type ServiceInputTypes =
   | DescribeScheduledActionsCommandInput
   | DescribeTagsCommandInput
   | DescribeTerminationPolicyTypesCommandInput
+  | DescribeTrafficSourcesCommandInput
   | DescribeWarmPoolCommandInput
   | DetachInstancesCommandInput
   | DetachLoadBalancerTargetGroupsCommandInput
   | DetachLoadBalancersCommandInput
+  | DetachTrafficSourcesCommandInput
   | DisableMetricsCollectionCommandInput
   | EnableMetricsCollectionCommandInput
   | EnterStandbyCommandInput
@@ -309,6 +324,7 @@ export type ServiceOutputTypes =
   | AttachInstancesCommandOutput
   | AttachLoadBalancerTargetGroupsCommandOutput
   | AttachLoadBalancersCommandOutput
+  | AttachTrafficSourcesCommandOutput
   | BatchDeleteScheduledActionCommandOutput
   | BatchPutScheduledUpdateGroupActionCommandOutput
   | CancelInstanceRefreshCommandOutput
@@ -343,10 +359,12 @@ export type ServiceOutputTypes =
   | DescribeScheduledActionsCommandOutput
   | DescribeTagsCommandOutput
   | DescribeTerminationPolicyTypesCommandOutput
+  | DescribeTrafficSourcesCommandOutput
   | DescribeWarmPoolCommandOutput
   | DetachInstancesCommandOutput
   | DetachLoadBalancerTargetGroupsCommandOutput
   | DetachLoadBalancersCommandOutput
+  | DetachTrafficSourcesCommandOutput
   | DisableMetricsCollectionCommandOutput
   | EnableMetricsCollectionCommandOutput
   | EnterStandbyCommandOutput
@@ -519,22 +537,9 @@ export interface AutoScalingClientResolvedConfig extends AutoScalingClientResolv
 
 /**
  * <fullname>Amazon EC2 Auto Scaling</fullname>
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *
- *         <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances
+ *          <p>Amazon EC2 Auto Scaling is designed to automatically launch and terminate EC2 instances
  *             based on user-defined scaling policies, scheduled actions, and health checks.</p>
- *         <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
+ *          <p>For more information, see the <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/">Amazon EC2 Auto Scaling User Guide</a> and the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/Welcome.html">Amazon EC2 Auto Scaling API Reference</a>.</p>
  */
 export class AutoScalingClient extends __Client<
   __HttpHandlerOptions,

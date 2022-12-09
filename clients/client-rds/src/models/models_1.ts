@@ -1043,6 +1043,7 @@ export interface EventCategoriesMessage {
 }
 
 export enum SourceType {
+  blue_green_deployment = "blue-green-deployment",
   custom_engine_version = "custom-engine-version",
   db_cluster = "db-cluster",
   db_cluster_snapshot = "db-cluster-snapshot",

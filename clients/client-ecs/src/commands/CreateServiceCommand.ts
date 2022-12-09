@@ -36,8 +36,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 		       <p>In addition to maintaining the desired count of tasks in your service, you can
  * 			optionally run your service behind one or more load balancers. The load balancers
  * 			distribute traffic across the tasks that are associated with the service. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the
- * 				<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service load balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 		       <p>Tasks for services that don't use a load balancer are considered healthy if they're in
  * 			the <code>RUNNING</code> state. Tasks for services that use a load balancer are
  * 			considered healthy if they're in the <code>RUNNING</code> state and are reported as
@@ -50,8 +49,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 					maintains your desired number of tasks across your cluster. By default, the
  * 					service scheduler spreads tasks across Availability Zones. You can use task
  * 					placement strategies and constraints to customize task placement decisions. For
- * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
- * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *             <li>
  * 				           <p>
@@ -61,8 +59,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 					evaluates the task placement constraints for running tasks. It also stops tasks
  * 					that don't meet the placement constraints. When using this strategy, you don't
  * 					need to specify a desired number of tasks, a task placement strategy, or use
- * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the
- * 						<i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 					Service Auto Scaling policies. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs_services.html">Service scheduler concepts</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * 			         </li>
  *          </ul>
  * 		       <p>You can optionally specify a deployment configuration for your service. The deployment
@@ -106,8 +103,9 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * 		       <p>When creating a service that uses the <code>EXTERNAL</code> deployment controller, you
  * 			can specify only parameters that aren't controlled at the task set level. The only
  * 			required parameter is the service name. You control your services using the <a>CreateTaskSet</a> operation. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html">Amazon ECS deployment types</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
- * 		       <p>When the service scheduler launches new tasks, it determines task placement. For information
- * 			about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 		       <p>When the service scheduler launches new tasks, it determines task placement. For
+ * 			information about task placement and task placement strategies, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement.html">Amazon ECS
+ * 				task placement</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

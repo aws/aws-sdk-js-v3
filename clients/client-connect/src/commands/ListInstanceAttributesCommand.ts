@@ -19,7 +19,7 @@ import {
   ListInstanceAttributesRequestFilterSensitiveLog,
   ListInstanceAttributesResponse,
   ListInstanceAttributesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   deserializeAws_restJson1ListInstanceAttributesCommand,
   serializeAws_restJson1ListInstanceAttributesCommand,

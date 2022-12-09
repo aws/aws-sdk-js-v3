@@ -30,6 +30,23 @@ export interface ModifyVerifiedAccessEndpointPolicyCommandOutput
   extends ModifyVerifiedAccessEndpointPolicyResult,
     __MetadataBearer {}
 
+/**
+ * <p>Modifies the specified Verified Access endpoint policy.</p>
+ * @example
+ * Use a bare-bones client and the command you need to make an API call.
+ * ```javascript
+ * import { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } from "@aws-sdk/client-ec2"; // ES Modules import
+ * // const { EC2Client, ModifyVerifiedAccessEndpointPolicyCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
+ * const client = new EC2Client(config);
+ * const command = new ModifyVerifiedAccessEndpointPolicyCommand(input);
+ * const response = await client.send(command);
+ * ```
+ *
+ * @see {@link ModifyVerifiedAccessEndpointPolicyCommandInput} for command's `input` shape.
+ * @see {@link ModifyVerifiedAccessEndpointPolicyCommandOutput} for command's `response` shape.
+ * @see {@link EC2ClientResolvedConfig | config} for EC2Client's `config` shape.
+ *
+ */
 export class ModifyVerifiedAccessEndpointPolicyCommand extends $Command<
   ModifyVerifiedAccessEndpointPolicyCommandInput,
   ModifyVerifiedAccessEndpointPolicyCommandOutput,

@@ -34,12 +34,12 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * <p>Gets recommendations for reservation purchases. These recommendations might help you to
  *       reduce your costs. Reservations provide a discounted hourly rate (up to 75%) compared to
  *       On-Demand pricing.</p>
- * 		       <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
+ *          <p>Amazon Web Services generates your recommendations by identifying your On-Demand usage
  *       during a specific time period and collecting your usage into categories that are eligible for
  *       a reservation. After Amazon Web Services has these categories, it simulates every combination
  *       of reservations in each category of usage to identify the best number of each type of Reserved
  *       Instance (RI) to purchase to maximize your estimated savings. </p>
- * 		       <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
+ *          <p>For example, Amazon Web Services automatically aggregates your Amazon EC2 Linux, shared
  *       tenancy, and c4 family usage in the US West (Oregon) Region and recommends that you buy
  *       size-flexible regional reservations to apply to the c4 family usage. Amazon Web Services
  *       recommends the smallest size instance in an instance family. This makes it easier to purchase

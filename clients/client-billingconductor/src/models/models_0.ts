@@ -318,12 +318,15 @@ export enum ValidationExceptionReason {
   ILLEGAL_CUSTOMLINEITEM = "ILLEGAL_CUSTOMLINEITEM",
   ILLEGAL_CUSTOMLINEITEM_MODIFICATION = "ILLEGAL_CUSTOMLINEITEM_MODIFICATION",
   ILLEGAL_CUSTOMLINEITEM_UPDATE = "ILLEGAL_CUSTOMLINEITEM_UPDATE",
+  ILLEGAL_ENDED_BILLINGGROUP = "ILLEGAL_ENDED_BILLINGGROUP",
   ILLEGAL_EXPRESSION = "ILLEGAL_EXPRESSION",
   ILLEGAL_MODIFIER_PERCENTAGE = "ILLEGAL_MODIFIER_PERCENTAGE",
   ILLEGAL_PRIMARY_ACCOUNT = "ILLEGAL_PRIMARY_ACCOUNT",
   ILLEGAL_RESOURCE_ARNS = "ILLEGAL_RESOURCE_ARNS",
   ILLEGAL_SCOPE = "ILLEGAL_SCOPE",
   ILLEGAL_SERVICE = "ILLEGAL_SERVICE",
+  ILLEGAL_TIERING_INPUT = "ILLEGAL_TIERING_INPUT",
+  ILLEGAL_TYPE = "ILLEGAL_TYPE",
   ILLEGAL_UPDATE_CHARGE_DETAILS = "ILLEGAL_UPDATE_CHARGE_DETAILS",
   INVALID_ARN = "INVALID_ARN",
   INVALID_BILLINGVIEW_ARN = "INVALID_BILLINGVIEW_ARN",
@@ -2079,9 +2082,38 @@ export enum PricingRuleScope {
   SERVICE = "SERVICE",
 }
 
+/**
+ * <p>
+ *       The possible Amazon Web Services Free Tier configurations.
+ *     </p>
+ */
+export interface CreateFreeTierConfig {
+  /**
+   * <p>
+   *       Activate or deactivate Amazon Web Services Free Tier.
+   *     </p>
+   */
+  Activated: boolean | undefined;
+}
+
+/**
+ * <p>
+ *       The set of tiering configurations for the pricing rule.
+ *     </p>
+ */
+export interface CreateTieringInput {
+  /**
+   * <p>
+   *       The possible Amazon Web Services Free Tier configurations.
+   *     </p>
+   */
+  FreeTier: CreateFreeTierConfig | undefined;
+}
+
 export enum PricingRuleType {
   DISCOUNT = "DISCOUNT",
   MARKUP = "MARKUP",
+  TIERING = "TIERING",
 }
 
 export interface CreatePricingRuleInput {
@@ -2121,7 +2153,7 @@ export interface CreatePricingRuleInput {
   /**
    * <p> A percentage modifier that's applied on the public pricing rates. </p>
    */
-  ModifierPercentage: number | undefined;
+  ModifierPercentage?: number;
 
   /**
    * <p>
@@ -2143,6 +2175,13 @@ export interface CreatePricingRuleInput {
    *     </p>
    */
   BillingEntity?: string;
+
+  /**
+   * <p>
+   *       The set of tiering configurations for the pricing rule.
+   *     </p>
+   */
+  Tiering?: CreateTieringInput;
 }
 
 export interface CreatePricingRuleOutput {
@@ -2205,6 +2244,34 @@ export interface ListPricingRulesInput {
    *     </p>
    */
   NextToken?: string;
+}
+
+/**
+ * <p>
+ *       The possible Amazon Web Services Free Tier configurations.
+ *     </p>
+ */
+export interface FreeTierConfig {
+  /**
+   * <p>
+   *       Activate or deactivate Amazon Web Services Free Tier application.
+   *     </p>
+   */
+  Activated: boolean | undefined;
+}
+
+/**
+ * <p>
+ *       The set of tiering configurations for the pricing rule.
+ *     </p>
+ */
+export interface Tiering {
+  /**
+   * <p>
+   *       The possible Amazon Web Services Free Tier configurations.
+   *     </p>
+   */
+  FreeTier: FreeTierConfig | undefined;
 }
 
 /**
@@ -2285,6 +2352,13 @@ export interface PricingRuleListElement {
    *     </p>
    */
   BillingEntity?: string;
+
+  /**
+   * <p>
+   *       The set of tiering configurations for the pricing rule.
+   *     </p>
+   */
+  Tiering?: Tiering;
 }
 
 export interface ListPricingRulesOutput {
@@ -2366,6 +2440,34 @@ export interface ListPricingRulesAssociatedToPricingPlanOutput {
   NextToken?: string;
 }
 
+/**
+ * <p>
+ *       The possible Amazon Web Services Free Tier configurations.
+ *     </p>
+ */
+export interface UpdateFreeTierConfig {
+  /**
+   * <p>
+   *       Activate or deactivate application of Amazon Web Services Free Tier.
+   *     </p>
+   */
+  Activated: boolean | undefined;
+}
+
+/**
+ * <p>
+ *       The set of tiering configurations for the pricing rule.
+ *     </p>
+ */
+export interface UpdateTieringInput {
+  /**
+   * <p>
+   *       The possible Amazon Web Services Free Tier configurations.
+   *     </p>
+   */
+  FreeTier: UpdateFreeTierConfig | undefined;
+}
+
 export interface UpdatePricingRuleInput {
   /**
    * <p> The Amazon Resource Name (ARN) of the pricing rule to update. </p>
@@ -2399,6 +2501,13 @@ export interface UpdatePricingRuleInput {
    *     </p>
    */
   ModifierPercentage?: number;
+
+  /**
+   * <p>
+   *       The set of tiering configurations for the pricing rule.
+   *     </p>
+   */
+  Tiering?: UpdateTieringInput;
 }
 
 export interface UpdatePricingRuleOutput {
@@ -2468,6 +2577,13 @@ export interface UpdatePricingRuleOutput {
    *     </p>
    */
   BillingEntity?: string;
+
+  /**
+   * <p>
+   *       The set of tiering configurations for the pricing rule.
+   *     </p>
+   */
+  Tiering?: UpdateTieringInput;
 }
 
 export interface TagResourceRequest {
@@ -3143,6 +3259,20 @@ export const UpdatePricingPlanOutputFilterSensitiveLog = (obj: UpdatePricingPlan
 /**
  * @internal
  */
+export const CreateFreeTierConfigFilterSensitiveLog = (obj: CreateFreeTierConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const CreateTieringInputFilterSensitiveLog = (obj: CreateTieringInput): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const CreatePricingRuleInputFilterSensitiveLog = (obj: CreatePricingRuleInput): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3187,6 +3317,20 @@ export const ListPricingRulesInputFilterSensitiveLog = (obj: ListPricingRulesInp
 /**
  * @internal
  */
+export const FreeTierConfigFilterSensitiveLog = (obj: FreeTierConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const TieringFilterSensitiveLog = (obj: Tiering): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const PricingRuleListElementFilterSensitiveLog = (obj: PricingRuleListElement): any => ({
   ...obj,
   ...(obj.Name && { Name: SENSITIVE_STRING }),
@@ -3218,6 +3362,20 @@ export const ListPricingRulesAssociatedToPricingPlanInputFilterSensitiveLog = (
 export const ListPricingRulesAssociatedToPricingPlanOutputFilterSensitiveLog = (
   obj: ListPricingRulesAssociatedToPricingPlanOutput
 ): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFreeTierConfigFilterSensitiveLog = (obj: UpdateFreeTierConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateTieringInputFilterSensitiveLog = (obj: UpdateTieringInput): any => ({
   ...obj,
 });
 
