@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.228.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.227.0...v3.228.0) (2022-12-09)
+
+
+### Features
+
+* **client-iotfleetwise:** Deprecated assignedValue property for actuators and attributes.  Added a message to invalid nodes and invalid decoder manifest exceptions. ([49aed2d](https://github.com/aws/aws-sdk-js-v3/commit/49aed2dce89bcd7d194572ed73a027ae86d2b82d))
+* **client-medialive:** Link devices now support buffer size (latency) configuration. A higher latency value means a longer delay in transmitting from the device to MediaLive, but improved resiliency. A lower latency value means a shorter delay, but less resiliency. ([e581155](https://github.com/aws/aws-sdk-js-v3/commit/e5811558346eed729862445b80af4aad2a23362d))
+* **client-mediapackage-vod:** This release provides the approximate number of assets in a packaging group. ([fee4186](https://github.com/aws/aws-sdk-js-v3/commit/fee4186e63efcbe5218e8ed202b9c1a1bbef81b5))
+
+
+
+
+
 # [3.227.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.226.0...v3.227.0) (2022-12-08)
 
 
