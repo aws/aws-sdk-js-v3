@@ -31,7 +31,7 @@ export const isTransientError = (error: SdkError) =>
 export const isServerError = (error: SdkError) => {
   if (error.$metadata?.httpStatusCode !== undefined) {
     const statusCode = error.$metadata.httpStatusCode;
-    if (statusCode > 499 && statusCode <= 599 && !isTransientError(error)) {
+    if (500 <= statusCode && statusCode <= 599 && !isTransientError(error)) {
       return true;
     }
     return false;
