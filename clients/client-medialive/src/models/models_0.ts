@@ -2665,6 +2665,11 @@ export interface InputDeviceHdSettings {
    * The width of the video source, in pixels.
    */
   Width?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms). You can specify this value.
+   */
+  LatencyMs?: number;
 }
 
 export enum InputDeviceIpScheme {
@@ -2704,6 +2709,7 @@ export interface InputDeviceNetworkSettings {
 
 export enum InputDeviceType {
   HD = "HD",
+  UHD = "UHD",
 }
 
 /**
@@ -2749,6 +2755,11 @@ export interface InputDeviceUhdSettings {
    * The width of the video source, in pixels.
    */
   Width?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms). You can specify this value.
+   */
+  LatencyMs?: number;
 }
 
 /**

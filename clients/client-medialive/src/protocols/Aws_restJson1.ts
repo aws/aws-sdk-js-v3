@@ -7882,6 +7882,7 @@ const serializeAws_restJson1InputDeviceConfigurableSettings = (
 ): any => {
   return {
     ...(input.ConfiguredInput != null && { configuredInput: input.ConfiguredInput }),
+    ...(input.LatencyMs != null && { latencyMs: input.LatencyMs }),
     ...(input.MaxBitrate != null && { maxBitrate: input.MaxBitrate }),
   };
 };
@@ -11178,6 +11179,7 @@ const deserializeAws_restJson1InputDeviceHdSettings = (output: any, context: __S
     DeviceState: __expectString(output.deviceState),
     Framerate: __limitedParseDouble(output.framerate),
     Height: __expectInt32(output.height),
+    LatencyMs: __expectInt32(output.latencyMs),
     MaxBitrate: __expectInt32(output.maxBitrate),
     ScanType: __expectString(output.scanType),
     Width: __expectInt32(output.width),
@@ -11240,6 +11242,7 @@ const deserializeAws_restJson1InputDeviceUhdSettings = (
     DeviceState: __expectString(output.deviceState),
     Framerate: __limitedParseDouble(output.framerate),
     Height: __expectInt32(output.height),
+    LatencyMs: __expectInt32(output.latencyMs),
     MaxBitrate: __expectInt32(output.maxBitrate),
     ScanType: __expectString(output.scanType),
     Width: __expectInt32(output.width),

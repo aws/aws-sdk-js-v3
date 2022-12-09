@@ -5226,6 +5226,11 @@ export interface InputDeviceConfigurableSettings {
    * The maximum bitrate in bits per second. Set a value here to throttle the bitrate of the source video.
    */
   MaxBitrate?: number;
+
+  /**
+   * The Link device's buffer size (latency) in milliseconds (ms).
+   */
+  LatencyMs?: number;
 }
 
 /**
