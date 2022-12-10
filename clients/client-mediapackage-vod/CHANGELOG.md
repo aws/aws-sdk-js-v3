@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.228.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.227.0...v3.228.0) (2022-12-09)
+
+
+### Features
+
+* **client-mediapackage-vod:** This release provides the approximate number of assets in a packaging group. ([fee4186](https://github.com/aws/aws-sdk-js-v3/commit/fee4186e63efcbe5218e8ed202b9c1a1bbef81b5))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackage-vod

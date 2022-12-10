@@ -118,7 +118,7 @@ export interface DashManifest {
   Profile?: Profile | string;
 
   /**
-   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content.
+   * The source of scte markers used. When set to SEGMENTS, the scte markers are sourced from the segments of the ingested content. When set to MANIFEST, the scte markers are sourced from the manifest of the ingested content. The MANIFEST value is compatible with source HLS playlists using the SCTE-35 Enhanced syntax (#EXT-OATCLS-SCTE35 tags). SCTE-35 Elemental and SCTE-35 Daterange syntaxes are not supported with this option.
    */
   ScteMarkersSource?: ScteMarkersSource | string;
 
@@ -551,6 +551,11 @@ export interface EgressAccessLogs {
  * A MediaPackage VOD PackagingGroup resource.
  */
 export interface PackagingGroup {
+  /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
   /**
    * The ARN of the PackagingGroup.
    */
@@ -1115,6 +1120,11 @@ export interface DescribePackagingGroupRequest {
 
 export interface DescribePackagingGroupResponse {
   /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
+  /**
    * The ARN of the PackagingGroup.
    */
   Arn?: string;
@@ -1281,6 +1291,11 @@ export interface UpdatePackagingGroupRequest {
 }
 
 export interface UpdatePackagingGroupResponse {
+  /**
+   * The approximate asset count of the PackagingGroup.
+   */
+  ApproximateAssetCount?: number;
+
   /**
    * The ARN of the PackagingGroup.
    */

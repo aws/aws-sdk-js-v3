@@ -1137,6 +1137,9 @@ export const deserializeAws_restJson1DescribePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -1487,6 +1490,9 @@ export const deserializeAws_restJson1UpdatePackagingGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.approximateAssetCount != null) {
+    contents.ApproximateAssetCount = __expectInt32(data.approximateAssetCount);
+  }
   if (data.arn != null) {
     contents.Arn = __expectString(data.arn);
   }
@@ -2204,6 +2210,7 @@ const deserializeAws_restJson1PackagingConfiguration = (
 
 const deserializeAws_restJson1PackagingGroup = (output: any, context: __SerdeContext): PackagingGroup => {
   return {
+    ApproximateAssetCount: __expectInt32(output.approximateAssetCount),
     Arn: __expectString(output.arn),
     Authorization:
       output.authorization != null ? deserializeAws_restJson1Authorization(output.authorization, context) : undefined,

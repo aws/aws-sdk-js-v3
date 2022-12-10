@@ -5037,6 +5037,7 @@ const deserializeAws_json1_0DecoderManifestValidationException = (
       output.invalidSignals != null
         ? deserializeAws_json1_0InvalidSignalDecoders(output.invalidSignals, context)
         : undefined,
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -5400,6 +5401,7 @@ const deserializeAws_json1_0InvalidNetworkInterfaces = (
 const deserializeAws_json1_0InvalidNodeException = (output: any, context: __SerdeContext): InvalidNodeException => {
   return {
     invalidNodes: output.invalidNodes != null ? deserializeAws_json1_0Nodes(output.invalidNodes, context) : undefined,
+    message: __expectString(output.message),
     reason: __expectString(output.reason),
   } as any;
 };
