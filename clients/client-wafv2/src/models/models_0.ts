@@ -1169,12 +1169,9 @@ export enum FallbackBehavior {
 
 /**
  * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
- *
  *          <note>
  *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
  *          </note>
- *
- *
  *          <p>This configuration is used for <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>. For <a>IPSetReferenceStatement</a>, use <a>IPSetForwardedIPConfig</a> instead. </p>
  *          <p>WAF only evaluates the first IP address found in the specified HTTP header.
  *       </p>
@@ -1182,7 +1179,6 @@ export enum FallbackBehavior {
 export interface ForwardedIPConfig {
   /**
    * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
@@ -1191,11 +1187,9 @@ export interface ForwardedIPConfig {
 
   /**
    * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
-   *
    *          <p>You can specify the following fallback behaviors:</p>
    *          <ul>
    *             <li>
@@ -1236,7 +1230,6 @@ export interface GeoMatchStatement {
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
@@ -1252,18 +1245,14 @@ export enum ForwardedIPPosition {
 
 /**
  * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
- *
  *          <note>
  *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
  *          </note>
- *
- *
  *          <p>This configuration is used only for <a>IPSetReferenceStatement</a>. For <a>GeoMatchStatement</a> and <a>RateBasedStatement</a>, use <a>ForwardedIPConfig</a> instead. </p>
  */
 export interface IPSetForwardedIPConfig {
   /**
    * <p>The name of the HTTP header to use for the IP address. For example, to use the X-Forwarded-For (XFF) header, set this to <code>X-Forwarded-For</code>.</p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
@@ -1272,11 +1261,9 @@ export interface IPSetForwardedIPConfig {
 
   /**
    * <p>The match status to assign to the web request if the request doesn't have a valid IP address in the specified position.</p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
-   *
    *          <p>You can specify the following fallback behaviors:</p>
    *          <ul>
    *             <li>
@@ -1328,7 +1315,6 @@ export interface IPSetReferenceStatement {
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
@@ -1522,23 +1508,23 @@ export interface BlockAction {
  *                <p>If the request includes a valid, unexpired <code>CAPTCHA</code> token,
  *                WAF applies any custom request handling and labels that you've configured and then allows the web request inspection to
  *                proceed to the next rule, similar to a <code>CountAction</code>. </p>
- *            </li>
+ *             </li>
  *             <li>
  *                <p>If the request doesn't include a valid, unexpired token, WAF
  *                    discontinues the web ACL evaluation of the request and blocks it from going to its intended destination.</p>
  *                <p>WAF generates a response that it sends back to the client, which includes the following: </p>
  *                <ul>
  *                   <li>
- *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>
- *                    </li>
+ *                      <p>The header <code>x-amzn-waf-action</code> with a value of <code>captcha</code>. </p>
+ *                   </li>
  *                   <li>
- *                        <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>
- *                    </li>
+ *                      <p>The HTTP status code <code>405 Method Not Allowed</code>. </p>
+ *                   </li>
  *                   <li>
- *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> JavaScript page interstitial. </p>
- *                    </li>
+ *                      <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a <code>CAPTCHA</code> JavaScript page interstitial. </p>
+ *                   </li>
  *                </ul>
- *            </li>
+ *             </li>
  *          </ul>
  *          <p>You can configure the expiration time
  *                in the <code>CaptchaConfig</code>
@@ -1568,14 +1554,14 @@ export interface CaptchaAction {
  *                <p>WAF then generates a challenge response that it sends back to the client, which includes the following: </p>
  *                <ul>
  *                   <li>
- *                        <p>The header <code>x-amzn-waf-action</code> with a value of <code>challenge</code>. </p>
- *                    </li>
+ *                      <p>The header <code>x-amzn-waf-action</code> with a value of <code>challenge</code>. </p>
+ *                   </li>
  *                   <li>
- *                        <p>The HTTP status code <code>202 Request Accepted</code>. </p>
- *                    </li>
+ *                      <p>The HTTP status code <code>202 Request Accepted</code>. </p>
+ *                   </li>
  *                   <li>
- *                        <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a JavaScript page interstitial with a challenge script. </p>
- *                    </li>
+ *                      <p>If the request contains an <code>Accept</code> header with a value of <code>text/html</code>, the response includes a JavaScript page interstitial with a challenge script. </p>
+ *                   </li>
  *                </ul>
  *                <p>Challenges run silent browser interrogations in the background, and don't generally affect the end user experience. </p>
  *                <p>A challenge enforces token acquisition using an interstitial JavaScript challenge that inspects the client session for legitimate behavior. The challenge blocks bots or at least increases the cost of operating sophisticated bots. </p>
@@ -1838,7 +1824,6 @@ export interface AssociateWebACLRequest {
 
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to associate with the web ACL. </p>
-   *
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
@@ -3067,7 +3052,6 @@ export interface DescribeManagedRuleGroupResponse {
    *                <p>
    *                   <code><label namespace>:<label from rule></code>
    *                </p>
-   *
    *             </li>
    *          </ul>
    */
@@ -3087,7 +3071,6 @@ export interface DescribeManagedRuleGroupResponse {
 export interface DisassociateWebACLRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource to disassociate from the web ACL. </p>
-   *
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
@@ -3352,9 +3335,10 @@ export interface LoggingFilter {
  *          steps:</p>
  *          <ol>
  *             <li>
- *                <p>Create your logging destination. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose.
- *                  For information about configuring logging destinations and the permissions that are required for each, see
- *                  <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic information</a>
+ *                <p>Create your logging destination. You can use an Amazon CloudWatch Logs log group, an Amazon Simple Storage Service (Amazon S3) bucket, or an Amazon Kinesis Data Firehose. </p>
+ *                <p>The name that you give the destination must start with <code>aws-waf-logs-</code>. Depending on the type of destination, you might need to configure additional settings or permissions. </p>
+ *                <p>For configuration requirements and pricing information for each destination type, see
+ *                  <a href="https://docs.aws.amazon.com/waf/latest/developerguide/logging.html">Logging web ACL traffic</a>
  *                  in the <i>WAF Developer Guide</i>.</p>
  *             </li>
  *             <li>
@@ -3463,7 +3447,7 @@ export interface ManagedRuleSetVersion {
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
-   *           <p>WAF uses WCUs to calculate and control the operating
+   *          <p>WAF uses WCUs to calculate and control the operating
    *          resources that are used to run your rules, rule groups, and web ACLs. WAF
    *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
@@ -3552,7 +3536,6 @@ export interface ManagedRuleSet {
    *                <p>
    *                   <code><label namespace>:<label from rule></code>
    *                </p>
-   *
    *             </li>
    *          </ul>
    */
@@ -4137,7 +4120,6 @@ export interface GetWebACLRequest {
 export interface GetWebACLForResourceRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of the resource whose web ACL you want to retrieve. </p>
-   *
    *          <p>The ARN must be in one of the following formats:</p>
    *          <ul>
    *             <li>
@@ -4476,7 +4458,6 @@ export interface ManagedRuleSetSummary {
    *                <p>
    *                   <code><label namespace>:<label from rule></code>
    *                </p>
-   *
    *             </li>
    *          </ul>
    */
@@ -4915,7 +4896,6 @@ export interface PutPermissionPolicyRequest {
 
   /**
    * <p>The policy to attach to the specified rule group. </p>
-   *
    *          <p>The policy specifications must conform to the following:</p>
    *          <ul>
    *             <li>
@@ -4947,7 +4927,6 @@ export interface PutPermissionPolicyResponse {}
 
 /**
  * <p>The operation failed because the specified policy isn't in the proper format. </p>
- *
  *          <p>The policy specifications must conform to the following:</p>
  *          <ul>
  *             <li>
@@ -5462,12 +5441,9 @@ export interface RateBasedStatement {
 
   /**
    * <p>The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. Commonly, this is the X-Forwarded-For (XFF) header, but you can specify any header name. </p>
-   *
    *          <note>
    *             <p>If the specified header isn't present in the request, WAF doesn't apply the rule to the web request at all.</p>
    *          </note>
-   *
-   *
    *          <p>This is required if <code>AggregateKeyType</code> is set to
    *          <code>FORWARDED_IP</code>.</p>
    */
@@ -5501,7 +5477,7 @@ export interface Rule {
 
   /**
    * <p>The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting. </p>
-   *         <p>This is used only for rules whose statements do not reference a rule group. Rule statements that reference a rule group include <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
+   *          <p>This is used only for rules whose statements do not reference a rule group. Rule statements that reference a rule group include <code>RuleGroupReferenceStatement</code> and <code>ManagedRuleGroupStatement</code>. </p>
    *          <p>You must specify either this <code>Action</code> setting or the rule <code>OverrideAction</code> setting, but not both:</p>
    *          <ul>
    *             <li>
@@ -5695,10 +5671,10 @@ export interface CreateRuleGroupRequest {
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
-   *           <p>When you create your own rule group, you define this, and you cannot change it after creation.
+   *          <p>When you create your own rule group, you define this, and you cannot change it after creation.
    *           When you add or modify the rules in a rule group, WAF enforces this limit. You can check the capacity
    *           for a set of rules using <a>CheckCapacity</a>.</p>
-   *           <p>WAF uses WCUs to calculate and control the operating
+   *          <p>WAF uses WCUs to calculate and control the operating
    *          resources that are used to run your rules, rule groups, and web ACLs. WAF
    *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
@@ -5814,6 +5790,7 @@ export interface CreateWebACLRequest {
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
    *          <p>Example JSON: <code>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</code>
    *          </p>
+   *          <p>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or <code>co.uk</code> as token domains.</p>
    */
   TokenDomains?: string[];
 }
@@ -5834,10 +5811,10 @@ export interface RuleGroup {
 
   /**
    * <p>The web ACL capacity units (WCUs) required for this rule group.</p>
-   *           <p>When you create your own rule group, you define this, and you cannot change it after creation.
+   *          <p>When you create your own rule group, you define this, and you cannot change it after creation.
    *           When you add or modify the rules in a rule group, WAF enforces this limit. You can check the capacity
    *           for a set of rules using <a>CheckCapacity</a>.</p>
-   *           <p>WAF uses WCUs to calculate and control the operating
+   *          <p>WAF uses WCUs to calculate and control the operating
    *          resources that are used to run your rules, rule groups, and web ACLs. WAF
    *          calculates capacity differently for each rule type, to reflect the relative cost of each rule.
    *          Simple rules that cost little to run use fewer WCUs than more complex rules
@@ -5885,7 +5862,6 @@ export interface RuleGroup {
    *                <p>
    *                   <code><label namespace>:<label from rule></code>
    *                </p>
-   *
    *             </li>
    *          </ul>
    */
@@ -6046,6 +6022,7 @@ export interface UpdateWebACLRequest {
    * <p>Specifies the domains that WAF should accept in a web request token. This enables the use of tokens across multiple protected websites. When WAF provides a token, it uses the domain of the Amazon Web Services resource that the web ACL is protecting. If you don't specify a list of token domains, WAF accepts tokens only for the domain of the protected resource. With a token domain list, WAF accepts the resource's host domain plus all domains in the token domain list, including their prefixed subdomains.</p>
    *          <p>Example JSON: <code>"TokenDomains": { "mywebsite.com", "myotherwebsite.com" }</code>
    *          </p>
+   *          <p>Public suffixes aren't allowed. For example, you can't use <code>usa.gov</code> or <code>co.uk</code> as token domains.</p>
    */
   TokenDomains?: string[];
 }
@@ -6162,7 +6139,6 @@ export interface WebACL {
    *                <p>
    *                   <code><label namespace>:<label from rule></code>
    *                </p>
-   *
    *             </li>
    *          </ul>
    */
