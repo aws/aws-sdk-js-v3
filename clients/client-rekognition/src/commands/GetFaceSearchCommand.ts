@@ -39,7 +39,6 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *       To get the search results, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. If so, call  <code>GetFaceSearch</code> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartFaceSearch</code>.</p>
- *
  *          <p>For more information, see Searching Faces in a Collection in the
  *       Amazon Rekognition Developer Guide.</p>
  *          <p>The search results are retured in an array, <code>Persons</code>, of
@@ -55,7 +54,6 @@ export interface GetFaceSearchCommandOutput extends GetFaceSearchResponse, __Met
  *         in the <code>Face</code> object of the following response syntax are not returned. For more information,
  *         see FaceDetail in the Amazon Rekognition Developer Guide. </p>
  *          </note>
- *
  *          <p>By default, the <code>Persons</code> array is sorted by the time, in milliseconds from the
  *     start of the video, persons are matched.
  *     You can also sort by persons by specifying <code>INDEX</code> for the <code>SORTBY</code> input

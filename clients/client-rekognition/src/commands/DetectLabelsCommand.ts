@@ -32,10 +32,8 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  * <p>Detects instances of real-world entities within an image (JPEG or PNG) provided as
  *       input. This includes objects like flower, tree, and table; events like wedding, graduation,
  *       and birthday party; and concepts like landscape, evening, and nature. </p>
- *
  *          <p>For an example, see Analyzing images stored in an Amazon S3 bucket in the
  *       Amazon Rekognition Developer Guide.</p>
- *
  *          <p>You pass the input image as base64-encoded image bytes or as a reference to an image in
  *       an Amazon S3 bucket. If you use the
  *       AWS
@@ -82,8 +80,7 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *                <p> Aliases - Possible Aliases for the label. </p>
  *             </li>
  *             <li>
- *                <p> Categories - The label categories that the detected label belongs to. A given label
- *           can belong to more than one category. </p>
+ *                <p> Categories - The label categories that the detected label belongs to. </p>
  *             </li>
  *             <li>
  *                <p> BoundingBox — Bounding boxes are described for all instances of detected common
@@ -104,12 +101,10 @@ export interface DetectLabelsCommandOutput extends DetectLabelsResponse, __Metad
  *                <p>Dominant Color - An array of the dominant colors in the image. </p>
  *             </li>
  *             <li>
- *                <p>Foreground - Information about the Sharpness and Brightness of the input image’s
- *           foreground. </p>
+ *                <p>Foreground - Information about the sharpness, brightness, and dominant colors of the input image’s foreground. </p>
  *             </li>
  *             <li>
- *                <p>Background - Information about the Sharpness and Brightness of the input image’s
- *           background.</p>
+ *                <p>Background - Information about the sharpness, brightness, and dominant colors of the input image’s background.</p>
  *             </li>
  *          </ul>
  *          <p>The list of returned labels will include at least one label for every detected object,

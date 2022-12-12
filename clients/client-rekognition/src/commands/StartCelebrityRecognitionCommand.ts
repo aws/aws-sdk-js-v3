@@ -39,7 +39,6 @@ export interface StartCelebrityRecognitionCommandOutput extends StartCelebrityRe
  *       To get the results of the celebrity recognition analysis, first check that the status value published to the Amazon SNS
  *       topic is <code>SUCCEEDED</code>. If so, call  <a>GetCelebrityRecognition</a> and pass the job identifier
  *       (<code>JobId</code>) from the initial call to <code>StartCelebrityRecognition</code>. </p>
- *
  *          <p>For more information, see Recognizing celebrities in the Amazon Rekognition Developer Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

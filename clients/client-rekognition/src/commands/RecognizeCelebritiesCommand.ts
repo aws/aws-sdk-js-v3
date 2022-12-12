@@ -52,7 +52,6 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  *       AWS
  *       CLI to call Amazon Rekognition operations, passing image bytes is not
  *       supported. The image must be either a PNG or JPEG formatted file. </p>
- *
  *          <p>For an example, see Recognizing celebrities in an image in the Amazon Rekognition
  *       Developer Guide.</p>
  *          <p>This operation requires permissions to perform the

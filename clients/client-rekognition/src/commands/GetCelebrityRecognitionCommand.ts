@@ -40,7 +40,6 @@ export interface GetCelebrityRecognitionCommandOutput extends GetCelebrityRecogn
  *       analysis, first check that the status value published to the Amazon SNS topic is
  *         <code>SUCCEEDED</code>. If so, call <code>GetCelebrityDetection</code> and pass the job
  *       identifier (<code>JobId</code>) from the initial call to <code>StartCelebrityDetection</code>. </p>
- *
  *          <p>For more information, see Working With Stored Videos in the Amazon Rekognition Developer Guide.</p>
  *          <p>
  *             <code>GetCelebrityRecognition</code> returns detected celebrities and the time(s) they

@@ -33,18 +33,14 @@ export interface PutProjectPolicyCommandOutput extends PutProjectPolicyResponse,
  *          project policy specifies that a trusted AWS account can copy a model version from a
  *          trusting AWS account to a project in the trusted AWS account. To copy a model version you use
  *        the <a>CopyProjectVersion</a> operation.</p>
- *
- *
  *          <p>For more information about the format of a project policy document, see Attaching a project policy (SDK)
  *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *       </p>
- *
  *          <p>The response from <code>PutProjectPolicy</code> is a revision ID for the project policy.
  *          You can attach multiple project policies to a project. You can also update an existing
  *          project policy by specifying the policy revision ID of the existing policy.</p>
  *          <p>To remove a project policy from a project, call <a>DeleteProjectPolicy</a>.
  *          To get a list of project policies attached to a project, call <a>ListProjectPolicies</a>. </p>
- *
  *          <p>You copy a model version by calling <a>CopyProjectVersion</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

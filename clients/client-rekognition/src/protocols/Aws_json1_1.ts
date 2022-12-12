@@ -314,6 +314,8 @@ import {
   LabelAlias,
   LabelCategory,
   LabelDetection,
+  LabelDetectionFeatureName,
+  LabelDetectionSettings,
   Landmark,
   LimitExceededException,
   ListCollectionsRequest,
@@ -5879,6 +5881,7 @@ const serializeAws_json1_1GetLabelDetectionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.AggregateBy != null && { AggregateBy: input.AggregateBy }),
     ...(input.JobId != null && { JobId: input.JobId }),
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
@@ -5980,6 +5983,25 @@ const serializeAws_json1_1KinesisVideoStreamStartSelector = (
   return {
     ...(input.FragmentNumber != null && { FragmentNumber: input.FragmentNumber }),
     ...(input.ProducerTimestamp != null && { ProducerTimestamp: input.ProducerTimestamp }),
+  };
+};
+
+const serializeAws_json1_1LabelDetectionFeatureList = (
+  input: (LabelDetectionFeatureName | string)[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1LabelDetectionSettings = (input: LabelDetectionSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.GeneralLabels != null && {
+      GeneralLabels: serializeAws_json1_1GeneralLabelsSettings(input.GeneralLabels, context),
+    }),
   };
 };
 
@@ -6257,11 +6279,13 @@ const serializeAws_json1_1StartLabelDetectionRequest = (
 ): any => {
   return {
     ...(input.ClientRequestToken != null && { ClientRequestToken: input.ClientRequestToken }),
+    ...(input.Features != null && { Features: serializeAws_json1_1LabelDetectionFeatureList(input.Features, context) }),
     ...(input.JobTag != null && { JobTag: input.JobTag }),
     ...(input.MinConfidence != null && { MinConfidence: __serializeFloat(input.MinConfidence) }),
     ...(input.NotificationChannel != null && {
       NotificationChannel: serializeAws_json1_1NotificationChannel(input.NotificationChannel, context),
     }),
+    ...(input.Settings != null && { Settings: serializeAws_json1_1LabelDetectionSettings(input.Settings, context) }),
     ...(input.Video != null && { Video: serializeAws_json1_1Video(input.Video, context) }),
   };
 };
@@ -7939,7 +7963,10 @@ const deserializeAws_json1_1LabelCategory = (output: any, context: __SerdeContex
 
 const deserializeAws_json1_1LabelDetection = (output: any, context: __SerdeContext): LabelDetection => {
   return {
+    DurationMillis: __expectLong(output.DurationMillis),
+    EndTimestampMillis: __expectLong(output.EndTimestampMillis),
     Label: output.Label != null ? deserializeAws_json1_1Label(output.Label, context) : undefined,
+    StartTimestampMillis: __expectLong(output.StartTimestampMillis),
     Timestamp: __expectLong(output.Timestamp),
   } as any;
 };

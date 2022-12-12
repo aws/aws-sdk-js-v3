@@ -56,7 +56,6 @@ export interface AgeRange {
  * <p>Provides the S3 bucket name and object name.</p>
  *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
  *       Amazon Rekognition operations.</p>
- *
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
  *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
  *       Amazon Rekognition Developer Guide. </p>
@@ -87,7 +86,6 @@ export interface GroundTruthManifest {
    * <p>Provides the S3 bucket name and object name.</p>
    *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
    *       Amazon Rekognition operations.</p>
-   *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
    *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
    *       Amazon Rekognition Developer Guide. </p>
@@ -675,7 +673,7 @@ export interface Sunglasses {
  *       return a <code>FaceDetail</code> object with all attributes. To specify which attributes to
  *       return, use the <code>FaceAttributes</code> input parameter for <a>StartFaceDetection</a>. The following Amazon Rekognition Video operations return only the default
  *       attributes. The corresponding Start operations don't have a <code>FaceAttributes</code> input
- *       parameter.</p>
+ *       parameter:</p>
  *          <ul>
  *             <li>
  *                <p>GetCelebrityRecognition</p>
@@ -878,7 +876,6 @@ export enum QualityFilter {
  *       from a local file system. Image bytes passed by using the <code>Bytes</code> property must be
  *       base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to
  *       call Amazon Rekognition API operations. </p>
- *
  *          <p>For more information, see Analyzing an Image Loaded from a Local File System
  *       in the Amazon Rekognition Developer Guide.</p>
  *          <p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the
@@ -891,7 +888,6 @@ export enum QualityFilter {
  *       CLI to call Amazon Rekognition operations, passing image bytes using the Bytes
  *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
  *       call the operation using the S3Object property.</p>
- *
  *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
  *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
  *       Amazon Rekognition Developer Guide. </p>
@@ -1491,7 +1487,6 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * <p></p>
- *
  *          <p>The size of the collection exceeds the allowed limit. For more information,
  *       see Guidelines and quotas in Amazon Rekognition in the Amazon Rekognition Developer Guide. </p>
  */
@@ -1803,10 +1798,10 @@ export interface StreamProcessorInput {
 
 /**
  * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
- *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+ *          <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
  *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
  *             one for a person at second 2 and one for a pet at second 4.</p>
- *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+ *          <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
  */
 export interface StreamProcessorNotificationChannel {
   /**
@@ -1875,7 +1870,6 @@ export interface StreamProcessorOutput {
  *       ratios of the overall image size or video resolution. For example, if an input image is
  *       700x200 and the values are X=0.5 and Y=0.25, then the point is at the (350,50) pixel
  *       coordinate on the image.</p>
- *
  *          <p>An array of <code>Point</code> objects makes up a <code>Polygon</code>. A
  *         <code>Polygon</code> is returned by <a>DetectText</a> and by <a>DetectCustomLabels</a>
  *             <code>Polygon</code> represents a fine-grained polygon around a detected item. For more
@@ -1993,10 +1987,10 @@ export interface CreateStreamProcessorRequest {
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
-   *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+   *          <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
    *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
    *             one for a person at second 2 and one for a pet at second 4.</p>
-   *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+   *          <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
    */
   NotificationChannel?: StreamProcessorNotificationChannel;
 
@@ -2006,7 +2000,7 @@ export interface CreateStreamProcessorRequest {
    *             You can supply the Amazon Resource Name (ARN) of your KMS key, the ID of your KMS key, an alias for your KMS key, or an alias ARN.
    *             The key is used to encrypt results and data published to your Amazon S3 bucket, which includes  image frames and hero images. Your source images are unaffected.
    *         </p>
-   *         <p>
+   *          <p>
    *             </p>
    */
   KmsKeyId?: string;
@@ -2087,8 +2081,6 @@ export interface DatasetChanges {
    *    If you are using an AWS SDK to call <code>UpdateDatasetEntries</code>, you don't need to encode <code>Changes</code> as the SDK encodes the data for you.
    *
    * </p>
-   *
-   *
    *          <p>For example JSON lines,
    *       see Image-Level labels in manifest files and
    *       and Object localization in manifest files in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
@@ -2461,7 +2453,6 @@ export interface DescribeCollectionResponse {
 
   /**
    * <p>The version of the face model that's used by the collection for face detection.</p>
-   *
    *          <p>For more information, see Model versioning in the
    *      Amazon Rekognition Developer Guide.</p>
    */
@@ -2629,7 +2620,6 @@ export interface Summary {
    * <p>Provides the S3 bucket name and object name.</p>
    *          <p>The region for the S3 bucket containing the S3 object must match the region you use for
    *       Amazon Rekognition operations.</p>
-   *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
    *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
    *       Amazon Rekognition Developer Guide. </p>
@@ -2661,7 +2651,6 @@ export interface EvaluationResult {
  *          <p>The validation data includes error information for individual JSON Lines in the dataset.
  *          For more information, see <i>Debugging a Failed Model Training</i> in the
  *          Amazon Rekognition Custom Labels Developer Guide. </p>
- *
  *          <p>You get the <code>ValidationData</code> object for the training dataset (<a>TrainingDataResult</a>)
  *          and the test dataset (<a>TestingDataResult</a>) by calling <a>DescribeProjectVersions</a>. </p>
  *          <p>The assets array contains a single <a>Asset</a> object.
@@ -2887,10 +2876,10 @@ export interface DescribeStreamProcessorResponse {
 
   /**
    * <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the object detection results and completion status of a video analysis operation.</p>
-   *         <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
+   *          <p>Amazon Rekognition publishes a notification the first time an object of interest or a person is detected in the video stream. For example, if Amazon Rekognition
    *             detects a person at second 2, a pet at second 4, and a person again at second 5, Amazon Rekognition sends 2 object class detected notifications,
    *             one for a person at second 2 and one for a pet at second 4.</p>
-   *         <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
+   *          <p>Amazon Rekognition also publishes an an end-of-session notification with a summary when the stream processing session is complete.</p>
    */
   NotificationChannel?: StreamProcessorNotificationChannel;
 
@@ -2930,7 +2919,6 @@ export interface DetectCustomLabelsRequest {
    *       from a local file system. Image bytes passed by using the <code>Bytes</code> property must be
    *       base64-encoded. Your code may not need to encode image bytes if you are using an AWS SDK to
    *       call Amazon Rekognition API operations. </p>
-   *
    *          <p>For more information, see Analyzing an Image Loaded from a Local File System
    *       in the Amazon Rekognition Developer Guide.</p>
    *          <p> You pass images stored in an S3 bucket to an Amazon Rekognition API operation by using the
@@ -2943,7 +2931,6 @@ export interface DetectCustomLabelsRequest {
    *       CLI to call Amazon Rekognition operations, passing image bytes using the Bytes
    *       property is not supported. You must first upload the image to an Amazon S3 bucket and then
    *       call the operation using the S3Object property.</p>
-   *
    *          <p>For Amazon Rekognition to process an S3 object, the user must have permission to
    *       access the S3 object. For more information, see How Amazon Rekognition works with IAM in the
    *       Amazon Rekognition Developer Guide. </p>
@@ -3746,7 +3733,6 @@ export enum TextTypes {
  *       and has a parent identifier (<code>ParentId</code>) that identifies the line of text in which
  *       the word appears. The word <code>Id</code> is also an index for the word within a line of
  *       words. </p>
- *
  *          <p>For more information, see Detecting text in the Amazon Rekognition Developer
  *       Guide.</p>
  */
@@ -4277,6 +4263,11 @@ export interface GetFaceSearchResponse {
   Persons?: PersonMatch[];
 }
 
+export enum LabelDetectionAggregateBy {
+  SEGMENTS = "SEGMENTS",
+  TIMESTAMPS = "TIMESTAMPS",
+}
+
 export enum LabelDetectionSortBy {
   NAME = "NAME",
   TIMESTAMP = "TIMESTAMP",
@@ -4310,6 +4301,11 @@ export interface GetLabelDetectionRequest {
    *       The default sort is by <code>TIMESTAMP</code>.</p>
    */
   SortBy?: LabelDetectionSortBy | string;
+
+  /**
+   * <p>Defines how to aggregate the returned results. Results can be aggregated by timestamps or segments.</p>
+   */
+  AggregateBy?: LabelDetectionAggregateBy | string;
 }
 
 /**
@@ -4326,6 +4322,21 @@ export interface LabelDetection {
    * <p>Details about the detected label.</p>
    */
   Label?: Label;
+
+  /**
+   * <p>The time in milliseconds defining the start of the timeline segment containing a continuously detected label.</p>
+   */
+  StartTimestampMillis?: number;
+
+  /**
+   * <p>The time in milliseconds defining the end of the timeline segment containing a continuously detected label.</p>
+   */
+  EndTimestampMillis?: number;
+
+  /**
+   * <p>The time duration of a segment in milliseconds, I.e. time elapsed from StartTimestampMillis to EndTimestampMillis.</p>
+   */
+  DurationMillis?: number;
 }
 
 export interface GetLabelDetectionResponse {
@@ -4401,7 +4412,6 @@ export interface GetPersonTrackingRequest {
  * <p>Details and path tracking information for a single time a person's path is tracked in a video.
  *             Amazon Rekognition operations that track people's paths return an array of <code>PersonDetection</code> objects
  *             with elements for each time a person's path is tracked in a video. </p>
- *
  *          <p>For more information, see GetPersonTracking in the Amazon Rekognition Developer Guide. </p>
  */
 export interface PersonDetection {
@@ -4945,6 +4955,22 @@ export interface KinesisVideoStreamStartSelector {
   FragmentNumber?: string;
 }
 
+export enum LabelDetectionFeatureName {
+  GENERAL_LABELS = "GENERAL_LABELS",
+}
+
+/**
+ * <p>Contains the specified filters that should be applied to a list of returned GENERAL_LABELS.</p>
+ */
+export interface LabelDetectionSettings {
+  /**
+   * <p>Contains filters for the object labels returned by DetectLabels. Filters can be inclusive,
+   *       exclusive, or a combination of both and can be applied to individual l
+   *       abels or entire label categories.</p>
+   */
+  GeneralLabels?: GeneralLabelsSettings;
+}
+
 export interface ListCollectionsRequest {
   /**
    * <p>Pagination token from the previous response.</p>
@@ -5146,7 +5172,6 @@ export interface ListProjectPoliciesRequest {
 
 /**
  * <p>Describes a project policy in the response from <a>ListProjectPolicies</a>. </p>
- *
  *          <p> </p>
  */
 export interface ProjectPolicy {
@@ -5722,8 +5747,9 @@ export interface StartLabelDetectionRequest {
    *        represents how certain Amazon Rekognition is that a label is correctly identified.0 is the lowest confidence.
    *        100 is the highest confidence.  Amazon Rekognition Video doesn't return any labels with a confidence level
    *        lower than this specified value.</p>
-   *          <p>If you don't specify <code>MinConfidence</code>, the operation returns labels with confidence
-   *      values greater than or equal to 50 percent.</p>
+   *          <p>If you don't specify <code>MinConfidence</code>, the operation returns labels and
+   *       bounding boxes (if detected)  with confidence values greater than or equal to 50
+   *       percent.</p>
    */
   MinConfidence?: number;
 
@@ -5738,6 +5764,17 @@ export interface StartLabelDetectionRequest {
    *       For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
    */
   JobTag?: string;
+
+  /**
+   * <p>The features to return after video analysis. You can specify that GENERAL_LABELS are returned.</p>
+   */
+  Features?: (LabelDetectionFeatureName | string)[];
+
+  /**
+   * <p>The settings for a StartLabelDetection request.Contains the specified parameters for the label detection request of an asynchronous label analysis operation.
+   *       Settings can include filters for GENERAL_LABELS.</p>
+   */
+  Settings?: LabelDetectionSettings;
 }
 
 export interface StartLabelDetectionResponse {
@@ -5792,7 +5829,6 @@ export interface StartProjectVersionRequest {
   /**
    * <p>The minimum number of inference units to use. A single
    *       inference unit represents 1 hour of processing. </p>
-   *
    *          <p>For information about the number
    *             of transactions per second (TPS) that an inference unit can support, see
    *             <i>Running a trained Amazon Rekognition Custom Labels model</i> in the
@@ -5960,7 +5996,7 @@ export interface StartStreamProcessorRequest {
    *             You can use the producer timestamp or the fragment number. If you use the producer timestamp, you must put the time in milliseconds.
    *             For more information about fragment numbers, see <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_reader_Fragment.html">Fragment</a>.
    *         </p>
-   *         <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
+   *          <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
    */
   StartSelector?: StreamProcessingStartSelector;
 
@@ -5969,7 +6005,7 @@ export interface StartStreamProcessorRequest {
    *             Specifies when to stop processing the stream. You can specify a
    *             maximum amount of time to process the video.
    *         </p>
-   *         <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
+   *          <p>This is a required parameter for label detection stream processors and should not be used to start a face search stream processor.</p>
    */
   StopSelector?: StreamProcessingStopSelector;
 }
@@ -7407,6 +7443,13 @@ export const IndexFacesResponseFilterSensitiveLog = (obj: IndexFacesResponse): a
  * @internal
  */
 export const KinesisVideoStreamStartSelectorFilterSensitiveLog = (obj: KinesisVideoStreamStartSelector): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const LabelDetectionSettingsFilterSensitiveLog = (obj: LabelDetectionSettings): any => ({
   ...obj,
 });
 

@@ -35,7 +35,6 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *       extracts facial features into a feature vector, and stores it in the backend database.
  *       Amazon Rekognition uses feature vectors when it performs face match and search operations using the
  *         <a>SearchFaces</a> and <a>SearchFacesByImage</a> operations.</p>
- *
  *          <p>For more information, see Adding faces to a collection in the Amazon Rekognition
  *       Developer Guide.</p>
  *          <p>To get the number of faces in a collection, call <a>DescribeCollection</a>. </p>
@@ -48,7 +47,6 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *       version from the value of <code>FaceModelVersion</code> in the response from
  *         <code>IndexFaces</code>
  *          </p>
- *
  *          <p>For more information, see Model Versioning in the Amazon Rekognition Developer
  *       Guide.</p>
  *          <p>If you provide the optional <code>ExternalImageId</code> for the input image you
@@ -117,7 +115,6 @@ export interface IndexFacesCommandOutput extends IndexFacesResponse, __MetadataB
  *       image, specify the same collection, and use the same external ID in the
  *         <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate face metadata.</p>
  *          <p></p>
- *
  *          <p>The input image is passed either as base64-encoded image bytes, or as a reference to an
  *       image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations,
  *       passing image bytes isn't supported. The image must be formatted as a PNG or JPEG file. </p>

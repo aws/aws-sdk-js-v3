@@ -38,8 +38,6 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *          <i>project policy</i>. You attach the project policy to the
  *          source project by calling <a>PutProjectPolicy</a>. The project policy
  *       gives permission to copy the model version from a trusting AWS account to a trusted account.</p>
- *
- *
  *          <p>For more information creating and attaching a project policy, see Attaching a project policy (SDK)
  *          in the <i>Amazon Rekognition Custom Labels Developer Guide</i>.
  *       </p>
@@ -47,7 +45,6 @@ export interface CopyProjectVersionCommandOutput extends CopyProjectVersionRespo
  *          <note>
  *             <p>To copy a model, the destination project, source project, and source model version must already exist.</p>
  *          </note>
- *
  *          <p>Copying a model version takes a while to complete. To get the current status, call <a>DescribeProjectVersions</a> and check the value of <code>Status</code> in the
  *             <a>ProjectVersionDescription</a> object. The copy operation has finished when
  *          the value of <code>Status</code> is <code>COPYING_COMPLETED</code>.</p>

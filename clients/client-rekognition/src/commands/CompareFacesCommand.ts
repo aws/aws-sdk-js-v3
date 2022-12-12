@@ -76,7 +76,6 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *             <p> This is a stateless API operation. That is, data returned by this operation doesn't
  *         persist.</p>
  *          </note>
- *
  *          <p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer
  *       Guide.</p>
  *          <p>This operation requires permissions to perform the

@@ -40,7 +40,6 @@ export interface ListDatasetEntriesCommandOutput extends ListDatasetEntriesRespo
  *    same information is reported in the training and testing validation result manifests that
  *    Amazon Rekognition Custom Labels creates during model training.
  *  </p>
- *
  *          <p>You can filter the response in variety of ways, such as choosing which labels to return and returning JSON Lines created after a specific date.
  * </p>
  *          <p>This operation requires permissions to perform the <code>rekognition:ListDatasetEntries</code> action.</p>

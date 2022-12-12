@@ -41,7 +41,6 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  *       each face match that is found. Along with the metadata, the response also includes a
  *         <code>confidence</code> value for each face match, indicating the confidence that the
  *       specific face matches the input face. </p>
- *
  *          <p>For an example, see Searching for a face using its face ID in the Amazon Rekognition
  *       Developer Guide.</p>
  *          <p>This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
