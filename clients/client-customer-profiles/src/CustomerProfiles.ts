@@ -556,7 +556,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *          enables you to evaluate the accuracy of the attributes in your matching list. </p>
    *          <p>You can't view which profiles are matched and would be merged.</p>
    *          <important>
-   *
    *             <p>We strongly recommend you use this API to do a dry run of the automerging process
    *             before running the Identity Resolution Job. Include <b>at least</b> two matching
    *             attributes. If your matching list includes too few attributes (such as only
@@ -700,7 +699,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    * API to return and review the results. Or, if you have configured <code>ExportingConfig</code> in the <code>MatchingRequest</code>, you can download the results from
    * S3.</p>
    *          </important>
-   *
    *          <p>Amazon Connect uses the following profile attributes to identify matches:</p>
    *          <ul>
    *             <li>
@@ -1193,7 +1191,6 @@ export class CustomerProfiles extends CustomerProfilesClient {
    *                   </li>
    *                   <li>
    *                      <p>When there are conflicting fields:</p>
-   *
    *                      <ol>
    *                         <li>
    *                            <p>If no <code>SourceProfileIds</code> entry is specified, the main

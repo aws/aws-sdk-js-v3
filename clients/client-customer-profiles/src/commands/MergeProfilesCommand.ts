@@ -55,7 +55,6 @@ export interface MergeProfilesCommandOutput extends MergeProfilesResponse, __Met
  *                   </li>
  *                   <li>
  *                      <p>When there are conflicting fields:</p>
- *
  *                      <ol>
  *                         <li>
  *                            <p>If no <code>SourceProfileIds</code> entry is specified, the main

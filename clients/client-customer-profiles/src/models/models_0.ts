@@ -1278,6 +1278,16 @@ export interface CreateProfileRequest {
    * <p>A key value pair of attributes of a customer profile.</p>
    */
   Attributes?: Record<string, string>;
+
+  /**
+   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
+   */
+  PartyTypeString?: string;
+
+  /**
+   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
+   */
+  GenderString?: string;
 }
 
 export interface CreateProfileResponse {
@@ -3664,6 +3674,16 @@ export interface UpdateProfileRequest {
    * <p>A key value pair of attributes of a customer profile.</p>
    */
   Attributes?: Record<string, string>;
+
+  /**
+   * <p>An alternative to <code>PartyType</code> which accepts any string as input.</p>
+   */
+  PartyTypeString?: string;
+
+  /**
+   * <p>An alternative to <code>Gender</code> which accepts any string as input.</p>
+   */
+  GenderString?: string;
 }
 
 export interface UpdateProfileResponse {
