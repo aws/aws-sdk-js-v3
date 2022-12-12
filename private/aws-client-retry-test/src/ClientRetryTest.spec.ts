@@ -1,4 +1,4 @@
-import { GetInsightCommand, ThrottledException, XRayClient } from "@aws-sdk/client-xray";
+import { HeadObjectCommand, S3Client, S3ServiceException } from "@aws-sdk/client-s3";
 import { HttpResponse } from "@aws-sdk/protocol-http";
 import { RequestHandlerOutput } from "@aws-sdk/types";
 import { StandardRetryStrategy } from "@aws-sdk/util-retry";
@@ -18,11 +18,12 @@ describe("Middleware-retry integration tests", () => {
       body: Readable.from(""),
     }),
   };
-  const getInsightCommand = new GetInsightCommand({
-    InsightId: "foo",
+  const getInsightCommand = new HeadObjectCommand({
+    Bucket: "TEST_BUCKET",
+    Key: "TEST_KEY",
   });
   it("should not retry on 200", async () => {
-    const client = new XRayClient({
+    const client = new S3Client({
       requestHandler: {
         handle: () => Promise.resolve(mockSuccess),
       },
@@ -39,7 +40,7 @@ describe("Middleware-retry integration tests", () => {
       .mockResolvedValueOnce(mockThrottled)
       .mockResolvedValueOnce(mockThrottled)
       .mockResolvedValueOnce(mockSuccess);
-    const client = new XRayClient({
+    const client = new S3Client({
       requestHandler: {
         handle: mockHandle,
       },
@@ -52,13 +53,18 @@ describe("Middleware-retry integration tests", () => {
     expect(response.$metadata.totalRetryDelay).toBeGreaterThan(0);
   });
   it("should retry until attemps are exhausted", async () => {
-    const expectedException = new ThrottledException({
+    const expectedException = new S3ServiceException({
       $metadata: {
         httpStatusCode: 429,
       },
+      $fault: "client",
+      $retryable: {
+        throttling: true,
+      },
       message: "UnknownError",
+      name: "ThrottlingException",
     });
-    const client = new XRayClient({
+    const client = new S3Client({
       requestHandler: {
         handle: () => Promise.resolve(mockThrottled),
       },
