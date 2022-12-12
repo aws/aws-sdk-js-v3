@@ -40,6 +40,8 @@ public class AddClientRuntimeConfigTest {
                 containsString(TypeScriptDependency.CONFIG_RESOLVER.packageName));
         assertThat(manifest.getFileString("package.json").get(),
                 containsString(TypeScriptDependency.MIDDLEWARE_RETRY.packageName));
+        assertThat(manifest.getFileString("package.json").get(),
+                containsString(TypeScriptDependency.UTIL_RETRY.packageName));
 
         // Check config interface fields
         assertThat(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/NotSameClient.ts").get(), containsString("maxAttempts?:"));

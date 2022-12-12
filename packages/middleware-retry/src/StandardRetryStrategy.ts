@@ -2,20 +2,22 @@ import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
 import { SdkError } from "@aws-sdk/types";
 import { FinalizeHandler, FinalizeHandlerArguments, MetadataBearer, Provider, RetryStrategy } from "@aws-sdk/types";
-import { v4 } from "uuid";
-
-import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
 import {
+  DEFAULT_MAX_ATTEMPTS,
   DEFAULT_RETRY_DELAY_BASE,
   INITIAL_RETRY_TOKENS,
   INVOCATION_ID_HEADER,
   REQUEST_HEADER,
+  RETRY_MODES,
   THROTTLING_RETRY_DELAY_BASE,
-} from "./constants";
+} from "@aws-sdk/util-retry";
+import { v4 } from "uuid";
+
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
 import { DelayDecider, RetryDecider, RetryQuota } from "./types";
+import { asSdkError } from "./util";
 
 /**
  * Strategy options to be passed to StandardRetryStrategy
@@ -26,6 +28,9 @@ export interface StandardRetryStrategyOptions {
   retryQuota?: RetryQuota;
 }
 
+/**
+ * @deprected use StandardRetryStrategy from @aws-sdk/util-retry
+ */
 export class StandardRetryStrategy implements RetryStrategy {
   private retryDecider: RetryDecider;
   private delayDecider: DelayDecider;
@@ -129,7 +134,6 @@ const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => 
 
   const retryAfterHeaderName = Object.keys(response.headers).find((key) => key.toLowerCase() === "retry-after");
   if (!retryAfterHeaderName) return;
-
   const retryAfter = response.headers[retryAfterHeaderName];
 
   const retryAfterSeconds = Number(retryAfter);
@@ -137,11 +141,4 @@ const getDelayFromRetryAfterHeader = (response: unknown): number | undefined => 
 
   const retryAfterDate = new Date(retryAfter);
   return retryAfterDate.getTime() - Date.now();
-};
-
-const asSdkError = (error: unknown): SdkError => {
-  if (error instanceof Error) return error;
-  if (error instanceof Object) return Object.assign(new Error(), error);
-  if (typeof error === "string") return new Error(error);
-  return new Error(`AWS SDK error wrapper for ${error}`);
 };

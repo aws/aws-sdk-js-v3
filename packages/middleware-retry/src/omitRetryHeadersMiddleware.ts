@@ -7,8 +7,7 @@ import {
   Pluggable,
   RelativeMiddlewareOptions,
 } from "@aws-sdk/types";
-
-import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "./constants";
+import { INVOCATION_ID_HEADER, REQUEST_HEADER } from "@aws-sdk/util-retry";
 
 export const omitRetryHeadersMiddleware =
   () =>

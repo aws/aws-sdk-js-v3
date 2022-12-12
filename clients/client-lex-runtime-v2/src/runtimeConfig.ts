@@ -13,14 +13,11 @@ import { defaultProvider as credentialDefaultProvider } from "@aws-sdk/credentia
 import { eventStreamPayloadHandlerProvider } from "@aws-sdk/eventstream-handler-node";
 import { eventStreamSerdeProvider } from "@aws-sdk/eventstream-serde-node";
 import { Hash } from "@aws-sdk/hash-node";
-import {
-  DEFAULT_RETRY_MODE,
-  NODE_MAX_ATTEMPT_CONFIG_OPTIONS,
-  NODE_RETRY_MODE_CONFIG_OPTIONS,
-} from "@aws-sdk/middleware-retry";
+import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@aws-sdk/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@aws-sdk/node-config-provider";
 import { NodeHttp2Handler as RequestHandler, streamCollector } from "@aws-sdk/node-http-handler";
 import { calculateBodyLength } from "@aws-sdk/util-body-length-node";
+import { DEFAULT_RETRY_MODE } from "@aws-sdk/util-retry";
 import { sdkStreamMixin } from "@aws-sdk/util-stream-node";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-node";
 import { fromUtf8, toUtf8 } from "@aws-sdk/util-utf8-node";

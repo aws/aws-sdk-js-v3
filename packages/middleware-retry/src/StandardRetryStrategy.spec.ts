@@ -1,9 +1,14 @@
 import { HttpRequest, HttpResponse } from "@aws-sdk/protocol-http";
 import { isThrottlingError } from "@aws-sdk/service-error-classification";
+import {
+  DEFAULT_MAX_ATTEMPTS,
+  DEFAULT_RETRY_DELAY_BASE,
+  INITIAL_RETRY_TOKENS,
+  RETRY_MODES,
+  THROTTLING_RETRY_DELAY_BASE,
+} from "@aws-sdk/util-retry";
 import { v4 } from "uuid";
 
-import { DEFAULT_MAX_ATTEMPTS, RETRY_MODES } from "./config";
-import { DEFAULT_RETRY_DELAY_BASE, INITIAL_RETRY_TOKENS, THROTTLING_RETRY_DELAY_BASE } from "./constants";
 import { getDefaultRetryQuota } from "./defaultRetryQuota";
 import { defaultDelayDecider } from "./delayDecider";
 import { defaultRetryDecider } from "./retryDecider";
