@@ -639,50 +639,68 @@
       }
     },
     "com.amazonaws.lookoutvision#DatasetStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATE_IN_PROGRESS",
-            "name": "CREATE_IN_PROGRESS"
-          },
-          {
-            "value": "CREATE_COMPLETE",
-            "name": "CREATE_COMPLETE"
-          },
-          {
-            "value": "CREATE_FAILED",
-            "name": "CREATE_FAILED"
-          },
-          {
-            "value": "UPDATE_IN_PROGRESS",
-            "name": "UPDATE_IN_PROGRESS"
-          },
-          {
-            "value": "UPDATE_COMPLETE",
-            "name": "UPDATE_COMPLETE"
-          },
-          {
-            "value": "UPDATE_FAILED_ROLLBACK_IN_PROGRESS",
-            "name": "UPDATE_FAILED_ROLLBACK_IN_PROGRESS"
-          },
-          {
-            "value": "UPDATE_FAILED_ROLLBACK_COMPLETE",
-            "name": "UPDATE_FAILED_ROLLBACK_COMPLETE"
-          },
-          {
-            "value": "DELETE_IN_PROGRESS",
-            "name": "DELETE_IN_PROGRESS"
-          },
-          {
-            "value": "DELETE_COMPLETE",
-            "name": "DELETE_COMPLETE"
-          },
-          {
-            "value": "DELETE_FAILED",
-            "name": "DELETE_FAILED"
+      "type": "enum",
+      "members": {
+        "CREATE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_IN_PROGRESS"
           }
-        ]
+        },
+        "CREATE_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_COMPLETE"
+          }
+        },
+        "CREATE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATE_FAILED"
+          }
+        },
+        "UPDATE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_IN_PROGRESS"
+          }
+        },
+        "UPDATE_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_COMPLETE"
+          }
+        },
+        "UPDATE_FAILED_ROLLBACK_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FAILED_ROLLBACK_IN_PROGRESS"
+          }
+        },
+        "UPDATE_FAILED_ROLLBACK_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATE_FAILED_ROLLBACK_COMPLETE"
+          }
+        },
+        "DELETE_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_IN_PROGRESS"
+          }
+        },
+        "DELETE_COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_COMPLETE"
+          }
+        },
+        "DELETE_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETE_FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#DatasetStatusMessage": {
@@ -2023,7 +2041,7 @@
           "parameters": {
             "Region": {
               "builtIn": "AWS::Region",
-              "required": false,
+              "required": true,
               "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             },
@@ -2072,15 +2090,6 @@
                           "ref": "Endpoint"
                         }
                       ]
-                    },
-                    {
-                      "fn": "parseURL",
-                      "argv": [
-                        {
-                          "ref": "Endpoint"
-                        }
-                      ],
-                      "assign": "url"
                     }
                   ],
                   "type": "tree",
@@ -2343,9 +2352,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -2356,9 +2365,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-central-1"
               }
             },
             {
@@ -2369,9 +2378,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -2382,9 +2391,9 @@
                 }
               },
               "params": {
-                "Region": "eu-central-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-central-1"
               }
             },
             {
@@ -2395,9 +2404,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -2408,9 +2417,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-west-2"
               }
             },
             {
@@ -2421,9 +2430,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -2434,9 +2443,9 @@
                 }
               },
               "params": {
-                "Region": "us-west-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-west-2"
               }
             },
             {
@@ -2447,9 +2456,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -2460,9 +2469,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "eu-west-1"
               }
             },
             {
@@ -2473,9 +2482,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -2486,9 +2495,9 @@
                 }
               },
               "params": {
-                "Region": "eu-west-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "eu-west-1"
               }
             },
             {
@@ -2499,9 +2508,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -2512,9 +2521,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -2525,9 +2534,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -2538,9 +2547,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-2"
               }
             },
             {
@@ -2551,9 +2560,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -2564,9 +2573,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -2577,9 +2586,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -2590,9 +2599,9 @@
                 }
               },
               "params": {
-                "Region": "ap-northeast-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "ap-northeast-1"
               }
             },
             {
@@ -2603,9 +2612,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -2616,9 +2625,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-1"
               }
             },
             {
@@ -2629,9 +2638,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -2642,9 +2651,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-1"
               }
             },
             {
@@ -2655,9 +2664,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": true,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -2668,9 +2677,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": true,
                 "UseDualStack": false,
-                "UseFIPS": true
+                "Region": "us-east-2"
               }
             },
             {
@@ -2681,9 +2690,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": true,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -2694,9 +2703,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-2",
+                "UseFIPS": false,
                 "UseDualStack": false,
-                "UseFIPS": false
+                "Region": "us-east-2"
               }
             },
             {
@@ -2707,9 +2716,9 @@
                 }
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": false,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2719,9 +2728,9 @@
                 "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": false,
                 "UseFIPS": true,
+                "UseDualStack": false,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             },
@@ -2731,9 +2740,9 @@
                 "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
               },
               "params": {
-                "Region": "us-east-1",
-                "UseDualStack": true,
                 "UseFIPS": false,
+                "UseDualStack": true,
+                "Region": "us-east-1",
                 "Endpoint": "https://example.com"
               }
             }
@@ -2848,30 +2857,38 @@
       }
     },
     "com.amazonaws.lookoutvision#ModelHostingStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "STARTING_HOSTING",
-            "name": "STARTING_HOSTING"
-          },
-          {
-            "value": "HOSTED",
-            "name": "HOSTED"
-          },
-          {
-            "value": "HOSTING_FAILED",
-            "name": "HOSTING_FAILED"
-          },
-          {
-            "value": "STOPPING_HOSTING",
-            "name": "STOPPING_HOSTING"
-          },
-          {
-            "value": "SYSTEM_UPDATING",
-            "name": "SYSTEM_UPDATING"
+      "type": "enum",
+      "members": {
+        "STARTING_HOSTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING_HOSTING"
           }
-        ]
+        },
+        "HOSTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOSTED"
+          }
+        },
+        "HOSTING_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOSTING_FAILED"
+          }
+        },
+        "STOPPING_HOSTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING_HOSTING"
+          }
+        },
+        "SYSTEM_UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYSTEM_UPDATING"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#ModelMetadata": {
@@ -3102,26 +3119,32 @@
       }
     },
     "com.amazonaws.lookoutvision#ModelPackagingJobStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "CREATED",
-            "name": "CREATED"
-          },
-          {
-            "value": "RUNNING",
-            "name": "RUNNING"
-          },
-          {
-            "value": "SUCCEEDED",
-            "name": "SUCCEEDED"
-          },
-          {
-            "value": "FAILED",
-            "name": "FAILED"
+      "type": "enum",
+      "members": {
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
           }
-        ]
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "SUCCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUCCEEDED"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#ModelPackagingJobsList": {
@@ -3184,46 +3207,62 @@
       }
     },
     "com.amazonaws.lookoutvision#ModelStatus": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "TRAINING",
-            "name": "TRAINING"
-          },
-          {
-            "value": "TRAINED",
-            "name": "TRAINED"
-          },
-          {
-            "value": "TRAINING_FAILED",
-            "name": "TRAINING_FAILED"
-          },
-          {
-            "value": "STARTING_HOSTING",
-            "name": "STARTING_HOSTING"
-          },
-          {
-            "value": "HOSTED",
-            "name": "HOSTED"
-          },
-          {
-            "value": "HOSTING_FAILED",
-            "name": "HOSTING_FAILED"
-          },
-          {
-            "value": "STOPPING_HOSTING",
-            "name": "STOPPING_HOSTING"
-          },
-          {
-            "value": "SYSTEM_UPDATING",
-            "name": "SYSTEM_UPDATING"
-          },
-          {
-            "value": "DELETING",
-            "name": "DELETING"
+      "type": "enum",
+      "members": {
+        "TRAINING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRAINING"
           }
-        ]
+        },
+        "TRAINED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRAINED"
+          }
+        },
+        "TRAINING_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRAINING_FAILED"
+          }
+        },
+        "STARTING_HOSTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING_HOSTING"
+          }
+        },
+        "HOSTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOSTED"
+          }
+        },
+        "HOSTING_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOSTING_FAILED"
+          }
+        },
+        "STOPPING_HOSTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING_HOSTING"
+          }
+        },
+        "SYSTEM_UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SYSTEM_UPDATING"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#ModelStatusMessage": {
@@ -3443,30 +3482,38 @@
       }
     },
     "com.amazonaws.lookoutvision#ResourceType": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "PROJECT",
-            "name": "PROJECT"
-          },
-          {
-            "value": "DATASET",
-            "name": "DATASET"
-          },
-          {
-            "value": "MODEL",
-            "name": "MODEL"
-          },
-          {
-            "value": "TRIAL",
-            "name": "TRIAL"
-          },
-          {
-            "value": "MODEL_PACKAGE_JOB",
-            "name": "MODEL_PACKAGE_JOB"
+      "type": "enum",
+      "members": {
+        "PROJECT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PROJECT"
           }
-        ]
+        },
+        "DATASET": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DATASET"
+          }
+        },
+        "MODEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MODEL"
+          }
+        },
+        "TRIAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TRIAL"
+          }
+        },
+        "MODEL_PACKAGE_JOB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MODEL_PACKAGE_JOB"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#RetryAfterSeconds": {
@@ -3650,7 +3697,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for\n   a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass.\n</p>\n   \n         <p>Use the <a>DescribeModelPackagingJob</a> API to determine the current status of the job.\n     \n  The model packaging job is complete if the value of <code>Status</code> is <code>SUCCEEDED</code>.</p>\n         <p>To deploy the component\n      to the target device, use the component name and component version\n      with the AWS IoT Greengrass <a href=\"https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html\">CreateDeployment</a> API.</p>\n\n         <p>This operation requires the following permissions:</p> \n         <ul>\n            <li>\n               <p>\n                  <code>lookoutvision:StartModelPackagingJob</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>s3:PutObject</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>s3:GetBucketLocation</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>greengrass:CreateComponentVersion</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>greengrass:DescribeComponent</code>\n               </p>\n            </li>\n            <li>\n               <p>(Optional) <code>greengrass:TagResource</code>. Only required if you want to tag the component.</p>\n            </li>\n         </ul>\n   \n   \n         <p>For more information, see \n      <i>Using your Amazon Lookout for Vision model on an edge device</i> in the  Amazon Lookout for Vision Developer Guide. </p>",
+        "smithy.api#documentation": "<p>Starts an Amazon Lookout for Vision model packaging job. A model packaging job creates an AWS IoT Greengrass component for\n   a Lookout for Vision model. You can use the component to deploy your model to an edge device managed by Greengrass.\n</p>\n   \n         <p>Use the <a>DescribeModelPackagingJob</a> API to determine the current status of the job.\n     \n  The model packaging job is complete if the value of <code>Status</code> is <code>SUCCEEDED</code>.</p>\n         <p>To deploy the component\n      to the target device, use the component name and component version\n      with the AWS IoT Greengrass <a href=\"https://docs.aws.amazon.com/greengrass/v2/APIReference/API_CreateDeployment.html\">CreateDeployment</a> API.</p>\n\n         <p>This operation requires the following permissions:</p> \n         <ul>\n            <li>\n               <p>\n                  <code>lookoutvision:StartModelPackagingJob</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>s3:PutObject</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>s3:GetBucketLocation</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>kms:GenerateDataKey</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>greengrass:CreateComponentVersion</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>greengrass:DescribeComponent</code>\n               </p>\n            </li>\n            <li>\n               <p>(Optional) <code>greengrass:TagResource</code>. Only required if you want to tag the component.</p>\n            </li>\n         </ul>\n   \n   \n         <p>For more information, see \n      <i>Using your Amazon Lookout for Vision model on an edge device</i> in the  Amazon Lookout for Vision Developer Guide. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/2020-11-20/projects/{ProjectName}/modelpackagingjobs",
@@ -3993,14 +4040,14 @@
       }
     },
     "com.amazonaws.lookoutvision#TargetDevice": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "jetson_xavier",
-            "name": "JETSON_XAVIER"
+      "type": "enum",
+      "members": {
+        "JETSON_XAVIER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "jetson_xavier"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.lookoutvision#TargetPlatform": {
@@ -4032,40 +4079,42 @@
       }
     },
     "com.amazonaws.lookoutvision#TargetPlatformAccelerator": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "NVIDIA",
-            "name": "NVIDIA"
+      "type": "enum",
+      "members": {
+        "NVIDIA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NVIDIA"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.lookoutvision#TargetPlatformArch": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "ARM64",
-            "name": "ARM64"
-          },
-          {
-            "value": "X86_64",
-            "name": "X86_64"
+      "type": "enum",
+      "members": {
+        "ARM64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ARM64"
           }
-        ]
+        },
+        "X86_64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "X86_64"
+          }
+        }
       }
     },
     "com.amazonaws.lookoutvision#TargetPlatformOs": {
-      "type": "string",
-      "traits": {
-        "smithy.api#enum": [
-          {
-            "value": "LINUX",
-            "name": "LINUX"
+      "type": "enum",
+      "members": {
+        "LINUX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LINUX"
           }
-        ]
+        }
       }
     },
     "com.amazonaws.lookoutvision#ThrottlingException": {
