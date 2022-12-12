@@ -2426,7 +2426,7 @@ export const serializeAws_restJson1QueryIdempotencyTokenAutoFillCommand = async 
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/QueryIdempotencyTokenAutoFill";
   const query: any = map({
-    token: [, input.token!],
+    token: [, input.token ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({

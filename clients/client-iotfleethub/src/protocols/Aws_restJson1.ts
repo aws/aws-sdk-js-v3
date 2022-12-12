@@ -88,7 +88,7 @@ export const serializeAws_restJson1DeleteApplicationCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({

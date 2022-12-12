@@ -144,7 +144,7 @@ export const serializeAws_restJson1DeleteScheduleCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   const query: any = map({
     groupName: [, input.GroupName!],
-    clientToken: [, input.ClientToken!],
+    clientToken: [, input.ClientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -168,7 +168,7 @@ export const serializeAws_restJson1DeleteScheduleGroupCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/schedule-groups/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
   const query: any = map({
-    clientToken: [, input.ClientToken!],
+    clientToken: [, input.ClientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({

@@ -906,7 +906,7 @@ export const serializeAws_restJson1DeleteAccessPolicyCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -937,7 +937,7 @@ export const serializeAws_restJson1DeleteAssetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assets/{assetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "assetId", () => input.assetId!, "{assetId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -976,7 +976,7 @@ export const serializeAws_restJson1DeleteAssetModelCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1008,7 +1008,7 @@ export const serializeAws_restJson1DeleteDashboardCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/dashboards/{dashboardId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "dashboardId", () => input.dashboardId!, "{dashboardId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1067,7 +1067,7 @@ export const serializeAws_restJson1DeletePortalCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/portals/{portalId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "portalId", () => input.portalId!, "{portalId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1098,7 +1098,7 @@ export const serializeAws_restJson1DeleteProjectCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/projects/{projectId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "projectId", () => input.projectId!, "{projectId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();

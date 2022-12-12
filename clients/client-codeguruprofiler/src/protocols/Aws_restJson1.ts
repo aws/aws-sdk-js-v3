@@ -634,7 +634,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
     false
   );
   const query: any = map({
-    profileToken: [, input.profileToken!],
+    profileToken: [, input.profileToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.agentProfile !== undefined) {

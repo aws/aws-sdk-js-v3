@@ -299,7 +299,7 @@ export const serializeAws_restJson1DeleteAnalyzerCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -333,7 +333,7 @@ export const serializeAws_restJson1DeleteArchiveRuleCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "ruleName", () => input.ruleName!, "{ruleName}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({

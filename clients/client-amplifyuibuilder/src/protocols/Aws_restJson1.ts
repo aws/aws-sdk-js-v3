@@ -123,7 +123,7 @@ export const serializeAws_restJson1CreateComponentCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.componentToCreate !== undefined) {
@@ -166,7 +166,7 @@ export const serializeAws_restJson1CreateFormCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.formToCreate !== undefined) {
@@ -209,7 +209,7 @@ export const serializeAws_restJson1CreateThemeCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.themeToCreate !== undefined) {
@@ -775,7 +775,7 @@ export const serializeAws_restJson1UpdateComponentCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedComponent !== undefined) {
@@ -819,7 +819,7 @@ export const serializeAws_restJson1UpdateFormCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedForm !== undefined) {
@@ -863,7 +863,7 @@ export const serializeAws_restJson1UpdateThemeCommand = async (
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "id", () => input.id!, "{id}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.updatedTheme !== undefined) {
