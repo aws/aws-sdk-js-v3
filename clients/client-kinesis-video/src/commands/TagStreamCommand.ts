@@ -34,11 +34,11 @@ export interface TagStreamCommandOutput extends TagStreamOutput, __MetadataBeare
  *             a tag that already exists, the tag value is replaced with the value that you specify in
  *             the request. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using Cost Allocation
  *                 Tags</a> in the <i>Billing and Cost Management and Cost Management User Guide</i>. </p>
- *         <p>You must provide either the <code>StreamName</code> or the
+ *          <p>You must provide either the <code>StreamName</code> or the
  *             <code>StreamARN</code>.</p>
- *         <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
+ *          <p>This operation requires permission for the <code>KinesisVideo:TagStream</code>
  *             action.</p>
- *         <p>A Kinesis video stream can support up to 50 tags.</p>
+ *          <p>A Kinesis video stream can support up to 50 tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

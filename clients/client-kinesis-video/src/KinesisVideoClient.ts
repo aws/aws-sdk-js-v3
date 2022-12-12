@@ -58,6 +58,10 @@ import {
 } from "./commands/DeleteSignalingChannelCommand";
 import { DeleteStreamCommandInput, DeleteStreamCommandOutput } from "./commands/DeleteStreamCommand";
 import {
+  DescribeEdgeConfigurationCommandInput,
+  DescribeEdgeConfigurationCommandOutput,
+} from "./commands/DescribeEdgeConfigurationCommand";
+import {
   DescribeImageGenerationConfigurationCommandInput,
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
@@ -85,6 +89,10 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "./commands/ListTagsForStreamCommand";
+import {
+  StartEdgeConfigurationUpdateCommandInput,
+  StartEdgeConfigurationUpdateCommandOutput,
+} from "./commands/StartEdgeConfigurationUpdateCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { TagStreamCommandInput, TagStreamCommandOutput } from "./commands/TagStreamCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -119,6 +127,7 @@ export type ServiceInputTypes =
   | CreateStreamCommandInput
   | DeleteSignalingChannelCommandInput
   | DeleteStreamCommandInput
+  | DescribeEdgeConfigurationCommandInput
   | DescribeImageGenerationConfigurationCommandInput
   | DescribeNotificationConfigurationCommandInput
   | DescribeSignalingChannelCommandInput
@@ -129,6 +138,7 @@ export type ServiceInputTypes =
   | ListStreamsCommandInput
   | ListTagsForResourceCommandInput
   | ListTagsForStreamCommandInput
+  | StartEdgeConfigurationUpdateCommandInput
   | TagResourceCommandInput
   | TagStreamCommandInput
   | UntagResourceCommandInput
@@ -144,6 +154,7 @@ export type ServiceOutputTypes =
   | CreateStreamCommandOutput
   | DeleteSignalingChannelCommandOutput
   | DeleteStreamCommandOutput
+  | DescribeEdgeConfigurationCommandOutput
   | DescribeImageGenerationConfigurationCommandOutput
   | DescribeNotificationConfigurationCommandOutput
   | DescribeSignalingChannelCommandOutput
@@ -154,6 +165,7 @@ export type ServiceOutputTypes =
   | ListStreamsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTagsForStreamCommandOutput
+  | StartEdgeConfigurationUpdateCommandOutput
   | TagResourceCommandOutput
   | TagStreamCommandOutput
   | UntagResourceCommandOutput

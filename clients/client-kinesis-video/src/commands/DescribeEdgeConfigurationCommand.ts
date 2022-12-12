@@ -15,43 +15,41 @@ import {
 
 import { KinesisVideoClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KinesisVideoClient";
 import {
-  UntagStreamInput,
-  UntagStreamInputFilterSensitiveLog,
-  UntagStreamOutput,
-  UntagStreamOutputFilterSensitiveLog,
+  DescribeEdgeConfigurationInput,
+  DescribeEdgeConfigurationInputFilterSensitiveLog,
+  DescribeEdgeConfigurationOutput,
+  DescribeEdgeConfigurationOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_restJson1UntagStreamCommand,
-  serializeAws_restJson1UntagStreamCommand,
+  deserializeAws_restJson1DescribeEdgeConfigurationCommand,
+  serializeAws_restJson1DescribeEdgeConfigurationCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface UntagStreamCommandInput extends UntagStreamInput {}
-export interface UntagStreamCommandOutput extends UntagStreamOutput, __MetadataBearer {}
+export interface DescribeEdgeConfigurationCommandInput extends DescribeEdgeConfigurationInput {}
+export interface DescribeEdgeConfigurationCommandOutput extends DescribeEdgeConfigurationOutput, __MetadataBearer {}
 
 /**
- * <p>Removes one or more tags from a stream. In the request, specify only a tag key or
- *             keys; don't specify the value. If you specify a tag key that does not exist, it's
- *             ignored.</p>
- *          <p>In the request, you must provide the <code>StreamName</code> or
- *                 <code>StreamARN</code>.</p>
+ * <p>Describes a stream’s edge configuration that was set using the <code>StartEdgeConfigurationUpdate</code> API.
+ *              Use this API to get the status of the configuration if the configuration is in sync with the
+ *             Edge Agent.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KinesisVideoClient, UntagStreamCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
- * // const { KinesisVideoClient, UntagStreamCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
+ * import { KinesisVideoClient, DescribeEdgeConfigurationCommand } from "@aws-sdk/client-kinesis-video"; // ES Modules import
+ * // const { KinesisVideoClient, DescribeEdgeConfigurationCommand } = require("@aws-sdk/client-kinesis-video"); // CommonJS import
  * const client = new KinesisVideoClient(config);
- * const command = new UntagStreamCommand(input);
+ * const command = new DescribeEdgeConfigurationCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UntagStreamCommandInput} for command's `input` shape.
- * @see {@link UntagStreamCommandOutput} for command's `response` shape.
+ * @see {@link DescribeEdgeConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DescribeEdgeConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KinesisVideoClientResolvedConfig | config} for KinesisVideoClient's `config` shape.
  *
  */
-export class UntagStreamCommand extends $Command<
-  UntagStreamCommandInput,
-  UntagStreamCommandOutput,
+export class DescribeEdgeConfigurationCommand extends $Command<
+  DescribeEdgeConfigurationCommandInput,
+  DescribeEdgeConfigurationCommandOutput,
   KinesisVideoClientResolvedConfig
 > {
   // Start section: command_properties
@@ -66,7 +64,7 @@ export class UntagStreamCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UntagStreamCommandInput) {
+  constructor(readonly input: DescribeEdgeConfigurationCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -79,21 +77,23 @@ export class UntagStreamCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: KinesisVideoClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UntagStreamCommandInput, UntagStreamCommandOutput> {
+  ): Handler<DescribeEdgeConfigurationCommandInput, DescribeEdgeConfigurationCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UntagStreamCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, DescribeEdgeConfigurationCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "KinesisVideoClient";
-    const commandName = "UntagStreamCommand";
+    const commandName = "DescribeEdgeConfigurationCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UntagStreamInputFilterSensitiveLog,
-      outputFilterSensitiveLog: UntagStreamOutputFilterSensitiveLog,
+      inputFilterSensitiveLog: DescribeEdgeConfigurationInputFilterSensitiveLog,
+      outputFilterSensitiveLog: DescribeEdgeConfigurationOutputFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -103,12 +103,15 @@ export class UntagStreamCommand extends $Command<
     );
   }
 
-  private serialize(input: UntagStreamCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1UntagStreamCommand(input, context);
+  private serialize(input: DescribeEdgeConfigurationCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1DescribeEdgeConfigurationCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UntagStreamCommandOutput> {
-    return deserializeAws_restJson1UntagStreamCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DescribeEdgeConfigurationCommandOutput> {
+    return deserializeAws_restJson1DescribeEdgeConfigurationCommand(output, context);
   }
 
   // Start section: command_body_extra

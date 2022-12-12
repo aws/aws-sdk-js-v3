@@ -30,7 +30,7 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
 
 /**
  * <p>Returns a list of tags associated with the specified stream.</p>
- *         <p>In the request, you must specify either the <code>StreamName</code> or the
+ *          <p>In the request, you must specify either the <code>StreamName</code> or the
  *                 <code>StreamARN</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

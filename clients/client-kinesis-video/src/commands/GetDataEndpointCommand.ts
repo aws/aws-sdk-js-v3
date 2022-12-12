@@ -34,12 +34,11 @@ export interface GetDataEndpointCommandOutput extends GetDataEndpointOutput, __M
  *                 <code>GetMedia</code> or <code>GetMediaForFragmentList</code> operations) or write
  *             to it (using the <code>PutMedia</code> operation).
  *             </p>
- *         <note>
+ *          <note>
  *             <p>The returned endpoint does not have the API name appended. The client needs to
  *                 add the API name to the returned endpoint.</p>
- *         </note>
- *
- *         <p>In the request, specify the stream either by <code>StreamName</code> or
+ *          </note>
+ *          <p>In the request, specify the stream either by <code>StreamName</code> or
  *                 <code>StreamARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
