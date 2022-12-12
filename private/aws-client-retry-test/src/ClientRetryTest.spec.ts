@@ -18,7 +18,7 @@ describe("Middleware-retry integration tests", () => {
       body: Readable.from(""),
     }),
   };
-  const getInsightCommand = new HeadObjectCommand({
+  const headObjectCommand = new HeadObjectCommand({
     Bucket: "TEST_BUCKET",
     Key: "TEST_KEY",
   });
@@ -29,7 +29,7 @@ describe("Middleware-retry integration tests", () => {
       },
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
-    const response = await client.send(getInsightCommand);
+    const response = await client.send(headObjectCommand);
     expect(response.$metadata.httpStatusCode).toBe(200);
     expect(response.$metadata.attempts).toBe(1);
     expect(response.$metadata.totalRetryDelay).toBe(0);
@@ -46,7 +46,7 @@ describe("Middleware-retry integration tests", () => {
       },
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
-    const response = await client.send(getInsightCommand);
+    const response = await client.send(headObjectCommand);
     expect(response.$metadata.httpStatusCode).toBe(200);
     expect(mockHandle).toBeCalledTimes(3);
     expect(response.$metadata.attempts).toBe(3);
@@ -71,7 +71,7 @@ describe("Middleware-retry integration tests", () => {
     });
     expect(await client.config.retryStrategy()).toBeInstanceOf(StandardRetryStrategy);
     try {
-      await client.send(getInsightCommand);
+      await client.send(headObjectCommand);
     } catch (error) {
       expect(error).toStrictEqual(expectedException);
       expect(error.$metadata.httpStatusCode).toBe(429);
