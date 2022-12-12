@@ -292,7 +292,6 @@ export interface MigrationHubRefactorSpacesClientResolvedConfig
 
 /**
  * <fullname>Amazon Web Services Migration Hub Refactor Spaces</fullname>
- *
  *          <p>This API reference provides descriptions, syntax, and other details about each of the
  *       actions and data types for Amazon Web Services Migration Hub Refactor Spaces (Refactor Spaces). The topic for each action shows the API
  *       request parameters and the response. Alternatively, you can use one of the Amazon Web Services SDKs to

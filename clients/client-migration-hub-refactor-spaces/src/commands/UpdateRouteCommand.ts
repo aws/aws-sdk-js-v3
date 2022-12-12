@@ -33,9 +33,7 @@ export interface UpdateRouteCommandInput extends UpdateRouteRequest {}
 export interface UpdateRouteCommandOutput extends UpdateRouteResponse, __MetadataBearer {}
 
 /**
- * <p>
- *     Updates an Amazon Web Services Migration Hub Refactor Spaces route.
- *   </p>
+ * <p> Updates an Amazon Web Services Migration Hub Refactor Spaces route. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

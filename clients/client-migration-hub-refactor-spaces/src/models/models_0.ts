@@ -694,9 +694,7 @@ export enum RouteActivationState {
 }
 
 /**
- * <p>
- *       The configuration for the default route type.
- *     </p>
+ * <p> The configuration for the default route type. </p>
  */
 export interface DefaultRouteInput {
   /**
@@ -777,9 +775,7 @@ export interface CreateRouteRequest {
   RouteType: RouteType | string | undefined;
 
   /**
-   * <p>
-   *       Configuration for the default route type.
-   *     </p>
+   * <p> Configuration for the default route type. </p>
    */
   DefaultRoute?: DefaultRouteInput;
 
@@ -889,7 +885,7 @@ export enum ServiceEndpointType {
  */
 export interface LambdaEndpointInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Lambda endpoint. </p>
+   * <p>The Amazon Resource Name (ARN) of the Lambda function or alias.</p>
    */
   Arn: string | undefined;
 }
@@ -946,7 +942,10 @@ export interface CreateServiceRequest {
   EndpointType: ServiceEndpointType | string | undefined;
 
   /**
-   * <p>The configuration for the URL endpoint type.</p>
+   * <p>The configuration for the URL endpoint type. When creating a route to a service, Refactor Spaces
+   *       automatically resolves the address in the <code>UrlEndpointInput</code> object URL when the
+   *       Domain Name System (DNS) time-to-live (TTL) expires, or every 60 seconds for TTLs less than 60
+   *       seconds.</p>
    */
   UrlEndpoint?: UrlEndpointInput;
 
@@ -2222,23 +2221,17 @@ export interface UntagResourceResponse {}
 
 export interface UpdateRouteRequest {
   /**
-   * <p>
-   *       The ID of the environment in which the route is being updated.
-   *     </p>
+   * <p> The ID of the environment in which the route is being updated. </p>
    */
   EnvironmentIdentifier: string | undefined;
 
   /**
-   * <p>
-   *       The ID of the application within which the route is being updated.
-   *     </p>
+   * <p> The ID of the application within which the route is being updated. </p>
    */
   ApplicationIdentifier: string | undefined;
 
   /**
-   * <p>
-   *       The unique identifier of the route to update.
-   *     </p>
+   * <p> The unique identifier of the route to update. </p>
    */
   RouteIdentifier: string | undefined;
 
@@ -2251,49 +2244,38 @@ export interface UpdateRouteRequest {
 
 export interface UpdateRouteResponse {
   /**
-   * <p>
-   *       The unique identifier of the route.
-   *     </p>
+   * <p> The unique identifier of the route. </p>
    */
   RouteId?: string;
 
   /**
-   * <p>
-   *       The Amazon Resource Name (ARN) of the route. The format for this ARN is
+   * <p> The Amazon Resource Name (ARN) of the route. The format for this ARN is
    * <code>arn:aws:refactor-spaces:<i>region</i>:<i>account-id</i>:<i>resource-type/resource-id</i>
    *             </code>. For more information about ARNs,
    * see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">
    *                     Amazon Resource Names (ARNs)</a> in the
-   *                     <i>Amazon Web Services General Reference</i>.
-   *     </p>
+   *                     <i>Amazon Web Services General Reference</i>. </p>
    */
   Arn?: string;
 
   /**
-   * <p>
-   *       The ID of service in which the route was created. Traffic that matches this route is forwarded to this service.
-   *     </p>
+   * <p> The ID of service in which the route was created. Traffic that matches this route is
+   *       forwarded to this service. </p>
    */
   ServiceId?: string;
 
   /**
-   * <p>
-   *       The ID of the application in which the route is being updated.
-   *     </p>
+   * <p> The ID of the application in which the route is being updated. </p>
    */
   ApplicationId?: string;
 
   /**
-   * <p>
-   *       The current state of the route.
-   *     </p>
+   * <p> The current state of the route. </p>
    */
   State?: RouteState | string;
 
   /**
-   * <p>
-   *       A timestamp that indicates when the route was last updated.
-   *     </p>
+   * <p> A timestamp that indicates when the route was last updated. </p>
    */
   LastUpdatedTime?: Date;
 }
