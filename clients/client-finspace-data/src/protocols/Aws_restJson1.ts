@@ -317,7 +317,7 @@ export const serializeAws_restJson1DeleteDatasetCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2/{datasetId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "datasetId", () => input.datasetId!, "{datasetId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -349,7 +349,7 @@ export const serializeAws_restJson1DeletePermissionGroupCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -408,7 +408,7 @@ export const serializeAws_restJson1DisassociateUserFromPermissionGroupCommand = 
   );
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
+    clientToken: [, input.clientToken ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
