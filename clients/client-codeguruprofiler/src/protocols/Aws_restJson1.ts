@@ -237,7 +237,7 @@ export const serializeAws_restJson1CreateProfilingGroupCommand = async (
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/profilingGroups";
   const query: any = map({
-    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`)],
+    clientToken: [, __expectNonNull(input.clientToken!, `clientToken`) ?? generateIdempotencyToken()],
   });
   let body: any;
   body = JSON.stringify({
@@ -634,7 +634,7 @@ export const serializeAws_restJson1PostAgentProfileCommand = async (
     false
   );
   const query: any = map({
-    profileToken: [, input.profileToken!],
+    profileToken: [, input.profileToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   if (input.agentProfile !== undefined) {

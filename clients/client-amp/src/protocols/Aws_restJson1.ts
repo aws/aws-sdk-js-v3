@@ -230,7 +230,7 @@ export const serializeAws_restJson1DeleteAlertManagerDefinitionCommand = async (
     "/workspaces/{workspaceId}/alertmanager/definition";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -255,7 +255,7 @@ export const serializeAws_restJson1DeleteLoggingConfigurationCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}/logging";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -282,7 +282,7 @@ export const serializeAws_restJson1DeleteRuleGroupsNamespaceCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "name", () => input.name!, "{name}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
@@ -307,7 +307,7 @@ export const serializeAws_restJson1DeleteWorkspaceCommand = async (
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workspaces/{workspaceId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
-    clientToken: [, input.clientToken!],
+    clientToken: [, input.clientToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({

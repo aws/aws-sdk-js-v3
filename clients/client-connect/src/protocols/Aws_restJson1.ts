@@ -3916,7 +3916,7 @@ export const serializeAws_restJson1ReleasePhoneNumberCommand = async (
     false
   );
   const query: any = map({
-    clientToken: [, input.ClientToken!],
+    clientToken: [, input.ClientToken! ?? generateIdempotencyToken()],
   });
   let body: any;
   return new __HttpRequest({
