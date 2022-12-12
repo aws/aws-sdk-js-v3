@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** accept passphrase when signing ([#4232](https://github.com/aws/aws-sdk-js-v3/issues/4232)) ([fcfb59f](https://github.com/aws/aws-sdk-js-v3/commit/fcfb59fa3203c3357e4f88b4d201f06b1b9beb3a))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/cloudfront-signer

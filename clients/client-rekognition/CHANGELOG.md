@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+
+### Features
+
+* **client-rekognition:** Adds support for "aliases" and "categories", inclusion and exclusion filters for labels and label categories, and aggregating labels by video segment timestamps for Stored Video Label Detection APIs. ([0e6020a](https://github.com/aws/aws-sdk-js-v3/commit/0e6020acb0089523c410d1d66a74daa3938f86c7))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/client-rekognition

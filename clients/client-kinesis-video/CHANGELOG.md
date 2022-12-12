@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+
+### Features
+
+* **client-kinesis-video:** This release adds support for public preview of Kinesis Video Stream at Edge enabling customers to provide configuration for the Kinesis Video Stream EdgeAgent running on an on-premise IoT device. Customers can now locally record from cameras and stream videos to the cloud on configured schedule. ([9bd5310](https://github.com/aws/aws-sdk-js-v3/commit/9bd5310815f38ac21c8bdfe9820eaddbbc4b74aa))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
+
+
+### Bug Fixes
+
+* **cloudfront-signer:** accept passphrase when signing ([#4232](https://github.com/aws/aws-sdk-js-v3/issues/4232)) ([fcfb59f](https://github.com/aws/aws-sdk-js-v3/commit/fcfb59fa3203c3357e4f88b4d201f06b1b9beb3a))
+
+
+### Features
+
+* **client-customer-profiles:** This release allows custom strings in PartyType and Gender through 2 new attributes in the CreateProfile and UpdateProfile APIs: PartyTypeString and GenderString. ([a57743b](https://github.com/aws/aws-sdk-js-v3/commit/a57743b015e3a8070ea84422c784cb0a350e8e56))
+* **client-ec2:** This release updates DescribeFpgaImages to show supported instance types of AFIs in its response. ([e6f3672](https://github.com/aws/aws-sdk-js-v3/commit/e6f36721554bcbdaf46d7ed34d83dcdf111c519e))
+* **client-kinesis-video:** This release adds support for public preview of Kinesis Video Stream at Edge enabling customers to provide configuration for the Kinesis Video Stream EdgeAgent running on an on-premise IoT device. Customers can now locally record from cameras and stream videos to the cloud on configured schedule. ([9bd5310](https://github.com/aws/aws-sdk-js-v3/commit/9bd5310815f38ac21c8bdfe9820eaddbbc4b74aa))
+* **client-migration-hub-refactor-spaces:** This release adds support for Lambda alias service endpoints. Lambda alias ARNs can now be passed into CreateService. ([7670f3c](https://github.com/aws/aws-sdk-js-v3/commit/7670f3cd9ef234b1af4b317332279b7294ab3ce7))
+* **client-rds:** Update the RDS API model to support copying option groups during the CopyDBSnapshot operation ([2e7020c](https://github.com/aws/aws-sdk-js-v3/commit/2e7020c262007aafc98a625d9812d2aa53a4b634))
+* **client-rekognition:** Adds support for "aliases" and "categories", inclusion and exclusion filters for labels and label categories, and aggregating labels by video segment timestamps for Stored Video Label Detection APIs. ([0e6020a](https://github.com/aws/aws-sdk-js-v3/commit/0e6020acb0089523c410d1d66a74daa3938f86c7))
+* **client-sagemaker-metrics:** This release introduces support SageMaker Metrics APIs. ([214fbb7](https://github.com/aws/aws-sdk-js-v3/commit/214fbb7f501199f34699e728b1ba2e1ca9b6a98b))
+* **clients:** update client endpoints as of 2022-12-12 ([c29fa34](https://github.com/aws/aws-sdk-js-v3/commit/c29fa34ba662313f7c66acce02322c22312a3344))
+
+
+
+
+
 # [3.228.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.227.0...v3.228.0) (2022-12-09)
 
 
