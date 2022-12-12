@@ -337,10 +337,7 @@ export const serializeAws_restJson1DeleteLensCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/lenses/{LensAlias}";
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [
-      ,
-      __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`) ?? generateIdempotencyToken(),
-    ],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
     LensStatus: [, __expectNonNull(input.LensStatus!, `LensStatus`)],
   });
   let body: any;
@@ -367,10 +364,7 @@ export const serializeAws_restJson1DeleteLensShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "LensAlias", () => input.LensAlias!, "{LensAlias}", false);
   const query: any = map({
-    ClientRequestToken: [
-      ,
-      __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`) ?? generateIdempotencyToken(),
-    ],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -394,10 +388,7 @@ export const serializeAws_restJson1DeleteWorkloadCommand = async (
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/workloads/{WorkloadId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [
-      ,
-      __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`) ?? generateIdempotencyToken(),
-    ],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
@@ -423,10 +414,7 @@ export const serializeAws_restJson1DeleteWorkloadShareCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "ShareId", () => input.ShareId!, "{ShareId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "WorkloadId", () => input.WorkloadId!, "{WorkloadId}", false);
   const query: any = map({
-    ClientRequestToken: [
-      ,
-      __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`) ?? generateIdempotencyToken(),
-    ],
+    ClientRequestToken: [, __expectNonNull(input.ClientRequestToken!, `ClientRequestToken`)],
   });
   let body: any;
   return new __HttpRequest({
