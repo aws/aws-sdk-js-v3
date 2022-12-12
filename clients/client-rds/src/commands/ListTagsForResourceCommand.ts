@@ -30,7 +30,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 
 /**
  * <p>Lists all tags on an Amazon RDS resource.</p>
- *         <p>For an overview on tagging an Amazon RDS resource,
+ *          <p>For an overview on tagging an Amazon RDS resource,
  *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
  *           in the <i>Amazon RDS User Guide</i>.</p>
  * @example

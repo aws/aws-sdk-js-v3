@@ -33,9 +33,9 @@ export interface ModifyGlobalClusterCommandOutput extends ModifyGlobalClusterRes
  *         parameters by specifying these parameters and the new values in the request. For more information on
  *         Amazon Aurora, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html"> What is Amazon Aurora?</a> in the
  *         <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

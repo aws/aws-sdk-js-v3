@@ -31,7 +31,7 @@ export interface StopActivityStreamCommandOutput extends StopActivityStreamRespo
 /**
  * <p>Stops a database activity stream that was started using the Amazon Web Services console,
  *             the <code>start-activity-stream</code> CLI command, or the <code>StartActivityStream</code> action.</p>
- *         <p>For more information, see
+ *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html">Database Activity Streams</a>
  *             in the <i>Amazon Aurora User Guide</i>.</p>
  * @example

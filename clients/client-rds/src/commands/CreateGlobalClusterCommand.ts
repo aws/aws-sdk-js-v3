@@ -35,13 +35,13 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *         and a read-only secondary cluster that receives
  *         data from the primary cluster through high-speed replication
  *         performed by the Aurora storage subsystem.</p>
- *         <p>You can create a global database that is initially empty, and then
+ *          <p>You can create a global database that is initially empty, and then
  *         add a primary cluster and a secondary cluster to it.
  *         Or you can specify an existing Aurora cluster during the create operation,
  *         and this cluster becomes the primary cluster of the global database.</p>
- *         <note>
+ *          <note>
  *             <p>This action applies only to Aurora DB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

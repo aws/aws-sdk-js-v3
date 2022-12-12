@@ -31,9 +31,9 @@ export interface DeleteGlobalClusterCommandOutput extends DeleteGlobalClusterRes
 /**
  * <p>Deletes a global database cluster. The primary and secondary clusters must already be detached or
  *         destroyed first.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Aurora DB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

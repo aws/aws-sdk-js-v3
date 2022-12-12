@@ -30,12 +30,12 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
 
 /**
  * <p>Returns information about backtracks for a DB cluster.</p>
- *         <p>For more information on Amazon Aurora, see
+ *          <p>For more information on Amazon Aurora, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html">
  *                 What is Amazon Aurora?</a> in the <i>Amazon Aurora User Guide</i>.</p>
- *         <note>
+ *          <note>
  *             <p>This action only applies to Aurora MySQL DB clusters.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

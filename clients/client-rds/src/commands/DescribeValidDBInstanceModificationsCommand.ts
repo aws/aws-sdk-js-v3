@@ -33,7 +33,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
 /**
  * <p>You can call <code>DescribeValidDBInstanceModifications</code> to learn what modifications you can make to
  *             your DB instance. You can use this information when you call <code>ModifyDBInstance</code>.</p>
- *         <p>This command doesn't apply to RDS Custom.</p>
+ *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -30,16 +30,16 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
 
 /**
  * <p>Creates a blue/green deployment.</p>
- *         <p>A blue/green deployment creates a staging environment that copies the production environment.
+ *          <p>A blue/green deployment creates a staging environment that copies the production environment.
  *             In a blue/green deployment, the blue environment is the current production environment.
  *             The green environment is the staging environment. The staging environment stays in sync
  *             with the current production environment using logical replication.</p>
- *         <p>You can make changes to the databases in the green environment without affecting
+ *          <p>You can make changes to the databases in the green environment without affecting
  *             production workloads. For example, you can upgrade the major or minor DB engine version, change
  *             database parameters, or make schema changes in the staging environment. You can thoroughly test
  *             changes in the green environment. When ready, you can switch over the environments to promote the
  *             green environment to be the new production environment. The switchover typically takes under a minute.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
  *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
  *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora

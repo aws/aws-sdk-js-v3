@@ -25,10 +25,10 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Associates an Amazon Web Services Identity and Access Management (IAM) role with a DB instance.</p>
- *         <note>
+ *          <note>
  *             <p>To add a role to a DB instance, the status of the DB instance must be <code>available</code>.</p>
- *         </note>
- *         <p>This command doesn't apply to RDS Custom.</p>
+ *          </note>
+ *          <p>This command doesn't apply to RDS Custom.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

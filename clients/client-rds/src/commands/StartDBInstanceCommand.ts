@@ -30,15 +30,15 @@ export interface StartDBInstanceCommandOutput extends StartDBInstanceResult, __M
 
 /**
  * <p>Starts an Amazon RDS DB instance that was stopped using the Amazon Web Services console, the stop-db-instance CLI command, or the StopDBInstance action.</p>
- *         <p>For more information, see
+ *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StartInstance.html">
  *                 Starting an Amazon RDS DB instance That Was Previously Stopped</a> in the
  *             <i>Amazon RDS User Guide.</i>
  *          </p>
- *         <note>
+ *          <note>
  *             <p>This command doesn't apply to RDS Custom, Aurora MySQL, and Aurora PostgreSQL.
  *             For Aurora DB clusters, use <code>StartDBCluster</code> instead.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

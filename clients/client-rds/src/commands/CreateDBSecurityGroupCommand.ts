@@ -30,14 +30,14 @@ export interface CreateDBSecurityGroupCommandOutput extends CreateDBSecurityGrou
 
 /**
  * <p>Creates a new DB security group. DB security groups control access to a DB instance.</p>
- *         <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
- *         <note>
+ *          <p>A DB security group controls access to EC2-Classic DB instances that are not in a VPC.</p>
+ *          <note>
  *             <p>EC2-Classic was retired on August 15, 2022. If you haven't migrated from EC2-Classic to a VPC, we recommend that
  *                 you migrate as soon as possible. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the
  *                 <i>Amazon EC2 User Guide</i>, the blog <a href="http://aws.amazon.com/blogs/aws/ec2-classic-is-retiring-heres-how-to-prepare/">EC2-Classic Networking is Retiring –
  *                     Here’s How to Prepare</a>, and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.Non-VPC2VPC.html">Moving a DB instance not in a VPC
  *                         into a VPC</a> in the <i>Amazon RDS User Guide</i>.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

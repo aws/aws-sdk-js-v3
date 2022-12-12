@@ -12200,6 +12200,9 @@ const serializeAws_queryCopyDBSnapshotMessage = (input: CopyDBSnapshotMessage, c
   if (input.TargetCustomAvailabilityZone != null) {
     entries["TargetCustomAvailabilityZone"] = input.TargetCustomAvailabilityZone;
   }
+  if (input.CopyOptionGroup != null) {
+    entries["CopyOptionGroup"] = input.CopyOptionGroup;
+  }
   return entries;
 };
 
@@ -22967,6 +22970,9 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
     AllowsVpcAndNonVpcInstanceMemberships: undefined,
     VpcId: undefined,
     OptionGroupArn: undefined,
+    SourceOptionGroup: undefined,
+    SourceAccountId: undefined,
+    CopyTimestamp: undefined,
   };
   if (output["OptionGroupName"] !== undefined) {
     contents.OptionGroupName = __expectString(output["OptionGroupName"]);
@@ -22993,6 +22999,15 @@ const deserializeAws_queryOptionGroup = (output: any, context: __SerdeContext): 
   }
   if (output["OptionGroupArn"] !== undefined) {
     contents.OptionGroupArn = __expectString(output["OptionGroupArn"]);
+  }
+  if (output["SourceOptionGroup"] !== undefined) {
+    contents.SourceOptionGroup = __expectString(output["SourceOptionGroup"]);
+  }
+  if (output["SourceAccountId"] !== undefined) {
+    contents.SourceAccountId = __expectString(output["SourceAccountId"]);
+  }
+  if (output["CopyTimestamp"] !== undefined) {
+    contents.CopyTimestamp = __expectNonNull(__parseRfc3339DateTime(output["CopyTimestamp"]));
   }
   return contents;
 };
@@ -23066,6 +23081,7 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
     SupportsOptionVersionDowngrade: undefined,
     OptionGroupOptionSettings: undefined,
     OptionGroupOptionVersions: undefined,
+    CopyableCrossAccount: undefined,
   };
   if (output["Name"] !== undefined) {
     contents.Name = __expectString(output["Name"]);
@@ -23143,6 +23159,9 @@ const deserializeAws_queryOptionGroupOption = (output: any, context: __SerdeCont
       __getArrayIfSingleItem(output["OptionGroupOptionVersions"]["OptionVersion"]),
       context
     );
+  }
+  if (output["CopyableCrossAccount"] !== undefined) {
+    contents.CopyableCrossAccount = __parseBoolean(output["CopyableCrossAccount"]);
   }
   return contents;
 };

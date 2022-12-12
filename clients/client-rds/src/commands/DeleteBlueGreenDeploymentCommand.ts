@@ -30,7 +30,7 @@ export interface DeleteBlueGreenDeploymentCommandOutput extends DeleteBlueGreenD
 
 /**
  * <p>Deletes a blue/green deployment.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html">Using Amazon RDS Blue/Green Deployments
  *             for database updates</a> in the <i>Amazon RDS User Guide</i> and
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/blue-green-deployments.html">
  *             Using Amazon RDS Blue/Green Deployments for database updates</a> in the <i>Amazon Aurora

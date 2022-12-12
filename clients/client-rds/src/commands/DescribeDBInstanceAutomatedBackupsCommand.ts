@@ -37,7 +37,7 @@ export interface DescribeDBInstanceAutomatedBackupsCommandOutput
  *             with retention periods greater than zero (0) are returned for both the
  *             <code>DescribeDBInstanceAutomatedBackups</code> and
  *             <code>DescribeDBInstances</code> operations.</p>
- *         <p>All parameters are optional.</p>
+ *          <p>All parameters are optional.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
