@@ -31,7 +31,7 @@ export interface CancelCapacityReservationCommandOutput extends CancelCapacityRe
 /**
  * <p>Cancels the specified Capacity Reservation, releases the reserved capacity, and changes the Capacity Reservation's state to
  * 			<code>cancelled</code>.</p>
- * 		       <p>Instances running in the reserved capacity continue running until you stop them. Stopped
+ *          <p>Instances running in the reserved capacity continue running until you stop them. Stopped
  * 			instances that target the Capacity Reservation can no longer launch. Modify these instances to either
  * 			target a different Capacity Reservation, launch On-Demand Instance capacity, or run in any open Capacity Reservation
  * 			that has matching attributes and sufficient capacity.</p>

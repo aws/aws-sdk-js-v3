@@ -35,7 +35,7 @@ export interface ReplaceNetworkAclAssociationCommandOutput
  * 			subnet, it's automatically associated with the default network ACL. For more
  * 			information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_ACLs.html">Network
  * 			ACLs</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
- *         <p>This is an idempotent operation.</p>
+ *          <p>This is an idempotent operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

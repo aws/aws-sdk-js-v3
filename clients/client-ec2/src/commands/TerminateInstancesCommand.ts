@@ -31,60 +31,55 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
 /**
  * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
  *             instance more than once, each call succeeds. </p>
- *
- *         <p>If you specify multiple instances and the request fails (for example, because of a
+ *          <p>If you specify multiple instances and the request fails (for example, because of a
  *             single incorrect instance ID), none of the instances are terminated.</p>
- *
- *         <p>If you terminate multiple instances across multiple Availability Zones, and one or
+ *          <p>If you terminate multiple instances across multiple Availability Zones, and one or
  *             more of the specified instances are enabled for termination protection, the request
  *             fails with the following results:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>The specified instances that are in the same Availability Zone as the
+ *                <p>The specified instances that are in the same Availability Zone as the
  *                     protected instance are not terminated.</p>
  *             </li>
  *             <li>
- *                 <p>The specified instances that are in different Availability Zones, where no
+ *                <p>The specified instances that are in different Availability Zones, where no
  *                     other specified instances are protected, are successfully terminated.</p>
  *             </li>
  *          </ul>
- *
- *         <p>For example, say you have the following instances:</p>
- *         <ul>
+ *          <p>For example, say you have the following instances:</p>
+ *          <ul>
  *             <li>
- *                 <p>Instance A: <code>us-east-1a</code>; Not protected</p>
+ *                <p>Instance A: <code>us-east-1a</code>; Not protected</p>
  *             </li>
  *             <li>
- *                 <p>Instance B: <code>us-east-1a</code>; Not protected</p>
+ *                <p>Instance B: <code>us-east-1a</code>; Not protected</p>
  *             </li>
  *             <li>
- *                 <p>Instance C: <code>us-east-1b</code>; Protected</p>
+ *                <p>Instance C: <code>us-east-1b</code>; Protected</p>
  *             </li>
  *             <li>
- *                 <p>Instance D: <code>us-east-1b</code>; not protected</p>
+ *                <p>Instance D: <code>us-east-1b</code>; not protected</p>
  *             </li>
  *          </ul>
- *         <p>If you attempt to terminate all of these instances in the same request, the request
+ *          <p>If you attempt to terminate all of these instances in the same request, the request
  *             reports failure with the following results:</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>Instance A and Instance B are successfully terminated because none of the
+ *                <p>Instance A and Instance B are successfully terminated because none of the
  *                     specified instances in <code>us-east-1a</code> are enabled for termination
  *                     protection.</p>
  *             </li>
  *             <li>
- *                 <p>Instance C and Instance D fail to terminate because at least one of the
+ *                <p>Instance C and Instance D fail to terminate because at least one of the
  *                     specified instances in <code>us-east-1b</code> (Instance C) is enabled for
  *                     termination protection.</p>
  *             </li>
  *          </ul>
- *
- *
- *         <p>Terminated instances remain visible after termination (for approximately one
+ *          <p>Terminated instances remain visible after termination (for approximately one
  *             hour).</p>
- *         <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
+ *          <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
  *             launched. Volumes attached after instance launch continue running.</p>
- *         <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
+ *          <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
  *             instance store-backed instances. What happens to an instance differs if you stop it or
  *             terminate it. For example, when you stop an instance, the root device and any other
  *             devices attached to the instance persist. When you terminate an instance, any attached
@@ -92,7 +87,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             to <code>true</code> are automatically deleted. For more information about the
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
  *             in the <i>Amazon EC2 User Guide</i>.</p>
- *         <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
+ *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

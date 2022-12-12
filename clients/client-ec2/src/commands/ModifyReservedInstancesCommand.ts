@@ -32,7 +32,7 @@ export interface ModifyReservedInstancesCommandOutput extends ModifyReservedInst
  * <p>Modifies the configuration of your Reserved Instances, such as the Availability Zone,
  *        instance count, or instance type. The Reserved Instances to be modified must be identical,
  *        except for Availability Zone, network platform, and instance type.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-modifying.html">Modifying Reserved
  * 				Instances</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
  *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>

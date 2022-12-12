@@ -169,6 +169,7 @@ export enum ResourceType {
   verified_access_trust_provider = "verified-access-trust-provider",
   volume = "volume",
   vpc = "vpc",
+  vpc_block_public_access_exclusion = "vpc-block-public-access-exclusion",
   vpc_endpoint = "vpc-endpoint",
   vpc_endpoint_connection = "vpc-endpoint-connection",
   vpc_endpoint_connection_device_type = "vpc-endpoint-connection-device-type",
@@ -1954,7 +1955,7 @@ export interface AddPrefixListEntry {
 
   /**
    * <p>A description for the entry.</p>
-   *         <p>Constraints: Up to 255 characters in length.</p>
+   *          <p>Constraints: Up to 255 characters in length.</p>
    */
   Description?: string;
 }
@@ -2184,7 +2185,6 @@ export interface AllocateAddressRequest {
    *       advertises IP addresses. Use this parameter to limit the IP address to this location. IP
    *       addresses cannot move between network border groups.</p>
    *          <p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p>
-   *
    *          <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 Classic,
    *       you receive an <code>InvalidParameterCombination</code> error.</p>
    */
@@ -2271,8 +2271,7 @@ export interface AllocateHostsRequest {
    *             instance type configuration, or if it only accepts Host tenancy instance launches that
    *             specify its unique host ID. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-understanding"> Understanding auto-placement and affinity</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
-   *
-   *         <p>Default: <code>on</code>
+   *          <p>Default: <code>on</code>
    *          </p>
    */
   AutoPlacement?: AutoPlacement | string;
@@ -2291,8 +2290,7 @@ export interface AllocateHostsRequest {
    * <p>Specifies the instance type to be supported by the Dedicated Hosts. If you specify an
    *             instance type, the Dedicated Hosts support instances of the specified instance type
    *             only.</p>
-   *
-   *         <p>If you want the Dedicated Hosts to support multiple instance types in a specific
+   *          <p>If you want the Dedicated Hosts to support multiple instance types in a specific
    *             instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
    *             same request.</p>
    */
@@ -2302,8 +2300,7 @@ export interface AllocateHostsRequest {
    * <p>Specifies the instance family to be supported by the Dedicated Hosts. If you specify
    *             an instance family, the Dedicated Hosts support multiple instance types within that
    *             instance family.</p>
-   *
-   *         <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
+   *          <p>If you want the Dedicated Hosts to support a specific instance type only, omit this
    *             parameter and specify <b>InstanceType</b> instead. You cannot
    *             specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
@@ -2324,7 +2321,7 @@ export interface AllocateHostsRequest {
    * <p>Indicates whether to enable or disable host recovery for the Dedicated Host. Host
    *             recovery is disabled by default. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-recovery.html"> Host recovery</a>
    *             in the <i>Amazon EC2 User Guide</i>.</p>
-   *         <p>Default: <code>off</code>
+   *          <p>Default: <code>off</code>
    *          </p>
    */
   HostRecovery?: HostRecovery | string;
@@ -2632,7 +2629,7 @@ export interface AssignPrivateIpAddressesRequest {
 
   /**
    * <p>The IP addresses to be assigned as a secondary private IP address to the network interface. You can't specify this parameter when also specifying a number of secondary IP addresses.</p>
-   *         <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
+   *          <p>If you don't specify an IP address, Amazon EC2 automatically selects an IP address within the subnet range.</p>
    */
   PrivateIpAddresses?: string[];
 
@@ -2725,7 +2722,7 @@ export interface AssociateAddressRequest {
 
   /**
    * <p>[EC2-VPC] The ID of the network interface. If the instance has more than one network interface, you must specify a network interface ID.</p>
-   *    	     <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
+   *          <p>For EC2-VPC, you can specify either the instance ID or the network interface ID, but not both. </p>
    */
   NetworkInterfaceId?: string;
 
@@ -3419,8 +3416,8 @@ export enum InterfaceProtocolType {
  * <note>
  *             <p>Currently available in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *         <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ *          </note>
+ *          <p>Information about an association between a branch network interface with a trunk network interface.</p>
  */
 export interface TrunkInterfaceAssociation {
   /**
@@ -3504,7 +3501,7 @@ export interface AssociateVpcCidrBlockRequest {
 
   /**
    * <p>An IPv6 CIDR block from the IPv6 address pool. You must also specify <code>Ipv6Pool</code> in the request.</p>
-   *         <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
+   *          <p>To let Amazon choose the IPv6 CIDR block for you, omit this parameter.</p>
    */
   Ipv6CidrBlock?: string;
 
@@ -3691,7 +3688,7 @@ export interface EnaSrdUdpSpecification {
  * 			maximum bandwidth used per stream and minimize tail latency of network traffic between EC2 instances.
  * 			With ENA Express, you can communicate between two EC2 instances in the same subnet within the same
  * 			account, or in different accounts. Both sending and receiving instances must have ENA Express enabled.</p>
- * 		       <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
+ *          <p>To improve the reliability of network packet delivery, ENA Express reorders network packets on the
  * 			receiving end by default. However, some UDP-based applications are designed to handle network packets
  * 			that are out of order to reduce the overhead for packet delivery at the network layer. When ENA Express
  * 			is enabled, you can specify whether UDP network traffic uses it.</p>
@@ -4236,7 +4233,7 @@ export interface PrefixListId {
 /**
  * <p>Describes a security group and Amazon Web Services account ID pair.</p>
  *          <note>
- *            <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             <p>We are retiring EC2-Classic. We recommend that you migrate from EC2-Classic to a VPC. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-migrate.html">Migrate from EC2-Classic to a VPC</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  *          </note>
  */
 export interface UserIdGroupPair {
@@ -4257,7 +4254,7 @@ export interface UserIdGroupPair {
    * <p>The name of the security group. In a request, use this parameter for a security group
    *             in EC2-Classic or a default VPC only. For a security group in a nondefault VPC, use the
    *             security group ID. </p>
-   *         <p>For a referenced security group in another VPC, this value is not returned if the
+   *          <p>For a referenced security group in another VPC, this value is not returned if the
    *             referenced security group is deleted.</p>
    */
   GroupName?: string;
@@ -4269,7 +4266,7 @@ export interface UserIdGroupPair {
 
   /**
    * <p>The ID of an Amazon Web Services account.</p>
-   *         <p>For a referenced security group in another VPC, the account ID of the referenced
+   *          <p>For a referenced security group in another VPC, the account ID of the referenced
    *             security group is returned in the response. If the referenced security group is deleted,
    *             this value is not returned.</p>
    *          <p>[EC2-Classic] Required when adding or removing rules that reference a security group
@@ -4454,7 +4451,7 @@ export interface SecurityGroupRule {
   /**
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>,
    *                 <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p>
-   *         <p>Use <code>-1</code> to specify all protocols.</p>
+   *          <p>Use <code>-1</code> to specify all protocols.</p>
    */
   IpProtocol?: string;
 
@@ -5368,25 +5365,25 @@ export interface CopyImageRequest {
    * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
    *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
    *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
-   *    	     <p>You can specify a KMS key using any of the following:</p>
-   *    	     <ul>
+   *          <p>You can specify a KMS key using any of the following:</p>
+   *          <ul>
    *             <li>
-   *    			         <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ID. For example, 1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key alias. For example, alias/ExampleAlias.</p>
-   *    	        </li>
+   *                <p>Key alias. For example, alias/ExampleAlias.</p>
+   *             </li>
    *             <li>
-   *    	           <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
-   *    		       </li>
+   *                <p>Key ARN. For example, arn:aws:kms:us-east-1:012345678910:key/1234abcd-12ab-34cd-56ef-1234567890ab.</p>
+   *             </li>
    *             <li>
-   *    		          <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
-   *    		       </li>
+   *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
+   *             </li>
    *          </ul>
-   *    	     <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
    *       the action can appear to complete, but eventually fails.</p>
-   *    	     <p>The specified KMS key must exist in the destination Region.</p>
-   *    	     <p>Amazon EBS does not support asymmetric KMS keys.</p>
+   *          <p>The specified KMS key must exist in the destination Region.</p>
+   *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
   KmsKeyId?: string;
 
@@ -5411,7 +5408,7 @@ export interface CopyImageRequest {
    *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
    *         Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
@@ -5462,7 +5459,7 @@ export interface CopySnapshotRequest {
    * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
    * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
    * 		Outpost.</p>
-   *   	      <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
    *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
    *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    */
@@ -5472,7 +5469,6 @@ export interface CopySnapshotRequest {
    * <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot
    *       copy operation. This parameter is only valid for specifying the destination Region in a
    *         <code>PresignedUrl</code> parameter, where it is required.</p>
-   *
    *          <p>The snapshot copy is sent to the regional endpoint that you sent the HTTP
    *     	request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the CLI, this is
    *       specified using the <code>--region</code> parameter or the default Region in your Amazon Web Services
@@ -5628,7 +5624,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -5643,7 +5639,7 @@ export interface CreateCapacityReservationRequest {
 
   /**
    * <p>The number of instances for which to reserve capacity.</p>
-   * 	  	     <p>Valid range: 1 - 1000</p>
+   *          <p>Valid range: 1 - 1000</p>
    */
   InstanceCount: number | undefined;
 
@@ -5666,11 +5662,10 @@ export interface CreateCapacityReservationRequest {
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
    * 				<code>expired</code> when it reaches its end date and time.</p>
-   * 		       <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
-   *
-   * 		       <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
+   *          <p>If the <code>EndDateType</code> is <code>limited</code>, the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
    * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
    */
   EndDate?: Date;
@@ -5678,7 +5673,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
@@ -5698,7 +5693,7 @@ export interface CreateCapacityReservationRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform,
@@ -5712,7 +5707,7 @@ export interface CreateCapacityReservationRequest {
    * 					Capacity Reservation. This ensures that only permitted instances can use the reserved capacity. </p>
    *             </li>
    *          </ul>
-   * 		       <p>Default: <code>open</code>
+   *          <p>Default: <code>open</code>
    *          </p>
    */
   InstanceMatchCriteria?: InstanceMatchCriteria | string;
@@ -5808,7 +5803,7 @@ export interface CapacityReservation {
 
   /**
    * <p>Indicates the tenancy of the Capacity Reservation. A Capacity Reservation can have one of the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>default</code> - The Capacity Reservation is created on hardware that is shared with other Amazon Web Services accounts.</p>
@@ -5848,7 +5843,7 @@ export interface CapacityReservation {
 
   /**
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
@@ -5893,7 +5888,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it.</p>
@@ -5909,7 +5904,7 @@ export interface CapacityReservation {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation accepts. The options
    * 			include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The Capacity Reservation accepts all instances that have matching attributes (instance type, platform,
@@ -6615,7 +6610,7 @@ export interface CreateCapacityReservationFleetRequest {
    * 			specified instance types to use. Currently, only the <code>prioritized</code>
    * 			allocation strategy is supported. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/crfleet-concepts.html#allocation-strategy">
    * 				Allocation strategy</a> in the Amazon EC2 User Guide.</p>
-   * 		       <p>Valid values: <code>prioritized</code>
+   *          <p>Valid values: <code>prioritized</code>
    *          </p>
    */
   AllocationStrategy?: string;
@@ -6634,17 +6629,17 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations
    * 			in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of
    * 			the following tenancy settings:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
-   * 					             <code>default</code> - The Capacity Reservation Fleet is created on hardware
+   *                <p>
+   *                   <code>default</code> - The Capacity Reservation Fleet is created on hardware
    * 					that is shared with other Amazon Web Services accounts.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
-   * 					             <code>dedicated</code> - The Capacity Reservations are created on single-tenant
+   *                <p>
+   *                   <code>dedicated</code> - The Capacity Reservations are created on single-tenant
    * 					hardware that is dedicated to a single Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Tenancy?: FleetCapacityReservationTenancy | string;
@@ -6662,7 +6657,7 @@ export interface CreateCapacityReservationFleetRequest {
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity
    * 			Reservation Fleet expires, its state changes to <code>expired</code> and all of the Capacity
    * 			Reservations in the Fleet expire.</p>
-   * 		       <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example,
    * 			if you specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet
    * 			is guaranteed to expire between <code>13:30:55</code> and <code>14:30:55</code> on
    * 			<code>5/31/2019</code>.
@@ -6673,7 +6668,7 @@ export interface CreateCapacityReservationFleetRequest {
   /**
    * <p>Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All
    * 			Capacity Reservations in the Fleet inherit this instance matching criteria.</p>
-   * 		       <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
+   *          <p>Currently, Capacity Reservation Fleets support <code>open</code> instance matching criteria
    * 			only. This means that instances that have matching attributes (instance type, platform, and
    * 			Availability Zone) run in the Capacity Reservations automatically. Instances do not need to
    * 			explicitly target a Capacity Reservation Fleet to use its reserved capacity.</p>
@@ -6976,9 +6971,9 @@ export interface ClientLoginBannerOptions {
   /**
    * <p>Enable or disable a customizable text banner that will be displayed on
    * 			Amazon Web Services provided clients when a VPN session is established.</p>
-   * 		       <p>Valid values: <code>true | false</code>
+   *          <p>Valid values: <code>true | false</code>
    *          </p>
-   * 		       <p>Default value: <code>false</code>
+   *          <p>Default value: <code>false</code>
    *          </p>
    */
   Enabled?: boolean;
@@ -7040,9 +7035,9 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Information about the client connection logging options.</p>
-   * 		       <p>If you enable client connection logging, data about client connections is sent to a
+   *          <p>If you enable client connection logging, data about client connections is sent to a
    * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>Client connection requests</p>
    *             </li>
@@ -7067,16 +7062,16 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>The transport protocol to be used by the VPN session.</p>
-   * 		       <p>Default value: <code>udp</code>
+   *          <p>Default value: <code>udp</code>
    *          </p>
    */
   TransportProtocol?: TransportProtocol | string;
 
   /**
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   * 	        <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
    *          </p>
-   * 	        <p>Default Value: <code>443</code>
+   *          <p>Default Value: <code>443</code>
    *          </p>
    */
   VpnPort?: number;
@@ -7088,8 +7083,8 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether split-tunnel is enabled on the Client VPN endpoint.</p>
-   * 		       <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
-   * 		       <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   *          <p>By default, split-tunnel on a VPN endpoint is disabled.</p>
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
    * 			<i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
@@ -7121,7 +7116,7 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
-   *         <p>Default Value: <code>enabled</code>
+   *          <p>Default Value: <code>enabled</code>
    *          </p>
    */
   SelfServicePortal?: SelfServicePortal | string;
@@ -7133,9 +7128,9 @@ export interface CreateClientVpnEndpointRequest {
 
   /**
    * <p>The maximum VPN session duration time in hours.</p>
-   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
    *          </p>
-   * 		       <p>Default value: <code>24</code>
+   *          <p>Default value: <code>24</code>
    *          </p>
    */
   SessionTimeoutHours?: number;
@@ -7160,27 +7155,27 @@ export enum ClientVpnEndpointStatusCode {
 export interface ClientVpnEndpointStatus {
   /**
    * <p>The state of the Client VPN endpoint. Possible states include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>pending-associate</code> - The Client VPN endpoint has been created but no target networks
    * 					have been associated. The Client VPN endpoint cannot accept connections.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>available</code> - The Client VPN endpoint has been created and a target network has been
    * 					associated. The Client VPN endpoint can accept connections.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>deleting</code> - The Client VPN endpoint is being deleted. The Client VPN endpoint cannot accept
    * 					connections.</p>
    *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>deleted</code> - The Client VPN endpoint has been deleted. The Client VPN endpoint cannot accept
    * 					connections.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Code?: ClientVpnEndpointStatusCode | string;
@@ -7216,7 +7211,7 @@ export interface CreateClientVpnRouteRequest {
 
   /**
    * <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>To add a route for Internet access, enter <code>0.0.0.0/0</code>
    *                </p>
@@ -7237,7 +7232,7 @@ export interface CreateClientVpnRouteRequest {
   /**
    * <p>The ID of the subnet through which you want to route traffic. The specified subnet must be
    * 			an existing target network of the Client VPN endpoint.</p>
-   * 	        <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
+   *          <p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
    */
   TargetVpcSubnetId: string | undefined;
 

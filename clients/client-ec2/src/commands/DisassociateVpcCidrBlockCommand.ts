@@ -33,7 +33,7 @@ export interface DisassociateVpcCidrBlockCommandOutput extends DisassociateVpcCi
  *             specify its association ID. You can get the association ID by using
  *                 <a>DescribeVpcs</a>. You must detach or delete all gateways and resources that
  *             are associated with the CIDR block before you can disassociate it. </p>
- * 		       <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
+ *          <p>You cannot disassociate the CIDR block with which you originally created the VPC (the
  * 			primary CIDR block).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

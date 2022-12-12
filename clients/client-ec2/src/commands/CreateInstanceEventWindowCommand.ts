@@ -37,7 +37,6 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  *          <p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags)
  *          are not yet associated with it. To ensure that the event window can be used, you must
  *          associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p>
- *
  *          <important>
  *             <p>Event windows are applicable only for scheduled events that stop, reboot, or
  *             terminate instances.</p>
@@ -47,11 +46,10 @@ export interface CreateInstanceEventWindowCommandOutput extends CreateInstanceEv
  *                   <p>Expedited scheduled events and network maintenance events. </p>
  *                </li>
  *                <li>
- *                            <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
+ *                   <p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p>
  *                </li>
  *             </ul>
  *          </important>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/event-windows.html">Define event windows for scheduled
  *             events</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

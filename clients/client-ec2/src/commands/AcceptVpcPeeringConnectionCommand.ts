@@ -33,7 +33,7 @@ export interface AcceptVpcPeeringConnectionCommandOutput extends AcceptVpcPeerin
  *       be in the <code>pending-acceptance</code> state, and you must be the owner of the peer VPC.
  *       Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
  *       peering connection requests.</p>
- *   	      <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
+ *          <p>For an inter-Region VPC peering connection request, you must accept the VPC peering
  *       connection in the Region of the accepter VPC.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

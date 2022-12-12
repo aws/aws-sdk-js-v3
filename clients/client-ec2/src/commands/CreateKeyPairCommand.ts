@@ -31,7 +31,7 @@ export interface CreateKeyPairCommandOutput extends KeyPair, __MetadataBearer {}
  *             key for you to save to a file. The private key is returned as an unencrypted PEM encoded
  *             PKCS#1 private key or an unencrypted PPK formatted private key for use with PuTTY. If a
  *             key with the specified name already exists, Amazon EC2 returns an error.</p>
- * 		       <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
+ *          <p>The key pair returned to you is available only in the Amazon Web Services Region in which you create it.
  *             If you prefer, you can create your own key pair using a third-party tool and upload it
  *             to any Region using <a>ImportKeyPair</a>.</p>
  *          <p>You can have up to 5,000 key pairs per Amazon Web Services Region.</p>

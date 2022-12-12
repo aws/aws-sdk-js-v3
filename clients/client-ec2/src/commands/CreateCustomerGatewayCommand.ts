@@ -34,12 +34,12 @@ export interface CreateCustomerGatewayCommandOutput extends CreateCustomerGatewa
  *             must provide the IP address of the customer gateway device’s external
  *             interface. The IP address must be static and can be behind a device performing network
  *             address translation (NAT).</p>
- *         <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
+ *          <p>For devices that use Border Gateway Protocol (BGP), you can also provide the device's
  *             BGP Autonomous System Number (ASN). You can use an existing ASN assigned to your network.
  *             If you don't have an ASN already, you can use a private ASN. For more information, see
  *             <a href="https://docs.aws.amazon.com/vpn/latest/s2svpn/cgw-options.html">Customer gateway
  *                 options for your Site-to-Site VPN connection</a> in the <i>Amazon Web Services Site-to-Site VPN User Guide</i>.</p>
- *         <p>To create more than one customer gateway with the same VPN type, IP address, and
+ *          <p>To create more than one customer gateway with the same VPN type, IP address, and
  *             BGP ASN, specify a unique device name for each customer gateway. An identical request
  *             returns information about the existing customer gateway; it doesn't create a new customer
  *             gateway.</p>

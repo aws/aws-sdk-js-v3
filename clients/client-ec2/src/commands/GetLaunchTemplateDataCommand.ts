@@ -31,7 +31,7 @@ export interface GetLaunchTemplateDataCommandOutput extends GetLaunchTemplateDat
 /**
  * <p>Retrieves the configuration data of the specified instance. You can use this data to
  *             create a launch template. </p>
- *         <p>This action calls on other describe actions to get instance information. Depending on
+ *          <p>This action calls on other describe actions to get instance information. Depending on
  *             your instance configuration, you may need to allow the following actions in your IAM
  *             policy: <code>DescribeSpotInstanceRequests</code>,
  *                 <code>DescribeInstanceCreditSpecifications</code>, <code>DescribeVolumes</code>,

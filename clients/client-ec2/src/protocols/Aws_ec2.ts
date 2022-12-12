@@ -69238,6 +69238,7 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
     Tags: undefined,
     Public: undefined,
     DataRetentionSupport: undefined,
+    InstanceTypes: undefined,
   };
   if (output["fpgaImageId"] !== undefined) {
     contents.FpgaImageId = __expectString(output["fpgaImageId"]);
@@ -69290,6 +69291,14 @@ const deserializeAws_ec2FpgaImage = (output: any, context: __SerdeContext): Fpga
   }
   if (output["dataRetentionSupport"] !== undefined) {
     contents.DataRetentionSupport = __parseBoolean(output["dataRetentionSupport"]);
+  }
+  if (output.instanceTypes === "") {
+    contents.InstanceTypes = [];
+  } else if (output["instanceTypes"] !== undefined && output["instanceTypes"]["item"] !== undefined) {
+    contents.InstanceTypes = deserializeAws_ec2InstanceTypesList(
+      __getArrayIfSingleItem(output["instanceTypes"]["item"]),
+      context
+    );
   }
   return contents;
 };
@@ -73223,6 +73232,14 @@ const deserializeAws_ec2InstanceTypeOfferingsList = (output: any, context: __Ser
     .filter((e: any) => e != null)
     .map((entry: any) => {
       return deserializeAws_ec2InstanceTypeOffering(entry, context);
+    });
+};
+
+const deserializeAws_ec2InstanceTypesList = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
     });
 };
 

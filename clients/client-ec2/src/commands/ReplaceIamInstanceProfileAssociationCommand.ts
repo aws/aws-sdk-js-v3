@@ -34,7 +34,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * <p>Replaces an IAM instance profile for the specified running instance. You can use
  *             this action to change the IAM instance profile that's associated with an instance
  *             without having to disassociate the existing IAM instance profile first.</p>
- *         <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
+ *          <p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association
  *             ID.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

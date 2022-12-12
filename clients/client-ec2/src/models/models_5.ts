@@ -123,17 +123,17 @@ export interface DescribeVpcEndpointServicePermissionsRequest {
 
   /**
    * <p>One or more filters.</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>principal</code> - The ARN of the principal.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>principal-type</code> - The principal type (<code>All</code> |
    * 						<code>Service</code> | <code>OrganizationUnit</code> | <code>Account</code>
    * 					| <code>User</code> | <code>Role</code>).</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Filters?: Filter[];
@@ -183,40 +183,40 @@ export interface DescribeVpcEndpointServicesRequest {
 
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>owner</code> - The ID or alias of the Amazon Web Services account that owns
    *                     the service.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>service-name</code> - The name of the service.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>service-type</code> - The type of service (<code>Interface</code> |
    *                         <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>supported-ip-address-types</code> - The IP address type (<code>ipv4</code> | <code>ipv6</code>).</p>
    *             </li>
    *             <li>
-   *         		     <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *         	   </li>
+   *             </li>
    *             <li>
-   *         		     <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *         	   </li>
+   *             </li>
    *          </ul>
    */
   Filters?: Filter[];
 
   /**
    * <p>The maximum number of items to return for this request. The request returns a token that you can specify in a subsequent call to get the next set of results.</p>
-   *         <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
+   *          <p>Constraint: If the value is greater than 1,000, we return only 1,000 items.</p>
    */
   MaxResults?: number;
 
@@ -308,7 +308,7 @@ export interface ServiceDetail {
 
   /**
    * <p>The verification state of the VPC endpoint service.</p>
-   *         <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
+   *          <p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
    */
   PrivateDnsNameVerificationState?: DnsNameState | string;
 
@@ -344,17 +344,17 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                     <code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter
+   *                   <code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter
    *                     VPC.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                   <code>accepter-vpc-info.owner-id</code> - The ID of the Amazon Web Services account that owns the
    *                     accepter VPC.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p>
+   *                   <code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -363,7 +363,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the
+   *                   <code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the
    *                     requester's VPC.</p>
    *             </li>
    *             <li>
@@ -377,7 +377,7 @@ export interface DescribeVpcPeeringConnectionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                     <code>status-code</code> - The status of the VPC peering connection
+   *                   <code>status-code</code> - The status of the VPC peering connection
    *                         (<code>pending-acceptance</code> | <code>failed</code> |
    *                         <code>expired</code> | <code>provisioning</code> | <code>active</code> |
    *                         <code>deleting</code> | <code>deleted</code> |
@@ -445,75 +445,75 @@ export interface DescribeVpcPeeringConnectionsResult {
 export interface DescribeVpcsRequest {
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cidr</code> - The primary IPv4 CIDR block of the VPC. The CIDR block you
    *                     specify must exactly match the VPC's CIDR block for information to be returned
    *                     for the VPC. Must contain the slash followed by one or two digits (for example,
    *                     <code>/28</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cidr-block-association.cidr-block</code> - An IPv4 CIDR block associated with the
    *                     VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cidr-block-association.association-id</code> - The association ID for
    *                     an IPv4 CIDR block associated with the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>cidr-block-association.state</code> - The state of an IPv4 CIDR block
    *                     associated with the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>dhcp-options-id</code> - The ID of a set of DHCP options.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
    *                     block associated with the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ipv6-cidr-block-association.ipv6-pool</code> - The ID of the IPv6 address pool from which the IPv6 CIDR block is allocated.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ipv6-cidr-block-association.association-id</code> - The association
    *                     ID for an IPv6 CIDR block associated with the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
    *                     block associated with the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>is-default</code> - Indicates whether the VPC is the default VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>state</code> - The state of the VPC (<code>pending</code> | <code>available</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
    *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpc-id</code> - The ID of the VPC.</p>
    *             </li>
    *          </ul>
@@ -522,7 +522,7 @@ export interface DescribeVpcsRequest {
 
   /**
    * <p>One or more VPC IDs.</p>
-   * 		       <p>Default: Describes all your VPCs.</p>
+   *          <p>Default: Describes all your VPCs.</p>
    */
   VpcIds?: string[];
 
@@ -563,36 +563,36 @@ export interface DescribeVpcsResult {
 export interface DescribeVpnConnectionsRequest {
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway-configuration</code> - The configuration information
    *                     for the customer gateway.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>customer-gateway-id</code> - The ID of a customer gateway associated
    *                     with the VPN connection.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>state</code> - The state of the VPN connection (<code>pending</code> |
    *                         <code>available</code> | <code>deleting</code> |
    *                     <code>deleted</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>option.static-routes-only</code> - Indicates whether the connection has
    *                     static routes only. Used for devices that do not support Border Gateway Protocol
    *                     (BGP).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>route.destination-cidr-block</code> - The destination CIDR block. This
    *                     corresponds to the subnet used in a customer data center.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>bgp-asn</code> - The BGP Autonomous System Number (ASN) associated with
    *                     a BGP device.</p>
    *             </li>
@@ -606,21 +606,21 @@ export interface DescribeVpnConnectionsRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>type</code> - The type of VPN connection. Currently the only supported
    *                     type is <code>ipsec.1</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-connection-id</code> - The ID of the VPN connection.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-gateway-id</code> - The ID of a virtual private gateway associated
    *                     with the VPN connection.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-id</code> - The ID of a transit gateway associated with
    *                     the VPN connection.</p>
    *             </li>
@@ -630,7 +630,7 @@ export interface DescribeVpnConnectionsRequest {
 
   /**
    * <p>One or more VPN connection IDs.</p>
-   *         <p>Default: Describes your VPN connections.</p>
+   *          <p>Default: Describes your VPN connections.</p>
    */
   VpnConnectionIds?: string[];
 
@@ -659,29 +659,29 @@ export interface DescribeVpnConnectionsResult {
 export interface DescribeVpnGatewaysRequest {
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the
    *                     Amazon side of the gateway.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>attachment.state</code> - The current state of the attachment between
    *                     the gateway and the VPC (<code>attaching</code> | <code>attached</code> |
    *                         <code>detaching</code> | <code>detached</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>attachment.vpc-id</code> - The ID of an attached VPC.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>availability-zone</code> - The Availability Zone for the virtual private
    *                     gateway (if applicable).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>state</code> - The state of the virtual private gateway
    *                         (<code>pending</code> | <code>available</code> | <code>deleting</code> |
    *                         <code>deleted</code>).</p>
@@ -696,12 +696,12 @@ export interface DescribeVpnGatewaysRequest {
    *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>type</code> - The type of virtual private gateway. Currently the only
    *                     supported type is <code>ipsec.1</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>vpn-gateway-id</code> - The ID of the virtual private gateway.</p>
    *             </li>
    *          </ul>
@@ -710,7 +710,7 @@ export interface DescribeVpnGatewaysRequest {
 
   /**
    * <p>One or more virtual private gateway IDs.</p>
-   *         <p>Default: Describes all your virtual private gateways.</p>
+   *          <p>Default: Describes all your virtual private gateways.</p>
    */
   VpnGatewayIds?: string[];
 
@@ -796,23 +796,23 @@ export interface DetachNetworkInterfaceRequest {
 
   /**
    * <p>Specifies whether to force a detachment.</p>
-   *         <note>
+   *          <note>
    *             <ul>
    *                <li>
-   *                     <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p>
-   *                 </li>
+   *                   <p>Use the <code>Force</code> parameter only as a last resort to detach a network interface from a failed instance. </p>
+   *                </li>
    *                <li>
-   *                     <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p>
-   *                 </li>
+   *                   <p>If you use the <code>Force</code> parameter to detach a network interface, you might not be able to attach a different network interface to the same index on the instance without first stopping and starting the instance.</p>
+   *                </li>
    *                <li>
-   *                     <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a>
+   *                   <p>If you force the detachment of a network interface, the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">instance metadata</a>
    *                         might not get updated. This means that the attributes associated
    *                         with the detached network interface might still be visible. The
    *                         instance metadata will get updated when you stop and start the
    *                         instance.</p>
-   *                 </li>
+   *                </li>
    *             </ul>
-   *         </note>
+   *          </note>
    */
   Force?: boolean;
 }
@@ -1778,10 +1778,10 @@ export interface EnableEbsEncryptionByDefaultResult {
 
 /**
  * <p>Request to create a launch template for a fast-launch enabled Windows AMI.</p>
- * 		       <note>
- * 			         <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
+ *          <note>
+ *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
  * 				<code>LaunchTemplateId</code>, but not both.</p>
- * 		       </note>
+ *          </note>
  */
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   /**
@@ -2610,7 +2610,6 @@ export interface DataQuery {
 
   /**
    * <p>Metric data aggregations over specified periods of time. The following are the supported Infrastructure Performance statistics:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>
@@ -2751,7 +2750,7 @@ export interface GetCapacityReservationUsageRequest {
 
   /**
    * <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
-   * 		       <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
+   *          <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
    */
   MaxResults?: number;
 
@@ -2804,7 +2803,7 @@ export interface GetCapacityReservationUsageResult {
 
   /**
    * <p>The current state of the Capacity Reservation. A Capacity Reservation can be in one of the following states:</p>
-   * 			      <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>active</code> - The Capacity Reservation is active and the capacity is available for your use.</p>
@@ -2945,7 +2944,7 @@ export interface GetConsoleOutputRequest {
 
   /**
    * <p>When enabled, retrieves the latest console output for the instance.</p>
-   *         <p>Default: disabled (<code>false</code>)</p>
+   *          <p>Default: disabled (<code>false</code>)</p>
    */
   Latest?: boolean;
 }
@@ -4299,15 +4298,15 @@ export interface GetSpotPlacementScoresResult {
 export interface GetSubnetCidrReservationsRequest {
   /**
    * <p>One or more filters.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>reservationType</code> - The type of reservation (<code>prefix</code> |
+   *                <p>
+   *                   <code>reservationType</code> - The type of reservation (<code>prefix</code> |
    *                     <code>explicit</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>subnet-id</code> - The ID of the subnet.</p>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -4434,27 +4433,27 @@ export interface GetTransitGatewayMulticastDomainAssociationsRequest {
 
   /**
    * <p>One or more filters. The possible values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-id</code> - The ID of the resource.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>resource-type</code> - The type of resource. The valid value is: <code>vpc</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>state</code> - The state of the subnet association. Valid values are
    *                         <code>associated</code> | <code>associating</code> |
    *                         <code>disassociated</code> | <code>disassociating</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>subnet-id</code> - The ID of the subnet.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p>
    *             </li>
    *          </ul>
@@ -4679,35 +4678,35 @@ export interface GetTransitGatewayPrefixListReferencesRequest {
 
   /**
    * <p>One or more filters. The possible values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>attachment.resource-id</code> - The ID of the resource for the attachment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>attachment.resource-type</code> - The type of resource for the
    *                     attachment. Valid values are <code>vpc</code> | <code>vpn</code> |
    *                         <code>direct-connect-gateway</code> | <code>peering</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>prefix-list-id</code> - The ID of the prefix list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p>
    *             </li>
    *          </ul>
@@ -5588,10 +5587,10 @@ export interface ImportKeyPairResult {
    * <ul>
    *             <li>
    *                <p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC 4716.</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   KeyFingerprint?: string;
@@ -5986,9 +5985,9 @@ export interface ModifyCapacityReservationRequest {
    * <p>The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity
    * 			is released and you can no longer launch instances into it. The Capacity Reservation's state changes to
    * 				<code>expired</code> when it reaches its end date and time.</p>
-   * 		       <p>The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
+   *          <p>The Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify
    * 			5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.</p>
-   * 		       <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
+   *          <p>You must provide an <code>EndDate</code> value if <code>EndDateType</code> is
    * 				<code>limited</code>. Omit <code>EndDate</code> if <code>EndDateType</code> is
    * 				<code>unlimited</code>.</p>
    */
@@ -5997,7 +5996,7 @@ export interface ModifyCapacityReservationRequest {
   /**
    * <p>Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end
    * 			types:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>unlimited</code> - The Capacity Reservation remains active until you explicitly cancel it. Do not
@@ -6056,10 +6055,10 @@ export interface ModifyCapacityReservationFleetRequest {
    * <p>The date and time at which the Capacity Reservation Fleet expires. When the Capacity Reservation
    * 			Fleet expires, its state changes to <code>expired</code> and all of the Capacity Reservations in the
    * 			Fleet expire.</p>
-   * 		       <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you
+   *          <p>The Capacity Reservation Fleet expires within an hour after the specified time. For example, if you
    * 			specify <code>5/31/2019</code>, <code>13:30:55</code>, the Capacity Reservation Fleet is guaranteed
    * 			to expire between <code>13:30:55</code> and <code>14:30:55</code> on <code>5/31/2019</code>.</p>
-   * 		       <p>You can't specify <b>EndDate</b> and <b>
+   *          <p>You can't specify <b>EndDate</b> and <b>
    * 			RemoveEndDate</b> in the same request.</p>
    */
   EndDate?: Date;
@@ -6073,7 +6072,7 @@ export interface ModifyCapacityReservationFleetRequest {
    * <p>Indicates whether to remove the end date from the Capacity Reservation Fleet. If you remove the
    * 			end date, the Capacity Reservation Fleet does not expire and it remains active until you explicitly
    * 			cancel it using the <b>CancelCapacityReservationFleet</b> action.</p>
-   * 		       <p>You can't specify <b>RemoveEndDate</b> and <b>
+   *          <p>You can't specify <b>RemoveEndDate</b> and <b>
    * 			EndDate</b> in the same request.</p>
    */
   RemoveEndDate?: boolean;
@@ -6118,9 +6117,9 @@ export interface ModifyClientVpnEndpointRequest {
 
   /**
    * <p>Information about the client connection logging options.</p>
-   * 		       <p>If you enable client connection logging, data about client connections is sent to a
+   *          <p>If you enable client connection logging, data about client connections is sent to a
    * 			Cloudwatch Logs log stream. The following information is logged:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>Client connection requests</p>
    *             </li>
@@ -6145,9 +6144,9 @@ export interface ModifyClientVpnEndpointRequest {
 
   /**
    * <p>The port number to assign to the Client VPN endpoint for TCP and UDP traffic.</p>
-   * 	        <p>Valid Values: <code>443</code> | <code>1194</code>
+   *          <p>Valid Values: <code>443</code> | <code>1194</code>
    *          </p>
-   * 	        <p>Default Value: <code>443</code>
+   *          <p>Default Value: <code>443</code>
    *          </p>
    */
   VpnPort?: number;
@@ -6159,7 +6158,7 @@ export interface ModifyClientVpnEndpointRequest {
 
   /**
    * <p>Indicates whether the VPN is split-tunnel.</p>
-   *         <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
+   *          <p>For information about split-tunnel VPN endpoints, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/split-tunnel-vpn.html">Split-tunnel Client VPN endpoint</a> in the
    *         	<i>Client VPN Administrator Guide</i>.</p>
    */
   SplitTunnel?: boolean;
@@ -6191,9 +6190,9 @@ export interface ModifyClientVpnEndpointRequest {
 
   /**
    * <p>The maximum VPN session duration time in hours.</p>
-   * 		       <p>Valid values: <code>8 | 10 | 12 | 24</code>
+   *          <p>Valid values: <code>8 | 10 | 12 | 24</code>
    *          </p>
-   * 		       <p>Default value: <code>24</code>
+   *          <p>Default value: <code>24</code>
    *          </p>
    */
   SessionTimeoutHours?: number;
@@ -6227,7 +6226,7 @@ export interface ModifyDefaultCreditSpecificationRequest {
 
   /**
    * <p>The credit option for CPU usage of the instance family.</p>
-   *         <p>Valid Values: <code>standard</code> | <code>unlimited</code>
+   *          <p>Valid Values: <code>standard</code> | <code>unlimited</code>
    *          </p>
    */
   CpuCredits: string | undefined;
@@ -6442,8 +6441,7 @@ export interface ModifyHostsRequest {
   /**
    * <p>Specifies the instance type to be supported by the Dedicated Host. Specify this
    *             parameter to modify a Dedicated Host to support only a specific instance type.</p>
-   *
-   *         <p>If you want to modify a Dedicated Host to support multiple instance types in its
+   *          <p>If you want to modify a Dedicated Host to support multiple instance types in its
    *             current instance family, omit this parameter and specify <b>InstanceFamily</b> instead. You cannot specify <b>InstanceType</b> and <b>InstanceFamily</b> in the
    *             same request.</p>
    */
@@ -6453,8 +6451,7 @@ export interface ModifyHostsRequest {
    * <p>Specifies the instance family to be supported by the Dedicated Host. Specify this
    *             parameter to modify a Dedicated Host to support multiple instance types within its
    *             current instance family.</p>
-   *
-   *         <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
+   *          <p>If you want to modify a Dedicated Host to support a specific instance type only, omit
    *             this parameter and specify <b>InstanceType</b> instead. You
    *             cannot specify <b>InstanceFamily</b> and <b>InstanceType</b> in the same request.</p>
    */
@@ -6674,7 +6671,7 @@ export interface ModifyInstanceAttributeRequest {
 
   /**
    * <p>The name of the attribute to modify.</p>
-   *         <important>
+   *          <important>
    *             <p>You can modify the following attributes only: <code>disableApiTermination</code> |
    *                     <code>instanceType</code> | <code>kernel</code> | <code>ramdisk</code> |
    *                     <code>instanceInitiatedShutdownBehavior</code> | <code>blockDeviceMapping</code>
@@ -6683,7 +6680,7 @@ export interface ModifyInstanceAttributeRequest {
    *                     <code>enaSupport</code> | <code>nvmeSupport</code> | <code>disableApiStop</code>
    *                 | <code>enclaveOptions</code>
    *             </p>
-   *         </important>
+   *          </important>
    */
   Attribute?: InstanceAttributeName | string;
 
@@ -6692,7 +6689,7 @@ export interface ModifyInstanceAttributeRequest {
    *             attached. The volume must be owned by the caller. If no value is specified for
    *                 <code>DeleteOnTermination</code>, the default is <code>true</code> and the volume is
    *             deleted when the instance is terminated.</p>
-   *         <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
+   *          <p>To add instance store volumes to an Amazon EBS-backed instance, you must add them when
    *             you launch the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html#Using_OverridingAMIBDM">Update the block device mapping when launching an instance</a> in the
    *                 <i>Amazon EC2 User Guide</i>.</p>
    */
@@ -6723,7 +6720,7 @@ export interface ModifyInstanceAttributeRequest {
   /**
    * <p>Set to <code>true</code> to enable enhanced networking with ENA for the
    *             instance.</p>
-   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
+   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
    *             instance can make it unreachable.</p>
    */
   EnaSupport?: AttributeBooleanValue;
@@ -6769,9 +6766,9 @@ export interface ModifyInstanceAttributeRequest {
   /**
    * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
    *             Function interface for the instance.</p>
-   *         <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
+   *          <p>There is no way to disable enhanced networking with the Intel 82599 Virtual Function
    *             interface at this time.</p>
-   *         <p>This option is supported only for HVM instances. Specifying this option with a PV
+   *          <p>This option is supported only for HVM instances. Specifying this option with a PV
    *             instance can make it unreachable.</p>
    */
   SriovNetSupport?: AttributeValue;
@@ -6793,7 +6790,7 @@ export interface ModifyInstanceAttributeRequest {
    * <p>Indicates whether an instance is enabled for stop protection. For more information,
    *             see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Stop
    *                 Protection</a>.</p>
-   *         <p></p>
+   *          <p></p>
    */
   DisableApiStop?: AttributeBooleanValue;
 }
@@ -6802,7 +6799,7 @@ export interface ModifyInstanceAttributeRequest {
  * <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter
  * 			at a time. If you specify <code>CapacityReservationPreference</code> and
  * 			<code>CapacityReservationTarget</code>, the request fails.</p>
- * 			      <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
+ *          <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance
  * 			to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has
  * 			matching attributes (instance type, platform, Availability Zone). Use the
  * 			<code>CapacityReservationTarget</code> parameter to explicitly target a specific
@@ -6811,7 +6808,7 @@ export interface ModifyInstanceAttributeRequest {
 export interface CapacityReservationSpecification {
   /**
    * <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes

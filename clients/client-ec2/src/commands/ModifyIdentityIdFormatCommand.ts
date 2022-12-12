@@ -39,7 +39,7 @@ export interface ModifyIdentityIdFormatCommandOutput extends __MetadataBearer {}
  *                 <code>security-group</code> | <code>subnet</code> |
  *                 <code>subnet-cidr-block-association</code> | <code>vpc</code> |
  *         <code>vpc-cidr-block-association</code> | <code>vpc-endpoint</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>. </p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/resource-ids.html">Resource IDs</a> in the
  *                 <i>Amazon Elastic Compute Cloud User Guide</i>. </p>
  *          <p>This setting applies to the principal specified in the request; it does not apply to the
  *       principal that makes the request. </p>

@@ -31,7 +31,6 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
 /**
  * <p>[VPC only] Removes the specified outbound (egress) rules from a security group for EC2-VPC.
  *        This action does not apply to security groups for use in EC2-Classic.</p>
- *
  *          <p>You can specify rules using either rule IDs or security group rule properties. If you use
  *          rule properties, the values that you specify (for example, ports) must match the existing rule's
  *          values exactly. Each rule has a protocol, from and to ports, and destination (CIDR range,
@@ -42,7 +41,6 @@ export interface RevokeSecurityGroupEgressCommandOutput extends RevokeSecurityGr
  *          <p>[Default VPC] If the values you specify do not match the existing rule's values, no error is
  *          returned, and the output describes the security group rules that were not revoked.</p>
  *          <p>Amazon Web Services recommends that you describe the security group to verify that the rules were removed.</p>
- *
  *          <p>Rule changes are propagated to instances within the security group as quickly as possible. However,
  *          a small delay might occur.</p>
  * @example

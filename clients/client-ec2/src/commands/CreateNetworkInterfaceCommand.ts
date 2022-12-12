@@ -30,10 +30,10 @@ export interface CreateNetworkInterfaceCommandOutput extends CreateNetworkInterf
 
 /**
  * <p>Creates a network interface in the specified subnet.</p>
- *         <p>The number of IP addresses you can assign to a network interface varies by instance
+ *          <p>The number of IP addresses you can assign to a network interface varies by instance
  *             type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per ENI Per
  *                 Instance Type</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
- *         <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a>
+ *          <p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic network interfaces</a>
  *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

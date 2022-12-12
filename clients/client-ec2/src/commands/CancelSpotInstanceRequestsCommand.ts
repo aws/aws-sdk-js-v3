@@ -30,10 +30,10 @@ export interface CancelSpotInstanceRequestsCommandOutput extends CancelSpotInsta
 
 /**
  * <p>Cancels one or more Spot Instance requests.</p>
- *         <important>
+ *          <important>
  *             <p>Canceling a Spot Instance request does not terminate running Spot Instances
  *                 associated with the request.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

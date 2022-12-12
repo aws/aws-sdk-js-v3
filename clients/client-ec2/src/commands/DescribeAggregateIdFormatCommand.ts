@@ -32,7 +32,6 @@ export interface DescribeAggregateIdFormatCommandOutput extends DescribeAggregat
  * <p>Describes the longer ID format settings for all resource types in a specific
  *          Region. This request is useful for performing a quick audit to determine whether a
  *          specific Region is fully opted in for longer IDs (17-character IDs).</p>
- *
  *          <p>This request only returns information about resource types that support longer IDs.</p>
  *          <p>The following resource types support longer IDs: <code>bundle</code> |
  *         <code>conversion-task</code> | <code>customer-gateway</code> | <code>dhcp-options</code> |

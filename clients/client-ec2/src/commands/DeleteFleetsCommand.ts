@@ -50,7 +50,6 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *                <code>instant</code> fleets.</p>
  *             </li>
  *          </ul>
- *
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
  *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example

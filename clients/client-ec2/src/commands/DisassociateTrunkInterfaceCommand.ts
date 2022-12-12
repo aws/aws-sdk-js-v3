@@ -32,8 +32,8 @@ export interface DisassociateTrunkInterfaceCommandOutput extends DisassociateTru
  * <note>
  *             <p>This API action is currently in <b>limited preview only</b>.
  *                 If you are interested in using this feature, contact your account manager.</p>
- *         </note>
- *         <p>Removes an association between a branch network interface with a trunk network interface.</p>
+ *          </note>
+ *          <p>Removes an association between a branch network interface with a trunk network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

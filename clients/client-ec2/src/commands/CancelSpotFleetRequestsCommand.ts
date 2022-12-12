@@ -30,7 +30,7 @@ export interface CancelSpotFleetRequestsCommandOutput extends CancelSpotFleetReq
 
 /**
  * <p>Cancels the specified Spot Fleet requests.</p>
- *         <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
+ *          <p>After you cancel a Spot Fleet request, the Spot Fleet launches no new Spot Instances.
  *             You must specify whether the Spot Fleet should also terminate its Spot Instances. If you
  *             terminate the instances, the Spot Fleet request enters the
  *                 <code>cancelled_terminating</code> state. Otherwise, the Spot Fleet request enters

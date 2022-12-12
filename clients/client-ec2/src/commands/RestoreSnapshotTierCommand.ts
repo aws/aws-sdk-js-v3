@@ -31,7 +31,6 @@ export interface RestoreSnapshotTierCommandOutput extends RestoreSnapshotTierRes
 /**
  * <p>Restores an archived Amazon EBS snapshot for use temporarily or permanently, or modifies the restore
  *       period or restore type for a snapshot that was previously temporarily restored.</p>
- *
  *          <p>For more information see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#restore-archived-snapshot">
  *       Restore an archived snapshot</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/working-with-snapshot-archiving.html#modify-temp-restore-period">
  *         modify the restore period or restore type for a temporarily restored snapshot</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
