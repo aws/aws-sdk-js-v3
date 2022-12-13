@@ -36,6 +36,20 @@ import {
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
+export interface DescribeDBProxyEndpointsResponse {
+  /**
+   * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
+   */
+  DBProxyEndpoints?: DBProxyEndpoint[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+}
+
 export interface DescribeDBProxyTargetGroupsRequest {
   /**
    * <p>The identifier of the <code>DBProxy</code> associated with the target group.</p>
@@ -8999,6 +9013,13 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyEndpointsResponseFilterSensitiveLog = (obj: DescribeDBProxyEndpointsResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

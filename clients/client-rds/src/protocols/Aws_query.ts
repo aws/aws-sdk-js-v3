@@ -681,7 +681,6 @@ import {
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
   DescribeDBProxyEndpointsRequest,
-  DescribeDBProxyEndpointsResponse,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -786,6 +785,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxyEndpointsResponse,
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse,
   DescribeDBProxyTargetsRequest,
@@ -17156,6 +17156,9 @@ const serializeAws_queryUserAuthConfig = (input: UserAuthConfig, context: __Serd
   if (input.IAMAuth != null) {
     entries["IAMAuth"] = input.IAMAuth;
   }
+  if (input.ClientPasswordAuthType != null) {
+    entries["ClientPasswordAuthType"] = input.ClientPasswordAuthType;
+  }
   return entries;
 };
 
@@ -25157,6 +25160,7 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
     AuthScheme: undefined,
     SecretArn: undefined,
     IAMAuth: undefined,
+    ClientPasswordAuthType: undefined,
   };
   if (output["Description"] !== undefined) {
     contents.Description = __expectString(output["Description"]);
@@ -25172,6 +25176,9 @@ const deserializeAws_queryUserAuthConfigInfo = (output: any, context: __SerdeCon
   }
   if (output["IAMAuth"] !== undefined) {
     contents.IAMAuth = __expectString(output["IAMAuth"]);
+  }
+  if (output["ClientPasswordAuthType"] !== undefined) {
+    contents.ClientPasswordAuthType = __expectString(output["ClientPasswordAuthType"]);
   }
   return contents;
 };

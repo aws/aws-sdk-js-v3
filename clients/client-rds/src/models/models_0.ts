@@ -8469,6 +8469,13 @@ export enum AuthScheme {
   SECRETS = "SECRETS",
 }
 
+export enum ClientPasswordAuthType {
+  MYSQL_NATIVE_PASSWORD = "MYSQL_NATIVE_PASSWORD",
+  POSTGRES_MD5 = "POSTGRES_MD5",
+  POSTGRES_SCRAM_SHA_256 = "POSTGRES_SCRAM_SHA_256",
+  SQL_SERVER_AUTHENTICATION = "SQL_SERVER_AUTHENTICATION",
+}
+
 export enum IAMAuthMode {
   DISABLED = "DISABLED",
   ENABLED = "ENABLED",
@@ -8505,6 +8512,11 @@ export interface UserAuthConfig {
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
   IAMAuth?: IAMAuthMode | string;
+
+  /**
+   * <p>The type of authentication the proxy uses for connections from clients.</p>
+   */
+  ClientPasswordAuthType?: ClientPasswordAuthType | string;
 }
 
 export enum EngineFamily {
@@ -8606,6 +8618,11 @@ export interface UserAuthConfigInfo {
    *         The <code>ENABLED</code> value is valid only for proxies with RDS for Microsoft SQL Server.</p>
    */
   IAMAuth?: IAMAuthMode | string;
+
+  /**
+   * <p>The type of authentication the proxy uses for connections from clients.</p>
+   */
+  ClientPasswordAuthType?: ClientPasswordAuthType | string;
 }
 
 export enum DBProxyStatus {
@@ -12330,20 +12347,6 @@ export interface DescribeDBProxyEndpointsRequest {
   MaxRecords?: number;
 }
 
-export interface DescribeDBProxyEndpointsResponse {
-  /**
-   * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
-   */
-  DBProxyEndpoints?: DBProxyEndpoint[];
-
-  /**
-   * <p>An optional pagination token provided by a previous request.
-   *         If this parameter is specified, the response includes only records beyond the marker,
-   *         up to the value specified by <code>MaxRecords</code>.</p>
-   */
-  Marker?: string;
-}
-
 /**
  * @internal
  */
@@ -13660,12 +13663,5 @@ export const DescribeDBProxiesResponseFilterSensitiveLog = (obj: DescribeDBProxi
  * @internal
  */
 export const DescribeDBProxyEndpointsRequestFilterSensitiveLog = (obj: DescribeDBProxyEndpointsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeDBProxyEndpointsResponseFilterSensitiveLog = (obj: DescribeDBProxyEndpointsResponse): any => ({
   ...obj,
 });
