@@ -42,13 +42,6 @@ describe("RegionConfig", () => {
     it("throw if region is not supplied", () => {
       expect(() => resolveRegionConfig({ useFipsEndpoint: mockUseFipsEndpoint })).toThrow();
     });
-
-    it("returns false when useFipsEndpoint is not defined", async () => {
-      const useFipsEndpoint = await resolveRegionConfig({
-        region: () => Promise.resolve(mockRegion),
-      }).useFipsEndpoint();
-      expect(useFipsEndpoint).toStrictEqual(false);
-    });
   });
 
   describe("useFipsEndpoint", () => {
@@ -64,6 +57,14 @@ describe("RegionConfig", () => {
       expect(isFipsRegion).toHaveBeenCalledTimes(1);
       expect(isFipsRegion).toHaveBeenCalledWith(mockRegion);
       expect(mockRegionProvider).toHaveBeenCalledTimes(1);
+    });
+
+    it("can be undefined", async () => {
+      const resolvedRegionConfig = resolveRegionConfig({
+        region: mockRegionProvider,
+      });
+
+      expect(await resolvedRegionConfig.useFipsEndpoint()).toBe(false);
     });
 
     it("returns Provider which returns true for FIPS endpoints", async () => {

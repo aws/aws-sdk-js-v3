@@ -46,6 +46,10 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
   useDualstackEndpoint: Provider<boolean>;
 }
 
+/**
+ * @deprecated endpoints rulesets use @aws-sdk/middleware-endpoint resolveEndpointConfig.
+ * All generated clients should migrate to Endpoints 2.0 endpointRuleSet traits.
+ */
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig => {
