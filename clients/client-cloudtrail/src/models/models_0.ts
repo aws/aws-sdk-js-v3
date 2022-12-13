@@ -1310,6 +1310,52 @@ export class InsufficientEncryptionPolicyException extends __BaseException {
 }
 
 /**
+ * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event
+ *          selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and
+ *          data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum
+ *          of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
+ *          <p>You can:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Specify a valid number of event selectors (1 to 5) for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify a valid number of data resources (1 to 250) for an event selector.
+ *                The limit of number of resources on an individual event selector is configurable up to 250.
+ *                However, this upper limit is allowed only if the total number of data resources does not
+ *                exceed 250 across all event selectors for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p>
+ *             </li>
+ *             <li>
+ *                <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
+ *                parameter with a value of <code>read-only</code> is not valid.</p>
+ *             </li>
+ *          </ul>
+ */
+export class InvalidEventSelectorsException extends __BaseException {
+  readonly name: "InvalidEventSelectorsException" = "InvalidEventSelectorsException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   */
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventSelectorsException, __BaseException>) {
+    super({
+      name: "InvalidEventSelectorsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventSelectorsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>This exception is thrown when the KMS key ARN is not valid.</p>
  */
 export class InvalidKmsKeyIdException extends __BaseException {
@@ -2279,7 +2325,6 @@ export interface DescribeTrailsRequest {
    *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
-   *
    *          <p>If an empty list is specified, information for the trail in the current region is returned.</p>
    *          <ul>
    *             <li>
@@ -2672,7 +2717,6 @@ export interface DataResource {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>The following resource types are also available through <i>advanced</i> event selectors.
    *          Basic event selector resource types are valid in advanced event selectors, but
    *          advanced event selector resource types are not valid in basic event selectors.
@@ -2793,7 +2837,6 @@ export interface EventSelector {
    * <p>Specify if you want your event selector to include management events for your trail.</p>
    *          <p>
    *          For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Management Events</a> in the <i>CloudTrail User Guide</i>.</p>
-   *
    *          <p>By default, the value is <code>true</code>.</p>
    *          <p>The first copy of management events is free. You are charged for additional copies of management
    *          events that you are logging on any subsequent trail in the same region. For more information about
@@ -3261,7 +3304,7 @@ export interface GetTrailStatusRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are requesting status. To get the status of a
    *          shadow trail (a replication of the trail in another region), you must specify its ARN. The following is the format of a trail ARN.</p>
-   *           <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -4205,52 +4248,6 @@ export interface LookupEventsResponse {
   NextToken?: string;
 }
 
-/**
- * <p>This exception is thrown when the <code>PutEventSelectors</code> operation is called with a number of event
- *          selectors, advanced event selectors, or data resources that is not valid. The combination of event selectors or advanced event selectors and
- *          data resources is not valid. A trail can have up to 5 event selectors. If a trail uses advanced event selectors, a maximum
- *          of 500 total values for all conditions in all advanced event selectors is allowed. A trail is limited to 250 data resources. These data resources can be distributed across event selectors, but the overall total cannot exceed 250.</p>
- *          <p>You can:</p>
- *          <ul>
- *             <li>
- *                <p>Specify a valid number of event selectors (1 to 5) for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid number of data resources (1 to 250) for an event selector.
- *                The limit of number of resources on an individual event selector is configurable up to 250.
- *                However, this upper limit is allowed only if the total number of data resources does not
- *                exceed 250 across all event selectors for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify up to 500 values for all conditions in all advanced event selectors for a trail.</p>
- *             </li>
- *             <li>
- *                <p>Specify a valid value for a parameter. For example, specifying the <code>ReadWriteType</code>
- *                parameter with a value of <code>read-only</code> is not valid.</p>
- *             </li>
- *          </ul>
- */
-export class InvalidEventSelectorsException extends __BaseException {
-  readonly name: "InvalidEventSelectorsException" = "InvalidEventSelectorsException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventSelectorsException, __BaseException>) {
-    super({
-      name: "InvalidEventSelectorsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventSelectorsException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
 export interface PutEventSelectorsRequest {
   /**
    * <p>Specifies the name of the trail or trail ARN. If you specify a trail name, the
@@ -4690,7 +4687,7 @@ export interface StartLoggingRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail logs Amazon Web Services API calls.
    *          The following is the format of a trail ARN.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -4857,7 +4854,7 @@ export interface StopLoggingRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which CloudTrail will stop logging Amazon Web Services
    *          API calls. The following is the format of a trail ARN.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -5032,7 +5029,7 @@ export interface UpdateTrailRequest {
    *             </li>
    *          </ul>
    *          <p>If <code>Name</code> is a trail ARN, it must be in the following format.</p>
-   *             <p>
+   *          <p>
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    */
@@ -5195,7 +5192,6 @@ export interface UpdateTrailResponse {
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the following format.</p>
-   *
    *          <p>
    *             <code>arn:aws:kms:us-east-2:123456789012:key/12345678-1234-1234-1234-123456789012</code>
    *          </p>

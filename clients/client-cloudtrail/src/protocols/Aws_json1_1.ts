@@ -947,6 +947,9 @@ const deserializeAws_json1_1CreateEventDataStoreCommandError = async (
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
@@ -1102,6 +1105,9 @@ const deserializeAws_json1_1CreateTrailCommandError = async (
     case "S3BucketDoesNotExistException":
     case "com.amazonaws.cloudtrail#S3BucketDoesNotExistException":
       throw await deserializeAws_json1_1S3BucketDoesNotExistExceptionResponse(parsedOutput, context);
+    case "TagsLimitExceededException":
+    case "com.amazonaws.cloudtrail#TagsLimitExceededException":
+      throw await deserializeAws_json1_1TagsLimitExceededExceptionResponse(parsedOutput, context);
     case "TrailAlreadyExistsException":
     case "com.amazonaws.cloudtrail#TrailAlreadyExistsException":
       throw await deserializeAws_json1_1TrailAlreadyExistsExceptionResponse(parsedOutput, context);
@@ -1161,6 +1167,9 @@ const deserializeAws_json1_1DeleteEventDataStoreCommandError = async (
     case "EventDataStoreTerminationProtectedException":
     case "com.amazonaws.cloudtrail#EventDataStoreTerminationProtectedException":
       throw await deserializeAws_json1_1EventDataStoreTerminationProtectedExceptionResponse(parsedOutput, context);
+    case "InactiveEventDataStoreException":
+    case "com.amazonaws.cloudtrail#InactiveEventDataStoreException":
+      throw await deserializeAws_json1_1InactiveEventDataStoreExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -1220,6 +1229,9 @@ const deserializeAws_json1_1DeleteTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.cloudtrail#ConflictException":
       throw await deserializeAws_json1_1ConflictExceptionResponse(parsedOutput, context);
@@ -1577,6 +1589,9 @@ const deserializeAws_json1_1GetEventSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1680,6 +1695,9 @@ const deserializeAws_json1_1GetInsightSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsightNotEnabledException":
     case "com.amazonaws.cloudtrail#InsightNotEnabledException":
       throw await deserializeAws_json1_1InsightNotEnabledExceptionResponse(parsedOutput, context);
@@ -1807,6 +1825,9 @@ const deserializeAws_json1_1GetTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -1857,6 +1878,9 @@ const deserializeAws_json1_1GetTrailStatusCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InvalidTrailNameException":
     case "com.amazonaws.cloudtrail#InvalidTrailNameException":
       throw await deserializeAws_json1_1InvalidTrailNameExceptionResponse(parsedOutput, context);
@@ -2399,6 +2423,9 @@ const deserializeAws_json1_1PutEventSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -2467,6 +2494,9 @@ const deserializeAws_json1_1PutInsightSelectorsCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
@@ -2840,6 +2870,9 @@ const deserializeAws_json1_1StartLoggingCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -3035,6 +3068,9 @@ const deserializeAws_json1_1StopLoggingCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await deserializeAws_json1_1InsufficientDependencyServiceAccessPermissionExceptionResponse(
@@ -3124,6 +3160,9 @@ const deserializeAws_json1_1UpdateEventDataStoreCommandError = async (
     case "InsufficientEncryptionPolicyException":
     case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
       throw await deserializeAws_json1_1InsufficientEncryptionPolicyExceptionResponse(parsedOutput, context);
+    case "InvalidEventSelectorsException":
+    case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
+      throw await deserializeAws_json1_1InvalidEventSelectorsExceptionResponse(parsedOutput, context);
     case "InvalidKmsKeyIdException":
     case "com.amazonaws.cloudtrail#InvalidKmsKeyIdException":
       throw await deserializeAws_json1_1InvalidKmsKeyIdExceptionResponse(parsedOutput, context);
@@ -3192,6 +3231,9 @@ const deserializeAws_json1_1UpdateTrailCommandError = async (
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "CloudTrailARNInvalidException":
+    case "com.amazonaws.cloudtrail#CloudTrailARNInvalidException":
+      throw await deserializeAws_json1_1CloudTrailARNInvalidExceptionResponse(parsedOutput, context);
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await deserializeAws_json1_1CloudTrailAccessNotEnabledExceptionResponse(parsedOutput, context);
