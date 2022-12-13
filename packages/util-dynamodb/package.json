@@ -20,10 +20,10 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "@aws-sdk/client-dynamodb": "*"
   },
   "devDependencies": {
-    "@aws-sdk/client-dynamodb": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

@@ -20,6 +20,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/signature-v4": "*",
     "@aws-sdk/types": "*",
     "@aws-sdk/util-config-provider": "*",
@@ -27,7 +28,6 @@
     "tslib": "^2.3.1"
   },
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",

@@ -20,7 +20,6 @@
   },
   "license": "Apache-2.0",
   "devDependencies": {
-    "@aws-sdk/node-config-provider": "*",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
@@ -31,6 +30,7 @@
   "dependencies": {
     "@aws-sdk/config-resolver": "*",
     "@aws-sdk/endpoint-cache": "*",
+    "@aws-sdk/node-config-provider": "*",
     "@aws-sdk/protocol-http": "*",
     "@aws-sdk/types": "*",
     "tslib": "^2.3.1"
