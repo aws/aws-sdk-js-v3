@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.230.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.229.0...v3.230.0) (2022-12-13)
+
+
+### Features
+
+* **client-cloudtrail:** Merging mainline branch for service model into mainline release branch. There are no new APIs. ([07c2d21](https://github.com/aws/aws-sdk-js-v3/commit/07c2d2132bfcd545bb3c3e7154567df2f22b8460))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail

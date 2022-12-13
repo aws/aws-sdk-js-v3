@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.230.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.229.0...v3.230.0) (2022-12-13)
+
+
+### Features
+
+* **client-rds:** This deployment adds ClientPasswordAuthType field to the Auth structure of the DBProxy. ([1df4e07](https://github.com/aws/aws-sdk-js-v3/commit/1df4e0719fa0cb6d91830a6aeba7eae6fbfb3e83))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 

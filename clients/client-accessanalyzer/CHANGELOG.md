@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.230.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.229.0...v3.230.0) (2022-12-13)
+
+
+### Bug Fixes
+
+* **codegen:** generate idempotencyToken default for queryParams ([#4272](https://github.com/aws/aws-sdk-js-v3/issues/4272)) ([d99a65d](https://github.com/aws/aws-sdk-js-v3/commit/d99a65da19a388a1cf3223620bef30df1912d389))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-accessanalyzer

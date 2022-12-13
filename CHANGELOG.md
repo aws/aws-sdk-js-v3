@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.230.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.229.0...v3.230.0) (2022-12-13)
+
+
+### Bug Fixes
+
+* **aws-client-retry-test:** correct retry delay assertion ([#4274](https://github.com/aws/aws-sdk-js-v3/issues/4274)) ([5bfcda6](https://github.com/aws/aws-sdk-js-v3/commit/5bfcda66ff39e5b37638a8bbd035812324b946e2))
+* **aws-client-retry-test:** use s3 client in case x-ray is not built ([#4276](https://github.com/aws/aws-sdk-js-v3/issues/4276)) ([1fd4179](https://github.com/aws/aws-sdk-js-v3/commit/1fd4179c2ecb0804f28d94c1b1a511cd29119a72))
+* **codegen:** generate idempotencyToken default for queryParams ([#4272](https://github.com/aws/aws-sdk-js-v3/issues/4272)) ([d99a65d](https://github.com/aws/aws-sdk-js-v3/commit/d99a65da19a388a1cf3223620bef30df1912d389))
+
+
+### Features
+
+* **client-cloudtrail:** Merging mainline branch for service model into mainline release branch. There are no new APIs. ([07c2d21](https://github.com/aws/aws-sdk-js-v3/commit/07c2d2132bfcd545bb3c3e7154567df2f22b8460))
+* **client-rds:** This deployment adds ClientPasswordAuthType field to the Auth structure of the DBProxy. ([1df4e07](https://github.com/aws/aws-sdk-js-v3/commit/1df4e0719fa0cb6d91830a6aeba7eae6fbfb3e83))
+* **clients:** update client endpoints as of 2022-12-13 ([b9b3bde](https://github.com/aws/aws-sdk-js-v3/commit/b9b3bde256e177061be0c724e4c1035059779bb0))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 
