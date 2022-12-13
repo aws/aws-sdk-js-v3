@@ -49,7 +49,7 @@ export interface EndpointsResolvedConfig extends Required<EndpointsInputConfig> 
 export const resolveEndpointsConfig = <T>(
   input: T & EndpointsInputConfig & PreviouslyResolved
 ): T & EndpointsResolvedConfig => {
-  const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint!);
+  const useDualstackEndpoint = normalizeProvider(input.useDualstackEndpoint ?? false);
   const { endpoint, useFipsEndpoint, urlParser } = input;
   return {
     ...input,

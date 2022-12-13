@@ -31,6 +31,6 @@ export const resolveCustomEndpointsConfig = <T>(
     tls: input.tls ?? true,
     endpoint: normalizeProvider(typeof endpoint === "string" ? urlParser(endpoint) : endpoint),
     isCustomEndpoint: true,
-    useDualstackEndpoint: normalizeProvider(input.useDualstackEndpoint!),
+    useDualstackEndpoint: normalizeProvider(input.useDualstackEndpoint ?? false),
   };
 };
