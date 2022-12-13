@@ -49,7 +49,10 @@ export const resolveRegionConfig = <T>(input: T & RegionInputConfig & Previously
       if (isFipsRegion(providedRegion)) {
         return true;
       }
-      return typeof useFipsEndpoint === "boolean" ? Promise.resolve(useFipsEndpoint) : useFipsEndpoint!();
+      if (!useFipsEndpoint) {
+        return Promise.resolve(false);
+      }
+      return typeof useFipsEndpoint === "boolean" ? Promise.resolve(useFipsEndpoint) : useFipsEndpoint();
     },
   };
 };
