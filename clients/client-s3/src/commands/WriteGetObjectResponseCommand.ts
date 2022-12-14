@@ -1,6 +1,5 @@
 // smithy-typescript generated code
 import { EndpointParameterInstructions, getEndpointPlugin } from "@aws-sdk/middleware-endpoint";
-import { getWriteGetObjectResponseEndpointPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSerdePlugin } from "@aws-sdk/middleware-serde";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@aws-sdk/protocol-http";
 import { Command as $Command } from "@aws-sdk/smithy-client";
@@ -82,6 +81,7 @@ export class WriteGetObjectResponseCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
@@ -112,7 +112,6 @@ export class WriteGetObjectResponseCommand extends $Command<
     this.middlewareStack.use(
       getEndpointPlugin(configuration, WriteGetObjectResponseCommand.getEndpointParameterInstructions())
     );
-    this.middlewareStack.use(getWriteGetObjectResponseEndpointPlugin(configuration));
 
     const stack = clientStack.concat(this.middlewareStack);
 
