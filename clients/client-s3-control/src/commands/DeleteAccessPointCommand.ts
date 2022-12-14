@@ -71,6 +71,7 @@ export class DeleteAccessPointCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
       AccessPointName: { type: "contextParams", name: "AccessPointName" },
       AccountId: { type: "contextParams", name: "AccountId" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
