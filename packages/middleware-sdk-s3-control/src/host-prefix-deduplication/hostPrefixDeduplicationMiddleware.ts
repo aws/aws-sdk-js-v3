@@ -1,6 +1,6 @@
 import {
-  EndpointV2,
   HandlerExecutionContext,
+  HttpRequest,
   Pluggable,
   RelativeMiddlewareOptions,
   SerializeHandler,
@@ -21,11 +21,9 @@ import { deduplicateHostPrefix } from "./deduplicateHostPrefix";
 export const hostPrefixDeduplicationMiddleware = (): SerializeMiddleware<any, any> => {
   return (next: SerializeHandler<any, any>, context: HandlerExecutionContext): SerializeHandler<any, any> =>
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<any>> => {
-      const endpoint: EndpointV2 | undefined = context.endpointV2;
-      if (endpoint?.url?.hostname) {
-        endpoint.url.hostname = deduplicateHostPrefix(endpoint.url.hostname);
-      } else {
-        throw new Error("Endpoint w/ url.hostname not found in hostPrefixDeduplicationMiddleware.");
+      const httpRequest: HttpRequest = (args.request ?? {}) as HttpRequest;
+      if (httpRequest?.hostname) {
+        httpRequest.hostname = deduplicateHostPrefix(httpRequest.hostname);
       }
       return next(args);
     };
@@ -36,7 +34,7 @@ export const hostPrefixDeduplicationMiddleware = (): SerializeMiddleware<any, an
  */
 export const hostPrefixDeduplicationMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["HOST_PREFIX_DEDUPLICATION", "ENDPOINT_V2", "ENDPOINT"],
-  toMiddleware: "endpointV2Middleware",
+  toMiddleware: "serializerMiddleware",
   relation: "after",
   name: "hostPrefixDeduplicationMiddleware",
   override: true,
@@ -45,8 +43,8 @@ export const hostPrefixDeduplicationMiddlewareOptions: RelativeMiddlewareOptions
 /**
  * @internal
  */
-export const getHostPrefixDeduplicationPlugin = <T>(config?: T): Pluggable<any, any> => ({
+export const getHostPrefixDeduplicationPlugin = <T>(config: T): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {
-    clientStack.add(hostPrefixDeduplicationMiddleware(), hostPrefixDeduplicationMiddlewareOptions);
+    clientStack.addRelativeTo(hostPrefixDeduplicationMiddleware(), hostPrefixDeduplicationMiddlewareOptions);
   },
 });
