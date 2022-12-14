@@ -12,6 +12,7 @@ import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@aws-sdk/middleware-retry";
 import {
+  getHostPrefixDeduplicationPlugin,
   resolveS3ControlConfig,
   S3ControlInputConfig,
   S3ControlResolvedConfig,
@@ -569,6 +570,7 @@ export class S3ControlClient extends __Client<
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getAwsAuthPlugin(this.config));
+    this.middlewareStack.use(getHostPrefixDeduplicationPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

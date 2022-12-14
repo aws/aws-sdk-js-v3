@@ -55,6 +55,11 @@ public class AddS3ControlDependency implements TypeScriptIntegration {
                         .servicePredicate((m, s) -> isS3Control(s))
                         .build(),
                 RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
+                            "HostPrefixDeduplication", HAS_MIDDLEWARE)
+                        .servicePredicate((m, s) -> isS3Control(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
                         .withConventions(
                             AwsDependency.S3_CONTROL_MIDDLEWARE.dependency,
                             "ProcessArnables",
