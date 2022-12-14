@@ -136,7 +136,6 @@ describe("Endpoints from ARN", () => {
       expect(result.request.headers["authorization"]).contains(
         `Credential=${credentials.accessKeyId}/${date}/${region}/s3-object-lambda/aws4_request`
       );
-      expect(result.request.headers["transfer-encoding"]).to.equal("chunked");
     });
   });
 });
