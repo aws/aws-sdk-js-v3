@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Features
+
+* **client-networkmanager:** Appliance Mode support for AWS Cloud WAN. ([fe2b86e](https://github.com/aws/aws-sdk-js-v3/commit/fe2b86ebfb693adf9ae4053935ec733b18187b37))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-networkmanager

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Features
+
+* **client-cloudwatch:** Adding support for Metrics Insights Alarms ([4aa9511](https://github.com/aws/aws-sdk-js-v3/commit/4aa9511aae3aa7b31019ec961d0e28cb824f82f2))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

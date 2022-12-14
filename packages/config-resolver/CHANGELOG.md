@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **config-resolver:** replace non-null assertions ([#4279](https://github.com/aws/aws-sdk-js-v3/issues/4279)) ([e5e753c](https://github.com/aws/aws-sdk-js-v3/commit/e5e753c1468d344aa8b1b21f07c693712a6fb829))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/config-resolver

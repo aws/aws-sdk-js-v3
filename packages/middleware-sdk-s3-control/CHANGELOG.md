@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **client-s3-control:** add prefix dedupe middleware ([#4286](https://github.com/aws/aws-sdk-js-v3/issues/4286)) ([89e0a6f](https://github.com/aws/aws-sdk-js-v3/commit/89e0a6fc93c269088b093ff481fd180b9ac0e5cb))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3-control

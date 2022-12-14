@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Features
+
+* **client-redshift-data:** This release adds a new --client-token field to ExecuteStatement and BatchExecuteStatement operations. Customers can now run queries with the additional client token parameter to ensures idempotency. ([e54654e](https://github.com/aws/aws-sdk-js-v3/commit/e54654eb660d010eacc7ee8e8054d2e7e5e76995))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-redshift-data

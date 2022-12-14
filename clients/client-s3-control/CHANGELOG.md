@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **client-s3-control:** add prefix dedupe middleware ([#4286](https://github.com/aws/aws-sdk-js-v3/issues/4286)) ([89e0a6f](https://github.com/aws/aws-sdk-js-v3/commit/89e0a6fc93c269088b093ff481fd180b9ac0e5cb))
+* **client-s3-control:** add staticContextParams in endpoint param instructions ([#4284](https://github.com/aws/aws-sdk-js-v3/issues/4284)) ([0cba099](https://github.com/aws/aws-sdk-js-v3/commit/0cba099c866cfb560140d9a520d554b0ed88a2ad))
+
+
+
+
+
 # [3.229.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.228.0...v3.229.0) (2022-12-12)
 
 **Note:** Version bump only for package @aws-sdk/client-s3-control

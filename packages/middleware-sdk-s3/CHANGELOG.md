@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **client-s3:** add staticContextParams in endpoint param instructions ([#4285](https://github.com/aws/aws-sdk-js-v3/issues/4285)) ([d229edd](https://github.com/aws/aws-sdk-js-v3/commit/d229edde5cfc553fd27a731ae8fffc09dd5882a6))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/middleware-sdk-s3

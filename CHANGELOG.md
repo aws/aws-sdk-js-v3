@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
+
+
+### Bug Fixes
+
+* **client-s3-control:** add prefix dedupe middleware ([#4286](https://github.com/aws/aws-sdk-js-v3/issues/4286)) ([89e0a6f](https://github.com/aws/aws-sdk-js-v3/commit/89e0a6fc93c269088b093ff481fd180b9ac0e5cb))
+* **client-s3-control:** add staticContextParams in endpoint param instructions ([#4284](https://github.com/aws/aws-sdk-js-v3/issues/4284)) ([0cba099](https://github.com/aws/aws-sdk-js-v3/commit/0cba099c866cfb560140d9a520d554b0ed88a2ad))
+* **client-s3:** add staticContextParams in endpoint param instructions ([#4285](https://github.com/aws/aws-sdk-js-v3/issues/4285)) ([d229edd](https://github.com/aws/aws-sdk-js-v3/commit/d229edde5cfc553fd27a731ae8fffc09dd5882a6))
+* **config-resolver:** replace non-null assertions ([#4279](https://github.com/aws/aws-sdk-js-v3/issues/4279)) ([e5e753c](https://github.com/aws/aws-sdk-js-v3/commit/e5e753c1468d344aa8b1b21f07c693712a6fb829))
+* **private:** error printout and broken reference to fail ([#4287](https://github.com/aws/aws-sdk-js-v3/issues/4287)) ([5582ee8](https://github.com/aws/aws-sdk-js-v3/commit/5582ee81afba728698f6fd81fbb6bd63bf707ed2))
+
+
+### Features
+
+* **client-cloudwatch:** Adding support for Metrics Insights Alarms ([4aa9511](https://github.com/aws/aws-sdk-js-v3/commit/4aa9511aae3aa7b31019ec961d0e28cb824f82f2))
+* **client-cost-explorer:** This release supports percentage-based thresholds on Cost Anomaly Detection alert subscriptions. ([42b1479](https://github.com/aws/aws-sdk-js-v3/commit/42b147969634dbe114795f6db653b0bbc16cfe97))
+* **client-networkmanager:** Appliance Mode support for AWS Cloud WAN. ([fe2b86e](https://github.com/aws/aws-sdk-js-v3/commit/fe2b86ebfb693adf9ae4053935ec733b18187b37))
+* **client-redshift-data:** This release adds a new --client-token field to ExecuteStatement and BatchExecuteStatement operations. Customers can now run queries with the additional client token parameter to ensures idempotency. ([e54654e](https://github.com/aws/aws-sdk-js-v3/commit/e54654eb660d010eacc7ee8e8054d2e7e5e76995))
+* **clients:** update client endpoints as of 2022-12-14 ([e7a55a0](https://github.com/aws/aws-sdk-js-v3/commit/e7a55a0c6c9847bc119778e5a0c72b4c29458835))
+
+
+
+
+
 # [3.230.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.229.0...v3.230.0) (2022-12-13)
 
 
