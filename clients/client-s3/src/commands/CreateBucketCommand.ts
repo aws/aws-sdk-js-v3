@@ -202,6 +202,7 @@ export class CreateBucketCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      DisableAccessPoints: { type: "staticContextParams", value: true },
       Bucket: { type: "contextParams", name: "Bucket" },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },

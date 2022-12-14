@@ -82,6 +82,7 @@ export class WriteGetObjectResponseCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      UseObjectLambdaEndpoint: { type: "staticContextParams", value: true },
       ForcePathStyle: { type: "clientContextParams", name: "forcePathStyle" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       DisableMultiRegionAccessPoints: { type: "clientContextParams", name: "disableMultiregionAccessPoints" },
