@@ -79,6 +79,7 @@ export class ListAccessPointsCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
       AccountId: { type: "contextParams", name: "AccountId" },
       Bucket: { type: "contextParams", name: "Bucket" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },

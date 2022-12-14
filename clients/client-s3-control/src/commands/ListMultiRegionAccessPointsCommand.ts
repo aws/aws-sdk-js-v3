@@ -85,6 +85,7 @@ export class ListMultiRegionAccessPointsCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      RequiresAccountId: { type: "staticContextParams", value: true },
       AccountId: { type: "contextParams", name: "AccountId" },
       UseArnRegion: { type: "clientContextParams", name: "useArnRegion" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
