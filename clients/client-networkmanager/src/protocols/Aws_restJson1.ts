@@ -8230,6 +8230,7 @@ const serializeAws_restJson1TagList = (input: Tag[], context: __SerdeContext): a
 
 const serializeAws_restJson1VpcOptions = (input: VpcOptions, context: __SerdeContext): any => {
   return {
+    ...(input.ApplianceModeSupport != null && { ApplianceModeSupport: input.ApplianceModeSupport }),
     ...(input.Ipv6Support != null && { Ipv6Support: input.Ipv6Support }),
   };
 };
@@ -9429,6 +9430,7 @@ const deserializeAws_restJson1VpcAttachment = (output: any, context: __SerdeCont
 
 const deserializeAws_restJson1VpcOptions = (output: any, context: __SerdeContext): VpcOptions => {
   return {
+    ApplianceModeSupport: __expectBoolean(output.ApplianceModeSupport),
     Ipv6Support: __expectBoolean(output.Ipv6Support),
   } as any;
 };

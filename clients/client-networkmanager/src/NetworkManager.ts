@@ -2723,7 +2723,7 @@ export class NetworkManager extends NetworkManagerClient {
   }
 
   /**
-   * <p>Enables for the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
+   * <p>Enables the Network Manager service for an Amazon Web Services Organization. This can only be called by a management account within the organization. </p>
    */
   public startOrganizationServiceAccessUpdate(
     args: StartOrganizationServiceAccessUpdateCommandInput,

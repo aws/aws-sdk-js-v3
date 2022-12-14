@@ -205,8 +205,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-west-2",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -265,8 +265,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-west-2",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -325,8 +325,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-west-2",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -351,8 +351,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "networkmanager",
                       signingRegion: "us-west-2",
+                      signingName: "networkmanager",
                     },
                   ],
                 },
@@ -448,8 +448,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-gov-west-1",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -508,8 +508,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-gov-west-1",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -568,8 +568,8 @@ export const ruleSet: RuleSetObject = {
                           authSchemes: [
                             {
                               name: "sigv4",
-                              signingName: "networkmanager",
                               signingRegion: "us-gov-west-1",
+                              signingName: "networkmanager",
                             },
                           ],
                         },
@@ -594,8 +594,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "networkmanager",
                       signingRegion: "us-gov-west-1",
+                      signingName: "networkmanager",
                     },
                   ],
                 },
@@ -813,8 +813,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "networkmanager",
                       signingRegion: "us-west-2",
+                      signingName: "networkmanager",
                     },
                   ],
                 },
@@ -840,8 +840,8 @@ export const ruleSet: RuleSetObject = {
                   authSchemes: [
                     {
                       name: "sigv4",
-                      signingName: "networkmanager",
                       signingRegion: "us-gov-west-1",
+                      signingName: "networkmanager",
                     },
                   ],
                 },
