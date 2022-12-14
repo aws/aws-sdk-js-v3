@@ -233,9 +233,9 @@ export class CostExplorer extends CostExplorerClient {
   }
 
   /**
-   * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
-   *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
-   *       threshold and a time frequency for receiving notifications. </p>
+   * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
+   *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
+   *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
    */
   public createAnomalySubscription(
     args: CreateAnomalySubscriptionCommandInput,
@@ -434,7 +434,8 @@ export class CostExplorer extends CostExplorerClient {
 
   /**
    * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
-   *       specified by the <code>DateInterval</code> object. </p>
+   *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
+   *       days.</p>
    */
   public getAnomalies(
     args: GetAnomaliesCommandInput,

@@ -30,7 +30,8 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
 
 /**
  * <p>Retrieves all of the cost anomalies detected on your account during the time period that's
- *       specified by the <code>DateInterval</code> object. </p>
+ *       specified by the <code>DateInterval</code> object. Anomalies are available for up to 90
+ *       days.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -2678,6 +2678,9 @@ const serializeAws_json1_1AnomalySubscription = (input: AnomalySubscription, con
     ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
     ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
+    ...(input.ThresholdExpression != null && {
+      ThresholdExpression: serializeAws_json1_1Expression(input.ThresholdExpression, context),
+    }),
   };
 };
 
@@ -3445,6 +3448,9 @@ const serializeAws_json1_1UpdateAnomalySubscriptionRequest = (
     ...(input.SubscriptionArn != null && { SubscriptionArn: input.SubscriptionArn }),
     ...(input.SubscriptionName != null && { SubscriptionName: input.SubscriptionName }),
     ...(input.Threshold != null && { Threshold: __serializeFloat(input.Threshold) }),
+    ...(input.ThresholdExpression != null && {
+      ThresholdExpression: serializeAws_json1_1Expression(input.ThresholdExpression, context),
+    }),
   };
 };
 
@@ -3560,6 +3566,10 @@ const deserializeAws_json1_1AnomalySubscription = (output: any, context: __Serde
     SubscriptionArn: __expectString(output.SubscriptionArn),
     SubscriptionName: __expectString(output.SubscriptionName),
     Threshold: __limitedParseDouble(output.Threshold),
+    ThresholdExpression:
+      output.ThresholdExpression != null
+        ? deserializeAws_json1_1Expression(output.ThresholdExpression, context)
+        : undefined,
   } as any;
 };
 
@@ -4545,7 +4555,10 @@ const deserializeAws_json1_1Groups = (output: any, context: __SerdeContext): Gro
 const deserializeAws_json1_1Impact = (output: any, context: __SerdeContext): Impact => {
   return {
     MaxImpact: __limitedParseDouble(output.MaxImpact),
+    TotalActualSpend: __limitedParseDouble(output.TotalActualSpend),
+    TotalExpectedSpend: __limitedParseDouble(output.TotalExpectedSpend),
     TotalImpact: __limitedParseDouble(output.TotalImpact),
+    TotalImpactPercentage: __limitedParseDouble(output.TotalImpactPercentage),
   } as any;
 };
 

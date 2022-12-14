@@ -29,9 +29,9 @@ export interface CreateAnomalySubscriptionCommandInput extends CreateAnomalySubs
 export interface CreateAnomalySubscriptionCommandOutput extends CreateAnomalySubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a subscription to a cost anomaly detection monitor. You can use each subscription to
- *       define subscribers with email or SNS notifications. Email subscribers can set a dollar
- *       threshold and a time frequency for receiving notifications. </p>
+ * <p>Adds an alert subscription to a cost anomaly detection monitor. You can use each
+ *       subscription to define subscribers with email or SNS notifications. Email subscribers can set
+ *       an absolute or percentage threshold and a time frequency for receiving notifications. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
