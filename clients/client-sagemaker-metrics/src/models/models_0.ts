@@ -9,12 +9,12 @@ export interface RawMetricData {
   MetricName: string | undefined;
 
   /**
-   * <p>The time when the metric was recorded.</p>
+   * <p>The time that the metric was recorded.</p>
    */
   Timestamp: Date | undefined;
 
   /**
-   * <p>Metric step (aka Epoch).
+   * <p>The metric step (epoch).
    *       </p>
    */
   Step?: number;
@@ -27,7 +27,7 @@ export interface RawMetricData {
 
 export interface BatchPutMetricsRequest {
   /**
-   * <p>The name of Trial Component to associate the metrics with.</p>
+   * <p>The name of the Trial Component to associate with the metrics.</p>
    */
   TrialComponentName: string | undefined;
 
@@ -53,19 +53,21 @@ export interface BatchPutMetricsError {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>METRIC_LIMIT_EXCEEDED</code> - The max amount of metrics per resource has been exceeded.</p>
+   *                   <code>METRIC_LIMIT_EXCEEDED</code>: The maximum amount of metrics per resource is
+   *                exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>INTERNAL_ERROR</code> - An internal error occured.</p>
+   *                   <code>INTERNAL_ERROR</code>: An internal error occured.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>VALIDATION_ERROR</code> - The metric data failed validation.</p>
+   *                   <code>VALIDATION_ERROR</code>: The metric data failed validation.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>CONFLICT_ERROR</code> - Multiple requests attempted to modify the same data simultaneously.</p>
+   *                   <code>CONFLICT_ERROR</code>: Multiple requests attempted to modify the same data
+   *                simultaneously.</p>
    *             </li>
    *          </ul>
    */
@@ -79,7 +81,7 @@ export interface BatchPutMetricsError {
 
 export interface BatchPutMetricsResponse {
   /**
-   * <p>Any errors that occur when inserting metric data will appear in this.</p>
+   * <p>Lists any errors that occur when inserting metric data.</p>
    */
   Errors?: BatchPutMetricsError[];
 }

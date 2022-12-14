@@ -29,7 +29,7 @@ export interface BatchPutMetricsCommandInput extends BatchPutMetricsRequest {}
 export interface BatchPutMetricsCommandOutput extends BatchPutMetricsResponse, __MetadataBearer {}
 
 /**
- * <p>Used to ingest training metrics into SageMaker which can be visualized in SageMaker Studio and
+ * <p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and
  *          retrieved with the <code>GetMetrics</code> API.
  *       </p>
  * @example
