@@ -34,18 +34,16 @@ export interface GetMetricWidgetImageCommandOutput extends GetMetricWidgetImageO
  * 			image into your services and products, such as wiki pages, reports, and documents.
  * 			You could also retrieve images regularly, such as every minute, and create your own
  * 			custom live dashboard.</p>
- *
- * 		       <p>The graph you retrieve can include all CloudWatch metric graph features, including metric math
+ *          <p>The graph you retrieve can include all CloudWatch metric graph features, including metric math
  * 		and horizontal and vertical annotations.</p>
- *
- * 		       <p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
- * 		       <ul>
+ *          <p>There is a limit of 20 transactions per second for this API. Each <code>GetMetricWidgetImage</code> action has the following limits:</p>
+ *          <ul>
  *             <li>
- * 				           <p>As many as 100 metrics in the graph.</p>
- * 			         </li>
+ *                <p>As many as 100 metrics in the graph.</p>
+ *             </li>
  *             <li>
- * 				           <p>Up to 100 KB uncompressed payload.</p>
- * 			         </li>
+ *                <p>Up to 100 KB uncompressed payload.</p>
+ *             </li>
  *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

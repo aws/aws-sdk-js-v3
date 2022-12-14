@@ -27,7 +27,7 @@ export interface GetDashboardCommandOutput extends GetDashboardOutput, __Metadat
 
 /**
  * <p>Displays the details of the dashboard that you specify.</p>
- * 		       <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
+ *          <p>To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data returned
  * 			within <code>DashboardBody</code> as the template for the new dashboard when you call <code>PutDashboard</code> to create
  * 			the copy.</p>
  * @example

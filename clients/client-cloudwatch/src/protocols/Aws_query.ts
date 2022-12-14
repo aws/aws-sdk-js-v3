@@ -5671,6 +5671,8 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
     EvaluateLowSampleCountPercentile: undefined,
     Metrics: undefined,
     ThresholdMetricId: undefined,
+    EvaluationState: undefined,
+    StateTransitionedTimestamp: undefined,
   };
   if (output["AlarmName"] !== undefined) {
     contents.AlarmName = __expectString(output["AlarmName"]);
@@ -5782,6 +5784,12 @@ const deserializeAws_queryMetricAlarm = (output: any, context: __SerdeContext): 
   }
   if (output["ThresholdMetricId"] !== undefined) {
     contents.ThresholdMetricId = __expectString(output["ThresholdMetricId"]);
+  }
+  if (output["EvaluationState"] !== undefined) {
+    contents.EvaluationState = __expectString(output["EvaluationState"]);
+  }
+  if (output["StateTransitionedTimestamp"] !== undefined) {
+    contents.StateTransitionedTimestamp = __expectNonNull(__parseRfc3339DateTime(output["StateTransitionedTimestamp"]));
   }
   return contents;
 };

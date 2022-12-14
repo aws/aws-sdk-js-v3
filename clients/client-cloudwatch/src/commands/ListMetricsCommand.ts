@@ -27,16 +27,14 @@ export interface ListMetricsCommandOutput extends ListMetricsOutput, __MetadataB
 
 /**
  * <p>List the specified metrics. You can use the returned metrics with <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a> to get statistical data.</p>
- * 		       <p>Up to 500 results are returned for any one call. To retrieve additional results,
+ *          <p>Up to 500 results are returned for any one call. To retrieve additional results,
  * 			use the returned token with subsequent calls.</p>
- * 		       <p>After you create a metric, allow up to 15 minutes for the metric to appear. To see metric
+ *          <p>After you create a metric, allow up to 15 minutes for the metric to appear. To see metric
  * 			statistics sooner, use <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricStatistics.html">GetMetricStatistics</a>.</p>
- *
- * 		       <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
+ *          <p>If you are using CloudWatch cross-account observability, you can use this operation in a monitoring account and
  * 			view metrics from the linked source accounts. For more information, see
  * 			<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Unified-Cross-Account.html">CloudWatch cross-account observability</a>.</p>
- *
- * 	        <p>
+ *          <p>
  *             <code>ListMetrics</code> doesn't return information about metrics if those metrics haven't
  * 	reported data in the past two weeks. To retrieve those metrics, use
  * 		<a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_GetMetricData.html">GetMetricData</a> or
