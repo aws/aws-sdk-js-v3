@@ -329,6 +329,14 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
  * Serializes query string parameters with all supported types
  */
 it("RestJsonAllQueryStringTypes:ServerRequest", async () => {

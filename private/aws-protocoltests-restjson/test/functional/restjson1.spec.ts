@@ -188,6 +188,14 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
  * Serializes query string parameters with all supported types
  */
 it("RestJsonAllQueryStringTypes:Request", async () => {
@@ -868,7 +876,7 @@ it("DocumentOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -913,7 +921,7 @@ it("DocumentOutputString:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -956,7 +964,7 @@ it("DocumentOutputNumber:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -999,7 +1007,7 @@ it("DocumentOutputBoolean:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1045,7 +1053,7 @@ it("DocumentOutputArray:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1163,7 +1171,7 @@ it("DocumentTypeAsPayloadOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1203,7 +1211,7 @@ it("DocumentTypeAsPayloadOutputString:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1272,7 +1280,7 @@ it("RestJsonEmptyInputAndEmptyOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1295,7 +1303,7 @@ it("RestJsonEmptyInputAndEmptyOutputJsonObjectOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1393,7 +1401,7 @@ it("RestJsonGreetingWithErrors:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1433,7 +1441,7 @@ it("RestJsonGreetingWithErrorsNoPayload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2003,7 +2011,7 @@ it("EnumPayloadResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2114,7 +2122,7 @@ it("RestJsonHttpPayloadTraitsWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2154,7 +2162,7 @@ it("RestJsonHttpPayloadTraitsWithNoBlobBody:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2234,7 +2242,7 @@ it("RestJsonHttpPayloadTraitsWithMediaTypeWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2321,7 +2329,7 @@ it("RestJsonHttpPayloadWithStructure:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2436,7 +2444,7 @@ it("RestJsonHttpPrefixHeadersArePresent:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2476,7 +2484,7 @@ it("HttpPrefixHeadersResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2806,7 +2814,7 @@ it("RestJsonHttpResponseCode:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(201);
@@ -2839,7 +2847,7 @@ it("RestJsonHttpResponseCodeWithNoPayload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(201);
@@ -2897,7 +2905,7 @@ it("StringPayloadResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2938,7 +2946,7 @@ it("RestJsonIgnoreQueryParamsInResponse:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2962,7 +2970,7 @@ it("RestJsonIgnoreQueryParamsInResponseNoPayload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3338,7 +3346,7 @@ it("RestJsonInputAndOutputWithStringHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3375,7 +3383,7 @@ it.skip("RestJsonInputAndOutputWithQuotedStringHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3414,7 +3422,7 @@ it("RestJsonInputAndOutputWithNumericHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3467,7 +3475,7 @@ it("RestJsonInputAndOutputWithBooleanHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3504,7 +3512,7 @@ it("RestJsonInputAndOutputWithTimestampHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3538,7 +3546,7 @@ it("RestJsonInputAndOutputWithEnumHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3574,7 +3582,7 @@ it("RestJsonSupportsNaNFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3610,7 +3618,7 @@ it("RestJsonSupportsInfinityFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3646,7 +3654,7 @@ it("RestJsonSupportsNegativeInfinityFloatHeaderOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3726,7 +3734,7 @@ it("RestJsonJsonBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3846,7 +3854,7 @@ it("RestJsonJsonEnums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4137,7 +4145,7 @@ it("RestJsonLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4211,7 +4219,7 @@ it("RestJsonListsEmpty:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4254,7 +4262,7 @@ it("RestJsonListsSerializeNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4644,7 +4652,7 @@ it("RestJsonJsonMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4713,7 +4721,7 @@ it("RestJsonDeserializesNullMapValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4778,7 +4786,7 @@ it("RestJsonDeserializesZeroValuesInMaps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4835,7 +4843,7 @@ it("RestJsonDeserializesSparseSetMap:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4882,7 +4890,7 @@ it("RestJsonDeserializesDenseSetMap:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4930,7 +4938,7 @@ it("RestJsonDeserializesSparseSetMapAndRetainsNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4981,7 +4989,7 @@ it("RestJsonDeserializesDenseSetMapAndSkipsNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5177,7 +5185,7 @@ it("RestJsonJsonTimestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5217,7 +5225,7 @@ it("RestJsonJsonTimestampsWithDateTimeFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5257,7 +5265,7 @@ it("RestJsonJsonTimestampsWithEpochSecondsFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5297,7 +5305,7 @@ it("RestJsonJsonTimestampsWithHttpDateFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5774,7 +5782,7 @@ it("RestJsonDeserializeStringUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5818,7 +5826,7 @@ it("RestJsonDeserializeBooleanUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5862,7 +5870,7 @@ it("RestJsonDeserializeNumberUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5906,7 +5914,7 @@ it("RestJsonDeserializeBlobUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5950,7 +5958,7 @@ it("RestJsonDeserializeTimestampUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -5994,7 +6002,7 @@ it("RestJsonDeserializeEnumUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6038,7 +6046,7 @@ it("RestJsonDeserializeListUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6085,7 +6093,7 @@ it("RestJsonDeserializeMapUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6135,7 +6143,7 @@ it("RestJsonDeserializeStructureUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6204,7 +6212,7 @@ it("MediaTypeHeaderOutputBase64:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6266,7 +6274,7 @@ it("RestJsonNoInputAndNoOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6325,7 +6333,7 @@ it("RestJsonNoInputAndOutputWithJson:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6349,7 +6357,7 @@ it("RestJsonNoInputAndOutputNoPayload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6522,7 +6530,7 @@ it("RestJsonOutputUnionWithUnitMember:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6692,7 +6700,7 @@ it("PostUnionWithJsonNameResponse1:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6736,7 +6744,7 @@ it("PostUnionWithJsonNameResponse2:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -6780,7 +6788,7 @@ it("PostUnionWithJsonNameResponse3:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7037,7 +7045,7 @@ it("RestJsonRecursiveShapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7325,7 +7333,7 @@ it("RestJsonSimpleScalarProperties:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7383,7 +7391,7 @@ it("RestJsonDoesntDeserializeNullStructureValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7415,7 +7423,7 @@ it("RestJsonSupportsNaNFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7458,7 +7466,7 @@ it("RestJsonSupportsInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7501,7 +7509,7 @@ it("RestJsonSupportsNegativeInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7614,7 +7622,7 @@ it("RestJsonStreamingTraitsWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7659,7 +7667,7 @@ it("RestJsonStreamingTraitsWithNoBlobBody:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -7816,7 +7824,7 @@ it("RestJsonStreamingTraitsWithMediaTypeWithBlob:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -8242,7 +8250,7 @@ it("RestJsonTimestampFormatHeaders:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -8316,7 +8324,7 @@ it("RestJsonUnitInputAndOutputNoOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);

@@ -155,6 +155,14 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
  * Empty input serializes no extra query params
  */
 it("Ec2QueryEmptyInputAndEmptyOutput:Request", async () => {
@@ -214,7 +222,7 @@ it("Ec2QueryEmptyInputAndEmptyOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -322,7 +330,7 @@ it("Ec2GreetingWithErrors:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -505,7 +513,7 @@ it("Ec2IgnoresWrappingXmlName:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -625,7 +633,7 @@ it("Ec2QueryNoInputAndOutput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -976,7 +984,7 @@ it("Ec2RecursiveShapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1532,7 +1540,7 @@ it("Ec2SimpleScalarProperties:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1592,7 +1600,7 @@ it("Ec2QuerySupportsNaNFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1636,7 +1644,7 @@ it("Ec2QuerySupportsInfinityFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1680,7 +1688,7 @@ it("Ec2QuerySupportsNegativeInfinityFloatOutputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1724,7 +1732,7 @@ it("Ec2XmlBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1766,7 +1774,7 @@ it("Ec2XmlEmptyBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1808,7 +1816,7 @@ it("Ec2XmlEmptySelfClosedBlobs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1850,7 +1858,7 @@ it("Ec2XmlEmptyLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1914,7 +1922,7 @@ it("Ec2XmlEnums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2025,7 +2033,7 @@ it("Ec2XmlLists:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2117,7 +2125,7 @@ it("Ec2XmlNamespaces:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2163,7 +2171,7 @@ it("Ec2XmlTimestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2205,7 +2213,7 @@ it("Ec2XmlTimestampsWithDateTimeFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2247,7 +2255,7 @@ it("Ec2XmlTimestampsWithEpochSecondsFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -2289,7 +2297,7 @@ it("Ec2XmlTimestampsWithHttpDateFormat:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);

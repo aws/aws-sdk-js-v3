@@ -146,6 +146,14 @@ const clientParams = {
 };
 
 /**
+ * A wrapper function that shadows `fail` from jest-jasmine2
+ * (jasmine2 was replaced with circus in > v27 as the default test runner)
+ */
+const fail = (error?: any): never => {
+  throw new Error(error);
+};
+
+/**
  * Sends requests to /
  */
 it("sends_requests_to_slash:Request", async () => {
@@ -272,7 +280,7 @@ it("handles_empty_output_shape:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -306,7 +314,7 @@ it("handles_unexpected_json_output:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -339,7 +347,7 @@ it("json_1_1_service_responds_with_no_payload:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1009,7 +1017,7 @@ it("AwsJson11Enums:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1472,7 +1480,7 @@ it("AwsJson11DeserializeStringUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1516,7 +1524,7 @@ it("AwsJson11DeserializeBooleanUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1560,7 +1568,7 @@ it("AwsJson11DeserializeNumberUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1604,7 +1612,7 @@ it("AwsJson11DeserializeBlobUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1648,7 +1656,7 @@ it("AwsJson11DeserializeTimestampUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1692,7 +1700,7 @@ it("AwsJson11DeserializeEnumUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1736,7 +1744,7 @@ it("AwsJson11DeserializeListUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1783,7 +1791,7 @@ it("AwsJson11DeserializeMapUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -1833,7 +1841,7 @@ it("AwsJson11DeserializeStructureUnionValue:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3060,7 +3068,7 @@ it("parses_operations_with_empty_json_bodies:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3089,7 +3097,7 @@ it("parses_string_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3127,7 +3135,7 @@ it("parses_integer_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3165,7 +3173,7 @@ it("parses_long_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3203,7 +3211,7 @@ it("parses_float_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3241,7 +3249,7 @@ it("parses_double_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3279,7 +3287,7 @@ it("parses_boolean_shapes_true:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3317,7 +3325,7 @@ it("parses_boolean_false:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3355,7 +3363,7 @@ it("parses_blob_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3393,7 +3401,7 @@ it("parses_timestamp_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3431,7 +3439,7 @@ it("parses_iso8601_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3469,7 +3477,7 @@ it("parses_httpdate_timestamps:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3507,7 +3515,7 @@ it("parses_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3545,7 +3553,7 @@ it("parses_list_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3591,7 +3599,7 @@ it("parses_list_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3633,7 +3641,7 @@ it("parses_list_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3679,7 +3687,7 @@ it("parses_list_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3729,7 +3737,7 @@ it("parses_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3771,7 +3779,7 @@ it("parses_map_of_list_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3813,7 +3821,7 @@ it("parses_map_of_map_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3863,7 +3871,7 @@ it("parses_map_of_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3909,7 +3917,7 @@ it("parses_map_of_recursive_structure_shapes:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -3960,7 +3968,7 @@ it("parses_the_request_id_from_the_response:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4115,7 +4123,7 @@ it("AwsJson11StructuresDontDeserializeNullValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4148,7 +4156,7 @@ it("AwsJson11MapsDeserializeNullValues:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4192,7 +4200,7 @@ it("AwsJson11ListsDeserializeNull:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4349,7 +4357,7 @@ it("PutAndGetInlineDocumentsInput:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4521,7 +4529,7 @@ it("AwsJson11SupportsNaNFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4564,7 +4572,7 @@ it("AwsJson11SupportsInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
@@ -4607,7 +4615,7 @@ it("AwsJson11SupportsNegativeInfinityFloatInputs:Response", async () => {
   try {
     r = await client.send(command);
   } catch (err) {
-    fail("Expected a valid response to be returned, got err.");
+    fail("Expected a valid response to be returned, got " + err);
     return;
   }
   expect(r["$metadata"].httpStatusCode).toBe(200);
