@@ -32,6 +32,9 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * <p>Describes the details about a specific instance when a query was run by the Amazon Redshift Data API. The information
  *       includes when the query started, when it finished, the query status, the number of rows returned, and the SQL
  *       statement. </p>
+ *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
+ *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
+ *        <i>Amazon Redshift Management Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
