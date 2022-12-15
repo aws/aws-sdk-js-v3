@@ -33,7 +33,6 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *     Amazon Elastic File System (EFS) volume, a list of authorized users, and a variety of security, application,
  *     policy, and Amazon Virtual Private Cloud (VPC) configurations. An Amazon Web Services account is limited to one domain per region.
  *     Users within a domain can share notebook files and other artifacts with each other.</p>
- *
  *          <p>
  *             <b>EFS storage</b>
  *          </p>
@@ -45,7 +44,6 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *      customer managed key. For more information, see
  *     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/encryption-at-rest.html">Protect Data at
  *       Rest Using Encryption</a>.</p>
- *
  *          <p>
  *             <b>VPC configuration</b>
  *          </p>

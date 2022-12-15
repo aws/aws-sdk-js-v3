@@ -1144,7 +1144,6 @@ import {
   DescribeAlgorithmInput,
   DescribeAlgorithmOutput,
   DescribeAppRequest,
-  DescribeAppResponse,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1248,6 +1247,7 @@ import {
   RecommendationJobPayloadConfig,
   RecommendationJobResourceLimit,
   RecommendationJobStoppingConditions,
+  RecommendationJobVpcConfig,
   RedshiftDatasetDefinition,
   ResourceLimits,
   RetentionPolicy,
@@ -1274,6 +1274,7 @@ import {
 import {
   DescribeAppImageConfigRequest,
   DescribeAppImageConfigResponse,
+  DescribeAppResponse,
   DescribeArtifactRequest,
   DescribeArtifactResponse,
   DescribeAutoMLJobRequest,
@@ -1472,7 +1473,6 @@ import {
   ListAutoMLJobsResponse,
   ListCandidatesForAutoMLJobRequest,
   ListCandidatesForAutoMLJobResponse,
-  ListCodeRepositoriesInput,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1514,6 +1514,7 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListCodeRepositoriesInput,
   ListCodeRepositoriesOutput,
   ListCompilationJobsRequest,
   ListCompilationJobsResponse,
@@ -1764,7 +1765,6 @@ import {
   UpdateHubRequest,
   UpdateHubResponse,
   UpdateImageRequest,
-  UpdateImageResponse,
   UserProfileDetails,
   VariantProperty,
   Vertex,
@@ -1773,6 +1773,7 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateImageResponse,
   UpdateInferenceExperimentRequest,
   UpdateInferenceExperimentResponse,
   UpdateModelCardRequest,
@@ -24307,6 +24308,9 @@ const serializeAws_json1_1RecommendationJobInputConfig = (
       TrafficPattern: serializeAws_json1_1TrafficPattern(input.TrafficPattern, context),
     }),
     ...(input.VolumeKmsKeyId != null && { VolumeKmsKeyId: input.VolumeKmsKeyId }),
+    ...(input.VpcConfig != null && {
+      VpcConfig: serializeAws_json1_1RecommendationJobVpcConfig(input.VpcConfig, context),
+    }),
   };
 };
 
@@ -24371,6 +24375,34 @@ const serializeAws_json1_1RecommendationJobSupportedContentTypes = (input: strin
 };
 
 const serializeAws_json1_1RecommendationJobSupportedInstanceTypes = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcConfig = (
+  input: RecommendationJobVpcConfig,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1RecommendationJobVpcSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
+    ...(input.Subnets != null && { Subnets: serializeAws_json1_1RecommendationJobVpcSubnets(input.Subnets, context) }),
+  };
+};
+
+const serializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1RecommendationJobVpcSubnets = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
@@ -36501,6 +36533,10 @@ const deserializeAws_json1_1RecommendationJobInputConfig = (
     TrafficPattern:
       output.TrafficPattern != null ? deserializeAws_json1_1TrafficPattern(output.TrafficPattern, context) : undefined,
     VolumeKmsKeyId: __expectString(output.VolumeKmsKeyId),
+    VpcConfig:
+      output.VpcConfig != null
+        ? deserializeAws_json1_1RecommendationJobVpcConfig(output.VpcConfig, context)
+        : undefined,
   } as any;
 };
 
@@ -36559,6 +36595,44 @@ const deserializeAws_json1_1RecommendationJobSupportedInstanceTypes = (
   output: any,
   context: __SerdeContext
 ): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcConfig = (
+  output: any,
+  context: __SerdeContext
+): RecommendationJobVpcConfig => {
+  return {
+    SecurityGroupIds:
+      output.SecurityGroupIds != null
+        ? deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds(output.SecurityGroupIds, context)
+        : undefined,
+    Subnets:
+      output.Subnets != null ? deserializeAws_json1_1RecommendationJobVpcSubnets(output.Subnets, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSecurityGroupIds = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1RecommendationJobVpcSubnets = (output: any, context: __SerdeContext): string[] => {
   const retVal = (output || [])
     .filter((e: any) => e != null)
     .map((entry: any) => {

@@ -25,7 +25,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Stops a batch transform job.</p>
- *         <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
+ *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
  *             changes to <code>Stopping</code>. After Amazon SageMaker
  *             stops
  *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before

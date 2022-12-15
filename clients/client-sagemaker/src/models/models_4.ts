@@ -39,6 +39,13 @@ import {
 import { Filter, ResourceType, Workforce, Workteam } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
 
+export interface UpdateImageResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   */
+  ImageArn?: string;
+}
+
 export interface UpdateInferenceExperimentRequest {
   /**
    * <p>The name of the inference experiment to be updated.</p>
@@ -61,19 +68,24 @@ export interface UpdateInferenceExperimentRequest {
 
   /**
    * <p>
-   *            Array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant, whose infrastructure
+   *            An array of <code>ModelVariantConfig</code> objects. There is one for each variant, whose infrastructure
    *            configuration you want to update.
    *        </p>
    */
   ModelVariants?: ModelVariantConfig[];
 
   /**
-   * <p>The Amazon S3 storage configuration for the inference experiment.</p>
+   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
    */
   DataStorageConfig?: InferenceExperimentDataStorageConfig;
 
   /**
-   * <p>The Amazon S3 storage configuration for the inference experiment.</p>
+   * <p>
+   *            The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a
+   *            production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a
+   *            percentage of the inference requests. For the shadow variant also specify the percentage of requests that
+   *            Amazon SageMaker replicates.
+   *        </p>
    */
   ShadowModeConfig?: ShadowModeConfig;
 }
@@ -243,10 +255,10 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that SageMaker can assume to access the
    *             notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
+   *          </note>
    */
   RoleArn?: string;
 
@@ -329,11 +341,11 @@ export interface UpdateNotebookInstanceInput {
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance. The
    *             default value is <code>Enabled</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>If you set this to <code>Disabled</code>, users don't have root access on the
    *                 notebook instance, but lifecycle configuration scripts still run with root
    *                 permissions.</p>
-   *         </note>
+   *          </note>
    */
   RootAccess?: RootAccess | string;
 
@@ -673,7 +685,7 @@ export interface UpdateWorkforceRequest {
   /**
    * <p>A list of one to ten worker IP address ranges (<a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">CIDRs</a>) that can be used to
    *             access tasks assigned to this workforce.</p>
-   *         <p>Maximum: Ten CIDR values</p>
+   *          <p>Maximum: Ten CIDR values</p>
    */
   SourceIpConfig?: SourceIpConfig;
 
@@ -707,19 +719,19 @@ export interface UpdateWorkteamRequest {
   /**
    * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
    *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
    *             For private workforces created using Amazon Cognito use
    *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
    *             provider (IdP) use <code>OidcMemberDefinition</code>. You should not provide input
    *             for both of these parameters in a single request.</p>
-   *         <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
+   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
    *                 <i>user groups</i> within the user pool used to create a workforce. All of the
    *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
    *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
    *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
    *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
    *                 Pools</a>.</p>
-   *         <p>For workforces created using your own OIDC IdP, specify the user groups that you want
+   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want
    *             to include in your private work team in <code>OidcMemberDefinition</code> by listing
    *             those groups in <code>Groups</code>. Be aware that user groups that are already in the
    *             work team must also be listed in <code>Groups</code> when you make this request to
@@ -839,6 +851,13 @@ export interface SearchRequest {
    */
   MaxResults?: number;
 }
+
+/**
+ * @internal
+ */
+export const UpdateImageResponseFilterSensitiveLog = (obj: UpdateImageResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal

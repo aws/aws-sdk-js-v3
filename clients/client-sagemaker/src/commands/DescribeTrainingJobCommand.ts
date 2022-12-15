@@ -30,7 +30,7 @@ export interface DescribeTrainingJobCommandOutput extends DescribeTrainingJobRes
 
 /**
  * <p>Returns information about a training job. </p>
- *         <p>Some of the attributes below only appear if the training job successfully starts.
+ *          <p>Some of the attributes below only appear if the training job successfully starts.
  *             If the training job fails, <code>TrainingJobStatus</code> is <code>Failed</code> and,
  *             depending on the <code>FailureReason</code>, attributes like
  *                 <code>TrainingStartTime</code>, <code>TrainingTimeInSeconds</code>,

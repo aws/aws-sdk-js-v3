@@ -30,7 +30,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
 
 /**
  * <p>Lists training jobs.</p>
- *         <note>
+ *          <note>
  *             <p>When <code>StatusEquals</code> and <code>MaxResults</code> are set at the same
  *                 time, the <code>MaxResults</code> number of training jobs are first retrieved
  *                 ignoring the <code>StatusEquals</code> parameter and then they are filtered by the
@@ -50,7 +50,7 @@ export interface ListTrainingJobsCommandOutput extends ListTrainingJobsResponse,
  *                <code>aws sagemaker list-training-jobs --max-results 100 --status-equals
  *                     InProgress</code>
  *             </p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

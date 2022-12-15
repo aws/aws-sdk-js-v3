@@ -36,16 +36,16 @@ export interface CreateHyperParameterTuningJobCommandOutput
  *             and values for hyperparameters within ranges that you specify. It then chooses the
  *             hyperparameter values that result in a model that performs the best, as measured by an
  *             objective metric that you choose.</p>
- *         <p>A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials, and
+ *          <p>A hyperparameter tuning job automatically creates Amazon SageMaker experiments, trials, and
  *             trial components for each training job that it runs. You can view these entities in
  *             Amazon SageMaker Studio. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/experiments-view-compare.html#experiments-view">View
  *                 Experiments, Trials, and Trial Components</a>.</p>
- *         <important>
+ *          <important>
  *             <p>Do not include any security-sensitive information including account access IDs,
  *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
  *                 credentials are detected, SageMaker will reject your training job request and return an
  *                 exception error.</p>
- *         </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

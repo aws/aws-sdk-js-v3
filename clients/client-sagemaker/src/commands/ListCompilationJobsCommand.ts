@@ -30,7 +30,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
 
 /**
  * <p>Lists model compilation jobs that satisfy various filters.</p>
- *         <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
+ *          <p>To create a model compilation job, use <a>CreateCompilationJob</a>. To get
  *             information about a particular model compilation job you have created, use <a>DescribeCompilationJob</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

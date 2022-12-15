@@ -194,7 +194,7 @@ export interface ModelPackageContainerDefinition {
 
   /**
    * <p>The Amazon EC2 Container Registry (Amazon ECR) path where inference code is stored.</p>
-   *         <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
+   *          <p>If you are using your own custom algorithm instead of an algorithm provided by SageMaker,
    *             the inference code must meet SageMaker requirements. SageMaker supports both
    *             <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
@@ -212,10 +212,10 @@ export interface ModelPackageContainerDefinition {
    * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
    *             This path must point to a single <code>gzip</code> compressed tar archive
    *             (<code>.tar.gz</code> suffix).</p>
-   *         <note>
+   *          <note>
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model package.</p>
-   *         </note>
+   *          </note>
    */
   ModelDataUrl?: string;
 
@@ -480,10 +480,10 @@ export interface AdditionalInferenceSpecificationDefinition {
 /**
  * <p>A tag object that consists of a key and an optional value, used to manage metadata
  *             for SageMaker Amazon Web Services resources.</p>
- *         <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
+ *          <p>You can add tags to notebook instances, training jobs, hyperparameter tuning jobs,
  *             batch transform jobs, models, labeling jobs, work teams, endpoint configurations, and
  *             endpoints. For more information on adding tags to SageMaker resources, see <a>AddTags</a>.</p>
- *         <p>For more information on adding metadata to your Amazon Web Services resources with
+ *          <p>For more information on adding metadata to your Amazon Web Services resources with
  *             tagging, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a>. For advice on best practices for
  *             managing Amazon Web Services resources with tagging, see <a href="https://d1.awsstatic.com/whitepapers/aws-tagging-best-practices.pdf">Tagging
  *                 Best Practices: Implement an Effective Amazon Web Services Resource Tagging
@@ -587,7 +587,7 @@ export enum TrainingInputMode {
 /**
  * <p>Specifies the training algorithm to use in a <a>CreateTrainingJob</a>
  *             request.</p>
- *         <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
+ *          <p>For more information about algorithms provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. For
  *             information about using your own algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
  *                 SageMaker</a>. </p>
  */
@@ -601,13 +601,13 @@ export interface AlgorithmSpecification {
    *                 <code>registry/repository[@digest]</code> image path formats. For more information
    *             about using your custom training container, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with
    *                 Amazon SageMaker</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code>
    *                 parameter or the image URI of the algorithm container to the
    *                     <code>TrainingImage</code> parameter.</p>
    *             <p>For more information, see the note in the <code>AlgorithmName</code> parameter
    *                 description.</p>
-   *         </note>
+   *          </note>
    */
   TrainingImage?: string;
 
@@ -615,7 +615,7 @@ export interface AlgorithmSpecification {
    * <p>The name of the algorithm resource to use for the training job. This must be an
    *             algorithm resource that you created or subscribe to on Amazon Web Services
    *             Marketplace.</p>
-   *         <note>
+   *          <note>
    *             <p>You must specify either the algorithm name to the <code>AlgorithmName</code>
    *                 parameter or the image URI of the algorithm container to the
    *                     <code>TrainingImage</code> parameter.</p>
@@ -626,44 +626,41 @@ export interface AlgorithmSpecification {
    *             <p>If you specify values for both parameters, the training job might break; if you
    *                 don't specify any value for both parameters, the training job might raise a
    *                     <code>null</code> error.</p>
-   *         </note>
+   *          </note>
    */
   AlgorithmName?: string;
 
   /**
    * <p>The training input mode that the algorithm supports. For more information about input
    *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
    *             Amazon S3 to the container.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *          <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
    *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
    *             for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *          <p>You must provision the ML storage volume with sufficient capacity to accommodate the
    *             data downloaded from S3. In addition to the training data, the ML storage volume also
    *             stores the output model. The algorithm container uses the ML storage volume to also
    *             store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *          <p>For distributed algorithms, training data is distributed uniformly. Your training
    *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
    *             does not split the files any further for model training. If the object sizes are skewed,
    *             training won't be optimal as the data distribution is also skewed when one host in a
    *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
    *             S3 to the container with no code changes, and provides file system access to the data.
    *             Users can author their training script to interact with these files as if they were
    *             stored on disk.</p>
-   *         <p>
+   *          <p>
    *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
@@ -680,26 +677,26 @@ export interface AlgorithmSpecification {
    * <p>To generate and save time-series metrics during training, set to <code>true</code>.
    *             The default is <code>false</code> and time-series metrics aren't generated except in the
    *             following cases:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>You use one of the SageMaker built-in algorithms</p>
+   *                <p>You use one of the SageMaker built-in algorithms</p>
    *             </li>
    *             <li>
-   *                 <p>You use one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html">Prebuilt SageMaker Docker Images</a>:</p>
-   *                 <ul>
+   *                <p>You use one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/pre-built-containers-frameworks-deep-learning.html">Prebuilt SageMaker Docker Images</a>:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>Tensorflow (version >= 1.15)</p>
-   *                     </li>
+   *                      <p>Tensorflow (version >= 1.15)</p>
+   *                   </li>
    *                   <li>
-   *                         <p>MXNet (version >= 1.6)</p>
-   *                     </li>
+   *                      <p>MXNet (version >= 1.6)</p>
+   *                   </li>
    *                   <li>
-   *                         <p>PyTorch (version >= 1.3)</p>
-   *                     </li>
+   *                      <p>PyTorch (version >= 1.3)</p>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>You specify at least one <a>MetricDefinition</a>
+   *                <p>You specify at least one <a>MetricDefinition</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -861,10 +858,10 @@ export interface S3DataSource {
   /**
    * <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
    *             SageMaker uses all objects that match the specified key name prefix for model training. </p>
-   *         <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
+   *          <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
    *             is a manifest file containing a list of object keys that you want SageMaker to use for model
    *             training. </p>
-   *         <p>If you choose <code>AugmentedManifestFile</code>, S3Uri identifies an object that is
+   *          <p>If you choose <code>AugmentedManifestFile</code>, S3Uri identifies an object that is
    *             an augmented manifest file in JSON lines format. This file contains the data you want to
    *             use for model training. <code>AugmentedManifestFile</code> can only be used if the
    *             Channel's input mode is <code>Pipe</code>.</p>
@@ -874,56 +871,56 @@ export interface S3DataSource {
   /**
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either
    *             a key name prefix or a manifest. For example: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> A key name prefix might look like this:
+   *                <p> A key name prefix might look like this:
    *                         <code>s3://bucketname/exampleprefix</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p> A manifest might look like this:
+   *                <p> A manifest might look like this:
    *                         <code>s3://bucketname/example.manifest</code>
-   *                 </p>
-   *                 <p> A manifest is an S3 object which is a JSON file consisting of an array of
+   *                </p>
+   *                <p> A manifest is an S3 object which is a JSON file consisting of an array of
    *                     elements. The first element is a prefix which is followed by one or more
    *                     suffixes. SageMaker appends the suffix elements to the prefix to get a full set
    *                     of <code>S3Uri</code>. Note that the prefix must be a valid non-empty
    *                         <code>S3Uri</code> that precludes users from specifying a manifest whose
    *                     individual <code>S3Uri</code> is sourced from different S3 buckets.</p>
-   *                 <p> The following code example shows a valid manifest format: </p>
-   *                 <p>
-   *                     <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
-   *                 </p>
-   *                 <p>
-   *                     <code> "relative/path/to/custdata-1",</code>
-   *                 </p>
-   *                 <p>
-   *                     <code> "relative/path/custdata-2",</code>
-   *                 </p>
-   *                 <p>
-   *                     <code> ...</code>
-   *                 </p>
-   *                 <p>
-   *                     <code> "relative/path/custdata-N"</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>]</code>
-   *                 </p>
-   *                 <p> This JSON is equivalent to the following <code>S3Uri</code>
+   *                <p> The following code example shows a valid manifest format: </p>
+   *                <p>
+   *                   <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
+   *                </p>
+   *                <p>
+   *                   <code> "relative/path/to/custdata-1",</code>
+   *                </p>
+   *                <p>
+   *                   <code> "relative/path/custdata-2",</code>
+   *                </p>
+   *                <p>
+   *                   <code> ...</code>
+   *                </p>
+   *                <p>
+   *                   <code> "relative/path/custdata-N"</code>
+   *                </p>
+   *                <p>
+   *                   <code>]</code>
+   *                </p>
+   *                <p> This JSON is equivalent to the following <code>S3Uri</code>
    *                     list:</p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>...</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code>
-   *                 </p>
-   *                 <p>The complete set of <code>S3Uri</code> in this manifest is the input data
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code>
+   *                </p>
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code>
+   *                </p>
+   *                <p>
+   *                   <code>...</code>
+   *                </p>
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code>
+   *                </p>
+   *                <p>The complete set of <code>S3Uri</code> in this manifest is the input data
    *                     for the channel for this data source. The object that each <code>S3Uri</code>
    *                     points to must be readable by the IAM role that SageMaker uses to perform tasks on
    *                     your behalf. </p>
@@ -935,16 +932,16 @@ export interface S3DataSource {
   /**
    * <p>If you want SageMaker to replicate the entire dataset on each ML compute instance that
    *             is launched for model training, specify <code>FullyReplicated</code>. </p>
-   *         <p>If you want SageMaker to replicate a subset of data on each ML compute instance that is
+   *          <p>If you want SageMaker to replicate a subset of data on each ML compute instance that is
    *             launched for model training, specify <code>ShardedByS3Key</code>. If there are
    *                 <i>n</i> ML compute instances launched for a training job, each
    *             instance gets approximately 1/<i>n</i> of the number of S3 objects. In
    *             this case, model training on each machine uses only the subset of training data. </p>
-   *         <p>Don't choose more ML compute instances for training than available S3 objects. If
+   *          <p>Don't choose more ML compute instances for training than available S3 objects. If
    *             you do, some nodes won't get any data and you will pay for nodes that aren't getting any
    *             training data. This applies in both File and Pipe modes. Keep this in mind when
    *             developing algorithms. </p>
-   *         <p>In distributed training, where you use multiple ML compute EC2 instances, you might
+   *          <p>In distributed training, where you use multiple ML compute EC2 instances, you might
    *             choose <code>ShardedByS3Key</code>. If the algorithm requires copying training data to
    *             the ML storage volume (when <code>TrainingInputMode</code> is set to <code>File</code>),
    *             this copies 1/<i>n</i> of the number of objects. </p>
@@ -991,7 +988,7 @@ export enum RecordWrapper {
  *                 <code>AugmentedManifestFile</code>, the order of the JSON lines in the
  *                 <code>AugmentedManifestFile</code> is shuffled. The shuffling order is determined
  *             using the <code>Seed</code> value.</p>
- *         <p>For Pipe input mode, when <code>ShuffleConfig</code> is specified shuffling is done at
+ *          <p>For Pipe input mode, when <code>ShuffleConfig</code> is specified shuffling is done at
  *             the start of every epoch. With large datasets, this ensures that the order of the
  *             training data is different for each epoch, and it helps reduce bias and possible
  *             overfitting. In a multi-node training job when <code>ShuffleConfig</code> is combined
@@ -1034,12 +1031,12 @@ export interface Channel {
 
   /**
    * <p></p>
-   *         <p>Specify RecordIO as the value when input data is in raw format but the training
+   *          <p>Specify RecordIO as the value when input data is in raw format but the training
    *             algorithm requires the RecordIO format. In this case, SageMaker wraps each individual S3
    *             object in a RecordIO record. If the input data is already in RecordIO format, you don't
    *             need to set this attribute. For more information, see <a href="https://mxnet.apache.org/api/architecture/note_data_loading#data-format">Create
    *                 a Dataset Using RecordIO</a>. </p>
-   *         <p>In File mode, leave this field unset or set it to None.</p>
+   *          <p>In File mode, leave this field unset or set it to None.</p>
    */
   RecordWrapperType?: RecordWrapper | string;
 
@@ -1053,7 +1050,7 @@ export interface Channel {
    *             storage volume, and mount the directory to a Docker volume, use <code>File</code> input
    *             mode. To stream data directly from Amazon S3 to the container, choose <code>Pipe</code> input
    *             mode.</p>
-   *         <p>To use a model for incremental training, choose <code>File</code> input model.</p>
+   *          <p>To use a model for incremental training, choose <code>File</code> input model.</p>
    */
   InputMode?: TrainingInputMode | string;
 
@@ -1065,7 +1062,7 @@ export interface Channel {
    *                 <code>AugmentedManifestFile</code>, the order of the JSON lines in the
    *                 <code>AugmentedManifestFile</code> is shuffled. The shuffling order is determined
    *             using the <code>Seed</code> value.</p>
-   *         <p>For Pipe input mode, shuffling is done at the start of every epoch. With large
+   *          <p>For Pipe input mode, shuffling is done at the start of every epoch. With large
    *             datasets this ensures that the order of the training data is different for each epoch,
    *             it helps reduce bias and possible overfitting. In a multi-node training job when
    *             ShuffleConfig is combined with <code>S3DataDistributionType</code> of
@@ -1085,33 +1082,33 @@ export interface OutputDataConfig {
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
    *             uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption. The
    *                 <code>KmsKeyId</code> can be any of the following formats: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>// KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// KMS Key Alias</p>
-   *                 <p>
-   *                     <code>"alias/ExampleAlias"</code>
-   *                 </p>
+   *                <p>// KMS Key Alias</p>
+   *                <p>
+   *                   <code>"alias/ExampleAlias"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
-   *                 </p>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
+   *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
    *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
    *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
    *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
@@ -1121,7 +1118,7 @@ export interface OutputDataConfig {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
    *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
    *          </p>
-   *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see
    *                 <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
@@ -1211,12 +1208,34 @@ export interface InstanceGroup {
 }
 
 /**
- * <p>Describes the resources, including ML compute instances and ML storage volumes, to
+ * <p>Describes the resources, including machine learning (ML) compute instances and ML storage volumes, to
  *             use for model training. </p>
  */
 export interface ResourceConfig {
   /**
    * <p>The ML compute instance type. </p>
+   *          <note>
+   *             <p>SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances is in preview release starting December 9th,
+   *                 2022. </p>
+   *             <p>
+   *                <a href="http://aws.amazon.com/ec2/instance-types/p4/">Amazon EC2 P4de instances</a>
+   *                 (currently in preview) are powered by 8 NVIDIA A100 GPUs with
+   *                 80GB high-performance HBM2e GPU memory, which accelerate the speed of training
+   *                 ML models that need to be trained on large datasets of
+   *                 high-resolution data. In this preview release, Amazon SageMaker supports ML training jobs on
+   *                 P4de instances (<code>ml.p4de.24xlarge</code>) to reduce model training time. The
+   *                     <code>ml.p4de.24xlarge</code> instances are available in the following Amazon Web Services Regions. </p>
+   *             <ul>
+   *                <li>
+   *                   <p>US East (N. Virginia) (us-east-1)</p>
+   *                </li>
+   *                <li>
+   *                   <p>US West (Oregon) (us-west-2)</p>
+   *                </li>
+   *             </ul>
+   *             <p>To request quota limit increase and start using P4de instances, contact the SageMaker
+   *                 Training service team through your account team.</p>
+   *          </note>
    */
   InstanceType?: TrainingInstanceType | string;
 
@@ -1228,23 +1247,23 @@ export interface ResourceConfig {
 
   /**
    * <p>The size of the ML storage volume that you want to provision. </p>
-   *         <p>ML storage volumes store model artifacts and incremental states. Training
+   *          <p>ML storage volumes store model artifacts and incremental states. Training
    *             algorithms might also use the ML storage volume for scratch space. If you want to store
    *             the training data in the ML storage volume, choose <code>File</code> as the
    *                 <code>TrainingInputMode</code> in the algorithm specification. </p>
-   *         <p>When using an ML instance with <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes">NVMe SSD
+   *          <p>When using an ML instance with <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html#nvme-ssd-volumes">NVMe SSD
    *                 volumes</a>, SageMaker doesn't provision Amazon EBS General Purpose SSD (gp2) storage.
    *             Available storage is fixed to the NVMe-type instance's storage capacity. SageMaker configures
    *             storage paths for training datasets, checkpoints, model artifacts, and outputs to use
    *             the entire capacity of the instance storage. For example, ML instance families with the
    *             NVMe-type instance storage include <code>ml.p4d</code>, <code>ml.g4dn</code>, and
    *                 <code>ml.g5</code>. </p>
-   *         <p>When using an ML instance with the EBS-only storage option and without instance
+   *          <p>When using an ML instance with the EBS-only storage option and without instance
    *             storage, you must define the size of EBS volume through <code>VolumeSizeInGB</code> in
    *             the <code>ResourceConfig</code> API. For example, ML instance families that use EBS
    *             volumes include <code>ml.c5</code> and <code>ml.p2</code>. </p>
-   *         <p>To look up instance types and their instance storage types and volumes, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>.</p>
-   *         <p>To find the default local paths defined by the SageMaker training platform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html">Amazon SageMaker
+   *          <p>To look up instance types and their instance storage types and volumes, see <a href="http://aws.amazon.com/ec2/instance-types/">Amazon EC2 Instance Types</a>.</p>
+   *          <p>To find the default local paths defined by the SageMaker training platform, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-train-storage.html">Amazon SageMaker
    *                 Training Storage Folders for Training Datasets, Checkpoints, Model Artifacts, and
    *                 Outputs</a>.</p>
    */
@@ -1253,7 +1272,7 @@ export interface ResourceConfig {
   /**
    * <p>The Amazon Web Services KMS key that SageMaker uses to encrypt data on the storage volume
    *             attached to the ML compute instance(s) that run the training job.</p>
-   *         <note>
+   *          <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
    *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
@@ -1261,20 +1280,20 @@ export interface ResourceConfig {
    *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
    *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
    *                     Instance Store Volumes</a>.</p>
-   *         </note>
-   *         <p>The <code>VolumeKmsKeyId</code> can be in any of the following formats:</p>
-   *         <ul>
+   *          </note>
+   *          <p>The <code>VolumeKmsKeyId</code> can be in any of the following formats:</p>
+   *          <ul>
    *             <li>
-   *                 <p>// KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -1297,34 +1316,34 @@ export interface ResourceConfig {
  *             It also specifies how long a managed spot training job has to complete. When the job
  *             reaches the time limit, SageMaker ends the training or compilation job. Use this API to cap
  *             model training costs.</p>
- *         <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
+ *          <p>To stop a training job, SageMaker sends the algorithm the <code>SIGTERM</code> signal,
  *             which delays job termination for 120 seconds. Algorithms can use this 120-second window
  *             to save the model artifacts, so the results of training are not lost. </p>
- *         <p>The training algorithms provided by SageMaker automatically save the intermediate results
+ *          <p>The training algorithms provided by SageMaker automatically save the intermediate results
  *             of a model training job when possible. This attempt to save artifacts is only a best
  *             effort case as model might not be in a state from which it can be saved. For example, if
  *             training has just started, the model might not be ready to save. When saved, this
  *             intermediate data is a valid model artifact. You can use it to create a model with
  *                 <code>CreateModel</code>.</p>
- *         <note>
+ *          <note>
  *             <p>The Neural Topic Model (NTM) currently does not support saving intermediate model
  *                 artifacts. When training NTMs, make sure that the maximum runtime is sufficient for
  *                 the training job to complete.</p>
- *         </note>
+ *          </note>
  */
 export interface StoppingCondition {
   /**
    * <p>The maximum length of time, in seconds, that a training or compilation job can run
    *             before it is stopped.</p>
-   *         <p>For compilation jobs, if the job does not complete during this time, a
+   *          <p>For compilation jobs, if the job does not complete during this time, a
    *                 <code>TimeOut</code> error is generated. We recommend starting with 900 seconds and
    *             increasing as necessary based on your model.</p>
-   *         <p>For all other jobs, if the job does not complete during this time, SageMaker ends the job.
+   *          <p>For all other jobs, if the job does not complete during this time, SageMaker ends the job.
    *             When <code>RetryStrategy</code> is specified in the job request,
    *                 <code>MaxRuntimeInSeconds</code> specifies the maximum time for all of the attempts
    *             in total, not each individual attempt. The default value is 1 day. The maximum value is
    *             28 days.</p>
-   *         <p>The maximum time that a <code>TrainingJob</code> can run in total, including any time
+   *          <p>The maximum time that a <code>TrainingJob</code> can run in total, including any time
    *             spent publishing metrics or archiving and uploading models after it has been stopped, is
    *             30 days.</p>
    */
@@ -1336,7 +1355,7 @@ export interface StoppingCondition {
    *             time the job can run. It must be equal to or greater than
    *                 <code>MaxRuntimeInSeconds</code>. If the job does not complete during this time,
    *             SageMaker ends the job.</p>
-   *         <p>When <code>RetryStrategy</code> is specified in the job request,
+   *          <p>When <code>RetryStrategy</code> is specified in the job request,
    *                 <code>MaxWaitTimeInSeconds</code> specifies the maximum time for all of the attempts
    *             in total, not each individual attempt.</p>
    */
@@ -1350,37 +1369,34 @@ export interface TrainingJobDefinition {
   /**
    * <p>The training input mode that the algorithm supports. For more information about input
    *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
    *             Amazon S3 to the container.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *          <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
    *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
    *             for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *          <p>You must provision the ML storage volume with sufficient capacity to accommodate the
    *             data downloaded from S3. In addition to the training data, the ML storage volume also
    *             stores the output model. The algorithm container uses the ML storage volume to also
    *             store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *          <p>For distributed algorithms, training data is distributed uniformly. Your training
    *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
    *             does not split the files any further for model training. If the object sizes are skewed,
    *             training won't be optimal as the data distribution is also skewed when one host in a
    *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
    *             S3 to the container with no code changes, and provides file system access to the data.
    *             Users can author their training script to interact with these files as if they were
    *             stored on disk.</p>
-   *         <p>
+   *          <p>
    *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
@@ -1414,7 +1430,7 @@ export interface TrainingJobDefinition {
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
    *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the SIGTERM signal, which delays job
+   *          <p>To stop a job, SageMaker sends the algorithm the SIGTERM signal, which delays job
    *             termination for 120 seconds. Algorithms can use this 120-second window to save the model
    *             artifacts.</p>
    */
@@ -1433,13 +1449,13 @@ export interface TransformS3DataSource {
   /**
    * <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
    *             Amazon SageMaker uses all objects with the specified key name prefix for batch transform. </p>
-   *         <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
+   *          <p>If you choose <code>ManifestFile</code>, <code>S3Uri</code> identifies an object that
    *             is a manifest file containing a list of object keys that you want Amazon SageMaker to use for batch
    *             transform. </p>
-   *         <p>The following values are compatible: <code>ManifestFile</code>,
+   *          <p>The following values are compatible: <code>ManifestFile</code>,
    *             <code>S3Prefix</code>
    *          </p>
-   *         <p>The following value is not compatible: <code>AugmentedManifestFile</code>
+   *          <p>The following value is not compatible: <code>AugmentedManifestFile</code>
    *          </p>
    */
   S3DataType: S3DataType | string | undefined;
@@ -1447,48 +1463,48 @@ export interface TransformS3DataSource {
   /**
    * <p>Depending on the value specified for the <code>S3DataType</code>, identifies either a
    *             key name prefix or a manifest. For example:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p> A key name prefix might look like this:
+   *                <p> A key name prefix might look like this:
    *                         <code>s3://bucketname/exampleprefix</code>. </p>
    *             </li>
    *             <li>
-   *                 <p> A manifest might look like this:
+   *                <p> A manifest might look like this:
    *                         <code>s3://bucketname/example.manifest</code>
-   *                 </p>
-   *                 <p> The manifest is an S3 object which is a JSON file with the following format: </p>
-   *                 <p>
-   *                     <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>"relative/path/to/custdata-1",</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>"relative/path/custdata-2",</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>...</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>"relative/path/custdata-N"</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>]</code>
-   *                 </p>
-   *                 <p> The preceding JSON matches the following <code>S3Uris</code>: </p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>...</code>
-   *                 </p>
-   *                 <p>
-   *                     <code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code>
-   *                 </p>
-   *                 <p> The complete set of <code>S3Uris</code> in this manifest constitutes the
+   *                </p>
+   *                <p> The manifest is an S3 object which is a JSON file with the following format: </p>
+   *                <p>
+   *                   <code>[ {"prefix": "s3://customer_bucket/some/prefix/"},</code>
+   *                </p>
+   *                <p>
+   *                   <code>"relative/path/to/custdata-1",</code>
+   *                </p>
+   *                <p>
+   *                   <code>"relative/path/custdata-2",</code>
+   *                </p>
+   *                <p>
+   *                   <code>...</code>
+   *                </p>
+   *                <p>
+   *                   <code>"relative/path/custdata-N"</code>
+   *                </p>
+   *                <p>
+   *                   <code>]</code>
+   *                </p>
+   *                <p> The preceding JSON matches the following <code>S3Uris</code>: </p>
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/to/custdata-1</code>
+   *                </p>
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/custdata-2</code>
+   *                </p>
+   *                <p>
+   *                   <code>...</code>
+   *                </p>
+   *                <p>
+   *                   <code>s3://customer_bucket/some/prefix/relative/path/custdata-N</code>
+   *                </p>
+   *                <p> The complete set of <code>S3Uris</code> in this manifest constitutes the
    *                     input data for the channel for this datasource. The object that each
    *                         <code>S3Uris</code> points to must be readable by the IAM role that Amazon SageMaker
    *                     uses to perform tasks on your behalf.</p>
@@ -1555,21 +1571,21 @@ export interface TransformInput {
    *             to <code>Line</code> to split records on a newline character boundary.
    *                 <code>SplitType</code> also supports a number of record-oriented binary data
    *             formats. Currently, the supported record formats are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>RecordIO</p>
+   *                <p>RecordIO</p>
    *             </li>
    *             <li>
-   *                 <p>TFRecord</p>
+   *                <p>TFRecord</p>
    *             </li>
    *          </ul>
-   *         <p>When splitting is enabled, the size of a mini-batch depends on the values of the
+   *          <p>When splitting is enabled, the size of a mini-batch depends on the values of the
    *                 <code>BatchStrategy</code> and <code>MaxPayloadInMB</code> parameters. When the
    *             value of <code>BatchStrategy</code> is <code>MultiRecord</code>, Amazon SageMaker sends the maximum
    *             number of records in each request, up to the <code>MaxPayloadInMB</code> limit. If the
    *             value of <code>BatchStrategy</code> is <code>SingleRecord</code>, Amazon SageMaker sends individual
    *             records in each request.</p>
-   *         <note>
+   *          <note>
    *             <p>Some data formats represent a record as a binary payload wrapped with extra
    *                 padding bytes. When splitting is applied to a binary data format, padding is removed
    *                 if the value of <code>BatchStrategy</code> is set to <code>SingleRecord</code>.
@@ -1578,7 +1594,7 @@ export interface TransformInput {
    *             <p>For more information about <code>RecordIO</code>, see <a href="https://mxnet.apache.org/api/faq/recordio">Create a Dataset Using
    *                     RecordIO</a> in the MXNet documentation. For more information about
    *                     <code>TFRecord</code>, see <a href="https://www.tensorflow.org/guide/data#consuming_tfrecord_data">Consuming TFRecord data</a> in the TensorFlow documentation.</p>
-   *         </note>
+   *          </note>
    */
   SplitType?: SplitType | string;
 }
@@ -1595,7 +1611,7 @@ export interface TransformOutput {
   /**
    * <p>The Amazon S3 path where you want Amazon SageMaker to store the results of the transform job. For
    *             example, <code>s3://bucket-name/key-name-prefix</code>.</p>
-   *         <p>For every S3 object used as input for the transform job, batch transform stores the
+   *          <p>For every S3 object used as input for the transform job, batch transform stores the
    *             transformed data with an .<code>out</code> suffix in a corresponding subfolder in the
    *             location in the output prefix. For example, for the input data stored at
    *                 <code>s3://bucket-name/input-name-prefix/dataset01/data.csv</code>, batch transform
@@ -1629,34 +1645,32 @@ export interface TransformOutput {
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt the model artifacts at rest using
    *             Amazon S3 server-side encryption. The <code>KmsKeyId</code> can be any of the following
    *             formats: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                 </p>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>Key ARN:
+   *                <p>Key ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name: <code>alias/ExampleAlias</code>
-   *                 </p>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name ARN:
+   *                <p>Alias name ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your
+   *          <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your
    *             role's account. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the
    *                 <i>Amazon Simple Storage Service
    *                 Developer Guide.</i>
    *          </p>
-   *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    * 	<a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html">CreateModel</a>
    * 		request. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using
    *                     Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management Service Developer
@@ -1691,7 +1705,7 @@ export interface TransformResources {
   /**
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt model data on the storage volume
    *             attached to the ML compute instance(s) that run the batch transform job.</p>
-   *         <note>
+   *          <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
    *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
@@ -1699,25 +1713,25 @@ export interface TransformResources {
    *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
    *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
    *                 Instance Store Volumes</a>.</p>
-   *         </note>
-   *             <p>
+   *          </note>
+   *          <p>
    *             The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>Key ARN:
-   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
-   *                 </p>
-   *             </li>
-   *             <li>
-   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name ARN:
+   *                <p>Key ARN:
+   *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Alias name ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
    *                </p>
    *             </li>
@@ -1745,7 +1759,7 @@ export interface TransformJobDefinition {
 
   /**
    * <p>A string that determines the number of records included in a single mini-batch.</p>
-   *         <p>
+   *          <p>
    *             <code>SingleRecord</code> means only one record is used per mini-batch.
    *                 <code>MultiRecord</code> means a mini-batch is set to contain as many records that
    *             can fit within the <code>MaxPayloadInMB</code> limit.</p>
@@ -1778,7 +1792,7 @@ export interface TransformJobDefinition {
 /**
  * <p>Defines a training job and a batch transform job that SageMaker runs to validate your
  *             algorithm.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on
+ *          <p>The data provided in the validation profile is made available to your buyers on
  *                 Amazon Web Services Marketplace.</p>
  */
 export interface AlgorithmValidationProfile {
@@ -1825,410 +1839,409 @@ export interface AlgorithmValidationSpecification {
 export interface AnnotationConsolidationConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a Lambda function implements the logic for <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-annotation-consolidation.html">annotation consolidation</a> and to process output data.</p>
-   *         <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
+   *          <p>This parameter is required for all labeling jobs. For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>, use one
    *             of the following Amazon SageMaker Ground Truth Lambda function ARNs for
    *                 <code>AnnotationConsolidationLambdaArn</code>. For custom labeling workflows, see
    *                 <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-postlambda">Post-annotation Lambda</a>. </p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Bounding box</b> - Finds the most similar boxes from
    *             different workers based on the Jaccard index of the boxes.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-BoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-BoundingBox</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Image classification</b> - Uses a variant of the
    *             Expectation Maximization approach to estimate the true class of an image based on
    *             annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-ImageMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Multi-label image classification</b> - Uses a variant of
    *             the Expectation Maximization approach to estimate the true classes of an image based on
    *             annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Semantic segmentation</b> - Treats each pixel in an image
    *             as a multi-class classification and treats pixel annotations from workers as "votes" for
    *             the correct label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-SemanticSegmentation</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Text classification</b> - Uses a variant of the
    *             Expectation Maximization approach to estimate the true class of text based on
    *             annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClass</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Multi-label text classification</b> - Uses a variant of
    *             the Expectation Maximization approach to estimate the true classes of text based on
    *             annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Named entity recognition</b> - Groups similar selections
    *             and calculates aggregate boundaries, resolving to most-assigned label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-NamedEntityRecognition</code>
@@ -2290,16 +2303,11 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Classification</b> - Use this task type when you need workers to classify videos using
    *             predefined labels that you specify. Workers are shown videos and are asked to choose one
    *             label for each video.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoMultiClass</code>
@@ -2361,13 +2369,13 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Detection</b> - Use this task type to
    *             have workers identify and locate objects in a sequence of video frames (images extracted
    *             from a video) using bounding boxes. For example, you can use this task to ask workers to
    *             identify and localize various objects in a series of video frames, such as cars, bikes,
    *             and pedestrians.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoObjectDetection</code>
@@ -2429,12 +2437,12 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Tracking</b> - Use this task type to
    *             have workers track the movement of objects in a sequence of video frames (images
    *             extracted from a video) using bounding boxes. For example, you can use this task to ask
    *             workers to track the movement of objects, such as cars, bikes, and pedestrians. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VideoObjectTracking</code>
@@ -2496,15 +2504,13 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Detection</b> - Use this task type
    *             when you want workers to classify objects in a 3D point cloud by drawing 3D cuboids
    *             around objects. For example, you can use this task type to ask workers to identify
    *             different types of objects in a point cloud, such as cars, bikes, and
    *             pedestrians.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudObjectDetection</code>
@@ -2566,12 +2572,12 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Tracking</b> - Use this task type
    *             when you want workers to draw 3D cuboids around objects that appear in a sequence of 3D
    *             point cloud frames. For example, you can use this task type to ask workers to track the
    *             movement of vehicles across multiple point cloud frames. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudObjectTracking</code>
@@ -2633,12 +2639,12 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Semantic Segmentation</b> - Use this task
    *             type when you want workers to create a point-level semantic segmentation masks by
    *             painting objects in a 3D point cloud using different colors where each color is assigned
    *             to one of the classes you specify.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudSemanticSegmentation</code>
@@ -2700,20 +2706,16 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>Use the following ARNs for Label Verification and Adjustment Jobs</b>
    *          </p>
-   *         <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
+   *          <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels </a>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Semantic Segmentation Adjustment</b> - Treats each pixel
    *             in an image as a multi-class classification and treats pixel adjusted annotations from
    *             workers as "votes" for the correct label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentSemanticSegmentation</code>
@@ -2775,13 +2777,12 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Semantic Segmentation Verification</b> - Uses a variant
    *             of the Expectation Maximization approach to estimate the true class of verification
    *             judgment for semantic segmentation labels based on annotations from individual
    *             workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VerificationSemanticSegmentation</code>
@@ -2843,12 +2844,11 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Bounding Box Adjustment</b> - Finds the most similar
    *             boxes from different workers based on the Jaccard index of the adjusted
    *             annotations.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentBoundingBox</code>
@@ -2910,81 +2910,77 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Bounding Box Verification</b> - Uses a variant of the
    *             Expectation Maximization approach to estimate the true class of verification judgement
    *             for bounding box labels based on annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Detection Adjustment</b> -
    *             Use this task type when you want workers to adjust bounding boxes that workers have added
    *             to video frames to classify and localize objects in a sequence of video frames.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectDetection</code>
@@ -3046,11 +3042,11 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Tracking Adjustment</b> -
    *             Use this task type when you want workers to adjust bounding boxes that workers have added
    *             to video frames to track object movement across a sequence of video frames.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-AdjustmentVideoObjectTracking</code>
@@ -3112,79 +3108,76 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Detection Adjustment</b> - Use this
    *             task type when you want workers to adjust 3D cuboids around objects in a 3D point cloud. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:ACS-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Tracking Adjustment</b> - Use this
    *             task type when you want workers to adjust 3D cuboids around objects that appear in a
    *             sequence of 3D point cloud frames.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-Adjustment3DPointCloudObjectTracking</code>
@@ -3246,10 +3239,10 @@ export interface AnnotationConsolidationConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Semantic Segmentation Adjustment</b> - Use this task
    *             type when you want workers to adjust a point-level semantic segmentation masks using a paint tool.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:ACS-3DPointCloudSemanticSegmentation</code>
@@ -3766,7 +3759,7 @@ export interface AsyncInferenceOutputConfig {
   /**
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
    *             uses to encrypt the asynchronous inference output in Amazon S3.</p>
-   *         <p></p>
+   *          <p></p>
    */
   KmsKeyId?: string;
 
@@ -4633,23 +4626,23 @@ export interface BatchDataCaptureConfig {
   /**
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
    *             the storage volume attached to the ML compute instance that hosts the batch transform job.</p>
-   *         <p>The KmsKeyId can be any of the following formats: </p>
-   *         <ul>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
    *             <li>
-   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Key ARN:
+   *                <p>Key ARN:
    *                     <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name ARN:
+   *                <p>Alias name ARN:
    *                     <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
    *                </p>
    *             </li>
@@ -4697,14 +4690,14 @@ export interface InferenceSpecification {
   /**
    * <p>A list of the instance types on which a transformation job can be run or on which an
    *             endpoint can be deployed.</p>
-   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
   SupportedTransformInstanceTypes?: (TransformInstanceType | string)[];
 
   /**
    * <p>A list of the instance types that are used to generate inferences in real-time.</p>
-   *         <p>This parameter is required for unversioned models, and optional for versioned
+   *          <p>This parameter is required for unversioned models, and optional for versioned
    *             models.</p>
    */
   SupportedRealtimeInferenceInstanceTypes?: (ProductionVariantInstanceType | string)[];
@@ -4968,14 +4961,14 @@ export enum CapacitySizeType {
 export interface CapacitySize {
   /**
    * <p>Specifies the endpoint capacity type.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INSTANCE_COUNT</code>: The endpoint activates based on the number of
    *                     instances.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CAPACITY_PERCENT</code>: The endpoint activates based on the specified
    *                     percentage of capacity.</p>
    *             </li>
@@ -5003,7 +4996,7 @@ export enum TrafficRoutingConfigType {
 export interface TrafficRoutingConfig {
   /**
    * <p>Traffic routing strategy type.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ALL_AT_ONCE</code>: Endpoint traffic shifts to the new fleet
@@ -5277,10 +5270,10 @@ export interface ChannelSpecification {
 
   /**
    * <p>The allowed input mode, either FILE or PIPE.</p>
-   *         <p>In FILE mode, Amazon SageMaker copies the data from the input source onto the local
+   *          <p>In FILE mode, Amazon SageMaker copies the data from the input source onto the local
    *             Amazon Elastic Block Store (Amazon EBS) volumes before starting your training algorithm.
    *             This is the most commonly used input mode.</p>
-   *         <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
+   *          <p>In PIPE mode, Amazon SageMaker streams input data from the source directly to your
    *             algorithm without using the EBS volume.</p>
    */
   SupportedInputModes: (TrainingInputMode | string)[] | undefined;
@@ -5404,12 +5397,12 @@ export interface ClarifyInferenceConfig {
    * <p>A zero-based index used to extract a probability value (score) or list from model
    *             container output in CSV format. If this value is not provided, the entire model
    *             container output will be treated as a probability value (score) or list.</p>
-   *         <p>
+   *          <p>
    *             <b>Example for a single class model:</b> If the model
    *             container output consists of a string-formatted prediction label followed by its
    *             probability: <code>'1,0.6'</code>, set <code>ProbabilityIndex</code> to <code>1</code>
    *             to select the probability value <code>0.6</code>.</p>
-   *         <p>
+   *          <p>
    *             <b>Example for a multiclass model:</b> If the model
    *             container output consists of a string-formatted prediction label followed by its
    *             probability: <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>, set
@@ -5421,7 +5414,7 @@ export interface ClarifyInferenceConfig {
   /**
    * <p>A zero-based index used to extract a label header or list of label headers from model
    *             container output in CSV format.</p>
-   *         <p>
+   *          <p>
    *             <b>Example for a multiclass model:</b> If the model
    *             container output consists of label headers followed by probabilities:
    *                 <code>'"[\'cat\',\'dog\',\'fish\']","[0.1,0.6,0.3]"'</code>, set
@@ -5433,7 +5426,7 @@ export interface ClarifyInferenceConfig {
   /**
    * <p>A JMESPath expression used to extract the probability (or score) from the model
    *             container output if the model container is in JSON Lines format.</p>
-   *         <p>
+   *          <p>
    *             <b>Example</b>: If the model container output of a single
    *             request is <code>'{"predicted_label":1,"probability":0.6}'</code>, then set
    *                 <code>ProbabilityAttribute</code> to <code>'probability'</code>.</p>
@@ -5443,7 +5436,7 @@ export interface ClarifyInferenceConfig {
   /**
    * <p>A JMESPath expression used to locate the list of label headers in the model container
    *             output.</p>
-   *         <p>
+   *          <p>
    *             <b>Example</b>: If the model container output of a batch
    *             request is <code>'{"labels":["cat","dog","fish"],"probability":[0.6,0.3,0.1]}'</code>,
    *             then set <code>LabelAttribute</code> to <code>'labels'</code> to extract the list of
@@ -5485,22 +5478,22 @@ export interface ClarifyInferenceConfig {
  * <p>The configuration for the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-feature-attribute-shap-baselines.html">SHAP
  *                 baseline</a> (also called the background or reference dataset) of the Kernal
  *             SHAP algorithm.</p>
- *         <note>
+ *          <note>
  *             <ul>
  *                <li>
- *                     <p>The number of records in the baseline data determines the size of the
+ *                   <p>The number of records in the baseline data determines the size of the
  *                         synthetic dataset, which has an impact on latency of explainability
  *                         requests. For more information, see the <b>Synthetic
  *                             data</b> of <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html">Configure and create an endpoint</a>.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>
+ *                   <p>
  *                      <code>ShapBaseline</code> and <code>ShapBaselineUri</code> are mutually
  *                         exclusive parameters. One or the either is required to configure a SHAP
  *                         baseline. </p>
- *                 </li>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  */
 export interface ClarifyShapBaselineConfig {
   /**
@@ -5616,9 +5609,9 @@ export interface ClarifyTextConfig {
    * <p>Specifies the language of the text features in <a href=" https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">ISO 639-1</a> or
    *                 <a href="https://en.wikipedia.org/wiki/ISO_639-3">ISO 639-3</a> code of a
    *             supported language. </p>
-   *         <note>
+   *          <note>
    *             <p>For a mix of multiple languages, use code <code>'xx'</code>.</p>
-   *         </note>
+   *          </note>
    */
   Language: ClarifyTextLanguage | string | undefined;
 
@@ -5641,11 +5634,11 @@ export interface ClarifyShapConfig {
 
   /**
    * <p>The number of samples to be used for analysis by the Kernal SHAP algorithm. </p>
-   *         <note>
+   *          <note>
    *             <p>The number of samples determines the size of the synthetic dataset, which has an
    *                 impact on latency of explainability requests. For more information, see the
    *                     <b>Synthetic data</b> of <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html">Configure and create an endpoint</a>.</p>
-   *         </note>
+   *          </note>
    */
   NumberOfSamples?: number;
 
@@ -5676,7 +5669,7 @@ export interface ClarifyExplainerConfig {
   /**
    * <p>A JMESPath boolean expression used to filter which records to explain. Explanations
    *             are activated by default. See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/clarify-online-explainability-create-endpoint.html#clarify-online-explainability-create-endpoint-enable">
-   *                 <code>EnableExplanations</code>
+   *                <code>EnableExplanations</code>
    *             </a>for additional information.</p>
    */
   EnableExplanations?: string;
@@ -5732,10 +5725,10 @@ export interface GitConfig {
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
    *             contains the credentials used to access the git repository. The secret must have a
    *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
-   *         <p>
+   *          <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
-   *         </p>
+   *          </p>
    */
   SecretArn?: string;
 }
@@ -6032,13 +6025,13 @@ export interface RepositoryAuthConfig {
 export interface ImageConfig {
   /**
    * <p>Set this to one of the following values:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Platform</code> - The model image is hosted in Amazon ECR.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Vpc</code> - The model image is hosted in a private Docker registry in
    *                     your VPC.</p>
    *             </li>
@@ -6088,7 +6081,7 @@ export interface ContainerDefinition {
   /**
    * <p>This parameter is ignored for models that contain only a
    *             <code>PrimaryContainer</code>.</p>
-   *         <p>When a <code>ContainerDefinition</code> is part of an inference pipeline, the value of
+   *          <p>When a <code>ContainerDefinition</code> is part of an inference pipeline, the value of
    *             the parameter uniquely identifies the container for the purposes of logging and metrics.
    *             For information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/inference-pipeline-logs-metrics.html">Use Logs and Metrics
    *                 to Monitor an Inference Pipeline</a>. If you don't specify a value for this
@@ -6110,7 +6103,7 @@ export interface ContainerDefinition {
    *                 <code>registry/repository[:tag]</code> and <code>registry/repository[@digest]</code>
    *             image path formats. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms.html">Using Your Own Algorithms with Amazon
    *                 SageMaker</a>
-   *         </p>
+   *          </p>
    */
   Image?: string;
 
@@ -6119,7 +6112,7 @@ export interface ContainerDefinition {
    *             accessible from your Amazon Virtual Private Cloud (VPC). For information about storing containers in a
    *             private Docker registry, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html">Use a
    *                 Private Docker Registry for Real-Time Inference Containers</a>
-   *         </p>
+   *          </p>
    */
   ImageConfig?: ImageConfig;
 
@@ -6134,11 +6127,11 @@ export interface ContainerDefinition {
    *             path is required for SageMaker built-in algorithms, but not if you use your own algorithms.
    *             For more information on built-in algorithms, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-algo-docker-registry-paths.html">Common
    *                 Parameters</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 model or endpoint you are creating.</p>
-   *         </note>
-   *         <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
+   *          </note>
+   *          <p>If you provide a value for this parameter, SageMaker uses Amazon Web Services Security Token
    *             Service to download model artifacts from the S3 path you provide. Amazon Web Services STS
    *             is activated in your IAM user account by default. If you previously deactivated
    *                 Amazon Web Services STS for a region, you need to reactivate Amazon Web Services STS
@@ -6146,10 +6139,10 @@ export interface ContainerDefinition {
    *                 Deactivating Amazon Web Services STS in an Amazon Web Services Region</a> in the
    *                     <i>Amazon Web Services Identity and Access Management User
    *                 Guide</i>.</p>
-   *         <important>
+   *          <important>
    *             <p>If you use a built-in algorithm to create a model, SageMaker requires that you provide
    *                 a S3 path to the model artifacts in <code>ModelDataUrl</code>.</p>
-   *         </important>
+   *          </important>
    */
   ModelDataUrl?: string;
 
@@ -6271,31 +6264,31 @@ export interface ContinuousParameterRange {
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
    *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Auto</dt>
    *             <dd>
-   *                     <p>SageMaker hyperparameter tuning chooses the best scale for the
+   *                <p>SageMaker hyperparameter tuning chooses the best scale for the
    *                         hyperparameter.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Linear</dt>
    *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
    *                         using a linear scale.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Logarithmic</dt>
    *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
    *                         using a logarithmic scale.</p>
-   *                     <p>Logarithmic scaling works only for ranges that have only values greater
+   *                <p>Logarithmic scaling works only for ranges that have only values greater
    *                         than 0.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>ReverseLogarithmic</dt>
    *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
    *                         using a reverse logarithmic scale.</p>
-   *                     <p>Reverse logarithmic scaling works only for ranges that are entirely within
+   *                <p>Reverse logarithmic scaling works only for ranges that are entirely within
    *                         the range 0<=x<1.0.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   ScalingType?: HyperParameterScalingType | string;
@@ -6574,29 +6567,29 @@ export interface CreateAlgorithmInput {
   /**
    * <p>Specifies details about training jobs run by this algorithm, including the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The Amazon ECR path of the container and the version digest of the
+   *                <p>The Amazon ECR path of the container and the version digest of the
    *                     algorithm.</p>
    *             </li>
    *             <li>
-   *                 <p>The hyperparameters that the algorithm supports.</p>
+   *                <p>The hyperparameters that the algorithm supports.</p>
    *             </li>
    *             <li>
-   *                 <p>The instance types that the algorithm supports for training.</p>
+   *                <p>The instance types that the algorithm supports for training.</p>
    *             </li>
    *             <li>
-   *                 <p>Whether the algorithm supports distributed training.</p>
+   *                <p>Whether the algorithm supports distributed training.</p>
    *             </li>
    *             <li>
-   *                 <p>The metrics that the algorithm emits to Amazon CloudWatch.</p>
+   *                <p>The metrics that the algorithm emits to Amazon CloudWatch.</p>
    *             </li>
    *             <li>
-   *                 <p>Which metrics that the algorithm emits can be used as the objective metric for
+   *                <p>Which metrics that the algorithm emits can be used as the objective metric for
    *                     hyperparameter tuning jobs.</p>
    *             </li>
    *             <li>
-   *                 <p>The input channels that the algorithm supports for training data. For example,
+   *                <p>The input channels that the algorithm supports for training data. For example,
    *                     an algorithm might support <code>train</code>, <code>validation</code>, and
    *                         <code>test</code> channels.</p>
    *             </li>
@@ -6607,17 +6600,17 @@ export interface CreateAlgorithmInput {
   /**
    * <p>Specifies details about inference jobs that the algorithm runs, including the
    *             following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The Amazon ECR paths of containers that contain the inference code and model
+   *                <p>The Amazon ECR paths of containers that contain the inference code and model
    *                     artifacts.</p>
    *             </li>
    *             <li>
-   *                 <p>The instance types that the algorithm supports for transform jobs and
+   *                <p>The instance types that the algorithm supports for transform jobs and
    *                     real-time endpoints used for inference.</p>
    *             </li>
    *             <li>
-   *                 <p>The input and output content formats that the algorithm supports for
+   *                <p>The input and output content formats that the algorithm supports for
    *                     inference.</p>
    *             </li>
    *          </ul>
@@ -6982,289 +6975,289 @@ export interface InputConfig {
    * <p>Specifies the name and shape of the expected data inputs for your trained model with a
    *             JSON dictionary form. The data inputs are <a>InputConfig$Framework</a>
    *             specific. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TensorFlow</code>: You must specify the name and shape (NHWC format) of
    *                     the expected data inputs using a dictionary format for your trained model. The
    *                     dictionary formats required for the console and CLI are different.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Examples for one input:</p>
-   *                         <ul>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console,
+   *                            <p>If using the console,
    *                                     <code>{"input":[1,1024,1024,3]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI,
+   *                            <p>If using the CLI,
    *                                     <code>{\"input\":[1,1024,1024,3]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Examples for two inputs:</p>
-   *                         <ul>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console, <code>{"data1": [1,28,28,1],
+   *                            <p>If using the console, <code>{"data1": [1,28,28,1],
    *                                         "data2":[1,28,28,1]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI, <code>{\"data1\": [1,28,28,1],
+   *                            <p>If using the CLI, <code>{\"data1\": [1,28,28,1],
    *                                         \"data2\":[1,28,28,1]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>KERAS</code>: You must specify the name and shape (NCHW format) of
    *                     expected data inputs using a dictionary format for your trained model. Note that
    *                     while Keras model artifacts should be uploaded in NHWC (channel-last) format,
    *                         <code>DataInputConfig</code> should be specified in NCHW (channel-first)
    *                     format. The dictionary formats required for the console and CLI are
    *                     different.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Examples for one input:</p>
-   *                         <ul>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console,
+   *                            <p>If using the console,
    *                                     <code>{"input_1":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI,
+   *                            <p>If using the CLI,
    *                                     <code>{\"input_1\":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Examples for two inputs:</p>
-   *                         <ul>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console, <code>{"input_1": [1,3,224,224],
+   *                            <p>If using the console, <code>{"input_1": [1,3,224,224],
    *                                         "input_2":[1,3,224,224]} </code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI, <code>{\"input_1\": [1,3,224,224],
+   *                            <p>If using the CLI, <code>{\"input_1\": [1,3,224,224],
    *                                         \"input_2\":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MXNET/ONNX/DARKNET</code>: You must specify the name and shape (NCHW format) of
    *                     the expected data inputs in order using a dictionary format for your trained
    *                     model. The dictionary formats required for the console and CLI are
    *                     different.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Examples for one input:</p>
-   *                         <ul>
+   *                      <p>Examples for one input:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console,
+   *                            <p>If using the console,
    *                                     <code>{"data":[1,3,1024,1024]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI,
+   *                            <p>If using the CLI,
    *                                     <code>{\"data\":[1,3,1024,1024]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Examples for two inputs:</p>
-   *                         <ul>
+   *                      <p>Examples for two inputs:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console, <code>{"var1": [1,1,28,28],
+   *                            <p>If using the console, <code>{"var1": [1,1,28,28],
    *                                         "var2":[1,1,28,28]} </code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI, <code>{\"var1\": [1,1,28,28],
+   *                            <p>If using the CLI, <code>{\"var1\": [1,1,28,28],
    *                                         \"var2\":[1,1,28,28]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PyTorch</code>: You can either specify the name and shape (NCHW format)
    *                     of expected data inputs in order using a dictionary format for your trained
    *                     model or you can specify the shape only using a list format. The dictionary
    *                     formats required for the console and CLI are different. The list formats for the
    *                     console and CLI are the same.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Examples for one input in dictionary format:</p>
-   *                         <ul>
+   *                      <p>Examples for one input in dictionary format:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console,
+   *                            <p>If using the console,
    *                                     <code>{"input0":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI,
+   *                            <p>If using the CLI,
    *                                     <code>{\"input0\":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Example for one input in list format:
+   *                      <p>Example for one input in list format:
    *                             <code>[[1,3,224,224]]</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Examples for two inputs in dictionary format:</p>
-   *                         <ul>
+   *                      <p>Examples for two inputs in dictionary format:</p>
+   *                      <ul>
    *                         <li>
-   *                                 <p>If using the console, <code>{"input0":[1,3,224,224],
+   *                            <p>If using the console, <code>{"input0":[1,3,224,224],
    *                                         "input1":[1,3,224,224]}</code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                         <li>
-   *                                 <p>If using the CLI, <code>{\"input0\":[1,3,224,224],
+   *                            <p>If using the CLI, <code>{\"input0\":[1,3,224,224],
    *                                         \"input1\":[1,3,224,224]} </code>
    *                            </p>
-   *                             </li>
+   *                         </li>
    *                      </ul>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Example for two inputs in list format: <code>[[1,3,224,224],
+   *                      <p>Example for two inputs in list format: <code>[[1,3,224,224],
    *                                 [1,3,224,224]]</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>XGBOOST</code>: input data name and shape are not needed.</p>
    *             </li>
    *          </ul>
-   *         <p>
+   *          <p>
    *             <code>DataInputConfig</code> supports the following parameters for <code>CoreML</code>
    *             <a>OutputConfig$TargetDevice</a> (ML Model format):</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>shape</code>: Input shape, for example <code>{"input_1": {"shape": [1,224,224,3]}}</code>.
    *                     In addition to static input shapes, CoreML converter supports Flexible input shapes:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Range Dimension. You can use the Range Dimension feature if you know the input shape
+   *                      <p>Range Dimension. You can use the Range Dimension feature if you know the input shape
    *                             will be within some specific interval in that dimension,
    *                             for example: <code>{"input_1": {"shape": ["1..10", 224, 224, 3]}}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Enumerated shapes. Sometimes, the models are trained to work only on a select
+   *                      <p>Enumerated shapes. Sometimes, the models are trained to work only on a select
    *                             set of inputs. You can enumerate all supported input shapes,
    *                             for example: <code>{"input_1": {"shape": [[1, 224, 224, 3], [1, 160, 160, 3]]}}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>default_shape</code>: Default input shape. You can set a default shape during
    *                     conversion for both Range Dimension and Enumerated Shapes. For example
    *                     <code>{"input_1": {"shape": ["1..10", 224, 224, 3], "default_shape": [1, 224, 224, 3]}}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>type</code>: Input type. Allowed values: <code>Image</code> and <code>Tensor</code>.
    *                     By default, the converter generates an ML Model with inputs of type Tensor (MultiArray).
    *                     User can set input type to be Image. Image input type requires additional input parameters
    *                     such as <code>bias</code> and <code>scale</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>bias</code>: If the input type is an Image, you need to provide the bias vector.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>scale</code>: If the input type is an Image, you need to provide a scale factor.</p>
    *             </li>
    *          </ul>
-   *         <p>CoreML <code>ClassifierConfig</code> parameters can be specified using
+   *          <p>CoreML <code>ClassifierConfig</code> parameters can be specified using
    *             <a>OutputConfig$CompilerOptions</a>. CoreML converter supports Tensorflow and PyTorch models.
    *             CoreML conversion examples:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Tensor type input:</p>
-   *                 <ul>
+   *                <p>Tensor type input:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
    *                             [1,224,224,3]}}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>Tensor type input without input name (PyTorch):</p>
-   *                 <ul>
+   *                <p>Tensor type input without input name (PyTorch):</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
    *                             [1,3,224,224]}]</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>Image type input:</p>
-   *                 <ul>
+   *                <p>Image type input:</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"DataInputConfig": {"input_1": {"shape": [[1,224,224,3], [1,160,160,3]], "default_shape":
    *                             [1,224,224,3], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>Image type input without input name (PyTorch):</p>
-   *                 <ul>
+   *                <p>Image type input without input name (PyTorch):</p>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"DataInputConfig": [{"shape": [[1,3,224,224], [1,3,160,160]], "default_shape":
    *                             [1,3,224,224], "type": "Image", "bias": [-1,-1,-1], "scale": 0.007843137255}]</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"CompilerOptions": {"class_labels": "imagenet_labels_1000.txt"}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *         <p>Depending on the model format, <code>DataInputConfig</code> requires the following parameters for
+   *          <p>Depending on the model format, <code>DataInputConfig</code> requires the following parameters for
    *             <code>ml_eia2</code>
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_OutputConfig.html#sagemaker-Type-OutputConfig-TargetDevice">OutputConfig:TargetDevice</a>.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>For TensorFlow models saved in the SavedModel format, specify the input names
    *                 from <code>signature_def_key</code> and the input model shapes for <code>DataInputConfig</code>.
@@ -7273,17 +7266,17 @@ export interface InputConfig {
    *                      <code>OutputConfig:CompilerOptions</code>
    *                   </a> if
    *                 the model does not use TensorFlow's default signature def key. For example:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"DataInputConfig": {"inputs": [1, 224, 224, 3]}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>"CompilerOptions": {"signature_def_key": "serving_custom"}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
@@ -7293,7 +7286,7 @@ export interface InputConfig {
    *                      <code>OutputConfig:CompilerOptions</code>
    *                   </a>.
    *                 For example:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>"DataInputConfig": {"input_tensor:0": [1, 224, 224, 3]}</code>
@@ -7319,7 +7312,7 @@ export interface InputConfig {
   /**
    * <p>Specifies the framework version to use. This API field is only supported for the MXNet,
    * 	    PyTorch, TensorFlow and TensorFlow Lite frameworks.</p>
-   *         <p>For information about framework versions supported for cloud targets and edge devices, see
+   *          <p>For information about framework versions supported for cloud targets and edge devices, see
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-cloud.html">Cloud Supported Instance Types and Frameworks</a> and
    *             <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/neo-supported-devices-edge-frameworks.html">Edge Supported Frameworks</a>.</p>
    */
@@ -7334,13 +7327,13 @@ export interface InputConfig {
 export interface TargetPlatform {
   /**
    * <p>Specifies a target platform OS.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LINUX</code>: Linux-based operating systems.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ANDROID</code>: Android operating systems. Android API level can be
    *                     specified using the <code>ANDROID_PLATFORM</code> compiler option. For example,
    *                     <code>"CompilerOptions": {'ANDROID_PLATFORM': 28}</code>
@@ -7352,25 +7345,25 @@ export interface TargetPlatform {
 
   /**
    * <p>Specifies a target platform architecture.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>X86_64</code>: 64-bit version of the x86 instruction set.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>X86</code>: 32-bit version of the x86 instruction set.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ARM64</code>: ARMv8 64-bit CPU.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ARM_EABIHF</code>: ARMv7 32-bit, Hard Float.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ARM_EABI</code>: ARMv7 32-bit, Soft Float. Used by Android 32-bit ARM
    *                     platform.</p>
    *             </li>
@@ -7380,19 +7373,19 @@ export interface TargetPlatform {
 
   /**
    * <p>Specifies a target platform accelerator (optional).</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NVIDIA</code>: Nvidia graphics processing unit. It also requires
    *                     <code>gpu-code</code>, <code>trt-ver</code>, <code>cuda-ver</code> compiler
    *                     options</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MALI</code>: ARM Mali graphics processor</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INTEL_GRAPHICS</code>: Integrated Intel graphics</p>
    *             </li>
    *          </ul>
@@ -7428,62 +7421,62 @@ export interface OutputConfig {
    * <p>Contains information about a target platform that you want your model to run on, such
    *             as OS, architecture, and accelerators. It is an alternative of
    *             <code>TargetDevice</code>.</p>
-   *         <p>The following examples show how to configure the <code>TargetPlatform</code> and
+   *          <p>The following examples show how to configure the <code>TargetPlatform</code> and
    *                 <code>CompilerOptions</code> JSON strings for popular target platforms: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Raspberry Pi 3 Model B+</p>
-   *                 <p>
+   *                <p>Raspberry Pi 3 Model B+</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM_EABIHF"},</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <code> "CompilerOptions": {'mattr': ['+neon']}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Jetson TX2</p>
-   *                 <p>
+   *                <p>Jetson TX2</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
    *                         "NVIDIA"},</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <code> "CompilerOptions": {'gpu-code': 'sm_62', 'trt-ver': '6.0.1',
    *                         'cuda-ver': '10.0'}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>EC2 m5.2xlarge instance OS</p>
-   *                 <p>
+   *                <p>EC2 m5.2xlarge instance OS</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "X86_64", "Accelerator":
    *                         "NVIDIA"},</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <code> "CompilerOptions": {'mcpu': 'skylake-avx512'}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>RK3399</p>
-   *                 <p>
+   *                <p>RK3399</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "LINUX", "Arch": "ARM64", "Accelerator":
    *                         "MALI"}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>ARMv7 phone (CPU)</p>
-   *                 <p>
+   *                <p>ARMv7 phone (CPU)</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM_EABI"},</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 25, 'mattr':
    *                     ['+neon']}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>ARMv8 phone (CPU)</p>
-   *                 <p>
+   *                <p>ARMv8 phone (CPU)</p>
+   *                <p>
    *                   <code>"TargetPlatform": {"Os": "ANDROID", "Arch": "ARM64"},</code>
    *                </p>
-   *                 <p>
+   *                <p>
    *                   <code> "CompilerOptions": {'ANDROID_PLATFORM': 29}</code>
    *                </p>
    *             </li>
@@ -7497,15 +7490,15 @@ export interface OutputConfig {
    *             and highly recommended for CPU compilations. For any other cases, it is optional to
    *             specify <code>CompilerOptions.</code>
    *          </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DTYPE</code>: Specifies the data type for the input. When compiling for
    *                     <code>ml_*</code> (except for <code>ml_inf</code>) instances using PyTorch
    *                     framework, provide the data type (dtype) of the model's input.
    *                         <code>"float32"</code> is used if <code>"DTYPE"</code> is not specified.
    *                     Options for data type are:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>float32: Use either <code>"float"</code> or <code>"float32"</code>.</p>
    *                   </li>
@@ -7513,113 +7506,113 @@ export interface OutputConfig {
    *                      <p>int64: Use either <code>"int64"</code> or <code>"long"</code>.</p>
    *                   </li>
    *                </ul>
-   *                 <p> For example, <code>{"dtype" : "float32"}</code>.</p>
+   *                <p> For example, <code>{"dtype" : "float32"}</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CPU</code>: Compilation for CPU supports the following compiler
    *                     options.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>mcpu</code>: CPU micro-architecture. For example, <code>{'mcpu':
    *                                 'skylake-avx512'}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>mattr</code>: CPU flags. For example, <code>{'mattr': ['+neon',
    *                                 '+vfpv4']}</code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ARM</code>: Details of ARM CPU compilations.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>NEON</code>: NEON is an implementation of the Advanced SIMD
    *                             extension used in ARMv7 processors.</p>
-   *                         <p>For example, add <code>{'mattr': ['+neon']}</code> to the compiler
+   *                      <p>For example, add <code>{'mattr': ['+neon']}</code> to the compiler
    *                             options if compiling for ARM 32-bit platform with the NEON
    *                             support.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>NVIDIA</code>: Compilation for NVIDIA GPU supports the following
    *                     compiler options.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>gpu_code</code>: Specifies the targeted architecture.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>trt-ver</code>: Specifies the TensorRT versions in x.y.z.
    *                             format.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>cuda-ver</code>: Specifies the CUDA version in x.y
    *                             format.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
-   *                 <p>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver':
+   *                <p>For example, <code>{'gpu-code': 'sm_72', 'trt-ver': '6.0.1', 'cuda-ver':
    *                         '10.1'}</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ANDROID</code>: Compilation for the Android OS supports the following
    *                     compiler options:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>ANDROID_PLATFORM</code>: Specifies the Android API levels.
    *                             Available levels range from 21 to 29. For example,
    *                                 <code>{'ANDROID_PLATFORM': 28}</code>.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>mattr</code>: Add <code>{'mattr': ['+neon']}</code> to compiler
    *                             options if compiling for ARM 32-bit platform with NEON support.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options
+   *                <p>
+   *                   <code>INFERENTIA</code>: Compilation for target ml_inf1 uses compiler options
    *                     passed in as a JSON string. For example,
    *                     <code>"CompilerOptions": "\"--verbose 1 --num-neuroncores 2 -O2\""</code>.
    *                 </p>
-   *                 <p>For information about supported compiler options, see
+   *                <p>For information about supported compiler options, see
    *                     <a href="https://github.com/aws/aws-neuron-sdk/blob/master/docs/neuron-cc/command-line-reference.md">
    *                         Neuron Compiler CLI</a>.
    *                 </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CoreML</code>: Compilation for the CoreML <a>OutputConfig$TargetDevice</a>
    *                     supports the following compiler options:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>
+   *                      <p>
    *                         <code>class_labels</code>: Specifies the classification labels file
    *                             name inside input tar.gz file. For example,
    *                                 <code>{"class_labels": "imagenet_labels_1000.txt"}</code>.
    *                             Labels inside the txt file should be separated by newlines.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>EIA</code>: Compilation for the Elastic Inference Accelerator supports the following
    *                     compiler options:</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
    *                      <p>
    *                         <code>precision_mode</code>: Specifies the precision of compiled artifacts. Supported values
@@ -7637,7 +7630,7 @@ export interface OutputConfig {
    *                         models in FrozenGraph format. Set at most one API field, either: <code>signature_def_key</code> or <code>output_names</code>.</p>
    *                   </li>
    *                </ul>
-   *                 <p>For example:
+   *                <p>For example:
    *                     <code>{"precision_mode": "FP32",  "output_names": ["output:0"]}</code>
    *                </p>
    *             </li>
@@ -7651,24 +7644,24 @@ export interface OutputConfig {
    *         For more information, see
    *         <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
    *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
-   *         </p>
-   * 	        <p>The KmsKeyId can be any of the following formats: </p>
-   *         <ul>
+   *          </p>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
    *             <li>
-   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Key ARN:
+   *                <p>Key ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name ARN:
+   *                <p>Alias name ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
    *                </p>
    *             </li>
@@ -7707,22 +7700,22 @@ export interface CreateCompilationJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on
    *             your behalf. </p>
-   *         <p>During model compilation, Amazon SageMaker needs your permission to:</p>
-   *         <ul>
+   *          <p>During model compilation, Amazon SageMaker needs your permission to:</p>
+   *          <ul>
    *             <li>
-   *                 <p>Read input data from an S3 bucket</p>
+   *                <p>Read input data from an S3 bucket</p>
    *             </li>
    *             <li>
-   *                 <p>Write model artifacts to an S3 bucket</p>
+   *                <p>Write model artifacts to an S3 bucket</p>
    *             </li>
    *             <li>
-   *                 <p>Write logs to Amazon CloudWatch Logs</p>
+   *                <p>Write logs to Amazon CloudWatch Logs</p>
    *             </li>
    *             <li>
-   *                 <p>Publish metrics to Amazon CloudWatch</p>
+   *                <p>Publish metrics to Amazon CloudWatch</p>
    *             </li>
    *          </ul>
-   *         <p>You grant permissions for all of these tasks to an IAM role. To pass this role to
+   *          <p>You grant permissions for all of these tasks to an IAM role. To pass this role to
    *             Amazon SageMaker, the caller of this API must have the <code>iam:PassRole</code> permission. For
    *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon SageMaker
    *                 Roles.</a>
@@ -7778,9 +7771,9 @@ export interface CreateCompilationJobResponse {
   /**
    * <p>If the action is successful, the service sends back an HTTP 200 response. Amazon SageMaker returns
    *             the following data in JSON format:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CompilationJobArn</code>: The Amazon Resource Name (ARN) of the compiled
    *                     job.</p>
    *             </li>
@@ -8346,7 +8339,7 @@ export interface JupyterServerAppSettings {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the JupyterServerApp. If you use this parameter, the <code>DefaultResourceSpec</code> parameter is also required.</p>
-   *         <note>
+   *          <note>
    *             <p>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an empty list.</p>
    *          </note>
    */
@@ -8400,7 +8393,7 @@ export interface KernelGatewayAppSettings {
 
   /**
    * <p> The Amazon Resource Name (ARN) of the Lifecycle Configurations attached to the the user profile or domain.</p>
-   *         <note>
+   *          <note>
    *             <p>To remove a Lifecycle Config, you must set <code>LifecycleConfigArns</code> to an empty list.</p>
    *          </note>
    */
@@ -8990,8 +8983,8 @@ export interface DataCaptureConfig {
   DestinationS3Uri: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt data on
-   *          the storage volume attached to the ML compute instance that hosts the endpoint.</p>
+   * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that SageMaker uses to encrypt the
+   *           captured data at rest using Amazon S3 server-side encryption.</p>
    *          <p>The KmsKeyId can be any of the following formats: </p>
    *          <ul>
    *             <li>
@@ -9063,33 +9056,33 @@ export interface ProductionVariantCoreDumpConfig {
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that SageMaker
    *             uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. The
    *                 <code>KmsKeyId</code> can be any of the following formats: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>// KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// KMS Key Alias</p>
-   *                 <p>
-   *                     <code>"alias/ExampleAlias"</code>
-   *                 </p>
+   *                <p>// KMS Key Alias</p>
+   *                <p>
+   *                   <code>"alias/ExampleAlias"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
-   *                 </p>
+   *                <p>// Amazon Resource Name (ARN) of a KMS Key Alias</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *         <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
+   *          <p>If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must
    *             include permissions to call <code>kms:Encrypt</code>. If you don't provide a KMS key ID,
    *             SageMaker uses the default KMS key for Amazon S3 for your role's account. SageMaker uses server-side
    *             encryption with KMS-managed keys for <code>OutputDataConfig</code>. If you use a bucket
@@ -9099,7 +9092,7 @@ export interface ProductionVariantCoreDumpConfig {
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption
    *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide.</i>
    *          </p>
-   *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateEndpoint</code> and <code>UpdateEndpoint</code> requests. For more
    *             information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">Using Key Policies in Amazon Web Services KMS</a> in the <i>Amazon Web Services Key Management
    *                 Service Developer Guide</i>.</p>
@@ -9205,7 +9198,7 @@ export interface CreateEndpointConfigInput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>An list of <code>ProductionVariant</code> objects, one for each model that you want
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
    *             to host at this endpoint.</p>
    */
   ProductionVariants: ProductionVariant[] | undefined;
@@ -9226,33 +9219,33 @@ export interface CreateEndpointConfigInput {
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that
    *             SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that
    *             hosts the endpoint.</p>
-   *         <p>The KmsKeyId can be any of the following formats: </p>
-   *         <ul>
+   *          <p>The KmsKeyId can be any of the following formats: </p>
+   *          <ul>
    *             <li>
-   *                 <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
+   *                <p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Key ARN:
+   *                <p>Key ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name: <code>alias/ExampleAlias</code>
+   *                <p>Alias name: <code>alias/ExampleAlias</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>Alias name ARN:
+   *                <p>Alias name ARN:
    *                         <code>arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias</code>
    *                </p>
    *             </li>
    *          </ul>
-   *         <p>The KMS key policy must grant permission to the IAM role that you specify in your
+   *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateEndpoint</code>, <code>UpdateEndpoint</code> requests. For more
    *             information, refer to the Amazon Web Services Key Management Service section<a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html"> Using Key
    *                 Policies in Amazon Web Services KMS </a>
    *          </p>
-   *         <note>
+   *          <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
    *                 You can't request a <code>KmsKeyId</code> when using an instance type with local
@@ -9264,7 +9257,7 @@ export interface CreateEndpointConfigInput {
    *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
    *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
    *                     Instance Store Volumes</a>.</p>
-   *         </note>
+   *          </note>
    */
   KmsKeyId?: string;
 
@@ -9280,12 +9273,11 @@ export interface CreateEndpointConfigInput {
   ExplainerConfig?: ExplainerConfig;
 
   /**
-   * <p>
-   *            Array of <code>ProductionVariant</code> objects. There is one for each model that you want to host at this
-   *            endpoint in shadow mode with production traffic replicated from the model specified on
-   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
-   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
-   *        </p>
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code>. If you use this field, you can only
+   *             specify one variant for <code>ProductionVariants</code> and one variant for
+   *             <code>ShadowProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariant[];
 }

@@ -28,7 +28,7 @@ export interface StopNotebookInstanceCommandOutput extends __MetadataBearer {}
  *             disconnects the ML storage volume from it. SageMaker preserves the ML storage volume. SageMaker
  *             stops charging you for the ML compute instance when you call
  *                 <code>StopNotebookInstance</code>.</p>
- *         <p>To access data on the ML storage volume for a notebook instance that has been
+ *          <p>To access data on the ML storage volume for a notebook instance that has been
  *             terminated, call the <code>StartNotebookInstance</code> API.
  *                 <code>StartNotebookInstance</code> launches another ML compute instance, configures
  *             it, and attaches the preserved ML storage volume so you can continue your work.

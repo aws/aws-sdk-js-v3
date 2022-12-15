@@ -11,7 +11,6 @@ import {
   AlgorithmValidationSpecification,
   AnnotationConsolidationConfig,
   AppSpecification,
-  AppStatus,
   AppType,
   ArtifactSource,
   AthenaDatasetDefinition,
@@ -59,7 +58,6 @@ import {
   ProcessingS3UploadMode,
   ProductionVariantInstanceType,
   ResourceConfig,
-  ResourceSpec,
   S3StorageConfig,
   StoppingCondition,
   Tag,
@@ -107,7 +105,7 @@ export interface OfflineStoreConfig {
   DataCatalogConfig?: DataCatalogConfig;
 
   /**
-   * <p>Format for the offline store feature group. <code>Iceberg</code> is the optimal format for feature groups shared between offline and online stores.</p>
+   * <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
    */
   TableFormat?: TableFormat | string;
 }
@@ -321,6 +319,9 @@ export interface CreateFeatureGroupRequest {
    *                Amazon Web Services KMS key. By defining your <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-key.html">bucket-level key</a> for SSE,
    *                you can reduce Amazon Web Services KMS requests costs by up to 99 percent.</p>
    *             </li>
+   *             <li>
+   *                <p>Format for the offline store table. Supported formats are Glue (Default) and <a href="https://iceberg.apache.org/">Apache Iceberg</a>.</p>
+   *             </li>
    *          </ul>
    *          <p>To learn more about this parameter, see <a>OfflineStoreConfig</a>.</p>
    */
@@ -398,305 +399,305 @@ export interface USD {
 
 /**
  * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
- *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
+ *          <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
  *             should be based on the complexity of the task; the longer it takes in your initial
  *             testing, the more you should offer.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>0.036</p>
+ *                <p>0.036</p>
  *             </li>
  *             <li>
- *                 <p>0.048</p>
+ *                <p>0.048</p>
  *             </li>
  *             <li>
- *                 <p>0.060</p>
+ *                <p>0.060</p>
  *             </li>
  *             <li>
- *                 <p>0.072</p>
+ *                <p>0.072</p>
  *             </li>
  *             <li>
- *                 <p>0.120</p>
+ *                <p>0.120</p>
  *             </li>
  *             <li>
- *                 <p>0.240</p>
+ *                <p>0.240</p>
  *             </li>
  *             <li>
- *                 <p>0.360</p>
+ *                <p>0.360</p>
  *             </li>
  *             <li>
- *                 <p>0.480</p>
+ *                <p>0.480</p>
  *             </li>
  *             <li>
- *                 <p>0.600</p>
+ *                <p>0.600</p>
  *             </li>
  *             <li>
- *                 <p>0.720</p>
+ *                <p>0.720</p>
  *             </li>
  *             <li>
- *                 <p>0.840</p>
+ *                <p>0.840</p>
  *             </li>
  *             <li>
- *                 <p>0.960</p>
+ *                <p>0.960</p>
  *             </li>
  *             <li>
- *                 <p>1.080</p>
+ *                <p>1.080</p>
  *             </li>
  *             <li>
- *                 <p>1.200</p>
+ *                <p>1.200</p>
  *             </li>
  *          </ul>
- *         <p>Use one of the following prices for image classification, text classification, and
+ *          <p>Use one of the following prices for image classification, text classification, and
  *             custom tasks. Prices are in US dollars.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>0.012</p>
+ *                <p>0.012</p>
  *             </li>
  *             <li>
- *                 <p>0.024</p>
+ *                <p>0.024</p>
  *             </li>
  *             <li>
- *                 <p>0.036</p>
+ *                <p>0.036</p>
  *             </li>
  *             <li>
- *                 <p>0.048</p>
+ *                <p>0.048</p>
  *             </li>
  *             <li>
- *                 <p>0.060</p>
+ *                <p>0.060</p>
  *             </li>
  *             <li>
- *                 <p>0.072</p>
+ *                <p>0.072</p>
  *             </li>
  *             <li>
- *                 <p>0.120</p>
+ *                <p>0.120</p>
  *             </li>
  *             <li>
- *                 <p>0.240</p>
+ *                <p>0.240</p>
  *             </li>
  *             <li>
- *                 <p>0.360</p>
+ *                <p>0.360</p>
  *             </li>
  *             <li>
- *                 <p>0.480</p>
+ *                <p>0.480</p>
  *             </li>
  *             <li>
- *                 <p>0.600</p>
+ *                <p>0.600</p>
  *             </li>
  *             <li>
- *                 <p>0.720</p>
+ *                <p>0.720</p>
  *             </li>
  *             <li>
- *                 <p>0.840</p>
+ *                <p>0.840</p>
  *             </li>
  *             <li>
- *                 <p>0.960</p>
+ *                <p>0.960</p>
  *             </li>
  *             <li>
- *                 <p>1.080</p>
+ *                <p>1.080</p>
  *             </li>
  *             <li>
- *                 <p>1.200</p>
+ *                <p>1.200</p>
  *             </li>
  *          </ul>
- *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
+ *          <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
  *             dollars.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>0.840</p>
+ *                <p>0.840</p>
  *             </li>
  *             <li>
- *                 <p>0.960</p>
+ *                <p>0.960</p>
  *             </li>
  *             <li>
- *                 <p>1.080</p>
+ *                <p>1.080</p>
  *             </li>
  *             <li>
- *                 <p>1.200</p>
+ *                <p>1.200</p>
  *             </li>
  *          </ul>
- *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
+ *          <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
  *             Augmented AI review tasks. Prices are in US dollars.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>2.400 </p>
+ *                <p>2.400 </p>
  *             </li>
  *             <li>
- *                 <p>2.280 </p>
+ *                <p>2.280 </p>
  *             </li>
  *             <li>
- *                 <p>2.160 </p>
+ *                <p>2.160 </p>
  *             </li>
  *             <li>
- *                 <p>2.040 </p>
+ *                <p>2.040 </p>
  *             </li>
  *             <li>
- *                 <p>1.920 </p>
+ *                <p>1.920 </p>
  *             </li>
  *             <li>
- *                 <p>1.800 </p>
+ *                <p>1.800 </p>
  *             </li>
  *             <li>
- *                 <p>1.680 </p>
+ *                <p>1.680 </p>
  *             </li>
  *             <li>
- *                 <p>1.560 </p>
+ *                <p>1.560 </p>
  *             </li>
  *             <li>
- *                 <p>1.440 </p>
+ *                <p>1.440 </p>
  *             </li>
  *             <li>
- *                 <p>1.320 </p>
+ *                <p>1.320 </p>
  *             </li>
  *             <li>
- *                 <p>1.200 </p>
+ *                <p>1.200 </p>
  *             </li>
  *             <li>
- *                 <p>1.080 </p>
+ *                <p>1.080 </p>
  *             </li>
  *             <li>
- *                 <p>0.960 </p>
+ *                <p>0.960 </p>
  *             </li>
  *             <li>
- *                 <p>0.840 </p>
+ *                <p>0.840 </p>
  *             </li>
  *             <li>
- *                 <p>0.720 </p>
+ *                <p>0.720 </p>
  *             </li>
  *             <li>
- *                 <p>0.600 </p>
+ *                <p>0.600 </p>
  *             </li>
  *             <li>
- *                 <p>0.480 </p>
+ *                <p>0.480 </p>
  *             </li>
  *             <li>
- *                 <p>0.360 </p>
+ *                <p>0.360 </p>
  *             </li>
  *             <li>
- *                 <p>0.240 </p>
+ *                <p>0.240 </p>
  *             </li>
  *             <li>
- *                 <p>0.120 </p>
+ *                <p>0.120 </p>
  *             </li>
  *             <li>
- *                 <p>0.072 </p>
+ *                <p>0.072 </p>
  *             </li>
  *             <li>
- *                 <p>0.060 </p>
+ *                <p>0.060 </p>
  *             </li>
  *             <li>
- *                 <p>0.048 </p>
+ *                <p>0.048 </p>
  *             </li>
  *             <li>
- *                 <p>0.036 </p>
+ *                <p>0.036 </p>
  *             </li>
  *             <li>
- *                 <p>0.024 </p>
+ *                <p>0.024 </p>
  *             </li>
  *             <li>
- *                 <p>0.012 </p>
+ *                <p>0.012 </p>
  *             </li>
  *          </ul>
- *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
+ *          <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
  *             Augmented AI review tasks. Prices are in US dollars.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>1.200 </p>
+ *                <p>1.200 </p>
  *             </li>
  *             <li>
- *                 <p>1.080 </p>
+ *                <p>1.080 </p>
  *             </li>
  *             <li>
- *                 <p>0.960 </p>
+ *                <p>0.960 </p>
  *             </li>
  *             <li>
- *                 <p>0.840 </p>
+ *                <p>0.840 </p>
  *             </li>
  *             <li>
- *                 <p>0.720 </p>
+ *                <p>0.720 </p>
  *             </li>
  *             <li>
- *                 <p>0.600 </p>
+ *                <p>0.600 </p>
  *             </li>
  *             <li>
- *                 <p>0.480 </p>
+ *                <p>0.480 </p>
  *             </li>
  *             <li>
- *                 <p>0.360 </p>
+ *                <p>0.360 </p>
  *             </li>
  *             <li>
- *                 <p>0.240 </p>
+ *                <p>0.240 </p>
  *             </li>
  *             <li>
- *                 <p>0.120 </p>
+ *                <p>0.120 </p>
  *             </li>
  *             <li>
- *                 <p>0.072 </p>
+ *                <p>0.072 </p>
  *             </li>
  *             <li>
- *                 <p>0.060 </p>
+ *                <p>0.060 </p>
  *             </li>
  *             <li>
- *                 <p>0.048 </p>
+ *                <p>0.048 </p>
  *             </li>
  *             <li>
- *                 <p>0.036 </p>
+ *                <p>0.036 </p>
  *             </li>
  *             <li>
- *                 <p>0.024 </p>
+ *                <p>0.024 </p>
  *             </li>
  *             <li>
- *                 <p>0.012 </p>
+ *                <p>0.012 </p>
  *             </li>
  *          </ul>
- *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
+ *          <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
  *             Prices are in US dollars.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>1.200 </p>
+ *                <p>1.200 </p>
  *             </li>
  *             <li>
- *                 <p>1.080 </p>
+ *                <p>1.080 </p>
  *             </li>
  *             <li>
- *                 <p>0.960 </p>
+ *                <p>0.960 </p>
  *             </li>
  *             <li>
- *                 <p>0.840 </p>
+ *                <p>0.840 </p>
  *             </li>
  *             <li>
- *                 <p>0.720 </p>
+ *                <p>0.720 </p>
  *             </li>
  *             <li>
- *                 <p>0.600 </p>
+ *                <p>0.600 </p>
  *             </li>
  *             <li>
- *                 <p>0.480 </p>
+ *                <p>0.480 </p>
  *             </li>
  *             <li>
- *                 <p>0.360 </p>
+ *                <p>0.360 </p>
  *             </li>
  *             <li>
- *                 <p>0.240 </p>
+ *                <p>0.240 </p>
  *             </li>
  *             <li>
- *                 <p>0.120 </p>
+ *                <p>0.120 </p>
  *             </li>
  *             <li>
- *                 <p>0.072 </p>
+ *                <p>0.072 </p>
  *             </li>
  *             <li>
- *                 <p>0.060 </p>
+ *                <p>0.060 </p>
  *             </li>
  *             <li>
- *                 <p>0.048 </p>
+ *                <p>0.048 </p>
  *             </li>
  *             <li>
- *                 <p>0.036 </p>
+ *                <p>0.036 </p>
  *             </li>
  *             <li>
- *                 <p>0.024 </p>
+ *                <p>0.024 </p>
  *             </li>
  *             <li>
- *                 <p>0.012 </p>
+ *                <p>0.012 </p>
  *             </li>
  *          </ul>
  */
@@ -765,305 +766,305 @@ export interface HumanLoopConfig {
 
   /**
    * <p>Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. </p>
-   *         <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
+   *          <p>Use one of the following prices for bounding box tasks. Prices are in US dollars and
    *             should be based on the complexity of the task; the longer it takes in your initial
    *             testing, the more you should offer.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>0.036</p>
+   *                <p>0.036</p>
    *             </li>
    *             <li>
-   *                 <p>0.048</p>
+   *                <p>0.048</p>
    *             </li>
    *             <li>
-   *                 <p>0.060</p>
+   *                <p>0.060</p>
    *             </li>
    *             <li>
-   *                 <p>0.072</p>
+   *                <p>0.072</p>
    *             </li>
    *             <li>
-   *                 <p>0.120</p>
+   *                <p>0.120</p>
    *             </li>
    *             <li>
-   *                 <p>0.240</p>
+   *                <p>0.240</p>
    *             </li>
    *             <li>
-   *                 <p>0.360</p>
+   *                <p>0.360</p>
    *             </li>
    *             <li>
-   *                 <p>0.480</p>
+   *                <p>0.480</p>
    *             </li>
    *             <li>
-   *                 <p>0.600</p>
+   *                <p>0.600</p>
    *             </li>
    *             <li>
-   *                 <p>0.720</p>
+   *                <p>0.720</p>
    *             </li>
    *             <li>
-   *                 <p>0.840</p>
+   *                <p>0.840</p>
    *             </li>
    *             <li>
-   *                 <p>0.960</p>
+   *                <p>0.960</p>
    *             </li>
    *             <li>
-   *                 <p>1.080</p>
+   *                <p>1.080</p>
    *             </li>
    *             <li>
-   *                 <p>1.200</p>
+   *                <p>1.200</p>
    *             </li>
    *          </ul>
-   *         <p>Use one of the following prices for image classification, text classification, and
+   *          <p>Use one of the following prices for image classification, text classification, and
    *             custom tasks. Prices are in US dollars.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>0.012</p>
+   *                <p>0.012</p>
    *             </li>
    *             <li>
-   *                 <p>0.024</p>
+   *                <p>0.024</p>
    *             </li>
    *             <li>
-   *                 <p>0.036</p>
+   *                <p>0.036</p>
    *             </li>
    *             <li>
-   *                 <p>0.048</p>
+   *                <p>0.048</p>
    *             </li>
    *             <li>
-   *                 <p>0.060</p>
+   *                <p>0.060</p>
    *             </li>
    *             <li>
-   *                 <p>0.072</p>
+   *                <p>0.072</p>
    *             </li>
    *             <li>
-   *                 <p>0.120</p>
+   *                <p>0.120</p>
    *             </li>
    *             <li>
-   *                 <p>0.240</p>
+   *                <p>0.240</p>
    *             </li>
    *             <li>
-   *                 <p>0.360</p>
+   *                <p>0.360</p>
    *             </li>
    *             <li>
-   *                 <p>0.480</p>
+   *                <p>0.480</p>
    *             </li>
    *             <li>
-   *                 <p>0.600</p>
+   *                <p>0.600</p>
    *             </li>
    *             <li>
-   *                 <p>0.720</p>
+   *                <p>0.720</p>
    *             </li>
    *             <li>
-   *                 <p>0.840</p>
+   *                <p>0.840</p>
    *             </li>
    *             <li>
-   *                 <p>0.960</p>
+   *                <p>0.960</p>
    *             </li>
    *             <li>
-   *                 <p>1.080</p>
+   *                <p>1.080</p>
    *             </li>
    *             <li>
-   *                 <p>1.200</p>
+   *                <p>1.200</p>
    *             </li>
    *          </ul>
-   *         <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
+   *          <p>Use one of the following prices for semantic segmentation tasks. Prices are in US
    *             dollars.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>0.840</p>
+   *                <p>0.840</p>
    *             </li>
    *             <li>
-   *                 <p>0.960</p>
+   *                <p>0.960</p>
    *             </li>
    *             <li>
-   *                 <p>1.080</p>
+   *                <p>1.080</p>
    *             </li>
    *             <li>
-   *                 <p>1.200</p>
+   *                <p>1.200</p>
    *             </li>
    *          </ul>
-   *         <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
+   *          <p>Use one of the following prices for Textract AnalyzeDocument Important Form Key Amazon
    *             Augmented AI review tasks. Prices are in US dollars.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>2.400 </p>
+   *                <p>2.400 </p>
    *             </li>
    *             <li>
-   *                 <p>2.280 </p>
+   *                <p>2.280 </p>
    *             </li>
    *             <li>
-   *                 <p>2.160 </p>
+   *                <p>2.160 </p>
    *             </li>
    *             <li>
-   *                 <p>2.040 </p>
+   *                <p>2.040 </p>
    *             </li>
    *             <li>
-   *                 <p>1.920 </p>
+   *                <p>1.920 </p>
    *             </li>
    *             <li>
-   *                 <p>1.800 </p>
+   *                <p>1.800 </p>
    *             </li>
    *             <li>
-   *                 <p>1.680 </p>
+   *                <p>1.680 </p>
    *             </li>
    *             <li>
-   *                 <p>1.560 </p>
+   *                <p>1.560 </p>
    *             </li>
    *             <li>
-   *                 <p>1.440 </p>
+   *                <p>1.440 </p>
    *             </li>
    *             <li>
-   *                 <p>1.320 </p>
+   *                <p>1.320 </p>
    *             </li>
    *             <li>
-   *                 <p>1.200 </p>
+   *                <p>1.200 </p>
    *             </li>
    *             <li>
-   *                 <p>1.080 </p>
+   *                <p>1.080 </p>
    *             </li>
    *             <li>
-   *                 <p>0.960 </p>
+   *                <p>0.960 </p>
    *             </li>
    *             <li>
-   *                 <p>0.840 </p>
+   *                <p>0.840 </p>
    *             </li>
    *             <li>
-   *                 <p>0.720 </p>
+   *                <p>0.720 </p>
    *             </li>
    *             <li>
-   *                 <p>0.600 </p>
+   *                <p>0.600 </p>
    *             </li>
    *             <li>
-   *                 <p>0.480 </p>
+   *                <p>0.480 </p>
    *             </li>
    *             <li>
-   *                 <p>0.360 </p>
+   *                <p>0.360 </p>
    *             </li>
    *             <li>
-   *                 <p>0.240 </p>
+   *                <p>0.240 </p>
    *             </li>
    *             <li>
-   *                 <p>0.120 </p>
+   *                <p>0.120 </p>
    *             </li>
    *             <li>
-   *                 <p>0.072 </p>
+   *                <p>0.072 </p>
    *             </li>
    *             <li>
-   *                 <p>0.060 </p>
+   *                <p>0.060 </p>
    *             </li>
    *             <li>
-   *                 <p>0.048 </p>
+   *                <p>0.048 </p>
    *             </li>
    *             <li>
-   *                 <p>0.036 </p>
+   *                <p>0.036 </p>
    *             </li>
    *             <li>
-   *                 <p>0.024 </p>
+   *                <p>0.024 </p>
    *             </li>
    *             <li>
-   *                 <p>0.012 </p>
+   *                <p>0.012 </p>
    *             </li>
    *          </ul>
-   *         <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
+   *          <p>Use one of the following prices for Rekognition DetectModerationLabels Amazon
    *             Augmented AI review tasks. Prices are in US dollars.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>1.200 </p>
+   *                <p>1.200 </p>
    *             </li>
    *             <li>
-   *                 <p>1.080 </p>
+   *                <p>1.080 </p>
    *             </li>
    *             <li>
-   *                 <p>0.960 </p>
+   *                <p>0.960 </p>
    *             </li>
    *             <li>
-   *                 <p>0.840 </p>
+   *                <p>0.840 </p>
    *             </li>
    *             <li>
-   *                 <p>0.720 </p>
+   *                <p>0.720 </p>
    *             </li>
    *             <li>
-   *                 <p>0.600 </p>
+   *                <p>0.600 </p>
    *             </li>
    *             <li>
-   *                 <p>0.480 </p>
+   *                <p>0.480 </p>
    *             </li>
    *             <li>
-   *                 <p>0.360 </p>
+   *                <p>0.360 </p>
    *             </li>
    *             <li>
-   *                 <p>0.240 </p>
+   *                <p>0.240 </p>
    *             </li>
    *             <li>
-   *                 <p>0.120 </p>
+   *                <p>0.120 </p>
    *             </li>
    *             <li>
-   *                 <p>0.072 </p>
+   *                <p>0.072 </p>
    *             </li>
    *             <li>
-   *                 <p>0.060 </p>
+   *                <p>0.060 </p>
    *             </li>
    *             <li>
-   *                 <p>0.048 </p>
+   *                <p>0.048 </p>
    *             </li>
    *             <li>
-   *                 <p>0.036 </p>
+   *                <p>0.036 </p>
    *             </li>
    *             <li>
-   *                 <p>0.024 </p>
+   *                <p>0.024 </p>
    *             </li>
    *             <li>
-   *                 <p>0.012 </p>
+   *                <p>0.012 </p>
    *             </li>
    *          </ul>
-   *         <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
+   *          <p>Use one of the following prices for Amazon Augmented AI custom human review tasks.
    *             Prices are in US dollars.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>1.200 </p>
+   *                <p>1.200 </p>
    *             </li>
    *             <li>
-   *                 <p>1.080 </p>
+   *                <p>1.080 </p>
    *             </li>
    *             <li>
-   *                 <p>0.960 </p>
+   *                <p>0.960 </p>
    *             </li>
    *             <li>
-   *                 <p>0.840 </p>
+   *                <p>0.840 </p>
    *             </li>
    *             <li>
-   *                 <p>0.720 </p>
+   *                <p>0.720 </p>
    *             </li>
    *             <li>
-   *                 <p>0.600 </p>
+   *                <p>0.600 </p>
    *             </li>
    *             <li>
-   *                 <p>0.480 </p>
+   *                <p>0.480 </p>
    *             </li>
    *             <li>
-   *                 <p>0.360 </p>
+   *                <p>0.360 </p>
    *             </li>
    *             <li>
-   *                 <p>0.240 </p>
+   *                <p>0.240 </p>
    *             </li>
    *             <li>
-   *                 <p>0.120 </p>
+   *                <p>0.120 </p>
    *             </li>
    *             <li>
-   *                 <p>0.072 </p>
+   *                <p>0.072 </p>
    *             </li>
    *             <li>
-   *                 <p>0.060 </p>
+   *                <p>0.060 </p>
    *             </li>
    *             <li>
-   *                 <p>0.048 </p>
+   *                <p>0.048 </p>
    *             </li>
    *             <li>
-   *                 <p>0.036 </p>
+   *                <p>0.036 </p>
    *             </li>
    *             <li>
-   *                 <p>0.024 </p>
+   *                <p>0.024 </p>
    *             </li>
    *             <li>
-   *                 <p>0.012 </p>
+   *                <p>0.012 </p>
    *             </li>
    *          </ul>
    */
@@ -1254,24 +1255,24 @@ export interface IntegerParameterRange {
   /**
    * <p>The scale that hyperparameter tuning uses to search the hyperparameter range. For
    *             information about choosing a hyperparameter scale, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-define-ranges.html#scaling-type">Hyperparameter Scaling</a>. One of the following values:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Auto</dt>
    *             <dd>
-   *                     <p>SageMaker hyperparameter tuning chooses the best scale for the
+   *                <p>SageMaker hyperparameter tuning chooses the best scale for the
    *                         hyperparameter.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Linear</dt>
    *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
    *                         using a linear scale.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>Logarithmic</dt>
    *             <dd>
-   *                     <p>Hyperparameter tuning searches the values in the hyperparameter range by
+   *                <p>Hyperparameter tuning searches the values in the hyperparameter range by
    *                         using a logarithmic scale.</p>
-   *                     <p>Logarithmic scaling works only for ranges that have only values greater
+   *                <p>Logarithmic scaling works only for ranges that have only values greater
    *                         than 0.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   ScalingType?: HyperParameterScalingType | string;
@@ -1283,12 +1284,12 @@ export interface IntegerParameterRange {
  *             with hyperparameter values within these ranges to find the combination of values that
  *             result in the training job with the best performance as measured by the objective metric
  *             of the hyperparameter tuning job.</p>
- *         <note>
+ *          <note>
  *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
  *                 maximum number of hyperparameters for each range and also the maximum for the
  *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
  *                 for all the ranges can't exceed the maximum number specified.</p>
- *         </note>
+ *          </note>
  */
 export interface ParameterRanges {
   /**
@@ -1481,18 +1482,18 @@ export interface HyperParameterTuningJobConfig {
    *             advanced internal early stopping mechanism, <code>TrainingJobEarlyStoppingType</code>
    *             must be <code>OFF</code> to use <code>Hyperband</code>. This parameter can take on one
    *             of the following values (the default value is <code>OFF</code>):</p>
-   *         <dl>
+   *          <dl>
    *             <dt>OFF</dt>
    *             <dd>
-   *                     <p>Training jobs launched by the hyperparameter tuning job do not use early
+   *                <p>Training jobs launched by the hyperparameter tuning job do not use early
    *                         stopping.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>AUTO</dt>
    *             <dd>
-   *                     <p>SageMaker stops training jobs launched by the hyperparameter tuning job when
+   *                <p>SageMaker stops training jobs launched by the hyperparameter tuning job when
    *                         they are unlikely to perform better than previously completed training jobs.
    *                         For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-early-stopping.html">Stop Training Jobs Early</a>.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   TrainingJobEarlyStoppingType?: TrainingJobEarlyStoppingType | string;
@@ -1523,37 +1524,34 @@ export interface HyperParameterAlgorithmSpecification {
   /**
    * <p>The training input mode that the algorithm supports. For more information about input
    *             modes, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>Pipe mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>Pipe</code> mode, Amazon SageMaker streams data directly from
    *             Amazon S3 to the container.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>File mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
+   *          <p>If an algorithm supports <code>File</code> mode, SageMaker downloads the training data from
    *             S3 to the provisioned ML storage volume, and mounts the directory to the Docker volume
    *             for the training container.</p>
-   *         <p>You must provision the ML storage volume with sufficient capacity to accommodate the
+   *          <p>You must provision the ML storage volume with sufficient capacity to accommodate the
    *             data downloaded from S3. In addition to the training data, the ML storage volume also
    *             stores the output model. The algorithm container uses the ML storage volume to also
    *             store intermediate information, if any.</p>
-   *         <p>For distributed algorithms, training data is distributed uniformly. Your training
+   *          <p>For distributed algorithms, training data is distributed uniformly. Your training
    *             duration is predictable if the input data objects sizes are approximately the same. SageMaker
    *             does not split the files any further for model training. If the object sizes are skewed,
    *             training won't be optimal as the data distribution is also skewed when one host in a
    *             training cluster is overloaded, thus becoming a bottleneck in training.</p>
-   *
-   *         <p>
+   *          <p>
    *             <b>FastFile mode</b>
    *          </p>
-   *         <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
+   *          <p>If an algorithm supports <code>FastFile</code> mode, SageMaker streams data directly from
    *             S3 to the container with no code changes, and provides file system access to the data.
    *             Users can author their training script to interact with these files as if they were
    *             stored on disk.</p>
-   *         <p>
+   *          <p>
    *             <code>FastFile</code> mode works best when the data is read sequentially. Augmented
    *             manifest files aren't supported. The startup time is lower when there are fewer files in
    *             the S3 bucket provided.</p>
@@ -1611,13 +1609,19 @@ export interface HyperParameterTuningInstanceConfig {
 
 /**
  * <p>The configuration of resources, including compute instances and storage volumes for
- *             use in training jobs launched by hyperparameter tuning jobs. Specify one or more
- *             instance type and count and the allocation strategy for instance selection.</p>
- *         <note>
+ *             use in training jobs launched by hyperparameter tuning jobs.
+ *                 <code>HyperParameterTuningResourceConfig</code> is similar to
+ *                 <code>ResourceConfig</code>, but has the additional <code>InstanceConfigs</code> and
+ *                 <code>AllocationStrategy</code> fields to allow for flexible instance management.
+ *             Specify one or more instance types, count, and the allocation strategy for instance
+ *             selection.</p>
+ *          <note>
  *             <p>
- *                <code>HyperParameterTuningResourceConfig</code> supports all of the capabilities
- *                 of ResourceConfig with added functionality for flexible instance management.</p>
- *         </note>
+ *                <code>HyperParameterTuningResourceConfig</code> supports the capabilities of
+ *                     <code>ResourceConfig</code> with the exception of <code>KeepAlivePeriodInSeconds</code>.
+ *                 Hyperparameter tuning jobs use warm pools by default, which reuse clusters between
+ *                 training jobs.</p>
+ *          </note>
  */
 export interface HyperParameterTuningResourceConfig {
   /**
@@ -1636,14 +1640,14 @@ export interface HyperParameterTuningResourceConfig {
    *             optimization jobs (optional). These volumes store model artifacts, incremental states
    *             and optionally, scratch space for training algorithms. Do not provide a value for this
    *             parameter if a value for <code>InstanceConfigs</code> is also specified.</p>
-   *         <p>Some instance types have a fixed total local storage size. If you select one of these
+   *          <p>Some instance types have a fixed total local storage size. If you select one of these
    *             instances for training, <code>VolumeSizeInGB</code> cannot be greater than this total
    *             size. For a list of instance types with local instance storage and their sizes, see
    *                 <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store volumes</a>.</p>
-   *         <note>
+   *          <note>
    *             <p>SageMaker supports only the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">General Purpose SSD
    *                     (gp2)</a> storage volume type.</p>
-   *         </note>
+   *          </note>
    */
   VolumeSizeInGB?: number;
 
@@ -1651,15 +1655,15 @@ export interface HyperParameterTuningResourceConfig {
    * <p>A key used by Amazon Web Services Key Management Service to encrypt data on the storage volume
    *             attached to the compute instances used to run the training job. You can use either of
    *             the following formats to specify a key.</p>
-   *         <p>KMS Key ID:</p>
-   *         <p>
+   *          <p>KMS Key ID:</p>
+   *          <p>
    *             <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *          </p>
-   *         <p>Amazon Resource Name (ARN) of a KMS key:</p>
-   *         <p>
+   *          <p>Amazon Resource Name (ARN) of a KMS key:</p>
+   *          <p>
    *             <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *          </p>
-   *         <p>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware module to
+   *          <p>Some instances use local storage, which use a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">hardware module to
    *                 encrypt</a> storage volumes. If you choose one of these instance types, you
    *             cannot request a <code>VolumeKmsKeyId</code>. For a list of instance types that use
    *             local storage, see <a href="http://aws.amazon.com/releasenotes/host-instance-storage-volumes-table/">instance store
@@ -1680,7 +1684,7 @@ export interface HyperParameterTuningResourceConfig {
    *             use in model training jobs launched by hyperparameter tuning jobs. The
    *                 <code>AllocationStrategy</code> controls the order in which multiple configurations
    *             provided in <code>InstanceConfigs</code> are used.</p>
-   *         <note>
+   *          <note>
    *             <p>If you only want to use a single instance configuration inside the
    *                     <code>HyperParameterTuningResourceConfig</code> API, do not provide a value for
    *                     <code>InstanceConfigs</code>. Instead, use <code>InstanceType</code>,
@@ -1688,7 +1692,7 @@ export interface HyperParameterTuningResourceConfig {
    *                     <code>InstanceConfigs</code>, do not provide values for
    *                     <code>InstanceType</code>, <code>VolumeSizeInGB</code> or
    *                     <code>InstanceCount</code>.</p>
-   *         </note>
+   *          </note>
    */
   InstanceConfigs?: HyperParameterTuningInstanceConfig[];
 }
@@ -1734,12 +1738,12 @@ export interface HyperParameterTrainingJobDefinition {
    *             with hyperparameter values within these ranges to find the combination of values that
    *             result in the training job with the best performance as measured by the objective metric
    *             of the hyperparameter tuning job.</p>
-   *         <note>
+   *          <note>
    *             <p>The maximum number of items specified for <code>Array Members</code> refers to the
    *                 maximum number of hyperparameters for each range and also the maximum for the
    *                 hyperparameter tuning job itself. That is, the sum of the number of hyperparameters
    *                 for all the ranges can't exceed the maximum number specified.</p>
-   *         </note>
+   *          </note>
    */
   HyperParameterRanges?: ParameterRanges;
 
@@ -1797,7 +1801,7 @@ export interface HyperParameterTrainingJobDefinition {
    *             including
    *             the compute instances and storage volumes, to use for the training
    *             jobs that the tuning job launches.</p>
-   *         <p>Storage volumes store model artifacts and
+   *          <p>Storage volumes store model artifacts and
    *             incremental
    *             states. Training algorithms might also use storage volumes for
    *             scratch
@@ -1805,10 +1809,10 @@ export interface HyperParameterTrainingJobDefinition {
    *             training data, choose <code>File</code> as the <code>TrainingInputMode</code> in the
    *             algorithm specification. For distributed training algorithms, specify an instance count
    *             greater than 1.</p>
-   *         <note>
+   *          <note>
    *             <p>If you want to use hyperparameter optimization with instance type flexibility, use
    *                     <code>HyperParameterTuningResourceConfig</code> instead.</p>
-   *         </note>
+   *          </note>
    */
   ResourceConfig?: ResourceConfig;
 
@@ -1888,16 +1892,16 @@ export enum HyperParameterTuningJobWarmStartType {
  *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
  *             jobs are used to inform which combinations of hyperparameters to search over in the new
  *             tuning job.</p>
- *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+ *          <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
  *             the objective metric, and the training job that performs the best is compared to the
  *             best training jobs from the parent tuning jobs. From these, the training job that
  *             performs the best as measured by the objective metric is returned as the overall best
  *             training job.</p>
- *         <note>
+ *          <note>
  *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
  *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
  *                 job.</p>
- *         </note>
+ *          </note>
  */
 export interface HyperParameterTuningJobWarmStartConfig {
   /**
@@ -1905,17 +1909,17 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *             hyperparameter tuning job. For more information about warm starting a hyperparameter
    *             tuning job, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/automatic-model-tuning-warm-start.html">Using a Previous
    *                 Hyperparameter Tuning Job as a Starting Point</a>.</p>
-   *         <p>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
+   *          <p>Hyperparameter tuning jobs created before October 1, 2018 cannot be used as parent
    *             jobs for warm start tuning jobs.</p>
    */
   ParentHyperParameterTuningJobs: ParentHyperParameterTuningJob[] | undefined;
 
   /**
    * <p>Specifies one of the following:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>IDENTICAL_DATA_AND_ALGORITHM</dt>
    *             <dd>
-   *                     <p>The new hyperparameter tuning job uses the same input data and training
+   *                <p>The new hyperparameter tuning job uses the same input data and training
    *                         image as the parent tuning jobs. You can change the hyperparameter ranges to
    *                         search and the maximum number of training jobs that the hyperparameter
    *                         tuning job launches. You cannot use a new version of the training algorithm,
@@ -1926,10 +1930,10 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *                         tunable hyperparameters must remain the same as it is in all parent jobs.
    *                         The objective metric for the new tuning job must be the same as for all
    *                         parent jobs.</p>
-   *                 </dd>
+   *             </dd>
    *             <dt>TRANSFER_LEARNING</dt>
    *             <dd>
-   *                     <p>The new hyperparameter tuning job can include input data, hyperparameter
+   *                <p>The new hyperparameter tuning job can include input data, hyperparameter
    *                         ranges, maximum number of concurrent training jobs, and maximum number of
    *                         training jobs that are different than those of its parent hyperparameter
    *                         tuning jobs. The training image can also be a different version from the
@@ -1938,7 +1942,7 @@ export interface HyperParameterTuningJobWarmStartConfig {
    *                         total number of static plus tunable hyperparameters must remain the same as
    *                         it is in all parent jobs. The objective metric for the new tuning job must
    *                         be the same as for all parent jobs.</p>
-   *                 </dd>
+   *             </dd>
    *          </dl>
    */
   WarmStartType: HyperParameterTuningJobWarmStartType | string | undefined;
@@ -1981,17 +1985,17 @@ export interface CreateHyperParameterTuningJobRequest {
    *             more previous tuning jobs as a starting point. The results of previous tuning jobs are
    *             used to inform which combinations of hyperparameters to search over in the new tuning
    *             job.</p>
-   *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *          <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
    *             the objective metric. If you specify <code>IDENTICAL_DATA_AND_ALGORITHM</code> as the
    *                 <code>WarmStartType</code> value for the warm start configuration, the training job
    *             that performs the best in the new tuning job is compared to the best training jobs from
    *             the parent tuning jobs. From these, the training job that performs the best as measured
    *             by the objective metric is returned as the overall best training job.</p>
-   *         <note>
+   *          <note>
    *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
    *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
    *                 job.</p>
-   *         </note>
+   *          </note>
    */
   WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
 
@@ -1999,7 +2003,7 @@ export interface CreateHyperParameterTuningJobRequest {
    * <p>An array of key-value pairs. You can use tags to categorize your Amazon Web Services
    *             resources in different ways, for example, by purpose, owner, or environment. For more
    *             information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services Resources</a>.</p>
-   *         <p>Tags that you specify for the tuning job are also added to all training jobs that the
+   *          <p>Tags that you specify for the tuning job are also added to all training jobs that the
    *             tuning job launches.</p>
    */
   Tags?: Tag[];
@@ -2077,18 +2081,18 @@ export interface CreateImageVersionResponse {
 }
 
 /**
- * <p>The Amazon S3 location and configuration for storing inference experiment data.</p>
+ * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
  */
 export interface InferenceExperimentDataStorageConfig {
   /**
-   * <p>The Amazon S3 bucket where the inference experiment data is stored. </p>
+   * <p>The Amazon S3 bucket where the inference request and response data is stored. </p>
    */
   Destination: string | undefined;
 
   /**
    * <p>
-   *            The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service key that Amazon SageMaker uses to encrypt
-   *            captured data when uploading to Amazon S3.
+   *            The Amazon Web Services Key Management Service key that Amazon SageMaker uses to encrypt captured data at rest using Amazon S3
+   *            server-side encryption.
    *         </p>
    */
   KmsKey?: string;
@@ -2177,16 +2181,16 @@ export enum _InstanceType {
 }
 
 /**
- * <p>The infrastructure configuration for deploying the model to real-time inference.</p>
+ * <p>The infrastructure configuration for deploying the model to a real-time inference endpoint.</p>
  */
 export interface RealTimeInferenceConfig {
   /**
-   * <p>The number of instances of the type specified by <code>InstanceType</code>.</p>
+   * <p>The instance type the model is deployed to.</p>
    */
   InstanceType: _InstanceType | string | undefined;
 
   /**
-   * <p>The instance type the model is deployed to.</p>
+   * <p>The number of instances of the type specified by <code>InstanceType</code>.</p>
    */
   InstanceCount: number | undefined;
 }
@@ -2201,7 +2205,7 @@ export interface ModelInfrastructureConfig {
    *             <li>
    *                <p>
    *                   <code>RealTime</code>: Deploy to real-time inference.</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   InfrastructureType: ModelInfrastructureType | string | undefined;
@@ -2217,7 +2221,7 @@ export interface ModelInfrastructureConfig {
  */
 export interface ModelVariantConfig {
   /**
-   * <p>The name of the model.</p>
+   * <p>The name of the Amazon SageMaker Model entity.</p>
    */
   ModelName: string | undefined;
 
@@ -2258,21 +2262,24 @@ export interface ShadowModelVariantConfig {
   ShadowModelVariantName: string | undefined;
 
   /**
-   * <p>The percentage of inference requests that are replicated to the shadow variant.</p>
+   * <p>
+   *            The percentage of inference requests that Amazon SageMaker replicates from the production variant to the shadow variant.
+   *        </p>
    */
   SamplingPercentage: number | undefined;
 }
 
 /**
  * <p>
- *            Shows which variant is a production variant and which variant is a shadow variant. For shadow
- *            variants, also shows the sampling percentages.
+ *            The configuration of <code>ShadowMode</code> inference experiment type, which specifies a production variant
+ *            to take all the inference requests, and a shadow variant to which Amazon SageMaker replicates a percentage of the
+ *            inference requests. For the shadow variant it also specifies the percentage of requests that Amazon SageMaker replicates.
  *        </p>
  */
 export interface ShadowModeConfig {
   /**
    * <p>
-   *            The name of the production variant.
+   *            The name of the production variant, which takes all the inference requests.
    *        </p>
    */
   SourceModelVariantName: string | undefined;
@@ -2300,10 +2307,10 @@ export interface CreateInferenceExperimentRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                    <code>ShadowMode</code>: You can use this type to validate a shadow variant. For more information,
+   *                   <code>ShadowMode</code>: You can use this type to validate a shadow variant. For more information,
    *                    see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>.
    *                </p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   Type: InferenceExperimentType | string | undefined;
@@ -2311,7 +2318,7 @@ export interface CreateInferenceExperimentRequest {
   /**
    * <p>
    *            The duration for which you want the inference experiment to run. If you don't specify this field, the
-   *            experiment automatically concludes after 7 days.
+   *            experiment automatically starts immediately upon creation and concludes after 7 days.
    *        </p>
    */
   Schedule?: InferenceExperimentSchedule;
@@ -2323,7 +2330,8 @@ export interface CreateInferenceExperimentRequest {
 
   /**
    * <p>
-   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images.
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
    *        </p>
    */
   RoleArn: string | undefined;
@@ -2337,8 +2345,8 @@ export interface CreateInferenceExperimentRequest {
 
   /**
    * <p>
-   *            Array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference
-   *            experiment. Each <code>ModelVariantConfigSummary</code> object in the array describes the infrastructure
+   *            An array of <code>ModelVariantConfig</code> objects. There is one for each variant in the inference
+   *            experiment. Each <code>ModelVariantConfig</code> object in the array describes the infrastructure
    *            configuration for the corresponding variant.
    *        </p>
    */
@@ -2346,51 +2354,55 @@ export interface CreateInferenceExperimentRequest {
 
   /**
    * <p>
-   *            The storage configuration for the inference experiment. This is an optional parameter that you can use for
-   *            data capture. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture data</a>.
+   *            The Amazon S3 location and configuration for storing inference request and response data.
+   *        </p>
+   *          <p>
+   *            This is an optional parameter that you can use for data capture. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture data</a>.
    *        </p>
    */
   DataStorageConfig?: InferenceExperimentDataStorageConfig;
 
   /**
    * <p>
-   *            Shows which variant is the production variant and which variant is the shadow variant. For the shadow
-   *            variant, also shows the sampling percentage.
+   *            The configuration of <code>ShadowMode</code> inference experiment type. Use this field to specify a
+   *            production variant which takes all the inference requests, and a shadow variant to which Amazon SageMaker replicates a
+   *            percentage of the inference requests. For the shadow variant also specify the percentage of requests that
+   *            Amazon SageMaker replicates.
    *        </p>
    */
   ShadowModeConfig: ShadowModeConfig | undefined;
 
   /**
    * <p>
-   *            The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt
-   *            data on the storage volume attached to the ML compute instance that hosts the endpoint. The <code>KmsKey</code>
-   *            can be any of the following formats:
+   *            The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on
+   *            the storage volume attached to the ML compute instance that hosts the endpoint.  The <code>KmsKey</code> can
+   *            be any of the following formats:
    *        </p>
    *          <ul>
    *             <li>
    *                <p>KMS key ID</p>
    *                <p>
-   *                    <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Resource Name (ARN) of a KMS key</p>
    *                <p>
-   *                    <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>KMS key Alias</p>
    *                <p>
-   *                    <code>"alias/ExampleAlias"</code>
+   *                   <code>"alias/ExampleAlias"</code>
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>Amazon Resource Name (ARN) of a KMS key Alias</p>
    *                <p>
-   *                    <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:alias/ExampleAlias"</code>
    *                </p>
-   *            </li>
+   *             </li>
    *          </ul>
    *          <p>
    *            If you use a KMS key ID or an alias of your KMS key, the Amazon SageMaker execution role must include permissions to
@@ -2591,6 +2603,22 @@ export interface TrafficPattern {
 }
 
 /**
+ * <p>Inference Recommender provisions SageMaker endpoints with access to VPC in the inference recommendation job.</p>
+ */
+export interface RecommendationJobVpcConfig {
+  /**
+   * <p>The VPC security group IDs. IDs have the form of <code>sg-xxxxxxxx</code>.
+   *          Specify the security groups for the VPC that is specified in the <code>Subnets</code> field.</p>
+   */
+  SecurityGroupIds: string[] | undefined;
+
+  /**
+   * <p>The ID of the subnets in the VPC to which you want to connect your model.</p>
+   */
+  Subnets: string[] | undefined;
+}
+
+/**
  * <p>The input configuration of the recommendation job.</p>
  */
 export interface RecommendationJobInputConfig {
@@ -2623,12 +2651,10 @@ export interface RecommendationJobInputConfig {
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key
    *          that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance that hosts the endpoint.
    *          This key will be passed to SageMaker Hosting for endpoint creation. </p>
-   *
    *          <p>The SageMaker execution role must have <code>kms:CreateGrant</code> permission in order to encrypt data on the storage
    *          volume of the endpoints created for inference recommendation. The inference recommendation job will fail
    *          asynchronously during endpoint configuration creation if the role passed does not have
    *          <code>kms:CreateGrant</code> permission.</p>
-   *
    *          <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
    *          <ul>
    *             <li>
@@ -2672,6 +2698,11 @@ export interface RecommendationJobInputConfig {
    * <p>Existing customer endpoints on which to run an Inference Recommender job.</p>
    */
   Endpoints?: EndpointInfo[];
+
+  /**
+   * <p>Inference Recommender provisions SageMaker endpoints with access to VPC in the inference recommendation job.</p>
+   */
+  VpcConfig?: RecommendationJobVpcConfig;
 }
 
 export enum RecommendationJobType {
@@ -2699,7 +2730,6 @@ export interface RecommendationJobOutputConfig {
    * <p>The Amazon Resource Name (ARN) of a Amazon Web Services Key Management Service (Amazon Web Services KMS) key
    *          that Amazon SageMaker uses to encrypt your output artifacts with Amazon S3 server-side encryption.
    *          The SageMaker execution role must have <code>kms:GenerateDataKey</code> permission.</p>
-   *
    *          <p>The <code>KmsKeyId</code> can be any of the following formats:</p>
    *          <ul>
    *             <li>
@@ -2837,9 +2867,9 @@ export interface CreateInferenceRecommendationsJobResponse {
 /**
  * <p>Provided configuration information for the worker UI for a labeling job. Provide
  *             either <code>HumanTaskUiArn</code> or <code>UiTemplateS3Uri</code>.</p>
- *         <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use
+ *          <p>For named entity recognition, 3D point cloud and video frame labeling jobs, use
  *                 <code>HumanTaskUiArn</code>.</p>
- *         <p>For all other Ground Truth built-in task types and custom task types, use
+ *          <p>For all other Ground Truth built-in task types and custom task types, use
  *                 <code>UiTemplateS3Uri</code> to specify the location of a worker task template in
  *             Amazon S3.</p>
  */
@@ -2855,76 +2885,69 @@ export interface UiConfig {
   /**
    * <p>The ARN of the worker task template used to render the worker UI and tools for
    *             labeling job tasks.</p>
-   *         <p>Use this parameter when you are creating a labeling job for named entity recognition,
+   *          <p>Use this parameter when you are creating a labeling job for named entity recognition,
    *             3D point cloud and video frame labeling jobs. Use your labeling job task type to select
    *             one of the following ARNs and use it with this parameter when you create a labeling job.
    *             Replace <code>aws-region</code> with the Amazon Web Services Region you are creating your labeling job
    *             in. For example, replace <code>aws-region</code> with <code>us-west-1</code> if you
    *             create a labeling job in US West (N. California).</p>
-   *         <p>
+   *          <p>
    *             <b>Named Entity Recognition</b>
    *          </p>
-   *         <p>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
+   *          <p>Use the following <code>HumanTaskUiArn</code> for named entity recognition labeling
    *             jobs:</p>
-   *         <p>
+   *          <p>
    *             <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/NamedEntityRecognition</code>
    *          </p>
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud HumanTaskUiArns</b>
    *          </p>
-   *
-   *         <p>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
+   *          <p>Use this <code>HumanTaskUiArn</code> for 3D point cloud object detection and 3D point
    *             cloud object detection adjustment labeling jobs. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectDetection</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
+   *          <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud object tracking and 3D point
    *             cloud object tracking adjustment labeling jobs. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and 3D
+   *          <p> Use this <code>HumanTaskUiArn</code> for 3D point cloud semantic segmentation and 3D
    *             point cloud semantic segmentation adjustment labeling jobs.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/PointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame HumanTaskUiArns</b>
    *          </p>
-   *
-   *         <p>Use this <code>HumanTaskUiArn</code> for video frame object detection and video frame
+   *          <p>Use this <code>HumanTaskUiArn</code> for video frame object detection and video frame
    *             object detection adjustment labeling jobs. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:region:394669845002:human-task-ui/VideoObjectDetection</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p> Use this <code>HumanTaskUiArn</code> for video frame object tracking and video frame
+   *          <p> Use this <code>HumanTaskUiArn</code> for video frame object tracking and video frame
    *             object tracking adjustment labeling jobs. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:sagemaker:aws-region:394669845002:human-task-ui/VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -2950,1519 +2973,1473 @@ export interface HumanTaskConfig {
    * <p>The Amazon Resource Name (ARN) of a Lambda function that is run before a data object
    *             is sent to a human worker. Use this function to provide input to a custom labeling
    *             job.</p>
-   *         <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
+   *          <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in
    *                 task types</a>, use one of the following Amazon SageMaker Ground Truth Lambda function ARNs for
    *                 <code>PreHumanTaskLambdaArn</code>. For custom labeling workflows, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates-step3.html#sms-custom-templates-step3-prelambda">Pre-annotation Lambda</a>. </p>
-   *
-   *
-   *
    *          <p>
    *             <b>Bounding box</b> - Finds the most similar boxes from
    *                     different workers based on the Jaccard index of the boxes.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-BoundingBox</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *           <p>
+   *          <p>
    *             <b>Image classification</b> - Uses a variant of the Expectation
    *                     Maximization approach to estimate the true class of an image based on
    *                     annotations from individual workers.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClass</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Multi-label image classification</b> - Uses a variant of the Expectation
    *                     Maximization approach to estimate the true classes of an image based on
    *                     annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-ImageMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Semantic segmentation</b> - Treats each pixel in an image as
    *                     a multi-class classification and treats pixel annotations from workers as
    *                     "votes" for the correct label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-SemanticSegmentation</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Text classification</b> - Uses a variant of the Expectation
    *                     Maximization approach to estimate the true class of text based on annotations
    *                     from individual workers.</p>
-   *             <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClass</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Multi-label text classification</b> - Uses a variant of the
    *                     Expectation Maximization approach to estimate the true classes of text based on
    *                     annotations from individual workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-TextMultiClassMultiLabel</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Named entity recognition</b> - Groups similar selections and
    *                     calculates aggregate boundaries, resolving to most-assigned label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-NamedEntityRecognition</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Classification</b> - Use this task type when you need workers to classify videos using
    *             predefined labels that you specify. Workers are shown videos and are asked to choose one
    *             label for each video.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoMultiClass</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Detection</b> - Use this task type to
    *             have workers identify and locate objects in a sequence of video frames (images extracted
    *             from a video) using bounding boxes. For example, you can use this task to ask workers to
    *             identify and localize various objects in a series of video frames, such as cars, bikes,
    *             and pedestrians.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Tracking</b> - Use this task type to
    *             have workers track the movement of objects in a sequence of video frames (images
    *             extracted from a video) using bounding boxes. For example, you can use this task to ask
    *             workers to track the movement of objects, such as cars, bikes, and pedestrians. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Modalities</b>
    *          </p>
-   *         <p>Use the following pre-annotation lambdas for 3D point cloud labeling modality tasks.
+   *          <p>Use the following pre-annotation lambdas for 3D point cloud labeling modality tasks.
    *             See <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-task-types.html">3D Point Cloud Task types
    *             </a> to learn more. </p>
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Detection</b> -
    *         Use this task type when you want workers to classify objects in a 3D point cloud by
    *         drawing 3D cuboids around objects. For example, you can use this task type to ask workers
    *         to identify different types of objects in a point cloud, such as cars, bikes, and pedestrians.</p>
-   *                 <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Object Tracking</b> -
    *         Use this task type when you want workers to draw 3D cuboids around objects
    *         that appear in a sequence of 3D point cloud frames.
    *         For example, you can use this task type to ask workers to track
    *         the movement of vehicles across multiple point cloud frames.
    *         </p>
-   *                 <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking</code>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D Point Cloud Semantic Segmentation</b> -
    *             Use this task type when you want workers to create a point-level semantic segmentation masks by
    *             painting objects in a 3D point cloud using different colors where each color is assigned to one of
    *             the classes you specify.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-3DPointCloudSemanticSegmentation</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Use the following ARNs for Label Verification and Adjustment Jobs</b>
    *          </p>
-   *         <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
+   *          <p>Use label verification and adjustment jobs to review and adjust labels. To learn more,
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust Labels </a>.</p>
-   *
-   *             <p>
+   *          <p>
    *             <b>Bounding box verification</b> - Uses a variant of the
    *                 Expectation Maximization approach to estimate the true class of verification
    *                 judgement for bounding box labels based on annotations from individual
    *                 workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationBoundingBox</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Bounding box adjustment</b> - Finds the most similar boxes
    *                     from different workers based on the Jaccard index of the adjusted
    *                     annotations.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentBoundingBox</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Semantic segmentation verification</b> - Uses a variant of
    *                     the Expectation Maximization approach to estimate the true class of verification
    *                     judgment for semantic segmentation labels based on annotations from individual
    *                     workers.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-VerificationSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *             <p>
+   *          <p>
    *             <b>Semantic segmentation adjustment</b> - Treats each pixel in
    *                     an image as a multi-class classification and treats pixel adjusted annotations
    *                     from workers as "votes" for the correct label.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentSemanticSegmentation</code>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Detection Adjustment</b> -
    *             Use this task type when you want workers to adjust bounding boxes that workers have added
    *             to video frames to classify and localize objects in a sequence of video frames.</p>
-   *
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectDetection</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>Video Frame Object Tracking Adjustment</b> -
    *             Use this task type when you want workers to adjust bounding boxes that workers have added
    *             to video frames to track object movement across a sequence of video frames.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-AdjustmentVideoObjectTracking</code>
-   *                 </p>
+   *                </p>
    *             </li>
    *          </ul>
-   *
-   *
-   *
-   *
-   *         <p>
+   *          <p>
    *             <b>3D point cloud object detection adjustment</b> - Adjust
    *             3D cuboids in a point cloud frame. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectDetection</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>3D point cloud object tracking adjustment</b> - Adjust 3D
    *             cuboids across a sequence of point cloud frames. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudObjectTracking</code>
    *                </p>
    *             </li>
    *          </ul>
-   *
-   *         <p>
+   *          <p>
    *             <b>3D point cloud semantic segmentation adjustment</b> -
    *             Adjust semantic segmentation masks in a 3D point cloud. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-1:432418664414:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-east-2:266458841044:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:us-west-2:081040173940:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-1:568282634449:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-1:477331159723:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-2:454466003867:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-south-1:565803892007:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-central-1:203001061592:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-northeast-2:845288260483:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:eu-west-2:487402164563:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ap-southeast-1:377565633583:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>arn:aws:lambda:ca-central-1:918755190332:function:PRE-Adjustment3DPointCloudSemanticSegmentation</code>
    *                </p>
    *             </li>
@@ -4493,18 +4470,18 @@ export interface HumanTaskConfig {
 
   /**
    * <p>The amount of time that a worker has to complete a task. </p>
-   *         <p>If you create a custom labeling job, the maximum value for this parameter is 8 hours
+   *          <p>If you create a custom labeling job, the maximum value for this parameter is 8 hours
    *             (28,800 seconds).</p>
-   *         <p>If you create a labeling job using a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task type</a> the maximum
+   *          <p>If you create a labeling job using a <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task type</a> the maximum
    *             for this parameter depends on the task type you use:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html">image</a> and
+   *                <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-images.html">image</a> and
    *                     <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-label-text.html">text</a> labeling jobs,
    *                     the maximum is 8 hours (28,800 seconds).</p>
    *             </li>
    *             <li>
-   *                 <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
+   *                <p>For <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud.html">3D point cloud</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-video.html">video frame</a> labeling jobs, the maximum is 30 days (2952,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
    *             </li>
    *          </ul>
    */
@@ -4514,13 +4491,13 @@ export interface HumanTaskConfig {
    * <p>The length of time that a task remains available for labeling by human workers. The
    *             default and maximum values for this parameter depend on the type of workforce you
    *             use.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200 seconds).
+   *                <p>If you choose the Amazon Mechanical Turk workforce, the maximum is 12 hours (43,200 seconds).
    *                     The default is 6 hours (21,600 seconds).</p>
    *             </li>
    *             <li>
-   *                 <p>If you choose a private or vendor workforce, the default value is 30 days (2592,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
+   *                <p>If you choose a private or vendor workforce, the default value is 30 days (2592,000 seconds) for non-AL mode. For most users, the maximum is also 30 days.</p>
    *             </li>
    *          </ul>
    */
@@ -4563,23 +4540,23 @@ export interface LabelingJobDataAttributes {
 export interface LabelingJobS3DataSource {
   /**
    * <p>The Amazon S3 location of the manifest file that describes the input data objects. </p>
-   *         <p>The input manifest file referenced in <code>ManifestS3Uri</code> must contain one of
+   *          <p>The input manifest file referenced in <code>ManifestS3Uri</code> must contain one of
    *             the following keys: <code>source-ref</code> or <code>source</code>. The value of the
    *             keys are interpreted as follows:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>source-ref</code>: The source of the object is the Amazon S3 object
    *                     specified in the value. Use this value when the object is a binary object, such
    *                     as an image.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>source</code>: The source of the object is the value. Use this
    *                     value when the object is a text value.</p>
    *             </li>
    *          </ul>
-   *         <p>If you are a new user of Ground Truth, it is recommended you review <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html">Use an Input Manifest File </a> in the Amazon SageMaker Developer Guide to learn how to
+   *          <p>If you are a new user of Ground Truth, it is recommended you review <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-input-data-input-manifest.html">Use an Input Manifest File </a> in the Amazon SageMaker Developer Guide to learn how to
    *             create an input manifest file.</p>
    */
   ManifestS3Uri: string | undefined;
@@ -4598,7 +4575,6 @@ export interface LabelingJobSnsDataSource {
 
 /**
  * <p>Provides information about the location of input data.</p>
- *
  *          <p>You must specify at least one of the following: <code>S3DataSource</code> or <code>SnsDataSource</code>.</p>
  *          <p>Use <code>SnsDataSource</code> to specify an SNS input topic
  *     for a streaming labeling job. If you do not specify
@@ -4643,25 +4619,25 @@ export interface LabelingJobResourceConfig {
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the storage volume
    *             attached to the ML compute instance(s) that run the training and inference jobs used for
    *             automated data labeling. </p>
-   *         <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
+   *          <p>You can only specify a <code>VolumeKmsKeyId</code> when you create a labeling job with
    *             automated data labeling enabled using the API operation <code>CreateLabelingJob</code>.
    *             You cannot specify an Amazon Web Services KMS key to encrypt the storage volume used for
    *             automated data labeling model training and inference when you create a labeling job
    *             using the console. To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security.html">Output Data and Storage Volume
    *                 Encryption</a>.</p>
-   *         <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
-   *         <ul>
+   *          <p>The <code>VolumeKmsKeyId</code> can be any of the following formats:</p>
+   *          <ul>
    *             <li>
-   *                 <p>KMS Key ID</p>
-   *                 <p>
-   *                     <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>KMS Key ID</p>
+   *                <p>
+   *                   <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>Amazon Resource Name (ARN) of a KMS Key</p>
-   *                 <p>
-   *                     <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
-   *                 </p>
+   *                <p>Amazon Resource Name (ARN) of a KMS Key</p>
+   *                <p>
+   *                   <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -4685,38 +4661,38 @@ export interface LabelingJobAlgorithmsConfig {
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the algorithm used for auto-labeling. You
    *             must select one of the following ARNs:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <i>Image classification</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/image-classification</code>
-   *                 </p>
+   *                <p>
+   *                   <i>Image classification</i>
+   *                </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/image-classification</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <i>Text classification</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/text-classification</code>
-   *                 </p>
+   *                <p>
+   *                   <i>Text classification</i>
+   *                </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/text-classification</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <i>Object detection</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/object-detection</code>
-   *                 </p>
+   *                <p>
+   *                   <i>Object detection</i>
+   *                </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/object-detection</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <i>Semantic Segmentation</i>
-   *                 </p>
-   *                 <p>
-   *                     <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/semantic-segmentation</code>
-   *                 </p>
+   *                <p>
+   *                   <i>Semantic Segmentation</i>
+   *                </p>
+   *                <p>
+   *                   <code>arn:aws:sagemaker:<i>region</i>:027400017018:labeling-job-algorithm-specification/semantic-segmentation</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -4746,11 +4722,11 @@ export interface LabelingJobOutputConfig {
 
   /**
    * <p>The Amazon Web Services Key Management Service ID of the key used to encrypt the output data, if any.</p>
-   *         <p>If you provide your own KMS key ID, you must add the required permissions to your KMS
+   *          <p>If you provide your own KMS key ID, you must add the required permissions to your KMS
    *             key described in <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-security-permission.html#sms-security-kms-permissions">Encrypt Output Data and Storage Volume with Amazon Web Services KMS</a>.</p>
-   *         <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services KMS key for Amazon S3 for your
+   *          <p>If you don't provide a KMS key ID, Amazon SageMaker uses the default Amazon Web Services KMS key for Amazon S3 for your
    *             role's account to encrypt your output data.</p>
-   *         <p>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
+   *          <p>If you use a bucket policy with an <code>s3:PutObject</code> permission that only
    *             allows objects with server-side encryption, set the condition key of
    *                 <code>s3:x-amz-server-side-encryption</code> to <code>"aws:kms"</code>. For more
    *             information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingKMSEncryption.html">KMS-Managed Encryption Keys</a> in the <i>Amazon Simple Storage Service Developer
@@ -4766,7 +4742,7 @@ export interface LabelingJobOutputConfig {
    *          <p>If you provide an <code>SnsTopicArn</code> in <code>OutputConfig</code>, when workers
    *             complete labeling tasks, Ground Truth will send labeling task output data to the SNS output
    *             topic you specify here. </p>
-   *         <p>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive Output Data from a Streaming Labeling
+   *          <p>To learn more, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-streaming-labeling-job.html#sms-streaming-how-it-works-output-data">Receive Output Data from a Streaming Labeling
    *                 Job</a>. </p>
    */
   SnsTopicArn?: string;
@@ -4776,9 +4752,9 @@ export interface LabelingJobOutputConfig {
  * <p>A set of conditions for stopping a labeling job. If any of the conditions are met, the
  *             job is automatically stopped. You can use these conditions to control the cost of data
  *             labeling.</p>
- *         <note>
+ *          <note>
  *             <p>Labeling jobs fail after 30 days with an appropriate client error message.</p>
- *         </note>
+ *          </note>
  */
 export interface LabelingJobStoppingConditions {
   /**
@@ -4805,81 +4781,81 @@ export interface CreateLabelingJobRequest {
    * <p>The attribute name to use for the label in the output manifest file. This is the key
    *             for the key/value pair formed with the label that a worker assigns to the object. The
    *                 <code>LabelAttributeName</code> must meet the following requirements.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The name can't end with "-metadata". </p>
+   *                <p>The name can't end with "-metadata". </p>
    *             </li>
    *             <li>
-   *                 <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>,
+   *                <p>If you are using one of the following <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a>,
    *                     the attribute name <i>must</i> end with "-ref". If the task type
    *                     you are using is not listed below, the attribute name <i>must
    *                         not</i> end with "-ref".</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>Image semantic segmentation (<code>SemanticSegmentation)</code>, and
+   *                      <p>Image semantic segmentation (<code>SemanticSegmentation)</code>, and
    *                             adjustment (<code>AdjustmentSemanticSegmentation</code>) and
    *                             verification (<code>VerificationSemanticSegmentation</code>) labeling
    *                             jobs for this task type.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Video frame object detection (<code>VideoObjectDetection</code>), and
+   *                      <p>Video frame object detection (<code>VideoObjectDetection</code>), and
    *                             adjustment and verification
    *                             (<code>AdjustmentVideoObjectDetection</code>) labeling jobs for this
    *                             task type.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Video frame object tracking (<code>VideoObjectTracking</code>), and
+   *                      <p>Video frame object tracking (<code>VideoObjectTracking</code>), and
    *                             adjustment and verification (<code>AdjustmentVideoObjectTracking</code>)
    *                             labeling jobs for this task type.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>3D point cloud semantic segmentation
+   *                      <p>3D point cloud semantic segmentation
    *                                 (<code>3DPointCloudSemanticSegmentation</code>), and adjustment and
    *                             verification (<code>Adjustment3DPointCloudSemanticSegmentation</code>)
    *                             labeling jobs for this task type. </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>3D point cloud object tracking
+   *                      <p>3D point cloud object tracking
    *                                 (<code>3DPointCloudObjectTracking</code>), and adjustment and
    *                             verification (<code>Adjustment3DPointCloudObjectTracking</code>)
    *                             labeling jobs for this task type. </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
-   *         <p></p>
-   *         <important>
+   *          <p></p>
+   *          <important>
    *             <p>If you are creating an adjustment or verification labeling job, you must use a
    *                     <i>different</i>
-   *                 <code>LabelAttributeName</code> than the one used in the original labeling job. The
+   *                <code>LabelAttributeName</code> than the one used in the original labeling job. The
    *                 original labeling job is the Ground Truth labeling job that produced the labels that you
    *                 want verified or adjusted. To learn more about adjustment and verification labeling
    *                 jobs, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-verification-data.html">Verify and Adjust
    *                     Labels</a>.</p>
-   *         </important>
+   *          </important>
    */
   LabelAttributeName: string | undefined;
 
   /**
    * <p>Input data for the labeling job, such as the Amazon S3 location of the data objects and the
    *             location of the manifest file that describes the data objects.</p>
-   *         <p>You must specify at least one of the following: <code>S3DataSource</code> or
+   *          <p>You must specify at least one of the following: <code>S3DataSource</code> or
    *                 <code>SnsDataSource</code>. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Use <code>SnsDataSource</code> to specify an SNS input topic for a streaming
+   *                <p>Use <code>SnsDataSource</code> to specify an SNS input topic for a streaming
    *                     labeling job. If you do not specify and SNS input topic ARN, Ground Truth will
    *                     create a one-time labeling job that stops after all data objects in the input
    *                     manifest file have been labeled.</p>
    *             </li>
    *             <li>
-   *                 <p>Use <code>S3DataSource</code> to specify an input manifest file for both
+   *                <p>Use <code>S3DataSource</code> to specify an input manifest file for both
    *                     streaming and one-time labeling jobs. Adding an <code>S3DataSource</code> is
    *                     optional if you use <code>SnsDataSource</code> to create a streaming labeling
    *                     job.</p>
    *             </li>
    *          </ul>
-   *         <p>If you use the Amazon Mechanical Turk workforce, your input data should not include
+   *          <p>If you use the Amazon Mechanical Turk workforce, your input data should not include
    *             confidential information, personal information or protected health information. Use
    *                 <code>ContentClassifiers</code> to specify that your data is free of personally
    *             identifiable information and adult content.</p>
@@ -4902,47 +4878,47 @@ export interface CreateLabelingJobRequest {
   /**
    * <p>The S3 URI of the file, referred to as a <i>label category configuration
    *                 file</i>, that defines the categories used to label the data objects.</p>
-   *         <p>For 3D point cloud and video frame task types, you can add label category attributes
+   *          <p>For 3D point cloud and video frame task types, you can add label category attributes
    *             and frame attributes to your label category configuration file. To learn how, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-point-cloud-label-category-config.html">Create a
    *                 Labeling Category Configuration File for 3D Point Cloud Labeling Jobs</a>. </p>
-   *         <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
+   *          <p>For named entity recognition jobs, in addition to <code>"labels"</code>, you must
    *             provide worker instructions in the label category configuration file using the
    *                 <code>"instructions"</code> parameter: <code>"instructions":
    *                 {"shortInstruction":"<h1>Add header</h1><p>Add Instructions</p>",
    *                 "fullInstruction":"<p>Add additional instructions.</p>"}</code>. For details
    *             and an example, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api">Create a
    *                 Named Entity Recognition Labeling Job (API) </a>.</p>
-   *         <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
+   *          <p>For all other <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-task-types.html">built-in task types</a> and <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-custom-templates.html">custom
    *                 tasks</a>, your label category configuration file must be a JSON file in the
    *             following format. Identify the labels you want to use by replacing <code>label_1</code>,
    *                 <code>label_2</code>,<code>...</code>,<code>label_n</code> with your label
    *             categories.</p>
-   *         <p>
+   *          <p>
    *             <code>{ </code>
    *          </p>
-   *         <p>
+   *          <p>
    *             <code>"document-version": "2018-11-28",</code>
    *          </p>
-   *         <p>
+   *          <p>
    *             <code>"labels": [{"label": "label_1"},{"label": "label_2"},...{"label":
    *                 "label_n"}]</code>
    *          </p>
-   *         <p>
+   *          <p>
    *             <code>}</code>
    *          </p>
-   *         <p>Note the following about the label category configuration file:</p>
-   *         <ul>
+   *          <p>Note the following about the label category configuration file:</p>
+   *          <ul>
    *             <li>
-   *                 <p>For image classification and text classification (single and multi-label) you
+   *                <p>For image classification and text classification (single and multi-label) you
    *                     must specify at least two label categories. For all other task types, the
    *                     minimum number of label categories required is one. </p>
    *             </li>
    *             <li>
-   *                 <p>Each label category must be unique, you cannot specify duplicate label
+   *                <p>Each label category must be unique, you cannot specify duplicate label
    *                     categories.</p>
    *             </li>
    *             <li>
-   *                 <p>If you create a 3D point cloud or video frame adjustment or verification
+   *                <p>If you create a 3D point cloud or video frame adjustment or verification
    *                     labeling job, you must include <code>auditLabelAttributeName</code> in the label
    *                     category configuration. Use this parameter to enter the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateLabelingJob.html#sagemaker-CreateLabelingJob-request-LabelAttributeName">
    *                      <code>LabelAttributeName</code>
@@ -4996,13 +4972,13 @@ export enum InferenceExecutionMode {
 export interface InferenceExecutionConfig {
   /**
    * <p>How containers in a multi-container are run. The following values are valid.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SERIAL</code> - Containers run as a serial pipeline.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DIRECT</code> - Only the individual container that you specify is
    *                     run.</p>
    *             </li>
@@ -5040,10 +5016,10 @@ export interface CreateModelInput {
    *             jobs. Deploying on ML compute instances is part of model hosting. For more information,
    *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
    *                 Roles</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
+   *          </note>
    */
   ExecutionRoleArn: string | undefined;
 
@@ -5627,10 +5603,10 @@ export interface SourceAlgorithm {
    * <p>The Amazon S3 path where the model artifacts, which result from model training, are stored.
    *             This path must point to a single <code>gzip</code> compressed tar archive
    *                 (<code>.tar.gz</code> suffix).</p>
-   *         <note>
+   *          <note>
    *             <p>The model artifacts must be in an S3 bucket that is in the same region as the
    *                 algorithm.</p>
-   *         </note>
+   *          </note>
    */
   ModelDataUrl?: string;
 
@@ -5654,7 +5630,7 @@ export interface SourceAlgorithmSpecification {
 /**
  * <p>Contains data, such as the inputs and targeted instance types that are used in the
  *             process of validating the model package.</p>
- *         <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
+ *          <p>The data provided in the validation profile is made available to your buyers on Amazon Web Services
  *             Marketplace.</p>
  */
 export interface ModelPackageValidationProfile {
@@ -5690,14 +5666,14 @@ export interface CreateModelPackageInput {
   /**
    * <p>The name of the model package. The name must have 1 to 63 characters. Valid characters
    *             are a-z, A-Z, 0-9, and - (hyphen).</p>
-   *         <p>This parameter is required for unversioned models. It is not applicable to versioned
+   *          <p>This parameter is required for unversioned models. It is not applicable to versioned
    *             models.</p>
    */
   ModelPackageName?: string;
 
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package group that this model version belongs to.</p>
-   *         <p>This parameter is required for versioned models, and does not apply to unversioned
+   *          <p>This parameter is required for versioned models, and does not apply to unversioned
    *             models.</p>
    */
   ModelPackageGroupName?: string;
@@ -5710,17 +5686,17 @@ export interface CreateModelPackageInput {
   /**
    * <p>Specifies details about inference jobs that can be run with models based on this model
    *             package, including the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>The Amazon ECR paths of containers that contain the inference code and model
+   *                <p>The Amazon ECR paths of containers that contain the inference code and model
    *                     artifacts.</p>
    *             </li>
    *             <li>
-   *                 <p>The instance types that the model package supports for transform jobs and
+   *                <p>The instance types that the model package supports for transform jobs and
    *                     real-time endpoints used for inference.</p>
    *             </li>
    *             <li>
-   *                 <p>The input and output content formats that the model package supports for
+   *                <p>The input and output content formats that the model package supports for
    *                     inference.</p>
    *             </li>
    *          </ul>
@@ -5740,7 +5716,7 @@ export interface CreateModelPackageInput {
 
   /**
    * <p>Whether to certify the model package for listing on Amazon Web Services Marketplace.</p>
-   *         <p>This parameter is optional for unversioned models, and does not apply to versioned
+   *          <p>This parameter is optional for unversioned models, and does not apply to versioned
    *             models.</p>
    */
   CertifyForMarketplace?: boolean;
@@ -5753,9 +5729,9 @@ export interface CreateModelPackageInput {
 
   /**
    * <p>Whether the model is approved for deployment.</p>
-   *         <p>This parameter is optional for versioned models, and does not apply to unversioned
+   *          <p>This parameter is optional for versioned models, and does not apply to unversioned
    *             models.</p>
-   *         <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
+   *          <p>For versioned models, the value of this parameter must be set to <code>Approved</code>
    *         to deploy the model.</p>
    */
   ModelApprovalStatus?: ModelApprovalStatus | string;
@@ -6169,7 +6145,6 @@ export enum MonitoringType {
 export interface ScheduleConfig {
   /**
    * <p>A cron expression that describes details about the monitoring schedule.</p>
-   *
    *          <p>Currently the only supported cron expressions are:</p>
    *          <ul>
    *             <li>
@@ -6196,7 +6171,6 @@ export interface ScheduleConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <p>To support running every 6, 12 hours, the following are also supported:</p>
    *          <p>
    *             <code>cron(0 [00-23]/[01-24] ? * * *)</code>
@@ -6212,7 +6186,6 @@ export interface ScheduleConfig {
    *                </p>
    *             </li>
    *          </ul>
-   *
    *          <note>
    *             <ul>
    *                <li>
@@ -6340,10 +6313,10 @@ export interface CreateNotebookInstanceInput {
    *             role necessary permissions so SageMaker can perform these tasks. The policy must allow the
    *             SageMaker service principal (sagemaker.amazonaws.com) permissions to assume this role. For
    *             more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker Roles</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
+   *          </note>
    */
   RoleArn: string | undefined;
 
@@ -6375,7 +6348,7 @@ export interface CreateNotebookInstanceInput {
    *             to <code>Disabled</code> this notebook instance is able to access resources only in your
    *             VPC, and is not be able to connect to SageMaker training and endpoint services unless you
    *             configure a NAT Gateway in your VPC.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>. You can set the value
    *             of this parameter to <code>Disabled</code> only if you set a value for the
    *                 <code>SubnetId</code> parameter.</p>
    */
@@ -6417,12 +6390,12 @@ export interface CreateNotebookInstanceInput {
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance. The
    *             default value is <code>Enabled</code>.</p>
-   *         <note>
+   *          <note>
    *             <p>Lifecycle configurations need root access to be able to set up a notebook
    *                 instance. Because of this, lifecycle configurations associated with a notebook
    *                 instance always run with root access even if you disable root access for
    *                 users.</p>
-   *         </note>
+   *          </note>
    */
   RootAccess?: RootAccess | string;
 
@@ -6446,16 +6419,16 @@ export interface CreateNotebookInstanceOutput {
 
 /**
  * <p>Contains the notebook instance lifecycle configuration script.</p>
- *         <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
- *         <p>The value of the <code>$PATH</code> environment variable that is available to both
+ *          <p>Each lifecycle configuration script has a limit of 16384 characters.</p>
+ *          <p>The value of the <code>$PATH</code> environment variable that is available to both
  *             scripts is <code>/sbin:bin:/usr/sbin:/usr/bin</code>.</p>
- *         <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
+ *          <p>View CloudWatch Logs for notebook instance lifecycle configurations in log group
  *                 <code>/aws/sagemaker/NotebookInstances</code> in log stream
  *                 <code>[notebook-instance-name]/[LifecycleConfigHook]</code>.</p>
- *         <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
+ *          <p>Lifecycle configuration scripts cannot run for longer than 5 minutes. If a script runs
  *             for longer than 5 minutes, it fails and the notebook instance is not created or
  *             started.</p>
- *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+ *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
  *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
  */
 export interface NotebookInstanceLifecycleHook {
@@ -6985,7 +6958,7 @@ export interface ProcessingClusterConfig {
   /**
    * <p>The size of the ML storage volume in gigabytes that you want to provision. You must
    *             specify sufficient ML storage for your scenario.</p>
-   *         <note>
+   *          <note>
    *             <p>Certain Nitro-based instances include local storage with a fixed total size,
    *                 dependent on the instance type. When using these instances for processing, Amazon SageMaker mounts
    *                 the local instance storage instead of Amazon EBS gp2 storage. You can't request a
@@ -6993,7 +6966,7 @@ export interface ProcessingClusterConfig {
    *                 storage.</p>
    *             <p>For a list of instance types that support local instance storage, including the
    *                 total size per instance type, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
-   *         </note>
+   *          </note>
    */
   VolumeSizeInGB: number | undefined;
 
@@ -7001,7 +6974,7 @@ export interface ProcessingClusterConfig {
    * <p>The Amazon Web Services Key Management Service (Amazon Web Services KMS) key that Amazon SageMaker uses to encrypt data on the
    *             storage volume attached to the ML compute instance(s) that run the processing job.
    *         </p>
-   *         <note>
+   *          <note>
    *             <p>Certain Nitro-based instances include local storage, dependent on the instance
    *                 type. Local storage volumes are encrypted using a hardware module on the instance.
    *                 You can't request a <code>VolumeKmsKeyId</code> when using an instance type with
@@ -7009,7 +6982,7 @@ export interface ProcessingClusterConfig {
    *             <p>For a list of instance types that support local instance storage, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#instance-store-volumes">Instance Store Volumes</a>.</p>
    *             <p>For more information about local instance storage encryption, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ssd-instance-store.html">SSD
    *                 Instance Store Volumes</a>.</p>
-   *         </note>
+   *          </note>
    */
   VolumeKmsKeyId?: string;
 }
@@ -7464,15 +7437,15 @@ export interface CreateTrainingJobRequest {
    * <p>Algorithm-specific parameters that influence the quality of the model. You set
    *             hyperparameters before you start the learning process. For a list of hyperparameters for
    *             each training algorithm provided by SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/algos.html">Algorithms</a>. </p>
-   *         <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a
+   *          <p>You can specify a maximum of 100 hyperparameters. Each hyperparameter is a
    *             key-value pair. Each key and value is limited to 256 characters, as specified by the
    *                 <code>Length Constraint</code>. </p>
-   *         <important>
+   *          <important>
    *             <p>Do not include any security-sensitive information including account access IDs,
    *                 secrets or tokens in any hyperparameter field. If the use of security-sensitive
    *                 credentials are detected, SageMaker will reject your training job request and return an
    *                 exception error.</p>
-   *         </important>
+   *          </important>
    */
   HyperParameters?: Record<string, string>;
 
@@ -7488,28 +7461,28 @@ export interface CreateTrainingJobRequest {
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that SageMaker can assume to perform
    *             tasks on your behalf. </p>
-   *         <p>During model training, SageMaker needs your permission to read input data from an S3
+   *          <p>During model training, SageMaker needs your permission to read input data from an S3
    *             bucket, download a Docker image that contains training code, write model artifacts to an
    *             S3 bucket, write logs to Amazon CloudWatch Logs, and publish metrics to Amazon CloudWatch. You grant
    *             permissions for all of these tasks to an IAM role. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">SageMaker
    *                 Roles</a>. </p>
-   *         <note>
+   *          <note>
    *             <p>To be able to pass this role to SageMaker, the caller of this API must have the
    *                     <code>iam:PassRole</code> permission.</p>
-   *         </note>
+   *          </note>
    */
   RoleArn: string | undefined;
 
   /**
    * <p>An array of <code>Channel</code> objects. Each channel is a named input source.
    *                 <code>InputDataConfig</code> describes the input data and its location. </p>
-   *         <p>Algorithms can accept input data from one or more channels. For example, an
+   *          <p>Algorithms can accept input data from one or more channels. For example, an
    *             algorithm might have two channels of input data, <code>training_data</code> and
    *                 <code>validation_data</code>. The configuration for each channel provides the S3,
    *             EFS, or FSx location where the input data is stored. It also provides information about
    *             the stored data: the MIME type, compression method, and whether the data is wrapped in
    *             RecordIO format. </p>
-   *         <p>Depending on the input mode that the algorithm supports, SageMaker either copies input
+   *          <p>Depending on the input mode that the algorithm supports, SageMaker either copies input
    *             data files from an S3 bucket to a local directory in the Docker container, or makes it
    *             available as input streams. For example, if you specify an EFS location, input data
    *             files are available as input streams. They do not need to be downloaded.</p>
@@ -7525,7 +7498,7 @@ export interface CreateTrainingJobRequest {
   /**
    * <p>The resources, including the ML compute instances and ML storage volumes, to use
    *             for model training. </p>
-   *         <p>ML storage volumes store model artifacts and incremental states. Training
+   *          <p>ML storage volumes store model artifacts and incremental states. Training
    *             algorithms might also use ML storage volumes for scratch space. If you want SageMaker to use
    *             the ML storage volume to store the training data, choose <code>File</code> as the
    *                 <code>TrainingInputMode</code> in the algorithm specification. For distributed
@@ -7545,7 +7518,7 @@ export interface CreateTrainingJobRequest {
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
    *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
    */
@@ -7582,7 +7555,7 @@ export interface CreateTrainingJobRequest {
    *             training provides a fully managed and scalable infrastructure for training machine
    *             learning models. this option is useful when training jobs can be interrupted and when
    *             there is flexibility when the training job is run. </p>
-   *         <p>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be
+   *          <p>The complete and intermediate results of jobs are stored in an Amazon S3 bucket, and can be
    *             used as a starting point to train models incrementally. Amazon SageMaker provides metrics and
    *             logs in CloudWatch. They can be used to see when managed spot training jobs are running,
    *             interrupted, resumed, or completed. </p>
@@ -7687,7 +7660,7 @@ export interface DataProcessing {
    *             the algorithm. Use the <code>InputFilter</code> parameter to exclude fields, such as an
    *             ID column, from the input. If you want SageMaker to pass the entire input dataset to the
    *             algorithm, accept the default value <code>$</code>.</p>
-   *         <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code>
+   *          <p>Examples: <code>"$"</code>, <code>"$[1:]"</code>, <code>"$.features"</code>
    *          </p>
    */
   InputFilter?: string;
@@ -7698,7 +7671,7 @@ export interface DataProcessing {
    *             dataset in the output file, leave the default value, <code>$</code>. If you specify
    *             indexes that aren't within the dimension size of the joined dataset, you get an
    *             error.</p>
-   *         <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>,
+   *          <p>Examples: <code>"$"</code>, <code>"$[0,5:]"</code>,
    *                 <code>"$['id','SageMakerOutput']"</code>
    *          </p>
    */
@@ -7712,17 +7685,17 @@ export interface DataProcessing {
    *                 <code>JoinSource</code> to <code>Input</code>. You can specify
    *                 <code>OutputFilter</code> as an additional filter to select a portion of the joined
    *             dataset and store it in the output file.</p>
-   *         <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to
+   *          <p>For JSON or JSONLines objects, such as a JSON array, SageMaker adds the transformed data to
    *             the input JSON object in an attribute called <code>SageMakerOutput</code>. The joined
    *             result for JSON must be a key-value pair object. If the input is not a key-value pair
    *             object, SageMaker creates a new JSON file. In the new JSON file, and the input data is stored
    *             under the <code>SageMakerInput</code> key and the results are stored in
    *                 <code>SageMakerOutput</code>.</p>
-   *         <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with
+   *          <p>For CSV data, SageMaker takes each row as a JSON array and joins the transformed data with
    *             the input by appending each transformed row to the end of the input. The joined data has
    *             the original input data followed by the transformed data and the output is a CSV
    *             file.</p>
-   *         <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
+   *          <p>For information on how joining in applied, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/batch-transform-data-processing.html#batch-transform-data-processing-workflow">Workflow for Associating Inferences with Input Records</a>.</p>
    */
   JoinSource?: JoinSource | string;
 }
@@ -7783,11 +7756,11 @@ export interface CreateTransformJobRequest {
    *             the records fit within the maximum payload size, we recommend using a slightly larger
    *             value. The default value is <code>6</code> MB.
    *             </p>
-   *         <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
+   *          <p>The value of <code>MaxPayloadInMB</code> cannot be greater than 100 MB. If you specify
    *             the <code>MaxConcurrentTransforms</code> parameter, the value of
    *                 <code>(MaxConcurrentTransforms * MaxPayloadInMB)</code> also cannot exceed 100
    *             MB.</p>
-   *         <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP
+   *          <p>For cases where the payload might be arbitrarily large and is transmitted using HTTP
    *             chunked encoding, set the value to <code>0</code>.
    *             This
    *             feature works only in supported algorithms. Currently, Amazon SageMaker built-in
@@ -7800,12 +7773,12 @@ export interface CreateTransformJobRequest {
    *             request. A <i>record</i>
    *             <i></i> is a single unit of input data that
    *             inference can be made on. For example, a single line in a CSV file is a record. </p>
-   *         <p>To enable the batch strategy, you must set the <code>SplitType</code> property to
+   *          <p>To enable the batch strategy, you must set the <code>SplitType</code> property to
    *                 <code>Line</code>, <code>RecordIO</code>, or <code>TFRecord</code>.</p>
-   *         <p>To use only one record when making an HTTP invocation request to a container, set
+   *          <p>To use only one record when making an HTTP invocation request to a container, set
    *                 <code>BatchStrategy</code> to <code>SingleRecord</code> and <code>SplitType</code>
    *             to <code>Line</code>.</p>
-   *         <p>To fit as many records in a mini-batch as can fit within the
+   *          <p>To fit as many records in a mini-batch as can fit within the
    *                 <code>MaxPayloadInMB</code> limit, set <code>BatchStrategy</code> to
    *                 <code>MultiRecord</code> and <code>SplitType</code> to <code>Line</code>.</p>
    */
@@ -8201,11 +8174,11 @@ export interface OidcConfig {
 export interface SourceIpConfig {
   /**
    * <p>A list of one to ten <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html">Classless Inter-Domain Routing</a> (CIDR) values.</p>
-   *         <p>Maximum: Ten CIDR values</p>
-   *         <note>
+   *          <p>Maximum: Ten CIDR values</p>
+   *          <note>
    *             <p>The following Length Constraints apply to individual CIDR values in
    *                 the CIDR value list.</p>
-   *         </note>
+   *          </note>
    */
   Cidrs: string[] | undefined;
 }
@@ -8236,7 +8209,6 @@ export interface CreateWorkforceRequest {
    *       A single Cognito workforce is created using and corresponds to a single
    *       <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">
    *       Amazon Cognito user pool</a>.</p>
-   *
    *          <p>Do not use <code>OidcConfig</code> if you specify values for
    *       <code>CognitoConfig</code>.</p>
    */
@@ -8341,19 +8313,19 @@ export interface CreateWorkteamRequest {
   /**
    * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
    *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For
    *             private workforces created using Amazon Cognito use <code>CognitoMemberDefinition</code>. For
    *             workforces created using your own OIDC identity provider (IdP) use
    *                 <code>OidcMemberDefinition</code>. Do not provide input for both of these parameters
    *             in a single request.</p>
-   *         <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
+   *          <p>For workforces created using Amazon Cognito, private work teams correspond to Amazon Cognito
    *                 <i>user groups</i> within the user pool used to create a workforce. All of the
    *                 <code>CognitoMemberDefinition</code> objects that make up the member definition must
    *             have the same <code>ClientId</code> and <code>UserPool</code> values. To add a Amazon
    *             Cognito user group to an existing worker pool, see <a href="">Adding groups to a User
    *                 Pool</a>. For more information about user pools, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-identity-pools.html">Amazon Cognito User
    *                 Pools</a>.</p>
-   *         <p>For workforces created using your own OIDC IdP, specify the user groups that you want to
+   *          <p>For workforces created using your own OIDC IdP, specify the user groups that you want to
    *         include in your private work team in <code>OidcMemberDefinition</code> by listing those groups
    *         in <code>Groups</code>.</p>
    */
@@ -8371,7 +8343,7 @@ export interface CreateWorkteamRequest {
 
   /**
    * <p>An array of key-value pairs.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html">Resource
    *                 Tag</a> and <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html#allocation-what">Using
    *                     Cost Allocation Tags</a> in the <i> Amazon Web Services Billing and Cost Management User
    *                 Guide</i>.</p>
@@ -8794,7 +8766,7 @@ export interface DeleteModelExplainabilityJobDefinitionRequest {
 export interface DeleteModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to delete.</p>
-   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
    *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
@@ -8969,7 +8941,7 @@ export interface DeleteWorkteamResponse {
 
 /**
  * <p>Gets the Amazon EC2 Container Registry path of the docker image of the model that is hosted in this <a>ProductionVariant</a>.</p>
- *         <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
+ *          <p>If you used the <code>registry/repository[:tag]</code> form to specify the image path
  *             of the primary container when you created the model hosted in this
  *                 <code>ProductionVariant</code>, the path resolves to a path of the form
  *                 <code>registry/repository[@digest]</code>. A digest is a hash value that identifies
@@ -9240,68 +9212,6 @@ export interface DescribeAppRequest {
    * <p>The name of the app.</p>
    */
   AppName: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   */
-  SpaceName?: string;
-}
-
-export interface DescribeAppResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the app.</p>
-   */
-  AppArn?: string;
-
-  /**
-   * <p>The type of app.</p>
-   */
-  AppType?: AppType | string;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  AppName?: string;
-
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId?: string;
-
-  /**
-   * <p>The user profile name.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The status.</p>
-   */
-  Status?: AppStatus | string;
-
-  /**
-   * <p>The timestamp of the last health check.</p>
-   */
-  LastHealthCheckTimestamp?: Date;
-
-  /**
-   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also updated when SageMaker performs health checks without user activity. As a result, this value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
-   */
-  LastUserActivityTimestamp?: Date;
-
-  /**
-   * <p>The creation time.</p>
-   */
-  CreationTime?: Date;
-
-  /**
-   * <p>The failure reason.</p>
-   */
-  FailureReason?: string;
-
-  /**
-   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
-   */
-  ResourceSpec?: ResourceSpec;
 
   /**
    * <p>The name of the space.</p>
@@ -9721,6 +9631,13 @@ export const PhaseFilterSensitiveLog = (obj: Phase): any => ({
  * @internal
  */
 export const TrafficPatternFilterSensitiveLog = (obj: TrafficPattern): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RecommendationJobVpcConfigFilterSensitiveLog = (obj: RecommendationJobVpcConfig): any => ({
   ...obj,
 });
 
@@ -11264,12 +11181,5 @@ export const DescribeAlgorithmOutputFilterSensitiveLog = (obj: DescribeAlgorithm
  * @internal
  */
 export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppResponseFilterSensitiveLog = (obj: DescribeAppResponse): any => ({
   ...obj,
 });

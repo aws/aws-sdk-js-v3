@@ -32,23 +32,23 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  * <p>Creates a model package that you can use to create SageMaker models or list on Amazon Web Services
  *             Marketplace, or a versioned model that is part of a model group. Buyers can subscribe to
  *             model packages listed on Amazon Web Services Marketplace to create models in SageMaker.</p>
- *         <p>To create a model package by specifying a Docker container that contains your
+ *          <p>To create a model package by specifying a Docker container that contains your
  *             inference code and the Amazon S3 location of your model artifacts, provide values for
  *             <code>InferenceSpecification</code>. To create a model from an algorithm resource
  *             that you created or subscribed to in Amazon Web Services Marketplace, provide a value for
  *             <code>SourceAlgorithmSpecification</code>.</p>
- *         <note>
+ *          <note>
  *             <p>There are two types of model packages:</p>
  *             <ul>
  *                <li>
- *                     <p>Versioned - a model that is part of a model group in the model
+ *                   <p>Versioned - a model that is part of a model group in the model
  *                         registry.</p>
- *                 </li>
+ *                </li>
  *                <li>
- *                     <p>Unversioned - a model package that is not part of a model group.</p>
- *                 </li>
+ *                   <p>Unversioned - a model package that is not part of a model group.</p>
+ *                </li>
  *             </ul>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

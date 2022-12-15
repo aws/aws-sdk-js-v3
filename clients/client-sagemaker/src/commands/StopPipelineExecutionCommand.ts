@@ -30,7 +30,6 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
 
 /**
  * <p>Stops a pipeline execution.</p>
- *
  *          <p>
  *             <b>Callback Step</b>
  *          </p>
@@ -44,7 +43,6 @@ export interface StopPipelineExecutionCommandOutput extends StopPipelineExecutio
  *         <code>SendPipelineExecutionStepSuccess</code> or
  *         <code>SendPipelineExecutionStepFailure</code>.</p>
  *          <p>Only when SageMaker Pipelines receives one of these calls will it stop the pipeline execution.</p>
- *
  *          <p>
  *             <b>Lambda Step</b>
  *          </p>

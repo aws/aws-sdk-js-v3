@@ -31,12 +31,12 @@ export interface UpdateProjectCommandOutput extends UpdateProjectOutput, __Metad
 /**
  * <p>Updates a machine learning (ML) project that is created from a template that
  *             sets up an ML pipeline from training to deploying an approved model.</p>
- *         <note>
+ *          <note>
  *             <p>You must not update a project that is in use. If you update the
  *                     <code>ServiceCatalogProvisioningUpdateDetails</code> of a project that is active
  *                 or being created, or updated, you may lose resources already created by the
  *                 project.</p>
- *             </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

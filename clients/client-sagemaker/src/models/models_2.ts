@@ -15,6 +15,8 @@ import {
   AppSecurityGroupManagement,
   AppSortKey,
   AppSpecification,
+  AppStatus,
+  AppType,
   ArtifactSource,
   ArtifactSummary,
   AssociationEdgeType,
@@ -40,8 +42,6 @@ import {
   CandidateStatus,
   Channel,
   CheckpointConfig,
-  CodeRepositorySortBy,
-  CodeRepositorySortOrder,
   CognitoConfig,
   CompilationJobStatus,
   ContainerDefinition,
@@ -178,6 +178,68 @@ import {
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
 } from "./models_1";
+
+export interface DescribeAppResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the app.</p>
+   */
+  AppArn?: string;
+
+  /**
+   * <p>The type of app.</p>
+   */
+  AppType?: AppType | string;
+
+  /**
+   * <p>The name of the app.</p>
+   */
+  AppName?: string;
+
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId?: string;
+
+  /**
+   * <p>The user profile name.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The status.</p>
+   */
+  Status?: AppStatus | string;
+
+  /**
+   * <p>The timestamp of the last health check.</p>
+   */
+  LastHealthCheckTimestamp?: Date;
+
+  /**
+   * <p>The timestamp of the last user's activity. <code>LastUserActivityTimestamp</code> is also updated when SageMaker performs health checks without user activity. As a result, this value is set to the same value as <code>LastHealthCheckTimestamp</code>.</p>
+   */
+  LastUserActivityTimestamp?: Date;
+
+  /**
+   * <p>The creation time.</p>
+   */
+  CreationTime?: Date;
+
+  /**
+   * <p>The failure reason.</p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>The instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance.</p>
+   */
+  ResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+}
 
 export interface DescribeAppImageConfigRequest {
   /**
@@ -480,7 +542,7 @@ export interface DescribeCompilationJobRequest {
 /**
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
- *         <p>Model artifacts are the output that results from training a model, and typically
+ *          <p>Model artifacts are the output that results from training a model, and typically
  *             consist of trained parameters, a model definition that describes how to compute
  *             inferences, and other metadata.</p>
  */
@@ -522,7 +584,7 @@ export interface DescribeCompilationJobResponse {
   /**
    * <p>The time when the model compilation job started the <code>CompilationJob</code>
    *             instances. </p>
-   *         <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
+   *          <p>You are billed for the time between this timestamp and the timestamp in the <a>DescribeCompilationJobResponse$CompilationEndTime</a> field. In Amazon CloudWatch Logs,
    *             the start time might be later than this time. That's because it takes time to download
    *             the compilation job, which depends on the size of the compilation job container. </p>
    */
@@ -1267,28 +1329,28 @@ export interface ProductionVariantStatus {
   /**
    * <p>The endpoint variant status which describes the current deployment stage status or
    *             operational status.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Creating</code>: Creating inference resources for the production
    *                     variant.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deleting</code>: Terminating inference resources for the production
    *                     variant.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Updating</code>: Updating capacity for the production variant.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ActivatingTraffic</code>: Turning on traffic for the production
    *                     variant.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Baking</code>: Waiting period to monitor the CloudWatch alarms in the
    *                     automatic rollback configuration.</p>
    *             </li>
@@ -1397,7 +1459,8 @@ export interface PendingDeploymentSummary {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p>List of <code>PendingProductionVariantSummary</code> objects.</p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
+   *             hosted behind this endpoint for the in-progress deployment.</p>
    */
   ProductionVariants?: PendingProductionVariantSummary[];
 
@@ -1407,12 +1470,9 @@ export interface PendingDeploymentSummary {
   StartTime?: Date;
 
   /**
-   * <p>
-   *            Array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint
-   *            in shadow mode with production traffic replicated from the model specified on
-   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
-   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
-   *        </p>
+   * <p>An array of <a>PendingProductionVariantSummary</a> objects, one for each model
+   *             hosted behind this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code> for the in-progress deployment.</p>
    */
   ShadowProductionVariants?: PendingProductionVariantSummary[];
 }
@@ -1491,8 +1551,8 @@ export interface DescribeEndpointOutput {
   EndpointConfigName: string | undefined;
 
   /**
-   * <p> An array of <a>ProductionVariantSummary</a> objects, one for each model
-   *             hosted behind this endpoint. </p>
+   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   *             hosted behind this endpoint.</p>
    */
   ProductionVariants?: ProductionVariantSummary[];
 
@@ -1503,29 +1563,29 @@ export interface DescribeEndpointOutput {
 
   /**
    * <p>The status of the endpoint.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OutOfService</code>: Endpoint is not available to take incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
    *                     updated or deleted or re-scaled until it has completed. This maintenance
    *                     operation does not change any customer-specified values such as VPC config, KMS
    *                     encryption, model, instance type, or instance count.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
    *                     variant weight and is in the process of rolling back to its previous
    *                     configuration. Once the rollback completes, endpoint returns to an
@@ -1535,16 +1595,16 @@ export interface DescribeEndpointOutput {
    *                     explicitly.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InService</code>: Endpoint is available to process incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
    *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
    *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
@@ -1594,12 +1654,9 @@ export interface DescribeEndpointOutput {
   ExplainerConfig?: ExplainerConfig;
 
   /**
-   * <p>
-   *            Array of <code>ProductionVariant</code> objects. There is one for each model that you want to host at this
-   *            endpoint in shadow mode with production traffic replicated from the model specified on
-   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
-   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
-   *        </p>
+   * <p>An array of <a>ProductionVariantSummary</a> objects, one for each model
+   *             that you want to host at this endpoint in shadow mode with production traffic
+   *             replicated from the model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
@@ -1657,12 +1714,9 @@ export interface DescribeEndpointConfigOutput {
   ExplainerConfig?: ExplainerConfig;
 
   /**
-   * <p>
-   *            Array of <code>ProductionVariant</code> objects. There is one for each model that you want to host at this
-   *            endpoint in shadow mode with production traffic replicated from the model specified on
-   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
-   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
-   *        </p>
+   * <p>An array of <code>ProductionVariant</code> objects, one for each model that you want
+   *             to host at this endpoint in shadow mode with production traffic replicated from the
+   *             model specified on <code>ProductionVariants</code>.</p>
    */
   ShadowProductionVariants?: ProductionVariant[];
 }
@@ -1850,15 +1904,29 @@ export interface DescribeFeatureGroupResponse {
   OnlineStoreConfig?: OnlineStoreConfig;
 
   /**
-   * <p>The configuration of the <code>OfflineStore</code>, inducing the S3 location of the
-   *          <code>OfflineStore</code>, Amazon Web Services Glue or Amazon Web Services Hive data catalogue configurations, and the
-   *          security configuration.</p>
+   * <p>The configuration of the offline store. It includes the following configurations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Amazon S3 location of the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Configuration of the Glue data catalog.</p>
+   *             </li>
+   *             <li>
+   *                <p>Table format of the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Option to disable the automatic creation of a Glue table for the offline store.</p>
+   *             </li>
+   *             <li>
+   *                <p>Encryption configuration.</p>
+   *             </li>
+   *          </ul>
    */
   OfflineStoreConfig?: OfflineStoreConfig;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the
-   *          <code>OfflineStore</code> if an <code>OfflineStoreConfig</code> is provided.</p>
+   * <p>The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the OfflineStore if an OfflineStoreConfig is provided.</p>
    */
   RoleArn?: string;
 
@@ -2419,9 +2487,9 @@ export interface HyperParameterTrainingJobSummary {
 
   /**
    * <p>The status of the objective metric for the training job:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Succeeded: The
+   *                <p>Succeeded: The
    *                     final
    *                     objective metric for the training job was evaluated by the
    *                     hyperparameter tuning job and
@@ -2429,15 +2497,15 @@ export interface HyperParameterTrainingJobSummary {
    *                     in the hyperparameter tuning process.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Pending: The training job is in progress and evaluation of its final objective
+   *                <p>Pending: The training job is in progress and evaluation of its final objective
    *                     metric is pending.</p>
    *             </li>
    *          </ul>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Failed:
+   *                <p>Failed:
    *                     The final objective metric for the training job was not evaluated, and was not
    *                     used in the hyperparameter tuning process. This typically occurs when the
    *                     training job failed or did not emit an objective
@@ -2776,7 +2844,8 @@ export interface EndpointMetadata {
 
   /**
    * <p>
-   *            If the status of the endpoint is <code>Failed</code>, this provides the reason why it failed.
+   *            If the status of the endpoint is <code>Failed</code>, or the status is <code>InService</code> but update
+   *            operation fails, this provides the reason why it failed.
    *        </p>
    */
   FailureReason?: string;
@@ -2795,7 +2864,7 @@ export enum ModelVariantStatus {
  */
 export interface ModelVariantConfigSummary {
   /**
-   * <p>The name of the model.</p>
+   * <p>The name of the Amazon SageMaker Model entity.</p>
    */
   ModelName: string | undefined;
 
@@ -2810,7 +2879,35 @@ export interface ModelVariantConfigSummary {
   InfrastructureConfig: ModelInfrastructureConfig | undefined;
 
   /**
-   * <p>The status of the deployment.</p>
+   * <p>The status of deployment for the model variant on the hosted inference endpoint.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Creating</code> - Amazon SageMaker is preparing the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>InService</code> - The model variant is running on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Updating</code> - Amazon SageMaker is updating the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleting</code> - Amazon SageMaker is deleting the model variant on the hosted inference endpoint.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Deleted</code> - The model variant has been deleted on the hosted inference endpoint. This
+   *                     can only happen after stopping the experiment.
+   *                 </p>
+   *             </li>
+   *          </ul>
    */
   Status: ModelVariantStatus | string | undefined;
 }
@@ -2855,50 +2952,55 @@ export interface DescribeInferenceExperimentResponse {
    *          <ul>
    *             <li>
    *                <p>
-   *                    <code>Creating</code> - Amazon SageMaker is creating your experiment.
+   *                   <code>Creating</code> - Amazon SageMaker is creating your experiment.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Created</code> - Amazon SageMaker has finished creating your experiment and it will begin at the scheduled time.
+   *                   <code>Created</code> - Amazon SageMaker has finished the creation of your experiment and will begin the
+   *                    experiment at the scheduled time.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Updating</code> - When you make changes to your experiment, your experiment shows as updating.
+   *                   <code>Updating</code> - When you make changes to your experiment, your experiment shows as updating.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Starting</code> - Amazon SageMaker is beginning your experiment.
+   *                   <code>Starting</code> - Amazon SageMaker is beginning your experiment.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Running</code> - Your experiment is in progress.
+   *                   <code>Running</code> - Your experiment is in progress.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Stopping</code> - Amazon SageMaker is stopping your experiment.
+   *                   <code>Stopping</code> - Amazon SageMaker is stopping your experiment.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Completed</code> - Your experiment has completed.
+   *                   <code>Completed</code> - Your experiment has completed.
    *                </p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
-   *                    <code>Cancelled</code> - When you conclude your experiment early, it shows as canceled.
+   *                   <code>Cancelled</code> - When you conclude your experiment early using the <a>StopInferenceExperiment</a> API, or if any operation fails with an unexpected error, it shows
+   *                    as cancelled.
    *                </p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   Status: InferenceExperimentStatus | string | undefined;
 
   /**
-   * <p>The error message for the inference experiment status result.</p>
+   * <p>
+   *            The error message or client-specified <code>Reason</code> from the <a>StopInferenceExperiment</a>
+   *            API, that explains the status of the inference experiment.
+   *        </p>
    */
   StatusReason?: string;
 
@@ -2914,7 +3016,7 @@ export interface DescribeInferenceExperimentResponse {
 
   /**
    * <p>
-   *            The timestamp at which the inference experiment was completed or will complete.
+   *            The timestamp at which the inference experiment was completed.
    *        </p>
    */
   CompletionTime?: Date;
@@ -2926,7 +3028,8 @@ export interface DescribeInferenceExperimentResponse {
 
   /**
    * <p>
-   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images.
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
    *        </p>
    */
   RoleArn?: string;
@@ -2938,7 +3041,7 @@ export interface DescribeInferenceExperimentResponse {
 
   /**
    * <p>
-   *            Array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference
+   *            An array of <code>ModelVariantConfigSummary</code> objects. There is one for each variant in the inference
    *            experiment. Each <code>ModelVariantConfigSummary</code> object in the array describes the infrastructure
    *            configuration for deploying the corresponding variant.
    *        </p>
@@ -2946,14 +3049,15 @@ export interface DescribeInferenceExperimentResponse {
   ModelVariants: ModelVariantConfigSummary[] | undefined;
 
   /**
-   * <p>The Amazon S3 storage configuration for the inference experiment.</p>
+   * <p>The Amazon S3 location and configuration for storing inference request and response data.</p>
    */
   DataStorageConfig?: InferenceExperimentDataStorageConfig;
 
   /**
    * <p>
-   *            Shows which variant is a production variant and which variant is a shadow variant. For shadow
-   *            variants, also shows the sampling percentage.
+   *            The configuration of <code>ShadowMode</code> inference experiment type, which shows the production variant
+   *            that takes all the inference requests, and the shadow variant to which Amazon SageMaker replicates a percentage of the
+   *            inference requests. For the shadow variant it also shows the percentage of requests that Amazon SageMaker replicates.
    *        </p>
    */
   ShadowModeConfig?: ShadowModeConfig;
@@ -3327,60 +3431,60 @@ export interface DescribeLabelingJobResponse {
   /**
    * <p>The S3 location of the JSON file that defines the categories used to label data
    *             objects. Please note the following label-category limits:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Semantic segmentation labeling jobs using automated labeling: 20 labels</p>
+   *                <p>Semantic segmentation labeling jobs using automated labeling: 20 labels</p>
    *             </li>
    *             <li>
-   *                 <p>Box bounding labeling jobs (all): 10 labels</p>
+   *                <p>Box bounding labeling jobs (all): 10 labels</p>
    *             </li>
    *          </ul>
-   *         <p>The file is a JSON structure in the following format:</p>
-   *         <p>
+   *          <p>The file is a JSON structure in the following format:</p>
+   *          <p>
    *             <code>{</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "document-version": "2018-11-28"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "labels": [</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label 1</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> },</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label 2</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> },</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> ...</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> {</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> "label": "<i>label n</i>"</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> }</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code> ]</code>
-   *         </p>
-   *         <p>
+   *          </p>
+   *          <p>
    *             <code>}</code>
-   *         </p>
+   *          </p>
    */
   LabelCategoryConfigS3Uri?: string;
 
@@ -3882,7 +3986,7 @@ export interface DescribeModelExplainabilityJobDefinitionResponse {
 export interface DescribeModelPackageInput {
   /**
    * <p>The name or Amazon Resource Name (ARN) of the model package to describe.</p>
-   *         <p>When you specify a name, the name must have 1 to 63 characters. Valid
+   *          <p>When you specify a name, the name must have 1 to 63 characters. Valid
    *             characters are a-z, A-Z, 0-9, and - (hyphen).</p>
    */
   ModelPackageName: string | undefined;
@@ -4431,9 +4535,9 @@ export interface DescribeNotebookInstanceOutput {
 
   /**
    * <p>Returns the name of a notebook instance lifecycle configuration.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>
-   *         </p>
+   *          </p>
    */
   NotebookInstanceLifecycleConfigName?: string;
 
@@ -4441,7 +4545,7 @@ export interface DescribeNotebookInstanceOutput {
    * <p>Describes whether SageMaker provides internet access to the notebook instance. If this
    *             value is set to <i>Disabled</i>, the notebook instance does not have
    *             internet access, and cannot connect to SageMaker training and endpoint services.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/appendix-additional-considerations.html#appendix-notebook-and-internet-access">Notebook Instances Are Internet-Enabled by Default</a>.</p>
    */
   DirectInternetAccess?: DirectInternetAccess | string;
 
@@ -4480,12 +4584,12 @@ export interface DescribeNotebookInstanceOutput {
 
   /**
    * <p>Whether root access is enabled or disabled for users of the notebook instance.</p>
-   *         <note>
+   *          <note>
    *             <p>Lifecycle configurations need root access to be able to set up a notebook
    *                 instance. Because of this, lifecycle configurations associated with a notebook
    *                 instance always run with root access even if you disable root access for
    *                 users.</p>
-   *         </note>
+   *          </note>
    */
   RootAccess?: RootAccess | string;
 
@@ -4895,25 +4999,25 @@ export interface ServiceCatalogProvisionedProductDetails {
 
   /**
    * <p>The current status of the product.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>AVAILABLE</code> - Stable state, ready to perform any operation. The most recent operation succeeded and completed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNDER_CHANGE</code> - Transitive state. Operations performed might not have valid results. Wait for an AVAILABLE status before performing operations.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TAINTED</code> - Stable state, ready to perform any operation. The stack has completed the requested operation but is not exactly what was requested. For example, a request to update to a new version failed and the stack rolled back to the current version.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>ERROR</code> - An unexpected error occurred. The provisioned product exists but the stack is not running. For example, CloudFormation received a parameter value that was not valid and could not launch the stack.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PLAN_IN_PROGRESS</code> - Transitive state. The plan operations were performed to provision a new product, but resources have not yet been created. After reviewing the list of resources to be created, execute the plan. Wait for an AVAILABLE status before performing operations.</p>
    *             </li>
    *          </ul>
@@ -5224,99 +5328,99 @@ export enum SecondaryStatus {
  *             secondary
  *             status.
  *             </p>
- *         <p></p>
+ *          <p></p>
  */
 export interface SecondaryStatusTransition {
   /**
    * <p>Contains a secondary status information from a training
    *             job.</p>
-   *         <p>Status might be one of the following secondary statuses:</p>
-   *         <dl>
+   *          <p>Status might be one of the following secondary statuses:</p>
+   *          <dl>
    *             <dt>InProgress</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Starting</code>
    *                                 - Starting the training job.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Downloading</code> - An optional stage for algorithms that
    *                                 support <code>File</code> training input mode. It indicates that
    *                                 data is being downloaded to the ML storage volumes.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Training</code> - Training is in progress.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Uploading</code> - Training is complete and the model
    *                                 artifacts are being uploaded to the S3 location.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Completed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Completed</code> - The training job has completed.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Failed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Failed</code> - The training job has failed. The reason for
    *                                 the failure is returned in the <code>FailureReason</code> field of
    *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopped</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed runtime.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopping</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <p>We no longer support the following secondary statuses:</p>
-   *         <ul>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>LaunchingMLInstances</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PreparingTrainingStack</code>
-   *                 </p>
+   *                <p>
+   *                   <code>PreparingTrainingStack</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DownloadingTrainingImage</code>
-   *                 </p>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -5337,66 +5441,66 @@ export interface SecondaryStatusTransition {
   /**
    * <p>A detailed description of the progress within a secondary status.
    *             </p>
-   *         <p>SageMaker provides secondary statuses and status messages that apply to each of
+   *          <p>SageMaker provides secondary statuses and status messages that apply to each of
    *             them:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>Starting</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>Starting the training job.</p>
-   *                         </li>
+   *                      <p>Starting the training job.</p>
+   *                   </li>
    *                   <li>
-   *                             <p>Launching requested ML
+   *                      <p>Launching requested ML
    *                                 instances.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Insufficient
+   *                      <p>Insufficient
    *                                 capacity error from EC2 while launching instances,
    *                                 retrying!</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Launched
+   *                      <p>Launched
    *                                 instance was unhealthy, replacing it!</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>Preparing the instances for training.</p>
-   *                         </li>
+   *                      <p>Preparing the instances for training.</p>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Training</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>Downloading the training image.</p>
-   *                         </li>
+   *                      <p>Downloading the training image.</p>
+   *                   </li>
    *                   <li>
-   *                             <p>Training
+   *                      <p>Training
    *                                 image download completed. Training in
    *                                 progress.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <important>
+   *          <important>
    *             <p>Status messages are subject to change. Therefore, we recommend not including them
    *                 in code that programmatically initiates actions. For examples, don't use status
    *                 messages in if statements.</p>
-   *         </important>
-   *         <p>To have an overview of your training job's progress, view
+   *          </important>
+   *          <p>To have an overview of your training job's progress, view
    *                 <code>TrainingJobStatus</code> and <code>SecondaryStatus</code> in <a>DescribeTrainingJob</a>, and <code>StatusMessage</code> together. For
    *             example, at the start of a training job, you might see the following:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TrainingJobStatus</code> - InProgress</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SecondaryStatus</code> - Training</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>StatusMessage</code> - Downloading the training image</p>
    *             </li>
    *          </ul>
@@ -5417,23 +5521,23 @@ export enum WarmPoolResourceStatus {
 export interface WarmPoolStatus {
   /**
    * <p>The status of the warm pool.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InUse</code>: The warm pool is in use for the training job.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Available</code>: The warm pool is available to reuse for a matching
    *                     training job.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Reused</code>: The warm pool moved to a matching training job for
    *                     reuse.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Terminated</code>: The warm pool is no longer available. Warm pools are
    *                     unavailable if they are terminated by a user, terminated for a patch update, or
    *                     terminated for exceeding the specified
@@ -5446,7 +5550,7 @@ export interface WarmPoolStatus {
   /**
    * <p>The billable time in seconds used by the warm pool. Billable time refers to the
    *             absolute wall-clock time.</p>
-   *         <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
+   *          <p>Multiply <code>ResourceRetainedBillableTimeInSeconds</code> by the number of instances
    *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
    *             SageMaker bills you if you run warm pool training. The formula is as follows:
    *                 <code>ResourceRetainedBillableTimeInSeconds * InstanceCount</code>.</p>
@@ -5495,32 +5599,32 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * <p>The status of the training job.</p>
-   *         <p>SageMaker provides the following training job statuses:</p>
-   *         <ul>
+   *          <p>SageMaker provides the following training job statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InProgress</code> - The training is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Completed</code> - The training job has completed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code> - The training job has failed. To see the reason for the
    *                     failure, see the <code>FailureReason</code> field in the response to a
    *                         <code>DescribeTrainingJobResponse</code> call.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopping</code> - The training job is stopping.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopped</code> - The training job has stopped.</p>
    *             </li>
    *          </ul>
-   *         <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
+   *          <p>For more detailed information, see <code>SecondaryStatus</code>. </p>
    */
   TrainingJobStatus: TrainingJobStatus | string | undefined;
 
@@ -5528,108 +5632,107 @@ export interface DescribeTrainingJobResponse {
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information on the secondary status of the training job, see <code>StatusMessage</code>
    *             under <a>SecondaryStatusTransition</a>.</p>
-   *         <p>SageMaker provides primary statuses and secondary statuses that apply to each of
+   *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>InProgress</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Starting</code>
    *                                 - Starting the training job.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Downloading</code> - An optional stage for algorithms that
    *                                 support <code>File</code> training input mode. It indicates that
    *                                 data is being downloaded to the ML storage volumes.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Training</code> - Training is in progress.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Interrupted</code> - The job stopped because the managed
    *                                 spot training instances were interrupted. </p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Uploading</code> - Training is complete and the model
    *                                 artifacts are being uploaded to the S3 location.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Completed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Completed</code> - The training job has completed.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Failed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Failed</code> - The training job has failed. The reason for
    *                                 the failure is returned in the <code>FailureReason</code> field of
    *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopped</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed runtime.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxWaitTimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed wait time.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopping</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *
-   *         <important>
+   *          <important>
    *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
-   *         </important>
-   *         <p>We no longer support the following secondary statuses:</p>
-   *         <ul>
+   *          </important>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>LaunchingMLInstances</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PreparingTraining</code>
-   *                 </p>
+   *                <p>
+   *                   <code>PreparingTraining</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DownloadingTrainingImage</code>
-   *                 </p>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -5686,7 +5789,7 @@ export interface DescribeTrainingJobResponse {
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
    *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
    */
@@ -5770,11 +5873,11 @@ export interface DescribeTrainingJobResponse {
   /**
    * <p>The billable time in seconds. Billable time refers to the absolute wall-clock
    *             time.</p>
-   *         <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
+   *          <p>Multiply <code>BillableTimeInSeconds</code> by the number of instances
    *                 (<code>InstanceCount</code>) in your training cluster to get the total compute time
    *             SageMaker bills you if you run distributed training. The formula is as follows:
    *                 <code>BillableTimeInSeconds * InstanceCount</code> .</p>
-   *         <p>You can calculate the savings from using managed spot training using the formula
+   *          <p>You can calculate the savings from using managed spot training using the formula
    *                 <code>(1 - BillableTimeInSeconds / TrainingTimeInSeconds) * 100</code>. For example,
    *             if <code>BillableTimeInSeconds</code> is 100 and <code>TrainingTimeInSeconds</code> is
    *             500, the savings is 80%.</p>
@@ -5944,7 +6047,7 @@ export interface DescribeTransformJobResponse {
    *             A <i>record</i>
    *             <i></i> is a single unit of input data that inference
    *             can be made on. For example, a single line in a CSV file is a record. </p>
-   *         <p>To enable the batch strategy, you must set <code>SplitType</code>
+   *          <p>To enable the batch strategy, you must set <code>SplitType</code>
    *             to
    *                 <code>Line</code>, <code>RecordIO</code>, or
    *             <code>TFRecord</code>.</p>
@@ -6559,7 +6662,7 @@ export interface Workteam {
   /**
    * <p>A list of <code>MemberDefinition</code> objects that contains objects that identify
    *             the workers that make up the work team. </p>
-   *         <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
+   *          <p>Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP).
    *             For private workforces created using Amazon Cognito use
    *             <code>CognitoMemberDefinition</code>. For workforces created using your own OIDC identity
    *             provider (IdP) use <code>OidcMemberDefinition</code>.</p>
@@ -7134,21 +7237,21 @@ export interface MonitoringSchedule {
 
   /**
    * <p>The status of the monitoring schedule. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - The schedule is pending being created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> - The schedule failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SCHEDULED</code> - The schedule was successfully created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STOPPED</code> - The schedule was stopped.</p>
    *             </li>
    *          </ul>
@@ -7260,12 +7363,8 @@ export interface Endpoint {
   Tags?: Tag[];
 
   /**
-   * <p>
-   *            Array of <code>ProductionVariant</code> objects, one for each model that you want to host at this endpoint
-   *            in shadow mode with production traffic replicated from the model specified on
-   *            <code>ProductionVariants</code>.If you use this field, you can only specify one variant for
-   *            <code>ProductionVariants</code> and one variant for <code>ShadowProductionVariants</code>.
-   *        </p>
+   * <p>A list of the shadow variants hosted on the endpoint. Each shadow variant is a model
+   *              in shadow mode with production traffic replicated from the proudction variant.</p>
    */
   ShadowProductionVariants?: ProductionVariantSummary[];
 }
@@ -7327,29 +7426,29 @@ export interface EndpointSummary {
 
   /**
    * <p>The status of the endpoint.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OutOfService</code>: Endpoint is not available to take incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Creating</code>: <a>CreateEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Updating</code>: <a>UpdateEndpoint</a> or <a>UpdateEndpointWeightsAndCapacities</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>SystemUpdating</code>: Endpoint is undergoing maintenance and cannot be
    *                     updated or deleted or re-scaled until it has completed. This maintenance
    *                     operation does not change any customer-specified values such as VPC config, KMS
    *                     encryption, model, instance type, or instance count.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>RollingBack</code>: Endpoint fails to scale up or down or change its
    *                     variant weight and is in the process of rolling back to its previous
    *                     configuration. Once the rollback completes, endpoint returns to an
@@ -7359,23 +7458,23 @@ export interface EndpointSummary {
    *                     explicitly.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InService</code>: Endpoint is available to process incoming
    *                     requests.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Deleting</code>: <a>DeleteEndpoint</a> is executing.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code>: Endpoint could not be created, updated, or re-scaled. Use
    *                         <a>DescribeEndpointOutput$FailureReason</a> for information about
    *                     the failure. <a>DeleteEndpoint</a> is the only operation that can be
    *                     performed on a failed endpoint.</p>
    *             </li>
    *          </ul>
-   *         <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
+   *          <p>To get a list of endpoints with a specified status, use the <a>ListEndpointsInput$StatusEquals</a> filter.</p>
    */
   EndpointStatus: EndpointStatus | string | undefined;
 }
@@ -7710,7 +7809,6 @@ export enum Operator {
  * <p>A conditional statement for a search expression that includes a resource property, a
  *       Boolean operator, and a value. Resources that match the statement are returned in the
  *       results from the <a>Search</a> API.</p>
- *
  *          <p>If you specify a <code>Value</code>, but not an <code>Operator</code>, Amazon SageMaker uses the
  *       equals operator.</p>
  *          <p>In search, there are several property types:</p>
@@ -8115,10 +8213,10 @@ export interface GitConfigForUpdate {
    * <p>The Amazon Resource Name (ARN) of the Amazon Web Services Secrets Manager secret that
    *             contains the credentials used to access the git repository. The secret must have a
    *             staging label of <code>AWSCURRENT</code> and must be in the following format:</p>
-   *         <p>
+   *          <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
-   *         </p>
+   *          </p>
    */
   SecretArn?: string;
 }
@@ -8338,16 +8436,16 @@ export interface HyperParameterTuningJobSearchEntity {
    *             previous hyperparameter tuning jobs as a starting point. The results of previous tuning
    *             jobs are used to inform which combinations of hyperparameters to search over in the new
    *             tuning job.</p>
-   *         <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
+   *          <p>All training jobs launched by the new hyperparameter tuning job are evaluated by using
    *             the objective metric, and the training job that performs the best is compared to the
    *             best training jobs from the parent tuning jobs. From these, the training job that
    *             performs the best as measured by the objective metric is returned as the overall best
    *             training job.</p>
-   *         <note>
+   *          <note>
    *             <p>All training jobs launched by parent hyperparameter tuning jobs and the new
    *                 hyperparameter tuning jobs count against the limit of training jobs for the tuning
    *                 job.</p>
-   *         </note>
+   *          </note>
    */
   WarmStartConfig?: HyperParameterTuningJobWarmStartConfig;
 
@@ -8666,8 +8764,8 @@ export interface InferenceExperimentSummary {
 
   /**
    * <p>
-   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container
-   *            images.
+   *            The ARN of the IAM role that Amazon SageMaker can assume to access model artifacts and container images, and manage
+   *            Amazon SageMaker Inference endpoints for model deployment.
    *        </p>
    */
   RoleArn?: string;
@@ -9461,59 +9559,12 @@ export interface ListCandidatesForAutoMLJobResponse {
   NextToken?: string;
 }
 
-export interface ListCodeRepositoriesInput {
-  /**
-   * <p>A filter that returns only Git repositories that were created after the specified
-   *             time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were created before the specified
-   *             time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified after the
-   *             specified time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>A filter that returns only Git repositories that were last modified before the
-   *             specified time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>The maximum number of Git repositories to return in the response.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>A string in the Git repositories name. This filter returns only repositories whose
-   *             name contains the specified string.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
-   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
-   *             the token in the next request.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   */
-  SortBy?: CodeRepositorySortBy | string;
-
-  /**
-   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: CodeRepositorySortOrder | string;
-}
+/**
+ * @internal
+ */
+export const DescribeAppResponseFilterSensitiveLog = (obj: DescribeAppResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11247,12 +11298,5 @@ export const ListCandidatesForAutoMLJobRequestFilterSensitiveLog = (obj: ListCan
  * @internal
  */
 export const ListCandidatesForAutoMLJobResponseFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCodeRepositoriesInputFilterSensitiveLog = (obj: ListCodeRepositoriesInput): any => ({
   ...obj,
 });

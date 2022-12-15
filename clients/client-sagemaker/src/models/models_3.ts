@@ -13,6 +13,8 @@ import {
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
+  CodeRepositorySortBy,
+  CodeRepositorySortOrder,
   CodeRepositorySummary,
   CompilationJobStatus,
   CompilationJobSummary,
@@ -171,25 +173,79 @@ import {
   Workteam,
 } from "./models_2";
 
+export interface ListCodeRepositoriesInput {
+  /**
+   * <p>A filter that returns only Git repositories that were created after the specified
+   *             time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only Git repositories that were created before the specified
+   *             time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified after the
+   *             specified time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>A filter that returns only Git repositories that were last modified before the
+   *             specified time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>The maximum number of Git repositories to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>A string in the Git repositories name. This filter returns only repositories whose
+   *             name contains the specified string.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>If the result of a <code>ListCodeRepositoriesOutput</code> request was truncated, the
+   *             response includes a <code>NextToken</code>. To get the next set of Git repositories, use
+   *             the token in the next request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The field to sort results by. The default is <code>Name</code>.</p>
+   */
+  SortBy?: CodeRepositorySortBy | string;
+
+  /**
+   * <p>The sort order for results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: CodeRepositorySortOrder | string;
+}
+
 export interface ListCodeRepositoriesOutput {
   /**
    * <p>Gets a list of summaries of the Git repositories. Each summary specifies the following
    *             values for the repository: </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>Name</p>
+   *                <p>Name</p>
    *             </li>
    *             <li>
-   *                 <p>Amazon Resource Name (ARN)</p>
+   *                <p>Amazon Resource Name (ARN)</p>
    *             </li>
    *             <li>
-   *                 <p>Creation time</p>
+   *                <p>Creation time</p>
    *             </li>
    *             <li>
-   *                 <p>Last modified time</p>
+   *                <p>Last modified time</p>
    *             </li>
    *             <li>
-   *                 <p>Configuration information, including the URL location of the repository and
+   *                <p>Configuration information, including the URL location of the repository and
    *                     the ARN of the Amazon Web Services Secrets Manager secret that contains the
    *                     credentials used to access the repository.</p>
    *             </li>
@@ -2525,18 +2581,18 @@ export interface ListModelPackagesInput {
   /**
    * <p>A filter that returns only the model packages of the specified type. This can be one
    *             of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNVERSIONED</code> - List only unversioined models.
    *                     This is the default value if no <code>ModelPackageType</code> is specified.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>VERSIONED</code> - List only versioned models.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>BOTH</code> - List both versioned and unversioned models.</p>
    *             </li>
    *          </ul>
@@ -2604,17 +2660,17 @@ export interface ModelPackageSummary {
 
   /**
    * <p>The approval status of the model. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>APPROVED</code> - The model is approved</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>REJECTED</code> - The model is rejected.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
    *                     approval.</p>
    *             </li>
@@ -3336,11 +3392,11 @@ export interface ListNotebookInstancesInput {
    *             response includes a <code>NextToken</code>. You can use this token in your subsequent
    *                 <code>ListNotebookInstances</code> request to fetch the next set of notebook
    *             instances. </p>
-   *         <note>
+   *          <note>
    *             <p>You might specify a filter or a sort order in your request. When response is
    *                 truncated, you must use the same values for the filer and sort order in the next
    *                 request. </p>
-   *         </note>
+   *          </note>
    */
   NextToken?: string;
 
@@ -3458,7 +3514,7 @@ export interface NotebookInstanceSummary {
   /**
    * <p>The name of a notebook instance lifecycle configuration associated with this notebook
    *             instance.</p>
-   *         <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
+   *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
    *                 2.1: (Optional) Customize a Notebook Instance</a>.</p>
    */
   NotebookInstanceLifecycleConfigName?: string;
@@ -4759,7 +4815,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobRequest {
 
   /**
    * <p>The field to sort results by. The default is <code>Name</code>.</p>
-   *         <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
+   *          <p>If the value of this field is <code>FinalObjectiveMetricValue</code>, any training
    *             jobs that did not return an objective metric are not listed.</p>
    */
   SortBy?: TrainingJobSortByOptions | string;
@@ -5898,26 +5954,26 @@ export interface ModelPackage {
 
   /**
    * <p>The status of the model package. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - The model package is pending being created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>IN_PROGRESS</code> - The model package is in the process of being
    *                     created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLETED</code> - The model package was successfully created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> - The model package failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - The model package is in the process of being deleted.</p>
    *             </li>
    *          </ul>
@@ -5938,17 +5994,17 @@ export interface ModelPackage {
 
   /**
    * <p>The approval status of the model. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>APPROVED</code> - The model is approved</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>REJECTED</code> - The model is rejected.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING_MANUAL_APPROVAL</code> - The model is waiting for manual
    *                     approval.</p>
    *             </li>
@@ -6058,30 +6114,30 @@ export interface ModelPackageGroup {
 
   /**
    * <p>The status of the model group. This can be one of the following values.</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>PENDING</code> - The model group is pending being created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>IN_PROGRESS</code> - The model group is in the process of being
    *                     created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>COMPLETED</code> - The model group was successfully created.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>FAILED</code> - The model group failed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETING</code> - The model group is in the process of being deleted.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DELETE_FAILED</code> - SageMaker failed to delete the model group.</p>
    *             </li>
    *          </ul>
@@ -6771,7 +6827,7 @@ export interface RenderUiTemplateRequest {
    * <p>The <code>HumanTaskUiArn</code> of the worker UI that you want to render. Do not
    *             provide a <code>HumanTaskUiArn</code> if you use the <code>UiTemplate</code>
    *             parameter.</p>
-   *         <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a>UiConfig</a>.</p>
+   *          <p>See a list of available Human Ui Amazon Resource Names (ARNs) in <a>UiConfig</a>.</p>
    */
   HumanTaskUiArn?: string;
 }
@@ -6872,32 +6928,32 @@ export interface TrainingJob {
    * <p>The status of the
    *             training
    *             job.</p>
-   *         <p>Training job statuses are:</p>
-   *         <ul>
+   *          <p>Training job statuses are:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>InProgress</code> - The training is in progress.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Completed</code> - The training job has completed.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Failed</code> - The training job has failed. To see the reason for the
    *                     failure, see the <code>FailureReason</code> field in the response to a
    *                         <code>DescribeTrainingJobResponse</code> call.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopping</code> - The training job is stopping.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Stopped</code> - The training job has stopped.</p>
    *             </li>
    *          </ul>
-   *         <p>For
+   *          <p>For
    *             more detailed information, see <code>SecondaryStatus</code>. </p>
    */
   TrainingJobStatus?: TrainingJobStatus | string;
@@ -6906,97 +6962,97 @@ export interface TrainingJob {
    * <p> Provides detailed information about the state of the training job. For detailed
    *             information about the secondary status of the training job, see
    *                 <code>StatusMessage</code> under <a>SecondaryStatusTransition</a>.</p>
-   *         <p>SageMaker provides primary statuses and secondary statuses that apply to each of
+   *          <p>SageMaker provides primary statuses and secondary statuses that apply to each of
    *             them:</p>
-   *         <dl>
+   *          <dl>
    *             <dt>InProgress</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Starting</code>
    *                                 - Starting the training job.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Downloading</code> - An optional stage for algorithms that
    *                                 support <code>File</code> training input mode. It indicates that
    *                                 data is being downloaded to the ML storage volumes.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Training</code> - Training is in progress.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Uploading</code> - Training is complete and the model
    *                                 artifacts are being uploaded to the S3 location.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Completed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Completed</code> - The training job has completed.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Failed</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Failed</code> - The training job has failed. The reason for
    *                                 the failure is returned in the <code>FailureReason</code> field of
    *                                     <code>DescribeTrainingJobResponse</code>.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopped</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>MaxRuntimeExceeded</code> - The job stopped because it
    *                                 exceeded the maximum allowed runtime.</p>
-   *                         </li>
+   *                   </li>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopped</code> - The training job has stopped.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *             <dt>Stopping</dt>
    *             <dd>
-   *                     <ul>
+   *                <ul>
    *                   <li>
-   *                             <p>
+   *                      <p>
    *                         <code>Stopping</code> - Stopping the training job.</p>
-   *                         </li>
+   *                   </li>
    *                </ul>
-   *                 </dd>
+   *             </dd>
    *          </dl>
-   *         <important>
+   *          <important>
    *             <p>Valid values for <code>SecondaryStatus</code> are subject to change. </p>
-   *         </important>
-   *         <p>We no longer support the following secondary statuses:</p>
-   *         <ul>
+   *          </important>
+   *          <p>We no longer support the following secondary statuses:</p>
+   *          <ul>
    *             <li>
-   *                 <p>
-   *                     <code>LaunchingMLInstances</code>
-   *                 </p>
+   *                <p>
+   *                   <code>LaunchingMLInstances</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>PreparingTrainingStack</code>
-   *                 </p>
+   *                <p>
+   *                   <code>PreparingTrainingStack</code>
+   *                </p>
    *             </li>
    *             <li>
-   *                 <p>
-   *                     <code>DownloadingTrainingImage</code>
-   *                 </p>
+   *                <p>
+   *                   <code>DownloadingTrainingImage</code>
+   *                </p>
    *             </li>
    *          </ul>
    */
@@ -7052,7 +7108,7 @@ export interface TrainingJob {
    * <p>Specifies a limit to how long a model training job can run. It also specifies how long
    *             a managed Spot training job has to complete. When the job reaches the time limit, SageMaker
    *             ends the training job. Use this API to cap model training costs.</p>
-   *         <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
+   *          <p>To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays
    *             job termination for 120 seconds. Algorithms can use this 120-second window to save the
    *             model artifacts, so the results of training are not lost. </p>
    */
@@ -7722,22 +7778,22 @@ export interface StopInferenceExperimentRequest {
    *             <li>
    *                <p>
    *                   <code>Promote</code> - Promote the shadow variant to a production variant</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Remove</code> - Delete the variant</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Retain</code> - Keep the variant as it is</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   ModelVariantActions: Record<string, ModelVariantAction | string> | undefined;
 
   /**
    * <p>
-   *            Array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy
+   *            An array of <code>ModelVariantConfig</code> objects. There is one for each variant that you want to deploy
    *            after the inference experiment stops. Each <code>ModelVariantConfig</code> describes the infrastructure
    *            configuration for deploying the corresponding variant.
    *        </p>
@@ -7752,11 +7808,11 @@ export interface StopInferenceExperimentRequest {
    *             <li>
    *                <p>
    *                   <code>Completed</code>: The experiment completed successfully</p>
-   *            </li>
+   *             </li>
    *             <li>
    *                <p>
    *                   <code>Cancelled</code>: The experiment was canceled</p>
-   *            </li>
+   *             </li>
    *          </ul>
    */
   DesiredState?: InferenceExperimentStopDesiredState | string;
@@ -7936,10 +7992,10 @@ export interface UpdateCodeRepositoryInput {
    *             Name (ARN) of the Amazon Web Services Secrets Manager secret that contains the
    *             credentials used to access the repository. The secret must have a staging label of
    *                 <code>AWSCURRENT</code> and must be in the following format:</p>
-   *         <p>
+   *          <p>
    *             <code>{"username": <i>UserName</i>, "password":
    *                     <i>Password</i>}</code>
-   *         </p>
+   *          </p>
    */
   GitConfig?: GitConfigForUpdate;
 }
@@ -8060,27 +8116,27 @@ export enum VariantPropertyType {
 
 /**
  * <p>Specifies a production variant property type for an Endpoint.</p>
- *         <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
+ *          <p>If you are updating an endpoint with the <a>UpdateEndpointInput$RetainAllVariantProperties</a> option set to
  *                 <code>true</code>, the <code>VariantProperty</code> objects listed in <a>UpdateEndpointInput$ExcludeRetainedVariantProperties</a> override the
  *             existing variant properties of the endpoint.</p>
  */
 export interface VariantProperty {
   /**
    * <p>The type of variant property. The supported values are:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DesiredInstanceCount</code>: Overrides the existing variant instance
    *                     counts using the <a>ProductionVariant$InitialInstanceCount</a> values
    *                     in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DesiredWeight</code>: Overrides the existing variant weights using the
    *                         <a>ProductionVariant$InitialVariantWeight</a> values in the <a>CreateEndpointConfigInput$ProductionVariants</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DataCaptureConfig</code>: (Not currently supported.)</p>
    *             </li>
    *          </ul>
@@ -8288,12 +8344,12 @@ export interface UpdateImageRequest {
   RoleArn?: string;
 }
 
-export interface UpdateImageResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
-   */
-  ImageArn?: string;
-}
+/**
+ * @internal
+ */
+export const ListCodeRepositoriesInputFilterSensitiveLog = (obj: ListCodeRepositoriesInput): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10124,12 +10180,5 @@ export const UpdateHubResponseFilterSensitiveLog = (obj: UpdateHubResponse): any
  * @internal
  */
 export const UpdateImageRequestFilterSensitiveLog = (obj: UpdateImageRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageResponseFilterSensitiveLog = (obj: UpdateImageResponse): any => ({
   ...obj,
 });

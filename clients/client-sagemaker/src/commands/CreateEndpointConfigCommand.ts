@@ -33,20 +33,20 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *             the configuration, you identify one or more models, created using the
  *                 <code>CreateModel</code> API, to deploy and the resources that you want SageMaker to
  *             provision. Then you call the <a>CreateEndpoint</a> API.</p>
- *         <note>
+ *          <note>
  *             <p> Use this API if you want to use SageMaker hosting services to deploy models into
  *                 production. </p>
- *         </note>
- *         <p>In the request, you define a <code>ProductionVariant</code>, for each model that you
+ *          </note>
+ *          <p>In the request, you define a <code>ProductionVariant</code>, for each model that you
  *             want to deploy. Each <code>ProductionVariant</code> parameter also describes the
  *             resources that you want SageMaker to provision. This includes the number and type of ML
  *             compute instances to deploy. </p>
- *         <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
+ *          <p>If you are hosting multiple models, you also assign a <code>VariantWeight</code> to
  *             specify how much traffic you want to allocate to each model. For example, suppose that
  *             you want to host two models, A and B, and you assign traffic weight 2 for model A and 1
  *             for model B. SageMaker distributes two-thirds of the traffic to Model A, and one-third to
  *             model B. </p>
- *         <note>
+ *          <note>
  *             <p>When you call <a>CreateEndpoint</a>, a load call is made to DynamoDB to
  *                 verify that your endpoint configuration exists. When you read data from a DynamoDB
  *                 table supporting <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadConsistency.html">
@@ -57,7 +57,7 @@ export interface CreateEndpointConfigCommandOutput extends CreateEndpointConfigO
  *                 causes a validation error. If you repeat your read request after a short time, the
  *                 response should return the latest data. So retry logic is recommended to handle
  *                 these possible issues. We also recommend that customers call <a>DescribeEndpointConfig</a> before calling <a>CreateEndpoint</a> to minimize the potential impact of a DynamoDB eventually consistent read.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

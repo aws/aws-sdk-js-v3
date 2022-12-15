@@ -32,7 +32,7 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  * <p>Creates a new work team for labeling your data. A work team is defined by one or more
  *             Amazon Cognito user pools. You must first create the user pools before you can create a work
  *             team.</p>
- *         <p>You cannot create more than 25 work teams in an account and region.</p>
+ *          <p>You cannot create more than 25 work teams in an account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

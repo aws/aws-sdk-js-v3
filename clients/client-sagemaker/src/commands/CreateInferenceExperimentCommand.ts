@@ -33,8 +33,8 @@ export interface CreateInferenceExperimentCommandOutput extends CreateInferenceE
  *            Creates an inference experiment using the configurations specified in the request.
  *        </p>
  *          <p>
- *            Use this API to schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For more
- *            information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>.
+ *            Use this API to setup and schedule an experiment to compare model variants on a Amazon SageMaker inference endpoint. For
+ *            more information about inference experiments, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/shadow-tests.html">Shadow tests</a>.
  *        </p>
  *          <p>
  *            Amazon SageMaker begins your experiment at the scheduled time and routes traffic to your endpoint's model variants based
