@@ -5399,7 +5399,9 @@ const serializeAws_json1_1NetworkBinding = (input: NetworkBinding, context: __Se
   return {
     ...(input.bindIP != null && { bindIP: input.bindIP }),
     ...(input.containerPort != null && { containerPort: input.containerPort }),
+    ...(input.containerPortRange != null && { containerPortRange: input.containerPortRange }),
     ...(input.hostPort != null && { hostPort: input.hostPort }),
+    ...(input.hostPortRange != null && { hostPortRange: input.hostPortRange }),
     ...(input.protocol != null && { protocol: input.protocol }),
   };
 };
@@ -5469,6 +5471,7 @@ const serializeAws_json1_1PortMapping = (input: PortMapping, context: __SerdeCon
   return {
     ...(input.appProtocol != null && { appProtocol: input.appProtocol }),
     ...(input.containerPort != null && { containerPort: input.containerPort }),
+    ...(input.containerPortRange != null && { containerPortRange: input.containerPortRange }),
     ...(input.hostPort != null && { hostPort: input.hostPort }),
     ...(input.name != null && { name: input.name }),
     ...(input.protocol != null && { protocol: input.protocol }),
@@ -7643,7 +7646,9 @@ const deserializeAws_json1_1NetworkBinding = (output: any, context: __SerdeConte
   return {
     bindIP: __expectString(output.bindIP),
     containerPort: __expectInt32(output.containerPort),
+    containerPortRange: __expectString(output.containerPortRange),
     hostPort: __expectInt32(output.hostPort),
+    hostPortRange: __expectString(output.hostPortRange),
     protocol: __expectString(output.protocol),
   } as any;
 };
@@ -7758,6 +7763,7 @@ const deserializeAws_json1_1PortMapping = (output: any, context: __SerdeContext)
   return {
     appProtocol: __expectString(output.appProtocol),
     containerPort: __expectInt32(output.containerPort),
+    containerPortRange: __expectString(output.containerPortRange),
     hostPort: __expectInt32(output.hostPort),
     name: __expectString(output.name),
     protocol: __expectString(output.protocol),

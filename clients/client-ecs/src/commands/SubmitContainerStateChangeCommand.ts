@@ -32,7 +32,7 @@ export interface SubmitContainerStateChangeCommandOutput extends SubmitContainer
  * <note>
  *             <p>This action is only used by the Amazon ECS agent, and it is not intended for use outside of the agent.</p>
  *          </note>
- * 		       <p>Sent to acknowledge that a container changed states.</p>
+ *          <p>Sent to acknowledge that a container changed states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

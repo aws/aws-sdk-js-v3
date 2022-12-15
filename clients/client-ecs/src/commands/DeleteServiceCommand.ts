@@ -33,8 +33,8 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * 			running tasks in it and the desired task count is zero. If the service is actively
  * 			maintaining tasks, you can't delete it, and you must update the service to a desired
  * 			task count of zero. For more information, see <a>UpdateService</a>.</p>
- * 		       <note>
- * 			         <p>When you delete a service, if there are still running tasks that require cleanup,
+ *          <note>
+ *             <p>When you delete a service, if there are still running tasks that require cleanup,
  * 				the service status moves from <code>ACTIVE</code> to <code>DRAINING</code>, and the
  * 				service is no longer visible in the console or in the <a>ListServices</a>
  * 				API operation. After all tasks have transitioned to either <code>STOPPING</code> or
@@ -44,12 +44,12 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * 					<code>INACTIVE</code> services may be cleaned up and purged from Amazon ECS record
  * 				keeping, and <a>DescribeServices</a> calls on those services return a
  * 					<code>ServiceNotFoundException</code> error.</p>
- * 		       </note>
- * 		       <important>
- * 			         <p>If you attempt to create a new service with the same name as an existing service
+ *          </note>
+ *          <important>
+ *             <p>If you attempt to create a new service with the same name as an existing service
  * 				in either <code>ACTIVE</code> or <code>DRAINING</code> status, you receive an
  * 				error.</p>
- * 		       </important>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

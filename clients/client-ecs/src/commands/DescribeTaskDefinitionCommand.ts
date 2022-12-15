@@ -33,10 +33,10 @@ export interface DescribeTaskDefinitionCommandOutput extends DescribeTaskDefinit
  * 				<code>revision</code> to find information about a specific task definition, or you
  * 			can simply specify the family to find the latest <code>ACTIVE</code> revision in that
  * 			family.</p>
- * 		       <note>
- * 			         <p>You can only describe <code>INACTIVE</code> task definitions while an active task
+ *          <note>
+ *             <p>You can only describe <code>INACTIVE</code> task definitions while an active task
  * 				or service references them.</p>
- * 		       </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
