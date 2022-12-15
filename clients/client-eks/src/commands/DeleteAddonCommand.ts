@@ -30,7 +30,7 @@ export interface DeleteAddonCommandOutput extends DeleteAddonResponse, __Metadat
 
 /**
  * <p>Delete an Amazon EKS add-on.</p>
- *         <p>When you remove the add-on, it will also be deleted from the cluster. You can always
+ *          <p>When you remove the add-on, it will also be deleted from the cluster. You can always
  *             manually start an add-on on the cluster using the Kubernetes API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

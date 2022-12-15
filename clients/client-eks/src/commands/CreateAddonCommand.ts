@@ -30,7 +30,7 @@ export interface CreateAddonCommandOutput extends CreateAddonResponse, __Metadat
 
 /**
  * <p>Creates an Amazon EKS add-on.</p>
- *         <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
+ *          <p>Amazon EKS add-ons help to automate the provisioning and lifecycle management
  *             of common operational software for Amazon EKS clusters. For more information,
  *             see <a href="https://docs.aws.amazon.com/eks/latest/userguide/eks-add-ons.html">Amazon EKS add-ons</a> in the <i>Amazon EKS User Guide</i>.</p>
  * @example

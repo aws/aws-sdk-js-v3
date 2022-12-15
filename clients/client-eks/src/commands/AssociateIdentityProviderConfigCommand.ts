@@ -32,7 +32,7 @@ export interface AssociateIdentityProviderConfigCommandOutput
 
 /**
  * <p>Associate an identity provider configuration to a cluster.</p>
- *         <p>If you want to authenticate identities using an identity provider, you can create an
+ *          <p>If you want to authenticate identities using an identity provider, you can create an
  *             identity provider configuration and associate it to your cluster. After configuring
  *             authentication to your cluster you can create Kubernetes <code>roles</code> and
  *                 <code>clusterroles</code> to assign permissions to the roles, and then bind the
