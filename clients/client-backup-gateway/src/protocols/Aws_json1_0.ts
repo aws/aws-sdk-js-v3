@@ -214,6 +214,7 @@ export const serializeAws_json1_0ImportHypervisorConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "BackupOnPremises_v20210101.ImportHypervisorConfiguration",
   };
   let body: any;
@@ -305,6 +306,7 @@ export const serializeAws_json1_0TestHypervisorConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "BackupOnPremises_v20210101.TestHypervisorConfiguration",
   };
   let body: any;
@@ -357,6 +359,7 @@ export const serializeAws_json1_0UpdateHypervisorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "BackupOnPremises_v20210101.UpdateHypervisor",
   };
   let body: any;

@@ -649,6 +649,7 @@ export const serializeAws_restJson1CreateEmailIdentityCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/identities";
   let body: any;
@@ -1065,6 +1066,7 @@ export const serializeAws_restJson1GetAccountCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account";
   let body: any;
@@ -1961,6 +1963,7 @@ export const serializeAws_restJson1PutAccountDetailsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/v2/email/account/details";
@@ -2428,6 +2431,7 @@ export const serializeAws_restJson1PutEmailIdentityDkimSigningAttributesCommand 
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +

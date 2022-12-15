@@ -186,6 +186,7 @@ export const serializeAws_restJson1CreateDatasetCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2";
   let body: any;
@@ -256,6 +257,7 @@ export const serializeAws_restJson1CreatePermissionGroupCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
   let body: any;
@@ -285,6 +287,7 @@ export const serializeAws_restJson1CreateUserCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
   let body: any;
@@ -519,7 +522,9 @@ export const serializeAws_restJson1GetExternalDataViewAccessDetailsCommand = asy
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/datasets/{datasetId}/dataviewsv2/{dataViewId}/external-access-details";
@@ -542,7 +547,9 @@ export const serializeAws_restJson1GetPermissionGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group/{permissionGroupId}";
   resolvedPath = __resolvedPath(
@@ -595,7 +602,9 @@ export const serializeAws_restJson1GetUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
   let body: any;
@@ -665,7 +674,9 @@ export const serializeAws_restJson1ListDatasetsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/datasetsv2";
   const query: any = map({
     nextToken: [, input.nextToken!],
@@ -715,7 +726,9 @@ export const serializeAws_restJson1ListPermissionGroupsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group";
   const query: any = map({
     nextToken: [, input.nextToken!],
@@ -739,7 +752,9 @@ export const serializeAws_restJson1ListPermissionGroupsByUserCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/permission-groups";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
@@ -765,7 +780,9 @@ export const serializeAws_restJson1ListUsersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user";
   const query: any = map({
     nextToken: [, input.nextToken!],
@@ -789,7 +806,9 @@ export const serializeAws_restJson1ListUsersByPermissionGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/permission-group/{permissionGroupId}/users";
@@ -825,6 +844,7 @@ export const serializeAws_restJson1ResetUserPasswordCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}/password";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);
@@ -916,6 +936,7 @@ export const serializeAws_restJson1UpdatePermissionGroupCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/permission-group/{permissionGroupId}";
@@ -954,6 +975,7 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/user/{userId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "userId", () => input.userId!, "{userId}", false);

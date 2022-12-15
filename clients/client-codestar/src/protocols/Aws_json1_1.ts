@@ -128,6 +128,7 @@ export const serializeAws_json1_1CreateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.CreateProject",
   };
   let body: any;
@@ -141,6 +142,7 @@ export const serializeAws_json1_1CreateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.CreateUserProfile",
   };
   let body: any;
@@ -180,6 +182,7 @@ export const serializeAws_json1_1DescribeProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.DescribeProject",
   };
   let body: any;
@@ -193,6 +196,7 @@ export const serializeAws_json1_1DescribeUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.DescribeUserProfile",
   };
   let body: any;
@@ -271,6 +275,7 @@ export const serializeAws_json1_1ListUserProfilesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.ListUserProfiles",
   };
   let body: any;
@@ -310,6 +315,7 @@ export const serializeAws_json1_1UpdateProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.UpdateProject",
   };
   let body: any;
@@ -336,6 +342,7 @@ export const serializeAws_json1_1UpdateUserProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodeStar_20170419.UpdateUserProfile",
   };
   let body: any;

@@ -102,6 +102,7 @@ export const serializeAws_json1_1CreateEnvironmentEC2Command = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.CreateEnvironmentEC2",
   };
   let body: any;
@@ -167,6 +168,7 @@ export const serializeAws_json1_1DescribeEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.DescribeEnvironments",
   };
   let body: any;
@@ -206,6 +208,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.ListTagsForResource",
   };
   let body: any;
@@ -219,6 +222,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.TagResource",
   };
   let body: any;
@@ -232,6 +236,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.UntagResource",
   };
   let body: any;
@@ -245,6 +250,7 @@ export const serializeAws_json1_1UpdateEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSCloud9WorkspaceManagementService.UpdateEnvironment",
   };
   let body: any;

@@ -156,6 +156,7 @@ export const serializeAws_json1_1CreateBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.CreateBudget",
   };
   let body: any;
@@ -169,6 +170,7 @@ export const serializeAws_json1_1CreateBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.CreateBudgetAction",
   };
   let body: any;
@@ -182,6 +184,7 @@ export const serializeAws_json1_1CreateNotificationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.CreateNotification",
   };
   let body: any;
@@ -195,6 +198,7 @@ export const serializeAws_json1_1CreateSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.CreateSubscriber",
   };
   let body: any;
@@ -221,6 +225,7 @@ export const serializeAws_json1_1DeleteBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DeleteBudgetAction",
   };
   let body: any;
@@ -247,6 +252,7 @@ export const serializeAws_json1_1DeleteSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DeleteSubscriber",
   };
   let body: any;
@@ -273,6 +279,7 @@ export const serializeAws_json1_1DescribeBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetAction",
   };
   let body: any;
@@ -286,6 +293,7 @@ export const serializeAws_json1_1DescribeBudgetActionHistoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionHistories",
   };
   let body: any;
@@ -299,6 +307,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForAccountCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForAccount",
   };
   let body: any;
@@ -312,6 +321,7 @@ export const serializeAws_json1_1DescribeBudgetActionsForBudgetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DescribeBudgetActionsForBudget",
   };
   let body: any;
@@ -377,6 +387,7 @@ export const serializeAws_json1_1DescribeSubscribersForNotificationCommand = asy
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.DescribeSubscribersForNotification",
   };
   let body: any;
@@ -416,6 +427,7 @@ export const serializeAws_json1_1UpdateBudgetActionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.UpdateBudgetAction",
   };
   let body: any;
@@ -442,6 +454,7 @@ export const serializeAws_json1_1UpdateSubscriberCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSBudgetServiceGateway.UpdateSubscriber",
   };
   let body: any;

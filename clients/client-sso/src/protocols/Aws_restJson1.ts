@@ -37,6 +37,7 @@ export const serializeAws_restJson1GetRoleCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-sso_bearer_token": input.accessToken!,
   });
   const resolvedPath =
@@ -64,6 +65,7 @@ export const serializeAws_restJson1ListAccountRolesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-sso_bearer_token": input.accessToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/roles";
@@ -91,6 +93,7 @@ export const serializeAws_restJson1ListAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-sso_bearer_token": input.accessToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/assignment/accounts";
@@ -117,6 +120,7 @@ export const serializeAws_restJson1LogoutCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-sso_bearer_token": input.accessToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/logout";

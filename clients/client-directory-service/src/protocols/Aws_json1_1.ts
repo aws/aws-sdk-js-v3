@@ -392,6 +392,7 @@ export const serializeAws_json1_1AcceptSharedDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.AcceptSharedDirectory",
   };
   let body: any;
@@ -457,6 +458,7 @@ export const serializeAws_json1_1ConnectDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.ConnectDirectory",
   };
   let body: any;
@@ -483,6 +485,7 @@ export const serializeAws_json1_1CreateComputerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.CreateComputer",
   };
   let body: any;
@@ -509,6 +512,7 @@ export const serializeAws_json1_1CreateDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.CreateDirectory",
   };
   let body: any;
@@ -535,6 +539,7 @@ export const serializeAws_json1_1CreateMicrosoftADCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.CreateMicrosoftAD",
   };
   let body: any;
@@ -561,6 +566,7 @@ export const serializeAws_json1_1CreateTrustCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.CreateTrust",
   };
   let body: any;
@@ -704,6 +710,7 @@ export const serializeAws_json1_1DescribeDirectoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.DescribeDirectories",
   };
   let body: any;
@@ -782,6 +789,7 @@ export const serializeAws_json1_1DescribeSharedDirectoriesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.DescribeSharedDirectories",
   };
   let body: any;
@@ -873,6 +881,7 @@ export const serializeAws_json1_1DisableSsoCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.DisableSso",
   };
   let body: any;
@@ -912,6 +921,7 @@ export const serializeAws_json1_1EnableRadiusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.EnableRadius",
   };
   let body: any;
@@ -925,6 +935,7 @@ export const serializeAws_json1_1EnableSsoCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.EnableSso",
   };
   let body: any;
@@ -1107,6 +1118,7 @@ export const serializeAws_json1_1ResetUserPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.ResetUserPassword",
   };
   let body: any;
@@ -1133,6 +1145,7 @@ export const serializeAws_json1_1ShareDirectoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.ShareDirectory",
   };
   let body: any;
@@ -1211,6 +1224,7 @@ export const serializeAws_json1_1UpdateRadiusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DirectoryService_20150416.UpdateRadius",
   };
   let body: any;

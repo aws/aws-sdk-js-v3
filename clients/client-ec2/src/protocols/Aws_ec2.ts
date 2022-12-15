@@ -4953,6 +4953,7 @@ export const serializeAws_ec2CreateKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -4969,6 +4970,7 @@ export const serializeAws_ec2CreateLaunchTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -4985,6 +4987,7 @@ export const serializeAws_ec2CreateLaunchTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -10793,6 +10796,7 @@ export const serializeAws_ec2GetVpnConnectionDeviceSampleConfigurationCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -10857,6 +10861,7 @@ export const serializeAws_ec2ImportInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -12697,6 +12702,7 @@ export const serializeAws_ec2RunInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({

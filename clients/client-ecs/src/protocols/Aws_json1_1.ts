@@ -660,6 +660,7 @@ export const serializeAws_json1_1ExecuteCommandCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonEC2ContainerServiceV20141113.ExecuteCommand",
   };
   let body: any;

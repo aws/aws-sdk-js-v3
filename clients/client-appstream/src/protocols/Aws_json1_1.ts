@@ -396,6 +396,7 @@ export const serializeAws_json1_1BatchAssociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.BatchAssociateUserStack",
   };
   let body: any;
@@ -409,6 +410,7 @@ export const serializeAws_json1_1BatchDisassociateUserStackCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.BatchDisassociateUserStack",
   };
   let body: any;
@@ -461,6 +463,7 @@ export const serializeAws_json1_1CreateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.CreateDirectoryConfig",
   };
   let body: any;
@@ -578,6 +581,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.CreateUser",
   };
   let body: any;
@@ -721,6 +725,7 @@ export const serializeAws_json1_1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.DeleteUser",
   };
   let body: any;
@@ -773,6 +778,7 @@ export const serializeAws_json1_1DescribeDirectoryConfigsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.DescribeDirectoryConfigs",
   };
   let body: any;
@@ -890,6 +896,7 @@ export const serializeAws_json1_1DescribeUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.DescribeUsers",
   };
   let body: any;
@@ -903,6 +910,7 @@ export const serializeAws_json1_1DescribeUserStackAssociationsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.DescribeUserStackAssociations",
   };
   let body: any;
@@ -916,6 +924,7 @@ export const serializeAws_json1_1DisableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.DisableUser",
   };
   let body: any;
@@ -968,6 +977,7 @@ export const serializeAws_json1_1EnableUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.EnableUser",
   };
   let body: any;
@@ -1137,6 +1147,7 @@ export const serializeAws_json1_1UpdateDirectoryConfigCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "PhotonAdminProxyService.UpdateDirectoryConfig",
   };
   let body: any;

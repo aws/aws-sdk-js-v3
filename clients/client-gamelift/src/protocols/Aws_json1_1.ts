@@ -630,6 +630,7 @@ export const serializeAws_json1_1CreateBuildCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "GameLift.CreateBuild",
   };
   let body: any;
@@ -1384,6 +1385,7 @@ export const serializeAws_json1_1GetComputeAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "GameLift.GetComputeAccess",
   };
   let body: any;
@@ -1423,6 +1425,7 @@ export const serializeAws_json1_1GetInstanceAccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "GameLift.GetInstanceAccess",
   };
   let body: any;
@@ -1592,6 +1595,7 @@ export const serializeAws_json1_1RequestUploadCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "GameLift.RequestUploadCredentials",
   };
   let body: any;

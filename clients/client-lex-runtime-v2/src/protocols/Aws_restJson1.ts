@@ -101,7 +101,9 @@ export const serializeAws_restJson1GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}";
@@ -128,6 +130,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     responsecontenttype: input.responseContentType!,
   });
   let resolvedPath =
@@ -165,6 +168,7 @@ export const serializeAws_restJson1RecognizeTextCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
@@ -202,6 +206,7 @@ export const serializeAws_restJson1RecognizeUtteranceCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": input.requestContentType! || "application/octet-stream",
+    "cache-control": "no-store",
     "x-amz-lex-session-state": input.sessionState!,
     "x-amz-lex-request-attributes": input.requestAttributes!,
     "response-content-type": input.responseContentType!,
@@ -234,6 +239,7 @@ export const serializeAws_restJson1StartConversationCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-lex-conversation-mode": input.conversationMode!,
   });
   let resolvedPath =

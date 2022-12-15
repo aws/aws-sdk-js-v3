@@ -232,6 +232,7 @@ export const serializeAws_restJson1CreateLaunchProfileCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -277,6 +278,7 @@ export const serializeAws_restJson1CreateStreamingImageCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -340,6 +342,7 @@ export const serializeAws_restJson1CreateStreamingSessionStreamCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -369,6 +372,7 @@ export const serializeAws_restJson1CreateStudioCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
@@ -404,6 +408,7 @@ export const serializeAws_restJson1CreateStudioComponentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -457,6 +462,7 @@ export const serializeAws_restJson1DeleteLaunchProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -522,6 +528,7 @@ export const serializeAws_restJson1DeleteStreamingImageCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -579,6 +586,7 @@ export const serializeAws_restJson1DeleteStudioCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -602,6 +610,7 @@ export const serializeAws_restJson1DeleteStudioComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -679,7 +688,9 @@ export const serializeAws_restJson1GetLaunchProfileCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}";
@@ -709,7 +720,9 @@ export const serializeAws_restJson1GetLaunchProfileDetailsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/details";
@@ -739,7 +752,9 @@ export const serializeAws_restJson1GetLaunchProfileInitializationCommand = async
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/launch-profiles/{launchProfileId}/init";
@@ -809,7 +824,9 @@ export const serializeAws_restJson1GetStreamingImageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/streaming-images/{streamingImageId}";
@@ -862,7 +879,9 @@ export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/streaming-sessions/{sessionId}/streams/{streamId}";
@@ -886,7 +905,9 @@ export const serializeAws_restJson1GetStudioCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios/{studioId}";
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
@@ -907,7 +928,9 @@ export const serializeAws_restJson1GetStudioComponentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/studio-components/{studioComponentId}";
@@ -1046,7 +1069,9 @@ export const serializeAws_restJson1ListLaunchProfilesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/launch-profiles";
@@ -1075,7 +1100,9 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/streaming-images";
@@ -1131,7 +1158,9 @@ export const serializeAws_restJson1ListStudioComponentsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-08-01/studios/{studioId}/studio-components";
@@ -1186,7 +1215,9 @@ export const serializeAws_restJson1ListStudiosCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-08-01/studios";
   const query: any = map({
     nextToken: [, input.nextToken!],
@@ -1321,6 +1352,7 @@ export const serializeAws_restJson1StartStudioSSOConfigurationRepairCommand = as
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1425,6 +1457,7 @@ export const serializeAws_restJson1UpdateLaunchProfileCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1511,6 +1544,7 @@ export const serializeAws_restJson1UpdateStreamingImageCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1548,6 +1582,7 @@ export const serializeAws_restJson1UpdateStudioCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1577,6 +1612,7 @@ export const serializeAws_restJson1UpdateStudioComponentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =

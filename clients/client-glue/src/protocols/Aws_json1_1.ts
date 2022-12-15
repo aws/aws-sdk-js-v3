@@ -1285,6 +1285,7 @@ export const serializeAws_json1_1BatchGetJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSGlue.BatchGetJobs",
   };
   let body: any;
@@ -1532,6 +1533,7 @@ export const serializeAws_json1_1CreateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSGlue.CreateJob",
   };
   let body: any;
@@ -2338,6 +2340,7 @@ export const serializeAws_json1_1GetJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSGlue.GetJob",
   };
   let body: any;
@@ -2390,6 +2393,7 @@ export const serializeAws_json1_1GetJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSGlue.GetJobs",
   };
   let body: any;
@@ -3638,6 +3642,7 @@ export const serializeAws_json1_1UpdateJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSGlue.UpdateJob",
   };
   let body: any;

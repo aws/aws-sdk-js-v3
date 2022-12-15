@@ -85,6 +85,7 @@ export const serializeAws_json1_0CancelResourceRequestCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.CancelResourceRequest",
   };
   let body: any;
@@ -98,6 +99,7 @@ export const serializeAws_json1_0CreateResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.CreateResource",
   };
   let body: any;
@@ -111,6 +113,7 @@ export const serializeAws_json1_0DeleteResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.DeleteResource",
   };
   let body: any;
@@ -124,6 +127,7 @@ export const serializeAws_json1_0GetResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.GetResource",
   };
   let body: any;
@@ -137,6 +141,7 @@ export const serializeAws_json1_0GetResourceRequestStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.GetResourceRequestStatus",
   };
   let body: any;
@@ -150,6 +155,7 @@ export const serializeAws_json1_0ListResourceRequestsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.ListResourceRequests",
   };
   let body: any;
@@ -163,6 +169,7 @@ export const serializeAws_json1_0ListResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.ListResources",
   };
   let body: any;
@@ -176,6 +183,7 @@ export const serializeAws_json1_0UpdateResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "CloudApiService.UpdateResource",
   };
   let body: any;

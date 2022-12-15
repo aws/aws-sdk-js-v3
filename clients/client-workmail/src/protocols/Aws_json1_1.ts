@@ -533,6 +533,7 @@ export const serializeAws_json1_1CreateAvailabilityConfigurationCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.CreateAvailabilityConfiguration",
   };
   let body: any;
@@ -611,6 +612,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.CreateUser",
   };
   let body: any;
@@ -1313,6 +1315,7 @@ export const serializeAws_json1_1PutRetentionPolicyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.PutRetentionPolicy",
   };
   let body: any;
@@ -1352,6 +1355,7 @@ export const serializeAws_json1_1ResetPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.ResetPassword",
   };
   let body: any;
@@ -1391,6 +1395,7 @@ export const serializeAws_json1_1TestAvailabilityConfigurationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.TestAvailabilityConfiguration",
   };
   let body: any;
@@ -1417,6 +1422,7 @@ export const serializeAws_json1_1UpdateAvailabilityConfigurationCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "WorkMailService.UpdateAvailabilityConfiguration",
   };
   let body: any;

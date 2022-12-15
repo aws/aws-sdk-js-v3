@@ -317,6 +317,7 @@ export const serializeAws_json1_1CreateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.CreateServer",
   };
   let body: any;
@@ -512,6 +513,7 @@ export const serializeAws_json1_1DescribeCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.DescribeCertificate",
   };
   let body: any;
@@ -629,6 +631,7 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.ImportCertificate",
   };
   let body: any;
@@ -642,6 +645,7 @@ export const serializeAws_json1_1ImportHostKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.ImportHostKey",
   };
   let body: any;
@@ -889,6 +893,7 @@ export const serializeAws_json1_1TestIdentityProviderCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.TestIdentityProvider",
   };
   let body: any;
@@ -993,6 +998,7 @@ export const serializeAws_json1_1UpdateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TransferService.UpdateServer",
   };
   let body: any;

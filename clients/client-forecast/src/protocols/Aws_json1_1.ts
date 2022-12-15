@@ -380,6 +380,7 @@ export const serializeAws_json1_1CreateAutoPredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateAutoPredictor",
   };
   let body: any;
@@ -393,6 +394,7 @@ export const serializeAws_json1_1CreateDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateDataset",
   };
   let body: any;
@@ -406,6 +408,7 @@ export const serializeAws_json1_1CreateDatasetGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateDatasetGroup",
   };
   let body: any;
@@ -419,6 +422,7 @@ export const serializeAws_json1_1CreateDatasetImportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateDatasetImportJob",
   };
   let body: any;
@@ -432,6 +436,7 @@ export const serializeAws_json1_1CreateExplainabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateExplainability",
   };
   let body: any;
@@ -445,6 +450,7 @@ export const serializeAws_json1_1CreateExplainabilityExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateExplainabilityExport",
   };
   let body: any;
@@ -458,6 +464,7 @@ export const serializeAws_json1_1CreateForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateForecast",
   };
   let body: any;
@@ -471,6 +478,7 @@ export const serializeAws_json1_1CreateForecastExportJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateForecastExportJob",
   };
   let body: any;
@@ -484,6 +492,7 @@ export const serializeAws_json1_1CreateMonitorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateMonitor",
   };
   let body: any;
@@ -497,6 +506,7 @@ export const serializeAws_json1_1CreatePredictorCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreatePredictor",
   };
   let body: any;
@@ -510,6 +520,7 @@ export const serializeAws_json1_1CreatePredictorBacktestExportJobCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreatePredictorBacktestExportJob",
   };
   let body: any;
@@ -523,6 +534,7 @@ export const serializeAws_json1_1CreateWhatIfAnalysisCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateWhatIfAnalysis",
   };
   let body: any;
@@ -536,6 +548,7 @@ export const serializeAws_json1_1CreateWhatIfForecastCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateWhatIfForecast",
   };
   let body: any;
@@ -549,6 +562,7 @@ export const serializeAws_json1_1CreateWhatIfForecastExportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.CreateWhatIfForecastExport",
   };
   let body: any;
@@ -1082,6 +1096,7 @@ export const serializeAws_json1_1ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.ListTagsForResource",
   };
   let body: any;
@@ -1160,6 +1175,7 @@ export const serializeAws_json1_1TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.TagResource",
   };
   let body: any;
@@ -1173,6 +1189,7 @@ export const serializeAws_json1_1UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonForecast.UntagResource",
   };
   let body: any;

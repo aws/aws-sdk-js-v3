@@ -142,6 +142,7 @@ export const serializeAws_json1_0CreateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.CreateDomain",
   };
   let body: any;
@@ -168,6 +169,7 @@ export const serializeAws_json1_0DeleteFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DeleteFraudster",
   };
   let body: any;
@@ -181,6 +183,7 @@ export const serializeAws_json1_0DeleteSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DeleteSpeaker",
   };
   let body: any;
@@ -194,6 +197,7 @@ export const serializeAws_json1_0DescribeDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DescribeDomain",
   };
   let body: any;
@@ -207,6 +211,7 @@ export const serializeAws_json1_0DescribeFraudsterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DescribeFraudster",
   };
   let body: any;
@@ -220,6 +225,7 @@ export const serializeAws_json1_0DescribeFraudsterRegistrationJobCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DescribeFraudsterRegistrationJob",
   };
   let body: any;
@@ -233,6 +239,7 @@ export const serializeAws_json1_0DescribeSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DescribeSpeaker",
   };
   let body: any;
@@ -246,6 +253,7 @@ export const serializeAws_json1_0DescribeSpeakerEnrollmentJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.DescribeSpeakerEnrollmentJob",
   };
   let body: any;
@@ -259,6 +267,7 @@ export const serializeAws_json1_0EvaluateSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.EvaluateSession",
   };
   let body: any;
@@ -272,6 +281,7 @@ export const serializeAws_json1_0ListDomainsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.ListDomains",
   };
   let body: any;
@@ -285,6 +295,7 @@ export const serializeAws_json1_0ListFraudsterRegistrationJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.ListFraudsterRegistrationJobs",
   };
   let body: any;
@@ -298,6 +309,7 @@ export const serializeAws_json1_0ListSpeakerEnrollmentJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.ListSpeakerEnrollmentJobs",
   };
   let body: any;
@@ -311,6 +323,7 @@ export const serializeAws_json1_0ListSpeakersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.ListSpeakers",
   };
   let body: any;
@@ -324,6 +337,7 @@ export const serializeAws_json1_0ListTagsForResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.ListTagsForResource",
   };
   let body: any;
@@ -337,6 +351,7 @@ export const serializeAws_json1_0OptOutSpeakerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.OptOutSpeaker",
   };
   let body: any;
@@ -350,6 +365,7 @@ export const serializeAws_json1_0StartFraudsterRegistrationJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.StartFraudsterRegistrationJob",
   };
   let body: any;
@@ -363,6 +379,7 @@ export const serializeAws_json1_0StartSpeakerEnrollmentJobCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.StartSpeakerEnrollmentJob",
   };
   let body: any;
@@ -376,6 +393,7 @@ export const serializeAws_json1_0TagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.TagResource",
   };
   let body: any;
@@ -389,6 +407,7 @@ export const serializeAws_json1_0UntagResourceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.UntagResource",
   };
   let body: any;
@@ -402,6 +421,7 @@ export const serializeAws_json1_0UpdateDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "VoiceID.UpdateDomain",
   };
   let body: any;

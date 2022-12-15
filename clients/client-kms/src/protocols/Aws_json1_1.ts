@@ -310,6 +310,7 @@ export const serializeAws_json1_1CreateCustomKeyStoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.CreateCustomKeyStore",
   };
   let body: any;
@@ -349,6 +350,7 @@ export const serializeAws_json1_1DecryptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.Decrypt",
   };
   let body: any;
@@ -401,6 +403,7 @@ export const serializeAws_json1_1DescribeCustomKeyStoresCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.DescribeCustomKeyStores",
   };
   let body: any;
@@ -492,6 +495,7 @@ export const serializeAws_json1_1EncryptCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.Encrypt",
   };
   let body: any;
@@ -505,6 +509,7 @@ export const serializeAws_json1_1GenerateDataKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.GenerateDataKey",
   };
   let body: any;
@@ -518,6 +523,7 @@ export const serializeAws_json1_1GenerateDataKeyPairCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.GenerateDataKeyPair",
   };
   let body: any;
@@ -557,6 +563,7 @@ export const serializeAws_json1_1GenerateMacCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.GenerateMac",
   };
   let body: any;
@@ -570,6 +577,7 @@ export const serializeAws_json1_1GenerateRandomCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.GenerateRandom",
   };
   let body: any;
@@ -609,6 +617,7 @@ export const serializeAws_json1_1GetParametersForImportCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.GetParametersForImport",
   };
   let body: any;
@@ -804,6 +813,7 @@ export const serializeAws_json1_1SignCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.Sign",
   };
   let body: any;
@@ -856,6 +866,7 @@ export const serializeAws_json1_1UpdateCustomKeyStoreCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.UpdateCustomKeyStore",
   };
   let body: any;
@@ -895,6 +906,7 @@ export const serializeAws_json1_1VerifyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.Verify",
   };
   let body: any;
@@ -908,6 +920,7 @@ export const serializeAws_json1_1VerifyMacCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "TrentService.VerifyMac",
   };
   let body: any;

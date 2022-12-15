@@ -684,6 +684,7 @@ export const serializeAws_restXmlCopyDistributionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     staging: [() => isSerializableHeaderValue(input.Staging), () => input.Staging!.toString()],
     "if-match": input.IfMatch!,
   });
@@ -828,6 +829,7 @@ export const serializeAws_restXmlCreateDistributionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    "cache-control": "no-store",
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
@@ -860,6 +862,7 @@ export const serializeAws_restXmlCreateDistributionWithTagsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    "cache-control": "no-store",
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
@@ -961,6 +964,7 @@ export const serializeAws_restXmlCreateFunctionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function";
   let body: any;
@@ -1877,7 +1881,9 @@ export const serializeAws_restXmlGetDistributionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
@@ -1898,7 +1904,9 @@ export const serializeAws_restXmlGetDistributionConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution/{Id}/config";
   resolvedPath = __resolvedPath(resolvedPath, input, "Id", () => input.Id!, "{Id}", false);
@@ -2006,7 +2014,9 @@ export const serializeAws_restXmlGetFunctionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/function/{Name}";
   resolvedPath = __resolvedPath(resolvedPath, input, "Name", () => input.Name!, "{Name}", false);
@@ -2484,7 +2494,9 @@ export const serializeAws_restXmlListDistributionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/2020-05-31/distribution";
   const query: any = map({
@@ -2606,6 +2618,7 @@ export const serializeAws_restXmlListDistributionsByRealtimeLogConfigCommand = a
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/xml",
+    "cache-control": "no-store",
   };
   const resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
@@ -2681,7 +2694,9 @@ export const serializeAws_restXmlListDistributionsByWebACLIdCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/2020-05-31/distributionsByWebACLId/{WebACLId}";
@@ -3077,6 +3092,7 @@ export const serializeAws_restXmlTestFunctionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
   });
   let resolvedPath =
@@ -3259,6 +3275,7 @@ export const serializeAws_restXmlUpdateDistributionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
   });
   let resolvedPath =
@@ -3292,6 +3309,7 @@ export const serializeAws_restXmlUpdateDistributionWithStagingConfigCommand = as
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
   });
   let resolvedPath =
@@ -3391,6 +3409,7 @@ export const serializeAws_restXmlUpdateFunctionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
   });
   let resolvedPath =

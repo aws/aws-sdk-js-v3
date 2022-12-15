@@ -502,6 +502,7 @@ export const serializeAws_json1_1CreateEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonDMSv20160101.CreateEndpoint",
   };
   let body: any;
@@ -606,6 +607,7 @@ export const serializeAws_json1_1DeleteEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonDMSv20160101.DeleteEndpoint",
   };
   let body: any;
@@ -762,6 +764,7 @@ export const serializeAws_json1_1DescribeEndpointsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonDMSv20160101.DescribeEndpoints",
   };
   let body: any;
@@ -1061,6 +1064,7 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonDMSv20160101.ImportCertificate",
   };
   let body: any;
@@ -1087,6 +1091,7 @@ export const serializeAws_json1_1ModifyEndpointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonDMSv20160101.ModifyEndpoint",
   };
   let body: any;

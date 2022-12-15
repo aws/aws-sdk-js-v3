@@ -122,6 +122,7 @@ export const serializeAws_json1_1CreateGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.CreateGroup",
   };
   let body: any;
@@ -148,6 +149,7 @@ export const serializeAws_json1_1CreateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.CreateUser",
   };
   let body: any;
@@ -200,6 +202,7 @@ export const serializeAws_json1_1DescribeGroupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.DescribeGroup",
   };
   let body: any;
@@ -226,6 +229,7 @@ export const serializeAws_json1_1DescribeUserCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.DescribeUser",
   };
   let body: any;
@@ -239,6 +243,7 @@ export const serializeAws_json1_1GetGroupIdCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.GetGroupId",
   };
   let body: any;
@@ -265,6 +270,7 @@ export const serializeAws_json1_1GetUserIdCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.GetUserId",
   };
   let body: any;
@@ -278,6 +284,7 @@ export const serializeAws_json1_1IsMemberInGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.IsMemberInGroups",
   };
   let body: any;
@@ -317,6 +324,7 @@ export const serializeAws_json1_1ListGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.ListGroups",
   };
   let body: any;
@@ -330,6 +338,7 @@ export const serializeAws_json1_1ListUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSIdentityStore.ListUsers",
   };
   let body: any;

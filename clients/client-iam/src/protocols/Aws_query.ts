@@ -827,6 +827,7 @@ export const serializeAws_queryChangePasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -843,6 +844,7 @@ export const serializeAws_queryCreateAccessKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -907,6 +909,7 @@ export const serializeAws_queryCreateLoginProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1019,6 +1022,7 @@ export const serializeAws_queryCreateServiceSpecificCredentialCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -1051,6 +1055,7 @@ export const serializeAws_queryCreateVirtualMFADeviceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2481,6 +2486,7 @@ export const serializeAws_queryListVirtualMFADevicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2625,6 +2631,7 @@ export const serializeAws_queryResetServiceSpecificCredentialCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -3041,6 +3048,7 @@ export const serializeAws_queryUpdateLoginProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -3201,6 +3209,7 @@ export const serializeAws_queryUploadServerCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({

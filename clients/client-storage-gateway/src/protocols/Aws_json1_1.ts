@@ -565,6 +565,7 @@ export const serializeAws_json1_1AssociateFileSystemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.AssociateFileSystem",
   };
   let body: any;
@@ -929,6 +930,7 @@ export const serializeAws_json1_1DescribeChapCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.DescribeChapCredentials",
   };
   let body: any;
@@ -1163,6 +1165,7 @@ export const serializeAws_json1_1JoinDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.JoinDomain",
   };
   let body: any;
@@ -1397,6 +1400,7 @@ export const serializeAws_json1_1SetLocalConsolePasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.SetLocalConsolePassword",
   };
   let body: any;
@@ -1410,6 +1414,7 @@ export const serializeAws_json1_1SetSMBGuestPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.SetSMBGuestPassword",
   };
   let body: any;
@@ -1501,6 +1506,7 @@ export const serializeAws_json1_1UpdateChapCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.UpdateChapCredentials",
   };
   let body: any;
@@ -1514,6 +1520,7 @@ export const serializeAws_json1_1UpdateFileSystemAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "StorageGateway_20130630.UpdateFileSystemAssociation",
   };
   let body: any;

@@ -632,6 +632,7 @@ export const serializeAws_json1_1CreateContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.CreateContact",
   };
   let body: any;
@@ -658,6 +659,7 @@ export const serializeAws_json1_1CreateNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.CreateNetworkProfile",
   };
   let body: any;
@@ -1022,6 +1024,7 @@ export const serializeAws_json1_1GetContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.GetContact",
   };
   let body: any;
@@ -1087,6 +1090,7 @@ export const serializeAws_json1_1GetNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.GetNetworkProfile",
   };
   let body: any;
@@ -1321,6 +1325,7 @@ export const serializeAws_json1_1PutSkillAuthorizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.PutSkillAuthorization",
   };
   let body: any;
@@ -1399,6 +1404,7 @@ export const serializeAws_json1_1SearchContactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.SearchContacts",
   };
   let body: any;
@@ -1607,6 +1613,7 @@ export const serializeAws_json1_1UpdateContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.UpdateContact",
   };
   let body: any;
@@ -1659,6 +1666,7 @@ export const serializeAws_json1_1UpdateNetworkProfileCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AlexaForBusiness.UpdateNetworkProfile",
   };
   let body: any;

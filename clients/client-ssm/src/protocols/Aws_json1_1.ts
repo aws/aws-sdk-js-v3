@@ -1071,6 +1071,7 @@ export const serializeAws_json1_1CreateAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.CreateAssociation",
   };
   let body: any;
@@ -1084,6 +1085,7 @@ export const serializeAws_json1_1CreateAssociationBatchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.CreateAssociationBatch",
   };
   let body: any;
@@ -1110,6 +1112,7 @@ export const serializeAws_json1_1CreateMaintenanceWindowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.CreateMaintenanceWindow",
   };
   let body: any;
@@ -1149,6 +1152,7 @@ export const serializeAws_json1_1CreatePatchBaselineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.CreatePatchBaseline",
   };
   let body: any;
@@ -1383,6 +1387,7 @@ export const serializeAws_json1_1DescribeAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeAssociation",
   };
   let body: any;
@@ -1552,6 +1557,7 @@ export const serializeAws_json1_1DescribeInstancePatchStatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeInstancePatchStates",
   };
   let body: any;
@@ -1565,6 +1571,7 @@ export const serializeAws_json1_1DescribeInstancePatchStatesForPatchGroupCommand
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeInstancePatchStatesForPatchGroup",
   };
   let body: any;
@@ -1604,6 +1611,7 @@ export const serializeAws_json1_1DescribeMaintenanceWindowExecutionTaskInvocatio
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowExecutionTaskInvocations",
   };
   let body: any;
@@ -1630,6 +1638,7 @@ export const serializeAws_json1_1DescribeMaintenanceWindowsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeMaintenanceWindows",
   };
   let body: any;
@@ -1669,6 +1678,7 @@ export const serializeAws_json1_1DescribeMaintenanceWindowTargetsCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowTargets",
   };
   let body: any;
@@ -1682,6 +1692,7 @@ export const serializeAws_json1_1DescribeMaintenanceWindowTasksCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.DescribeMaintenanceWindowTasks",
   };
   let body: any;
@@ -1864,6 +1875,7 @@ export const serializeAws_json1_1GetDeployablePatchSnapshotForInstanceCommand = 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetDeployablePatchSnapshotForInstance",
   };
   let body: any;
@@ -1916,6 +1928,7 @@ export const serializeAws_json1_1GetMaintenanceWindowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetMaintenanceWindow",
   };
   let body: any;
@@ -1942,6 +1955,7 @@ export const serializeAws_json1_1GetMaintenanceWindowExecutionTaskCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetMaintenanceWindowExecutionTask",
   };
   let body: any;
@@ -1955,6 +1969,7 @@ export const serializeAws_json1_1GetMaintenanceWindowExecutionTaskInvocationComm
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetMaintenanceWindowExecutionTaskInvocation",
   };
   let body: any;
@@ -1968,6 +1983,7 @@ export const serializeAws_json1_1GetMaintenanceWindowTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetMaintenanceWindowTask",
   };
   let body: any;
@@ -2020,6 +2036,7 @@ export const serializeAws_json1_1GetParameterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetParameter",
   };
   let body: any;
@@ -2033,6 +2050,7 @@ export const serializeAws_json1_1GetParameterHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetParameterHistory",
   };
   let body: any;
@@ -2046,6 +2064,7 @@ export const serializeAws_json1_1GetParametersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetParameters",
   };
   let body: any;
@@ -2059,6 +2078,7 @@ export const serializeAws_json1_1GetParametersByPathCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetParametersByPath",
   };
   let body: any;
@@ -2072,6 +2092,7 @@ export const serializeAws_json1_1GetPatchBaselineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.GetPatchBaseline",
   };
   let body: any;
@@ -2150,6 +2171,7 @@ export const serializeAws_json1_1ListAssociationVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.ListAssociationVersions",
   };
   let body: any;
@@ -2176,6 +2198,7 @@ export const serializeAws_json1_1ListCommandsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.ListCommands",
   };
   let body: any;
@@ -2384,6 +2407,7 @@ export const serializeAws_json1_1PutParameterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.PutParameter",
   };
   let body: any;
@@ -2436,6 +2460,7 @@ export const serializeAws_json1_1RegisterTargetWithMaintenanceWindowCommand = as
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.RegisterTargetWithMaintenanceWindow",
   };
   let body: any;
@@ -2449,6 +2474,7 @@ export const serializeAws_json1_1RegisterTaskWithMaintenanceWindowCommand = asyn
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.RegisterTaskWithMaintenanceWindow",
   };
   let body: any;
@@ -2514,6 +2540,7 @@ export const serializeAws_json1_1SendCommandCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.SendCommand",
   };
   let body: any;
@@ -2618,6 +2645,7 @@ export const serializeAws_json1_1UpdateAssociationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdateAssociation",
   };
   let body: any;
@@ -2631,6 +2659,7 @@ export const serializeAws_json1_1UpdateAssociationStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdateAssociationStatus",
   };
   let body: any;
@@ -2683,6 +2712,7 @@ export const serializeAws_json1_1UpdateMaintenanceWindowCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdateMaintenanceWindow",
   };
   let body: any;
@@ -2696,6 +2726,7 @@ export const serializeAws_json1_1UpdateMaintenanceWindowTargetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdateMaintenanceWindowTarget",
   };
   let body: any;
@@ -2709,6 +2740,7 @@ export const serializeAws_json1_1UpdateMaintenanceWindowTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdateMaintenanceWindowTask",
   };
   let body: any;
@@ -2761,6 +2793,7 @@ export const serializeAws_json1_1UpdatePatchBaselineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonSSM.UpdatePatchBaseline",
   };
   let body: any;

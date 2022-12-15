@@ -566,6 +566,7 @@ export const serializeAws_json1_1CreateIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSKendraFrontendService.CreateIndex",
   };
   let body: any;
@@ -761,6 +762,7 @@ export const serializeAws_json1_1DescribeIndexCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSKendraFrontendService.DescribeIndex",
   };
   let body: any;
@@ -930,6 +932,7 @@ export const serializeAws_json1_1ListExperienceEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSKendraFrontendService.ListExperienceEntities",
   };
   let body: any;

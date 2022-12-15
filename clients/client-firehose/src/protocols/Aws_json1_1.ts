@@ -167,6 +167,7 @@ export const serializeAws_json1_1CreateDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Firehose_20150804.CreateDeliveryStream",
   };
   let body: any;
@@ -193,6 +194,7 @@ export const serializeAws_json1_1DescribeDeliveryStreamCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Firehose_20150804.DescribeDeliveryStream",
   };
   let body: any;
@@ -310,6 +312,7 @@ export const serializeAws_json1_1UpdateDestinationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Firehose_20150804.UpdateDestination",
   };
   let body: any;

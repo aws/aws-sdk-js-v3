@@ -321,6 +321,7 @@ export const serializeAws_json1_1AcceptHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.AcceptHandshake",
   };
   let body: any;
@@ -347,6 +348,7 @@ export const serializeAws_json1_1CancelHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.CancelHandshake",
   };
   let body: any;
@@ -373,6 +375,7 @@ export const serializeAws_json1_1CreateAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.CreateAccount",
   };
   let body: any;
@@ -386,6 +389,7 @@ export const serializeAws_json1_1CreateGovCloudAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.CreateGovCloudAccount",
   };
   let body: any;
@@ -399,6 +403,7 @@ export const serializeAws_json1_1CreateOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.CreateOrganization",
   };
   let body: any;
@@ -438,6 +443,7 @@ export const serializeAws_json1_1DeclineHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.DeclineHandshake",
   };
   let body: any;
@@ -514,6 +520,7 @@ export const serializeAws_json1_1DescribeAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.DescribeAccount",
   };
   let body: any;
@@ -527,6 +534,7 @@ export const serializeAws_json1_1DescribeCreateAccountStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.DescribeCreateAccountStatus",
   };
   let body: any;
@@ -553,6 +561,7 @@ export const serializeAws_json1_1DescribeHandshakeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.DescribeHandshake",
   };
   let body: any;
@@ -566,6 +575,7 @@ export const serializeAws_json1_1DescribeOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.DescribeOrganization",
   };
   const body = "{}";
@@ -655,6 +665,7 @@ export const serializeAws_json1_1EnableAllFeaturesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.EnableAllFeatures",
   };
   let body: any;
@@ -694,6 +705,7 @@ export const serializeAws_json1_1InviteAccountToOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.InviteAccountToOrganization",
   };
   let body: any;
@@ -719,6 +731,7 @@ export const serializeAws_json1_1ListAccountsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListAccounts",
   };
   let body: any;
@@ -732,6 +745,7 @@ export const serializeAws_json1_1ListAccountsForParentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListAccountsForParent",
   };
   let body: any;
@@ -771,6 +785,7 @@ export const serializeAws_json1_1ListCreateAccountStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListCreateAccountStatus",
   };
   let body: any;
@@ -784,6 +799,7 @@ export const serializeAws_json1_1ListDelegatedAdministratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListDelegatedAdministrators",
   };
   let body: any;
@@ -810,6 +826,7 @@ export const serializeAws_json1_1ListHandshakesForAccountCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForAccount",
   };
   let body: any;
@@ -823,6 +840,7 @@ export const serializeAws_json1_1ListHandshakesForOrganizationCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSOrganizationsV20161128.ListHandshakesForOrganization",
   };
   let body: any;

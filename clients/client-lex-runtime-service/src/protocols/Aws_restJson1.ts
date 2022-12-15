@@ -79,7 +79,9 @@ export const serializeAws_restJson1GetSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/bot/{botName}/alias/{botAlias}/user/{userId}/session";
@@ -110,6 +112,7 @@ export const serializeAws_restJson1PostContentCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": input.contentType! || "application/octet-stream",
+    "cache-control": "no-store",
     "x-amz-lex-session-attributes": [
       () => isSerializableHeaderValue(input.sessionAttributes),
       () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input.sessionAttributes!))),
@@ -152,6 +155,7 @@ export const serializeAws_restJson1PostTextCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
@@ -190,6 +194,7 @@ export const serializeAws_restJson1PutSessionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     accept: input.accept!,
   });
   let resolvedPath =

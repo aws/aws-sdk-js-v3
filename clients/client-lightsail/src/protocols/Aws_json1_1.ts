@@ -970,6 +970,7 @@ export const serializeAws_json1_1CreateBucketAccessKeyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Lightsail_20161128.CreateBucketAccessKey",
   };
   let body: any;
@@ -1217,6 +1218,7 @@ export const serializeAws_json1_1CreateRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Lightsail_20161128.CreateRelationalDatabase",
   };
   let body: any;
@@ -1685,6 +1687,7 @@ export const serializeAws_json1_1GetBucketAccessKeysCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Lightsail_20161128.GetBucketAccessKeys",
   };
   let body: any;
@@ -2348,6 +2351,7 @@ export const serializeAws_json1_1GetRelationalDatabaseMasterUserPasswordCommand 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Lightsail_20161128.GetRelationalDatabaseMasterUserPassword",
   };
   let body: any;
@@ -2842,6 +2846,7 @@ export const serializeAws_json1_1UpdateRelationalDatabaseCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Lightsail_20161128.UpdateRelationalDatabase",
   };
   let body: any;

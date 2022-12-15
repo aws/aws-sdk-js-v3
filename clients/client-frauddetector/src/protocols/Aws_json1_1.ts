@@ -489,6 +489,7 @@ export const serializeAws_json1_1CreateRuleCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.CreateRule",
   };
   let body: any;
@@ -814,6 +815,7 @@ export const serializeAws_json1_1GetEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.GetEvent",
   };
   let body: any;
@@ -827,6 +829,7 @@ export const serializeAws_json1_1GetEventPredictionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.GetEventPrediction",
   };
   let body: any;
@@ -840,6 +843,7 @@ export const serializeAws_json1_1GetEventPredictionMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.GetEventPredictionMetadata",
   };
   let body: any;
@@ -853,6 +857,7 @@ export const serializeAws_json1_1GetEventTypesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.GetEventTypes",
   };
   let body: any;
@@ -943,6 +948,7 @@ export const serializeAws_json1_1GetRulesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.GetRules",
   };
   let body: any;
@@ -1086,6 +1092,7 @@ export const serializeAws_json1_1SendEventCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.SendEvent",
   };
   let body: any;
@@ -1229,6 +1236,7 @@ export const serializeAws_json1_1UpdateRuleVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSHawksNestServiceFacade.UpdateRuleVersion",
   };
   let body: any;

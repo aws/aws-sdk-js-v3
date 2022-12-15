@@ -292,6 +292,7 @@ export const serializeAws_json1_1CreateLocationFsxOntapCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.CreateLocationFsxOntap",
   };
   let body: any;
@@ -305,6 +306,7 @@ export const serializeAws_json1_1CreateLocationFsxOpenZfsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.CreateLocationFsxOpenZfs",
   };
   let body: any;
@@ -318,6 +320,7 @@ export const serializeAws_json1_1CreateLocationFsxWindowsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.CreateLocationFsxWindows",
   };
   let body: any;
@@ -357,6 +360,7 @@ export const serializeAws_json1_1CreateLocationObjectStorageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.CreateLocationObjectStorage",
   };
   let body: any;
@@ -383,6 +387,7 @@ export const serializeAws_json1_1CreateLocationSmbCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.CreateLocationSmb",
   };
   let body: any;
@@ -487,6 +492,7 @@ export const serializeAws_json1_1DescribeLocationFsxOntapCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.DescribeLocationFsxOntap",
   };
   let body: any;
@@ -500,6 +506,7 @@ export const serializeAws_json1_1DescribeLocationFsxOpenZfsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.DescribeLocationFsxOpenZfs",
   };
   let body: any;
@@ -760,6 +767,7 @@ export const serializeAws_json1_1UpdateLocationObjectStorageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.UpdateLocationObjectStorage",
   };
   let body: any;
@@ -773,6 +781,7 @@ export const serializeAws_json1_1UpdateLocationSmbCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "FmrsService.UpdateLocationSmb",
   };
   let body: any;

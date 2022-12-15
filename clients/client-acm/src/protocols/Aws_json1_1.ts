@@ -159,6 +159,7 @@ export const serializeAws_json1_1ExportCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CertificateManager.ExportCertificate",
   };
   let body: any;
@@ -197,6 +198,7 @@ export const serializeAws_json1_1ImportCertificateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CertificateManager.ImportCertificate",
   };
   let body: any;

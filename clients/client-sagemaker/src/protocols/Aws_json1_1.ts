@@ -2258,6 +2258,7 @@ export const serializeAws_json1_1CreateModelCardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.CreateModelCard",
   };
   let body: any;
@@ -2531,6 +2532,7 @@ export const serializeAws_json1_1CreateWorkforceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.CreateWorkforce",
   };
   let body: any;
@@ -3584,6 +3586,7 @@ export const serializeAws_json1_1DescribeModelCardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.DescribeModelCard",
   };
   let body: any;
@@ -4988,6 +4991,7 @@ export const serializeAws_json1_1SearchCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.Search",
   };
   let body: any;
@@ -5482,6 +5486,7 @@ export const serializeAws_json1_1UpdateModelCardCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.UpdateModelCard",
   };
   let body: any;
@@ -5664,6 +5669,7 @@ export const serializeAws_json1_1UpdateWorkforceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "SageMaker.UpdateWorkforce",
   };
   let body: any;

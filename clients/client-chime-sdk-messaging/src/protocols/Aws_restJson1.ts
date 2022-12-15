@@ -232,6 +232,7 @@ export const serializeAws_restJson1BatchCreateChannelMembershipCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -265,6 +266,7 @@ export const serializeAws_restJson1ChannelFlowCallbackCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
   resolvedPath = __resolvedPath(resolvedPath, input, "ChannelArn", () => input.ChannelArn!, "{ChannelArn}", false);
@@ -298,6 +300,7 @@ export const serializeAws_restJson1CreateChannelCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
@@ -340,6 +343,7 @@ export const serializeAws_restJson1CreateChannelBanCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -367,6 +371,7 @@ export const serializeAws_restJson1CreateChannelFlowCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
   let body: any;
@@ -395,6 +400,7 @@ export const serializeAws_restJson1CreateChannelMembershipCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -424,6 +430,7 @@ export const serializeAws_restJson1CreateChannelModeratorCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -618,6 +625,7 @@ export const serializeAws_restJson1DescribeChannelCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
@@ -640,6 +648,7 @@ export const serializeAws_restJson1DescribeChannelBanCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -663,7 +672,9 @@ export const serializeAws_restJson1DescribeChannelFlowCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
   resolvedPath = __resolvedPath(
@@ -692,6 +703,7 @@ export const serializeAws_restJson1DescribeChannelMembershipCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -721,6 +733,7 @@ export const serializeAws_restJson1DescribeChannelMembershipForAppInstanceUserCo
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
@@ -748,6 +761,7 @@ export const serializeAws_restJson1DescribeChannelModeratedByAppInstanceUserComm
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
@@ -775,6 +789,7 @@ export const serializeAws_restJson1DescribeChannelModeratorCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -839,6 +854,7 @@ export const serializeAws_restJson1GetChannelMembershipPreferencesCommand = asyn
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -864,6 +880,7 @@ export const serializeAws_restJson1GetChannelMessageCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -946,6 +963,7 @@ export const serializeAws_restJson1ListChannelBansCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -973,7 +991,9 @@ export const serializeAws_restJson1ListChannelFlowsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows";
   const query: any = map({
     "app-instance-arn": [, __expectNonNull(input.AppInstanceArn!, `AppInstanceArn`)],
@@ -999,6 +1019,7 @@ export const serializeAws_restJson1ListChannelMembershipsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1029,6 +1050,7 @@ export const serializeAws_restJson1ListChannelMembershipsForAppInstanceUserComma
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
@@ -1057,6 +1079,7 @@ export const serializeAws_restJson1ListChannelMessagesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1095,6 +1118,7 @@ export const serializeAws_restJson1ListChannelModeratorsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1123,6 +1147,7 @@ export const serializeAws_restJson1ListChannelsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
@@ -1150,7 +1175,9 @@ export const serializeAws_restJson1ListChannelsAssociatedWithChannelFlowCommand 
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
   const query: any = map({
     scope: [, "channel-flow-associations"],
@@ -1177,6 +1204,7 @@ export const serializeAws_restJson1ListChannelsModeratedByAppInstanceUserCommand
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
@@ -1205,6 +1233,7 @@ export const serializeAws_restJson1ListSubChannelsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1232,7 +1261,9 @@ export const serializeAws_restJson1ListTagsForResourceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
     arn: [, __expectNonNull(input.ResourceARN!, `ResourceARN`)],
@@ -1257,6 +1288,7 @@ export const serializeAws_restJson1PutChannelMembershipPreferencesCommand = asyn
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1321,6 +1353,7 @@ export const serializeAws_restJson1SearchChannelsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels";
@@ -1352,6 +1385,7 @@ export const serializeAws_restJson1SendChannelMessageCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =
@@ -1390,6 +1424,7 @@ export const serializeAws_restJson1TagResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
@@ -1419,6 +1454,7 @@ export const serializeAws_restJson1UntagResourceCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/tags";
   const query: any = map({
@@ -1448,6 +1484,7 @@ export const serializeAws_restJson1UpdateChannelCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channels/{ChannelArn}";
@@ -1476,6 +1513,7 @@ export const serializeAws_restJson1UpdateChannelFlowCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = {
     "content-type": "application/json",
+    "cache-control": "no-store",
   };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/channel-flows/{ChannelFlowArn}";
@@ -1510,6 +1548,7 @@ export const serializeAws_restJson1UpdateChannelMessageCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     "x-amz-chime-bearer": input.ChimeBearer!,
   });
   let resolvedPath =

@@ -146,6 +146,7 @@ export const serializeAws_json1_1CreateSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "secretsmanager.CreateSecret",
   };
   let body: any;
@@ -198,6 +199,7 @@ export const serializeAws_json1_1GetRandomPasswordCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "secretsmanager.GetRandomPassword",
   };
   let body: any;
@@ -224,6 +226,7 @@ export const serializeAws_json1_1GetSecretValueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "secretsmanager.GetSecretValue",
   };
   let body: any;
@@ -276,6 +279,7 @@ export const serializeAws_json1_1PutSecretValueCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "secretsmanager.PutSecretValue",
   };
   let body: any;
@@ -380,6 +384,7 @@ export const serializeAws_json1_1UpdateSecretCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "secretsmanager.UpdateSecret",
   };
   let body: any;

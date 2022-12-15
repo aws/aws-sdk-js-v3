@@ -2185,6 +2185,7 @@ export const serializeAws_queryGetClusterCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({
@@ -2201,6 +2202,7 @@ export const serializeAws_queryGetClusterCredentialsWithIAMCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-store",
   };
   let body: any;
   body = buildFormUrlencodedString({

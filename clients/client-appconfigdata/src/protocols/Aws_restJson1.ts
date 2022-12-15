@@ -40,7 +40,9 @@ export const serializeAws_restJson1GetLatestConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/configuration";
   const query: any = map({
     configuration_token: [, __expectNonNull(input.ConfigurationToken!, `ConfigurationToken`)],

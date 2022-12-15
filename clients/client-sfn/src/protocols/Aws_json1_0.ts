@@ -209,6 +209,7 @@ export const serializeAws_json1_0CreateStateMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.CreateStateMachine",
   };
   let body: any;
@@ -261,6 +262,7 @@ export const serializeAws_json1_0DescribeExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.DescribeExecution",
   };
   let body: any;
@@ -287,6 +289,7 @@ export const serializeAws_json1_0DescribeStateMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.DescribeStateMachine",
   };
   let body: any;
@@ -300,6 +303,7 @@ export const serializeAws_json1_0DescribeStateMachineForExecutionCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.DescribeStateMachineForExecution",
   };
   let body: any;
@@ -313,6 +317,7 @@ export const serializeAws_json1_0GetActivityTaskCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.GetActivityTask",
   };
   let body: any;
@@ -326,6 +331,7 @@ export const serializeAws_json1_0GetExecutionHistoryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.GetExecutionHistory",
   };
   let body: any;
@@ -404,6 +410,7 @@ export const serializeAws_json1_0SendTaskFailureCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.SendTaskFailure",
   };
   let body: any;
@@ -430,6 +437,7 @@ export const serializeAws_json1_0SendTaskSuccessCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.SendTaskSuccess",
   };
   let body: any;
@@ -443,6 +451,7 @@ export const serializeAws_json1_0StartExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.StartExecution",
   };
   let body: any;
@@ -456,6 +465,7 @@ export const serializeAws_json1_0StartSyncExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.StartSyncExecution",
   };
   let body: any;
@@ -476,6 +486,7 @@ export const serializeAws_json1_0StopExecutionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.StopExecution",
   };
   let body: any;
@@ -528,6 +539,7 @@ export const serializeAws_json1_0UpdateStateMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AWSStepFunctions.UpdateStateMachine",
   };
   let body: any;

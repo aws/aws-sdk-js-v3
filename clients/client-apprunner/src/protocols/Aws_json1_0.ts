@@ -277,6 +277,7 @@ export const serializeAws_json1_0CreateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.CreateService",
   };
   let body: any;
@@ -355,6 +356,7 @@ export const serializeAws_json1_0DeleteServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.DeleteService",
   };
   let body: any;
@@ -433,6 +435,7 @@ export const serializeAws_json1_0DescribeServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.DescribeService",
   };
   let body: any;
@@ -589,6 +592,7 @@ export const serializeAws_json1_0PauseServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.PauseService",
   };
   let body: any;
@@ -602,6 +606,7 @@ export const serializeAws_json1_0ResumeServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.ResumeService",
   };
   let body: any;
@@ -654,6 +659,7 @@ export const serializeAws_json1_0UpdateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AppRunner.UpdateService",
   };
   let body: any;

@@ -516,6 +516,7 @@ export const serializeAws_json1_1BatchDetectDominantLanguageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectDominantLanguage",
   };
   let body: any;
@@ -529,6 +530,7 @@ export const serializeAws_json1_1BatchDetectEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectEntities",
   };
   let body: any;
@@ -542,6 +544,7 @@ export const serializeAws_json1_1BatchDetectKeyPhrasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectKeyPhrases",
   };
   let body: any;
@@ -555,6 +558,7 @@ export const serializeAws_json1_1BatchDetectSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectSentiment",
   };
   let body: any;
@@ -568,6 +572,7 @@ export const serializeAws_json1_1BatchDetectSyntaxCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectSyntax",
   };
   let body: any;
@@ -581,6 +586,7 @@ export const serializeAws_json1_1BatchDetectTargetedSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.BatchDetectTargetedSentiment",
   };
   let body: any;
@@ -594,6 +600,7 @@ export const serializeAws_json1_1ClassifyDocumentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.ClassifyDocument",
   };
   let body: any;
@@ -724,6 +731,7 @@ export const serializeAws_json1_1DescribeDocumentClassifierCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DescribeDocumentClassifier",
   };
   let body: any;
@@ -776,6 +784,7 @@ export const serializeAws_json1_1DescribeEntityRecognizerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DescribeEntityRecognizer",
   };
   let body: any;
@@ -880,6 +889,7 @@ export const serializeAws_json1_1DetectDominantLanguageCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectDominantLanguage",
   };
   let body: any;
@@ -893,6 +903,7 @@ export const serializeAws_json1_1DetectEntitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectEntities",
   };
   let body: any;
@@ -906,6 +917,7 @@ export const serializeAws_json1_1DetectKeyPhrasesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectKeyPhrases",
   };
   let body: any;
@@ -932,6 +944,7 @@ export const serializeAws_json1_1DetectSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectSentiment",
   };
   let body: any;
@@ -945,6 +958,7 @@ export const serializeAws_json1_1DetectSyntaxCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectSyntax",
   };
   let body: any;
@@ -958,6 +972,7 @@ export const serializeAws_json1_1DetectTargetedSentimentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.DetectTargetedSentiment",
   };
   let body: any;
@@ -997,6 +1012,7 @@ export const serializeAws_json1_1ListDocumentClassifiersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.ListDocumentClassifiers",
   };
   let body: any;
@@ -1062,6 +1078,7 @@ export const serializeAws_json1_1ListEntityRecognizersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Comprehend_20171127.ListEntityRecognizers",
   };
   let body: any;

@@ -137,6 +137,7 @@ export const serializeAws_json1_0CreateScheduledQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "Timestream_20181101.CreateScheduledQuery",
   };
   let body: any;
@@ -176,6 +177,7 @@ export const serializeAws_json1_0DescribeScheduledQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "Timestream_20181101.DescribeScheduledQuery",
   };
   let body: any;
@@ -189,6 +191,7 @@ export const serializeAws_json1_0ExecuteScheduledQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "Timestream_20181101.ExecuteScheduledQuery",
   };
   let body: any;
@@ -228,6 +231,7 @@ export const serializeAws_json1_0PrepareQueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "Timestream_20181101.PrepareQuery",
   };
   let body: any;
@@ -241,6 +245,7 @@ export const serializeAws_json1_0QueryCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "Timestream_20181101.Query",
   };
   let body: any;

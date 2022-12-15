@@ -499,6 +499,7 @@ export const serializeAws_json1_1CreateTestGridUrlCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.CreateTestGridUrl",
   };
   let body: any;
@@ -512,6 +513,7 @@ export const serializeAws_json1_1CreateUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.CreateUpload",
   };
   let body: any;
@@ -863,6 +865,7 @@ export const serializeAws_json1_1GetUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.GetUpload",
   };
   let body: any;
@@ -889,6 +892,7 @@ export const serializeAws_json1_1InstallToRemoteAccessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.InstallToRemoteAccessSession",
   };
   let body: any;
@@ -1136,6 +1140,7 @@ export const serializeAws_json1_1ListTestGridSessionArtifactsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.ListTestGridSessionArtifacts",
   };
   let body: any;
@@ -1188,6 +1193,7 @@ export const serializeAws_json1_1ListUploadsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.ListUploads",
   };
   let body: any;
@@ -1396,6 +1402,7 @@ export const serializeAws_json1_1UpdateUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "DeviceFarm_20150623.UpdateUpload",
   };
   let body: any;

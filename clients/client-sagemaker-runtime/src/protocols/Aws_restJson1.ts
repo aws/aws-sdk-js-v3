@@ -38,6 +38,7 @@ export const serializeAws_restJson1InvokeEndpointCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": input.ContentType! || "application/octet-stream",
+    "cache-control": "no-store",
     accept: input.Accept!,
     "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,
     "x-amzn-sagemaker-target-model": input.TargetModel!,
@@ -77,6 +78,7 @@ export const serializeAws_restJson1InvokeEndpointAsyncCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amzn-sagemaker-content-type": input.ContentType!,
     "x-amzn-sagemaker-accept": input.Accept!,
     "x-amzn-sagemaker-custom-attributes": input.CustomAttributes!,

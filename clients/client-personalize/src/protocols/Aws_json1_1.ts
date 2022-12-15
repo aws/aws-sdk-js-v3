@@ -474,6 +474,7 @@ export const serializeAws_json1_1CreateFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonPersonalize.CreateFilter",
   };
   let body: any;
@@ -799,6 +800,7 @@ export const serializeAws_json1_1DescribeFilterCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AmazonPersonalize.DescribeFilter",
   };
   let body: any;

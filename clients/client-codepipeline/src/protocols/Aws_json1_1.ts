@@ -443,6 +443,7 @@ export const serializeAws_json1_1GetJobDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodePipeline_20150709.GetJobDetails",
   };
   let body: any;
@@ -495,6 +496,7 @@ export const serializeAws_json1_1GetThirdPartyJobDetailsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodePipeline_20150709.GetThirdPartyJobDetails",
   };
   let body: any;
@@ -586,6 +588,7 @@ export const serializeAws_json1_1PollForJobsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "CodePipeline_20150709.PollForJobs",
   };
   let body: any;

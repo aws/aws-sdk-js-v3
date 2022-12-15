@@ -176,6 +176,7 @@ export const serializeAws_restJson1AbortDocumentVersionUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -201,6 +202,7 @@ export const serializeAws_restJson1ActivateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -225,6 +227,7 @@ export const serializeAws_restJson1AddResourcePermissionsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -258,6 +261,7 @@ export const serializeAws_restJson1CreateCommentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -291,6 +295,7 @@ export const serializeAws_restJson1CreateCustomMetadataCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -325,6 +330,7 @@ export const serializeAws_restJson1CreateFolderCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/folders";
@@ -351,6 +357,7 @@ export const serializeAws_restJson1CreateLabelsCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -414,6 +421,7 @@ export const serializeAws_restJson1CreateUserCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
@@ -447,6 +455,7 @@ export const serializeAws_restJson1DeactivateUserCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -470,6 +479,7 @@ export const serializeAws_restJson1DeleteCommentCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -496,6 +506,7 @@ export const serializeAws_restJson1DeleteCustomMetadataCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -526,6 +537,7 @@ export const serializeAws_restJson1DeleteDocumentCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -549,6 +561,7 @@ export const serializeAws_restJson1DeleteDocumentVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -581,6 +594,7 @@ export const serializeAws_restJson1DeleteFolderCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -604,6 +618,7 @@ export const serializeAws_restJson1DeleteFolderContentsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -627,6 +642,7 @@ export const serializeAws_restJson1DeleteLabelsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -692,6 +708,7 @@ export const serializeAws_restJson1DeleteUserCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";
@@ -714,6 +731,7 @@ export const serializeAws_restJson1DescribeActivitiesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/activities";
@@ -753,6 +771,7 @@ export const serializeAws_restJson1DescribeCommentsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -783,6 +802,7 @@ export const serializeAws_restJson1DescribeDocumentVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -813,6 +833,7 @@ export const serializeAws_restJson1DescribeFolderContentsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -845,6 +866,7 @@ export const serializeAws_restJson1DescribeGroupsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/groups";
@@ -907,6 +929,7 @@ export const serializeAws_restJson1DescribeResourcePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -937,6 +960,7 @@ export const serializeAws_restJson1DescribeRootFoldersCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/me/root";
@@ -963,6 +987,7 @@ export const serializeAws_restJson1DescribeUsersCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users";
@@ -996,6 +1021,7 @@ export const serializeAws_restJson1GetCurrentUserCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/me";
@@ -1017,6 +1043,7 @@ export const serializeAws_restJson1GetDocumentCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1047,6 +1074,7 @@ export const serializeAws_restJson1GetDocumentPathCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1076,6 +1104,7 @@ export const serializeAws_restJson1GetDocumentVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1109,6 +1138,7 @@ export const serializeAws_restJson1GetFolderCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1139,6 +1169,7 @@ export const serializeAws_restJson1GetFolderPathCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1168,6 +1199,7 @@ export const serializeAws_restJson1GetResourcesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/resources";
@@ -1197,6 +1229,7 @@ export const serializeAws_restJson1InitiateDocumentVersionUploadCommand = async 
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/documents";
@@ -1231,6 +1264,7 @@ export const serializeAws_restJson1RemoveAllResourcePermissionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1255,6 +1289,7 @@ export const serializeAws_restJson1RemoveResourcePermissionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1284,6 +1319,7 @@ export const serializeAws_restJson1RestoreDocumentVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1309,6 +1345,7 @@ export const serializeAws_restJson1UpdateDocumentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1338,6 +1375,7 @@ export const serializeAws_restJson1UpdateDocumentVersionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1367,6 +1405,7 @@ export const serializeAws_restJson1UpdateFolderCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath =
@@ -1396,6 +1435,7 @@ export const serializeAws_restJson1UpdateUserCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
+    "cache-control": "no-store",
     authentication: input.AuthenticationToken!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/api/v1/users/{UserId}";

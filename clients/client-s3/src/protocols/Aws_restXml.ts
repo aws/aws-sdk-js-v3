@@ -467,6 +467,7 @@ export const serializeAws_restXmlCompleteMultipartUploadCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "x-amz-checksum-crc32": input.ChecksumCRC32!,
     "x-amz-checksum-crc32c": input.ChecksumCRC32C!,
     "x-amz-checksum-sha1": input.ChecksumSHA1!,
@@ -514,8 +515,8 @@ export const serializeAws_restXmlCopyObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": input.CacheControl! || "no-store",
     "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
     "x-amz-checksum-algorithm": input.ChecksumAlgorithm!,
     "content-disposition": input.ContentDisposition!,
     "content-encoding": input.ContentEncoding!,
@@ -638,8 +639,8 @@ export const serializeAws_restXmlCreateMultipartUploadCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": input.CacheControl! || "no-store",
     "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
     "content-disposition": input.ContentDisposition!,
     "content-encoding": input.ContentEncoding!,
     "content-language": input.ContentLanguage!,
@@ -1278,6 +1279,7 @@ export const serializeAws_restXmlGetBucketEncryptionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
@@ -1330,6 +1332,7 @@ export const serializeAws_restXmlGetBucketInventoryConfigurationCommand = async 
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
@@ -1698,6 +1701,7 @@ export const serializeAws_restXmlGetObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
     "if-modified-since": [
       () => isSerializableHeaderValue(input.IfModifiedSince),
@@ -1781,6 +1785,7 @@ export const serializeAws_restXmlGetObjectAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-max-parts": [() => isSerializableHeaderValue(input.MaxParts), () => input.MaxParts!.toString()],
     "x-amz-part-number-marker": input.PartNumberMarker!,
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
@@ -2008,6 +2013,7 @@ export const serializeAws_restXmlHeadObjectCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "if-match": input.IfMatch!,
     "if-modified-since": [
       () => isSerializableHeaderValue(input.IfModifiedSince),
@@ -2106,6 +2112,7 @@ export const serializeAws_restXmlListBucketInventoryConfigurationsCommand = asyn
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
@@ -2313,6 +2320,7 @@ export const serializeAws_restXmlListPartsCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
@@ -2508,6 +2516,7 @@ export const serializeAws_restXmlPutBucketEncryptionCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "content-md5": input.ContentMD5!,
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -2584,6 +2593,7 @@ export const serializeAws_restXmlPutBucketInventoryConfigurationCommand = async 
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
   });
   let resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/";
@@ -3055,8 +3065,8 @@ export const serializeAws_restXmlPutObjectCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": input.ContentType! || "application/octet-stream",
+    "cache-control": input.CacheControl! || "no-store",
     "x-amz-acl": input.ACL!,
-    "cache-control": input.CacheControl!,
     "content-disposition": input.ContentDisposition!,
     "content-encoding": input.ContentEncoding!,
     "content-language": input.ContentLanguage!,
@@ -3393,6 +3403,7 @@ export const serializeAws_restXmlRestoreObjectCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "x-amz-request-payer": input.RequestPayer!,
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
     "x-amz-expected-bucket-owner": input.ExpectedBucketOwner!,
@@ -3435,6 +3446,7 @@ export const serializeAws_restXmlSelectObjectContentCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
+    "cache-control": "no-store",
     "x-amz-server-side-encryption-customer-algorithm": input.SSECustomerAlgorithm!,
     "x-amz-server-side-encryption-customer-key": input.SSECustomerKey!,
     "x-amz-server-side-encryption-customer-key-md5": input.SSECustomerKeyMD5!,
@@ -3500,6 +3512,7 @@ export const serializeAws_restXmlUploadPartCommand = async (
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/octet-stream",
+    "cache-control": "no-store",
     "content-length": [() => isSerializableHeaderValue(input.ContentLength), () => input.ContentLength!.toString()],
     "content-md5": input.ContentMD5!,
     "x-amz-sdk-checksum-algorithm": input.ChecksumAlgorithm!,
@@ -3548,6 +3561,7 @@ export const serializeAws_restXmlUploadPartCopyCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "cache-control": "no-store",
     "x-amz-copy-source": input.CopySource!,
     "x-amz-copy-source-if-match": input.CopySourceIfMatch!,
     "x-amz-copy-source-if-modified-since": [
@@ -3599,6 +3613,7 @@ export const serializeAws_restXmlWriteGetObjectResponseCommand = async (
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
     "content-type": "application/octet-stream",
+    "cache-control": "no-store",
     "x-amz-request-route": input.RequestRoute!,
     "x-amz-request-token": input.RequestToken!,
     "x-amz-fwd-status": [() => isSerializableHeaderValue(input.StatusCode), () => input.StatusCode!.toString()],

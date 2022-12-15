@@ -232,6 +232,7 @@ export const serializeAws_json1_1CheckDomainTransferabilityCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.CheckDomainTransferability",
   };
   let body: any;
@@ -336,6 +337,7 @@ export const serializeAws_json1_1GetDomainDetailCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.GetDomainDetail",
   };
   let body: any;
@@ -427,6 +429,7 @@ export const serializeAws_json1_1RegisterDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.RegisterDomain",
   };
   let body: any;
@@ -479,6 +482,7 @@ export const serializeAws_json1_1RetrieveDomainAuthCodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.RetrieveDomainAuthCode",
   };
   let body: any;
@@ -492,6 +496,7 @@ export const serializeAws_json1_1TransferDomainCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.TransferDomain",
   };
   let body: any;
@@ -518,6 +523,7 @@ export const serializeAws_json1_1UpdateDomainContactCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.UpdateDomainContact",
   };
   let body: any;
@@ -544,6 +550,7 @@ export const serializeAws_json1_1UpdateDomainNameserversCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "Route53Domains_v20140515.UpdateDomainNameservers",
   };
   let body: any;

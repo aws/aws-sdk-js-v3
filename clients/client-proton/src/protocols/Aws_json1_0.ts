@@ -466,6 +466,7 @@ export const serializeAws_json1_0CancelComponentDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CancelComponentDeployment",
   };
   let body: any;
@@ -479,6 +480,7 @@ export const serializeAws_json1_0CancelEnvironmentDeploymentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CancelEnvironmentDeployment",
   };
   let body: any;
@@ -492,6 +494,7 @@ export const serializeAws_json1_0CancelServiceInstanceDeploymentCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CancelServiceInstanceDeployment",
   };
   let body: any;
@@ -505,6 +508,7 @@ export const serializeAws_json1_0CancelServicePipelineDeploymentCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CancelServicePipelineDeployment",
   };
   let body: any;
@@ -518,6 +522,7 @@ export const serializeAws_json1_0CreateComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateComponent",
   };
   let body: any;
@@ -531,6 +536,7 @@ export const serializeAws_json1_0CreateEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateEnvironment",
   };
   let body: any;
@@ -557,6 +563,7 @@ export const serializeAws_json1_0CreateEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateEnvironmentTemplate",
   };
   let body: any;
@@ -570,6 +577,7 @@ export const serializeAws_json1_0CreateEnvironmentTemplateVersionCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateEnvironmentTemplateVersion",
   };
   let body: any;
@@ -596,6 +604,7 @@ export const serializeAws_json1_0CreateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateService",
   };
   let body: any;
@@ -609,6 +618,7 @@ export const serializeAws_json1_0CreateServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateServiceTemplate",
   };
   let body: any;
@@ -622,6 +632,7 @@ export const serializeAws_json1_0CreateServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.CreateServiceTemplateVersion",
   };
   let body: any;
@@ -648,6 +659,7 @@ export const serializeAws_json1_0DeleteComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteComponent",
   };
   let body: any;
@@ -661,6 +673,7 @@ export const serializeAws_json1_0DeleteEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteEnvironment",
   };
   let body: any;
@@ -687,6 +700,7 @@ export const serializeAws_json1_0DeleteEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteEnvironmentTemplate",
   };
   let body: any;
@@ -700,6 +714,7 @@ export const serializeAws_json1_0DeleteEnvironmentTemplateVersionCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteEnvironmentTemplateVersion",
   };
   let body: any;
@@ -726,6 +741,7 @@ export const serializeAws_json1_0DeleteServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteService",
   };
   let body: any;
@@ -739,6 +755,7 @@ export const serializeAws_json1_0DeleteServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteServiceTemplate",
   };
   let body: any;
@@ -752,6 +769,7 @@ export const serializeAws_json1_0DeleteServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.DeleteServiceTemplateVersion",
   };
   let body: any;
@@ -791,6 +809,7 @@ export const serializeAws_json1_0GetComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetComponent",
   };
   let body: any;
@@ -804,6 +823,7 @@ export const serializeAws_json1_0GetEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetEnvironment",
   };
   let body: any;
@@ -830,6 +850,7 @@ export const serializeAws_json1_0GetEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetEnvironmentTemplate",
   };
   let body: any;
@@ -843,6 +864,7 @@ export const serializeAws_json1_0GetEnvironmentTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetEnvironmentTemplateVersion",
   };
   let body: any;
@@ -882,6 +904,7 @@ export const serializeAws_json1_0GetServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetService",
   };
   let body: any;
@@ -895,6 +918,7 @@ export const serializeAws_json1_0GetServiceInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetServiceInstance",
   };
   let body: any;
@@ -908,6 +932,7 @@ export const serializeAws_json1_0GetServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetServiceTemplate",
   };
   let body: any;
@@ -921,6 +946,7 @@ export const serializeAws_json1_0GetServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.GetServiceTemplateVersion",
   };
   let body: any;
@@ -960,6 +986,7 @@ export const serializeAws_json1_0ListComponentOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListComponentOutputs",
   };
   let body: any;
@@ -986,6 +1013,7 @@ export const serializeAws_json1_0ListComponentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListComponents",
   };
   let body: any;
@@ -1012,6 +1040,7 @@ export const serializeAws_json1_0ListEnvironmentOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListEnvironmentOutputs",
   };
   let body: any;
@@ -1038,6 +1067,7 @@ export const serializeAws_json1_0ListEnvironmentsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListEnvironments",
   };
   let body: any;
@@ -1051,6 +1081,7 @@ export const serializeAws_json1_0ListEnvironmentTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListEnvironmentTemplates",
   };
   let body: any;
@@ -1064,6 +1095,7 @@ export const serializeAws_json1_0ListEnvironmentTemplateVersionsCommand = async 
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListEnvironmentTemplateVersions",
   };
   let body: any;
@@ -1103,6 +1135,7 @@ export const serializeAws_json1_0ListServiceInstanceOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServiceInstanceOutputs",
   };
   let body: any;
@@ -1129,6 +1162,7 @@ export const serializeAws_json1_0ListServiceInstancesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServiceInstances",
   };
   let body: any;
@@ -1142,6 +1176,7 @@ export const serializeAws_json1_0ListServicePipelineOutputsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServicePipelineOutputs",
   };
   let body: any;
@@ -1168,6 +1203,7 @@ export const serializeAws_json1_0ListServicesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServices",
   };
   let body: any;
@@ -1181,6 +1217,7 @@ export const serializeAws_json1_0ListServiceTemplatesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServiceTemplates",
   };
   let body: any;
@@ -1194,6 +1231,7 @@ export const serializeAws_json1_0ListServiceTemplateVersionsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.ListServiceTemplateVersions",
   };
   let body: any;
@@ -1220,6 +1258,7 @@ export const serializeAws_json1_0NotifyResourceDeploymentStatusChangeCommand = a
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.NotifyResourceDeploymentStatusChange",
   };
   let body: any;
@@ -1285,6 +1324,7 @@ export const serializeAws_json1_0UpdateComponentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateComponent",
   };
   let body: any;
@@ -1298,6 +1338,7 @@ export const serializeAws_json1_0UpdateEnvironmentCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateEnvironment",
   };
   let body: any;
@@ -1324,6 +1365,7 @@ export const serializeAws_json1_0UpdateEnvironmentTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateEnvironmentTemplate",
   };
   let body: any;
@@ -1337,6 +1379,7 @@ export const serializeAws_json1_0UpdateEnvironmentTemplateVersionCommand = async
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateEnvironmentTemplateVersion",
   };
   let body: any;
@@ -1350,6 +1393,7 @@ export const serializeAws_json1_0UpdateServiceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateService",
   };
   let body: any;
@@ -1363,6 +1407,7 @@ export const serializeAws_json1_0UpdateServiceInstanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateServiceInstance",
   };
   let body: any;
@@ -1376,6 +1421,7 @@ export const serializeAws_json1_0UpdateServicePipelineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateServicePipeline",
   };
   let body: any;
@@ -1389,6 +1435,7 @@ export const serializeAws_json1_0UpdateServiceTemplateCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateServiceTemplate",
   };
   let body: any;
@@ -1402,6 +1449,7 @@ export const serializeAws_json1_0UpdateServiceTemplateVersionCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.0",
+    "cache-control": "no-store",
     "x-amz-target": "AwsProton20200720.UpdateServiceTemplateVersion",
   };
   let body: any;

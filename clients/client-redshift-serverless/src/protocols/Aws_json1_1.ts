@@ -234,6 +234,7 @@ export const serializeAws_json1_1CreateNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.CreateNamespace",
   };
   let body: any;
@@ -299,6 +300,7 @@ export const serializeAws_json1_1DeleteNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.DeleteNamespace",
   };
   let body: any;
@@ -364,6 +366,7 @@ export const serializeAws_json1_1GetCredentialsCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.GetCredentials",
   };
   let body: any;
@@ -390,6 +393,7 @@ export const serializeAws_json1_1GetNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.GetNamespace",
   };
   let body: any;
@@ -494,6 +498,7 @@ export const serializeAws_json1_1ListNamespacesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.ListNamespaces",
   };
   let body: any;
@@ -598,6 +603,7 @@ export const serializeAws_json1_1RestoreFromRecoveryPointCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.RestoreFromRecoveryPoint",
   };
   let body: any;
@@ -611,6 +617,7 @@ export const serializeAws_json1_1RestoreFromSnapshotCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.RestoreFromSnapshot",
   };
   let body: any;
@@ -676,6 +683,7 @@ export const serializeAws_json1_1UpdateNamespaceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "RedshiftServerless.UpdateNamespace",
   };
   let body: any;

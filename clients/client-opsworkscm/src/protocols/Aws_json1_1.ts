@@ -111,6 +111,7 @@ export const serializeAws_json1_1AssociateNodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.AssociateNode",
   };
   let body: any;
@@ -137,6 +138,7 @@ export const serializeAws_json1_1CreateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.CreateServer",
   };
   let body: any;
@@ -215,6 +217,7 @@ export const serializeAws_json1_1DescribeNodeAssociationStatusCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeNodeAssociationStatus",
   };
   let body: any;
@@ -228,6 +231,7 @@ export const serializeAws_json1_1DescribeServersCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.DescribeServers",
   };
   let body: any;
@@ -241,6 +245,7 @@ export const serializeAws_json1_1DisassociateNodeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.DisassociateNode",
   };
   let body: any;
@@ -254,6 +259,7 @@ export const serializeAws_json1_1ExportServerEngineAttributeCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.ExportServerEngineAttribute",
   };
   let body: any;
@@ -280,6 +286,7 @@ export const serializeAws_json1_1RestoreServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.RestoreServer",
   };
   let body: any;
@@ -293,6 +300,7 @@ export const serializeAws_json1_1StartMaintenanceCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.StartMaintenance",
   };
   let body: any;
@@ -332,6 +340,7 @@ export const serializeAws_json1_1UpdateServerCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.UpdateServer",
   };
   let body: any;
@@ -345,6 +354,7 @@ export const serializeAws_json1_1UpdateServerEngineAttributesCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "OpsWorksCM_V2016_11_01.UpdateServerEngineAttributes",
   };
   let body: any;

@@ -206,6 +206,7 @@ export const serializeAws_json1_1ImportTerminologyCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSShineFrontendService_20170701.ImportTerminology",
   };
   let body: any;

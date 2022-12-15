@@ -431,6 +431,7 @@ export const serializeAws_json1_1CreateFileSystemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileSystem",
   };
   let body: any;
@@ -444,6 +445,7 @@ export const serializeAws_json1_1CreateFileSystemFromBackupCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSSimbaAPIService_v20180301.CreateFileSystemFromBackup",
   };
   let body: any;
@@ -470,6 +472,7 @@ export const serializeAws_json1_1CreateStorageVirtualMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine",
   };
   let body: any;
@@ -821,6 +824,7 @@ export const serializeAws_json1_1UpdateFileSystemCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateFileSystem",
   };
   let body: any;
@@ -847,6 +851,7 @@ export const serializeAws_json1_1UpdateStorageVirtualMachineCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = {
     "content-type": "application/x-amz-json-1.1",
+    "cache-control": "no-store",
     "x-amz-target": "AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine",
   };
   let body: any;

@@ -1778,7 +1778,9 @@ export const serializeAws_restJson1CreateKeysAndCertificateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   const resolvedPath = `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/keys-and-certificate";
   const query: any = map({
     setAsActive: [() => input.setAsActive !== void 0, () => input.setAsActive!.toString()],
@@ -1937,7 +1939,9 @@ export const serializeAws_restJson1CreateProvisioningClaimCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
-  const headers: any = {};
+  const headers: any = {
+    "cache-control": "no-store",
+  };
   let resolvedPath =
     `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
     "/provisioning-templates/{templateName}/provisioning-claim";
