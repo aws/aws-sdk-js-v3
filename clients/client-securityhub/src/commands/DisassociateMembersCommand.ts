@@ -18,7 +18,7 @@ import {
   DisassociateMembersRequestFilterSensitiveLog,
   DisassociateMembersResponse,
   DisassociateMembersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DisassociateMembersCommand,
   serializeAws_restJson1DisassociateMembersCommand,

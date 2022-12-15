@@ -18,7 +18,7 @@ import {
   DisableOrganizationAdminAccountRequestFilterSensitiveLog,
   DisableOrganizationAdminAccountResponse,
   DisableOrganizationAdminAccountResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DisableOrganizationAdminAccountCommand,
   serializeAws_restJson1DisableOrganizationAdminAccountCommand,

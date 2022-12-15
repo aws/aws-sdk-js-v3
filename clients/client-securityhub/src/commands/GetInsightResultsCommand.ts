@@ -18,7 +18,7 @@ import {
   GetInsightResultsRequestFilterSensitiveLog,
   GetInsightResultsResponse,
   GetInsightResultsResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetInsightResultsCommand,
   serializeAws_restJson1GetInsightResultsCommand,

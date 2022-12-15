@@ -18,7 +18,7 @@ import {
   DisableSecurityHubRequestFilterSensitiveLog,
   DisableSecurityHubResponse,
   DisableSecurityHubResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1DisableSecurityHubCommand,
   serializeAws_restJson1DisableSecurityHubCommand,

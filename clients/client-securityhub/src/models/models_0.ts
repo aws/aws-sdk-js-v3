@@ -41,8 +41,7 @@ export class InternalException extends __BaseException {
 }
 
 /**
- * <p>There is an issue with the account used to make the request. Either Security Hub is not enabled
- *          for the account, or the account does not have permission to perform this action.</p>
+ * <p>The account doesn't have permission to perform this action.</p>
  */
 export class InvalidAccessException extends __BaseException {
   readonly name: "InvalidAccessException" = "InvalidAccessException";
@@ -1226,7 +1225,7 @@ export interface AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDist
 
   /**
    * <p>How to allocate instances across Spot Instance pools. Valid values are as follows:</p>
-   * 	        <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>lowest-price</code>
@@ -1425,7 +1424,7 @@ export interface AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails 
 
   /**
    * <p>The volume type. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>gp2</code>
@@ -3646,7 +3645,7 @@ export interface AwsDynamoDbTableProjection {
 
   /**
    * <p>The types of attributes that are projected into the index. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ALL</code>
@@ -3733,7 +3732,7 @@ export interface AwsDynamoDbTableGlobalSecondaryIndex {
 
   /**
    * <p>The current status of the index.</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code>
@@ -3857,7 +3856,7 @@ export interface AwsDynamoDbTableReplica {
 
   /**
    * <p>The current status of the replica. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code>
@@ -4065,7 +4064,7 @@ export interface AwsDynamoDbTableDetails {
 
   /**
    * <p>The current status of the table. Valid values are as follows:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code>
@@ -4280,6 +4279,1322 @@ export interface AwsEc2InstanceDetails {
    *       </p>
    */
   MetadataOptions?: AwsEc2InstanceMetadataOptions;
+}
+
+/**
+ * <p>
+ *          Parameters for a block device for an Amazon Elastic Block Store (Amazon EBS) volume in an Amazon EC2 launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails {
+  /**
+   * <p>
+   *          Indicates whether the EBS volume is deleted on instance termination.
+   *       </p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether the EBS volume is encrypted. Encrypted volumes can only be
+   *          attached to instances that support Amazon EBS encryption. If you're creating a
+   *          volume from a snapshot, you can't specify an encryption value.
+   *       </p>
+   */
+  Encrypted?: boolean;
+
+  /**
+   * <p>
+   *          The number of I/O operations per second (IOPS).
+   *       </p>
+   */
+  Iops?: number;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the symmetric Key Management Service (KMS) customer managed key
+   *          used for encryption.
+   *       </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *          The ID of the EBS snapshot.
+   *       </p>
+   */
+  SnapshotId?: string;
+
+  /**
+   * <p>
+   *          The throughput to provision for a gp3 volume, with a maximum of 1,000 MiB/s.
+   *       </p>
+   */
+  Throughput?: number;
+
+  /**
+   * <p>
+   *          The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size.
+   *       </p>
+   */
+  VolumeSize?: number;
+
+  /**
+   * <p>
+   *          The volume type.
+   *       </p>
+   */
+  VolumeType?: string;
+}
+
+/**
+ * <p>
+ *          Information about a block device mapping for an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails {
+  /**
+   * <p>
+   *          The device name.
+   *       </p>
+   */
+  DeviceName?: string;
+
+  /**
+   * <p>
+   *          Parameters used to automatically set up Amazon EBS volumes when the instance is
+   *          launched.
+   *       </p>
+   */
+  Ebs?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails;
+
+  /**
+   * <p>
+   *          Omits the device from the block device mapping when an empty string is specified.
+   *       </p>
+   */
+  NoDevice?: string;
+
+  /**
+   * <p>
+   *          The virtual device name (ephemeralN). Instance store volumes are numbered starting
+   *          from 0. An instance type with 2 available instance store volumes can specify mappings
+   *          for <code>ephemeral0</code> and <code>ephemeral1</code>. The number of available instance store volumes depends
+   *          on the instance type.
+   *       </p>
+   */
+  VirtualName?: string;
+}
+
+/**
+ * <p>
+ *          Information about the target Capacity Reservation or Capacity Reservation group in which to run an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails {
+  /**
+   * <p>
+   *          The ID of the Capacity Reservation in which to run the instance.
+   *       </p>
+   */
+  CapacityReservationId?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the Capacity Reservation resource group in which to run the instance.
+   *       </p>
+   */
+  CapacityReservationResourceGroupArn?: string;
+}
+
+/**
+ * <p>
+ *          Specifies the Capacity Reservation targeting option of an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails {
+  /**
+   * <p>
+   *          Indicates the instance's Capacity Reservation preferences. If equal to <code>open</code>, the instance can run in any open Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). If equal to <code>none</code>, the instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
+   *
+   *       </p>
+   */
+  CapacityReservationPreference?: string;
+
+  /**
+   * <p>
+   *          Specifies a target Capacity Reservation.
+   *       </p>
+   */
+  CapacityReservationTarget?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails;
+}
+
+/**
+ * <p>
+ *          Specifies the CPU options for an Amazon EC2 instance. For more information, see
+ *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataCpuOptionsDetails {
+  /**
+   * <p>
+   *          The number of CPU cores for the instance.
+   *       </p>
+   */
+  CoreCount?: number;
+
+  /**
+   * <p>
+   *          The number of threads per CPU core. A value of <code>1</code> disables multithreading for the instance,
+   *          The default value is <code>2</code>.
+   *       </p>
+   */
+  ThreadsPerCore?: number;
+}
+
+/**
+ * <p>
+ *          Specifies the credit option for CPU usage of a T2, T3, or T3a Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataCreditSpecificationDetails {
+  /**
+   * <p>
+   *          The credit option for CPU usage of a T instance.
+   *       </p>
+   */
+  CpuCredits?: string;
+}
+
+/**
+ * <p>
+ *          Provides details about an Elastic Graphics specification for an Amazon EC2 launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails {
+  /**
+   * <p>
+   *          The type of Elastic Graphics accelerator.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * <p>
+ *          Provides details for an Amazon Elastic Inference accelerator.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails {
+  /**
+   * <p>
+   *          The number of Elastic Inference accelerators to attach to the instance.
+   *       </p>
+   */
+  Count?: number;
+
+  /**
+   * <p>
+   *          The type of Elastic Inference accelerator.
+   *       </p>
+   */
+  Type?: string;
+}
+
+/**
+ * <p>
+ *          Indicates whether the instance is enabled for Amazon Web Services Nitro Enclaves.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataEnclaveOptionsDetails {
+  /**
+   * <p>
+   *          If this parameter is set to <code>true</code>, the instance is enabled for Amazon Web Services Nitro Enclaves.
+   *       </p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * <p>
+ *          Specifies whether your Amazon EC2 instance is configured for hibernation.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataHibernationOptionsDetails {
+  /**
+   * <p>
+   *          If you set this parameter to <code>true</code>, the instance is enabled for hibernation.
+   *       </p>
+   */
+  Configured?: boolean;
+}
+
+/**
+ * <p>
+ *          Provides details for an Identity and Access Management (IAM) instance profile, which is a container for an IAM role for your instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataIamInstanceProfileDetails {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the instance profile.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   *          The name of the instance profile.
+   *       </p>
+   */
+  Name?: string;
+}
+
+/**
+ * <p>
+ *          Provides details about the market (purchasing) options for Spot Instances.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails {
+  /**
+   * <p>
+   *          Deprecated.
+   *       </p>
+   */
+  BlockDurationMinutes?: number;
+
+  /**
+   * <p>
+   *          The behavior when a Spot Instance is interrupted.
+   *       </p>
+   */
+  InstanceInterruptionBehavior?: string;
+
+  /**
+   * <p>
+   *          The maximum hourly price you're willing to pay for the Spot Instances.
+   *       </p>
+   */
+  MaxPrice?: string;
+
+  /**
+   * <p>
+   *          The Spot Instance request type.
+   *       </p>
+   */
+  SpotInstanceType?: string;
+
+  /**
+   * <p>
+   *          The end date of the request, in UTC format (YYYY-MM-DDTHH:MM:SSZ), for persistent requests.
+   *       </p>
+   */
+  ValidUntil?: string;
+}
+
+/**
+ * <p>
+ *          Provides details about the market (purchasing) option for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails {
+  /**
+   * <p>
+   *          The market type.
+   *       </p>
+   */
+  MarketType?: string;
+
+  /**
+   * <p>
+   *          The options for Spot Instances.
+   *       </p>
+   */
+  SpotOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails {
+  /**
+   * <p>
+   *          The maximum number of accelerators. If this parameter isn't specified, there's no maximum limit. To exclude accelerator-enabled instance types, set <code>Max</code> to <code>0</code>.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum number of accelerators. If this parameter isn't specified, there's no minimum limit.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum amount of memory, in MiB, for the accelerators on an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails {
+  /**
+   * <p>
+   *          The maximum amount of memory, in MiB. If this parameter isn't specified, there's no maximum limit.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum amount of memory, in MiB. If <code>0</code> is specified, there's no maximum limit.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum baseline bandwidth to Amazon Elastic Block Store (Amazon EBS), in Mbps. For more information,
+ *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS–optimized instances </a> in the <i>Amazon EC2 User Guide</i>.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails {
+  /**
+   * <p>
+   *          The maximum baseline bandwidth, in Mbps. If this parameter is omitted, there's no maximum limit.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum baseline bandwidth, in Mbps. If this parameter is omitted, there's no minimum limit.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum amount of memory per vCPU, in GiB.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails {
+  /**
+   * <p>
+   *          The maximum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum amount of memory per vCPU, in GiB. If this parameter is omitted, there's no maximum limit.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum amount of memory, in MiB, for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails {
+  /**
+   * <p>
+   *          The maximum amount of memory, in MiB.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum amount of memory, in MiB.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum number of network interfaces to be attached to an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails {
+  /**
+   * <p>
+   *          The maximum number of network interfaces.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum number of network interfaces.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum amount of total local storage, in GB, that an Amazon EC2 instance uses.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails {
+  /**
+   * <p>
+   *          The maximum amount of total local storage, in GB.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum amount of total local storage, in GB.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The minimum and maximum number of vCPUs for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails {
+  /**
+   * <p>
+   *          The maximum number of vCPUs.
+   *       </p>
+   */
+  Max?: number;
+
+  /**
+   * <p>
+   *          The minimum number of vCPUs.
+   *       </p>
+   */
+  Min?: number;
+}
+
+/**
+ * <p>
+ *          The attributes for the Amazon EC2 instance types.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataInstanceRequirementsDetails {
+  /**
+   * <p>
+   *          The minimum and maximum number of accelerators (GPUs, FPGAs, or Amazon Web Services Inferentia chips) on an instance.
+   *       </p>
+   */
+  AcceleratorCount?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails;
+
+  /**
+   * <p>Indicates whether instance types must have accelerators by specific manufacturers.
+   *       </p>
+   */
+  AcceleratorManufacturers?: string[];
+
+  /**
+   * <p>
+   *          The accelerators that must be on the instance type.
+   *       </p>
+   */
+  AcceleratorNames?: string[];
+
+  /**
+   * <p>
+   *          The minimum and maximum amount of total accelerator memory, in MiB.
+   *       </p>
+   */
+  AcceleratorTotalMemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails;
+
+  /**
+   * <p>The accelerator types that must be on the instance type.
+   *       </p>
+   */
+  AcceleratorTypes?: string[];
+
+  /**
+   * <p>Indicates whether bare metal instance types must be included, excluded, or required.
+   *       </p>
+   */
+  BareMetal?: string;
+
+  /**
+   * <p>
+   *          The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html">Amazon EBS optimized instances</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  BaselineEbsBandwidthMbps?: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails;
+
+  /**
+   * <p>
+   *          Indicates whether burstable performance T instance types are included, excluded, or required. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html">Burstable performance instances</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  BurstablePerformance?: string;
+
+  /**
+   * <p>
+   *          The CPU manufacturers to include.
+   *       </p>
+   */
+  CpuManufacturers?: string[];
+
+  /**
+   * <p>
+   *          The instance types to exclude.
+   *       </p>
+   */
+  ExcludedInstanceTypes?: string[];
+
+  /**
+   * <p>
+   *          Indicates whether current or previous generation instance types are included.
+   *       </p>
+   */
+  InstanceGenerations?: string[];
+
+  /**
+   * <p>
+   *          Indicates whether instance types with instance store volumes are included, excluded, or required. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html">Amazon EC2 instance store</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  LocalStorage?: string;
+
+  /**
+   * <p>
+   *          The type of local storage that is required.
+   *       </p>
+   */
+  LocalStorageTypes?: string[];
+
+  /**
+   * <p>
+   *          The minimum and maximum amount of memory per vCPU, in GiB.
+   *       </p>
+   */
+  MemoryGiBPerVCpu?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails;
+
+  /**
+   * <p>
+   *          The minimum and maximum amount of memory, in MiB.
+   *       </p>
+   */
+  MemoryMiB?: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails;
+
+  /**
+   * <p>
+   *          The minimum and maximum number of network interfaces.
+   *       </p>
+   */
+  NetworkInterfaceCount?: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails;
+
+  /**
+   * <p>
+   *          The price protection threshold for On-Demand Instances. This is the maximum you’ll pay for an On-Demand Instance, expressed as a percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.</p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
+   */
+  OnDemandMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>
+   *          Indicates whether instance types must support hibernation for On-Demand Instances.
+   *       </p>
+   */
+  RequireHibernateSupport?: boolean;
+
+  /**
+   * <p>
+   *          The price protection threshold for Spot Instances. This is the maximum you’ll pay for a Spot Instance, expressed as a
+   *          percentage above the least expensive current generation M, C, or R instance type with your specified attributes. When
+   *          Amazon EC2 selects instance types with your attributes, it excludes instance types priced above your threshold.
+   *       </p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
+   *          <p>A high value, such as <code>999999</code>, turns off price protection.</p>
+   */
+  SpotMaxPricePercentageOverLowestPrice?: number;
+
+  /**
+   * <p>
+   *          The minimum and maximum amount of total local storage, in GB.
+   *       </p>
+   */
+  TotalLocalStorageGB?: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails;
+
+  /**
+   * <p>
+   *          The minimum and maximum number of vCPUs.
+   *       </p>
+   */
+  VCpuCount?: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails;
+}
+
+/**
+ * <p>
+ *          Provides details about the license configuration for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataLicenseSetDetails {
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the license configuration.
+   *       </p>
+   */
+  LicenseConfigurationArn?: string;
+}
+
+/**
+ * <p>
+ *          The maintenance options of an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataMaintenanceOptionsDetails {
+  /**
+   * <p>
+   *          Disables the automatic recovery behavior of your instance or sets it to default.
+   *       </p>
+   */
+  AutoRecovery?: string;
+}
+
+/**
+ * <p>
+ *          Specifies the metadata options for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataMetadataOptionsDetails {
+  /**
+   * <p>
+   *          Enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is enabled, and you won’t be able to access your instance metadata.
+   *       </p>
+   */
+  HttpEndpoint?: string;
+
+  /**
+   * <p>
+   *          Enables or disables the IPv6 endpoint for the instance metadata service.
+   *       </p>
+   */
+  HttpProtocolIpv6?: string;
+
+  /**
+   * <p>
+   *          The state of token usage for your instance metadata requests.
+   *       </p>
+   */
+  HttpTokens?: string;
+
+  /**
+   * <p>
+   *          The desired HTTP PUT response hop limit for instance metadata requests. The larger
+   *          the number, the further instance metadata requests can travel.
+   *       </p>
+   */
+  HttpPutResponseHopLimit?: number;
+
+  /**
+   * <p>
+   *          When set to <code>enabled</code>, this parameter allows access to instance tags from the instance metadata. When set to <code>disabled</code>, it turns off access to instance tags from the instance metadata. For more information, see
+   * <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with instance tags in instance metadata</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  InstanceMetadataTags?: string;
+}
+
+/**
+ * <p>
+ *          The monitoring for an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataMonitoringDetails {
+  /**
+   * <p>
+   *          Enables detailed monitoring when <code>true</code> is specified. Otherwise, basic monitoring is enabled.
+   *          For more information about detailed monitoring, see
+   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-new.html">Enable or turn off detailed monitoring for your instances</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  Enabled?: boolean;
+}
+
+/**
+ * <p>
+ *          Provides details on one or more IPv4 prefixes for a network interface.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails {
+  /**
+   * <p>
+   *          The IPv4 prefix. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+   *       </p>
+   */
+  Ipv4Prefix?: string;
+}
+
+/**
+ * <p>
+ *          Specifies an IPv6 address in an Amazon EC2 launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails {
+  /**
+   * <p>
+   *          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+   *       </p>
+   */
+  Ipv6Address?: string;
+}
+
+/**
+ * <p>
+ *          Provides details on one or more IPv6 prefixes to be assigned to the network interface.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails {
+  /**
+   * <p>
+   *          The IPv6 prefix.
+   *       </p>
+   */
+  Ipv6Prefix?: string;
+}
+
+/**
+ * <p>
+ *          One or more private IPv4 addresses.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails {
+  /**
+   * <p>
+   *          Indicates whether the private IPv4 address is the primary private IPv4 address. Only one IPv4 address can be designated as primary.
+   *       </p>
+   */
+  Primary?: boolean;
+
+  /**
+   * <p>
+   *          The private IPv4 address.
+   *       </p>
+   */
+  PrivateIpAddress?: string;
+}
+
+/**
+ * <p>
+ *          One or more network interfaces to attach to an Amazon EC2 instance. If you specify a network interface, you must specify
+ *          security groups and subnets as part of the network interface.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails {
+  /**
+   * <p>
+   *          Indicates whether to associate a Carrier IP address with eth0 for a new network interface.
+   *          You use this option when you launch an instance in a Wavelength Zone and want to
+   *          associate a Carrier IP address with the network interface. For more information, see
+   *          <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP address</a> in the <i>Wavelength Developer Guide</i>.
+   *       </p>
+   */
+  AssociateCarrierIpAddress?: boolean;
+
+  /**
+   * <p>
+   *          Associates a public IPv4 address with eth0 for a new network interface.
+   *       </p>
+   */
+  AssociatePublicIpAddress?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether the network interface is deleted when the instance is terminated.
+   *       </p>
+   */
+  DeleteOnTermination?: boolean;
+
+  /**
+   * <p>
+   *          A description for the network interface.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *          The device index for the network interface attachment.
+   *       </p>
+   */
+  DeviceIndex?: number;
+
+  /**
+   * <p>
+   *          The IDs of one or more security groups.
+   *       </p>
+   */
+  Groups?: string[];
+
+  /**
+   * <p>
+   *          The type of network interface.
+   *       </p>
+   */
+  InterfaceType?: string;
+
+  /**
+   * <p>
+   *          The number of IPv4 prefixes to be automatically assigned to the network interface.
+   *          You cannot use this option if you use the <code>Ipv4Prefixes</code> option.
+   *       </p>
+   */
+  Ipv4PrefixCount?: number;
+
+  /**
+   * <p>
+   *          One or more IPv4 prefixes to be assigned to the network interface. You cannot use
+   *          this option if you use the <code>Ipv4PrefixCount</code> option.
+   *       </p>
+   */
+  Ipv4Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails[];
+
+  /**
+   * <p>
+   *          The number of IPv6 addresses to assign to a network interface. Amazon EC2
+   *          automatically selects the IPv6 addresses from the subnet range. You can't use this
+   *          option if you use <code>Ipv6Addresses</code>.
+   *       </p>
+   */
+  Ipv6AddressCount?: number;
+
+  /**
+   * <p>
+   *          One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet.
+   *          You can't use this option if you use <code>Ipv6AddressCount</code>.
+   *       </p>
+   */
+  Ipv6Addresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails[];
+
+  /**
+   * <p>
+   *          The number of IPv6 prefixes to be automatically assigned to the network interface.
+   *          You cannot use this option if you use the <code>Ipv6Prefix</code> option.
+   *       </p>
+   */
+  Ipv6PrefixCount?: number;
+
+  /**
+   * <p>
+   *          One or more IPv6 prefixes to be assigned to the network interface. You cannot use
+   *          this option if you use the <code>Ipv6PrefixCount</code> option.
+   *       </p>
+   */
+  Ipv6Prefixes?: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails[];
+
+  /**
+   * <p>
+   *          The index of the network card. Some instance types support multiple network cards.
+   *          The primary network interface must be assigned to network card index <code>0</code>. The default
+   *          is network card index <code>0</code>.
+   *       </p>
+   */
+  NetworkCardIndex?: number;
+
+  /**
+   * <p>
+   *          The ID of the network interface.
+   *       </p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The primary private IPv4 address of the network interface.
+   *       </p>
+   */
+  PrivateIpAddress?: string;
+
+  /**
+   * <p>
+   *          One or more private IPv4 addresses.
+   *       </p>
+   */
+  PrivateIpAddresses?: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails[];
+
+  /**
+   * <p>
+   *          The number of secondary private IPv4 addresses to assign to a network interface.
+   *       </p>
+   */
+  SecondaryPrivateIpAddressCount?: number;
+
+  /**
+   * <p>
+   *          The ID of the subnet for the network interface.
+   *       </p>
+   */
+  SubnetId?: string;
+}
+
+/**
+ * <p>
+ *          Provides details about the placement of an Amazon EC2 instance.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataPlacementDetails {
+  /**
+   * <p>
+   *          The affinity setting for an instance on an EC2 Dedicated Host.
+   *       </p>
+   */
+  Affinity?: string;
+
+  /**
+   * <p>
+   *          The Availability Zone for the instance.
+   *       </p>
+   */
+  AvailabilityZone?: string;
+
+  /**
+   * <p>
+   *          The name of the placement group for the instance.
+   *       </p>
+   */
+  GroupName?: string;
+
+  /**
+   * <p>
+   *          The ID of the Dedicated Host for the instance.
+   *       </p>
+   */
+  HostId?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the host resource group in which to launch the instances.
+   *       </p>
+   */
+  HostResourceGroupArn?: string;
+
+  /**
+   * <p>
+   *          The number of the partition the instance should launch in.
+   *       </p>
+   */
+  PartitionNumber?: number;
+
+  /**
+   * <p>
+   *          Reserved for future use.
+   *       </p>
+   */
+  SpreadDomain?: string;
+
+  /**
+   * <p>
+   *          The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of dedicated runs on single-tenant hardware.
+   *       </p>
+   */
+  Tenancy?: string;
+}
+
+/**
+ * <p>
+ *          Describes the options for Amazon EC2 instance hostnames.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails {
+  /**
+   * <p>
+   *          Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records.
+   *       </p>
+   */
+  EnableResourceNameDnsAAAARecord?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether to respond to DNS queries for instance hostnames with DNS A records.
+   *       </p>
+   */
+  EnableResourceNameDnsARecord?: boolean;
+
+  /**
+   * <p>
+   *          The type of hostname for EC2 instances.
+   *       </p>
+   */
+  HostnameType?: string;
+}
+
+/**
+ * <p>
+ *          The information to include in an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDataDetails {
+  /**
+   * <p>
+   *          Information about a block device mapping for an Amazon EC2 launch template.
+   *       </p>
+   */
+  BlockDeviceMappingSet?: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails[];
+
+  /**
+   * <p>
+   *          Specifies an instance's Capacity Reservation targeting option. You can specify only
+   *          one option at a time.
+   *       </p>
+   */
+  CapacityReservationSpecification?: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails;
+
+  /**
+   * <p>
+   *          Specifies the CPU options for an instance. For more information, see
+   *          <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html">Optimize CPU options</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+   *       </p>
+   */
+  CpuOptions?: AwsEc2LaunchTemplateDataCpuOptionsDetails;
+
+  /**
+   * <p>
+   *          Specifies the credit option for CPU usage of a T2, T3, or T3a instance.
+   *       </p>
+   */
+  CreditSpecification?: AwsEc2LaunchTemplateDataCreditSpecificationDetails;
+
+  /**
+   * <p>
+   *          Indicates whether to enable the instance for stop protection. For more information,
+   *          see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html#Using_StopProtection">Enable stop protection</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  DisableApiStop?: boolean;
+
+  /**
+   * <p>
+   *          If you set this parameter to <code>true</code>, you can't terminate the instance using the Amazon EC2 console, CLI, or API. If set to <code>true</code>, you can.
+   *       </p>
+   */
+  DisableApiTermination?: boolean;
+
+  /**
+   * <p>
+   *          Indicates whether the instance is optimized for Amazon EBS I/O.
+   *       </p>
+   */
+  EbsOptimized?: boolean;
+
+  /**
+   * <p>
+   *          Provides details about Elastic Graphics accelerators to associate with the instance.
+   *       </p>
+   */
+  ElasticGpuSpecificationSet?: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails[];
+
+  /**
+   * <p>
+   *          The Amazon Elastic Inference accelerator for the instance.
+   *       </p>
+   */
+  ElasticInferenceAcceleratorSet?: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails[];
+
+  /**
+   * <p>
+   *          Indicates whether the Amazon EC2 instance is enabled for Amazon Web Services Nitro Enclaves.
+   *       </p>
+   */
+  EnclaveOptions?: AwsEc2LaunchTemplateDataEnclaveOptionsDetails;
+
+  /**
+   * <p>
+   *          Specifies whether your Amazon EC2 instance is configured for hibernation.
+   *       </p>
+   */
+  HibernationOptions?: AwsEc2LaunchTemplateDataHibernationOptionsDetails;
+
+  /**
+   * <p>
+   *          The name or Amazon Resource Name (ARN) of an IAM instance profile.
+   *       </p>
+   */
+  IamInstanceProfile?: AwsEc2LaunchTemplateDataIamInstanceProfileDetails;
+
+  /**
+   * <p>
+   *          The ID of the Amazon Machine Image (AMI).
+   *       </p>
+   */
+  ImageId?: string;
+
+  /**
+   * <p>
+   *          Provides the options for specifying the instance initiated shutdown behavior.
+   *       </p>
+   */
+  InstanceInitiatedShutdownBehavior?: string;
+
+  /**
+   * <p>
+   *          Specifies the market (purchasing) option for an instance.
+   *       </p>
+   */
+  InstanceMarketOptions?: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails;
+
+  /**
+   * <p>
+   *          The attributes for the instance types. When you specify instance attributes, Amazon EC2 will identify instance
+   *          types with these attributes. If you specify <code>InstanceRequirements</code>, you can't specify <code>InstanceType</code>.
+   *       </p>
+   */
+  InstanceRequirements?: AwsEc2LaunchTemplateDataInstanceRequirementsDetails;
+
+  /**
+   * <p>
+   *          The instance type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance types</a> in the <i>Amazon EC2 User Guide</i>. If you specify <code>InstanceType</code>, you can't
+   *          specify <code>InstanceRequirements</code>.
+   *       </p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>
+   *          The ID of the kernel.
+   *       </p>
+   */
+  KernelId?: string;
+
+  /**
+   * <p>
+   *          The name of the key pair that allows users to connect to the instance.
+   *       </p>
+   */
+  KeyName?: string;
+
+  /**
+   * <p>
+   *          Specifies a license configuration for an instance.
+   *       </p>
+   */
+  LicenseSet?: AwsEc2LaunchTemplateDataLicenseSetDetails[];
+
+  /**
+   * <p>
+   *          The maintenance options of your instance.
+   *       </p>
+   */
+  MaintenanceOptions?: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails;
+
+  /**
+   * <p>
+   *          The metadata options for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.
+   *       </p>
+   */
+  MetadataOptions?: AwsEc2LaunchTemplateDataMetadataOptionsDetails;
+
+  /**
+   * <p>
+   *          The monitoring for the instance.
+   *       </p>
+   */
+  Monitoring?: AwsEc2LaunchTemplateDataMonitoringDetails;
+
+  /**
+   * <p>
+   *          Specifies the parameters for a network interface that is attached to the instance.
+   *       </p>
+   */
+  NetworkInterfaceSet?: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails[];
+
+  /**
+   * <p>
+   *          Specifies the placement of an instance.
+   *       </p>
+   */
+  Placement?: AwsEc2LaunchTemplateDataPlacementDetails;
+
+  /**
+   * <p>
+   *          The options for the instance hostname.
+   *       </p>
+   */
+  PrivateDnsNameOptions?: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails;
+
+  /**
+   * <p>
+   *          The ID of the RAM disk.
+   *       </p>
+   */
+  RamDiskId?: string;
+
+  /**
+   * <p>
+   *          One or more security group IDs.
+   *       </p>
+   */
+  SecurityGroupIdSet?: string[];
+
+  /**
+   * <p>
+   *          One or more security group names. For a nondefault VPC, you must use security group IDs instead. You cannot specify both a security group ID and security name in the same request.
+   *       </p>
+   */
+  SecurityGroupSet?: string[];
+
+  /**
+   * <p>
+   *          The user data to make available to the instance.
+   *       </p>
+   */
+  UserData?: string;
+}
+
+/**
+ * <p>
+ *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+ *       </p>
+ */
+export interface AwsEc2LaunchTemplateDetails {
+  /**
+   * <p>
+   *          A name for the launch template.
+   *       </p>
+   */
+  LaunchTemplateName?: string;
+
+  /**
+   * <p>
+   *          An ID for the launch template.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>
+   *          The information to include in the launch template.
+   *       </p>
+   */
+  LaunchTemplateData?: AwsEc2LaunchTemplateDataDetails;
+
+  /**
+   * <p>
+   *          The default version of the launch template.
+   *       </p>
+   */
+  DefaultVersionNumber?: number;
+
+  /**
+   * <p>
+   *          The latest version of the launch template.
+   *       </p>
+   */
+  LatestVersionNumber?: number;
 }
 
 /**
@@ -4729,7 +6044,7 @@ export interface Ipv6CidrBlockAssociation {
 
   /**
    * <p>Information about the state of the CIDR block. Valid values are as follows:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>associating</code>
@@ -4935,7 +6250,7 @@ export interface AwsEc2VolumeAttachment {
 
   /**
    * <p>The attachment state of the volume. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>attaching</code>
@@ -5001,7 +6316,7 @@ export interface AwsEc2VolumeDetails {
 
   /**
    * <p>The volume state. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>available</code>
@@ -5174,7 +6489,7 @@ export interface AwsEc2VpcEndpointServiceDetails {
 
   /**
    * <p>The current state of the service. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Available</code>
@@ -5537,7 +6852,7 @@ export interface AwsEc2VpnConnectionDetails {
 
   /**
    * <p>The current state of the VPN connection. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>available</code>
@@ -5628,7 +6943,7 @@ export interface AwsEcrContainerImageDetails {
 
   /**
    * <p>The architecture of the image. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>arm64</code>
@@ -6271,7 +7586,7 @@ export interface AwsEcsServiceDetails {
 export interface AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails {
   /**
    * <p>The dependency condition of the dependent container. Indicates the required status of the dependent container before the current container can start. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>COMPLETE</code>
@@ -6415,7 +7730,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails {
 export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails {
   /**
    * <p>The Linux capabilities for the container that are added to the default configuration provided by Docker. Valid values are as follows:</p>
-   *    	     <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
    *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
    *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
    *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
@@ -6434,7 +7749,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabili
 
   /**
    * <p>The Linux capabilities for the container that are dropped from the default configuration provided by Docker.</p>
-   *    	     <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
+   *          <p>Valid values: <code>"ALL"</code> | <code>"AUDIT_CONTROL"</code> |<code> "AUDIT_WRITE"</code> |
    *    		<code>"BLOCK_SUSPEND"</code> | <code>"CHOWN"</code> | <code>"DAC_OVERRIDE"</code> |
    *    		<code>"DAC_READ_SEARCH"</code> | <code>"FOWNER"</code> | <code>"FSETID"</code> |
    *    		<code>"IPC_LOCK"</code> | <code>"IPC_OWNER"</code> | <code>"KILL"</code> |
@@ -6483,7 +7798,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDet
 
   /**
    * <p>The list of tmpfs volume mount options.</p>
-   *    	     <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
+   *          <p>Valid values: <code>"defaults"</code> | <code>"ro"</code> | <code>"rw"</code> | <code>"suid"</code> |
    *    		<code>"nosuid"</code> | <code>"dev"</code> | <code>"nodev"</code> |<code> "exec"</code> |
    *    		<code>"noexec"</code> | <code>"sync"</code> | <code>"async"</code> | <code>"dirsync"</code>
    *    		| <code>"remount"</code> | <code>"mand"</code> | <code>"nomand"</code> | <code>"atime"</code>
@@ -6568,8 +7883,8 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretO
 export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails {
   /**
    * <p>The log driver to use for the container.</p>
-   *    	     <p>Valid values on Fargate are as follows:</p>
-   *    	     <ul>
+   *          <p>Valid values on Fargate are as follows:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>awsfirelens</code>
@@ -6586,8 +7901,8 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails
    *                </p>
    *             </li>
    *          </ul>
-   *    	     <p>Valid values on Amazon EC2 are as follows:</p>
-   *    	     <ul>
+   *          <p>Valid values on Amazon EC2 are as follows:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>awsfirelens</code>
@@ -6759,7 +8074,7 @@ export interface AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails {
 
   /**
    * <p>The type of the ulimit. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>core</code>
@@ -7305,7 +8620,7 @@ export interface AwsEcsTaskDefinitionDetails {
 
   /**
    * <p>The number of CPU units used by the task.Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>256 (.25 vCPU)</code>
@@ -7352,7 +8667,7 @@ export interface AwsEcsTaskDefinitionDetails {
 
   /**
    * <p>The inter-process communication (IPC) resource namespace to use for the containers in the task. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>host</code>
@@ -7383,7 +8698,7 @@ export interface AwsEcsTaskDefinitionDetails {
 
   /**
    * <p>The Docker networking mode to use for the containers in the task. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>awsvpc</code>
@@ -7660,7 +8975,7 @@ export interface AwsEksClusterLoggingClusterLoggingDetails {
 
   /**
    * <p>A list of logging types. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>api</code>
@@ -7732,7 +9047,7 @@ export interface AwsEksClusterDetails {
 
   /**
    * <p>The status of the cluster. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>ACTIVE</code>
@@ -7929,7 +9244,7 @@ export interface AwsElasticBeanstalkEnvironmentDetails {
 
   /**
    * <p>The current operational status of the environment. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>Aborting</code>
@@ -8039,7 +9354,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
 
   /**
    * <p>The hardware configuration of the computer that hosts the dedicated master node. A sample value is <code>m3.medium.elasticsearch</code>. If this attribute is specified, then <code>DedicatedMasterEnabled</code> must be <code>true</code>.</p>
-   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   DedicatedMasterType?: string;
 
@@ -8050,7 +9365,7 @@ export interface AwsElasticsearchDomainElasticsearchClusterConfigDetails {
 
   /**
    * <p>The instance type for your data nodes. For example, <code>m3.medium.elasticsearch</code>.</p>
-   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   InstanceType?: string;
 
@@ -8165,7 +9480,7 @@ export interface AwsElasticsearchDomainServiceSoftwareOptions {
 
   /**
    * <p>The status of the service software update. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>COMPLETED</code>
@@ -9006,987 +10321,6 @@ export interface AwsIamGroupDetails {
    * <p>The path to the group.</p>
    */
   Path?: string;
-}
-
-/**
- * <p>Information about a role associated with an instance profile.</p>
- */
-export interface AwsIamInstanceProfileRole {
-  /**
-   * <p>The ARN of the role.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The policy that grants an entity permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
-
-  /**
-   * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The path to the role.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The identifier of the role.</p>
-   */
-  RoleId?: string;
-
-  /**
-   * <p>The name of the role.</p>
-   */
-  RoleName?: string;
-}
-
-/**
- * <p>Information about an instance profile.</p>
- */
-export interface AwsIamInstanceProfile {
-  /**
-   * <p>The ARN of the instance profile.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>Indicates when the instance profile was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the instance profile.</p>
-   */
-  InstanceProfileId?: string;
-
-  /**
-   * <p>The name of the instance profile.</p>
-   */
-  InstanceProfileName?: string;
-
-  /**
-   * <p>The path to the instance profile.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The roles associated with the instance profile.</p>
-   */
-  Roles?: AwsIamInstanceProfileRole[];
-}
-
-/**
- * <p>Information about the policy used to set the permissions boundary for an IAM
- *          principal.</p>
- */
-export interface AwsIamPermissionsBoundary {
-  /**
-   * <p>The ARN of the policy used to set the permissions boundary.</p>
-   */
-  PermissionsBoundaryArn?: string;
-
-  /**
-   * <p>The usage type for the permissions boundary.</p>
-   */
-  PermissionsBoundaryType?: string;
-}
-
-/**
- * <p>A version of an IAM policy.</p>
- */
-export interface AwsIamPolicyVersion {
-  /**
-   * <p>The identifier of the policy version.</p>
-   */
-  VersionId?: string;
-
-  /**
-   * <p>Whether the version is the default version.</p>
-   */
-  IsDefaultVersion?: boolean;
-
-  /**
-   * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-}
-
-/**
- * <p>Represents an IAM permissions policy.</p>
- */
-export interface AwsIamPolicyDetails {
-  /**
-   * <p>The number of users, groups, and roles that the policy is attached to.</p>
-   */
-  AttachmentCount?: number;
-
-  /**
-   * <p>When the policy was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The identifier of the default version of the policy.</p>
-   */
-  DefaultVersionId?: string;
-
-  /**
-   * <p>A description of the policy.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Whether the policy can be attached to a user, group, or role.</p>
-   */
-  IsAttachable?: boolean;
-
-  /**
-   * <p>The path to the policy.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The number of users and roles that use the policy to set the permissions
-   *          boundary.</p>
-   */
-  PermissionsBoundaryUsageCount?: number;
-
-  /**
-   * <p>The unique identifier of the policy.</p>
-   */
-  PolicyId?: string;
-
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-
-  /**
-   * <p>List of versions of the policy.</p>
-   */
-  PolicyVersionList?: AwsIamPolicyVersion[];
-
-  /**
-   * <p>When the policy was most recently updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  UpdateDate?: string;
-}
-
-/**
- * <p>An inline policy that is embedded in the role.</p>
- */
-export interface AwsIamRolePolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-/**
- * <p>Contains information about an IAM role, including all of the role's policies.</p>
- */
-export interface AwsIamRoleDetails {
-  /**
-   * <p>The trust policy that grants permission to assume the role.</p>
-   */
-  AssumeRolePolicyDocument?: string;
-
-  /**
-   * <p>The list of the managed policies that are attached to the role.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the role was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>The list of instance profiles that contain this role.</p>
-   */
-  InstanceProfileList?: AwsIamInstanceProfile[];
-
-  /**
-   * <p>Information about the policy used to set the permissions boundary for an IAM
-   *          principal.</p>
-   */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
-
-  /**
-   * <p>The stable and unique string identifying the role.</p>
-   */
-  RoleId?: string;
-
-  /**
-   * <p>The friendly name that identifies the role.</p>
-   */
-  RoleName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the role.</p>
-   */
-  RolePolicyList?: AwsIamRolePolicy[];
-
-  /**
-   * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
-   */
-  MaxSessionDuration?: number;
-
-  /**
-   * <p>The path to the role.</p>
-   */
-  Path?: string;
-}
-
-/**
- * <p>Information about an inline policy that is embedded in the user.</p>
- */
-export interface AwsIamUserPolicy {
-  /**
-   * <p>The name of the policy.</p>
-   */
-  PolicyName?: string;
-}
-
-/**
- * <p>Information about an IAM user.</p>
- */
-export interface AwsIamUserDetails {
-  /**
-   * <p>A list of the managed policies that are attached to the user.</p>
-   */
-  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
-
-  /**
-   * <p>Indicates when the user was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreateDate?: string;
-
-  /**
-   * <p>A list of IAM groups that the user belongs to.</p>
-   */
-  GroupList?: string[];
-
-  /**
-   * <p>The path to the user.</p>
-   */
-  Path?: string;
-
-  /**
-   * <p>The permissions boundary for the user.</p>
-   */
-  PermissionsBoundary?: AwsIamPermissionsBoundary;
-
-  /**
-   * <p>The unique identifier for the user.</p>
-   */
-  UserId?: string;
-
-  /**
-   * <p>The name of the user.</p>
-   */
-  UserName?: string;
-
-  /**
-   * <p>The list of inline policies that are embedded in the user.</p>
-   */
-  UserPolicyList?: AwsIamUserPolicy[];
-}
-
-/**
- * <p>Provides information about stream encryption.
- *       </p>
- */
-export interface AwsKinesisStreamStreamEncryptionDetails {
-  /**
-   * <p>The encryption type to use.
-   *       </p>
-   */
-  EncryptionType?: string;
-
-  /**
-   * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
-   */
-  KeyId?: string;
-}
-
-/**
- * <p>Provides information about an Amazon Kinesis data stream.
- *       </p>
- */
-export interface AwsKinesisStreamDetails {
-  /**
-   * <p>The name of the Kinesis stream. If you don't specify a name, CloudFront generates a unique
-   * physical ID and uses that ID for the stream name.
-   *       </p>
-   */
-  Name?: string;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
-   *       </p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
-   * Removing this property from your stack template and updating your stack disables encryption.
-   *       </p>
-   */
-  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
-
-  /**
-   * <p>The number of shards that the stream uses.
-   *       </p>
-   */
-  ShardCount?: number;
-
-  /**
-   * <p>The number of hours for the data records that are stored in shards to remain accessible.
-   *       </p>
-   */
-  RetentionPeriodHours?: number;
-}
-
-/**
- * <p>Contains metadata about an KMS key.</p>
- */
-export interface AwsKmsKeyDetails {
-  /**
-   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
-   */
-  AWSAccountId?: string;
-
-  /**
-   * <p>Indicates when the KMS key was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreationDate?: number;
-
-  /**
-   * <p>The globally unique identifier for the KMS key.</p>
-   */
-  KeyId?: string;
-
-  /**
-   * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
-   */
-  KeyManager?: string;
-
-  /**
-   * <p>The state of the KMS key. Valid values are as follows:</p>
-   *    	     <ul>
-   *             <li>
-   *                <p>
-   *                   <code>Disabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Enabled</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PendingDeletion</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PendingImport</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>Unavailable</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   */
-  KeyState?: string;
-
-  /**
-   * <p>The source of the KMS key material.</p>
-   *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
-   *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
-   *          existing key management infrastructure or the KMS key lacks key material.</p>
-   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
-   */
-  Origin?: string;
-
-  /**
-   * <p>A description of the KMS key.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Whether the key has key rotation enabled.</p>
-   */
-  KeyRotationStatus?: boolean;
-}
-
-/**
- * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
- */
-export interface AwsLambdaFunctionCode {
-  /**
-   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
-   */
-  S3Bucket?: string;
-
-  /**
-   * <p>The Amazon S3 key of the deployment package.</p>
-   */
-  S3Key?: string;
-
-  /**
-   * <p>For versioned objects, the version of the deployment package object to use.</p>
-   */
-  S3ObjectVersion?: string;
-
-  /**
-   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
-   */
-  ZipFile?: string;
-}
-
-/**
- * <p>The dead-letter queue for failed asynchronous invocations.</p>
- */
-export interface AwsLambdaFunctionDeadLetterConfig {
-  /**
-   * <p>The ARN of an SQS queue or SNS topic.</p>
-   */
-  TargetArn?: string;
-}
-
-/**
- * <p>Error messages for environment variables that could not be applied.</p>
- */
-export interface AwsLambdaFunctionEnvironmentError {
-  /**
-   * <p>The error code.</p>
-   */
-  ErrorCode?: string;
-
-  /**
-   * <p>The error message.</p>
-   */
-  Message?: string;
-}
-
-/**
- * <p>A function's environment variable settings.</p>
- */
-export interface AwsLambdaFunctionEnvironment {
-  /**
-   * <p>Environment variable key-value pairs.</p>
-   */
-  Variables?: Record<string, string>;
-
-  /**
-   * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
-   */
-  Error?: AwsLambdaFunctionEnvironmentError;
-}
-
-/**
- * <p>An Lambda layer.</p>
- */
-export interface AwsLambdaFunctionLayer {
-  /**
-   * <p>The ARN of the function layer.</p>
-   */
-  Arn?: string;
-
-  /**
-   * <p>The size of the layer archive in bytes.</p>
-   */
-  CodeSize?: number;
-}
-
-/**
- * <p>The function's X-Ray tracing configuration.</p>
- */
-export interface AwsLambdaFunctionTracingConfig {
-  /**
-   * <p>The tracing mode.</p>
-   */
-  Mode?: string;
-}
-
-/**
- * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
- */
-export interface AwsLambdaFunctionVpcConfig {
-  /**
-   * <p>A list of VPC security groups IDs.</p>
-   */
-  SecurityGroupIds?: string[];
-
-  /**
-   * <p>A list of VPC subnet IDs.</p>
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>The ID of the VPC.</p>
-   */
-  VpcId?: string;
-}
-
-/**
- * <p>Details about an Lambda function's configuration.</p>
- */
-export interface AwsLambdaFunctionDetails {
-  /**
-   * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
-   */
-  Code?: AwsLambdaFunctionCode;
-
-  /**
-   * <p>The SHA256 hash of the function's deployment package.</p>
-   */
-  CodeSha256?: string;
-
-  /**
-   * <p>The function's dead letter queue.</p>
-   */
-  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
-
-  /**
-   * <p>The function's environment variables.</p>
-   */
-  Environment?: AwsLambdaFunctionEnvironment;
-
-  /**
-   * <p>The name of the function.</p>
-   */
-  FunctionName?: string;
-
-  /**
-   * <p>The function that Lambda calls to begin executing your function.</p>
-   */
-  Handler?: string;
-
-  /**
-   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
-   */
-  KmsKeyArn?: string;
-
-  /**
-   * <p>Indicates when the function was last updated.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  LastModified?: string;
-
-  /**
-   * <p>The function's layers.</p>
-   */
-  Layers?: AwsLambdaFunctionLayer[];
-
-  /**
-   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
-   */
-  MasterArn?: string;
-
-  /**
-   * <p>The memory that is allocated to the function.</p>
-   */
-  MemorySize?: number;
-
-  /**
-   * <p>The latest updated revision of the function or alias.</p>
-   */
-  RevisionId?: string;
-
-  /**
-   * <p>The function's execution role.</p>
-   */
-  Role?: string;
-
-  /**
-   * <p>The runtime environment for the Lambda function.</p>
-   */
-  Runtime?: string;
-
-  /**
-   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
-   */
-  Timeout?: number;
-
-  /**
-   * <p>The function's X-Ray tracing configuration.</p>
-   */
-  TracingConfig?: AwsLambdaFunctionTracingConfig;
-
-  /**
-   * <p>The function's networking configuration.</p>
-   */
-  VpcConfig?: AwsLambdaFunctionVpcConfig;
-
-  /**
-   * <p>The version of the Lambda function.</p>
-   */
-  Version?: string;
-
-  /**
-   * <p>The instruction set architecture that the function uses. Valid values are <code>x86_64</code> or
-   * <code>arm64</code>.</p>
-   */
-  Architectures?: string[];
-
-  /**
-   * <p>The type of deployment package that's used to deploy the function code to Lambda. Set to <code>Image</code> for a container image and <code>Zip</code>  for a .zip file archive.
-   *       </p>
-   */
-  PackageType?: string;
-}
-
-/**
- * <p>Details about a Lambda layer version.</p>
- */
-export interface AwsLambdaLayerVersionDetails {
-  /**
-   * <p>The version number.</p>
-   */
-  Version?: number;
-
-  /**
-   * <p>The layer's compatible runtimes. Maximum number of five items.</p>
-   *          <p>Valid values: <code>nodejs10.x</code> | <code>nodejs12.x</code> | <code>java8</code> |
-   *             <code>java11</code> | <code>python2.7</code> | <code>python3.6</code> |
-   *             <code>python3.7</code> | <code>python3.8</code> | <code>dotnetcore1.0</code> |
-   *             <code>dotnetcore2.1</code> | <code>go1.x</code> | <code>ruby2.5</code> |
-   *             <code>provided</code>
-   *          </p>
-   */
-  CompatibleRuntimes?: string[];
-
-  /**
-   * <p>Indicates when the version was created.</p>
-   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
-   *             Date/Time Format</a>. The value cannot contain spaces. For example,
-   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
-   */
-  CreatedDate?: string;
-}
-
-/**
- * <p>A public subnet that Network Firewall uses for the firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
-  /**
-   * <p>The identifier of the subnet</p>
-   */
-  SubnetId?: string;
-}
-
-/**
- * <p>Details about an Network Firewall firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallDetails {
-  /**
-   * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
-   */
-  DeleteProtection?: boolean;
-
-  /**
-   * <p>A description of the firewall.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The ARN of the firewall.</p>
-   */
-  FirewallArn?: string;
-
-  /**
-   * <p>The identifier of the firewall.</p>
-   */
-  FirewallId?: string;
-
-  /**
-   * <p>A descriptive name of the firewall.</p>
-   */
-  FirewallName?: string;
-
-  /**
-   * <p>The ARN of the firewall policy.</p>
-   */
-  FirewallPolicyArn?: string;
-
-  /**
-   * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
-   */
-  FirewallPolicyChangeProtection?: boolean;
-
-  /**
-   * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
-   */
-  SubnetChangeProtection?: boolean;
-
-  /**
-   * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
-   */
-  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
-
-  /**
-   * <p>The identifier of the VPC where the firewall is used.</p>
-   */
-  VpcId?: string;
-}
-
-/**
- * <p>A stateful rule group that is used by the firewall policy.</p>
- */
-export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
-  /**
-   * <p>The ARN of the stateful rule group.</p>
-   */
-  ResourceArn?: string;
-}
-
-/**
- * <p>Defines a CloudWatch dimension value to publish.</p>
- */
-export interface StatelessCustomPublishMetricActionDimension {
-  /**
-   * <p>The value to use for the custom metric dimension.</p>
-   */
-  Value?: string;
-}
-
-/**
- * <p>Information about metrics to publish to CloudWatch.</p>
- */
-export interface StatelessCustomPublishMetricAction {
-  /**
-   * <p>Defines CloudWatch dimension values to publish.</p>
-   */
-  Dimensions?: StatelessCustomPublishMetricActionDimension[];
-}
-
-/**
- * <p>The definition of a custom action that can be used for stateless packet handling.</p>
- */
-export interface StatelessCustomActionDefinition {
-  /**
-   * <p>Information about metrics to publish to CloudWatch.</p>
-   */
-  PublishMetricAction?: StatelessCustomPublishMetricAction;
-}
-
-/**
- * <p>A custom action that can be used for stateless packet handling.</p>
- */
-export interface FirewallPolicyStatelessCustomActionsDetails {
-  /**
-   * <p>The definition of the custom action.</p>
-   */
-  ActionDefinition?: StatelessCustomActionDefinition;
-
-  /**
-   * <p>The name of the custom action.</p>
-   */
-  ActionName?: string;
-}
-
-/**
- * <p>A stateless rule group that is used by the firewall policy.</p>
- */
-export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
-  /**
-   * <p>The order in which to run the stateless rule group.</p>
-   */
-  Priority?: number;
-
-  /**
-   * <p>The ARN of the stateless rule group.</p>
-   */
-  ResourceArn?: string;
-}
-
-/**
- * <p>Defines the behavior of the firewall.</p>
- */
-export interface FirewallPolicyDetails {
-  /**
-   * <p>The stateful rule groups that are used in the firewall policy.</p>
-   */
-  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
-
-  /**
-   * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
-   */
-  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
-
-  /**
-   * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
-   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
-   *       </p>
-   */
-  StatelessDefaultActions?: string[];
-
-  /**
-   * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
-   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
-   *       </p>
-   */
-  StatelessFragmentDefaultActions?: string[];
-
-  /**
-   * <p>The stateless rule groups that are used in the firewall policy.</p>
-   */
-  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
-}
-
-/**
- * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
- */
-export interface AwsNetworkFirewallFirewallPolicyDetails {
-  /**
-   * <p>The firewall policy configuration.</p>
-   */
-  FirewallPolicy?: FirewallPolicyDetails;
-
-  /**
-   * <p>The ARN of the firewall policy.</p>
-   */
-  FirewallPolicyArn?: string;
-
-  /**
-   * <p>The identifier of the firewall policy.</p>
-   */
-  FirewallPolicyId?: string;
-
-  /**
-   * <p>The name of the firewall policy.</p>
-   */
-  FirewallPolicyName?: string;
-
-  /**
-   * <p>A description of the firewall policy.</p>
-   */
-  Description?: string;
-}
-
-/**
- * <p>Stateful inspection criteria for a domain list rule group.</p>
- */
-export interface RuleGroupSourceListDetails {
-  /**
-   * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
-   */
-  GeneratedRulesType?: string;
-
-  /**
-   * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
-   */
-  TargetTypes?: string[];
-
-  /**
-   * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
-   */
-  Targets?: string[];
-}
-
-/**
- * <p>The inspection criteria for a stateful rule.</p>
- */
-export interface RuleGroupSourceStatefulRulesHeaderDetails {
-  /**
-   * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
-   */
-  Destination?: string;
-
-  /**
-   * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
-   */
-  DestinationPort?: string;
-
-  /**
-   * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
-   */
-  Direction?: string;
-
-  /**
-   * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
-   */
-  Protocol?: string;
-
-  /**
-   * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
-   */
-  Source?: string;
-
-  /**
-   * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
-   */
-  SourcePort?: string;
-}
-
-/**
- * <p>A rule option for a stateful rule.</p>
- */
-export interface RuleGroupSourceStatefulRulesOptionsDetails {
-  /**
-   * <p>A keyword to look for.</p>
-   */
-  Keyword?: string;
-
-  /**
-   * <p>A list of settings.</p>
-   */
-  Settings?: string[];
-}
-
-/**
- * <p>A Suricata rule specification.</p>
- */
-export interface RuleGroupSourceStatefulRulesDetails {
-  /**
-   * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
-   */
-  Action?: string;
-
-  /**
-   * <p>The stateful inspection criteria for the rule.</p>
-   */
-  Header?: RuleGroupSourceStatefulRulesHeaderDetails;
-
-  /**
-   * <p>Additional options for the rule.</p>
-   */
-  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
 }
 
 /**
@@ -10908,6 +11242,316 @@ export const AwsEc2InstanceNetworkInterfacesDetailsFilterSensitiveLog = (
  * @internal
  */
 export const AwsEc2InstanceDetailsFilterSensitiveLog = (obj: AwsEc2InstanceDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataBlockDeviceMappingSetEbsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataBlockDeviceMappingSetDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetailsFilterSensitiveLog =
+  (obj: AwsEc2LaunchTemplateDataCapacityReservationSpecificationCapacityReservationTargetDetails): any => ({
+    ...obj,
+  });
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataCapacityReservationSpecificationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataCpuOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataCpuOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataCreditSpecificationDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataCreditSpecificationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataElasticGpuSpecificationSetDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataElasticInferenceAcceleratorSetDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataEnclaveOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataEnclaveOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataHibernationOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataHibernationOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataIamInstanceProfileDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataIamInstanceProfileDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceMarketOptionsSpotOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceMarketOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceMarketOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorCountDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsAcceleratorTotalMemoryMiBDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsBaselineEbsBandwidthMbpsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryGiBPerVCpuDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsMemoryMiBDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsNetworkInterfaceCountDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsTotalLocalStorageGBDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsVCpuCountDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataInstanceRequirementsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataInstanceRequirementsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataLicenseSetDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataLicenseSetDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataMaintenanceOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataMaintenanceOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataMetadataOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataMetadataOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataMonitoringDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataMonitoringDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv4PrefixesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6AddressesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetIpv6PrefixesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetPrivateIpAddressesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataNetworkInterfaceSetDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataNetworkInterfaceSetDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataPlacementDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataPlacementDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetailsFilterSensitiveLog = (
+  obj: AwsEc2LaunchTemplateDataPrivateDnsNameOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDataDetailsFilterSensitiveLog = (obj: AwsEc2LaunchTemplateDataDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsEc2LaunchTemplateDetailsFilterSensitiveLog = (obj: AwsEc2LaunchTemplateDetails): any => ({
   ...obj,
 });
 
@@ -12047,270 +12691,5 @@ export const AwsIamGroupPolicyFilterSensitiveLog = (obj: AwsIamGroupPolicy): any
  * @internal
  */
 export const AwsIamGroupDetailsFilterSensitiveLog = (obj: AwsIamGroupDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamInstanceProfileRoleFilterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamInstanceProfileFilterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPermissionsBoundaryFilterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPolicyVersionFilterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamPolicyDetailsFilterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamRolePolicyFilterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamRoleDetailsFilterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamUserPolicyFilterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsIamUserDetailsFilterSensitiveLog = (obj: AwsIamUserDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKinesisStreamStreamEncryptionDetailsFilterSensitiveLog = (
-  obj: AwsKinesisStreamStreamEncryptionDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKinesisStreamDetailsFilterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsKmsKeyDetailsFilterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionCodeFilterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionDeadLetterConfigFilterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionEnvironmentErrorFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionEnvironmentFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionLayerFilterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionTracingConfigFilterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionVpcConfigFilterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsLambdaLayerVersionDetailsFilterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallSubnetMappingsDetailsFilterSensitiveLog = (
-  obj: AwsNetworkFirewallFirewallSubnetMappingsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatefulRuleGroupReferencesDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatefulRuleGroupReferencesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomPublishMetricActionDimensionFilterSensitiveLog = (
-  obj: StatelessCustomPublishMetricActionDimension
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomPublishMetricActionFilterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StatelessCustomActionDefinitionFilterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatelessCustomActionsDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatelessCustomActionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyStatelessRuleGroupReferencesDetailsFilterSensitiveLog = (
-  obj: FirewallPolicyStatelessRuleGroupReferencesDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FirewallPolicyDetailsFilterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const AwsNetworkFirewallFirewallPolicyDetailsFilterSensitiveLog = (
-  obj: AwsNetworkFirewallFirewallPolicyDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceListDetailsFilterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesHeaderDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesHeaderDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesOptionsDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesOptionsDetails
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const RuleGroupSourceStatefulRulesDetailsFilterSensitiveLog = (
-  obj: RuleGroupSourceStatefulRulesDetails
-): any => ({
   ...obj,
 });

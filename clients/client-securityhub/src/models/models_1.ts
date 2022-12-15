@@ -25,6 +25,7 @@ import {
   AwsDynamoDbTableDetails,
   AwsEc2EipDetails,
   AwsEc2InstanceDetails,
+  AwsEc2LaunchTemplateDetails,
   AwsEc2NetworkAclDetails,
   AwsEc2NetworkInterfaceDetails,
   AwsEc2SecurityGroupDetails,
@@ -49,21 +50,991 @@ import {
   AwsElbLoadBalancerDetails,
   AwsElbv2LoadBalancerDetails,
   AwsIamAccessKeyDetails,
+  AwsIamAttachedManagedPolicy,
   AwsIamGroupDetails,
-  AwsIamPolicyDetails,
-  AwsIamRoleDetails,
-  AwsIamUserDetails,
-  AwsKinesisStreamDetails,
-  AwsKmsKeyDetails,
-  AwsLambdaFunctionDetails,
-  AwsLambdaLayerVersionDetails,
-  AwsNetworkFirewallFirewallDetails,
-  AwsNetworkFirewallFirewallPolicyDetails,
-  RuleGroupSourceListDetails,
-  RuleGroupSourceStatefulRulesDetails,
-  StatelessCustomActionDefinition,
 } from "./models_0";
 import { SecurityHubServiceException as __BaseException } from "./SecurityHubServiceException";
+
+/**
+ * <p>Information about a role associated with an instance profile.</p>
+ */
+export interface AwsIamInstanceProfileRole {
+  /**
+   * <p>The ARN of the role.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The policy that grants an entity permission to assume the role.</p>
+   */
+  AssumeRolePolicyDocument?: string;
+
+  /**
+   * <p>Indicates when the role was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>The path to the role.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The identifier of the role.</p>
+   */
+  RoleId?: string;
+
+  /**
+   * <p>The name of the role.</p>
+   */
+  RoleName?: string;
+}
+
+/**
+ * <p>Information about an instance profile.</p>
+ */
+export interface AwsIamInstanceProfile {
+  /**
+   * <p>The ARN of the instance profile.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>Indicates when the instance profile was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>The identifier of the instance profile.</p>
+   */
+  InstanceProfileId?: string;
+
+  /**
+   * <p>The name of the instance profile.</p>
+   */
+  InstanceProfileName?: string;
+
+  /**
+   * <p>The path to the instance profile.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The roles associated with the instance profile.</p>
+   */
+  Roles?: AwsIamInstanceProfileRole[];
+}
+
+/**
+ * <p>Information about the policy used to set the permissions boundary for an IAM
+ *          principal.</p>
+ */
+export interface AwsIamPermissionsBoundary {
+  /**
+   * <p>The ARN of the policy used to set the permissions boundary.</p>
+   */
+  PermissionsBoundaryArn?: string;
+
+  /**
+   * <p>The usage type for the permissions boundary.</p>
+   */
+  PermissionsBoundaryType?: string;
+}
+
+/**
+ * <p>A version of an IAM policy.</p>
+ */
+export interface AwsIamPolicyVersion {
+  /**
+   * <p>The identifier of the policy version.</p>
+   */
+  VersionId?: string;
+
+  /**
+   * <p>Whether the version is the default version.</p>
+   */
+  IsDefaultVersion?: boolean;
+
+  /**
+   * <p>Indicates when the version was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+}
+
+/**
+ * <p>Represents an IAM permissions policy.</p>
+ */
+export interface AwsIamPolicyDetails {
+  /**
+   * <p>The number of users, groups, and roles that the policy is attached to.</p>
+   */
+  AttachmentCount?: number;
+
+  /**
+   * <p>When the policy was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>The identifier of the default version of the policy.</p>
+   */
+  DefaultVersionId?: string;
+
+  /**
+   * <p>A description of the policy.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the policy can be attached to a user, group, or role.</p>
+   */
+  IsAttachable?: boolean;
+
+  /**
+   * <p>The path to the policy.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The number of users and roles that use the policy to set the permissions
+   *          boundary.</p>
+   */
+  PermissionsBoundaryUsageCount?: number;
+
+  /**
+   * <p>The unique identifier of the policy.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+
+  /**
+   * <p>List of versions of the policy.</p>
+   */
+  PolicyVersionList?: AwsIamPolicyVersion[];
+
+  /**
+   * <p>When the policy was most recently updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  UpdateDate?: string;
+}
+
+/**
+ * <p>An inline policy that is embedded in the role.</p>
+ */
+export interface AwsIamRolePolicy {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+}
+
+/**
+ * <p>Contains information about an IAM role, including all of the role's policies.</p>
+ */
+export interface AwsIamRoleDetails {
+  /**
+   * <p>The trust policy that grants permission to assume the role.</p>
+   */
+  AssumeRolePolicyDocument?: string;
+
+  /**
+   * <p>The list of the managed policies that are attached to the role.</p>
+   */
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+
+  /**
+   * <p>Indicates when the role was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>The list of instance profiles that contain this role.</p>
+   */
+  InstanceProfileList?: AwsIamInstanceProfile[];
+
+  /**
+   * <p>Information about the policy used to set the permissions boundary for an IAM
+   *          principal.</p>
+   */
+  PermissionsBoundary?: AwsIamPermissionsBoundary;
+
+  /**
+   * <p>The stable and unique string identifying the role.</p>
+   */
+  RoleId?: string;
+
+  /**
+   * <p>The friendly name that identifies the role.</p>
+   */
+  RoleName?: string;
+
+  /**
+   * <p>The list of inline policies that are embedded in the role.</p>
+   */
+  RolePolicyList?: AwsIamRolePolicy[];
+
+  /**
+   * <p>The maximum session duration (in seconds) that you want to set for the specified role.</p>
+   */
+  MaxSessionDuration?: number;
+
+  /**
+   * <p>The path to the role.</p>
+   */
+  Path?: string;
+}
+
+/**
+ * <p>Information about an inline policy that is embedded in the user.</p>
+ */
+export interface AwsIamUserPolicy {
+  /**
+   * <p>The name of the policy.</p>
+   */
+  PolicyName?: string;
+}
+
+/**
+ * <p>Information about an IAM user.</p>
+ */
+export interface AwsIamUserDetails {
+  /**
+   * <p>A list of the managed policies that are attached to the user.</p>
+   */
+  AttachedManagedPolicies?: AwsIamAttachedManagedPolicy[];
+
+  /**
+   * <p>Indicates when the user was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreateDate?: string;
+
+  /**
+   * <p>A list of IAM groups that the user belongs to.</p>
+   */
+  GroupList?: string[];
+
+  /**
+   * <p>The path to the user.</p>
+   */
+  Path?: string;
+
+  /**
+   * <p>The permissions boundary for the user.</p>
+   */
+  PermissionsBoundary?: AwsIamPermissionsBoundary;
+
+  /**
+   * <p>The unique identifier for the user.</p>
+   */
+  UserId?: string;
+
+  /**
+   * <p>The name of the user.</p>
+   */
+  UserName?: string;
+
+  /**
+   * <p>The list of inline policies that are embedded in the user.</p>
+   */
+  UserPolicyList?: AwsIamUserPolicy[];
+}
+
+/**
+ * <p>Provides information about stream encryption.
+ *       </p>
+ */
+export interface AwsKinesisStreamStreamEncryptionDetails {
+  /**
+   * <p>The encryption type to use.
+   *       </p>
+   */
+  EncryptionType?: string;
+
+  /**
+   * <p>The globally unique identifier for the customer-managed KMS key to use for encryption. </p>
+   */
+  KeyId?: string;
+}
+
+/**
+ * <p>Provides information about an Amazon Kinesis data stream.
+ *       </p>
+ */
+export interface AwsKinesisStreamDetails {
+  /**
+   * <p>The name of the Kinesis stream. If you don't specify a name, CloudFront generates a unique
+   * physical ID and uses that ID for the stream name.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis data stream.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>When specified, enables or updates server-side encryption using an KMS key for a specified stream.
+   * Removing this property from your stack template and updating your stack disables encryption.
+   *       </p>
+   */
+  StreamEncryption?: AwsKinesisStreamStreamEncryptionDetails;
+
+  /**
+   * <p>The number of shards that the stream uses.
+   *       </p>
+   */
+  ShardCount?: number;
+
+  /**
+   * <p>The number of hours for the data records that are stored in shards to remain accessible.
+   *       </p>
+   */
+  RetentionPeriodHours?: number;
+}
+
+/**
+ * <p>Contains metadata about an KMS key.</p>
+ */
+export interface AwsKmsKeyDetails {
+  /**
+   * <p>The twelve-digit account ID of the Amazon Web Services account that owns the KMS key.</p>
+   */
+  AWSAccountId?: string;
+
+  /**
+   * <p>Indicates when the KMS key was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreationDate?: number;
+
+  /**
+   * <p>The globally unique identifier for the KMS key.</p>
+   */
+  KeyId?: string;
+
+  /**
+   * <p>The manager of the KMS key. KMS keys in your Amazon Web Services account are either customer managed or Amazon Web Services managed.</p>
+   */
+  KeyManager?: string;
+
+  /**
+   * <p>The state of the KMS key. Valid values are as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Disabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Enabled</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingDeletion</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PendingImport</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>Unavailable</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   */
+  KeyState?: string;
+
+  /**
+   * <p>The source of the KMS key material.</p>
+   *          <p>When this value is <code>AWS_KMS</code>, KMS created the key material.</p>
+   *          <p>When this value is <code>EXTERNAL</code>, the key material was imported from your
+   *          existing key management infrastructure or the KMS key lacks key material.</p>
+   *          <p>When this value is <code>AWS_CLOUDHSM</code>, the key material was created in the CloudHSM cluster associated with a custom key store.</p>
+   */
+  Origin?: string;
+
+  /**
+   * <p>A description of the KMS key.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>Whether the key has key rotation enabled.</p>
+   */
+  KeyRotationStatus?: boolean;
+}
+
+/**
+ * <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
+ */
+export interface AwsLambdaFunctionCode {
+  /**
+   * <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
+   */
+  S3Bucket?: string;
+
+  /**
+   * <p>The Amazon S3 key of the deployment package.</p>
+   */
+  S3Key?: string;
+
+  /**
+   * <p>For versioned objects, the version of the deployment package object to use.</p>
+   */
+  S3ObjectVersion?: string;
+
+  /**
+   * <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
+   */
+  ZipFile?: string;
+}
+
+/**
+ * <p>The dead-letter queue for failed asynchronous invocations.</p>
+ */
+export interface AwsLambdaFunctionDeadLetterConfig {
+  /**
+   * <p>The ARN of an SQS queue or SNS topic.</p>
+   */
+  TargetArn?: string;
+}
+
+/**
+ * <p>Error messages for environment variables that could not be applied.</p>
+ */
+export interface AwsLambdaFunctionEnvironmentError {
+  /**
+   * <p>The error code.</p>
+   */
+  ErrorCode?: string;
+
+  /**
+   * <p>The error message.</p>
+   */
+  Message?: string;
+}
+
+/**
+ * <p>A function's environment variable settings.</p>
+ */
+export interface AwsLambdaFunctionEnvironment {
+  /**
+   * <p>Environment variable key-value pairs.</p>
+   */
+  Variables?: Record<string, string>;
+
+  /**
+   * <p>An <code>AwsLambdaFunctionEnvironmentError</code> object.</p>
+   */
+  Error?: AwsLambdaFunctionEnvironmentError;
+}
+
+/**
+ * <p>An Lambda layer.</p>
+ */
+export interface AwsLambdaFunctionLayer {
+  /**
+   * <p>The ARN of the function layer.</p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>The size of the layer archive in bytes.</p>
+   */
+  CodeSize?: number;
+}
+
+/**
+ * <p>The function's X-Ray tracing configuration.</p>
+ */
+export interface AwsLambdaFunctionTracingConfig {
+  /**
+   * <p>The tracing mode.</p>
+   */
+  Mode?: string;
+}
+
+/**
+ * <p>The VPC security groups and subnets that are attached to a Lambda function.</p>
+ */
+export interface AwsLambdaFunctionVpcConfig {
+  /**
+   * <p>A list of VPC security groups IDs.</p>
+   */
+  SecurityGroupIds?: string[];
+
+  /**
+   * <p>A list of VPC subnet IDs.</p>
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>The ID of the VPC.</p>
+   */
+  VpcId?: string;
+}
+
+/**
+ * <p>Details about an Lambda function's configuration.</p>
+ */
+export interface AwsLambdaFunctionDetails {
+  /**
+   * <p>An <code>AwsLambdaFunctionCode</code> object.</p>
+   */
+  Code?: AwsLambdaFunctionCode;
+
+  /**
+   * <p>The SHA256 hash of the function's deployment package.</p>
+   */
+  CodeSha256?: string;
+
+  /**
+   * <p>The function's dead letter queue.</p>
+   */
+  DeadLetterConfig?: AwsLambdaFunctionDeadLetterConfig;
+
+  /**
+   * <p>The function's environment variables.</p>
+   */
+  Environment?: AwsLambdaFunctionEnvironment;
+
+  /**
+   * <p>The name of the function.</p>
+   */
+  FunctionName?: string;
+
+  /**
+   * <p>The function that Lambda calls to begin executing your function.</p>
+   */
+  Handler?: string;
+
+  /**
+   * <p>The KMS key that is used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed customer managed key.</p>
+   */
+  KmsKeyArn?: string;
+
+  /**
+   * <p>Indicates when the function was last updated.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  LastModified?: string;
+
+  /**
+   * <p>The function's layers.</p>
+   */
+  Layers?: AwsLambdaFunctionLayer[];
+
+  /**
+   * <p>For Lambda@Edge functions, the ARN of the master function.</p>
+   */
+  MasterArn?: string;
+
+  /**
+   * <p>The memory that is allocated to the function.</p>
+   */
+  MemorySize?: number;
+
+  /**
+   * <p>The latest updated revision of the function or alias.</p>
+   */
+  RevisionId?: string;
+
+  /**
+   * <p>The function's execution role.</p>
+   */
+  Role?: string;
+
+  /**
+   * <p>The runtime environment for the Lambda function.</p>
+   */
+  Runtime?: string;
+
+  /**
+   * <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+   */
+  Timeout?: number;
+
+  /**
+   * <p>The function's X-Ray tracing configuration.</p>
+   */
+  TracingConfig?: AwsLambdaFunctionTracingConfig;
+
+  /**
+   * <p>The function's networking configuration.</p>
+   */
+  VpcConfig?: AwsLambdaFunctionVpcConfig;
+
+  /**
+   * <p>The version of the Lambda function.</p>
+   */
+  Version?: string;
+
+  /**
+   * <p>The instruction set architecture that the function uses. Valid values are <code>x86_64</code> or
+   * <code>arm64</code>.</p>
+   */
+  Architectures?: string[];
+
+  /**
+   * <p>The type of deployment package that's used to deploy the function code to Lambda. Set to <code>Image</code> for a container image and <code>Zip</code>  for a .zip file archive.
+   *       </p>
+   */
+  PackageType?: string;
+}
+
+/**
+ * <p>Details about a Lambda layer version.</p>
+ */
+export interface AwsLambdaLayerVersionDetails {
+  /**
+   * <p>The version number.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The layer's compatible runtimes. Maximum number of five items.</p>
+   *          <p>Valid values: <code>nodejs10.x</code> | <code>nodejs12.x</code> | <code>java8</code> |
+   *             <code>java11</code> | <code>python2.7</code> | <code>python3.6</code> |
+   *             <code>python3.7</code> | <code>python3.8</code> | <code>dotnetcore1.0</code> |
+   *             <code>dotnetcore2.1</code> | <code>go1.x</code> | <code>ruby2.5</code> |
+   *             <code>provided</code>
+   *          </p>
+   */
+  CompatibleRuntimes?: string[];
+
+  /**
+   * <p>Indicates when the version was created.</p>
+   *          <p>Uses the <code>date-time</code> format specified in <a href="https://tools.ietf.org/html/rfc3339#section-5.6">RFC 3339 section 5.6, Internet
+   *             Date/Time Format</a>. The value cannot contain spaces. For example,
+   *             <code>2020-03-22T13:22:13.933Z</code>.</p>
+   */
+  CreatedDate?: string;
+}
+
+/**
+ * <p>A public subnet that Network Firewall uses for the firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallSubnetMappingsDetails {
+  /**
+   * <p>The identifier of the subnet</p>
+   */
+  SubnetId?: string;
+}
+
+/**
+ * <p>Details about an Network Firewall firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallDetails {
+  /**
+   * <p>Whether the firewall is protected from deletion. If set to <code>true</code>, then the firewall cannot be deleted.</p>
+   */
+  DeleteProtection?: boolean;
+
+  /**
+   * <p>A description of the firewall.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The ARN of the firewall.</p>
+   */
+  FirewallArn?: string;
+
+  /**
+   * <p>The identifier of the firewall.</p>
+   */
+  FirewallId?: string;
+
+  /**
+   * <p>A descriptive name of the firewall.</p>
+   */
+  FirewallName?: string;
+
+  /**
+   * <p>The ARN of the firewall policy.</p>
+   */
+  FirewallPolicyArn?: string;
+
+  /**
+   * <p>Whether the firewall is protected from a change to the firewall policy. If set to <code>true</code>, you cannot associate a different policy with the firewall.</p>
+   */
+  FirewallPolicyChangeProtection?: boolean;
+
+  /**
+   * <p>Whether the firewall is protected from a change to the subnet associations. If set to <code>true</code>, you cannot map different subnets to the firewall.</p>
+   */
+  SubnetChangeProtection?: boolean;
+
+  /**
+   * <p>The public subnets that Network Firewall uses for the firewall. Each subnet must belong to a different Availability Zone.</p>
+   */
+  SubnetMappings?: AwsNetworkFirewallFirewallSubnetMappingsDetails[];
+
+  /**
+   * <p>The identifier of the VPC where the firewall is used.</p>
+   */
+  VpcId?: string;
+}
+
+/**
+ * <p>A stateful rule group that is used by the firewall policy.</p>
+ */
+export interface FirewallPolicyStatefulRuleGroupReferencesDetails {
+  /**
+   * <p>The ARN of the stateful rule group.</p>
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * <p>Defines a CloudWatch dimension value to publish.</p>
+ */
+export interface StatelessCustomPublishMetricActionDimension {
+  /**
+   * <p>The value to use for the custom metric dimension.</p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>Information about metrics to publish to CloudWatch.</p>
+ */
+export interface StatelessCustomPublishMetricAction {
+  /**
+   * <p>Defines CloudWatch dimension values to publish.</p>
+   */
+  Dimensions?: StatelessCustomPublishMetricActionDimension[];
+}
+
+/**
+ * <p>The definition of a custom action that can be used for stateless packet handling.</p>
+ */
+export interface StatelessCustomActionDefinition {
+  /**
+   * <p>Information about metrics to publish to CloudWatch.</p>
+   */
+  PublishMetricAction?: StatelessCustomPublishMetricAction;
+}
+
+/**
+ * <p>A custom action that can be used for stateless packet handling.</p>
+ */
+export interface FirewallPolicyStatelessCustomActionsDetails {
+  /**
+   * <p>The definition of the custom action.</p>
+   */
+  ActionDefinition?: StatelessCustomActionDefinition;
+
+  /**
+   * <p>The name of the custom action.</p>
+   */
+  ActionName?: string;
+}
+
+/**
+ * <p>A stateless rule group that is used by the firewall policy.</p>
+ */
+export interface FirewallPolicyStatelessRuleGroupReferencesDetails {
+  /**
+   * <p>The order in which to run the stateless rule group.</p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>The ARN of the stateless rule group.</p>
+   */
+  ResourceArn?: string;
+}
+
+/**
+ * <p>Defines the behavior of the firewall.</p>
+ */
+export interface FirewallPolicyDetails {
+  /**
+   * <p>The stateful rule groups that are used in the firewall policy.</p>
+   */
+  StatefulRuleGroupReferences?: FirewallPolicyStatefulRuleGroupReferencesDetails[];
+
+  /**
+   * <p>The custom action definitions that are available to use in the firewall policy's <code>StatelessDefaultActions</code> setting.</p>
+   */
+  StatelessCustomActions?: FirewallPolicyStatelessCustomActionsDetails[];
+
+  /**
+   * <p>The actions to take on a packet if it doesn't match any of the stateless rules in the policy.</p>
+   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
+   *       </p>
+   */
+  StatelessDefaultActions?: string[];
+
+  /**
+   * <p>The actions to take on a fragmented UDP packet if it doesn't match any of the stateless rules in the policy.</p>
+   *          <p>You must specify a standard action (<code>aws:pass</code>, <code>aws:drop</code>, <code>aws:forward_to_sfe</code>), and can optionally include a custom action from <code>StatelessCustomActions</code>.
+   *       </p>
+   */
+  StatelessFragmentDefaultActions?: string[];
+
+  /**
+   * <p>The stateless rule groups that are used in the firewall policy.</p>
+   */
+  StatelessRuleGroupReferences?: FirewallPolicyStatelessRuleGroupReferencesDetails[];
+}
+
+/**
+ * <p>Details about a firewall policy. A firewall policy defines the behavior of a network firewall.</p>
+ */
+export interface AwsNetworkFirewallFirewallPolicyDetails {
+  /**
+   * <p>The firewall policy configuration.</p>
+   */
+  FirewallPolicy?: FirewallPolicyDetails;
+
+  /**
+   * <p>The ARN of the firewall policy.</p>
+   */
+  FirewallPolicyArn?: string;
+
+  /**
+   * <p>The identifier of the firewall policy.</p>
+   */
+  FirewallPolicyId?: string;
+
+  /**
+   * <p>The name of the firewall policy.</p>
+   */
+  FirewallPolicyName?: string;
+
+  /**
+   * <p>A description of the firewall policy.</p>
+   */
+  Description?: string;
+}
+
+/**
+ * <p>Stateful inspection criteria for a domain list rule group.</p>
+ */
+export interface RuleGroupSourceListDetails {
+  /**
+   * <p>Indicates whether to allow or deny access to the domains listed in <code>Targets</code>.</p>
+   */
+  GeneratedRulesType?: string;
+
+  /**
+   * <p>The protocols that you want to inspect. Specify <code>LS_SNI</code> for HTTPS. Specify <code>HTTP_HOST</code> for HTTP. You can specify either or both.</p>
+   */
+  TargetTypes?: string[];
+
+  /**
+   * <p>The domains that you want to inspect for in your traffic flows. You can provide full domain names, or use the '.' prefix as a wildcard. For example, <code>.example.com</code> matches all domains that end with <code>example.com</code>.</p>
+   */
+  Targets?: string[];
+}
+
+/**
+ * <p>The inspection criteria for a stateful rule.</p>
+ */
+export interface RuleGroupSourceStatefulRulesHeaderDetails {
+  /**
+   * <p>The destination IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   */
+  Destination?: string;
+
+  /**
+   * <p>The destination port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   */
+  DestinationPort?: string;
+
+  /**
+   * <p>The direction of traffic flow to inspect. If set to <code>ANY</code>, the inspection matches bidirectional traffic, both from the source to the destination and from the destination to the source. If set to <code>FORWARD</code>, the inspection only matches traffic going from the source to the destination.</p>
+   */
+  Direction?: string;
+
+  /**
+   * <p>The protocol to inspect for. To inspector for all protocols, use <code>IP</code>.</p>
+   */
+  Protocol?: string;
+
+  /**
+   * <p>The source IP address or address range to inspect for, in CIDR notation. To match with any address, specify <code>ANY</code>.</p>
+   */
+  Source?: string;
+
+  /**
+   * <p>The source port to inspect for. You can specify an individual port, such as <code>1994</code>. You also can specify a port range, such as <code>1990:1994</code>. To match with any port, specify <code>ANY</code>.</p>
+   */
+  SourcePort?: string;
+}
+
+/**
+ * <p>A rule option for a stateful rule.</p>
+ */
+export interface RuleGroupSourceStatefulRulesOptionsDetails {
+  /**
+   * <p>A keyword to look for.</p>
+   */
+  Keyword?: string;
+
+  /**
+   * <p>A list of settings.</p>
+   */
+  Settings?: string[];
+}
+
+/**
+ * <p>A Suricata rule specification.</p>
+ */
+export interface RuleGroupSourceStatefulRulesDetails {
+  /**
+   * <p>Defines what Network Firewall should do with the packets in a traffic flow when the flow matches the stateful rule criteria.</p>
+   */
+  Action?: string;
+
+  /**
+   * <p>The stateful inspection criteria for the rule.</p>
+   */
+  Header?: RuleGroupSourceStatefulRulesHeaderDetails;
+
+  /**
+   * <p>Additional options for the rule.</p>
+   */
+  RuleOptions?: RuleGroupSourceStatefulRulesOptionsDetails[];
+}
 
 /**
  * <p>A custom action definition. A custom action is an optional, non-standard action to use for stateless packet handling.</p>
@@ -438,7 +1409,7 @@ export interface AwsOpenSearchServiceDomainClusterConfigDetails {
 
   /**
    * <p>The instance type for your data nodes.</p>
-   *    	     <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
+   *          <p>For a list of valid values, see <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html">Supported instance types in Amazon OpenSearch Service</a> in the <i>Amazon OpenSearch Service Developer Guide</i>.</p>
    */
   InstanceType?: string;
 
@@ -586,7 +1557,7 @@ export interface AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails {
 
   /**
    * <p>The status of the service software update. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>COMPLETED</code>
@@ -1034,7 +2005,7 @@ export interface AwsRdsDbClusterDetails {
 
   /**
    * <p>The status of the database activity stream. Valid values are as follows:</p>
-   *    	     <ul>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <code>started</code>
@@ -3569,6 +4540,170 @@ export interface AwsS3ObjectDetails {
 }
 
 /**
+ * <p>
+ *          Information on the instance metadata service (IMDS) configuration of the notebook instance.
+ *       </p>
+ */
+export interface AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails {
+  /**
+   * <p>
+   *          Indicates the minimum IMDS version that the notebook instance supports.
+   *       </p>
+   */
+  MinimumInstanceMetadataServiceVersion?: string;
+}
+
+/**
+ * <p>
+ *          Provides details about an Amazon SageMaker notebook instance.
+ *       </p>
+ */
+export interface AwsSageMakerNotebookInstanceDetails {
+  /**
+   * <p>
+   *          A list of Amazon Elastic Inference instance types to associate with the notebook instance. Currently, only one instance type can be associated with a notebook instance.
+   *       </p>
+   */
+  AcceleratorTypes?: string[];
+
+  /**
+   * <p>
+   *          An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other Git repository.
+   *          These repositories are cloned at the same level as the default repository of your notebook instance. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *       </p>
+   */
+  AdditionalCodeRepositories?: string[];
+
+  /**
+   * <p>
+   *          The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in <a href="https://docs.aws.amazon.com/codecommit/latest/userguide/welcome.html">AWS CodeCommit</a> or in any other Git repository.
+   *          When you open a notebook instance, it opens in the directory that contains this repository. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/nbi-git-repo.html">Associating Git repositories with SageMaker notebook instances</a> in the <i>Amazon SageMaker Developer Guide</i>.
+   *       </p>
+   */
+  DefaultCodeRepository?: string;
+
+  /**
+   * <p>
+   *          Sets whether SageMaker provides internet access to the notebook instance. If you set this to <code>Disabled</code>, this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker training and endpoint services unless you configure a Network Address Translation (NAT) Gateway in your VPC.
+   *       </p>
+   */
+  DirectInternetAccess?: string;
+
+  /**
+   * <p>
+   *          If status of the instance is <code>Failed</code>, the reason it failed.
+   *       </p>
+   */
+  FailureReason?: string;
+
+  /**
+   * <p>
+   *          Information on the IMDS configuration of the notebook instance.
+   *       </p>
+   */
+  InstanceMetadataServiceConfiguration?: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails;
+
+  /**
+   * <p>
+   *          The type of machine learning (ML) compute instance to launch for the notebook instance.
+   *       </p>
+   */
+  InstanceType?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of an Key Management Service (KMS) key that SageMaker uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled. For information, see
+   *          <a href="https://docs.aws.amazon.com/kms/latest/developerguide/enabling-keys.html">Enabling and disabling keys</a> in the <i>Key Management Service Developer Guide</i>.
+   *       </p>
+   */
+  KmsKeyId?: string;
+
+  /**
+   * <p>
+   *          The network interface ID that SageMaker created when the instance was created.
+   *       </p>
+   */
+  NetworkInterfaceId?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the notebook instance.
+   *       </p>
+   */
+  NotebookInstanceArn?: string;
+
+  /**
+   * <p>
+   *          The name of a notebook instance lifecycle configuration.
+   *       </p>
+   */
+  NotebookInstanceLifecycleConfigName?: string;
+
+  /**
+   * <p>
+   *          The name of the new notebook instance.
+   *       </p>
+   */
+  NotebookInstanceName?: string;
+
+  /**
+   * <p>
+   *          The status of the notebook instance.
+   *       </p>
+   */
+  NotebookInstanceStatus?: string;
+
+  /**
+   * <p>
+   *          The platform identifier of the notebook instance runtime environment.
+   *       </p>
+   */
+  PlatformIdentifier?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the IAM role associated with the instance.
+   *       </p>
+   */
+  RoleArn?: string;
+
+  /**
+   * <p>
+   *          Whether root access is enabled or disabled for users of the notebook instance.
+   *       </p>
+   */
+  RootAccess?: string;
+
+  /**
+   * <p>
+   *          The VPC security group IDs.
+   *       </p>
+   */
+  SecurityGroups?: string[];
+
+  /**
+   * <p>
+   *          The ID of the VPC subnet to which you have a connectivity from your ML compute instance.
+   *       </p>
+   */
+  SubnetId?: string;
+
+  /**
+   * <p>
+   *          The URL that you use to connect to the Jupyter notebook that is running in your notebook instance.
+   *       </p>
+   */
+  Url?: string;
+
+  /**
+   * <p>
+   *          The size, in GB, of the ML storage volume to attach to the notebook instance.
+   *       </p>
+   */
+  VolumeSizeInGB?: number;
+}
+
+/**
  * <p>Defines the rotation schedule for the secret.</p>
  */
 export interface AwsSecretsManagerSecretRotationRules {
@@ -5239,6 +6374,435 @@ export interface AwsWafRuleGroupDetails {
 }
 
 /**
+ * <p>
+ *          A custom header for custom request and response handling.
+ *       </p>
+ */
+export interface AwsWafv2CustomHttpHeader {
+  /**
+   * <p>
+   *          The name of the custom header.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The value of the custom header.
+   *       </p>
+   */
+  Value?: string;
+}
+
+/**
+ * <p>
+ *          Custom request handling behavior that inserts custom headers into a web request. WAF uses custom request handling when the rule action doesn't block the request.
+ *       </p>
+ */
+export interface AwsWafv2CustomRequestHandlingDetails {
+  /**
+   * <p>
+   *          The HTTP headers to insert into the request.
+   *       </p>
+   */
+  InsertHeaders?: AwsWafv2CustomHttpHeader[];
+}
+
+/**
+ * <p>
+ *          Specifies that WAF should allow the request and optionally defines additional custom handling for the request.
+ *       </p>
+ */
+export interface AwsWafv2ActionAllowDetails {
+  /**
+   * <p>
+   *          Defines custom handling for the web request. For information about customizing web requests and responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * <p>
+ *          A custom response to send to the client. You can define a custom response for rule actions and default web ACL actions that are set to block.
+ *       </p>
+ */
+export interface AwsWafv2CustomResponseDetails {
+  /**
+   * <p>
+   *          References the response body that you want WAF to return to the web request client. You can define a custom response for a rule action or a default web ACL action that is set to block.
+   *       </p>
+   */
+  CustomResponseBodyKey?: string;
+
+  /**
+   * <p>
+   *          The HTTP status code to return to the client. For a list of status codes that you can use in your custom responses, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/customizing-the-response-status-codes.html">Supported status codes for custom response</a> in the <i>WAF Developer Guide.</i>
+   *          </p>
+   */
+  ResponseCode?: number;
+
+  /**
+   * <p>
+   *          The HTTP headers to use in the response.
+   *       </p>
+   */
+  ResponseHeaders?: AwsWafv2CustomHttpHeader[];
+}
+
+/**
+ * <p>
+ *          Specifies that WAF should block the request and optionally defines additional custom handling for the response to the web request.
+ *       </p>
+ */
+export interface AwsWafv2ActionBlockDetails {
+  /**
+   * <p>
+   *          Defines a custom response for the web request. For information, see
+   *          <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomResponse?: AwsWafv2CustomResponseDetails;
+}
+
+/**
+ * <p>
+ *          Specifies that WAF should run a CAPTCHA check against the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCaptchaDetails {
+  /**
+   * <p>
+   *          Defines custom handling for the web request, used when the CAPTCHA inspection determines that the request's token is valid and unexpired. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * <p>
+ *          Specifies that WAF should count the request.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionCountDetails {
+  /**
+   * <p>
+   *          Defines custom handling for the web request. For more information,
+   *          see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html">Customizing web requests and responses in WAF</a> in the <i>WAF Developer Guide.</i>.
+   *       </p>
+   */
+  CustomRequestHandling?: AwsWafv2CustomRequestHandlingDetails;
+}
+
+/**
+ * <p>
+ *          The action that WAF should take on a web request when it matches a rule's statement.
+ *          Settings at the web ACL level can override the rule action setting.
+ *       </p>
+ */
+export interface AwsWafv2RulesActionDetails {
+  /**
+   * <p>
+   *          Instructs WAF to allow the web request.
+   *       </p>
+   */
+  Allow?: AwsWafv2ActionAllowDetails;
+
+  /**
+   * <p>
+   *          Instructs WAF to block the web request.
+   *       </p>
+   */
+  Block?: AwsWafv2ActionBlockDetails;
+
+  /**
+   * <p>
+   *          Instructs WAF to run a CAPTCHA check against the web request.
+   *       </p>
+   */
+  Captcha?: AwsWafv2RulesActionCaptchaDetails;
+
+  /**
+   * <p>
+   *          Instructs WAF to count the web request and then continue evaluating the request using the remaining rules in the web ACL.
+   *       </p>
+   */
+  Count?: AwsWafv2RulesActionCountDetails;
+}
+
+/**
+ * <p>
+ *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+ *       </p>
+ */
+export interface AwsWafv2VisibilityConfigDetails {
+  /**
+   * <p>
+   *          A boolean indicating whether the associated resource sends metrics to Amazon CloudWatch. For the list of available
+   *          metrics, see <a href="https://docs.aws.amazon.com/waf/latest/developerguide/monitoring-cloudwatch.html#waf-metrics">WAF metrics and dimensions</a> in the <i>WAF Developer Guide</i>.
+   *       </p>
+   */
+  CloudWatchMetricsEnabled?: boolean;
+
+  /**
+   * <p>
+   *          A name of the Amazon CloudWatch metric.
+   *       </p>
+   */
+  MetricName?: string;
+
+  /**
+   * <p>
+   *          A boolean indicating whether WAF should store a sampling of the web requests that match the rules.
+   *          You can view the sampled requests through the WAF console.
+   *       </p>
+   */
+  SampledRequestsEnabled?: boolean;
+}
+
+/**
+ * <p>
+ *          Provides details about rules in a rule group. A rule identifies web requests that you want to allow, block, or count. Each rule includes one top-level Statement that AWS WAF uses to identify matching web requests, and parameters that govern how AWS WAF handles them.
+ *       </p>
+ */
+export interface AwsWafv2RulesDetails {
+  /**
+   * <p>
+   *          The action that WAF should take on a web request when it matches the rule statement. Settings at the web ACL level can override the rule action setting.
+   *       </p>
+   */
+  Action?: AwsWafv2RulesActionDetails;
+
+  /**
+   * <p>
+   *          The name of the rule.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The action to use in the place of the action that results from the rule group evaluation.
+   *       </p>
+   */
+  OverrideAction?: string;
+
+  /**
+   * <p>
+   *          If you define more than one Rule in a WebACL, WAF evaluates each request against the Rules in order based on the value of <code>Priority</code>.
+   *          WAF processes rules with lower priority first. The priorities don't need to be consecutive, but they must all be different.
+   *       </p>
+   */
+  Priority?: number;
+
+  /**
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
+ * <p>
+ *          Details about an WAFv2 rule group.
+ *       </p>
+ */
+export interface AwsWafv2RuleGroupDetails {
+  /**
+   * <p>
+   *          The web ACL capacity units (WCUs) required for this rule group.
+   *       </p>
+   */
+  Capacity?: number;
+
+  /**
+   * <p>
+   *          A description of the rule group that helps with identification.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *          A unique identifier for the rule group.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>
+   *          The name of the rule group. You cannot change the name of a rule group after you create it.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the entity.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
+   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
+   *          WAF handles them.
+   *       </p>
+   */
+  Rules?: AwsWafv2RulesDetails[];
+
+  /**
+   * <p>
+   *          Specifies whether the rule group is for an Amazon CloudFront distribution or for a regional application.
+   *          A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync
+   *          GraphQL API, or an Amazon Cognito user pool.
+   *       </p>
+   */
+  Scope?: string;
+
+  /**
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
+ * <p>
+ *          Used for CAPTCHA and challenge token settings. Determines how long a CAPTCHA or challenge timestamp remains valid after WAF updates it for a successful CAPTCHA or challenge response.
+ *       </p>
+ */
+export interface AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails {
+  /**
+   * <p>
+   *          The amount of time, in seconds, that a CAPTCHA or challenge timestamp is considered valid by WAF.
+   *       </p>
+   */
+  ImmunityTime?: number;
+}
+
+/**
+ * <p>
+ *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own <code>CaptchaConfig</code> settings.
+ *       </p>
+ */
+export interface AwsWafv2WebAclCaptchaConfigDetails {
+  /**
+   * <p>
+   *          Determines how long a CAPTCHA timestamp in the token remains valid after the client successfully solves a CAPTCHA puzzle.
+   *       </p>
+   */
+  ImmunityTimeProperty?: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails;
+}
+
+/**
+ * <p>
+ *          Specifies the action that Amazon CloudFront or WAF takes when a web request matches the conditions in the rule.
+ *       </p>
+ */
+export interface AwsWafv2WebAclActionDetails {
+  /**
+   * <p>
+   *          Specifies that WAF should allow requests by default.
+   *       </p>
+   */
+  Allow?: AwsWafv2ActionAllowDetails;
+
+  /**
+   * <p>
+   *          Specifies that WAF should block requests by default.
+   *       </p>
+   */
+  Block?: AwsWafv2ActionBlockDetails;
+}
+
+/**
+ * <p>
+ *          Details about an WAFv2 web Access Control List (ACL).
+ *       </p>
+ */
+export interface AwsWafv2WebAclDetails {
+  /**
+   * <p>
+   *          The name of the web ACL.
+   *       </p>
+   */
+  Name?: string;
+
+  /**
+   * <p>
+   *          The Amazon Resource Name (ARN) of the web ACL that you want to associate with the resource.
+   *       </p>
+   */
+  Arn?: string;
+
+  /**
+   * <p>
+   *          Indicates whether this web ACL is managed by Firewall Manager.
+   *       </p>
+   */
+  ManagedbyFirewallManager?: boolean;
+
+  /**
+   * <p>
+   *          A unique identifier for the web ACL.
+   *       </p>
+   */
+  Id?: string;
+
+  /**
+   * <p>
+   *          The web ACL capacity units (WCUs) currently being used by this web ACL.
+   *       </p>
+   */
+  Capacity?: number;
+
+  /**
+   * <p>
+   *          Specifies how WAF should handle CAPTCHA evaluations for rules that don't have their own
+   *          <code>CaptchaConfig</code> settings.
+   *       </p>
+   */
+  CaptchaConfig?: AwsWafv2WebAclCaptchaConfigDetails;
+
+  /**
+   * <p>
+   *          The action to perform if none of the Rules contained in the web ACL match.
+   *       </p>
+   */
+  DefaultAction?: AwsWafv2WebAclActionDetails;
+
+  /**
+   * <p>
+   *          A description of the web ACL that helps with identification.
+   *       </p>
+   */
+  Description?: string;
+
+  /**
+   * <p>
+   *          The Rule statements used to identify the web requests that you want to allow, block, or count. Each rule includes one
+   *          top-level statement that WAF uses to identify matching web requests, and parameters that govern how
+   *          WAF handles them.
+   *       </p>
+   */
+  Rules?: AwsWafv2RulesDetails[];
+
+  /**
+   * <p>
+   *          Defines and enables Amazon CloudWatch metrics and web request sample collection.
+   *       </p>
+   */
+  VisibilityConfig?: AwsWafv2VisibilityConfigDetails;
+}
+
+/**
  * <p>Details about the action that CloudFront or WAF takes when a web request matches the
  *          conditions in the rule. </p>
  */
@@ -5890,6 +7454,34 @@ export interface ResourceDetails {
    *       </p>
    */
   AwsBackupRecoveryPoint?: AwsBackupRecoveryPointDetails;
+
+  /**
+   * <p>
+   *          Specifies the properties for creating an Amazon Elastic Compute Cloud (Amazon EC2) launch template.
+   *       </p>
+   */
+  AwsEc2LaunchTemplate?: AwsEc2LaunchTemplateDetails;
+
+  /**
+   * <p>
+   *          Provides details about an Amazon SageMaker notebook instance.
+   *       </p>
+   */
+  AwsSageMakerNotebookInstance?: AwsSageMakerNotebookInstanceDetails;
+
+  /**
+   * <p>
+   *          Details about an WAFv2 web Access Control List (ACL).
+   *       </p>
+   */
+  AwsWafv2WebAcl?: AwsWafv2WebAclDetails;
+
+  /**
+   * <p>
+   *          Details about an WAFv2 rule group.
+   *       </p>
+   */
+  AwsWafv2RuleGroup?: AwsWafv2RuleGroupDetails;
 }
 
 export enum Partition {
@@ -8503,680 +10095,270 @@ export interface DescribeProductsResponse {
   NextToken?: string;
 }
 
-export interface DescribeStandardsRequest {
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeStandards</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of standards to return.</p>
-   */
-  MaxResults?: number;
-}
+/**
+ * @internal
+ */
+export const AwsIamInstanceProfileRoleFilterSensitiveLog = (obj: AwsIamInstanceProfileRole): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides details about the management of a security standard.</p>
+ * @internal
  */
-export interface StandardsManagedBy {
-  /**
-   * <p>An identifier for the company that manages a specific security standard. For existing
-   *          standards, the value is equal to <code>Amazon Web Services</code>.</p>
-   */
-  Company?: string;
-
-  /**
-   * <p>An identifier for the product that manages a specific security standard. For existing
-   *          standards, the value is equal to the Amazon Web Services service that manages the
-   *          standard.</p>
-   */
-  Product?: string;
-}
+export const AwsIamInstanceProfileFilterSensitiveLog = (obj: AwsIamInstanceProfile): any => ({
+  ...obj,
+});
 
 /**
- * <p>Provides information about a specific security standard.</p>
+ * @internal
  */
-export interface Standard {
-  /**
-   * <p>The ARN of a standard.</p>
-   */
-  StandardsArn?: string;
-
-  /**
-   * <p>The name of the standard.</p>
-   */
-  Name?: string;
-
-  /**
-   * <p>A description of the standard.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>Whether the standard is enabled by default. When Security Hub is enabled from the console, if a
-   *          standard is enabled by default, the check box for that standard is selected by
-   *          default.</p>
-   *          <p>When Security Hub is enabled using the <code>EnableSecurityHub</code> API operation, the
-   *          standard is enabled by default unless <code>EnableDefaultStandards</code> is set to
-   *             <code>false</code>.</p>
-   */
-  EnabledByDefault?: boolean;
-
-  /**
-   * <p>Provides details about the management of a standard.
-   *       </p>
-   */
-  StandardsManagedBy?: StandardsManagedBy;
-}
-
-export interface DescribeStandardsResponse {
-  /**
-   * <p>A list of available standards.</p>
-   */
-  Standards?: Standard[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DescribeStandardsControlsRequest {
-  /**
-   * <p>The ARN of a resource that represents your subscription to a supported standard. To get
-   *          the subscription ARNs of the standards you have enabled, use the <code>GetEnabledStandards</code> operation.</p>
-   */
-  StandardsSubscriptionArn: string | undefined;
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>DescribeStandardsControls</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of security standard controls to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export enum SeverityRating {
-  CRITICAL = "CRITICAL",
-  HIGH = "HIGH",
-  LOW = "LOW",
-  MEDIUM = "MEDIUM",
-}
+export const AwsIamPermissionsBoundaryFilterSensitiveLog = (obj: AwsIamPermissionsBoundary): any => ({
+  ...obj,
+});
 
 /**
- * <p>Details for an individual security standard control.</p>
+ * @internal
  */
-export interface StandardsControl {
-  /**
-   * <p>The ARN of the security standard control.</p>
-   */
-  StandardsControlArn?: string;
-
-  /**
-   * <p>The current status of the security standard control. Indicates whether the control is
-   *          enabled or disabled. Security Hub does not check against disabled controls.</p>
-   */
-  ControlStatus?: ControlStatus | string;
-
-  /**
-   * <p>The reason provided for the most recent change in status for the control.</p>
-   */
-  DisabledReason?: string;
-
-  /**
-   * <p>The date and time that the status of the security standard control was most recently
-   *          updated.</p>
-   */
-  ControlStatusUpdatedAt?: Date;
-
-  /**
-   * <p>The identifier of the security standard control.</p>
-   */
-  ControlId?: string;
-
-  /**
-   * <p>The title of the security standard control.</p>
-   */
-  Title?: string;
-
-  /**
-   * <p>The longer description of the security standard control. Provides information about what
-   *          the control is checking for.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>A link to remediation information for the control in the Security Hub user
-   *          documentation.</p>
-   */
-  RemediationUrl?: string;
-
-  /**
-   * <p>The severity of findings generated from this security standard control.</p>
-   *          <p>The finding severity is based on an assessment of how easy it would be to compromise Amazon Web Services
-   *          resources if the issue is detected.</p>
-   */
-  SeverityRating?: SeverityRating | string;
-
-  /**
-   * <p>The list of requirements that are related to this control.</p>
-   */
-  RelatedRequirements?: string[];
-}
-
-export interface DescribeStandardsControlsResponse {
-  /**
-   * <p>A list of security standards controls.</p>
-   */
-  Controls?: StandardsControl[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface DisableImportFindingsForProductRequest {
-  /**
-   * <p>The ARN of the integrated product to disable the integration for.</p>
-   */
-  ProductSubscriptionArn: string | undefined;
-}
-
-export interface DisableImportFindingsForProductResponse {}
-
-export interface DisableOrganizationAdminAccountRequest {
-  /**
-   * <p>The Amazon Web Services account identifier of the Security Hub administrator account.</p>
-   */
-  AdminAccountId: string | undefined;
-}
-
-export interface DisableOrganizationAdminAccountResponse {}
-
-export interface DisableSecurityHubRequest {}
-
-export interface DisableSecurityHubResponse {}
-
-export interface DisassociateFromAdministratorAccountRequest {}
-
-export interface DisassociateFromAdministratorAccountResponse {}
-
-export interface DisassociateFromMasterAccountRequest {}
-
-export interface DisassociateFromMasterAccountResponse {}
-
-export interface DisassociateMembersRequest {
-  /**
-   * <p>The account IDs of the member accounts to disassociate from the administrator account.</p>
-   */
-  AccountIds: string[] | undefined;
-}
-
-export interface DisassociateMembersResponse {}
-
-export interface EnableImportFindingsForProductRequest {
-  /**
-   * <p>The ARN of the product to enable the integration for.</p>
-   */
-  ProductArn: string | undefined;
-}
-
-export interface EnableImportFindingsForProductResponse {
-  /**
-   * <p>The ARN of your subscription to the product to enable integrations for.</p>
-   */
-  ProductSubscriptionArn?: string;
-}
-
-export interface EnableOrganizationAdminAccountRequest {
-  /**
-   * <p>The Amazon Web Services account identifier of the account to designate as the Security Hub administrator
-   *          account.</p>
-   */
-  AdminAccountId: string | undefined;
-}
-
-export interface EnableOrganizationAdminAccountResponse {}
-
-export interface EnableSecurityHubRequest {
-  /**
-   * <p>The tags to add to the hub resource when you enable Security Hub.</p>
-   */
-  Tags?: Record<string, string>;
-
-  /**
-   * <p>Whether to enable the security standards that Security Hub has designated as automatically
-   *          enabled. If you do not provide a value for <code>EnableDefaultStandards</code>, it is set
-   *          to <code>true</code>. To not enable the automatically enabled standards, set
-   *             <code>EnableDefaultStandards</code> to <code>false</code>.</p>
-   */
-  EnableDefaultStandards?: boolean;
-}
-
-export interface EnableSecurityHubResponse {}
+export const AwsIamPolicyVersionFilterSensitiveLog = (obj: AwsIamPolicyVersion): any => ({
+  ...obj,
+});
 
 /**
- * <p>A finding aggregator. A finding aggregator contains the configuration for finding aggregation.</p>
+ * @internal
  */
-export interface FindingAggregator {
-  /**
-   * <p>The ARN of the finding aggregator. You use the finding aggregator ARN to retrieve details for, update, and delete the finding aggregator.</p>
-   */
-  FindingAggregatorArn?: string;
-}
-
-export interface GetAdministratorAccountRequest {}
+export const AwsIamPolicyDetailsFilterSensitiveLog = (obj: AwsIamPolicyDetails): any => ({
+  ...obj,
+});
 
 /**
- * <p>Details about an invitation.</p>
+ * @internal
  */
-export interface Invitation {
-  /**
-   * <p>The account ID of the Security Hub administrator account that the invitation was sent from.</p>
-   */
-  AccountId?: string;
-
-  /**
-   * <p>The ID of the invitation sent to the member account.</p>
-   */
-  InvitationId?: string;
-
-  /**
-   * <p>The timestamp of when the invitation was sent.</p>
-   */
-  InvitedAt?: Date;
-
-  /**
-   * <p>The current status of the association between the member and administrator accounts.</p>
-   */
-  MemberStatus?: string;
-}
-
-export interface GetAdministratorAccountResponse {
-  /**
-   * <p>Details about an invitation.</p>
-   */
-  Administrator?: Invitation;
-}
-
-export interface GetEnabledStandardsRequest {
-  /**
-   * <p>The list of the standards subscription ARNs for the standards to retrieve.</p>
-   */
-  StandardsSubscriptionArns?: string[];
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetEnabledStandards</code> operation, set the value of this parameter to
-   *             <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of results to return in the response.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface GetEnabledStandardsResponse {
-  /**
-   * <p>The list of <code>StandardsSubscriptions</code> objects that include information about
-   *          the enabled standards.</p>
-   */
-  StandardsSubscriptions?: StandardsSubscription[];
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface GetFindingAggregatorRequest {
-  /**
-   * <p>The ARN of the finding aggregator to return details for. To obtain the ARN, use <code>ListFindingAggregators</code>.</p>
-   */
-  FindingAggregatorArn: string | undefined;
-}
-
-export interface GetFindingAggregatorResponse {
-  /**
-   * <p>The ARN of the finding aggregator.</p>
-   */
-  FindingAggregatorArn?: string;
-
-  /**
-   * <p>The aggregation Region.</p>
-   */
-  FindingAggregationRegion?: string;
-
-  /**
-   * <p>Indicates whether to link all Regions, all Regions except for a list of excluded Regions, or a list of included Regions.</p>
-   */
-  RegionLinkingMode?: string;
-
-  /**
-   * <p>The list of excluded Regions or included Regions.</p>
-   */
-  Regions?: string[];
-}
-
-export enum SortOrder {
-  ASCENDING = "asc",
-  DESCENDING = "desc",
-}
+export const AwsIamRolePolicyFilterSensitiveLog = (obj: AwsIamRolePolicy): any => ({
+  ...obj,
+});
 
 /**
- * <p>A collection of finding attributes used to sort findings.</p>
+ * @internal
  */
-export interface SortCriterion {
-  /**
-   * <p>The finding attribute used to sort findings.</p>
-   */
-  Field?: string;
-
-  /**
-   * <p>The order used to sort findings.</p>
-   */
-  SortOrder?: SortOrder | string;
-}
-
-export interface GetFindingsRequest {
-  /**
-   * <p>The finding attributes used to define a condition to filter the returned
-   *          findings.</p>
-   *          <p>You can filter by up to 10 finding attributes. For each attribute, you can provide up to
-   *          20 filter values.</p>
-   *          <p>Note that in the available filter fields, <code>WorkflowState</code> is deprecated. To
-   *          search for a finding based on its workflow status, use <code>WorkflowStatus</code>.</p>
-   */
-  Filters?: AwsSecurityFindingFilters;
-
-  /**
-   * <p>The finding attributes used to sort the list of returned findings.</p>
-   */
-  SortCriteria?: SortCriterion[];
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetFindings</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of findings to return.</p>
-   */
-  MaxResults?: number;
-}
-
-export interface GetFindingsResponse {
-  /**
-   * <p>The findings that matched the filters specified in the request.</p>
-   */
-  Findings: AwsSecurityFinding[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface GetInsightResultsRequest {
-  /**
-   * <p>The ARN of the insight for which to return results.</p>
-   */
-  InsightArn: string | undefined;
-}
+export const AwsIamRoleDetailsFilterSensitiveLog = (obj: AwsIamRoleDetails): any => ({
+  ...obj,
+});
 
 /**
- * <p>The insight result values returned by the <code>GetInsightResults</code>
- *          operation.</p>
+ * @internal
  */
-export interface InsightResultValue {
-  /**
-   * <p>The value of the attribute that the findings are grouped by for the insight whose
-   *          results are returned by the <code>GetInsightResults</code> operation.</p>
-   */
-  GroupByAttributeValue: string | undefined;
-
-  /**
-   * <p>The number of findings returned for each <code>GroupByAttributeValue</code>.</p>
-   */
-  Count: number | undefined;
-}
+export const AwsIamUserPolicyFilterSensitiveLog = (obj: AwsIamUserPolicy): any => ({
+  ...obj,
+});
 
 /**
- * <p>The insight results returned by the <code>GetInsightResults</code> operation.</p>
+ * @internal
  */
-export interface InsightResults {
-  /**
-   * <p>The ARN of the insight whose results are returned by the <code>GetInsightResults</code>
-   *          operation.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The attribute that the findings are grouped by for the insight whose results are
-   *          returned by the <code>GetInsightResults</code> operation.</p>
-   */
-  GroupByAttribute: string | undefined;
-
-  /**
-   * <p>The list of insight result values returned by the <code>GetInsightResults</code>
-   *          operation.</p>
-   */
-  ResultValues: InsightResultValue[] | undefined;
-}
-
-export interface GetInsightResultsResponse {
-  /**
-   * <p>The insight results returned by the operation.</p>
-   */
-  InsightResults: InsightResults | undefined;
-}
-
-export interface GetInsightsRequest {
-  /**
-   * <p>The ARNs of the insights to describe. If you do not provide any insight ARNs, then
-   *             <code>GetInsights</code> returns all of your custom insights. It does not return any
-   *          managed insights.</p>
-   */
-  InsightArns?: string[];
-
-  /**
-   * <p>The token that is required for pagination. On your first call to the
-   *             <code>GetInsights</code> operation, set the value of this parameter to
-   *          <code>NULL</code>.</p>
-   *          <p>For subsequent calls to the operation, to continue listing data, set the value of this
-   *          parameter to the value returned from the previous response.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return in the response.</p>
-   */
-  MaxResults?: number;
-}
+export const AwsIamUserDetailsFilterSensitiveLog = (obj: AwsIamUserDetails): any => ({
+  ...obj,
+});
 
 /**
- * <p>Contains information about a Security Hub insight.</p>
+ * @internal
  */
-export interface Insight {
-  /**
-   * <p>The ARN of a Security Hub insight.</p>
-   */
-  InsightArn: string | undefined;
-
-  /**
-   * <p>The name of a Security Hub insight.</p>
-   */
-  Name: string | undefined;
-
-  /**
-   * <p>One or more attributes used to filter the findings included in the insight. The insight
-   *          only includes findings that match the criteria defined in the filters.</p>
-   */
-  Filters: AwsSecurityFindingFilters | undefined;
-
-  /**
-   * <p>The grouping attribute for the insight's findings. Indicates how to group the matching
-   *          findings, and identifies the type of item that the insight applies to. For example, if an
-   *          insight is grouped by resource identifier, then the insight produces a list of resource
-   *          identifiers.</p>
-   */
-  GroupByAttribute: string | undefined;
-}
-
-export interface GetInsightsResponse {
-  /**
-   * <p>The insights returned by the operation.</p>
-   */
-  Insights: Insight[] | undefined;
-
-  /**
-   * <p>The pagination token to use to request the next page of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface GetInvitationsCountRequest {}
-
-export interface GetInvitationsCountResponse {
-  /**
-   * <p>The number of all membership invitations sent to this Security Hub member account, not
-   *          including the currently accepted invitation.</p>
-   */
-  InvitationsCount?: number;
-}
-
-export interface GetMasterAccountRequest {}
-
-export interface GetMasterAccountResponse {
-  /**
-   * <p>A list of details about the Security Hub administrator account for the current member account.
-   *       </p>
-   */
-  Master?: Invitation;
-}
-
-export interface GetMembersRequest {
-  /**
-   * <p>The list of account IDs for the Security Hub member accounts to return the details for. </p>
-   */
-  AccountIds: string[] | undefined;
-}
+export const AwsKinesisStreamStreamEncryptionDetailsFilterSensitiveLog = (
+  obj: AwsKinesisStreamStreamEncryptionDetails
+): any => ({
+  ...obj,
+});
 
 /**
- * <p>The details about a member account.</p>
+ * @internal
  */
-export interface Member {
-  /**
-   * <p>The Amazon Web Services account ID of the member account.</p>
-   */
-  AccountId?: string;
+export const AwsKinesisStreamDetailsFilterSensitiveLog = (obj: AwsKinesisStreamDetails): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The email address of the member account.</p>
-   */
-  Email?: string;
+/**
+ * @internal
+ */
+export const AwsKmsKeyDetailsFilterSensitiveLog = (obj: AwsKmsKeyDetails): any => ({
+  ...obj,
+});
 
-  /**
-   * @deprecated
-   *
-   * <p>This is replaced by <code>AdministratorID</code>.</p>
-   *          <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
-   */
-  MasterId?: string;
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionCodeFilterSensitiveLog = (obj: AwsLambdaFunctionCode): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The Amazon Web Services account ID of the Security Hub administrator account associated with this member account.</p>
-   */
-  AdministratorId?: string;
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionDeadLetterConfigFilterSensitiveLog = (obj: AwsLambdaFunctionDeadLetterConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The status of the relationship between the member account and its administrator account.
-   *       </p>
-   *          <p>The status can have one of the following values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code> - Indicates that the administrator account added the member account,
-   *                but has not yet invited the member account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>INVITED</code> - Indicates that the administrator account invited the member
-   *                account. The member account has not yet responded to the invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ENABLED</code> - Indicates that the member account is currently active. For
-   *                manually invited member accounts, indicates that the member account accepted the
-   *                invitation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REMOVED</code> - Indicates that the administrator account disassociated the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESIGNED</code> - Indicates that the member account disassociated themselves
-   *                from the administrator account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> - Indicates that the administrator account deleted the member
-   *                account.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ACCOUNT_SUSPENDED</code> - Indicates that an organization account was suspended from Amazon Web Services at the same time that the administrator account tried to enable the organization account as a member account.</p>
-   *             </li>
-   *          </ul>
-   */
-  MemberStatus?: string;
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionEnvironmentErrorFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironmentError): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A timestamp for the date and time when the invitation was sent to the member
-   *          account.</p>
-   */
-  InvitedAt?: Date;
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionEnvironmentFilterSensitiveLog = (obj: AwsLambdaFunctionEnvironment): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The timestamp for the date and time when the member account was updated.</p>
-   */
-  UpdatedAt?: Date;
-}
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionLayerFilterSensitiveLog = (obj: AwsLambdaFunctionLayer): any => ({
+  ...obj,
+});
 
-export interface GetMembersResponse {
-  /**
-   * <p>The list of details about the Security Hub member accounts.</p>
-   */
-  Members?: Member[];
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionTracingConfigFilterSensitiveLog = (obj: AwsLambdaFunctionTracingConfig): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The list of Amazon Web Services accounts that could not be processed. For each account, the list
-   *          includes the account ID and the email address.</p>
-   */
-  UnprocessedAccounts?: Result[];
-}
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionVpcConfigFilterSensitiveLog = (obj: AwsLambdaFunctionVpcConfig): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaFunctionDetailsFilterSensitiveLog = (obj: AwsLambdaFunctionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsLambdaLayerVersionDetailsFilterSensitiveLog = (obj: AwsLambdaLayerVersionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallSubnetMappingsDetailsFilterSensitiveLog = (
+  obj: AwsNetworkFirewallFirewallSubnetMappingsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallDetailsFilterSensitiveLog = (obj: AwsNetworkFirewallFirewallDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatefulRuleGroupReferencesDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatefulRuleGroupReferencesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomPublishMetricActionDimensionFilterSensitiveLog = (
+  obj: StatelessCustomPublishMetricActionDimension
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomPublishMetricActionFilterSensitiveLog = (obj: StatelessCustomPublishMetricAction): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StatelessCustomActionDefinitionFilterSensitiveLog = (obj: StatelessCustomActionDefinition): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatelessCustomActionsDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatelessCustomActionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyStatelessRuleGroupReferencesDetailsFilterSensitiveLog = (
+  obj: FirewallPolicyStatelessRuleGroupReferencesDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const FirewallPolicyDetailsFilterSensitiveLog = (obj: FirewallPolicyDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsNetworkFirewallFirewallPolicyDetailsFilterSensitiveLog = (
+  obj: AwsNetworkFirewallFirewallPolicyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceListDetailsFilterSensitiveLog = (obj: RuleGroupSourceListDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesHeaderDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesHeaderDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesOptionsDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesOptionsDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RuleGroupSourceStatefulRulesDetailsFilterSensitiveLog = (
+  obj: RuleGroupSourceStatefulRulesDetails
+): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -9961,6 +11143,24 @@ export const AwsS3ObjectDetailsFilterSensitiveLog = (obj: AwsS3ObjectDetails): a
 /**
  * @internal
  */
+export const AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetailsFilterSensitiveLog = (
+  obj: AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsSageMakerNotebookInstanceDetailsFilterSensitiveLog = (
+  obj: AwsSageMakerNotebookInstanceDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const AwsSecretsManagerSecretRotationRulesFilterSensitiveLog = (
   obj: AwsSecretsManagerSecretRotationRules
 ): any => ({
@@ -10349,6 +11549,115 @@ export const AwsWafRuleGroupRulesDetailsFilterSensitiveLog = (obj: AwsWafRuleGro
  * @internal
  */
 export const AwsWafRuleGroupDetailsFilterSensitiveLog = (obj: AwsWafRuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2CustomHttpHeaderFilterSensitiveLog = (obj: AwsWafv2CustomHttpHeader): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2CustomRequestHandlingDetailsFilterSensitiveLog = (
+  obj: AwsWafv2CustomRequestHandlingDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2ActionAllowDetailsFilterSensitiveLog = (obj: AwsWafv2ActionAllowDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2CustomResponseDetailsFilterSensitiveLog = (obj: AwsWafv2CustomResponseDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2ActionBlockDetailsFilterSensitiveLog = (obj: AwsWafv2ActionBlockDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2RulesActionCaptchaDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionCaptchaDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2RulesActionCountDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionCountDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2RulesActionDetailsFilterSensitiveLog = (obj: AwsWafv2RulesActionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2VisibilityConfigDetailsFilterSensitiveLog = (obj: AwsWafv2VisibilityConfigDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2RulesDetailsFilterSensitiveLog = (obj: AwsWafv2RulesDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2RuleGroupDetailsFilterSensitiveLog = (obj: AwsWafv2RuleGroupDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetailsFilterSensitiveLog = (
+  obj: AwsWafv2WebAclCaptchaConfigImmunityTimePropertyDetails
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2WebAclCaptchaConfigDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclCaptchaConfigDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2WebAclActionDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclActionDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AwsWafv2WebAclDetailsFilterSensitiveLog = (obj: AwsWafv2WebAclDetails): any => ({
   ...obj,
 });
 
@@ -10887,379 +12196,5 @@ export const ProductFilterSensitiveLog = (obj: Product): any => ({
  * @internal
  */
 export const DescribeProductsResponseFilterSensitiveLog = (obj: DescribeProductsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsRequestFilterSensitiveLog = (obj: DescribeStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsManagedByFilterSensitiveLog = (obj: StandardsManagedBy): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardFilterSensitiveLog = (obj: Standard): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsResponseFilterSensitiveLog = (obj: DescribeStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsControlsRequestFilterSensitiveLog = (obj: DescribeStandardsControlsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const StandardsControlFilterSensitiveLog = (obj: StandardsControl): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeStandardsControlsResponseFilterSensitiveLog = (obj: DescribeStandardsControlsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImportFindingsForProductRequestFilterSensitiveLog = (
-  obj: DisableImportFindingsForProductRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableImportFindingsForProductResponseFilterSensitiveLog = (
-  obj: DisableImportFindingsForProductResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: DisableOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: DisableOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSecurityHubRequestFilterSensitiveLog = (obj: DisableSecurityHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisableSecurityHubResponseFilterSensitiveLog = (obj: DisableSecurityHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromAdministratorAccountRequestFilterSensitiveLog = (
-  obj: DisassociateFromAdministratorAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromAdministratorAccountResponseFilterSensitiveLog = (
-  obj: DisassociateFromAdministratorAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromMasterAccountRequestFilterSensitiveLog = (
-  obj: DisassociateFromMasterAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateFromMasterAccountResponseFilterSensitiveLog = (
-  obj: DisassociateFromMasterAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMembersRequestFilterSensitiveLog = (obj: DisassociateMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DisassociateMembersResponseFilterSensitiveLog = (obj: DisassociateMembersResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImportFindingsForProductRequestFilterSensitiveLog = (
-  obj: EnableImportFindingsForProductRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableImportFindingsForProductResponseFilterSensitiveLog = (
-  obj: EnableImportFindingsForProductResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableOrganizationAdminAccountRequestFilterSensitiveLog = (
-  obj: EnableOrganizationAdminAccountRequest
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableOrganizationAdminAccountResponseFilterSensitiveLog = (
-  obj: EnableOrganizationAdminAccountResponse
-): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSecurityHubRequestFilterSensitiveLog = (obj: EnableSecurityHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const EnableSecurityHubResponseFilterSensitiveLog = (obj: EnableSecurityHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const FindingAggregatorFilterSensitiveLog = (obj: FindingAggregator): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdministratorAccountRequestFilterSensitiveLog = (obj: GetAdministratorAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InvitationFilterSensitiveLog = (obj: Invitation): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetAdministratorAccountResponseFilterSensitiveLog = (obj: GetAdministratorAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnabledStandardsRequestFilterSensitiveLog = (obj: GetEnabledStandardsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetEnabledStandardsResponseFilterSensitiveLog = (obj: GetEnabledStandardsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingAggregatorRequestFilterSensitiveLog = (obj: GetFindingAggregatorRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingAggregatorResponseFilterSensitiveLog = (obj: GetFindingAggregatorResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const SortCriterionFilterSensitiveLog = (obj: SortCriterion): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsRequestFilterSensitiveLog = (obj: GetFindingsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightResultsRequestFilterSensitiveLog = (obj: GetInsightResultsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightResultValueFilterSensitiveLog = (obj: InsightResultValue): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightResultsFilterSensitiveLog = (obj: InsightResults): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightResultsResponseFilterSensitiveLog = (obj: GetInsightResultsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsRequestFilterSensitiveLog = (obj: GetInsightsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const InsightFilterSensitiveLog = (obj: Insight): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInsightsResponseFilterSensitiveLog = (obj: GetInsightsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationsCountRequestFilterSensitiveLog = (obj: GetInvitationsCountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetInvitationsCountResponseFilterSensitiveLog = (obj: GetInvitationsCountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMasterAccountRequestFilterSensitiveLog = (obj: GetMasterAccountRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMasterAccountResponseFilterSensitiveLog = (obj: GetMasterAccountResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersRequestFilterSensitiveLog = (obj: GetMembersRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const MemberFilterSensitiveLog = (obj: Member): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
   ...obj,
 });

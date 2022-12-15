@@ -18,7 +18,7 @@ import {
   GetMasterAccountRequestFilterSensitiveLog,
   GetMasterAccountResponse,
   GetMasterAccountResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetMasterAccountCommand,
   serializeAws_restJson1GetMasterAccountCommand,

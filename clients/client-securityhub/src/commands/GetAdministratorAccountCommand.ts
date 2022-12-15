@@ -18,7 +18,7 @@ import {
   GetAdministratorAccountRequestFilterSensitiveLog,
   GetAdministratorAccountResponse,
   GetAdministratorAccountResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1GetAdministratorAccountCommand,
   serializeAws_restJson1GetAdministratorAccountCommand,
