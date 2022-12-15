@@ -1895,7 +1895,6 @@ export enum StringComparisonType {
  *          <note>
  *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
  *             </p>
- *
  *          </note>
  */
 export interface StringCondition {
@@ -3012,9 +3011,8 @@ export interface UpdateContactFlowContentRequest {
   ContactFlowId: string | undefined;
 
   /**
-   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language-example.html">Example contact
-   *     flow in Amazon Connect Flow language</a> in the <i>Amazon Connect
-   *     Administrator Guide</i>. </p>
+   * <p>The JSON string that represents flow's content. For an example, see <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language-example.html">Example contact
+   *     flow in Amazon Connect Flow language</a>. </p>
    */
   Content: string | undefined;
 }
@@ -3823,7 +3821,6 @@ export interface QueueSearchCriteria {
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
    *             </p>
-   *
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -3840,7 +3837,6 @@ export interface QueueSearchCriteria {
  *             <p>The <code>name</code> and <code>description</code> fields support "contains" queries with
  *     a minimum of 2 characters and a maximum of 25 characters. Any queries with character lengths
  *     outside of this range will throw invalid results. </p>
- *
  *          </note>
  */
 export interface RoutingProfileSearchCriteria {
@@ -3859,7 +3855,6 @@ export interface RoutingProfileSearchCriteria {
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
    *             </p>
-   *
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -3889,7 +3884,6 @@ export interface SecurityProfileSearchCriteria {
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
    *             </p>
-   *
    *          </note>
    */
   StringCondition?: StringCondition;
@@ -4020,7 +4014,6 @@ export interface SearchSecurityProfilesRequest {
    *          <note>
    *             <p>The currently supported value for <code>FieldName</code>: <code>name</code>
    *             </p>
-   *
    *          </note>
    */
   SearchCriteria?: SecurityProfileSearchCriteria;

@@ -30,7 +30,7 @@ export interface DescribeContactFlowCommandOutput extends DescribeContactFlowRes
 
 /**
  * <p>Describes the specified flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

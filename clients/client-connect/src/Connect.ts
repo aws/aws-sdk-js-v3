@@ -795,10 +795,6 @@ import { ConnectClient } from "./ConnectClient";
  *     Guide</i>.</p>
  *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
  *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
- *          <note>
- *             <p>Working with flows? Check out the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow
- *     language</a>.</p>
- *          </note>
  */
 export class Connect extends ConnectClient {
   /**
@@ -1221,7 +1217,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a flow for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public createContactFlow(
@@ -1493,6 +1489,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Creates a rule for the specified Amazon Connect instance.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
+   *   </p>
    */
   public createRule(args: CreateRuleCommandInput, options?: __HttpHandlerOptions): Promise<CreateRuleCommandOutput>;
   public createRule(args: CreateRuleCommandInput, cb: (err: any, data?: CreateRuleCommandOutput) => void): void;
@@ -2035,7 +2033,6 @@ export class Connect extends ConnectClient {
   /**
    * <p>Deletes a traffic distribution group. This API can be called only in the Region where the traffic distribution group is
    *    created.</p>
-   *
    *          <p>For more information about deleting traffic distribution groups, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-traffic-distribution-groups.html">Delete traffic distribution groups</a> in
    *    the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -2269,7 +2266,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Describes the specified flow.</p>
-   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public describeContactFlow(
@@ -3315,7 +3312,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
-   *
    *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
    *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
    */
@@ -3543,7 +3539,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Provides information about the flows for the specified Amazon Connect instance.</p>
-   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    *          <p>For more information about flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Flows</a> in the
    *      <i>Amazon Connect Administrator Guide</i>.</p>
@@ -3748,7 +3744,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
-   *
    *          <p>Returns a paginated list of storage configs for the identified instance and resource
    *    type.</p>
    */
@@ -3882,7 +3877,6 @@ export class Connect extends ConnectClient {
    *          <p>For more information about phone numbers, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html">Set Up Phone Numbers for Your
    *     Contact Center</a> in the <i>Amazon Connect Administrator
    *    Guide</i>.</p>
-   *
    *          <important>
    *             <p>The phone number <code>Arn</code> value that is returned from each of the items in the
    *      <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ListPhoneNumbers.html#connect-ListPhoneNumbers-response-PhoneNumberSummaryList">PhoneNumberSummaryList</a> cannot be used to tag phone number resources. It will fail with
@@ -4610,7 +4604,6 @@ export class Connect extends ConnectClient {
   /**
    * <p>When a contact is being recorded, and the recording has been suspended using
    *    SuspendContactRecording, this API resumes recording the call.</p>
-   *
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public resumeContactRecording(
@@ -4775,7 +4768,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Searches users in an Amazon Connect instance, with optional filtering.</p>
-   *
    *          <note>
    *             <p>
    *                <code>AfterContactWorkTimeLimit</code> is returned in milliseconds. </p>
@@ -4840,10 +4832,8 @@ export class Connect extends ConnectClient {
   /**
    * <p>Initiates a flow to start a new chat for the customer. Response of this API provides a token
    *    required to obtain credentials from the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p>
-   *
    *          <p>When a new chat contact is successfully created, clients must subscribe to the participant’s
    *    connection for the created chat within 5 minutes. This is achieved by invoking <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>
-   *
    *          <p>A 429 error occurs in the following situations:</p>
    *          <ul>
    *             <li>
@@ -4859,7 +4849,6 @@ export class Connect extends ConnectClient {
    *          <p>If you use the <code>ChatDurationInMinutes</code> parameter and receive a 400 error, your
    *    account may not support the ability to configure custom chat durations. For more information,
    *    contact Amazon Web Services Support. </p>
-   *
    *          <p>For more information about chat, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/chat.html">Chat</a> in the <i>Amazon Connect
    *     Administrator Guide</i>.</p>
    */
@@ -4904,7 +4893,6 @@ export class Connect extends ConnectClient {
    *      at the time of the API call.</p>
    *             </li>
    *          </ul>
-   *
    *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to
    *    stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios
    *    where the recording has started and you want to suspend and resume it, such as when collecting
@@ -4980,11 +4968,9 @@ export class Connect extends ConnectClient {
   /**
    * <p>Places an outbound call to a contact, and then initiates the flow. It performs the actions
    *    in the flow that's specified (in <code>ContactFlowId</code>).</p>
-   *
    *          <p>Agents do not initiate the outbound API, which means that they do not dial the contact. If
    *    the flow places an outbound call to a contact, and then puts the contact in queue, the call is
    *    then routed to the agent, like any other inbound case.</p>
-   *
    *          <p>There is a 60-second dialing timeout for this operation. If the call is not connected after
    *    60 seconds, it fails.</p>
    *          <note>
@@ -5063,7 +5049,6 @@ export class Connect extends ConnectClient {
   /**
    * <p>Ends the specified contact. This call does not work for the following initiation
    *    methods:</p>
-   *
    *          <ul>
    *             <li>
    *                <p>DISCONNECT</p>
@@ -5105,7 +5090,6 @@ export class Connect extends ConnectClient {
    *    StartContactRecording to restart it. For scenarios where the recording has started and you want
    *    to suspend it for sensitive information (for example, to collect a credit card number), and then
    *    restart it, use SuspendContactRecording and ResumeContactRecording.</p>
-   *
    *          <p>Only voice recordings are supported at this time.</p>
    */
   public stopContactRecording(
@@ -5445,7 +5429,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates the specified flow.</p>
-   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowContent(
@@ -5575,7 +5559,7 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>The name of the flow.</p>
-   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+   *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
    *    Flow language</a>.</p>
    */
   public updateContactFlowName(
@@ -6152,6 +6136,8 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates a rule for the specified Amazon Connect instance.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/connect-rules-language.html">Rules Function language</a> to code conditions for the rule.
+   *   </p>
    */
   public updateRule(args: UpdateRuleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRuleCommandOutput>;
   public updateRule(args: UpdateRuleCommandInput, cb: (err: any, data?: UpdateRuleCommandOutput) => void): void;
@@ -6245,7 +6231,6 @@ export class Connect extends ConnectClient {
 
   /**
    * <p>Updates the traffic distribution for a given traffic distribution group. </p>
-   *
    *          <p>For more information about updating a traffic distribution group, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/update-telephony-traffic-distribution.html">Update telephony
    *     traffic distribution across Amazon Web Services Regions
    *    </a> in the <i>Amazon Connect Administrator Guide</i>. </p>

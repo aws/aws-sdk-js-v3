@@ -34,7 +34,6 @@ export interface StopContactRecordingCommandOutput extends StopContactRecordingR
  *    StartContactRecording to restart it. For scenarios where the recording has started and you want
  *    to suspend it for sensitive information (for example, to collect a credit card number), and then
  *    restart it, use SuspendContactRecording and ResumeContactRecording.</p>
- *
  *          <p>Only voice recordings are supported at this time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

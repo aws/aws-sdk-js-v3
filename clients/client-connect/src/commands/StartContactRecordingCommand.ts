@@ -40,7 +40,6 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  *      at the time of the API call.</p>
  *             </li>
  *          </ul>
- *
  *          <p>StartContactRecording is a one-time action. For example, if you use StopContactRecording to
  *    stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios
  *    where the recording has started and you want to suspend and resume it, such as when collecting

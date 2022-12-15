@@ -486,8 +486,10 @@ export enum VocabularyLanguageCode {
   EN_GB = "en-GB",
   EN_IE = "en-IE",
   EN_IN = "en-IN",
+  EN_NZ = "en-NZ",
   EN_US = "en-US",
   EN_WL = "en-WL",
+  EN_ZA = "en-ZA",
   ES_ES = "es-ES",
   ES_US = "es-US",
   FR_CA = "fr-CA",
@@ -846,7 +848,6 @@ export interface ClaimPhoneNumberRequest {
    *             request. If not provided, the Amazon Web Services
    *             SDK populates this field. For more information about idempotency, see
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
-   *
    *          <p>Pattern: <code>^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$</code>
    *          </p>
    */
@@ -1857,7 +1858,9 @@ export interface CreateSecurityProfileRequest {
   AllowedAccessControlTags?: Record<string, string>;
 
   /**
-   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect.</p>
+   * <p>The list of resources that a security profile applies tag restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code> | <code>SecurityProfile</code> | <code>Queue</code> |
+   *    <code>RoutingProfile</code>
+   *          </p>
    */
   TagRestrictedResources?: string[];
 }
@@ -2284,7 +2287,6 @@ export interface UserPhoneConfig {
 
   /**
    * <p>The After Call Work (ACW) timeout setting, in seconds.</p>
-   *
    *          <note>
    *             <p>When returned by a <code>SearchUsers</code> call, <code>AfterContactWorkTimeLimit</code> is
    *     returned in milliseconds. </p>
@@ -4640,7 +4642,6 @@ export interface GetCurrentMetricDataRequest {
    *                <p>Unit: COUNT</p>
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time">ACW</a>
    *                </p>
-   *
    *             </dd>
    *             <dt>AGENTS_AVAILABLE</dt>
    *             <dd>
@@ -4709,7 +4710,6 @@ export interface GetCurrentMetricDataRequest {
    *                   <code>{ "Metric": { "Name": "OLDEST_CONTACT_AGE", "Unit": "SECONDS" }, "Value": 24113.0
    *       </code>}</p>
    *                <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p>
-   *
    *                <p>Name in real-time metrics report: <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time">Oldest</a>
    *                </p>
    *             </dd>
@@ -5189,7 +5189,6 @@ export interface GetMetricDataRequest {
    * <p>The grouping applied to the metrics returned. For example, when results are grouped by
    *    queue, the metrics returned are grouped by queue. The values returned apply to the metrics for
    *    each queue rather than aggregated for all queues.</p>
-   *
    *          <p>If no grouping is specified, a summary of metrics for all queues is returned.</p>
    */
   Groupings?: (Grouping | string)[];
@@ -5202,7 +5201,6 @@ export interface GetMetricDataRequest {
    *             <p>This API does not support a contacts
    *     incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p>
    *          </note>
-   *
    *          <dl>
    *             <dt>ABANDON_TIME</dt>
    *             <dd>
@@ -5738,7 +5736,7 @@ export interface ListContactFlowsRequest {
 
 /**
  * <p>Contains summary information about a flow.</p>
- *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect
+ *          <p>You can also create and update flows using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/flow-language.html">Amazon Connect
  *    Flow language</a>.</p>
  */
 export interface ContactFlowSummary {
