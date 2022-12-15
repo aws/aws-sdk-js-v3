@@ -30,8 +30,7 @@ export interface CreateDataQualityRulesetCommandOutput extends CreateDataQuality
 
 /**
  * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
- *
- * 	        <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
+ *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

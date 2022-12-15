@@ -1713,8 +1713,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates a custom pattern that is used to detect sensitive data across the columns and rows of your structured data.</p>
-   *
-   * 	        <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
+   *          <p>Each custom pattern you create specifies a regular expression and an optional list of context words. If no context words are passed only a regular expression is checked.</p>
    */
   public createCustomEntityType(
     args: CreateCustomEntityTypeCommandInput,
@@ -1779,8 +1778,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates a data quality ruleset with DQDL rules applied to a specified Glue table.</p>
-   *
-   * 	        <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
+   *          <p>You create the ruleset using the Data Quality Definition Language (DQDL). For more information, see the Glue developer guide.</p>
    */
   public createDataQualityRuleset(
     args: CreateDataQualityRulesetCommandInput,
@@ -1872,12 +1870,10 @@ export class Glue extends GlueClient {
   /**
    * <p>Creates an Glue machine learning transform. This operation creates the transform and
    *       all the necessary parameters to train it.</p>
-   *
-   * 	        <p>Call this operation as the first step in the process of using a machine learning transform
+   *          <p>Call this operation as the first step in the process of using a machine learning transform
    *       (such as the <code>FindMatches</code> transform) for deduplicating data. You can provide an
    *       optional <code>Description</code>, in addition to the parameters that you want to use for your
    *       algorithm.</p>
-   *
    *          <p>You must also specify certain parameters for the tasks that Glue runs on your
    *       behalf as part of learning from your data and creating a high-quality machine learning
    *       transform. These parameters include <code>Role</code>, and optionally,
@@ -2321,8 +2317,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Delete the partition column statistics of a column.</p>
-   *
-   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeletePartition</code>.</p>
    */
   public deleteColumnStatisticsForPartition(
     args: DeleteColumnStatisticsForPartitionCommandInput,
@@ -2355,8 +2350,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
-   *
-   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>DeleteTable</code>.</p>
    */
   public deleteColumnStatisticsForTable(
     args: DeleteColumnStatisticsForTableCommandInput,
@@ -3268,8 +3262,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves partition statistics of columns.</p>
-   *
-   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetPartition</code>.</p>
    */
   public getColumnStatisticsForPartition(
     args: GetColumnStatisticsForPartitionCommandInput,
@@ -3302,7 +3295,6 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves table statistics of columns.</p>
-   *
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>GetTable</code>.</p>
    */
   public getColumnStatisticsForTable(
@@ -3864,10 +3856,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Returns information on a job bookmark entry.</p>
-   *
-   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
-   *
-   * 	        <ul>
+   *          <p>For more information about enabling and using job bookmarks, see:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
@@ -4057,8 +4047,7 @@ export class Glue extends GlueClient {
    *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
    *         <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code> and other
    *       optional parameters as documented in this section.</p>
-   *
-   * 	        <p>This operation returns a list of historic runs and must be paginated.</p>
+   *          <p>This operation returns a list of historic runs and must be paginated.</p>
    */
   public getMLTaskRuns(
     args: GetMLTaskRunsCommandInput,
@@ -5155,7 +5144,6 @@ export class Glue extends GlueClient {
    * <p>Retrieves the names of all crawler resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which
    *       resources are available in your account, and their names.</p>
-   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -5188,9 +5176,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Returns all the crawls of a specified crawler. Returns only the crawls that have occurred since the launch date of the crawler history feature, and only retains up to 12 months of crawls. Older crawls will not be returned.</p>
-   *
-   * 	        <p>You may use this API to:</p>
-   * 	        <ul>
+   *          <p>You may use this API to:</p>
+   *          <ul>
    *             <li>
    *                <p>Retrive all the crawls of a specified crawler.</p>
    *             </li>
@@ -5394,7 +5381,6 @@ export class Glue extends GlueClient {
    * <p>Retrieves the names of all <code>DevEndpoint</code> resources in this Amazon Web Services account, or the
    *       resources with the specified tag. This operation allows you to see which resources are
    *       available in your account, and their names.</p>
-   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -5430,8 +5416,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves the names of all job resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
-   *
-   * 	        <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
+   *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
    */
@@ -5648,7 +5633,6 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Retrieves the names of all trigger resources in this Amazon Web Services account, or the resources with the specified tag. This operation allows you to see which resources are available in your account, and their names.</p>
-   *
    *          <p>This operation takes the optional <code>Tags</code> field, which you can use as a filter on
    *       the response so that tagged resources can be retrieved as a group. If you choose to use tags
    *       filtering, only resources with the tag are retrieved.</p>
@@ -5875,7 +5859,7 @@ export class Glue extends GlueClient {
   /**
    * <p>Adds a new version to the existing schema. Returns an error if new version of schema does not meet the compatibility requirements of the schema set. This API will not create a new schema set and will return a 404 error if the schema set is not already present in the Schema Registry.</p>
    *          <p>If this is the first schema definition to be registered in the Schema Registry, this API will store the schema version and return immediately. Otherwise, this call has the potential to run longer than other operations due to compatibility modes. You can call the <code>GetSchemaVersion</code> API with the <code>SchemaVersionId</code> to check compatibility modes.</p>
-   * 	        <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
+   *          <p>If the same schema definition is already stored in Schema Registry as a version, the schema ID of the existing schema is returned to the caller.</p>
    */
   public registerSchemaVersion(
     args: RegisterSchemaVersionCommandInput,
@@ -5940,10 +5924,8 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Resets a bookmark entry.</p>
-   *
-   * 	        <p>For more information about enabling and using job bookmarks, see:</p>
-   *
-   * 	        <ul>
+   *          <p>For more information about enabling and using job bookmarks, see:</p>
+   *          <ul>
    *             <li>
    *                <p>
    *                   <a href="https://docs.aws.amazon.com/glue/latest/dg/monitor-continuations.html">Tracking processed data using job bookmarks</a>
@@ -6290,7 +6272,6 @@ export class Glue extends GlueClient {
    *       part of the active learning workflow that starts with the
    *         <code>StartMLLabelingSetGenerationTaskRun</code> call and that ultimately results in
    *       improving the quality of your machine learning transform. </p>
-   *
    *          <p>After the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue machine learning
    *       will have generated a series of questions for humans to answer. (Answering these questions is
    *       often called 'labeling' in the machine learning workflows). In the case of the
@@ -6300,14 +6281,12 @@ export class Glue extends GlueClient {
    *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
    *       all future runs of the machine learning transform use the new and improved labels and perform
    *       a higher-quality transformation.</p>
-   *
    *          <p>By default, <code>StartMLLabelingSetGenerationTaskRun</code> continually learns from and
    *       combines all labels that you upload unless you set <code>Replace</code> to true. If you set
    *         <code>Replace</code> to true, <code>StartImportLabelsTaskRun</code> deletes and forgets all
    *       previously uploaded labels and learns only from the exact set that you upload. Replacing
    *       labels can be helpful if you realize that you previously uploaded incorrect labels, and you
    *       believe that they are having a negative effect on your transform quality.</p>
-   *
    *          <p>You can check on the status of your task run by calling the <code>GetMLTaskRun</code>
    *       operation. </p>
    */
@@ -6368,12 +6347,10 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Starts a task to estimate the quality of the transform. </p>
-   *
-   * 	        <p>When you provide label sets as examples of truth, Glue machine learning uses some of
+   *          <p>When you provide label sets as examples of truth, Glue machine learning uses some of
    *       those examples to learn from them. The rest of the labels are used as a test to estimate
    *       quality.</p>
-   *
-   * 	        <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
+   *          <p>Returns a unique identifier for the run. You can call <code>GetMLTaskRun</code> to get more
    *       information about the stats of the <code>EvaluationTaskRun</code>.</p>
    */
   public startMLEvaluationTaskRun(
@@ -6408,14 +6385,11 @@ export class Glue extends GlueClient {
   /**
    * <p>Starts the active learning workflow for your machine learning transform to improve the
    *       transform's quality by generating label sets and adding labels.</p>
-   *
-   * 	        <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
+   *          <p>When the <code>StartMLLabelingSetGenerationTaskRun</code> finishes, Glue will have
    *       generated a "labeling set" or a set of questions for humans to answer.</p>
-   *
    *          <p>In the case of the <code>FindMatches</code> transform, these questions are of the form,
    *       “What is the correct way to group these rows together into groups composed entirely of
    *       matching records?” </p>
-   *
    *          <p>After the labeling process is finished, you can upload your labels with a call to
    *         <code>StartImportLabelsTaskRun</code>. After <code>StartImportLabelsTaskRun</code> finishes,
    *       all future runs of the machine learning transform will use the new and improved labels and
@@ -6785,7 +6759,6 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates partition statistics of columns.</p>
-   *
    *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdatePartition</code>.</p>
    */
   public updateColumnStatisticsForPartition(
@@ -6819,8 +6792,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Creates or updates table statistics of columns.</p>
-   *
-   * 	        <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
+   *          <p>The Identity and Access Management (IAM) permission required for this operation is <code>UpdateTable</code>.</p>
    */
   public updateColumnStatisticsForTable(
     args: UpdateColumnStatisticsForTableCommandInput,
@@ -7073,8 +7045,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Synchronizes a job from the source control repository. This operation takes the job artifacts that are located in the remote repository and updates the Glue internal stores with these artifacts.</p>
-   *
-   * 	        <p>This API supports optional parameters which take in the repository information.</p>
+   *          <p>This API supports optional parameters which take in the repository information.</p>
    */
   public updateJobFromSourceControl(
     args: UpdateJobFromSourceControlCommandInput,
@@ -7107,7 +7078,6 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Updates an existing machine learning transform. Call this operation to tune the algorithm parameters to achieve better results.</p>
-   *
    *          <p>After calling this operation, you can call the <code>StartMLEvaluationTaskRun</code>
    *       operation to assess how well your new parameters achieved your goals (such as improving the
    *       quality of your machine learning transform, or making it more cost-effective).</p>
@@ -7207,9 +7177,9 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Updates the description, compatibility setting, or version checkpoint for a schema set.</p>
-   * 	        <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
+   *          <p>For updating the compatibility setting, the call will not validate compatibility for the entire set of schema versions with the new compatibility setting. If the value for <code>Compatibility</code> is provided, the <code>VersionNumber</code> (a checkpoint) is also required. The API will validate the checkpoint version number for consistency.</p>
    *          <p>If the value for the <code>VersionNumber</code> (checkpoint) is provided, <code>Compatibility</code> is optional and this can be used to set/reset a checkpoint for the schema.</p>
-   * 	        <p>This update will happen only if the schema is in the AVAILABLE state.</p>
+   *          <p>This update will happen only if the schema is in the AVAILABLE state.</p>
    */
   public updateSchema(
     args: UpdateSchemaCommandInput,
@@ -7239,8 +7209,7 @@ export class Glue extends GlueClient {
 
   /**
    * <p>Synchronizes a job to the source control repository. This operation takes the job artifacts from the Glue internal stores and makes a commit to the remote repository that is configured on the job.</p>
-   *
-   * 	        <p>This API supports optional parameters which take in the repository information.</p>
+   *          <p>This API supports optional parameters which take in the repository information.</p>
    */
   public updateSourceControlFromJob(
     args: UpdateSourceControlFromJobCommandInput,

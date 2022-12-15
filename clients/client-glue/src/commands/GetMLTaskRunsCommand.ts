@@ -34,8 +34,7 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  *       workflows. You can get a sortable, filterable list of machine learning task runs by calling
  *         <code>GetMLTaskRuns</code> with their parent transform's <code>TransformID</code> and other
  *       optional parameters as documented in this section.</p>
- *
- * 	        <p>This operation returns a list of historic runs and must be paginated.</p>
+ *          <p>This operation returns a list of historic runs and must be paginated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

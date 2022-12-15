@@ -16330,6 +16330,7 @@ const serializeAws_json1_1DeleteWorkflowRequest = (input: DeleteWorkflowRequest,
 const serializeAws_json1_1DeltaTarget = (input: DeltaTarget, context: __SerdeContext): any => {
   return {
     ...(input.ConnectionName != null && { ConnectionName: input.ConnectionName }),
+    ...(input.CreateNativeDeltaTable != null && { CreateNativeDeltaTable: input.CreateNativeDeltaTable }),
     ...(input.DeltaTables != null && { DeltaTables: serializeAws_json1_1PathList(input.DeltaTables, context) }),
     ...(input.WriteManifest != null && { WriteManifest: input.WriteManifest }),
   };
@@ -21979,6 +21980,7 @@ const deserializeAws_json1_1DeleteWorkflowResponse = (output: any, context: __Se
 const deserializeAws_json1_1DeltaTarget = (output: any, context: __SerdeContext): DeltaTarget => {
   return {
     ConnectionName: __expectString(output.ConnectionName),
+    CreateNativeDeltaTable: __expectBoolean(output.CreateNativeDeltaTable),
     DeltaTables: output.DeltaTables != null ? deserializeAws_json1_1PathList(output.DeltaTables, context) : undefined,
     WriteManifest: __expectBoolean(output.WriteManifest),
   } as any;
