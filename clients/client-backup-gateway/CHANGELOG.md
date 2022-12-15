@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
+
+
+### Features
+
+* **client-backup-gateway:** This release adds support for VMware vSphere tags, enabling customer to protect VMware virtual machines using tag-based policies for AWS tags mapped from vSphere tags. This release also adds support for customer-accessible gateway-hypervisor interaction log and upload bandwidth rate limit schedule. ([3be5548](https://github.com/aws/aws-sdk-js-v3/commit/3be5548085a6c8d0334fe1fc99997f6bca9daee4))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-backup-gateway

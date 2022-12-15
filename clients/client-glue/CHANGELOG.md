@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
+
+
+### Features
+
+* **client-glue:** This release adds support for AWS Glue Crawler with native DeltaLake tables, allowing Crawlers to classify Delta Lake format tables and catalog them for query engines to query against. ([01677c5](https://github.com/aws/aws-sdk-js-v3/commit/01677c5efaad0d64f4d5a835b9061cca4956f50d))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-glue

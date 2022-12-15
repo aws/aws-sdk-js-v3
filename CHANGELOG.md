@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
+
+
+### Features
+
+* **client-backup-gateway:** This release adds support for VMware vSphere tags, enabling customer to protect VMware virtual machines using tag-based policies for AWS tags mapped from vSphere tags. This release also adds support for customer-accessible gateway-hypervisor interaction log and upload bandwidth rate limit schedule. ([3be5548](https://github.com/aws/aws-sdk-js-v3/commit/3be5548085a6c8d0334fe1fc99997f6bca9daee4))
+* **client-connect:** Added support for "English - New Zealand" and "English - South African" to be used with Amazon Connect Custom Vocabulary APIs. ([fde7be0](https://github.com/aws/aws-sdk-js-v3/commit/fde7be0e40bf127c578355df7f00194388e731ac))
+* **client-ecs:** This release adds support for container port ranges in ECS, a new capability that allows customers to provide container port ranges to simplify use cases where multiple ports are in use in a container. This release updates TaskDefinition mutation APIs and the Task description APIs. ([00d2802](https://github.com/aws/aws-sdk-js-v3/commit/00d28022bd9dafc7853c9a8aa8d80010433811e2))
+* **client-eks:** Add support for Windows managed nodes groups. ([aeac725](https://github.com/aws/aws-sdk-js-v3/commit/aeac7257ea651c6587898c8890872ba3d92d15c2))
+* **client-glue:** This release adds support for AWS Glue Crawler with native DeltaLake tables, allowing Crawlers to classify Delta Lake format tables and catalog them for query engines to query against. ([01677c5](https://github.com/aws/aws-sdk-js-v3/commit/01677c5efaad0d64f4d5a835b9061cca4956f50d))
+* **client-kinesis:** Added StreamARN parameter for Kinesis Data Streams APIs. Added a new opaque pagination token for ListStreams. SDKs will auto-generate Account Endpoint when accessing Kinesis Data Streams. ([edf53ee](https://github.com/aws/aws-sdk-js-v3/commit/edf53ee83c5c0cd89a4eee6f072eb5fea8b071c2))
+* **client-m2:** Adds an optional create-only `KmsKeyId` property to Environment and Application resources. ([8de2577](https://github.com/aws/aws-sdk-js-v3/commit/8de25773b4de607224e74c0744e0a9c32fd33b51))
+* **client-sagemaker:** SageMaker Inference Recommender now allows customers to load tests their models on various instance types using private VPC. ([bf33646](https://github.com/aws/aws-sdk-js-v3/commit/bf3364694c221034ebaaaf248c83a107b1bac77f))
+* **client-securityhub:** Added new resource details objects to ASFF, including resources for AwsEc2LaunchTemplate, AwsSageMakerNotebookInstance, AwsWafv2WebAcl and AwsWafv2RuleGroup. ([88ff973](https://github.com/aws/aws-sdk-js-v3/commit/88ff973c96c4333d6f688890361688f998a64105))
+* **client-translate:** Raised the input byte size limit of the Text field in the TranslateText API to 10000 bytes. ([56497b0](https://github.com/aws/aws-sdk-js-v3/commit/56497b0d6ad83d544d58d8c36ccd5e6af0b5036a))
+* **clients:** update client endpoints as of 2022-12-15 ([a3174d7](https://github.com/aws/aws-sdk-js-v3/commit/a3174d7922bdf6f1163cc321aa48094c52c68c20))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 

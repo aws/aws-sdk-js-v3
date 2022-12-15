@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
+
+
+### Features
+
+* **client-sagemaker:** SageMaker Inference Recommender now allows customers to load tests their models on various instance types using private VPC. ([bf33646](https://github.com/aws/aws-sdk-js-v3/commit/bf3364694c221034ebaaaf248c83a107b1bac77f))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker
