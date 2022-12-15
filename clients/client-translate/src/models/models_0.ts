@@ -390,14 +390,8 @@ export interface DescribeTextTranslationJobRequest {
 export interface InputDataConfig {
   /**
    * <p>The URI of the AWS S3 folder that contains the input files. Amazon Translate translates all the
-   *       files in the folder. The folder must be in the same Region as the API endpoint you are
+   *       files in the folder and all its sub-folders. The folder must be in the same Region as the API endpoint you are
    *       calling.</p>
-   *          <note>
-   *             <p>The URI can also point to a single input document, or it can provide the prefix for a collection of
-   *       input documents. For example. if you use the URI <code>S3://bucketName/prefix</code> and the
-   *       prefix is a single file, Amazon Translate uses that files as input. If more than one file begins with the
-   *       prefix, Amazon Translate uses all of them as input.</p>
-   *          </note>
    */
   S3Uri: string | undefined;
 
@@ -518,7 +512,7 @@ export interface TranslationSettings {
    *       ignore the formality setting.</p>
    *          <p> If you specify multiple target languages for the job, translate ignores
    *       the formality setting for any unsupported target language.</p>
-   *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html">Setting Formality</a>
+   *          <p>For a list of target languages that support formality, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-formality.html#customizing-translations-formality-languages">Supported languages</a>
    *       in the Amazon Translate Developer Guide.</p>
    */
   Formality?: Formality | string;
@@ -530,8 +524,7 @@ export interface TranslationSettings {
    *       “?$#@$“. This 5-character sequence is used for each profane word or phrase, regardless of the
    *       length or number of words.</p>
    *          <p>Amazon Translate doesn't detect profanity in all of its supported languages. For languages
-   *       that support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html">Masking
-   *         profanity</a> in the Amazon Translate Developer Guide.</p>
+   *       that don't support profanity detection, see <a href="https://docs.aws.amazon.com/translate/latest/dg/customizing-translations-profanity.html#customizing-translations-profanity-languages">Unsupported languages</a> in the Amazon Translate Developer Guide.</p>
    *          <p>If you specify multiple target languages for the job, all the
    *       target languages must support profanity masking. If any of the
    *       target languages don't support profanity masking, the
@@ -1348,17 +1341,18 @@ export interface StartTextTranslationJobRequest {
   DataAccessRoleArn: string | undefined;
 
   /**
-   * <p>The language code of the input language. For a list of language codes, see
+   * <p>The language code of the input language. Specify the language if all input documents share the same language.
+   *       If you don't know the language of the source files, or your input documents contains different source
+   *       languages, select <code>auto</code>. Amazon Translate auto detects the source language for each input document.
+   *       For a list of supported language codes, see
    *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
-   *          <p>Amazon Translate does not automatically detect a source language during batch translation jobs.</p>
    */
   SourceLanguageCode: string | undefined;
 
   /**
    * <p>The target languages of the translation job. Enter up to 10 language codes.
    *       Each input file is translated into each target language.</p>
-   *          <p>Each language code is two or five characters long. For a list of language codes, see
-   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
+   *          <p>Each language code is 2 or 5 characters long. For a list of language codes, see <a href="https://docs.aws.amazon.com/translate/latest/dg/what-is-languages.html">Supported languages</a>.</p>
    */
   TargetLanguageCodes: string[] | undefined;
 
@@ -1598,8 +1592,8 @@ export class TextSizeLimitExceededException extends __BaseException {
 
 export interface TranslateTextRequest {
   /**
-   * <p>The text to translate. The text string can be a maximum of 5,000 bytes long. Depending on
-   *       your character set, this may be fewer than 5,000 characters.</p>
+   * <p>The text to translate. The text string can be a maximum of 10,000 bytes long. Depending on
+   *       your character set, this may be fewer than 10,000 characters.</p>
    */
   Text: string | undefined;
 

@@ -90,7 +90,7 @@ import {
 import { TranslateClient } from "./TranslateClient";
 
 /**
- * <p>Provides language translation for input text in the source language to the specified target language.</p>
+ * <p>Provides translation of the input content from the source language to the target language.</p>
  */
 export class Translate extends TranslateClient {
   /**
@@ -493,16 +493,13 @@ export class Translate extends TranslateClient {
   /**
    * <p>Starts an asynchronous batch translation job. Use batch translation jobs to
    *       translate large volumes of text across multiple documents at once.
-   *       For batch translation, the input documents must share the same source language. You can specify one
+   *       For batch translation, you can input documents with different source languages (specify <code>auto</code>
+   *       as the source language). You can specify one
    *       or more target languages. Batch translation translates each input document into each of the target languages.
    *       For more information, see
-   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>
-   *          </p>
+   *       <a href="https://docs.aws.amazon.com/translate/latest/dg/async.html">Asynchronous batch processing</a>.</p>
    *
    *          <p>Batch translation jobs can be described with the <a>DescribeTextTranslationJob</a> operation, listed with the <a>ListTextTranslationJobs</a> operation, and stopped with the <a>StopTextTranslationJob</a> operation.</p>
-   *          <note>
-   *             <p>Amazon Translate does not support batch translation of multiple source languages at once.</p>
-   *          </note>
    */
   public startTextTranslationJob(
     args: StartTextTranslationJobCommandInput,
