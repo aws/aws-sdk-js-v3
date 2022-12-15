@@ -27,7 +27,22 @@ import {
   DisassociateGatewayFromServerCommandInput,
   DisassociateGatewayFromServerCommandOutput,
 } from "./commands/DisassociateGatewayFromServerCommand";
+import {
+  GetBandwidthRateLimitScheduleCommand,
+  GetBandwidthRateLimitScheduleCommandInput,
+  GetBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/GetBandwidthRateLimitScheduleCommand";
 import { GetGatewayCommand, GetGatewayCommandInput, GetGatewayCommandOutput } from "./commands/GetGatewayCommand";
+import {
+  GetHypervisorCommand,
+  GetHypervisorCommandInput,
+  GetHypervisorCommandOutput,
+} from "./commands/GetHypervisorCommand";
+import {
+  GetHypervisorPropertyMappingsCommand,
+  GetHypervisorPropertyMappingsCommandInput,
+  GetHypervisorPropertyMappingsCommandOutput,
+} from "./commands/GetHypervisorPropertyMappingsCommand";
 import {
   GetVirtualMachineCommand,
   GetVirtualMachineCommandInput,
@@ -59,10 +74,25 @@ import {
   ListVirtualMachinesCommandOutput,
 } from "./commands/ListVirtualMachinesCommand";
 import {
+  PutBandwidthRateLimitScheduleCommand,
+  PutBandwidthRateLimitScheduleCommandInput,
+  PutBandwidthRateLimitScheduleCommandOutput,
+} from "./commands/PutBandwidthRateLimitScheduleCommand";
+import {
+  PutHypervisorPropertyMappingsCommand,
+  PutHypervisorPropertyMappingsCommandInput,
+  PutHypervisorPropertyMappingsCommandOutput,
+} from "./commands/PutHypervisorPropertyMappingsCommand";
+import {
   PutMaintenanceStartTimeCommand,
   PutMaintenanceStartTimeCommandInput,
   PutMaintenanceStartTimeCommandOutput,
 } from "./commands/PutMaintenanceStartTimeCommand";
+import {
+  StartVirtualMachinesMetadataSyncCommand,
+  StartVirtualMachinesMetadataSyncCommandInput,
+  StartVirtualMachinesMetadataSyncCommandOutput,
+} from "./commands/StartVirtualMachinesMetadataSyncCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   TestHypervisorConfigurationCommand,
@@ -266,6 +296,41 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * <p>Retrieves the bandwidth rate limit schedule for a specified gateway.
+   *       By default, gateways do not have bandwidth rate limit schedules, which means
+   *       no bandwidth rate limiting is in effect. Use this to get a gateway's
+   *       bandwidth rate limit schedule.</p>
+   */
+  public getBandwidthRateLimitSchedule(
+    args: GetBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBandwidthRateLimitScheduleCommandOutput>;
+  public getBandwidthRateLimitSchedule(
+    args: GetBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: GetBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public getBandwidthRateLimitSchedule(
+    args: GetBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public getBandwidthRateLimitSchedule(
+    args: GetBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: GetBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<GetBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new GetBandwidthRateLimitScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>By providing the ARN (Amazon Resource Name), this
    *       API returns the gateway.</p>
    */
@@ -282,6 +347,74 @@ export class BackupGateway extends BackupGatewayClient {
     cb?: (err: any, data?: GetGatewayCommandOutput) => void
   ): Promise<GetGatewayCommandOutput> | void {
     const command = new GetGatewayCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action requests information about the specified hypervisor to which the gateway will connect.
+   *       A hypervisor is hardware, software, or firmware that creates and manages virtual machines,
+   *       and allocates resources to them.</p>
+   */
+  public getHypervisor(
+    args: GetHypervisorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHypervisorCommandOutput>;
+  public getHypervisor(
+    args: GetHypervisorCommandInput,
+    cb: (err: any, data?: GetHypervisorCommandOutput) => void
+  ): void;
+  public getHypervisor(
+    args: GetHypervisorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHypervisorCommandOutput) => void
+  ): void;
+  public getHypervisor(
+    args: GetHypervisorCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHypervisorCommandOutput) => void),
+    cb?: (err: any, data?: GetHypervisorCommandOutput) => void
+  ): Promise<GetHypervisorCommandOutput> | void {
+    const command = new GetHypervisorCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action retrieves the property mappings for the specified hypervisor.
+   *       A hypervisor property mapping displays the relationship of entity properties
+   *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
+   */
+  public getHypervisorPropertyMappings(
+    args: GetHypervisorPropertyMappingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetHypervisorPropertyMappingsCommandOutput>;
+  public getHypervisorPropertyMappings(
+    args: GetHypervisorPropertyMappingsCommandInput,
+    cb: (err: any, data?: GetHypervisorPropertyMappingsCommandOutput) => void
+  ): void;
+  public getHypervisorPropertyMappings(
+    args: GetHypervisorPropertyMappingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetHypervisorPropertyMappingsCommandOutput) => void
+  ): void;
+  public getHypervisorPropertyMappings(
+    args: GetHypervisorPropertyMappingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: GetHypervisorPropertyMappingsCommandOutput) => void),
+    cb?: (err: any, data?: GetHypervisorPropertyMappingsCommandOutput) => void
+  ): Promise<GetHypervisorPropertyMappingsCommandOutput> | void {
+    const command = new GetHypervisorPropertyMappingsCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -483,6 +616,75 @@ export class BackupGateway extends BackupGatewayClient {
   }
 
   /**
+   * <p>This action sets the bandwidth rate limit schedule for a specified gateway.
+   *       By default, gateways do not have a bandwidth rate limit schedule, which means
+   *       no bandwidth rate limiting is in effect. Use this to initiate a
+   *       gateway's bandwidth rate limit schedule.</p>
+   */
+  public putBandwidthRateLimitSchedule(
+    args: PutBandwidthRateLimitScheduleCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutBandwidthRateLimitScheduleCommandOutput>;
+  public putBandwidthRateLimitSchedule(
+    args: PutBandwidthRateLimitScheduleCommandInput,
+    cb: (err: any, data?: PutBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public putBandwidthRateLimitSchedule(
+    args: PutBandwidthRateLimitScheduleCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutBandwidthRateLimitScheduleCommandOutput) => void
+  ): void;
+  public putBandwidthRateLimitSchedule(
+    args: PutBandwidthRateLimitScheduleCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutBandwidthRateLimitScheduleCommandOutput) => void),
+    cb?: (err: any, data?: PutBandwidthRateLimitScheduleCommandOutput) => void
+  ): Promise<PutBandwidthRateLimitScheduleCommandOutput> | void {
+    const command = new PutBandwidthRateLimitScheduleCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action sets the property mappings for the specified hypervisor.
+   *       A hypervisor property mapping displays the relationship of entity properties
+   *       available from the on-premises hypervisor to the properties available in Amazon Web Services.</p>
+   */
+  public putHypervisorPropertyMappings(
+    args: PutHypervisorPropertyMappingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutHypervisorPropertyMappingsCommandOutput>;
+  public putHypervisorPropertyMappings(
+    args: PutHypervisorPropertyMappingsCommandInput,
+    cb: (err: any, data?: PutHypervisorPropertyMappingsCommandOutput) => void
+  ): void;
+  public putHypervisorPropertyMappings(
+    args: PutHypervisorPropertyMappingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutHypervisorPropertyMappingsCommandOutput) => void
+  ): void;
+  public putHypervisorPropertyMappings(
+    args: PutHypervisorPropertyMappingsCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: PutHypervisorPropertyMappingsCommandOutput) => void),
+    cb?: (err: any, data?: PutHypervisorPropertyMappingsCommandOutput) => void
+  ): Promise<PutHypervisorPropertyMappingsCommandOutput> | void {
+    const command = new PutHypervisorPropertyMappingsCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Set the maintenance start time for a gateway.</p>
    */
   public putMaintenanceStartTime(
@@ -504,6 +706,38 @@ export class BackupGateway extends BackupGatewayClient {
     cb?: (err: any, data?: PutMaintenanceStartTimeCommandOutput) => void
   ): Promise<PutMaintenanceStartTimeCommandOutput> | void {
     const command = new PutMaintenanceStartTimeCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>This action sends a request to sync metadata across the specified virtual machines.</p>
+   */
+  public startVirtualMachinesMetadataSync(
+    args: StartVirtualMachinesMetadataSyncCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartVirtualMachinesMetadataSyncCommandOutput>;
+  public startVirtualMachinesMetadataSync(
+    args: StartVirtualMachinesMetadataSyncCommandInput,
+    cb: (err: any, data?: StartVirtualMachinesMetadataSyncCommandOutput) => void
+  ): void;
+  public startVirtualMachinesMetadataSync(
+    args: StartVirtualMachinesMetadataSyncCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartVirtualMachinesMetadataSyncCommandOutput) => void
+  ): void;
+  public startVirtualMachinesMetadataSync(
+    args: StartVirtualMachinesMetadataSyncCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: StartVirtualMachinesMetadataSyncCommandOutput) => void),
+    cb?: (err: any, data?: StartVirtualMachinesMetadataSyncCommandOutput) => void
+  ): Promise<StartVirtualMachinesMetadataSyncCommandOutput> | void {
+    const command = new StartVirtualMachinesMetadataSyncCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
