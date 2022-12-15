@@ -26,8 +26,12 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes tags from the specified Kinesis data stream. Removed tags are deleted and
  *             cannot be recovered after this operation successfully completes.</p>
- *         <p>If you specify a tag that does not exist, it is ignored.</p>
- *         <p>
+ *          <note>
+ *             <p>When invoking this API, it is recommended you use the <code>StreamARN</code> input
+ *                 parameter rather than the <code>StreamName</code> input parameter.</p>
+ *          </note>
+ *          <p>If you specify a tag that does not exist, it is ignored.</p>
+ *          <p>
  *             <a>RemoveTagsFromStream</a> has a limit of five transactions per second per
  *             account.</p>
  * @example
@@ -55,6 +59,8 @@ export class RemoveTagsFromStreamCommand extends $Command<
 
   public static getEndpointParameterInstructions(): EndpointParameterInstructions {
     return {
+      OperationType: { type: "staticContextParams", value: `control` },
+      StreamARN: { type: "contextParams", name: "StreamARN" },
       UseFIPS: { type: "builtInParams", name: "useFipsEndpoint" },
       Endpoint: { type: "builtInParams", name: "endpoint" },
       Region: { type: "builtInParams", name: "region" },

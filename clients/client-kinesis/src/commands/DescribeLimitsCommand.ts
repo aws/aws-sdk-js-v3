@@ -30,9 +30,9 @@ export interface DescribeLimitsCommandOutput extends DescribeLimitsOutput, __Met
 
 /**
  * <p>Describes the shard limits and usage for the account.</p>
- *         <p>If you update your account limits, the old limits might be returned for a few
+ *          <p>If you update your account limits, the old limits might be returned for a few
  *             minutes.</p>
- *         <p>This operation has a limit of one transaction per second per account.</p>
+ *          <p>This operation has a limit of one transaction per second per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
