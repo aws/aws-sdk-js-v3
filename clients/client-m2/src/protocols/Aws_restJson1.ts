@@ -182,6 +182,7 @@ export const serializeAws_restJson1CreateApplicationCommand = async (
     ...(input.definition != null && { definition: serializeAws_restJson1Definition(input.definition, context) }),
     ...(input.description != null && { description: input.description }),
     ...(input.engineType != null && { engineType: input.engineType }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
     ...(input.tags != null && { tags: serializeAws_restJson1TagMap(input.tags, context) }),
   });
@@ -287,6 +288,7 @@ export const serializeAws_restJson1CreateEnvironmentCommand = async (
       highAvailabilityConfig: serializeAws_restJson1HighAvailabilityConfig(input.highAvailabilityConfig, context),
     }),
     ...(input.instanceType != null && { instanceType: input.instanceType }),
+    ...(input.kmsKeyId != null && { kmsKeyId: input.kmsKeyId }),
     ...(input.name != null && { name: input.name }),
     ...(input.preferredMaintenanceWindow != null && { preferredMaintenanceWindow: input.preferredMaintenanceWindow }),
     ...(input.publiclyAccessible != null && { publiclyAccessible: input.publiclyAccessible }),
@@ -1636,6 +1638,9 @@ export const deserializeAws_restJson1GetApplicationCommand = async (
   if (data.environmentId != null) {
     contents.environmentId = __expectString(data.environmentId);
   }
+  if (data.kmsKeyId != null) {
+    contents.kmsKeyId = __expectString(data.kmsKeyId);
+  }
   if (data.lastStartTime != null) {
     contents.lastStartTime = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.lastStartTime)));
   }
@@ -2103,6 +2108,9 @@ export const deserializeAws_restJson1GetEnvironmentCommand = async (
   }
   if (data.instanceType != null) {
     contents.instanceType = __expectString(data.instanceType);
+  }
+  if (data.kmsKeyId != null) {
+    contents.kmsKeyId = __expectString(data.kmsKeyId);
   }
   if (data.loadBalancerArn != null) {
     contents.loadBalancerArn = __expectString(data.loadBalancerArn);

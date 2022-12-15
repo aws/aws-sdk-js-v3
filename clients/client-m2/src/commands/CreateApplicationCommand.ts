@@ -29,7 +29,7 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new application with given parameters. Requires an existing environment and
+ * <p>Creates a new application with given parameters. Requires an existing runtime environment and
  *          application definition file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

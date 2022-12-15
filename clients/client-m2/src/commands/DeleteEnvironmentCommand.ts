@@ -29,7 +29,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentRequest 
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specific environment. The environment cannot contain deployed applications. If
+ * <p>Deletes a specific runtime environment. The environment cannot contain deployed applications. If
  *          it does, you must delete those applications before you delete the environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

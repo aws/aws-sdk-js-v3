@@ -30,7 +30,7 @@ export interface ListBatchJobDefinitionsCommandOutput extends ListBatchJobDefini
 
 /**
  * <p>Lists all the available batch job definitions based on the batch job resources uploaded
- *          during the application creation. The listed batch job definitions can then be used to start
+ *          during the application creation. You can use the batch job definitions in the list to start
  *          a batch job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

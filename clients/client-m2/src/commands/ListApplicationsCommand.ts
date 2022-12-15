@@ -30,7 +30,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
 
 /**
  * <p>Lists the applications associated with a specific Amazon Web Services account. You can provide the
- *          unique identifier of a specific environment in a query parameter to see all applications
+ *          unique identifier of a specific runtime environment in a query parameter to see all applications
  *          associated with that environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
