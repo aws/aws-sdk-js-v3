@@ -39,8 +39,6 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
  *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
  *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
- *
- *
  *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
  *       ensures minimal interruption to your tasks.</p>
  * @example

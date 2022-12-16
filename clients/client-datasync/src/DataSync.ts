@@ -189,13 +189,12 @@ import { DataSyncClient } from "./DataSyncClient";
 
 /**
  * <fullname>DataSync</fullname>
- *
  *          <p>DataSync is a managed data transfer service that makes it simpler for you
  *       to automate moving data between on-premises storage and Amazon Web Services storage services. You also can use DataSync to transfer data between other cloud providers and Amazon Web Services storage services.</p>
  *          <p>This API interface reference includes documentation for using DataSync
  *       programmatically. For complete information, see the <i>
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
- *           Guide</a>
+ *         Guide</a>
  *             </i>.</p>
  */
 export class DataSync extends DataSyncClient {
@@ -248,8 +247,6 @@ export class DataSync extends DataSyncClient {
    *          <p>You can use an agent for more than one location. If a task uses multiple agents, all of
    *       them need to have status AVAILABLE for the task to run. If you use multiple agents for a
    *       source location, the status of all the agents must be AVAILABLE for the task to run. </p>
-   *
-   *
    *          <p>Agents are automatically updated by Amazon Web Services on a regular basis, using a mechanism that
    *       ensures minimal interruption to your tasks.</p>
    */
@@ -542,8 +539,6 @@ export class DataSync extends DataSyncClient {
 
   /**
    * <p>Creates an endpoint for an Amazon S3 bucket that DataSync can access for a transfer.</p>
-   *
-   *
    *          <p>For
    *       more information, see
    *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Create an Amazon S3 location</a>
@@ -617,22 +612,6 @@ export class DataSync extends DataSyncClient {
    *          <p>A task includes a source location, a destination location, and the preferences for how and
    *       when you want to transfer your data (such as bandwidth limits, scheduling, among other
    *       options).</p>
-   *          <p>When you create a task that transfers data between Amazon Web Services services in
-   *       different Amazon Web Services Regions, one of your locations must reside in the Region where
-   *       you're using DataSync.</p>
-   *          <p>For more information, see the following topics:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html">Working with DataSync locations</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html">Configure DataSync task settings</a>
-   *                </p>
-   *             </li>
-   *          </ul>
    */
   public createTask(args: CreateTaskCommandInput, options?: __HttpHandlerOptions): Promise<CreateTaskCommandOutput>;
   public createTask(args: CreateTaskCommandInput, cb: (err: any, data?: CreateTaskCommandOutput) => void): void;
@@ -719,7 +698,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Deletes a task.</p>
+   * <p>Deletes an DataSync task.</p>
    */
   public deleteTask(args: DeleteTaskCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTaskCommandOutput>;
   public deleteTask(args: DeleteTaskCommandInput, cb: (err: any, data?: DeleteTaskCommandOutput) => void): void;
@@ -1238,7 +1217,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Returns all the tags associated with a specified resource. </p>
+   * <p>Returns all the tags associated with an Amazon Web Services resource.</p>
    */
   public listTagsForResource(
     args: ListTagsForResourceCommandInput,
@@ -1328,15 +1307,8 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
-   *       an individual run of a task. Each task can have at most one <code>TaskExecution</code> at a
-   *       time.</p>
-   *          <p>
-   *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
-   *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
-   *
-   *          <p>For detailed information, see the Task Execution section in the Components and
-   *       Terminology topic in the <i>DataSync User Guide</i>.</p>
+   * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
+   *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    */
   public startTaskExecution(
     args: StartTaskExecutionCommandInput,
@@ -1368,7 +1340,9 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Applies a key-value pair to an Amazon Web Services resource.</p>
+   * <p>Applies a <i>tag</i> to an Amazon Web Services
+   *       resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.</p>
+   *          <p>These include DataSync resources, such as locations, tasks, and task executions.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
   public tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
@@ -1394,7 +1368,7 @@ export class DataSync extends DataSyncClient {
   }
 
   /**
-   * <p>Removes a tag from an Amazon Web Services resource.</p>
+   * <p>Removes tags from an Amazon Web Services resource.</p>
    */
   public untagResource(
     args: UntagResourceCommandInput,
@@ -1616,7 +1590,6 @@ export class DataSync extends DataSyncClient {
    * <p>Updates execution of a task.</p>
    *          <p>You can modify bandwidth throttling for a task execution that is running or queued.
    *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#adjust-bandwidth-throttling">Adjusting Bandwidth Throttling for a Task Execution</a>.</p>
-   *
    *          <note>
    *             <p>The only <code>Option</code> that can be modified by <code>UpdateTaskExecution</code>
    *         is <code>

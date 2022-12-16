@@ -29,7 +29,9 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Applies a key-value pair to an Amazon Web Services resource.</p>
+ * <p>Applies a <i>tag</i> to an Amazon Web Services
+ *       resource. Tags are key-value pairs that can help you manage, filter, and search for your resources.</p>
+ *          <p>These include DataSync resources, such as locations, tasks, and task executions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

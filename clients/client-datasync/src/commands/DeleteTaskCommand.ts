@@ -29,7 +29,7 @@ export interface DeleteTaskCommandInput extends DeleteTaskRequest {}
 export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a task.</p>
+ * <p>Deletes an DataSync task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

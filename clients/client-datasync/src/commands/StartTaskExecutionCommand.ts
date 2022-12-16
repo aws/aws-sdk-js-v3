@@ -29,15 +29,8 @@ export interface StartTaskExecutionCommandInput extends StartTaskExecutionReques
 export interface StartTaskExecutionCommandOutput extends StartTaskExecutionResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a specific invocation of a task. A <code>TaskExecution</code> value represents
- *       an individual run of a task. Each task can have at most one <code>TaskExecution</code> at a
- *       time.</p>
- *          <p>
- *             <code>TaskExecution</code> has the following transition phases: INITIALIZING |
- *       PREPARING | TRANSFERRING | VERIFYING | SUCCESS/FAILURE. </p>
- *
- *          <p>For detailed information, see the Task Execution section in the Components and
- *       Terminology topic in the <i>DataSync User Guide</i>.</p>
+ * <p>Starts an DataSync task. For each task, you can only run one task execution at a time.</p>
+ *          <p>There are several phases to a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/working-with-task-executions.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
