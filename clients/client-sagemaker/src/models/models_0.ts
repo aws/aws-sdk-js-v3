@@ -1208,23 +1208,23 @@ export interface InstanceGroup {
 }
 
 /**
- * <p>Describes the resources, including machine learning (ML) compute instances and ML storage volumes, to
- *             use for model training. </p>
+ * <p>Describes the resources, including machine learning (ML) compute instances and ML
+ *             storage volumes, to use for model training. </p>
  */
 export interface ResourceConfig {
   /**
    * <p>The ML compute instance type. </p>
    *          <note>
-   *             <p>SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances is in preview release starting December 9th,
-   *                 2022. </p>
+   *             <p>SageMaker Training on Amazon Elastic Compute Cloud (EC2) P4de instances is in preview release starting
+   *                 December 9th, 2022. </p>
    *             <p>
    *                <a href="http://aws.amazon.com/ec2/instance-types/p4/">Amazon EC2 P4de instances</a>
-   *                 (currently in preview) are powered by 8 NVIDIA A100 GPUs with
-   *                 80GB high-performance HBM2e GPU memory, which accelerate the speed of training
-   *                 ML models that need to be trained on large datasets of
-   *                 high-resolution data. In this preview release, Amazon SageMaker supports ML training jobs on
-   *                 P4de instances (<code>ml.p4de.24xlarge</code>) to reduce model training time. The
-   *                     <code>ml.p4de.24xlarge</code> instances are available in the following Amazon Web Services Regions. </p>
+   *                 (currently in preview) are powered by 8 NVIDIA A100 GPUs with 80GB high-performance
+   *                 HBM2e GPU memory, which accelerate the speed of training ML models that need to be
+   *                 trained on large datasets of high-resolution data. In this preview release, Amazon SageMaker
+   *                 supports ML training jobs on P4de instances (<code>ml.p4de.24xlarge</code>) to
+   *                 reduce model training time. The <code>ml.p4de.24xlarge</code> instances are
+   *                 available in the following Amazon Web Services Regions. </p>
    *             <ul>
    *                <li>
    *                   <p>US East (N. Virginia) (us-east-1)</p>
@@ -6685,7 +6685,7 @@ export interface CreateAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
    */
   UserProfileName?: string;
 
@@ -6716,7 +6716,7 @@ export interface CreateAppRequest {
   ResourceSpec?: ResourceSpec;
 
   /**
-   * <p>The name of the space.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
    */
   SpaceName?: string;
 }

@@ -21276,6 +21276,7 @@ const serializeAws_json1_1HyperParameterTuningJobConfig = (
     ...(input.ParameterRanges != null && {
       ParameterRanges: serializeAws_json1_1ParameterRanges(input.ParameterRanges, context),
     }),
+    ...(input.RandomSeed != null && { RandomSeed: input.RandomSeed }),
     ...(input.ResourceLimits != null && {
       ResourceLimits: serializeAws_json1_1ResourceLimits(input.ResourceLimits, context),
     }),
@@ -31881,6 +31882,7 @@ const deserializeAws_json1_1HyperParameterTuningJobConfig = (
       output.ParameterRanges != null
         ? deserializeAws_json1_1ParameterRanges(output.ParameterRanges, context)
         : undefined,
+    RandomSeed: __expectInt32(output.RandomSeed),
     ResourceLimits:
       output.ResourceLimits != null ? deserializeAws_json1_1ResourceLimits(output.ResourceLimits, context) : undefined,
     Strategy: __expectString(output.Strategy),

@@ -1455,24 +1455,22 @@ export interface HyperParameterTuningJobConfig {
   StrategyConfig?: HyperParameterTuningJobStrategyConfig;
 
   /**
-   * <p>The <a>HyperParameterTuningJobObjective</a> object that specifies the
-   *             objective
-   *             metric for this tuning job.</p>
+   * <p>The <a>HyperParameterTuningJobObjective</a> specifies the objective metric
+   *             used to evaluate the performance of training jobs launched by this tuning job.</p>
    */
   HyperParameterTuningJobObjective?: HyperParameterTuningJobObjective;
 
   /**
-   * <p>The <a>ResourceLimits</a> object that specifies the
-   *             maximum
-   *             number of training jobs and parallel training jobs for this tuning
+   * <p>The <a>ResourceLimits</a> object that specifies the maximum number of
+   *             training and parallel training jobs that can be used for this hyperparameter tuning
    *             job.</p>
    */
   ResourceLimits: ResourceLimits | undefined;
 
   /**
    * <p>The <a>ParameterRanges</a> object that specifies the ranges of
-   *             hyperparameters
-   *             that this tuning job searches.</p>
+   *             hyperparameters that this tuning job searches over to find the optimal configuration for
+   *             the highest model performance against .your chosen objective metric. </p>
    */
   ParameterRanges?: ParameterRanges;
 
@@ -1502,6 +1500,13 @@ export interface HyperParameterTuningJobConfig {
    * <p>The tuning job's completion criteria.</p>
    */
   TuningJobCompletionCriteria?: TuningJobCompletionCriteria;
+
+  /**
+   * <p>A value used to initialize a pseudo-random number generator. Setting a random seed and
+   *             using the same seed later for the same tuning job will allow hyperparameter optimization
+   *             to find more a consistent hyperparameter configuration between the two runs.</p>
+   */
+  RandomSeed?: number;
 }
 
 /**
@@ -1618,9 +1623,9 @@ export interface HyperParameterTuningInstanceConfig {
  *          <note>
  *             <p>
  *                <code>HyperParameterTuningResourceConfig</code> supports the capabilities of
- *                     <code>ResourceConfig</code> with the exception of <code>KeepAlivePeriodInSeconds</code>.
- *                 Hyperparameter tuning jobs use warm pools by default, which reuse clusters between
- *                 training jobs.</p>
+ *                     <code>ResourceConfig</code> with the exception of
+ *                     <code>KeepAlivePeriodInSeconds</code>. Hyperparameter tuning jobs use warm pools
+ *                 by default, which reuse clusters between training jobs.</p>
  *          </note>
  */
 export interface HyperParameterTuningResourceConfig {
@@ -8456,7 +8461,7 @@ export interface DeleteAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
    */
   UserProfileName?: string;
 
@@ -8471,7 +8476,7 @@ export interface DeleteAppRequest {
   AppName: string | undefined;
 
   /**
-   * <p>The name of the space.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
    */
   SpaceName?: string;
 }
@@ -9199,7 +9204,7 @@ export interface DescribeAppRequest {
   DomainId: string | undefined;
 
   /**
-   * <p>The user profile name.</p>
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
    */
   UserProfileName?: string;
 

@@ -236,7 +236,7 @@ export interface DescribeAppResponse {
   ResourceSpec?: ResourceSpec;
 
   /**
-   * <p>The name of the space.</p>
+   * <p>The name of the space. If this value is not set, then <code>UserProfileName</code> must be set.</p>
    */
   SpaceName?: string;
 }
@@ -9281,12 +9281,12 @@ export interface ListAppsRequest {
   DomainIdEquals?: string;
 
   /**
-   * <p>A parameter to search by user profile name.</p>
+   * <p>A parameter to search by user profile name. If <code>SpaceNameEquals</code> is set, then this value cannot be set.</p>
    */
   UserProfileNameEquals?: string;
 
   /**
-   * <p>A parameter to search by space name.</p>
+   * <p>A parameter to search by space name. If <code>UserProfileNameEquals</code> is set, then this value cannot be set.</p>
    */
   SpaceNameEquals?: string;
 }
