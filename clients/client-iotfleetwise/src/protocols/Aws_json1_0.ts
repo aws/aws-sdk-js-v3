@@ -2072,6 +2072,9 @@ const deserializeAws_json1_0GetModelManifestCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3601,6 +3604,9 @@ const deserializeAws_json1_0UpdateSignalCatalogCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.iotfleetwise#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.iotfleetwise#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
