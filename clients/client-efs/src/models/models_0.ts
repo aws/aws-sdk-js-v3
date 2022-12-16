@@ -668,11 +668,12 @@ export interface CreateFileSystemRequest {
   ThroughputMode?: ThroughputMode | string;
 
   /**
-   * <p>The throughput, measured in MiB/s, that you want to provision for a file system that
-   *       you're creating. Valid values are 1-1024. Required if <code>ThroughputMode</code> is set
-   *       to <code>provisioned</code>. The upper limit for throughput is 1024 MiB/s. To increase this
-   *       limit, contact Amazon Web Services Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a>
-   *       in the <i>Amazon EFS User Guide</i>.</p>
+   * <p>The throughput, measured in
+   *       MiB/s,
+   *       that you want to provision for a file system that you're creating. Valid values are
+   *       1-1024. Required if <code>ThroughputMode</code> is set to <code>provisioned</code>. The upper
+   *       limit for throughput is 1024 MiB/s. To increase this limit, contact Amazon Web Services Support. For
+   *       more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas that you can increase</a> in the <i>Amazon EFS User Guide</i>.</p>
    */
   ProvisionedThroughputInMibps?: number;
 
