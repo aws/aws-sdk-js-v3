@@ -4665,6 +4665,18 @@ export interface ListConnectorEntitiesRequest {
    * <p>The version of the API that's used by the connector.</p>
    */
   apiVersion?: string;
+
+  /**
+   * <p>The maximum number of items that the operation returns in the response.</p>
+   */
+  maxResults?: number;
+
+  /**
+   * <p>A token that was provided by your prior <code>ListConnectorEntities</code> operation if
+   *       the response was too big for the page size. You specify this token to get the next page of
+   *       results in paginated response.</p>
+   */
+  nextToken?: string;
 }
 
 export interface ListConnectorEntitiesResponse {
@@ -4674,6 +4686,13 @@ export interface ListConnectorEntitiesResponse {
    *       belonging to that group. </p>
    */
   connectorEntityMap: Record<string, ConnectorEntity[]> | undefined;
+
+  /**
+   * <p>A token that you specify in your next <code>ListConnectorEntities</code> operation to get
+   *       the next page of results in paginated response. The <code>ListConnectorEntities</code>
+   *       operation provides this token if the response is too big for the page size.</p>
+   */
+  nextToken?: string;
 }
 
 export interface ListConnectorsRequest {

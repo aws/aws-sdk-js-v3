@@ -547,6 +547,8 @@ export const serializeAws_restJson1ListConnectorEntitiesCommand = async (
     ...(input.connectorProfileName != null && { connectorProfileName: input.connectorProfileName }),
     ...(input.connectorType != null && { connectorType: input.connectorType }),
     ...(input.entitiesPath != null && { entitiesPath: input.entitiesPath }),
+    ...(input.maxResults != null && { maxResults: input.maxResults }),
+    ...(input.nextToken != null && { nextToken: input.nextToken }),
   });
   return new __HttpRequest({
     protocol,
@@ -1467,6 +1469,9 @@ export const deserializeAws_restJson1ListConnectorEntitiesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   if (data.connectorEntityMap != null) {
     contents.connectorEntityMap = deserializeAws_restJson1ConnectorEntityMap(data.connectorEntityMap, context);
+  }
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
   }
   return contents;
 };
