@@ -30,7 +30,7 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
 
 /**
  * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
- * 		       <p>To create a key group, you must specify at least one public key for the key group.
+ *          <p>To create a key group, you must specify at least one public key for the key group.
  * 			After you create a key group, you can reference it from one or more cache behaviors.
  * 			When you reference a key group in a cache behavior, CloudFront requires signed URLs or signed
  * 			cookies for all requests that match the cache behavior. The URLs or cookies must be

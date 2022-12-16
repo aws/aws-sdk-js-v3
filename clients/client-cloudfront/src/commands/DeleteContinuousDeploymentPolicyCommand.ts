@@ -28,7 +28,7 @@ export interface DeleteContinuousDeploymentPolicyCommandOutput extends __Metadat
 
 /**
  * <p>Deletes a continuous deployment policy.</p>
- * 		       <p>You cannot delete a continuous deployment policy that’s attached to a primary
+ *          <p>You cannot delete a continuous deployment policy that's attached to a primary
  * 			distribution. First update your distribution to remove the continuous deployment policy,
  * 			then you can delete the policy.</p>
  * @example

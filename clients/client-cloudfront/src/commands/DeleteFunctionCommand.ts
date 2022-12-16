@@ -25,10 +25,10 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a CloudFront function.</p>
- * 		       <p>You cannot delete a function if it’s associated with a cache behavior. First, update
+ *          <p>You cannot delete a function if it's associated with a cache behavior. First, update
  * 			your distributions to remove the function association from all cache behaviors, then
  * 			delete the function.</p>
- * 		       <p>To delete a function, you must provide the function’s name and version
+ *          <p>To delete a function, you must provide the function's name and version
  * 				(<code>ETag</code> value). To get these values, you can use
  * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example

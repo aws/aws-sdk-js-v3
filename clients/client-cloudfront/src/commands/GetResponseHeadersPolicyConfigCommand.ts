@@ -32,9 +32,9 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
 
 /**
  * <p>Gets a response headers policy configuration.</p>
- * 		       <p>To get a response headers policy configuration, you must provide the policy’s
- * 			identifier. If the response headers policy is attached to a distribution’s cache
- * 			behavior, you can get the policy’s identifier using <code>ListDistributions</code> or
+ *          <p>To get a response headers policy configuration, you must provide the policy's
+ * 			identifier. If the response headers policy is attached to a distribution's cache
+ * 			behavior, you can get the policy's identifier using <code>ListDistributions</code> or
  * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
  * 			cache behavior, you can get the identifier using
  * 				<code>ListResponseHeadersPolicies</code>.</p>

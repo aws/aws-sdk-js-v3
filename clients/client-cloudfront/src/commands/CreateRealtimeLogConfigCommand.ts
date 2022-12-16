@@ -30,9 +30,9 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
 
 /**
  * <p>Creates a real-time log configuration.</p>
- * 		       <p>After you create a real-time log configuration, you can attach it to one or more cache
+ *          <p>After you create a real-time log configuration, you can attach it to one or more cache
  * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
- * 		       <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the
+ *          <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

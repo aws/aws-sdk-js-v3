@@ -61,7 +61,7 @@ import {
 /**
  * <p>The length of the <code>Content-Security-Policy</code> header value in the response
  * 			headers policy exceeds the maximum.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
@@ -85,7 +85,7 @@ export class TooLongCSPInResponseHeadersPolicy extends __BaseException {
 /**
  * <p>The number of custom headers in the response headers policy exceeds the
  * 			maximum.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException {
@@ -109,7 +109,7 @@ export class TooManyCustomHeadersInResponseHeadersPolicy extends __BaseException
 /**
  * <p>You have reached the maximum number of response headers policies for this
  * 			Amazon Web Services account.</p>
- * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
  * 				<i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export class TooManyResponseHeadersPolicies extends __BaseException {
@@ -142,7 +142,7 @@ export interface StreamingLoggingConfig {
    * 				<code>Enabled</code>, and specify <code>empty Bucket</code> and <code>Prefix</code>
    * 			elements. If you specify <code>false</code> for <code>Enabled</code> but you specify
    * 			values for <code>Bucket</code> and <code>Prefix</code>, the values are automatically
-   * 			deleted. </p>
+   * 			deleted.</p>
    */
   Enabled: boolean | undefined;
 
@@ -167,7 +167,7 @@ export interface StreamingLoggingConfig {
  */
 export interface S3Origin {
   /**
-   * <p>The DNS name of the Amazon S3 origin. </p>
+   * <p>The DNS name of the Amazon S3 origin.</p>
    */
   DomainName: string | undefined;
 
@@ -175,14 +175,14 @@ export interface S3Origin {
    * <p>The CloudFront origin access identity to associate with the distribution. Use an origin
    * 			access identity to configure the distribution so that end users can only access objects
    * 			in an Amazon S3 bucket through CloudFront.</p>
-   * 		       <p>If you want end users to be able to access objects using either the CloudFront URL or the
+   *          <p>If you want end users to be able to access objects using either the CloudFront URL or the
    * 			Amazon S3 URL, specify an empty <code>OriginAccessIdentity</code> element.</p>
-   * 		       <p>To delete the origin access identity from an existing distribution, update the
+   *          <p>To delete the origin access identity from an existing distribution, update the
    * 			distribution configuration and include an empty <code>OriginAccessIdentity</code>
    * 			element.</p>
-   * 		       <p>To replace the origin access identity, update the distribution configuration and
+   *          <p>To replace the origin access identity, update the distribution configuration and
    * 			specify the new origin access identity.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content</a> in
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html">Using an Origin Access Identity to Restrict Access to Your Amazon S3 Content</a> in
    * 			the <i> Amazon CloudFront Developer Guide</i>.</p>
    */
   OriginAccessIdentity: string | undefined;
@@ -195,10 +195,10 @@ export interface StreamingDistributionConfig {
   /**
    * <p>A unique value (for example, a date-time stamp) that ensures that the request can't be
    * 			replayed.</p>
-   * 		       <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
+   *          <p>If the value of <code>CallerReference</code> is new (regardless of the content of the
    * 				<code>StreamingDistributionConfig</code> object), CloudFront creates a new
    * 			distribution.</p>
-   * 		       <p>If <code>CallerReference</code> is a value that you already sent in a previous request
+   *          <p>If <code>CallerReference</code> is a value that you already sent in a previous request
    * 			to create a distribution, CloudFront returns a <code>DistributionAlreadyExists</code>
    * 			error.</p>
    */
@@ -206,24 +206,24 @@ export interface StreamingDistributionConfig {
 
   /**
    * <p>A complex type that contains information about the Amazon S3 bucket from which you want
-   * 			CloudFront to get your media files for distribution. </p>
+   * 			CloudFront to get your media files for distribution.</p>
    */
   S3Origin: S3Origin | undefined;
 
   /**
    * <p>A complex type that contains information about CNAMEs (alternate domain names), if
-   * 			any, for this streaming distribution. </p>
+   * 			any, for this streaming distribution.</p>
    */
   Aliases?: Aliases;
 
   /**
-   * <p>Any comments you want to include about the streaming distribution. </p>
+   * <p>Any comments you want to include about the streaming distribution.</p>
    */
   Comment: string | undefined;
 
   /**
    * <p>A complex type that controls whether access logs are written for the streaming
-   * 			distribution. </p>
+   * 			distribution.</p>
    */
   Logging?: StreamingLoggingConfig;
 
@@ -232,13 +232,13 @@ export interface StreamingDistributionConfig {
    * 			signed URLs for private content. If you want the distribution to use signed URLs,
    * 			include this element; if you want the distribution to use public URLs, remove this
    * 			element. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
-   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   TrustedSigners: TrustedSigners | undefined;
 
   /**
    * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
+   * 			distribution.</p>
    */
   PriceClass?: PriceClass | string;
 
@@ -284,13 +284,13 @@ export interface StreamingDistribution {
   Status: string | undefined;
 
   /**
-   * <p>The date and time that the distribution was last modified. </p>
+   * <p>The date and time that the distribution was last modified.</p>
    */
   LastModifiedTime?: Date;
 
   /**
    * <p>The domain name that corresponds to the streaming distribution, for example,
-   * 				<code>s5c39gqb8ow64r.cloudfront.net</code>. </p>
+   * 				<code>s5c39gqb8ow64r.cloudfront.net</code>.</p>
    */
   DomainName: string | undefined;
 
@@ -298,14 +298,14 @@ export interface StreamingDistribution {
    * <p>A complex type that lists the Amazon Web Services accounts, if any, that you included in the
    * 				<code>TrustedSigners</code> complex type for this distribution. These are the
    * 			accounts that you want to allow to create signed URLs for private content.</p>
-   * 		       <p>The <code>Signer</code> complex type lists the Amazon Web Services account number of the trusted
+   *          <p>The <code>Signer</code> complex type lists the Amazon Web Services account number of the trusted
    * 			signer or <code>self</code> if the signer is the Amazon Web Services account that created the
    * 			distribution. The <code>Signer</code> element also includes the IDs of any active CloudFront
    * 			key pairs that are associated with the trusted signer's Amazon Web Services account. If no
    * 				<code>KeyPairId</code> element appears for a <code>Signer</code>, that signer can't
    * 			create signed URLs.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
-   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
+   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   ActiveTrustedSigners: ActiveTrustedSigners | undefined;
 
@@ -422,17 +422,17 @@ export interface StreamingDistributionConfigWithTags {
  */
 export interface CreateStreamingDistributionWithTagsRequest {
   /**
-   * <p> The streaming distribution's configuration information. </p>
+   * <p>The streaming distribution's configuration information.</p>
    */
   StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTags | undefined;
 }
 
 /**
- * <p>The returned result of the corresponding request. </p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface CreateStreamingDistributionWithTagsResult {
   /**
-   * <p>The streaming distribution's information. </p>
+   * <p>The streaming distribution's information.</p>
    */
   StreamingDistribution?: StreamingDistribution;
 
@@ -457,7 +457,7 @@ export interface DeleteCachePolicyRequest {
 
   /**
    * <p>The version of the cache policy that you are deleting. The version is the cache
-   * 			policy’s <code>ETag</code> value, which you can get using
+   * 			policy's <code>ETag</code> value, which you can get using
    * 			<code>ListCachePolicies</code>, <code>GetCachePolicy</code>, or
    * 				<code>GetCachePolicyConfig</code>.</p>
    */
@@ -560,62 +560,62 @@ export interface DeleteContinuousDeploymentPolicyRequest {
 /**
  * <p>This action deletes a web distribution. To delete a web distribution using the CloudFront
  * 			API, perform the following steps.</p>
- * 		       <p>
- * 			         <b>To delete a web distribution using the CloudFront API:</b>
- * 		       </p>
- * 		       <ol>
+ *          <p>
+ *             <b>To delete a web distribution using the CloudFront API:</b>
+ *          </p>
+ *          <ol>
  *             <li>
- * 				           <p>Disable the web distribution </p>
- * 			         </li>
+ *                <p>Disable the web distribution</p>
+ *             </li>
  *             <li>
- * 				           <p>Submit a <code>GET Distribution Config</code> request to get the current
+ *                <p>Submit a <code>GET Distribution Config</code> request to get the current
  * 					configuration and the <code>Etag</code> header for the distribution.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Update the XML document that was returned in the response to your <code>GET
+ *                <p>Update the XML document that was returned in the response to your <code>GET
  * 						Distribution Config</code> request to change the value of
  * 						<code>Enabled</code> to <code>false</code>.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Submit a <code>PUT Distribution Config</code> request to update the
+ *                <p>Submit a <code>PUT Distribution Config</code> request to update the
  * 					configuration for your distribution. In the request body, include the XML
  * 					document that you updated in Step 3. Set the value of the HTTP
  * 						<code>If-Match</code> header to the value of the <code>ETag</code> header
  * 					that CloudFront returned when you submitted the <code>GET Distribution Config</code>
  * 					request in Step 2.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Review the response to the <code>PUT Distribution Config</code> request to
+ *                <p>Review the response to the <code>PUT Distribution Config</code> request to
  * 					confirm that the distribution was successfully disabled.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Submit a <code>GET Distribution</code> request to confirm that your changes
+ *                <p>Submit a <code>GET Distribution</code> request to confirm that your changes
  * 					have propagated. When propagation is complete, the value of <code>Status</code>
  * 					is <code>Deployed</code>.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP
+ *                <p>Submit a <code>DELETE Distribution</code> request. Set the value of the HTTP
  * 						<code>If-Match</code> header to the value of the <code>ETag</code> header
  * 					that CloudFront returned when you submitted the <code>GET Distribution Config</code>
  * 					request in Step 6.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Review the response to your <code>DELETE Distribution</code> request to
+ *                <p>Review the response to your <code>DELETE Distribution</code> request to
  * 					confirm that the distribution was successfully deleted.</p>
- * 			         </li>
+ *             </li>
  *          </ol>
- * 		       <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a
+ *          <p>For information about deleting a distribution using the CloudFront console, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/HowToDeleteDistribution.html">Deleting a
  * 				Distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  */
 export interface DeleteDistributionRequest {
   /**
-   * <p>The distribution ID. </p>
+   * <p>The distribution ID.</p>
    */
   Id: string | undefined;
 
   /**
    * <p>The value of the <code>ETag</code> header that you received when you disabled the
-   * 			distribution. For example: <code>E2QWRUHAPOMQZL</code>. </p>
+   * 			distribution. For example: <code>E2QWRUHAPOMQZL</code>.</p>
    */
   IfMatch?: string;
 }
@@ -724,7 +724,7 @@ export interface DeleteFunctionRequest {
 }
 
 /**
- * <p>Cannot delete the function because it’s attached to one or more cache
+ * <p>Cannot delete the function because it's attached to one or more cache
  * 			behaviors.</p>
  */
 export class FunctionInUse extends __BaseException {
@@ -774,7 +774,7 @@ export interface DeleteKeyGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>The version of the key group that you are deleting. The version is the key group’s
+   * <p>The version of the key group that you are deleting. The version is the key group's
    * 				<code>ETag</code> value. To get the <code>ETag</code>, use <code>GetKeyGroup</code>
    * 			or <code>GetKeyGroupConfig</code>.</p>
    */
@@ -918,7 +918,7 @@ export interface DeleteOriginRequestPolicyRequest {
 
   /**
    * <p>The version of the origin request policy that you are deleting. The version is the
-   * 			origin request policy’s <code>ETag</code> value, which you can get using
+   * 			origin request policy's <code>ETag</code> value, which you can get using
    * 				<code>ListOriginRequestPolicies</code>, <code>GetOriginRequestPolicy</code>, or
    * 				<code>GetOriginRequestPolicyConfig</code>.</p>
    */
@@ -961,7 +961,7 @@ export interface DeletePublicKeyRequest {
 }
 
 /**
- * <p>The specified public key is in use. </p>
+ * <p>The specified public key is in use.</p>
  */
 export class PublicKeyInUse extends __BaseException {
   readonly name: "PublicKeyInUse" = "PublicKeyInUse";
@@ -1018,13 +1018,13 @@ export class RealtimeLogConfigInUse extends __BaseException {
 export interface DeleteResponseHeadersPolicyRequest {
   /**
    * <p>The identifier for the response headers policy that you are deleting.</p>
-   * 		       <p>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</p>
+   *          <p>To get the identifier, you can use <code>ListResponseHeadersPolicies</code>.</p>
    */
   Id: string | undefined;
 
   /**
    * <p>The version of the response headers policy that you are deleting.</p>
-   * 		       <p>The version is the response headers policy’s <code>ETag</code> value, which you can
+   *          <p>The version is the response headers policy's <code>ETag</code> value, which you can
    * 			get using <code>ListResponseHeadersPolicies</code>,
    * 				<code>GetResponseHeadersPolicy</code>, or
    * 				<code>GetResponseHeadersPolicyConfig</code>.</p>
@@ -1034,7 +1034,7 @@ export interface DeleteResponseHeadersPolicyRequest {
 
 /**
  * <p>Cannot delete the response headers policy because it is attached to one or more cache
- * 			behaviors in a CloudFront distribution. </p>
+ * 			behaviors in a CloudFront distribution.</p>
  */
 export class ResponseHeadersPolicyInUse extends __BaseException {
   readonly name: "ResponseHeadersPolicyInUse" = "ResponseHeadersPolicyInUse";
@@ -1059,7 +1059,7 @@ export class ResponseHeadersPolicyInUse extends __BaseException {
  */
 export interface DeleteStreamingDistributionRequest {
   /**
-   * <p>The distribution ID. </p>
+   * <p>The distribution ID.</p>
    */
   Id: string | undefined;
 
@@ -1120,7 +1120,7 @@ export interface DescribeFunctionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
   Stage?: FunctionStage | string;
 }
@@ -1140,7 +1140,7 @@ export interface DescribeFunctionResult {
 export interface GetCachePolicyRequest {
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
-   * 			distribution’s cache behavior, you can get the policy’s identifier using
+   * 			distribution's cache behavior, you can get the policy's identifier using
    * 				<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
    * 			is not attached to a cache behavior, you can get the identifier using
    * 				<code>ListCachePolicies</code>.</p>
@@ -1163,7 +1163,7 @@ export interface GetCachePolicyResult {
 export interface GetCachePolicyConfigRequest {
   /**
    * <p>The unique identifier for the cache policy. If the cache policy is attached to a
-   * 			distribution’s cache behavior, you can get the policy’s identifier using
+   * 			distribution's cache behavior, you can get the policy's identifier using
    * 				<code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy
    * 			is not attached to a cache behavior, you can get the identifier using
    * 				<code>ListCachePolicies</code>.</p>
@@ -1215,7 +1215,7 @@ export interface GetCloudFrontOriginAccessIdentityResult {
  */
 export interface GetCloudFrontOriginAccessIdentityConfigRequest {
   /**
-   * <p>The identity's ID. </p>
+   * <p>The identity's ID.</p>
    */
   Id: string | undefined;
 }
@@ -1225,7 +1225,7 @@ export interface GetCloudFrontOriginAccessIdentityConfigRequest {
  */
 export interface GetCloudFrontOriginAccessIdentityConfigResult {
   /**
-   * <p>The origin access identity's configuration information. </p>
+   * <p>The origin access identity's configuration information.</p>
    */
   CloudFrontOriginAccessIdentityConfig?: CloudFrontOriginAccessIdentityConfig;
 
@@ -1418,7 +1418,7 @@ export interface GetFunctionRequest {
   Name: string | undefined;
 
   /**
-   * <p>The function’s stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
+   * <p>The function's stage, either <code>DEVELOPMENT</code> or <code>LIVE</code>.</p>
    */
   Stage?: FunctionStage | string;
 }
@@ -1441,7 +1441,7 @@ export interface GetFunctionResult {
 }
 
 /**
- * <p>The request to get an invalidation's information. </p>
+ * <p>The request to get an invalidation's information.</p>
  */
 export interface GetInvalidationRequest {
   /**
@@ -1462,7 +1462,7 @@ export interface GetInvalidationRequest {
 export interface GetInvalidationResult {
   /**
    * <p>The invalidation's information. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/InvalidationDatatype.html">Invalidation
-   * 				Complex Type</a>. </p>
+   * 				Complex Type</a>.</p>
    */
   Invalidation?: Invalidation;
 }
@@ -1584,7 +1584,7 @@ export interface GetOriginAccessControlConfigResult {
 export interface GetOriginRequestPolicyRequest {
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
-   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			attached to a distribution's cache behavior, you can get the policy's identifier using
    * 				<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
    * 			request policy is not attached to a cache behavior, you can get the identifier using
    * 				<code>ListOriginRequestPolicies</code>.</p>
@@ -1607,7 +1607,7 @@ export interface GetOriginRequestPolicyResult {
 export interface GetOriginRequestPolicyConfigRequest {
   /**
    * <p>The unique identifier for the origin request policy. If the origin request policy is
-   * 			attached to a distribution’s cache behavior, you can get the policy’s identifier using
+   * 			attached to a distribution's cache behavior, you can get the policy's identifier using
    * 				<code>ListDistributions</code> or <code>GetDistribution</code>. If the origin
    * 			request policy is not attached to a cache behavior, you can get the identifier using
    * 				<code>ListOriginRequestPolicies</code>.</p>
@@ -1687,8 +1687,8 @@ export interface GetRealtimeLogConfigResult {
 export interface GetResponseHeadersPolicyRequest {
   /**
    * <p>The identifier for the response headers policy.</p>
-   * 		       <p>If the response headers policy is attached to a distribution’s cache behavior, you can
-   * 			get the policy’s identifier using <code>ListDistributions</code> or
+   *          <p>If the response headers policy is attached to a distribution's cache behavior, you can
+   * 			get the policy's identifier using <code>ListDistributions</code> or
    * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
    * 			cache behavior, you can get the identifier using
    * 				<code>ListResponseHeadersPolicies</code>.</p>
@@ -1711,8 +1711,8 @@ export interface GetResponseHeadersPolicyResult {
 export interface GetResponseHeadersPolicyConfigRequest {
   /**
    * <p>The identifier for the response headers policy.</p>
-   * 		       <p>If the response headers policy is attached to a distribution’s cache behavior, you can
-   * 			get the policy’s identifier using <code>ListDistributions</code> or
+   *          <p>If the response headers policy is attached to a distribution's cache behavior, you can
+   * 			get the policy's identifier using <code>ListDistributions</code> or
    * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
    * 			cache behavior, you can get the identifier using
    * 				<code>ListResponseHeadersPolicies</code>.</p>
@@ -1788,17 +1788,17 @@ export interface ListCachePoliciesRequest {
   /**
    * <p>A filter to return only the specified kinds of cache policies. Valid values
    * 			are:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>managed</code> – Returns only the managed policies created by
    * 					Amazon Web Services.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>custom</code> – Returns only the custom policies created in your
    * 					Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Type?: CachePolicyType | string;
@@ -1806,8 +1806,8 @@ export interface ListCachePoliciesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			cache policies. The response includes cache policies in the list that occur after the
-   * 			marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -1825,7 +1825,7 @@ export interface ListCachePoliciesResult {
 }
 
 /**
- * <p>The request to list origin access identities. </p>
+ * <p>The request to list origin access identities.</p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesRequest {
   /**
@@ -1838,7 +1838,7 @@ export interface ListCloudFrontOriginAccessIdentitiesRequest {
   Marker?: string;
 
   /**
-   * <p>The maximum number of origin access identities you want in the response body. </p>
+   * <p>The maximum number of origin access identities you want in the response body.</p>
    */
   MaxItems?: number;
 }
@@ -1882,19 +1882,19 @@ export interface CloudFrontOriginAccessIdentityList {
    * 			access identities. The results include identities in the list that occur after the
    * 			marker. To get the next page of results, set the <code>Marker</code> to the value of the
    * 				<code>NextMarker</code> from the current page's response (which is also the ID of
-   * 			the last identity on that page). </p>
+   * 			the last identity on that page).</p>
    */
   Marker: string | undefined;
 
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    * 			the value you can use for the <code>Marker</code> request parameter to continue listing
-   * 			your origin access identities where they left off. </p>
+   * 			your origin access identities where they left off.</p>
    */
   NextMarker?: string;
 
   /**
-   * <p>The maximum number of origin access identities you want in the response body. </p>
+   * <p>The maximum number of origin access identities you want in the response body.</p>
    */
   MaxItems: number | undefined;
 
@@ -1920,11 +1920,11 @@ export interface CloudFrontOriginAccessIdentityList {
 }
 
 /**
- * <p>The returned result of the corresponding request. </p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface ListCloudFrontOriginAccessIdentitiesResult {
   /**
-   * <p>The <code>CloudFrontOriginAccessIdentityList</code> type. </p>
+   * <p>The <code>CloudFrontOriginAccessIdentityList</code> type.</p>
    */
   CloudFrontOriginAccessIdentityList?: CloudFrontOriginAccessIdentityList;
 }
@@ -1944,8 +1944,8 @@ export interface ListConflictingAliasesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in the list of
    * 			conflicting aliases. The response includes conflicting aliases in the list that occur
-   * 			after the marker. To get the next page of the list, set this field’s value to the value
-   * 			of <code>NextMarker</code> from the current page’s response.</p>
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -1957,9 +1957,9 @@ export interface ListConflictingAliasesRequest {
 
 /**
  * <p>An alias (also called a CNAME) and the CloudFront distribution and Amazon Web Services account ID that
- * 			it’s associated with. The distribution and account IDs are partially hidden, which
+ * 			it's associated with. The distribution and account IDs are partially hidden, which
  * 			allows you to identify the distributions and accounts that you own, but helps to protect
- * 			the information of ones that you don’t own.</p>
+ * 			the information of ones that you don't own.</p>
  */
 export interface ConflictingAlias {
   /**
@@ -1973,7 +1973,7 @@ export interface ConflictingAlias {
   DistributionId?: string;
 
   /**
-   * <p>The (partially hidden) ID of the Amazon Web Services account that owns the distribution that’s
+   * <p>The (partially hidden) ID of the Amazon Web Services account that owns the distribution that's
    * 			associated with the alias.</p>
    */
   AccountId?: string;
@@ -1983,7 +1983,7 @@ export interface ConflictingAlias {
  * <p>A list of aliases (also called CNAMEs) and the CloudFront distributions and Amazon Web Services accounts
  * 			that they are associated with. In the list, the distribution and account IDs are
  * 			partially hidden, which allows you to identify the distributions and accounts that you
- * 			own, but helps to protect the information of ones that you don’t own.</p>
+ * 			own, but helps to protect the information of ones that you don't own.</p>
  */
 export interface ConflictingAliasesList {
   /**
@@ -2020,8 +2020,8 @@ export interface ListContinuousDeploymentPoliciesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			continuous deployment policies. The response includes policies in the list that occur
-   * 			after the marker. To get the next page of the list, set this field’s value to the value
-   * 			of <code>NextMarker</code> from the current page’s response.</p>
+   * 			after the marker. To get the next page of the list, set this field's value to the value
+   * 			of <code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2078,7 +2078,7 @@ export interface ListContinuousDeploymentPoliciesResult {
 }
 
 /**
- * <p>The request to list your distributions. </p>
+ * <p>The request to list your distributions.</p>
  */
 export interface ListDistributionsRequest {
   /**
@@ -2141,7 +2141,7 @@ export interface DistributionSummary {
   Origins: Origins | undefined;
 
   /**
-   * <p> A complex type that contains information about origin groups for this
+   * <p>A complex type that contains information about origin groups for this
    * 			distribution.</p>
    */
   OriginGroups?: OriginGroups;
@@ -2172,7 +2172,7 @@ export interface DistributionSummary {
 
   /**
    * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
+   * 			distribution.</p>
    */
   PriceClass: PriceClass | string | undefined;
 
@@ -2182,7 +2182,7 @@ export interface DistributionSummary {
   Enabled: boolean | undefined;
 
   /**
-   * <p>A complex type that determines the distribution’s SSL/TLS configuration for
+   * <p>A complex type that determines the distribution's SSL/TLS configuration for
    * 			communicating with viewers.</p>
    */
   ViewerCertificate: ViewerCertificate | undefined;
@@ -2199,7 +2199,7 @@ export interface DistributionSummary {
   WebACLId: string | undefined;
 
   /**
-   * <p> Specify the maximum HTTP version that you want viewers to use to communicate with
+   * <p>Specify the maximum HTTP version that you want viewers to use to communicate with
    * 			CloudFront. The default value for new web distributions is <code>http2</code>. Viewers that
    * 			don't support <code>HTTP/2</code> will automatically use an earlier version.</p>
    */
@@ -2216,7 +2216,7 @@ export interface DistributionSummary {
    * 			recordal if they want to serve content publicly on an alternate domain name, also known
    * 			as a CNAME, that they've added to CloudFront. AliasICPRecordal provides the ICP recordal
    * 			status for CNAMEs associated with distributions.</p>
-   * 		       <p>For more information about ICP recordals, see <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html"> Signup, Accounts, and Credentials</a> in <i>Getting Started with Amazon Web Services
+   *          <p>For more information about ICP recordals, see <a href="https://docs.amazonaws.cn/en_us/aws/latest/userguide/accounts-and-credentials.html"> Signup, Accounts, and Credentials</a> in <i>Getting Started with Amazon Web Services
    * 				services in China</i>.</p>
    */
   AliasICPRecordals?: AliasICPRecordal[];
@@ -2239,7 +2239,7 @@ export interface DistributionList {
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    * 			the value you can use for the <code>Marker</code> request parameter to continue listing
-   * 			your distributions where they left off. </p>
+   * 			your distributions where they left off.</p>
    */
   NextMarker?: string;
 
@@ -2269,11 +2269,11 @@ export interface DistributionList {
 }
 
 /**
- * <p>The returned result of the corresponding request. </p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface ListDistributionsResult {
   /**
-   * <p>The <code>DistributionList</code> type. </p>
+   * <p>The <code>DistributionList</code> type.</p>
    */
   DistributionList?: DistributionList;
 }
@@ -2282,8 +2282,8 @@ export interface ListDistributionsByCachePolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
-   * 			the marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			the marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2347,8 +2347,8 @@ export interface ListDistributionsByKeyGroupRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
-   * 			the marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			the marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2374,8 +2374,8 @@ export interface ListDistributionsByOriginRequestPolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
-   * 			the marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			the marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2402,8 +2402,8 @@ export interface ListDistributionsByRealtimeLogConfigRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distributions. The response includes distributions in the list that occur after the
-   * 			marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2436,8 +2436,8 @@ export interface ListDistributionsByResponseHeadersPolicyIdRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			distribution IDs. The response includes distribution IDs in the list that occur after
-   * 			the marker. To get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			the marker. To get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2471,7 +2471,7 @@ export interface ListDistributionsByWebACLIdRequest {
    * 			response includes a <code>NextMarker</code> element. To get the next page of results,
    * 			submit another request. For the value of <code>Marker</code>, specify the value of
    * 				<code>NextMarker</code> from the last response. (For the first request, omit
-   * 				<code>Marker</code>.) </p>
+   * 				<code>Marker</code>.)</p>
    */
   Marker?: string;
 
@@ -2495,7 +2495,7 @@ export interface ListDistributionsByWebACLIdRequest {
  */
 export interface ListDistributionsByWebACLIdResult {
   /**
-   * <p>The <code>DistributionList</code> type. </p>
+   * <p>The <code>DistributionList</code> type.</p>
    */
   DistributionList?: DistributionList;
 }
@@ -2506,13 +2506,13 @@ export interface ListFieldLevelEncryptionConfigsRequest {
    * 			configurations. The results include configurations in the list that occur after the
    * 			marker. To get the next page of results, set the <code>Marker</code> to the value of the
    * 				<code>NextMarker</code> from the current page's response (which is also the ID of
-   * 			the last configuration on that page). </p>
+   * 			the last configuration on that page).</p>
    */
   Marker?: string;
 
   /**
    * <p>The maximum number of field-level encryption configurations you want in the response
-   * 			body. </p>
+   * 			body.</p>
    */
   MaxItems?: number;
 }
@@ -2538,12 +2538,12 @@ export interface FieldLevelEncryptionSummary {
   Comment?: string;
 
   /**
-   * <p> A summary of a query argument-profile mapping. </p>
+   * <p>A summary of a query argument-profile mapping.</p>
    */
   QueryArgProfileConfig?: QueryArgProfileConfig;
 
   /**
-   * <p> A summary of a content type-profile mapping. </p>
+   * <p>A summary of a content type-profile mapping.</p>
    */
   ContentTypeProfileConfig?: ContentTypeProfileConfig;
 }
@@ -2560,7 +2560,7 @@ export interface FieldLevelEncryptionList {
   NextMarker?: string;
 
   /**
-   * <p>The maximum number of elements you want in the response body. </p>
+   * <p>The maximum number of elements you want in the response body.</p>
    */
   MaxItems: number | undefined;
 
@@ -2589,7 +2589,7 @@ export interface ListFieldLevelEncryptionProfilesRequest {
    * 			The results include profiles in the list that occur after the marker. To get the next
    * 			page of results, set the <code>Marker</code> to the value of the <code>NextMarker</code>
    * 			from the current page's response (which is also the ID of the last profile on that
-   * 			page). </p>
+   * 			page).</p>
    */
   Marker?: string;
 
@@ -2673,8 +2673,8 @@ export interface ListFunctionsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			functions. The response includes functions in the list that occur after the marker. To
-   * 			get the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			get the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2725,7 +2725,7 @@ export interface ListFunctionsResult {
 }
 
 /**
- * <p>The request to list invalidations. </p>
+ * <p>The request to list invalidations.</p>
  */
 export interface ListInvalidationsRequest {
   /**
@@ -2740,7 +2740,7 @@ export interface ListInvalidationsRequest {
    * 			contain earlier results, and so on. To get the next page of results, set
    * 				<code>Marker</code> to the value of the <code>NextMarker</code> from the current
    * 			page's response. This value is the same as the ID of the last invalidation batch on that
-   * 			page. </p>
+   * 			page.</p>
    */
   Marker?: string;
 
@@ -2815,11 +2815,11 @@ export interface InvalidationList {
 }
 
 /**
- * <p>The returned result of the corresponding request. </p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface ListInvalidationsResult {
   /**
-   * <p>Information about invalidation batches. </p>
+   * <p>Information about invalidation batches.</p>
    */
   InvalidationList?: InvalidationList;
 }
@@ -2828,8 +2828,8 @@ export interface ListKeyGroupsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of key
    * 			groups. The response includes key groups in the list that occur after the marker. To get
-   * 			the next page of the list, set this field’s value to the value of
-   * 				<code>NextMarker</code> from the current page’s response.</p>
+   * 			the next page of the list, set this field's value to the value of
+   * 				<code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -2926,25 +2926,25 @@ export interface OriginAccessControlSummary {
   /**
    * <p>A value that specifies which requests CloudFront signs (adds authentication information to).
    * 			This field can have one of the following values:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>never</code> – CloudFront doesn't sign any origin requests.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>always</code> – CloudFront signs all origin requests, overwriting the
    * 						<code>Authorization</code> header from the viewer request if
    * 					necessary.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>no-override</code> – If the viewer request doesn't contain the
    * 						<code>Authorization</code> header, CloudFront signs the origin request. If the
    * 					viewer request contains the <code>Authorization</code> header, CloudFront doesn't sign
    * 					the origin request, but instead passes along the <code>Authorization</code>
    * 					header that it received in the viewer request.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   SigningBehavior: OriginAccessControlSigningBehaviors | string | undefined;
@@ -3010,17 +3010,17 @@ export interface ListOriginRequestPoliciesRequest {
   /**
    * <p>A filter to return only the specified kinds of origin request policies. Valid values
    * 			are:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>managed</code> – Returns only the managed policies created by
    * 					Amazon Web Services.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>custom</code> – Returns only the custom policies created in your
    * 					Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Type?: OriginRequestPolicyType | string;
@@ -3028,8 +3028,8 @@ export interface ListOriginRequestPoliciesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			origin request policies. The response includes origin request policies in the list that
-   * 			occur after the marker. To get the next page of the list, set this field’s value to the
-   * 			value of <code>NextMarker</code> from the current page’s response.</p>
+   * 			occur after the marker. To get the next page of the list, set this field's value to the
+   * 			value of <code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -3096,12 +3096,12 @@ export interface ListPublicKeysRequest {
    * 			keys. The results include public keys in the list that occur after the marker. To get
    * 			the next page of results, set the <code>Marker</code> to the value of the
    * 				<code>NextMarker</code> from the current page's response (which is also the ID of
-   * 			the last public key on that page). </p>
+   * 			the last public key on that page).</p>
    */
   Marker?: string;
 
   /**
-   * <p>The maximum number of public keys you want in the response body. </p>
+   * <p>The maximum number of public keys you want in the response body.</p>
    */
   MaxItems?: number;
 }
@@ -3182,8 +3182,8 @@ export interface ListRealtimeLogConfigsRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			real-time log configurations. The response includes real-time log configurations in the
-   * 			list that occur after the marker. To get the next page of the list, set this field’s
-   * 			value to the value of <code>NextMarker</code> from the current page’s response.</p>
+   * 			list that occur after the marker. To get the next page of the list, set this field's
+   * 			value to the value of <code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 }
@@ -3239,16 +3239,16 @@ export interface ListResponseHeadersPoliciesRequest {
   /**
    * <p>A filter to get only the specified kind of response headers policies. Valid values
    * 			are:</p>
-   * 		       <ul>
+   *          <ul>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>managed</code> – Gets only the managed policies created by Amazon Web Services.</p>
-   * 			         </li>
+   *             </li>
    *             <li>
-   * 				           <p>
+   *                <p>
    *                   <code>custom</code> – Gets only the custom policies created in your
    * 					Amazon Web Services account.</p>
-   * 			         </li>
+   *             </li>
    *          </ul>
    */
   Type?: ResponseHeadersPolicyType | string;
@@ -3256,8 +3256,8 @@ export interface ListResponseHeadersPoliciesRequest {
   /**
    * <p>Use this field when paginating results to indicate where to begin in your list of
    * 			response headers policies. The response includes response headers policies in the list
-   * 			that occur after the marker. To get the next page of the list, set this field’s value to
-   * 			the value of <code>NextMarker</code> from the current page’s response. </p>
+   * 			that occur after the marker. To get the next page of the list, set this field's value to
+   * 			the value of <code>NextMarker</code> from the current page's response.</p>
    */
   Marker?: string;
 
@@ -3320,7 +3320,7 @@ export interface ListResponseHeadersPoliciesResult {
 }
 
 /**
- * <p>The request to list your streaming distributions. </p>
+ * <p>The request to list your streaming distributions.</p>
  */
 export interface ListStreamingDistributionsRequest {
   /**
@@ -3335,7 +3335,7 @@ export interface ListStreamingDistributionsRequest {
 }
 
 /**
- * <p> A summary of the information for a CloudFront streaming distribution.</p>
+ * <p>A summary of the information for a CloudFront streaming distribution.</p>
  */
 export interface StreamingDistributionSummary {
   /**
@@ -3344,14 +3344,14 @@ export interface StreamingDistributionSummary {
   Id: string | undefined;
 
   /**
-   * <p> The ARN (Amazon Resource Name) for the streaming distribution. For example:
+   * <p>The ARN (Amazon Resource Name) for the streaming distribution. For example:
    * 				<code>arn:aws:cloudfront::123456789012:streaming-distribution/EDFDVBD632BHDS5</code>,
    * 			where <code>123456789012</code> is your Amazon Web Services account ID.</p>
    */
   ARN: string | undefined;
 
   /**
-   * <p> Indicates the current status of the distribution. When the status is
+   * <p>Indicates the current status of the distribution. When the status is
    * 				<code>Deployed</code>, the distribution's information is fully propagated throughout
    * 			the Amazon CloudFront system.</p>
    */
@@ -3392,8 +3392,8 @@ export interface StreamingDistributionSummary {
    * 			more trusted signers, change <code>Enabled</code> to <code>true</code> (if it's
    * 			currently <code>false</code>), change <code>Quantity</code> as applicable, and specify
    * 			all of the trusted signers that you want to include in the updated distribution.</p>
-   * 		       <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
-   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>. </p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving Private
+   * 				Content through CloudFront</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
    */
   TrustedSigners: TrustedSigners | undefined;
 
@@ -3404,7 +3404,7 @@ export interface StreamingDistributionSummary {
 
   /**
    * <p>A complex type that contains information about price class for this streaming
-   * 			distribution. </p>
+   * 			distribution.</p>
    */
   PriceClass: PriceClass | string | undefined;
 
@@ -3415,23 +3415,23 @@ export interface StreamingDistributionSummary {
 }
 
 /**
- * <p>A streaming distribution list. </p>
+ * <p>A streaming distribution list.</p>
  */
 export interface StreamingDistributionList {
   /**
-   * <p>The value you provided for the <code>Marker</code> request parameter. </p>
+   * <p>The value you provided for the <code>Marker</code> request parameter.</p>
    */
   Marker: string | undefined;
 
   /**
    * <p>If <code>IsTruncated</code> is <code>true</code>, this element is present and contains
    * 			the value you can use for the <code>Marker</code> request parameter to continue listing
-   * 			your RTMP distributions where they left off. </p>
+   * 			your RTMP distributions where they left off.</p>
    */
   NextMarker?: string;
 
   /**
-   * <p>The value you provided for the <code>MaxItems</code> request parameter. </p>
+   * <p>The value you provided for the <code>MaxItems</code> request parameter.</p>
    */
   MaxItems: number | undefined;
 
@@ -3457,31 +3457,31 @@ export interface StreamingDistributionList {
 }
 
 /**
- * <p>The returned result of the corresponding request. </p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface ListStreamingDistributionsResult {
   /**
-   * <p>The <code>StreamingDistributionList</code> type. </p>
+   * <p>The <code>StreamingDistributionList</code> type.</p>
    */
   StreamingDistributionList?: StreamingDistributionList;
 }
 
 /**
- * <p> The request to list tags for a CloudFront resource.</p>
+ * <p>The request to list tags for a CloudFront resource.</p>
  */
 export interface ListTagsForResourceRequest {
   /**
-   * <p> An ARN of a CloudFront resource.</p>
+   * <p>An ARN of a CloudFront resource.</p>
    */
   Resource: string | undefined;
 }
 
 /**
- * <p> The returned result of the corresponding request.</p>
+ * <p>The returned result of the corresponding request.</p>
  */
 export interface ListTagsForResourceResult {
   /**
-   * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
    */
   Tags: Tags | undefined;
 }
@@ -3507,16 +3507,16 @@ export interface PublishFunctionResult {
 }
 
 /**
- * <p> The request to add tags to a CloudFront resource.</p>
+ * <p>The request to add tags to a CloudFront resource.</p>
  */
 export interface TagResourceRequest {
   /**
-   * <p> An ARN of a CloudFront resource.</p>
+   * <p>An ARN of a CloudFront resource.</p>
    */
   Resource: string | undefined;
 
   /**
-   * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
+   * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
    */
   Tags: Tags | undefined;
 }
@@ -3612,26 +3612,26 @@ export interface TestFunctionResult {
 }
 
 /**
- * <p> A complex type that contains zero or more <code>Tag</code> elements.</p>
+ * <p>A complex type that contains zero or more <code>Tag</code> elements.</p>
  */
 export interface TagKeys {
   /**
-   * <p> A complex type that contains <code>Tag</code> key elements.</p>
+   * <p>A complex type that contains <code>Tag</code> key elements.</p>
    */
   Items?: string[];
 }
 
 /**
- * <p> The request to remove tags from a CloudFront resource.</p>
+ * <p>The request to remove tags from a CloudFront resource.</p>
  */
 export interface UntagResourceRequest {
   /**
-   * <p> An ARN of a CloudFront resource.</p>
+   * <p>An ARN of a CloudFront resource.</p>
    */
   Resource: string | undefined;
 
   /**
-   * <p> A complex type that contains zero or more <code>Tag</code> key elements.</p>
+   * <p>A complex type that contains zero or more <code>Tag</code> key elements.</p>
    */
   TagKeys: TagKeys | undefined;
 }
@@ -3644,14 +3644,14 @@ export interface UpdateCachePolicyRequest {
 
   /**
    * <p>The unique identifier for the cache policy that you are updating. The identifier is
-   * 			returned in a cache behavior’s <code>CachePolicyId</code> field in the response to
+   * 			returned in a cache behavior's <code>CachePolicyId</code> field in the response to
    * 				<code>GetDistributionConfig</code>.</p>
    */
   Id: string | undefined;
 
   /**
    * <p>The version of the cache policy that you are updating. The version is returned in the
-   * 			cache policy’s <code>ETag</code> field in the response to
+   * 			cache policy's <code>ETag</code> field in the response to
    * 				<code>GetCachePolicyConfig</code>.</p>
    */
   IfMatch?: string;
@@ -3789,7 +3789,7 @@ export interface UpdateDistributionWithStagingConfigRequest {
   /**
    * <p>The current versions (<code>ETag</code> values) of both primary and staging distributions.
    * 			Provide these in the following format:</p>
-   * 		       <p>
+   *          <p>
    *             <code><primary ETag>, <staging ETag></code>
    *          </p>
    */
@@ -3804,14 +3804,14 @@ export interface UpdateDistributionWithStagingConfigResult {
   Distribution?: Distribution;
 
   /**
-   * <p>The current version of the primary distribution (after it’s updated).</p>
+   * <p>The current version of the primary distribution (after it's updated).</p>
    */
   ETag?: string;
 }
 
 export interface UpdateFieldLevelEncryptionConfigRequest {
   /**
-   * <p>Request to update a field-level encryption configuration. </p>
+   * <p>Request to update a field-level encryption configuration.</p>
    */
   FieldLevelEncryptionConfig: FieldLevelEncryptionConfig | undefined;
 
@@ -3842,12 +3842,12 @@ export interface UpdateFieldLevelEncryptionConfigResult {
 
 export interface UpdateFieldLevelEncryptionProfileRequest {
   /**
-   * <p>Request to update a field-level encryption profile. </p>
+   * <p>Request to update a field-level encryption profile.</p>
    */
   FieldLevelEncryptionProfileConfig: FieldLevelEncryptionProfileConfig | undefined;
 
   /**
-   * <p>The ID of the field-level encryption profile request. </p>
+   * <p>The ID of the field-level encryption profile request.</p>
    */
   Id: string | undefined;
 
@@ -3865,7 +3865,7 @@ export interface UpdateFieldLevelEncryptionProfileResult {
   FieldLevelEncryptionProfile?: FieldLevelEncryptionProfile;
 
   /**
-   * <p>The result of the field-level encryption profile request. </p>
+   * <p>The result of the field-level encryption profile request.</p>
    */
   ETag?: string;
 }
@@ -3919,7 +3919,7 @@ export interface UpdateKeyGroupRequest {
   Id: string | undefined;
 
   /**
-   * <p>The version of the key group that you are updating. The version is the key group’s
+   * <p>The version of the key group that you are updating. The version is the key group's
    * 				<code>ETag</code> value.</p>
    */
   IfMatch?: string;
@@ -3975,14 +3975,14 @@ export interface UpdateOriginRequestPolicyRequest {
 
   /**
    * <p>The unique identifier for the origin request policy that you are updating. The
-   * 			identifier is returned in a cache behavior’s <code>OriginRequestPolicyId</code> field in
+   * 			identifier is returned in a cache behavior's <code>OriginRequestPolicyId</code> field in
    * 			the response to <code>GetDistributionConfig</code>.</p>
    */
   Id: string | undefined;
 
   /**
    * <p>The version of the origin request policy that you are updating. The version is
-   * 			returned in the origin request policy’s <code>ETag</code> field in the response to
+   * 			returned in the origin request policy's <code>ETag</code> field in the response to
    * 				<code>GetOriginRequestPolicyConfig</code>.</p>
    */
   IfMatch?: string;
@@ -4039,7 +4039,7 @@ export interface UpdateRealtimeLogConfigRequest {
 
   /**
    * <p>A list of fields to include in each real-time log record.</p>
-   * 		       <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
+   *          <p>For more information about fields, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-fields">Real-time log configuration fields</a> in the
    * 				<i>Amazon CloudFront Developer Guide</i>.</p>
    */
   Fields?: string[];
@@ -4082,7 +4082,7 @@ export interface UpdateResponseHeadersPolicyRequest {
 
   /**
    * <p>The version of the response headers policy that you are updating.</p>
-   * 		       <p>The version is returned in the cache policy’s <code>ETag</code> field in the response
+   *          <p>The version is returned in the cache policy's <code>ETag</code> field in the response
    * 			to <code>GetResponseHeadersPolicyConfig</code>.</p>
    */
   IfMatch?: string;

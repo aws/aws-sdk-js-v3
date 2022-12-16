@@ -25,10 +25,10 @@ export interface DeleteKeyGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes a key group.</p>
- * 		       <p>You cannot delete a key group that is referenced in a cache behavior. First update
+ *          <p>You cannot delete a key group that is referenced in a cache behavior. First update
  * 			your distributions to remove the key group from all cache behaviors, then delete the key
  * 			group.</p>
- * 		       <p>To delete a key group, you must provide the key group’s identifier and version. To get
+ *          <p>To delete a key group, you must provide the key group's identifier and version. To get
  * 			these values, use <code>ListKeyGroups</code> followed by <code>GetKeyGroup</code> or
  * 				<code>GetKeyGroupConfig</code>.</p>
  * @example

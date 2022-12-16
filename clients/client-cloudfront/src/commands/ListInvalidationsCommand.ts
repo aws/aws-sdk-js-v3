@@ -29,7 +29,7 @@ export interface ListInvalidationsCommandInput extends ListInvalidationsRequest 
 export interface ListInvalidationsCommandOutput extends ListInvalidationsResult, __MetadataBearer {}
 
 /**
- * <p>Lists invalidation batches. </p>
+ * <p>Lists invalidation batches.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

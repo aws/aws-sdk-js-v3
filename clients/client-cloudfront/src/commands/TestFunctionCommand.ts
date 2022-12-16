@@ -30,14 +30,14 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
 
 /**
  * <p>Tests a CloudFront function.</p>
- * 		       <p>To test a function, you provide an <i>event object</i> that represents
+ *          <p>To test a function, you provide an <i>event object</i> that represents
  * 			an HTTP request or response that your CloudFront distribution could receive in production.
  * 			CloudFront runs the function, passing it the event object that you provided, and returns the
- * 			function’s result (the modified event object) in the response. The response also
+ * 			function's result (the modified event object) in the response. The response also
  * 			contains function logs and error messages, if any exist. For more information about
  * 			testing functions, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/managing-functions.html#test-function">Testing functions</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
- * 		       <p>To test a function, you provide the function’s name and version (<code>ETag</code>
- * 			value) along with the event object. To get the function’s name and version, you can use
+ *          <p>To test a function, you provide the function's name and version (<code>ETag</code>
+ * 			value) along with the event object. To get the function's name and version, you can use
  * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

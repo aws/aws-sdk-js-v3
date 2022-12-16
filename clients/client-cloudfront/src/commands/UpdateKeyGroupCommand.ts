@@ -30,22 +30,22 @@ export interface UpdateKeyGroupCommandOutput extends UpdateKeyGroupResult, __Met
 
 /**
  * <p>Updates a key group.</p>
- * 		       <p>When you update a key group, all the fields are updated with the values provided in
+ *          <p>When you update a key group, all the fields are updated with the values provided in
  * 			the request. You cannot update some fields independent of others. To update a key
  * 			group:</p>
- * 		       <ol>
+ *          <ol>
  *             <li>
- * 				           <p>Get the current key group with <code>GetKeyGroup</code> or
+ *                <p>Get the current key group with <code>GetKeyGroup</code> or
  * 						<code>GetKeyGroupConfig</code>.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Locally modify the fields in the key group that you want to update. For
+ *                <p>Locally modify the fields in the key group that you want to update. For
  * 					example, add or remove public key IDs.</p>
- * 			         </li>
+ *             </li>
  *             <li>
- * 				           <p>Call <code>UpdateKeyGroup</code> with the entire key group object, including
- * 					the fields that you modified and those that you didn’t.</p>
- * 			         </li>
+ *                <p>Call <code>UpdateKeyGroup</code> with the entire key group object, including
+ * 					the fields that you modified and those that you didn't.</p>
+ *             </li>
  *          </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

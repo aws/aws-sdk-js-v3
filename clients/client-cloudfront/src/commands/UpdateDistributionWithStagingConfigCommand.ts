@@ -35,12 +35,12 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
  * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
  * 			but otherwise its configuration is overwritten to match the staging distribution.</p>
- * 		       <p>You can use this operation in a continuous deployment workflow after you have tested
+ *          <p>You can use this operation in a continuous deployment workflow after you have tested
  * 			configuration changes on the staging distribution. After using a continuous deployment
- * 			policy to move a portion of your domain name’s traffic to the staging distribution and
+ * 			policy to move a portion of your domain name's traffic to the staging distribution and
  * 			verifying that it works as intended, you can use this operation to copy the staging
- * 			distribution’s configuration to the primary distribution. This action will disable the
- * 			continuous deployment policy and move your domain’s traffic back to the primary distribution.</p>
+ * 			distribution's configuration to the primary distribution. This action will disable the
+ * 			continuous deployment policy and move your domain's traffic back to the primary distribution.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

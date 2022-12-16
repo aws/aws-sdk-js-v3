@@ -32,9 +32,9 @@ export interface GetOriginRequestPolicyConfigCommandOutput
 
 /**
  * <p>Gets an origin request policy configuration.</p>
- * 		       <p>To get an origin request policy configuration, you must provide the policy’s
- * 			identifier. If the origin request policy is attached to a distribution’s cache behavior,
- * 			you can get the policy’s identifier using <code>ListDistributions</code> or
+ *          <p>To get an origin request policy configuration, you must provide the policy's
+ * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
+ * 			you can get the policy's identifier using <code>ListDistributions</code> or
  * 				<code>GetDistribution</code>. If the origin request policy is not attached to a
  * 			cache behavior, you can get the identifier using
  * 			<code>ListOriginRequestPolicies</code>.</p>

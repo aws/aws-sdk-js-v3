@@ -27,7 +27,7 @@ export interface DeleteCloudFrontOriginAccessIdentityCommandInput extends Delete
 export interface DeleteCloudFrontOriginAccessIdentityCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Delete an origin access identity. </p>
+ * <p>Delete an origin access identity.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

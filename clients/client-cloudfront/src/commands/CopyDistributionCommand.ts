@@ -32,8 +32,8 @@ export interface CopyDistributionCommandOutput extends CopyDistributionResult, _
  * <p>Creates a staging distribution using the configuration of the provided primary
  * 			distribution. A staging distribution is a copy of an existing distribution (called the
  * 			primary distribution) that you can use in a continuous deployment workflow.</p>
- * 		       <p>After you create a staging distribution, you can use <code>UpdateDistribution</code>
- * 			to modify the staging distribution’s configuration. Then you can use
+ *          <p>After you create a staging distribution, you can use <code>UpdateDistribution</code>
+ * 			to modify the staging distribution's configuration. Then you can use
  * 				<code>CreateContinuousDeploymentPolicy</code> to incrementally move traffic to the
  * 			staging distribution.</p>
  * @example

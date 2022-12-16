@@ -29,7 +29,7 @@ export interface GetInvalidationCommandInput extends GetInvalidationRequest {}
 export interface GetInvalidationCommandOutput extends GetInvalidationResult, __MetadataBearer {}
 
 /**
- * <p>Get the information about an invalidation. </p>
+ * <p>Get the information about an invalidation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

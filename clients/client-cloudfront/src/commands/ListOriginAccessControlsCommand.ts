@@ -30,7 +30,7 @@ export interface ListOriginAccessControlsCommandOutput extends ListOriginAccessC
 
 /**
  * <p>Gets the list of CloudFront origin access controls in this Amazon Web Services account.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send another
  * 			request that specifies the <code>NextMarker</code> value from the current response as

@@ -30,9 +30,9 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
 
 /**
  * <p>Updates a CloudFront function.</p>
- * 		       <p>You can update a function’s code or the comment that describes the function. You
- * 			cannot update a function’s name.</p>
- * 		       <p>To update a function, you provide the function’s name and version (<code>ETag</code>
+ *          <p>You can update a function's code or the comment that describes the function. You
+ * 			cannot update a function's name.</p>
+ *          <p>To update a function, you provide the function's name and version (<code>ETag</code>
  * 			value) along with the updated function code. To get the name and version, you can use
  * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example

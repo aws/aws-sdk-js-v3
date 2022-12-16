@@ -30,9 +30,9 @@ export interface ListResponseHeadersPoliciesCommandOutput extends ListResponseHe
 
 /**
  * <p>Gets a list of response headers policies.</p>
- * 		       <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
+ *          <p>You can optionally apply a filter to get only the managed policies created by Amazon Web Services,
  * 			or only the custom policies created in your Amazon Web Services account.</p>
- * 		       <p>You can optionally specify the maximum number of items to receive in the response. If
+ *          <p>You can optionally specify the maximum number of items to receive in the response. If
  * 			the total number of items in the list exceeds the maximum that you specify, or the
  * 			default maximum, the response is paginated. To get the next page of items, send a
  * 			subsequent request that specifies the <code>NextMarker</code> value from the current
