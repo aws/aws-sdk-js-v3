@@ -1116,12 +1116,14 @@ export interface CreateFilterRequest {
   DetectorId: string | undefined;
 
   /**
-   * <p>The name of the filter. Minimum length of 3. Maximum length of 64. Valid characters include alphanumeric characters, dot (.), underscore (_), and dash (-). Spaces are not allowed.</p>
+   * <p>The name of the filter. Valid characters include period (.), underscore (_),
+   *       dash (-), and alphanumeric characters. A whitespace is considered to be an invalid character.</p>
    */
   Name: string | undefined;
 
   /**
-   * <p>The description of the filter.</p>
+   * <p>The description of the filter. Valid special characters include period (.), underscore (_), dash (-),
+   *       and whitespace. The new line character is considered to be an invalid input for description.</p>
    */
   Description?: string;
 
@@ -2026,7 +2028,7 @@ export interface Scan {
   ScanEndTime?: Date;
 
   /**
-   * <p>Represents the reason the scan was triggered.</p>
+   * <p>Specifies the reason why the scan was initiated.</p>
    */
   TriggerDetails?: TriggerDetails;
 
@@ -4648,7 +4650,8 @@ export interface UpdateFilterRequest {
   FilterName: string | undefined;
 
   /**
-   * <p>The description of the filter.</p>
+   * <p>The description of the filter. Valid special characters include period (.), underscore (_), dash (-),
+   *       and whitespace. The new line character is considered to be an invalid input for description.</p>
    */
   Description?: string;
 
