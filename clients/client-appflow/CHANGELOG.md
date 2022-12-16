@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.233.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.232.0...v3.233.0) (2022-12-16)
+
+
+### Features
+
+* **client-appflow:** This release updates the ListConnectorEntities API action so that it returns paginated responses that customers can retrieve with next tokens. ([841affb](https://github.com/aws/aws-sdk-js-v3/commit/841affba31375c7873bdee57e06bf51d6cd98a9d))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-appflow

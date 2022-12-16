@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.233.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.232.0...v3.233.0) (2022-12-16)
+
+
+### Features
+
+* **client-appflow:** This release updates the ListConnectorEntities API action so that it returns paginated responses that customers can retrieve with next tokens. ([841affb](https://github.com/aws/aws-sdk-js-v3/commit/841affba31375c7873bdee57e06bf51d6cd98a9d))
+* **client-datasync:** AWS DataSync now supports the use of tags with task executions. With this new feature, you can apply tags each time you execute a task, giving you greater control and management over your task executions. ([39d276b](https://github.com/aws/aws-sdk-js-v3/commit/39d276b6c6be083345e7f1e678dc80daeb186cbe))
+* **client-iotfleetwise:** Updated error handling for empty resource names in "UpdateSignalCatalog" and "GetModelManifest" operations. ([a014879](https://github.com/aws/aws-sdk-js-v3/commit/a01487929ce8bae5ed1da3984dcd95943d0fd569))
+* **client-sagemaker:** AWS sagemaker - Features: This release adds support for random seed, it's an integer value used to initialize a pseudo-random number generator. Setting a random seed will allow the hyperparameter tuning search strategies to produce more consistent configurations for the same tuning job. ([ed46bdd](https://github.com/aws/aws-sdk-js-v3/commit/ed46bddfcbe9bf8da8079e666ff896682577a8fc))
+* **clients:** update client endpoints as of 2022-12-16 ([9f40c2b](https://github.com/aws/aws-sdk-js-v3/commit/9f40c2b4baaf3a960ba611c560c1abcb96948892))
+
+
+
+
+
 # [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
 
 
