@@ -44,85 +44,30 @@ export interface GetEntitlementsRequest {
  * <p>The EntitlementValue represents the amount of capacity that the customer is entitled to
  *    for the product.</p>
  */
-export type EntitlementValue =
-  | EntitlementValue.BooleanValueMember
-  | EntitlementValue.DoubleValueMember
-  | EntitlementValue.IntegerValueMember
-  | EntitlementValue.StringValueMember
-  | EntitlementValue.$UnknownMember;
-
-export namespace EntitlementValue {
+export interface EntitlementValue {
   /**
    * <p>The IntegerValue field will be populated with an integer value when the entitlement is an
    *    integer type. Otherwise, the field will not be set.</p>
    */
-  export interface IntegerValueMember {
-    IntegerValue: number;
-    DoubleValue?: never;
-    BooleanValue?: never;
-    StringValue?: never;
-    $unknown?: never;
-  }
+  IntegerValue?: number;
 
   /**
    * <p>The DoubleValue field will be populated with a double value when the entitlement is a
    *    double type. Otherwise, the field will not be set.</p>
    */
-  export interface DoubleValueMember {
-    IntegerValue?: never;
-    DoubleValue: number;
-    BooleanValue?: never;
-    StringValue?: never;
-    $unknown?: never;
-  }
+  DoubleValue?: number;
 
   /**
    * <p>The BooleanValue field will be populated with a boolean value when the entitlement is a
    *       boolean type. Otherwise, the field will not be set.</p>
    */
-  export interface BooleanValueMember {
-    IntegerValue?: never;
-    DoubleValue?: never;
-    BooleanValue: boolean;
-    StringValue?: never;
-    $unknown?: never;
-  }
+  BooleanValue?: boolean;
 
   /**
    * <p>The StringValue field will be populated with a string value when the entitlement is a
    *    string type. Otherwise, the field will not be set.</p>
    */
-  export interface StringValueMember {
-    IntegerValue?: never;
-    DoubleValue?: never;
-    BooleanValue?: never;
-    StringValue: string;
-    $unknown?: never;
-  }
-
-  export interface $UnknownMember {
-    IntegerValue?: never;
-    DoubleValue?: never;
-    BooleanValue?: never;
-    StringValue?: never;
-    $unknown: [string, any];
-  }
-
-  export interface Visitor<T> {
-    IntegerValue: (value: number) => T;
-    DoubleValue: (value: number) => T;
-    BooleanValue: (value: boolean) => T;
-    StringValue: (value: string) => T;
-    _: (name: string, value: any) => T;
-  }
-
-  export const visit = <T>(value: EntitlementValue, visitor: Visitor<T>): T => {
-    if (value.IntegerValue !== undefined) return visitor.IntegerValue(value.IntegerValue);
-    if (value.DoubleValue !== undefined) return visitor.DoubleValue(value.DoubleValue);
-    if (value.BooleanValue !== undefined) return visitor.BooleanValue(value.BooleanValue);
-    if (value.StringValue !== undefined) return visitor.StringValue(value.StringValue);
-    return visitor._(value.$unknown[0], value.$unknown[1]);
-  };
+  StringValue?: string;
 }
 
 /**
@@ -253,20 +198,15 @@ export const GetEntitlementsRequestFilterSensitiveLog = (obj: GetEntitlementsReq
 /**
  * @internal
  */
-export const EntitlementValueFilterSensitiveLog = (obj: EntitlementValue): any => {
-  if (obj.IntegerValue !== undefined) return { IntegerValue: obj.IntegerValue };
-  if (obj.DoubleValue !== undefined) return { DoubleValue: obj.DoubleValue };
-  if (obj.BooleanValue !== undefined) return { BooleanValue: obj.BooleanValue };
-  if (obj.StringValue !== undefined) return { StringValue: obj.StringValue };
-  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
-};
+export const EntitlementValueFilterSensitiveLog = (obj: EntitlementValue): any => ({
+  ...obj,
+});
 
 /**
  * @internal
  */
 export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
   ...obj,
-  ...(obj.Value && { Value: EntitlementValueFilterSensitiveLog(obj.Value) }),
 });
 
 /**
@@ -274,5 +214,4 @@ export const EntitlementFilterSensitiveLog = (obj: Entitlement): any => ({
  */
 export const GetEntitlementsResultFilterSensitiveLog = (obj: GetEntitlementsResult): any => ({
   ...obj,
-  ...(obj.Entitlements && { Entitlements: obj.Entitlements.map((item) => EntitlementFilterSensitiveLog(item)) }),
 });
