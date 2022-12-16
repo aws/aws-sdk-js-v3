@@ -5822,6 +5822,14 @@
                 }
               ]
             },
+            "eu-central-2": {
+              "variants": [
+                {
+                  "hostname": "elasticfilesystem-fips.eu-central-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-north-1": {
               "variants": [
                 {
@@ -5938,6 +5946,13 @@
               },
               "deprecated": true,
               "hostname": "elasticfilesystem-fips.eu-central-1.amazonaws.com"
+            },
+            "fips-eu-central-2": {
+              "credentialScope": {
+                "region": "eu-central-2"
+              },
+              "deprecated": true,
+              "hostname": "elasticfilesystem-fips.eu-central-2.amazonaws.com"
             },
             "fips-eu-north-1": {
               "credentialScope": {
@@ -12012,8 +12027,10 @@
             "api": {},
             "ca-central-1": {},
             "eu-central-1": {},
+            "eu-north-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
+            "eu-west-3": {},
             "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
@@ -14612,6 +14629,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
@@ -17950,6 +17968,12 @@
           }
         },
         "databrew": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
+        "datasync": {
           "endpoints": {
             "cn-north-1": {},
             "cn-northwest-1": {}
@@ -21370,6 +21394,7 @@
         },
         "metrics.sagemaker": {
           "endpoints": {
+            "us-gov-east-1": {},
             "us-gov-west-1": {}
           }
         },
