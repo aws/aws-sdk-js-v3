@@ -216,19 +216,19 @@ export interface UnprocessedPreparedStatementName {
   /**
    * <p>The error message containing the reason why the prepared statement could not be
    *             returned. The following error messages are possible:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>INVALID_INPUT</code> - The name of the prepared statement that was
    *                     provided is not valid (for example, the name is too long).</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>STATEMENT_NOT_FOUND</code> - A prepared statement with the name provided
    *                     could not be found.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>UNAUTHORIZED</code> - The requester does not have permission to access
    *                     the workgroup that contains the prepared statement.</p>
    *             </li>
@@ -314,7 +314,7 @@ export interface EncryptionConfiguration {
    * <p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE_S3</code>), server-side encryption with KMS-managed keys
    *                 (<code>SSE_KMS</code>), or client-side encryption with KMS-managed keys
    *                 (<code>CSE_KMS</code>) is used.</p>
-   *         <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
+   *          <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then
    *             the workgroup's setting for encryption is used. It specifies whether query results must
    *             be encrypted, for all queries that run in this workgroup. </p>
    */
@@ -361,7 +361,7 @@ export interface ResultConfiguration {
    *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
-   *         <p>This is a client-side setting. If workgroup settings override client-side settings,
+   *          <p>This is a client-side setting. If workgroup settings override client-side settings,
    *             then the query uses the <code>ExpectedBucketOwner</code> setting that is specified for
    *             the workgroup, and also uses the location for storing query results specified in the
    *             workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>
@@ -491,11 +491,11 @@ export interface AthenaError {
   /**
    * <p>An integer value that specifies the category of a query failure error. The following
    *             list shows the category for each integer value.</p>
-   *         <p>
+   *          <p>
    *             <b>1</b> - System</p>
-   *         <p>
+   *          <p>
    *             <b>2</b> - User</p>
-   *         <p>
+   *          <p>
    *             <b>3</b> - Other</p>
    */
   ErrorCategory?: number;
@@ -539,11 +539,11 @@ export interface QueryExecutionStatus {
    *                 <code>FAILED</code> indicates that the query experienced an error and did not
    *             complete processing. <code>CANCELLED</code> indicates that a user input interrupted
    *             query execution.</p>
-   *         <note>
+   *          <note>
    *             <p>Athena automatically retries your queries in cases of certain
    *                 transient errors. As a result, you may see the query state transition from
    *                     <code>RUNNING</code> or <code>FAILED</code> to <code>QUEUED</code>. </p>
-   *         </note>
+   *          </note>
    */
   State?: QueryExecutionState | string;
 
@@ -731,69 +731,69 @@ export interface CreateDataCatalogInput {
   /**
    * <p>Specifies the Lambda function or functions to use for creating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
    *                             <code>
    *                      <i>catalog_id</i>
    *                   </code> is the account ID of the
    *                         Amazon Web Services account to which the Glue Data Catalog
    *                     belongs.</p>
-   *                 <p>
+   *                <p>
    *                   <code>catalog-id=<i>catalog_id</i>
    *                   </code>
    *                </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
    *                                 <code>AwsDataCatalog</code> that already exists in your account, of
    *                             which you can have only one and cannot modify.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                      <p>Queries that specify a Glue Data Catalog other than the default
    *                                 <code>AwsDataCatalog</code> must be run on Athena engine
    *                             version 2.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>In Regions where Athena engine version 2 is not available,
+   *                      <p>In Regions where Athena engine version 2 is not available,
    *                             creating new Glue data catalogs results in an
    *                                 <code>INVALID_INPUT</code> error.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -834,12 +834,12 @@ export interface CreateNamedQueryInput {
    *             idempotent (executes only once). If another <code>CreateNamedQuery</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -871,12 +871,12 @@ export interface CreateNotebookInput {
   /**
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
    *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
@@ -1296,23 +1296,23 @@ export interface CalculationStatus {
 
   /**
    * <p>The state of the calculation execution. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-   *         <p>
+   *          <p>
    *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
-   *         <p>
+   *          <p>
    *             <code>RUNNING</code> - The calculation is running.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
    *             system is working to stop it.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
    *             request.</p>
-   *         <p>
+   *          <p>
    *             <code>COMPLETED</code> - The calculation has completed without error.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
   State?: CalculationExecutionState | string;
@@ -1494,64 +1494,64 @@ export interface DataCatalog {
   /**
    * <p>Specifies the Lambda function or functions to use for the data catalog.
    *             This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *             <li>
-   *                 <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
+   *                <p>The <code>GLUE</code> type takes a catalog ID parameter and is required. The
    *                             <code>
    *                      <i>catalog_id</i>
    *                   </code> is the account ID of the
    *                         Amazon Web Services account to which the Glue catalog
    *                     belongs.</p>
-   *                 <p>
+   *                <p>
    *                   <code>catalog-id=<i>catalog_id</i>
    *                   </code>
    *                </p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>The <code>GLUE</code> data catalog type also applies to the default
+   *                      <p>The <code>GLUE</code> data catalog type also applies to the default
    *                                 <code>AwsDataCatalog</code> that already exists in your account, of
    *                             which you can have only one and cannot modify.</p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p>Queries that specify a Glue Data Catalog other than the default
+   *                      <p>Queries that specify a Glue Data Catalog other than the default
    *                                 <code>AwsDataCatalog</code> must be run on Athena engine
    *                             version 2.</p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -1963,23 +1963,23 @@ export interface SessionStatus {
 
   /**
    * <p>The state of the session. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The session has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>IDLE</code> - The session is able to accept a calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>BUSY</code> - The session is processing another task and is unable to accept a
    *             calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
@@ -2232,12 +2232,12 @@ export interface ImportNotebookInput {
   /**
    * <p>A unique case-sensitive string used to ensure the request to import the notebook is
    *             idempotent (executes only once).</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
    *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
@@ -2301,23 +2301,23 @@ export interface ListCalculationExecutionsRequest {
   /**
    * <p>A filter for a specific calculation execution state. A description of each state
    *             follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-   *         <p>
+   *          <p>
    *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
-   *         <p>
+   *          <p>
    *             <code>RUNNING</code> - The calculation is running.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
    *             system is working to stop it.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
    *             request.</p>
-   *         <p>
+   *          <p>
    *             <code>COMPLETED</code> - The calculation has completed without error.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
   StateFilter?: CalculationExecutionState | string;
@@ -2492,18 +2492,18 @@ export interface ListExecutorsRequest {
 
   /**
    * <p>A filter for a specific executor state. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The executor is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The executor has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>REGISTERED</code> - The executor has been registered.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The executor is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The executor is no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
   ExecutorStateFilter?: ExecutorState | string;
@@ -2554,18 +2554,18 @@ export interface ExecutorsSummary {
 
   /**
    * <p>The processing state of the executor. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The executor is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The executor has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>REGISTERED</code> - The executor has been registered.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The executor is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The executor is no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the executor is no longer running.</p>
    */
   ExecutorState?: ExecutorState | string;
@@ -2816,23 +2816,23 @@ export interface ListSessionsRequest {
 
   /**
    * <p>A filter for a specific session state. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The session has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>IDLE</code> - The session is able to accept a calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>BUSY</code> - The session is processing another task and is unable to accept a
    *             calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
@@ -3073,12 +3073,12 @@ export interface StartCalculationExecutionRequest {
    *                 <code>StartCalculationExecutionRequest</code> is received, the same response is
    *             returned and another calculation is not created. If a parameter has changed, an error is
    *             returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
@@ -3092,21 +3092,21 @@ export interface StartCalculationExecutionResponse {
   /**
    * <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-   *         <p>
+   *          <p>
    *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
-   *         <p>
+   *          <p>
    *             <code>RUNNING</code> - The calculation is running.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
    *             system is working to stop it.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
    *             request.</p>
-   *         <p>
+   *          <p>
    *             <code>COMPLETED</code> - The calculation has completed without error.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
   State?: CalculationExecutionState | string;
@@ -3123,12 +3123,12 @@ export interface StartQueryExecutionInput {
    *             idempotent (executes only once). If another <code>StartQueryExecution</code> request is
    *             received, the same response is returned and another query is not created. If a parameter
    *             has changed, for example, the <code>QueryString</code>, an error is returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -3224,12 +3224,12 @@ export interface StartSessionRequest {
    *             idempotent (executes only once). If another <code>StartSessionRequest</code> is
    *             received, the same response is returned and another session is not created. If a
    *             parameter has changed, an error is returned.</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for users. If you are
    *                 not using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
@@ -3242,23 +3242,23 @@ export interface StartSessionResponse {
 
   /**
    * <p>The state of the session. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The session has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>IDLE</code> - The session is able to accept a calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>BUSY</code> - The session is processing another task and is unable to accept a
    *             calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
@@ -3276,21 +3276,21 @@ export interface StopCalculationExecutionResponse {
   /**
    * <p>
    *             <code>CREATING</code> - The calculation is in the process of being created.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The calculation has been created and is ready to run.</p>
-   *         <p>
+   *          <p>
    *             <code>QUEUED</code> - The calculation has been queued for processing.</p>
-   *         <p>
+   *          <p>
    *             <code>RUNNING</code> - The calculation is running.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELING</code> - A request to cancel the calculation has been received and the
    *             system is working to stop it.</p>
-   *         <p>
+   *          <p>
    *             <code>CANCELED</code> - The calculation is no longer running as the result of a cancel
    *             request.</p>
-   *         <p>
+   *          <p>
    *             <code>COMPLETED</code> - The calculation has completed without error.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - The calculation failed and is no longer running.</p>
    */
   State?: CalculationExecutionState | string;
@@ -3330,23 +3330,23 @@ export interface TerminateSessionRequest {
 export interface TerminateSessionResponse {
   /**
    * <p>The state of the session. A description of each state follows.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATING</code> - The session is being started, including acquiring
    *             resources.</p>
-   *         <p>
+   *          <p>
    *             <code>CREATED</code> - The session has been started.</p>
-   *         <p>
+   *          <p>
    *             <code>IDLE</code> - The session is able to accept a calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>BUSY</code> - The session is processing another task and is unable to accept a
    *             calculation.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATING</code> - The session is in the process of shutting down.</p>
-   *         <p>
+   *          <p>
    *             <code>TERMINATED</code> - The session and its resources are no longer running.</p>
-   *         <p>
+   *          <p>
    *             <code>DEGRADED</code> - The session has no healthy coordinators.</p>
-   *         <p>
+   *          <p>
    *             <code>FAILED</code> - Due to a failure, the session and its resources are no longer
    *             running.</p>
    */
@@ -3392,40 +3392,40 @@ export interface UpdateDataCatalogInput {
   /**
    * <p>Specifies the Lambda function or functions to use for updating the data
    *             catalog. This is a mapping whose values depend on the catalog type. </p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
+   *                <p>For the <code>HIVE</code> data catalog type, use the following syntax. The
    *                         <code>metadata-function</code> parameter is required. <code>The
    *                         sdk-version</code> parameter is optional and defaults to the currently
    *                     supported version.</p>
-   *                 <p>
+   *                <p>
    *                   <code>metadata-function=<i>lambda_arn</i>,
    *                             sdk-version=<i>version_number</i>
    *                   </code>
    *                </p>
    *             </li>
    *             <li>
-   *                 <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
+   *                <p>For the <code>LAMBDA</code> data catalog type, use one of the following sets
    *                     of required parameters, but not both.</p>
-   *                 <ul>
+   *                <ul>
    *                   <li>
-   *                         <p>If you have one Lambda function that processes metadata
+   *                      <p>If you have one Lambda function that processes metadata
    *                             and another for reading the actual data, use the following syntax. Both
    *                             parameters are required.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>metadata-function=<i>lambda_arn</i>,
    *                                     record-function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                   <li>
-   *                         <p> If you have a composite Lambda function that processes
+   *                      <p> If you have a composite Lambda function that processes
    *                             both metadata and data, use the following syntax to specify your Lambda function.</p>
-   *                         <p>
+   *                      <p>
    *                         <code>function=<i>lambda_arn</i>
    *                         </code>
    *                      </p>
-   *                     </li>
+   *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
@@ -3468,13 +3468,13 @@ export interface UpdateNotebookInput {
   /**
    * <p>The updated content for the notebook.</p>
    */
-  Payload?: string;
+  Payload: string | undefined;
 
   /**
    * <p>The notebook content type. Currently, the only valid type is
    *             <code>IPYNB</code>.</p>
    */
-  Type?: NotebookType | string;
+  Type: NotebookType | string | undefined;
 
   /**
    * <p>The ID of the session in which the notebook will be updated.</p>
@@ -3484,12 +3484,12 @@ export interface UpdateNotebookInput {
   /**
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
    *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 }
@@ -3505,12 +3505,12 @@ export interface UpdateNotebookMetadataInput {
   /**
    * <p>A unique case-sensitive string used to ensure the request to create the notebook is
    *             idempotent (executes only once).</p>
-   *         <important>
+   *          <important>
    *             <p>This token is listed as not required because Amazon Web Services SDKs (for example
    *                 the Amazon Web Services SDK for Java) auto-generate the token for you. If you are not
    *                 using the Amazon Web Services SDK or the Amazon Web Services CLI, you must provide
    *                 this token or the action will fail.</p>
-   *         </important>
+   *          </important>
    */
   ClientRequestToken?: string;
 
@@ -3598,7 +3598,7 @@ export interface ResultConfigurationUpdates {
    *                 <code>ExpectedBucketOwner</code>
    *             Amazon Web Services account ID does not match the actual owner of the Amazon S3
    *             bucket, the call fails with a permissions error.</p>
-   *         <p>If workgroup settings override client-side settings, then the query uses the
+   *          <p>If workgroup settings override client-side settings, then the query uses the
    *                 <code>ExpectedBucketOwner</code> setting that is specified for the workgroup, and
    *             also uses the location for storing query results specified in the workgroup. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a> and <a href="https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html">Workgroup Settings Override Client-Side Settings</a>.</p>
    */

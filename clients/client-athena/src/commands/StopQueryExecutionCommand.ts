@@ -31,7 +31,7 @@ export interface StopQueryExecutionCommandOutput extends StopQueryExecutionOutpu
 /**
  * <p>Stops a query execution. Requires you to have access to the workgroup in which the
  *             query ran.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  * @example

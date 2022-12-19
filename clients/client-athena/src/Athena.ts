@@ -299,11 +299,11 @@ import {
  *             in parallel—so results are fast, even with large datasets and complex queries. For more
  *             information, see <a href="http://docs.aws.amazon.com/athena/latest/ug/what-is.html">What is Amazon Athena</a> in the <i>Amazon Athena User
  *                 Guide</i>.</p>
- *         <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
+ *          <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the
  *             driver or later with the Amazon Athena API. Earlier version drivers do not
  *             support the API. For more information and to download the driver, see <a href="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html">Accessing
  *                     Amazon Athena with JDBC</a>.</p>
- *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+ *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="https://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
  *                 Code Samples</a> in the <i>Amazon Athena User
  *             Guide</i>.</p>
  */
@@ -457,7 +457,7 @@ export class Athena extends AthenaClient {
   /**
    * <p>Creates a named query in the specified workgroup. Requires that you have access to the
    *             workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -660,7 +660,7 @@ export class Athena extends AthenaClient {
   /**
    * <p>Deletes the named query if you have access to the workgroup in which the query was
    *             saved.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -1115,17 +1115,17 @@ export class Athena extends AthenaClient {
    *                 <code>QueryExecutionId</code> from the Athena query results location in
    *                 Amazon S3. For more information, see <a href="https://docs.aws.amazon.com/athena/latest/ug/querying.html">Query Results</a> in the <i>Amazon Athena User Guide</i>. This request does not execute the query
    *             but returns results. Use <a>StartQueryExecution</a> to run a query.</p>
-   *         <p>To stream query results successfully, the IAM principal with permission to call
+   *          <p>To stream query results successfully, the IAM principal with permission to call
    *                 <code>GetQueryResults</code> also must have permissions to the Amazon S3
    *             <code>GetObject</code> action for the Athena query results location.</p>
-   *         <important>
+   *          <important>
    *             <p>IAM principals with permission to the Amazon S3
    *                 <code>GetObject</code> action for the query results location are able to retrieve
    *                 query results from Amazon S3 even if permission to the
    *                     <code>GetQueryResults</code> action is denied. To restrict user or role access,
    *                 ensure that Amazon S3 permissions to the Athena query location
    *                 are denied.</p>
-   *         </important>
+   *          </important>
    */
   public getQueryResults(
     args: GetQueryResultsCommandInput,
@@ -1158,9 +1158,11 @@ export class Athena extends AthenaClient {
 
   /**
    * <p>Returns query execution runtime statistics related to a single execution of a query if
-   *             you have access to the workgroup in which the query ran. The query execution runtime
-   *             statistics is returned only when <a>QueryExecutionStatus$State</a> is in a
-   *             SUCCEEDED or FAILED state.</p>
+   *             you have access to the workgroup in which the query ran. Query execution runtime
+   *             statistics are returned only when <a>QueryExecutionStatus$State</a> is in a
+   *             SUCCEEDED or FAILED state. Stage-level input and output row count and data size
+   *             statistics are not shown when a query has row-level filters defined in Lake
+   *             Formation.</p>
    */
   public getQueryRuntimeStatistics(
     args: GetQueryRuntimeStatisticsCommandInput,
@@ -1546,7 +1548,7 @@ export class Athena extends AthenaClient {
    * <p>Provides a list of available query IDs only for queries saved in the specified
    *             workgroup. Requires that you have access to the specified workgroup. If a workgroup is
    *             not specified, lists the saved queries for the primary workgroup.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -1683,7 +1685,7 @@ export class Athena extends AthenaClient {
    *             workgroup. If a workgroup is not specified, returns a list of query execution IDs for
    *             the primary workgroup. Requires you to have access to the workgroup in which the queries
    *             ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */
@@ -1950,12 +1952,12 @@ export class Athena extends AthenaClient {
    *             call on a calculation that is already in a terminal state (for example,
    *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
    *             has no effect.</p>
-   *         <note>
+   *          <note>
    *             <p>Cancelling a calculation is done on a best effort basis. If a calculation cannot
    *                 be cancelled, you can be charged for its completion. If you are concerned about
    *                 being charged for a calculation that cannot be cancelled, consider terminating the
    *                 session in which the calculation is running.</p>
-   *         </note>
+   *          </note>
    */
   public stopCalculationExecution(
     args: StopCalculationExecutionCommandInput,
@@ -1989,7 +1991,7 @@ export class Athena extends AthenaClient {
   /**
    * <p>Stops a query execution. Requires you to have access to the workgroup in which the
    *             query ran.</p>
-   *         <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
+   *          <p>For code samples using the Amazon Web Services SDK for Java, see <a href="http://docs.aws.amazon.com/athena/latest/ug/code-samples.html">Examples and
    *                 Code Samples</a> in the <i>Amazon Athena User
    *             Guide</i>.</p>
    */

@@ -33,12 +33,12 @@ export interface StopCalculationExecutionCommandOutput extends StopCalculationEx
  *             call on a calculation that is already in a terminal state (for example,
  *                 <code>STOPPED</code>, <code>FAILED</code>, or <code>COMPLETED</code>) succeeds but
  *             has no effect.</p>
- *         <note>
+ *          <note>
  *             <p>Cancelling a calculation is done on a best effort basis. If a calculation cannot
  *                 be cancelled, you can be charged for its completion. If you are concerned about
  *                 being charged for a calculation that cannot be cancelled, consider terminating the
  *                 session in which the calculation is running.</p>
- *         </note>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
