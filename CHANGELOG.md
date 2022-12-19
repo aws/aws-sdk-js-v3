@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* **client-marketplace-entitlement-service:** update model to fix expectUnion error ([#4297](https://github.com/aws/aws-sdk-js-v3/issues/4297)) ([eb661ce](https://github.com/aws/aws-sdk-js-v3/commit/eb661ce156553dd6454a34c0e8ed56d3fc8039e5))
+* **smithy-client:** add header check for x-amz-request-id ([#4295](https://github.com/aws/aws-sdk-js-v3/issues/4295)) ([efdda44](https://github.com/aws/aws-sdk-js-v3/commit/efdda445ab4ac093df4981838613e8ae886f04d2))
+
+
+### Features
+
+* **client-athena:** Add missed InvalidRequestException in GetCalculationExecutionCode,StopCalculationExecution APIs. Correct required parameters (Payload and Type) in UpdateNotebook API. Change Notebook size from 15 Mb to 10 Mb. ([59c84e0](https://github.com/aws/aws-sdk-js-v3/commit/59c84e073e3f700c15310dcc37a0ca442d64dd9b))
+* **client-ecs:** This release adds support for alarm-based rollbacks in ECS, a new feature that allows customers to add automated safeguards for Amazon ECS service rolling updates. ([d184e6b](https://github.com/aws/aws-sdk-js-v3/commit/d184e6ba3ca7f7fd419797b577c15cd18fd32f16))
+* **client-kinesis-video-webrtc-storage:** Amazon Kinesis Video Streams offers capabilities to stream video and audio in real-time via WebRTC to the cloud for storage, playback, and analytical processing. Customers can use our enhanced WebRTC SDK and cloud APIs to enable real-time streaming, as well as media ingestion to the cloud. ([48b6c2a](https://github.com/aws/aws-sdk-js-v3/commit/48b6c2a8080b480f3dfa8f51296ab69b15e09cb5))
+* **client-kinesis-video:** Amazon Kinesis Video Streams offers capabilities to stream video and audio in real-time via WebRTC to the cloud for storage, playback, and analytical processing. Customers can use our enhanced WebRTC SDK and cloud APIs to enable real-time streaming, as well as media ingestion to the cloud. ([cbb5b21](https://github.com/aws/aws-sdk-js-v3/commit/cbb5b21668d1568c5a6b3de5f4ed10159b0c8adb))
+* **client-rds:** Add support for --enable-customer-owned-ip to RDS create-db-instance-read-replica API for RDS on Outposts. ([15ae8b9](https://github.com/aws/aws-sdk-js-v3/commit/15ae8b93423fba01cfae2c31ae13197773b6a64a))
+* **client-sagemaker:** AWS Sagemaker - Sagemaker Images now supports Aliases as secondary identifiers for ImageVersions. SageMaker Images now supports additional metadata for ImageVersions for better images management. ([4390e08](https://github.com/aws/aws-sdk-js-v3/commit/4390e0877f1f116d150c0a75db7b033b974e2f79))
+* **clients:** update client endpoints as of 2022-12-19 ([51b3053](https://github.com/aws/aws-sdk-js-v3/commit/51b305320acbb505c4e424cd43eede3c73ec76b7))
+
+
+
+
+
 # [3.233.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.232.0...v3.233.0) (2022-12-16)
 
 

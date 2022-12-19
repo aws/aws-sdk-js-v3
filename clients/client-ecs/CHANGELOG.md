@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Features
+
+* **client-ecs:** This release adds support for alarm-based rollbacks in ECS, a new feature that allows customers to add automated safeguards for Amazon ECS service rolling updates. ([d184e6b](https://github.com/aws/aws-sdk-js-v3/commit/d184e6ba3ca7f7fd419797b577c15cd18fd32f16))
+
+
+
+
+
 # [3.232.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.231.0...v3.232.0) (2022-12-15)
 
 

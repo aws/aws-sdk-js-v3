@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Features
+
+* **client-sagemaker:** AWS Sagemaker - Sagemaker Images now supports Aliases as secondary identifiers for ImageVersions. SageMaker Images now supports additional metadata for ImageVersions for better images management. ([4390e08](https://github.com/aws/aws-sdk-js-v3/commit/4390e0877f1f116d150c0a75db7b033b974e2f79))
+
+
+
+
+
 # [3.233.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.232.0...v3.233.0) (2022-12-16)
 
 

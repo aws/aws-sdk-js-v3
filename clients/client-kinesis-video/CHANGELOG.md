@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Features
+
+* **client-kinesis-video:** Amazon Kinesis Video Streams offers capabilities to stream video and audio in real-time via WebRTC to the cloud for storage, playback, and analytical processing. Customers can use our enhanced WebRTC SDK and cloud APIs to enable real-time streaming, as well as media ingestion to the cloud. ([cbb5b21](https://github.com/aws/aws-sdk-js-v3/commit/cbb5b21668d1568c5a6b3de5f4ed10159b0c8adb))
+
+
+
+
+
 # [3.231.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.230.0...v3.231.0) (2022-12-14)
 
 **Note:** Version bump only for package @aws-sdk/client-kinesis-video

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
+
+
+### Bug Fixes
+
+* **smithy-client:** add header check for x-amz-request-id ([#4295](https://github.com/aws/aws-sdk-js-v3/issues/4295)) ([efdda44](https://github.com/aws/aws-sdk-js-v3/commit/efdda445ab4ac093df4981838613e8ae886f04d2))
+
+
+
+
+
 # [3.226.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.225.0...v3.226.0) (2022-12-07)
 
 **Note:** Version bump only for package @aws-sdk/smithy-client
