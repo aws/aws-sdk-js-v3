@@ -31,6 +31,7 @@ export interface RegionResolvedConfig {
 
 export const resolveRegionConfig = <T>(input: T & RegionInputConfig & PreviouslyResolved): T & RegionResolvedConfig => {
   const { region, useFipsEndpoint } = input;
+
   if (!region) {
     throw new Error("Region is missing");
   }
@@ -49,10 +50,7 @@ export const resolveRegionConfig = <T>(input: T & RegionInputConfig & Previously
       if (isFipsRegion(providedRegion)) {
         return true;
       }
-      if (!useFipsEndpoint) {
-        return Promise.resolve(false);
-      }
-      return typeof useFipsEndpoint === "boolean" ? Promise.resolve(useFipsEndpoint) : useFipsEndpoint();
+      return typeof useFipsEndpoint !== "function" ? Promise.resolve(!!useFipsEndpoint) : useFipsEndpoint();
     },
   };
 };
