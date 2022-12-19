@@ -462,6 +462,7 @@ import {
 import { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "../commands/ImportHubContentCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "../commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "../commands/ListAlgorithmsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "../commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -737,6 +738,7 @@ import {
 } from "../commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "../commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "../commands/UpdateImageCommand";
+import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "../commands/UpdateImageVersionCommand";
 import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
@@ -1141,9 +1143,6 @@ import {
   DeregisterDevicesRequest,
   DescribeActionRequest,
   DescribeActionResponse,
-  DescribeAlgorithmInput,
-  DescribeAlgorithmOutput,
-  DescribeAppRequest,
   DriftCheckBaselines,
   DriftCheckBias,
   DriftCheckExplainability,
@@ -1272,8 +1271,11 @@ import {
   WorkforceVpcConfigRequest,
 } from "../models/models_1";
 import {
+  DescribeAlgorithmInput,
+  DescribeAlgorithmOutput,
   DescribeAppImageConfigRequest,
   DescribeAppImageConfigResponse,
+  DescribeAppRequest,
   DescribeAppResponse,
   DescribeArtifactRequest,
   DescribeArtifactResponse,
@@ -1461,6 +1463,8 @@ import {
   ListActionsResponse,
   ListAlgorithmsInput,
   ListAlgorithmsOutput,
+  ListAliasesRequest,
+  ListAliasesResponse,
   ListAppImageConfigsRequest,
   ListAppImageConfigsResponse,
   ListAppsRequest,
@@ -1468,11 +1472,6 @@ import {
   ListArtifactsRequest,
   ListArtifactsResponse,
   ListAssociationsRequest,
-  ListAssociationsResponse,
-  ListAutoMLJobsRequest,
-  ListAutoMLJobsResponse,
-  ListCandidatesForAutoMLJobRequest,
-  ListCandidatesForAutoMLJobResponse,
   MetricData,
   ModelArtifacts,
   ModelCardExportArtifacts,
@@ -1514,6 +1513,11 @@ import {
   Workteam,
 } from "../models/models_2";
 import {
+  ListAssociationsResponse,
+  ListAutoMLJobsRequest,
+  ListAutoMLJobsResponse,
+  ListCandidatesForAutoMLJobRequest,
+  ListCandidatesForAutoMLJobResponse,
   ListCodeRepositoriesInput,
   ListCodeRepositoriesOutput,
   ListCompilationJobsRequest,
@@ -1760,11 +1764,6 @@ import {
   UpdateExperimentRequest,
   UpdateExperimentResponse,
   UpdateFeatureGroupRequest,
-  UpdateFeatureGroupResponse,
-  UpdateFeatureMetadataRequest,
-  UpdateHubRequest,
-  UpdateHubResponse,
-  UpdateImageRequest,
   UserProfileDetails,
   VariantProperty,
   Vertex,
@@ -1773,7 +1772,14 @@ import {
   SearchExpression,
   SearchRequest,
   ServiceCatalogProvisioningUpdateDetails,
+  UpdateFeatureGroupResponse,
+  UpdateFeatureMetadataRequest,
+  UpdateHubRequest,
+  UpdateHubResponse,
+  UpdateImageRequest,
   UpdateImageResponse,
+  UpdateImageVersionRequest,
+  UpdateImageVersionResponse,
   UpdateInferenceExperimentRequest,
   UpdateInferenceExperimentResponse,
   UpdateModelCardRequest,
@@ -4034,6 +4040,19 @@ export const serializeAws_json1_1ListAlgorithmsCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1ListAliasesCommand = async (
+  input: ListAliasesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.ListAliases",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ListAliasesRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1ListAppImageConfigsCommand = async (
   input: ListAppImageConfigsCommandInput,
   context: __SerdeContext
@@ -5461,6 +5480,19 @@ export const serializeAws_json1_1UpdateImageCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1UpdateImageRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1UpdateImageVersionCommand = async (
+  input: UpdateImageVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "SageMaker.UpdateImageVersion",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1UpdateImageVersionRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -12531,6 +12563,47 @@ const deserializeAws_json1_1ListAlgorithmsCommandError = async (
   });
 };
 
+export const deserializeAws_json1_1ListAliasesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ListAliasesCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1ListAliasesResponse(data, context);
+  const response: ListAliasesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ListAliasesCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAliasesCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1ListAppImageConfigsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -16678,6 +16751,50 @@ const deserializeAws_json1_1UpdateImageCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1UpdateImageVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1UpdateImageVersionCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1UpdateImageVersionResponse(data, context);
+  const response: UpdateImageVersionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1UpdateImageVersionCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateImageVersionCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "ResourceInUse":
+    case "com.amazonaws.sagemaker#ResourceInUse":
+      throw await deserializeAws_json1_1ResourceInUseResponse(parsedOutput, context);
+    case "ResourceNotFound":
+    case "com.amazonaws.sagemaker#ResourceNotFound":
+      throw await deserializeAws_json1_1ResourceNotFoundResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1UpdateInferenceExperimentCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -18741,9 +18858,17 @@ const serializeAws_json1_1CreateImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Aliases != null && { Aliases: serializeAws_json1_1SageMakerImageVersionAliases(input.Aliases, context) }),
     ...(input.BaseImage != null && { BaseImage: input.BaseImage }),
     ClientToken: input.ClientToken ?? generateIdempotencyToken(),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
   };
 };
 
@@ -19815,6 +19940,7 @@ const serializeAws_json1_1DeleteImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
   };
@@ -20259,6 +20385,7 @@ const serializeAws_json1_1DescribeImageVersionRequest = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.Alias != null && { Alias: input.Alias }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.Version != null && { Version: input.Version }),
   };
@@ -21749,6 +21876,16 @@ const serializeAws_json1_1ListAlgorithmsInput = (input: ListAlgorithmsInput, con
     ...(input.NextToken != null && { NextToken: input.NextToken }),
     ...(input.SortBy != null && { SortBy: input.SortBy }),
     ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+  };
+};
+
+const serializeAws_json1_1ListAliasesRequest = (input: ListAliasesRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -24604,6 +24741,14 @@ const serializeAws_json1_1S3StorageConfig = (input: S3StorageConfig, context: __
   };
 };
 
+const serializeAws_json1_1SageMakerImageVersionAliases = (input: string[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
 const serializeAws_json1_1ScheduleConfig = (input: ScheduleConfig, context: __SerdeContext): any => {
   return {
     ...(input.ScheduleExpression != null && { ScheduleExpression: input.ScheduleExpression }),
@@ -25517,6 +25662,30 @@ const serializeAws_json1_1UpdateImageRequest = (input: UpdateImageRequest, conte
     ...(input.DisplayName != null && { DisplayName: input.DisplayName }),
     ...(input.ImageName != null && { ImageName: input.ImageName }),
     ...(input.RoleArn != null && { RoleArn: input.RoleArn }),
+  };
+};
+
+const serializeAws_json1_1UpdateImageVersionRequest = (
+  input: UpdateImageVersionRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Alias != null && { Alias: input.Alias }),
+    ...(input.AliasesToAdd != null && {
+      AliasesToAdd: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToAdd, context),
+    }),
+    ...(input.AliasesToDelete != null && {
+      AliasesToDelete: serializeAws_json1_1SageMakerImageVersionAliases(input.AliasesToDelete, context),
+    }),
+    ...(input.Horovod != null && { Horovod: input.Horovod }),
+    ...(input.ImageName != null && { ImageName: input.ImageName }),
+    ...(input.JobType != null && { JobType: input.JobType }),
+    ...(input.MLFramework != null && { MLFramework: input.MLFramework }),
+    ...(input.Processor != null && { Processor: input.Processor }),
+    ...(input.ProgrammingLang != null && { ProgrammingLang: input.ProgrammingLang }),
+    ...(input.ReleaseNotes != null && { ReleaseNotes: input.ReleaseNotes }),
+    ...(input.VendorGuidance != null && { VendorGuidance: input.VendorGuidance }),
+    ...(input.Version != null && { Version: input.Version }),
   };
 };
 
@@ -29196,13 +29365,20 @@ const deserializeAws_json1_1DescribeImageVersionResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationTime)))
         : undefined,
     FailureReason: __expectString(output.FailureReason),
+    Horovod: __expectBoolean(output.Horovod),
     ImageArn: __expectString(output.ImageArn),
     ImageVersionArn: __expectString(output.ImageVersionArn),
     ImageVersionStatus: __expectString(output.ImageVersionStatus),
+    JobType: __expectString(output.JobType),
     LastModifiedTime:
       output.LastModifiedTime != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastModifiedTime)))
         : undefined,
+    MLFramework: __expectString(output.MLFramework),
+    Processor: __expectString(output.Processor),
+    ProgrammingLang: __expectString(output.ProgrammingLang),
+    ReleaseNotes: __expectString(output.ReleaseNotes),
+    VendorGuidance: __expectString(output.VendorGuidance),
     Version: __expectInt32(output.Version),
   } as any;
 };
@@ -32848,6 +33024,16 @@ const deserializeAws_json1_1ListAlgorithmsOutput = (output: any, context: __Serd
         ? deserializeAws_json1_1AlgorithmSummaryList(output.AlgorithmSummaryList, context)
         : undefined,
     NextToken: __expectString(output.NextToken),
+  } as any;
+};
+
+const deserializeAws_json1_1ListAliasesResponse = (output: any, context: __SerdeContext): ListAliasesResponse => {
+  return {
+    NextToken: __expectString(output.NextToken),
+    SageMakerImageVersionAliases:
+      output.SageMakerImageVersionAliases != null
+        ? deserializeAws_json1_1SageMakerImageVersionAliases(output.SageMakerImageVersionAliases, context)
+        : undefined,
   } as any;
 };
 
@@ -36871,6 +37057,18 @@ const deserializeAws_json1_1S3StorageConfig = (output: any, context: __SerdeCont
   } as any;
 };
 
+const deserializeAws_json1_1SageMakerImageVersionAliases = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return __expectString(entry) as any;
+    });
+  return retVal;
+};
+
 const deserializeAws_json1_1ScheduleConfig = (output: any, context: __SerdeContext): ScheduleConfig => {
   return {
     ScheduleExpression: __expectString(output.ScheduleExpression),
@@ -38213,6 +38411,15 @@ const deserializeAws_json1_1UpdateHubResponse = (output: any, context: __SerdeCo
 const deserializeAws_json1_1UpdateImageResponse = (output: any, context: __SerdeContext): UpdateImageResponse => {
   return {
     ImageArn: __expectString(output.ImageArn),
+  } as any;
+};
+
+const deserializeAws_json1_1UpdateImageVersionResponse = (
+  output: any,
+  context: __SerdeContext
+): UpdateImageVersionResponse => {
+  return {
+    ImageVersionArn: __expectString(output.ImageVersionArn),
   } as any;
 };
 

@@ -7,7 +7,10 @@ import {
   AgentVersion,
   AlgorithmSortBy,
   AlgorithmSpecification,
+  AlgorithmStatus,
+  AlgorithmStatusDetails,
   AlgorithmSummary,
+  AlgorithmValidationSpecification,
   AppDetails,
   AppImageConfigDetails,
   AppImageConfigSortKey,
@@ -20,7 +23,6 @@ import {
   ArtifactSource,
   ArtifactSummary,
   AssociationEdgeType,
-  AssociationSummary,
   AsyncInferenceConfig,
   AuthMode,
   AutoMLCandidate,
@@ -31,15 +33,10 @@ import {
   AutoMLJobObjective,
   AutoMLJobSecondaryStatus,
   AutoMLJobStatus,
-  AutoMLJobSummary,
   AutoMLOutputDataConfig,
   AutoMLPartialFailureReason,
-  AutoMLSortBy,
-  AutoMLSortOrder,
   BatchDataCaptureConfig,
   BatchStrategy,
-  CandidateSortBy,
-  CandidateStatus,
   Channel,
   CheckpointConfig,
   CognitoConfig,
@@ -87,6 +84,7 @@ import {
   ResourceSpec,
   StoppingCondition,
   Tag,
+  TrainingSpecification,
   TransformInput,
   TransformOutput,
   TransformResources,
@@ -123,6 +121,7 @@ import {
   InferenceExperimentSchedule,
   InferenceExperimentType,
   InstanceMetadataServiceConfiguration,
+  JobType,
   LabelingJobAlgorithmsConfig,
   LabelingJobInputConfig,
   LabelingJobOutputConfig,
@@ -157,6 +156,7 @@ import {
   ProcessingOutputConfig,
   ProcessingResources,
   ProcessingStoppingCondition,
+  Processor,
   ProfilerConfig,
   ProfilerRuleConfiguration,
   RecommendationJobInputConfig,
@@ -177,7 +177,101 @@ import {
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
+  VendorGuidance,
 } from "./models_1";
+
+export interface DescribeAlgorithmInput {
+  /**
+   * <p>The name of the algorithm to describe.</p>
+   */
+  AlgorithmName: string | undefined;
+}
+
+export interface DescribeAlgorithmOutput {
+  /**
+   * <p>The name of the algorithm being described.</p>
+   */
+  AlgorithmName: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
+   */
+  AlgorithmArn: string | undefined;
+
+  /**
+   * <p>A brief summary about the algorithm.</p>
+   */
+  AlgorithmDescription?: string;
+
+  /**
+   * <p>A timestamp specifying when the algorithm was created.</p>
+   */
+  CreationTime: Date | undefined;
+
+  /**
+   * <p>Details about training jobs run by this algorithm.</p>
+   */
+  TrainingSpecification: TrainingSpecification | undefined;
+
+  /**
+   * <p>Details about inference jobs that the algorithm runs.</p>
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * <p>Details about configurations for one or more training jobs that SageMaker runs to test the
+   *             algorithm.</p>
+   */
+  ValidationSpecification?: AlgorithmValidationSpecification;
+
+  /**
+   * <p>The current status of the algorithm.</p>
+   */
+  AlgorithmStatus: AlgorithmStatus | string | undefined;
+
+  /**
+   * <p>Details about the current status of the algorithm.</p>
+   */
+  AlgorithmStatusDetails: AlgorithmStatusDetails | undefined;
+
+  /**
+   * <p>The product identifier of the algorithm.</p>
+   */
+  ProductId?: string;
+
+  /**
+   * <p>Whether the algorithm is certified to be listed in Amazon Web Services
+   *             Marketplace.</p>
+   */
+  CertifyForMarketplace?: boolean;
+}
+
+export interface DescribeAppRequest {
+  /**
+   * <p>The domain ID.</p>
+   */
+  DomainId: string | undefined;
+
+  /**
+   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
+   */
+  UserProfileName?: string;
+
+  /**
+   * <p>The type of app.</p>
+   */
+  AppType: AppType | string | undefined;
+
+  /**
+   * <p>The name of the app.</p>
+   */
+  AppName: string | undefined;
+
+  /**
+   * <p>The name of the space.</p>
+   */
+  SpaceName?: string;
+}
 
 export interface DescribeAppResponse {
   /**
@@ -2722,7 +2816,7 @@ export interface DescribeImageResponse {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn?: string;
 
@@ -2742,7 +2836,7 @@ export interface DescribeImageResponse {
   LastModifiedTime?: Date;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The ARN of the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
    */
   RoleArn?: string;
 }
@@ -2757,6 +2851,11 @@ export interface DescribeImageVersionRequest {
    * <p>The version of the image. If not specified, the latest version is described.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
 }
 
 export enum ImageVersionStatus {
@@ -2789,7 +2888,7 @@ export interface DescribeImageVersionResponse {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
+   * <p>The ARN of the image the version is based on.</p>
    */
   ImageArn?: string;
 
@@ -2812,6 +2911,83 @@ export interface DescribeImageVersionResponse {
    * <p>The version number.</p>
    */
   Version?: number;
+
+  /**
+   * <p>The stability of the image version specified by the maintainer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STABLE</code>: The image version is stable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p>
+   *             </li>
+   *          </ul>
+   */
+  VendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>Indicates SageMaker job type compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   */
+  MLFramework?: string;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   */
+  ProgrammingLang?: string;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPU</code>: The image version is compatible with CPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code>: The image version is compatible with GPU.</p>
+   *             </li>
+   *          </ul>
+   */
+  Processor?: Processor | string;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   */
+  Horovod?: boolean;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   */
+  ReleaseNotes?: string;
 }
 
 export interface DescribeInferenceExperimentRequest {
@@ -8560,7 +8736,7 @@ export interface Image {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn: string | undefined;
 
@@ -8607,7 +8783,7 @@ export interface ImageVersion {
   FailureReason?: string;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the image the version is based on.</p>
+   * <p>The ARN of the image the version is based on.</p>
    */
   ImageArn: string | undefined;
 
@@ -9192,6 +9368,46 @@ export interface ListAlgorithmsOutput {
   NextToken?: string;
 }
 
+export interface ListAliasesRequest {
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The version of the image. If image version is not specified, the aliases of all versions of the image are listed.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>The maximum number of aliases to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous call to <code>ListAliases</code> didn't return the full set of
+   *          aliases, the call returns a token for retrieving the next set of aliases.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAliasesResponse {
+  /**
+   * <p>A list of SageMaker image version aliases.</p>
+   */
+  SageMakerImageVersionAliases?: string[];
+
+  /**
+   * <p>A token for getting the next set of aliases, if more aliases exist.</p>
+   */
+  NextToken?: string;
+}
+
 export interface ListAppImageConfigsRequest {
   /**
    * <p>The maximum number of AppImageConfigs to return in the response. The default value is
@@ -9429,135 +9645,26 @@ export interface ListAssociationsRequest {
   MaxResults?: number;
 }
 
-export interface ListAssociationsResponse {
-  /**
-   * <p>A list of associations and their properties.</p>
-   */
-  AssociationSummaries?: AssociationSummary[];
+/**
+ * @internal
+ */
+export const DescribeAlgorithmInputFilterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A token for getting the next set of associations, if there are any.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeAlgorithmOutputFilterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
+  ...obj,
+});
 
-export interface ListAutoMLJobsRequest {
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  CreationTimeAfter?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  CreationTimeBefore?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  LastModifiedTimeAfter?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a filter for time.</p>
-   */
-  LastModifiedTimeBefore?: Date;
-
-  /**
-   * <p>Request a list of jobs, using a search filter for name.</p>
-   */
-  NameContains?: string;
-
-  /**
-   * <p>Request a list of jobs, using a filter for status.</p>
-   */
-  StatusEquals?: AutoMLJobStatus | string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
-   */
-  SortOrder?: AutoMLSortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
-   */
-  SortBy?: AutoMLSortBy | string;
-
-  /**
-   * <p>Request a list of jobs up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListAutoMLJobsResponse {
-  /**
-   * <p>Returns a summary list of jobs.</p>
-   */
-  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCandidatesForAutoMLJobRequest {
-  /**
-   * <p>List the candidates created for the job by providing the job's name.</p>
-   */
-  AutoMLJobName: string | undefined;
-
-  /**
-   * <p>List the candidates for the job and filter by status.</p>
-   */
-  StatusEquals?: CandidateStatus | string;
-
-  /**
-   * <p>List the candidates for the job and filter by candidate name.</p>
-   */
-  CandidateNameEquals?: string;
-
-  /**
-   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
-   */
-  SortOrder?: AutoMLSortOrder | string;
-
-  /**
-   * <p>The parameter by which to sort the results. The default is
-   *          <code>Descending</code>.</p>
-   */
-  SortBy?: CandidateSortBy | string;
-
-  /**
-   * <p>List the job's candidates up to a specified limit.</p>
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
-
-export interface ListCandidatesForAutoMLJobResponse {
-  /**
-   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
-   */
-  Candidates: AutoMLCandidate[] | undefined;
-
-  /**
-   * <p>If the previous response was truncated, you receive this token. Use it in your next
-   *          request to receive the next set of results.</p>
-   */
-  NextToken?: string;
-}
+/**
+ * @internal
+ */
+export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -11220,6 +11327,20 @@ export const ListAlgorithmsOutputFilterSensitiveLog = (obj: ListAlgorithmsOutput
 /**
  * @internal
  */
+export const ListAliasesRequestFilterSensitiveLog = (obj: ListAliasesRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListAliasesResponseFilterSensitiveLog = (obj: ListAliasesResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const ListAppImageConfigsRequestFilterSensitiveLog = (obj: ListAppImageConfigsRequest): any => ({
   ...obj,
 });
@@ -11263,40 +11384,5 @@ export const ListArtifactsResponseFilterSensitiveLog = (obj: ListArtifactsRespon
  * @internal
  */
 export const ListAssociationsRequestFilterSensitiveLog = (obj: ListAssociationsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAssociationsResponseFilterSensitiveLog = (obj: ListAssociationsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsRequestFilterSensitiveLog = (obj: ListAutoMLJobsRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListAutoMLJobsResponseFilterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobRequestFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const ListCandidatesForAutoMLJobResponseFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
   ...obj,
 });

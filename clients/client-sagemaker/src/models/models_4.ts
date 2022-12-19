@@ -13,6 +13,7 @@ import {
   InferenceExperimentDataStorageConfig,
   InferenceExperimentSchedule,
   InstanceMetadataServiceConfiguration,
+  JobType,
   MemberDefinition,
   ModelCardStatus,
   ModelVariantConfig,
@@ -24,6 +25,7 @@ import {
   OidcConfigFilterSensitiveLog,
   ParallelismConfiguration,
   PipelineDefinitionS3Location,
+  Processor,
   ProfilerRuleConfiguration,
   ProvisioningParameter,
   RootAccess,
@@ -34,16 +36,219 @@ import {
   TrialComponentParameterValue,
   TrialComponentParameterValueFilterSensitiveLog,
   TrialComponentStatus,
+  VendorGuidance,
   WorkforceVpcConfigRequest,
 } from "./models_1";
-import { Filter, ResourceType, Workforce, Workteam } from "./models_2";
+import { FeatureParameter, Filter, ResourceType, Workforce, Workteam } from "./models_2";
 import { NestedFilters, ProfilerConfigForUpdate, ResourceConfigForUpdate, SearchSortOrder } from "./models_3";
+
+export interface UpdateFeatureGroupResponse {
+  /**
+   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
+   */
+  FeatureGroupArn: string | undefined;
+}
+
+export interface UpdateFeatureMetadataRequest {
+  /**
+   * <p>The name of the feature group containing the feature that you're updating.</p>
+   */
+  FeatureGroupName: string | undefined;
+
+  /**
+   * <p>The name of the feature that you're updating.</p>
+   */
+  FeatureName: string | undefined;
+
+  /**
+   * <p>A description that you can write to better describe the feature.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
+   */
+  ParameterAdditions?: FeatureParameter[];
+
+  /**
+   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
+   */
+  ParameterRemovals?: string[];
+}
+
+export interface UpdateHubRequest {
+  /**
+   * <p>The name of the hub to update.</p>
+   */
+  HubName: string | undefined;
+
+  /**
+   * <p>A description of the updated hub.</p>
+   */
+  HubDescription?: string;
+
+  /**
+   * <p>The display name of the hub.</p>
+   */
+  HubDisplayName?: string;
+
+  /**
+   * <p>The searchable keywords for the hub.</p>
+   */
+  HubSearchKeywords?: string[];
+}
+
+export interface UpdateHubResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
+   */
+  HubArn: string | undefined;
+}
+
+export interface UpdateImageRequest {
+  /**
+   * <p>A list of properties to delete. Only the <code>Description</code> and
+   *         <code>DisplayName</code> properties can be deleted.</p>
+   */
+  DeleteProperties?: string[];
+
+  /**
+   * <p>The new description for the image.</p>
+   */
+  Description?: string;
+
+  /**
+   * <p>The new display name for the image.</p>
+   */
+  DisplayName?: string;
+
+  /**
+   * <p>The name of the image to update.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The new ARN for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   */
+  RoleArn?: string;
+}
 
 export interface UpdateImageResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn?: string;
+}
+
+export interface UpdateImageVersionRequest {
+  /**
+   * <p>The name of the image.</p>
+   */
+  ImageName: string | undefined;
+
+  /**
+   * <p>The alias of the image version.</p>
+   */
+  Alias?: string;
+
+  /**
+   * <p>The version of the image.</p>
+   */
+  Version?: number;
+
+  /**
+   * <p>A list of aliases to add.</p>
+   */
+  AliasesToAdd?: string[];
+
+  /**
+   * <p>A list of aliases to delete.</p>
+   */
+  AliasesToDelete?: string[];
+
+  /**
+   * <p>The availability of the image version specified by the maintainer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STABLE</code>: The image version is stable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p>
+   *             </li>
+   *          </ul>
+   */
+  VendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>Indicates SageMaker job type compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   */
+  MLFramework?: string;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   */
+  ProgrammingLang?: string;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPU</code>: The image version is compatible with CPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code>: The image version is compatible with GPU.</p>
+   *             </li>
+   *          </ul>
+   */
+  Processor?: Processor | string;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   */
+  Horovod?: boolean;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   */
+  ReleaseNotes?: string;
+}
+
+export interface UpdateImageVersionResponse {
+  /**
+   * <p>The ARN of the image version.</p>
+   */
+  ImageVersionArn?: string;
 }
 
 export interface UpdateInferenceExperimentRequest {
@@ -855,7 +1060,56 @@ export interface SearchRequest {
 /**
  * @internal
  */
+export const UpdateFeatureGroupResponseFilterSensitiveLog = (obj: UpdateFeatureGroupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateFeatureMetadataRequestFilterSensitiveLog = (obj: UpdateFeatureMetadataRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHubRequestFilterSensitiveLog = (obj: UpdateHubRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateHubResponseFilterSensitiveLog = (obj: UpdateHubResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImageRequestFilterSensitiveLog = (obj: UpdateImageRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const UpdateImageResponseFilterSensitiveLog = (obj: UpdateImageResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImageVersionRequestFilterSensitiveLog = (obj: UpdateImageVersionRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateImageVersionResponseFilterSensitiveLog = (obj: UpdateImageVersionResponse): any => ({
   ...obj,
 });
 

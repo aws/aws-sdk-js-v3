@@ -13,8 +13,12 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeAppRequest, DescribeAppRequestFilterSensitiveLog } from "../models/models_1";
-import { DescribeAppResponse, DescribeAppResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  DescribeAppRequest,
+  DescribeAppRequestFilterSensitiveLog,
+  DescribeAppResponse,
+  DescribeAppResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_json1_1DescribeAppCommand,
   serializeAws_json1_1DescribeAppCommand,

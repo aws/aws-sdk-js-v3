@@ -14,41 +14,40 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateImageRequest,
-  UpdateImageRequestFilterSensitiveLog,
-  UpdateImageResponse,
-  UpdateImageResponseFilterSensitiveLog,
+  UpdateImageVersionRequest,
+  UpdateImageVersionRequestFilterSensitiveLog,
+  UpdateImageVersionResponse,
+  UpdateImageVersionResponseFilterSensitiveLog,
 } from "../models/models_4";
 import {
-  deserializeAws_json1_1UpdateImageCommand,
-  serializeAws_json1_1UpdateImageCommand,
+  deserializeAws_json1_1UpdateImageVersionCommand,
+  serializeAws_json1_1UpdateImageVersionCommand,
 } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
-export interface UpdateImageCommandInput extends UpdateImageRequest {}
-export interface UpdateImageCommandOutput extends UpdateImageResponse, __MetadataBearer {}
+export interface UpdateImageVersionCommandInput extends UpdateImageVersionRequest {}
+export interface UpdateImageVersionCommandOutput extends UpdateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the properties of a SageMaker image. To change the image's tags, use the
- *         <a>AddTags</a> and <a>DeleteTags</a> APIs.</p>
+ * <p>Updates the properties of a SageMaker image version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { SageMakerClient, UpdateImageCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
- * // const { SageMakerClient, UpdateImageCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
+ * import { SageMakerClient, UpdateImageVersionCommand } from "@aws-sdk/client-sagemaker"; // ES Modules import
+ * // const { SageMakerClient, UpdateImageVersionCommand } = require("@aws-sdk/client-sagemaker"); // CommonJS import
  * const client = new SageMakerClient(config);
- * const command = new UpdateImageCommand(input);
+ * const command = new UpdateImageVersionCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateImageCommandInput} for command's `input` shape.
- * @see {@link UpdateImageCommandOutput} for command's `response` shape.
+ * @see {@link UpdateImageVersionCommandInput} for command's `input` shape.
+ * @see {@link UpdateImageVersionCommandOutput} for command's `response` shape.
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  */
-export class UpdateImageCommand extends $Command<
-  UpdateImageCommandInput,
-  UpdateImageCommandOutput,
+export class UpdateImageVersionCommand extends $Command<
+  UpdateImageVersionCommandInput,
+  UpdateImageVersionCommandOutput,
   SageMakerClientResolvedConfig
 > {
   // Start section: command_properties
@@ -63,7 +62,7 @@ export class UpdateImageCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateImageCommandInput) {
+  constructor(readonly input: UpdateImageVersionCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -76,21 +75,23 @@ export class UpdateImageCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: SageMakerClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateImageCommandInput, UpdateImageCommandOutput> {
+  ): Handler<UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, UpdateImageCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, UpdateImageVersionCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "SageMakerClient";
-    const commandName = "UpdateImageCommand";
+    const commandName = "UpdateImageVersionCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateImageRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateImageResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: UpdateImageVersionRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: UpdateImageVersionResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -100,12 +101,12 @@ export class UpdateImageCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateImageCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateImageCommand(input, context);
+  private serialize(input: UpdateImageVersionCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_json1_1UpdateImageVersionCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageCommandOutput> {
-    return deserializeAws_json1_1UpdateImageCommand(output, context);
+  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateImageVersionCommandOutput> {
+    return deserializeAws_json1_1UpdateImageVersionCommand(output, context);
   }
 
   // Start section: command_body_extra

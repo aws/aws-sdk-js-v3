@@ -788,6 +788,7 @@ import {
   ListAlgorithmsCommandInput,
   ListAlgorithmsCommandOutput,
 } from "./commands/ListAlgorithmsCommand";
+import { ListAliasesCommand, ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommand,
   ListAppImageConfigsCommandInput,
@@ -1290,6 +1291,11 @@ import {
 } from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommand, UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
+import {
+  UpdateImageVersionCommand,
+  UpdateImageVersionCommandInput,
+  UpdateImageVersionCommandOutput,
+} from "./commands/UpdateImageVersionCommand";
 import {
   UpdateInferenceExperimentCommand,
   UpdateInferenceExperimentCommandInput,
@@ -7503,6 +7509,32 @@ export class SageMaker extends SageMakerClient {
   }
 
   /**
+   * <p>Lists the aliases of a specified image or image version.</p>
+   */
+  public listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
+  public listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
+  public listAliases(
+    args: ListAliasesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAliasesCommandOutput) => void
+  ): void;
+  public listAliases(
+    args: ListAliasesCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: ListAliasesCommandOutput) => void),
+    cb?: (err: any, data?: ListAliasesCommandOutput) => void
+  ): Promise<ListAliasesCommandOutput> | void {
+    const command = new ListAliasesCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
    * <p>Lists the AppImageConfigs in your account and their properties. The list can be
    *         filtered by creation time or modified time, and whether the AppImageConfig name contains
    *         a specified string.</p>
@@ -11088,6 +11120,38 @@ export class SageMaker extends SageMakerClient {
     cb?: (err: any, data?: UpdateImageCommandOutput) => void
   ): Promise<UpdateImageCommandOutput> | void {
     const command = new UpdateImageCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Updates the properties of a SageMaker image version.</p>
+   */
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateImageVersionCommandOutput>;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): void;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): void;
+  public updateImageVersion(
+    args: UpdateImageVersionCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateImageVersionCommandOutput) => void),
+    cb?: (err: any, data?: UpdateImageVersionCommandOutput) => void
+  ): Promise<UpdateImageVersionCommandOutput> | void {
+    const command = new UpdateImageVersionCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

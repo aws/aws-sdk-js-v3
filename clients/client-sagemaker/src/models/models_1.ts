@@ -6,9 +6,6 @@ import {
   ActionStatus,
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
-  AlgorithmStatus,
-  AlgorithmStatusDetails,
-  AlgorithmValidationSpecification,
   AnnotationConsolidationConfig,
   AppSpecification,
   AppType,
@@ -63,7 +60,6 @@ import {
   Tag,
   TrainingInputMode,
   TrainingInstanceType,
-  TrainingSpecification,
   TransformInput,
   TransformJobDefinition,
   TransformOutput,
@@ -2039,7 +2035,7 @@ export interface CreateImageRequest {
   ImageName: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
+   * <p>The ARN of an IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
    */
   RoleArn: string | undefined;
 
@@ -2051,9 +2047,27 @@ export interface CreateImageRequest {
 
 export interface CreateImageResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image.</p>
+   * <p>The ARN of the image.</p>
    */
   ImageArn?: string;
+}
+
+export enum JobType {
+  INFERENCE = "INFERENCE",
+  NOTEBOOK_KERNEL = "NOTEBOOK_KERNEL",
+  TRAINING = "TRAINING",
+}
+
+export enum Processor {
+  CPU = "CPU",
+  GPU = "GPU",
+}
+
+export enum VendorGuidance {
+  ARCHIVED = "ARCHIVED",
+  NOT_PROVIDED = "NOT_PROVIDED",
+  STABLE = "STABLE",
+  TO_BE_ARCHIVED = "TO_BE_ARCHIVED",
 }
 
 export interface CreateImageVersionRequest {
@@ -2076,11 +2090,93 @@ export interface CreateImageVersionRequest {
    * <p>The <code>ImageName</code> of the <code>Image</code> to create a version of.</p>
    */
   ImageName: string | undefined;
+
+  /**
+   * <p>A list of aliases created with the image version.</p>
+   */
+  Aliases?: string[];
+
+  /**
+   * <p>The stability of the image version, specified by the maintainer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_PROVIDED</code>: The maintainers did not provide a status for image version stability.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STABLE</code>: The image version is stable.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TO_BE_ARCHIVED</code>: The image version is set to be archived. Custom image versions that are set to be archived are automatically archived after three months.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ARCHIVED</code>: The image version is archived. Archived image versions are not searchable and are no longer actively supported. </p>
+   *             </li>
+   *          </ul>
+   */
+  VendorGuidance?: VendorGuidance | string;
+
+  /**
+   * <p>Indicates SageMaker job type compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>TRAINING</code>: The image version is compatible with SageMaker training jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>INFERENCE</code>: The image version is compatible with SageMaker inference jobs.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOTEBOOK_KERNEL</code>: The image version is compatible with SageMaker notebook kernels.</p>
+   *             </li>
+   *          </ul>
+   */
+  JobType?: JobType | string;
+
+  /**
+   * <p>The machine learning framework vended in the image version.</p>
+   */
+  MLFramework?: string;
+
+  /**
+   * <p>The supported programming language and its version.</p>
+   */
+  ProgrammingLang?: string;
+
+  /**
+   * <p>Indicates CPU or GPU compatibility.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CPU</code>: The image version is compatible with CPU.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>GPU</code>: The image version is compatible with GPU.</p>
+   *             </li>
+   *          </ul>
+   */
+  Processor?: Processor | string;
+
+  /**
+   * <p>Indicates Horovod compatibility.</p>
+   */
+  Horovod?: boolean;
+
+  /**
+   * <p>The maintainer description of the image version.</p>
+   */
+  ReleaseNotes?: string;
 }
 
 export interface CreateImageVersionResponse {
   /**
-   * <p>The Amazon Resource Name (ARN) of the image version.</p>
+   * <p>The ARN of the image version.</p>
    */
   ImageVersionArn?: string;
 }
@@ -8714,14 +8810,19 @@ export interface DeleteImageResponse {}
 
 export interface DeleteImageVersionRequest {
   /**
-   * <p>The name of the image.</p>
+   * <p>The name of the image to delete.</p>
    */
   ImageName: string | undefined;
 
   /**
    * <p>The version to delete.</p>
    */
-  Version: number | undefined;
+  Version?: number;
+
+  /**
+   * <p>The alias of the image to delete.</p>
+   */
+  Alias?: string;
 }
 
 export interface DeleteImageVersionResponse {}
@@ -9129,99 +9230,6 @@ export interface DescribeActionResponse {
    * <p>The Amazon Resource Name (ARN) of the lineage group.</p>
    */
   LineageGroupArn?: string;
-}
-
-export interface DescribeAlgorithmInput {
-  /**
-   * <p>The name of the algorithm to describe.</p>
-   */
-  AlgorithmName: string | undefined;
-}
-
-export interface DescribeAlgorithmOutput {
-  /**
-   * <p>The name of the algorithm being described.</p>
-   */
-  AlgorithmName: string | undefined;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the algorithm.</p>
-   */
-  AlgorithmArn: string | undefined;
-
-  /**
-   * <p>A brief summary about the algorithm.</p>
-   */
-  AlgorithmDescription?: string;
-
-  /**
-   * <p>A timestamp specifying when the algorithm was created.</p>
-   */
-  CreationTime: Date | undefined;
-
-  /**
-   * <p>Details about training jobs run by this algorithm.</p>
-   */
-  TrainingSpecification: TrainingSpecification | undefined;
-
-  /**
-   * <p>Details about inference jobs that the algorithm runs.</p>
-   */
-  InferenceSpecification?: InferenceSpecification;
-
-  /**
-   * <p>Details about configurations for one or more training jobs that SageMaker runs to test the
-   *             algorithm.</p>
-   */
-  ValidationSpecification?: AlgorithmValidationSpecification;
-
-  /**
-   * <p>The current status of the algorithm.</p>
-   */
-  AlgorithmStatus: AlgorithmStatus | string | undefined;
-
-  /**
-   * <p>Details about the current status of the algorithm.</p>
-   */
-  AlgorithmStatusDetails: AlgorithmStatusDetails | undefined;
-
-  /**
-   * <p>The product identifier of the algorithm.</p>
-   */
-  ProductId?: string;
-
-  /**
-   * <p>Whether the algorithm is certified to be listed in Amazon Web Services
-   *             Marketplace.</p>
-   */
-  CertifyForMarketplace?: boolean;
-}
-
-export interface DescribeAppRequest {
-  /**
-   * <p>The domain ID.</p>
-   */
-  DomainId: string | undefined;
-
-  /**
-   * <p>The user profile name. If this value is not set, then <code>SpaceName</code> must be set.</p>
-   */
-  UserProfileName?: string;
-
-  /**
-   * <p>The type of app.</p>
-   */
-  AppType: AppType | string | undefined;
-
-  /**
-   * <p>The name of the app.</p>
-   */
-  AppName: string | undefined;
-
-  /**
-   * <p>The name of the space.</p>
-   */
-  SpaceName?: string;
 }
 
 /**
@@ -11165,26 +11173,5 @@ export const DescribeActionRequestFilterSensitiveLog = (obj: DescribeActionReque
  * @internal
  */
 export const DescribeActionResponseFilterSensitiveLog = (obj: DescribeActionResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmInputFilterSensitiveLog = (obj: DescribeAlgorithmInput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAlgorithmOutputFilterSensitiveLog = (obj: DescribeAlgorithmOutput): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const DescribeAppRequestFilterSensitiveLog = (obj: DescribeAppRequest): any => ({
   ...obj,
 });

@@ -18,7 +18,7 @@ import {
   UpdateHubRequestFilterSensitiveLog,
   UpdateHubResponse,
   UpdateHubResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { deserializeAws_json1_1UpdateHubCommand, serializeAws_json1_1UpdateHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 

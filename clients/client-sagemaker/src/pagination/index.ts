@@ -2,6 +2,7 @@
 export * from "./Interfaces";
 export * from "./ListActionsPaginator";
 export * from "./ListAlgorithmsPaginator";
+export * from "./ListAliasesPaginator";
 export * from "./ListAppImageConfigsPaginator";
 export * from "./ListAppsPaginator";
 export * from "./ListArtifactsPaginator";

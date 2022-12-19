@@ -6,10 +6,18 @@ import {
   AdditionalInferenceSpecificationDefinition,
   AlgorithmSpecification,
   AppSpecification,
+  AssociationSummary,
+  AutoMLCandidate,
+  AutoMLJobStatus,
   AutoMLJobStepMetadata,
+  AutoMLJobSummary,
+  AutoMLSortBy,
+  AutoMLSortOrder,
   BatchStrategy,
   CacheHitResult,
   CallbackStepMetadata,
+  CandidateSortBy,
+  CandidateStatus,
   Channel,
   CheckpointConfig,
   ClarifyCheckStepMetadata,
@@ -108,7 +116,6 @@ import {
   FeatureGroupStatus,
   FeatureGroupSummary,
   FeatureMetadata,
-  FeatureParameter,
   Filter,
   FlowDefinitionSummary,
   GitConfigForUpdate,
@@ -172,6 +179,136 @@ import {
   Workforce,
   Workteam,
 } from "./models_2";
+
+export interface ListAssociationsResponse {
+  /**
+   * <p>A list of associations and their properties.</p>
+   */
+  AssociationSummaries?: AssociationSummary[];
+
+  /**
+   * <p>A token for getting the next set of associations, if there are any.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAutoMLJobsRequest {
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   */
+  CreationTimeAfter?: Date;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   */
+  CreationTimeBefore?: Date;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   */
+  LastModifiedTimeAfter?: Date;
+
+  /**
+   * <p>Request a list of jobs, using a filter for time.</p>
+   */
+  LastModifiedTimeBefore?: Date;
+
+  /**
+   * <p>Request a list of jobs, using a search filter for name.</p>
+   */
+  NameContains?: string;
+
+  /**
+   * <p>Request a list of jobs, using a filter for status.</p>
+   */
+  StatusEquals?: AutoMLJobStatus | string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Descending</code>.</p>
+   */
+  SortOrder?: AutoMLSortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is <code>Name</code>.</p>
+   */
+  SortBy?: AutoMLSortBy | string;
+
+  /**
+   * <p>Request a list of jobs up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListAutoMLJobsResponse {
+  /**
+   * <p>Returns a summary list of jobs.</p>
+   */
+  AutoMLJobSummaries: AutoMLJobSummary[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCandidatesForAutoMLJobRequest {
+  /**
+   * <p>List the candidates created for the job by providing the job's name.</p>
+   */
+  AutoMLJobName: string | undefined;
+
+  /**
+   * <p>List the candidates for the job and filter by status.</p>
+   */
+  StatusEquals?: CandidateStatus | string;
+
+  /**
+   * <p>List the candidates for the job and filter by candidate name.</p>
+   */
+  CandidateNameEquals?: string;
+
+  /**
+   * <p>The sort order for the results. The default is <code>Ascending</code>.</p>
+   */
+  SortOrder?: AutoMLSortOrder | string;
+
+  /**
+   * <p>The parameter by which to sort the results. The default is
+   *          <code>Descending</code>.</p>
+   */
+  SortBy?: CandidateSortBy | string;
+
+  /**
+   * <p>List the job's candidates up to a specified limit.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
+
+export interface ListCandidatesForAutoMLJobResponse {
+  /**
+   * <p>Summaries about the <code>AutoMLCandidates</code>.</p>
+   */
+  Candidates: AutoMLCandidate[] | undefined;
+
+  /**
+   * <p>If the previous response was truncated, you receive this token. Use it in your next
+   *          request to receive the next set of results.</p>
+   */
+  NextToken?: string;
+}
 
 export interface ListCodeRepositoriesInput {
   /**
@@ -8253,96 +8390,40 @@ export interface UpdateFeatureGroupRequest {
   FeatureAdditions?: FeatureDefinition[];
 }
 
-export interface UpdateFeatureGroupResponse {
-  /**
-   * <p>The Amazon Resource Number (ARN) of the feature group that you're updating.</p>
-   */
-  FeatureGroupArn: string | undefined;
-}
+/**
+ * @internal
+ */
+export const ListAssociationsResponseFilterSensitiveLog = (obj: ListAssociationsResponse): any => ({
+  ...obj,
+});
 
-export interface UpdateFeatureMetadataRequest {
-  /**
-   * <p>The name of the feature group containing the feature that you're updating.</p>
-   */
-  FeatureGroupName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAutoMLJobsRequestFilterSensitiveLog = (obj: ListAutoMLJobsRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>The name of the feature that you're updating.</p>
-   */
-  FeatureName: string | undefined;
+/**
+ * @internal
+ */
+export const ListAutoMLJobsResponseFilterSensitiveLog = (obj: ListAutoMLJobsResponse): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A description that you can write to better describe the feature.</p>
-   */
-  Description?: string;
+/**
+ * @internal
+ */
+export const ListCandidatesForAutoMLJobRequestFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobRequest): any => ({
+  ...obj,
+});
 
-  /**
-   * <p>A list of key-value pairs that you can add to better describe the feature.</p>
-   */
-  ParameterAdditions?: FeatureParameter[];
-
-  /**
-   * <p>A list of parameter keys that you can specify to remove parameters that describe your feature.</p>
-   */
-  ParameterRemovals?: string[];
-}
-
-export interface UpdateHubRequest {
-  /**
-   * <p>The name of the hub to update.</p>
-   */
-  HubName: string | undefined;
-
-  /**
-   * <p>A description of the updated hub.</p>
-   */
-  HubDescription?: string;
-
-  /**
-   * <p>The display name of the hub.</p>
-   */
-  HubDisplayName?: string;
-
-  /**
-   * <p>The searchable keywords for the hub.</p>
-   */
-  HubSearchKeywords?: string[];
-}
-
-export interface UpdateHubResponse {
-  /**
-   * <p>The Amazon Resource Name (ARN) of the updated hub.</p>
-   */
-  HubArn: string | undefined;
-}
-
-export interface UpdateImageRequest {
-  /**
-   * <p>A list of properties to delete. Only the <code>Description</code> and
-   *         <code>DisplayName</code> properties can be deleted.</p>
-   */
-  DeleteProperties?: string[];
-
-  /**
-   * <p>The new description for the image.</p>
-   */
-  Description?: string;
-
-  /**
-   * <p>The new display name for the image.</p>
-   */
-  DisplayName?: string;
-
-  /**
-   * <p>The name of the image to update.</p>
-   */
-  ImageName: string | undefined;
-
-  /**
-   * <p>The new Amazon Resource Name (ARN) for the IAM role that enables Amazon SageMaker to perform tasks on your behalf.</p>
-   */
-  RoleArn?: string;
-}
+/**
+ * @internal
+ */
+export const ListCandidatesForAutoMLJobResponseFilterSensitiveLog = (obj: ListCandidatesForAutoMLJobResponse): any => ({
+  ...obj,
+});
 
 /**
  * @internal
@@ -10145,40 +10226,5 @@ export const UpdateExperimentResponseFilterSensitiveLog = (obj: UpdateExperiment
  * @internal
  */
 export const UpdateFeatureGroupRequestFilterSensitiveLog = (obj: UpdateFeatureGroupRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureGroupResponseFilterSensitiveLog = (obj: UpdateFeatureGroupResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateFeatureMetadataRequestFilterSensitiveLog = (obj: UpdateFeatureMetadataRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHubRequestFilterSensitiveLog = (obj: UpdateHubRequest): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateHubResponseFilterSensitiveLog = (obj: UpdateHubResponse): any => ({
-  ...obj,
-});
-
-/**
- * @internal
- */
-export const UpdateImageRequestFilterSensitiveLog = (obj: UpdateImageRequest): any => ({
   ...obj,
 });

@@ -485,6 +485,7 @@ import {
 import { ImportHubContentCommandInput, ImportHubContentCommandOutput } from "./commands/ImportHubContentCommand";
 import { ListActionsCommandInput, ListActionsCommandOutput } from "./commands/ListActionsCommand";
 import { ListAlgorithmsCommandInput, ListAlgorithmsCommandOutput } from "./commands/ListAlgorithmsCommand";
+import { ListAliasesCommandInput, ListAliasesCommandOutput } from "./commands/ListAliasesCommand";
 import {
   ListAppImageConfigsCommandInput,
   ListAppImageConfigsCommandOutput,
@@ -760,6 +761,7 @@ import {
 } from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
 import { UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
+import { UpdateImageVersionCommandInput, UpdateImageVersionCommandOutput } from "./commands/UpdateImageVersionCommand";
 import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
@@ -978,6 +980,7 @@ export type ServiceInputTypes =
   | ImportHubContentCommandInput
   | ListActionsCommandInput
   | ListAlgorithmsCommandInput
+  | ListAliasesCommandInput
   | ListAppImageConfigsCommandInput
   | ListAppsCommandInput
   | ListArtifactsCommandInput
@@ -1088,6 +1091,7 @@ export type ServiceInputTypes =
   | UpdateFeatureMetadataCommandInput
   | UpdateHubCommandInput
   | UpdateImageCommandInput
+  | UpdateImageVersionCommandInput
   | UpdateInferenceExperimentCommandInput
   | UpdateModelCardCommandInput
   | UpdateModelPackageCommandInput
@@ -1278,6 +1282,7 @@ export type ServiceOutputTypes =
   | ImportHubContentCommandOutput
   | ListActionsCommandOutput
   | ListAlgorithmsCommandOutput
+  | ListAliasesCommandOutput
   | ListAppImageConfigsCommandOutput
   | ListAppsCommandOutput
   | ListArtifactsCommandOutput
@@ -1388,6 +1393,7 @@ export type ServiceOutputTypes =
   | UpdateFeatureMetadataCommandOutput
   | UpdateHubCommandOutput
   | UpdateImageCommandOutput
+  | UpdateImageVersionCommandOutput
   | UpdateInferenceExperimentCommandOutput
   | UpdateModelCardCommandOutput
   | UpdateModelPackageCommandOutput
