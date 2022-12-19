@@ -37,6 +37,14 @@ import {
   DescribeImageGenerationConfigurationCommandOutput,
 } from "../commands/DescribeImageGenerationConfigurationCommand";
 import {
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "../commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "../commands/DescribeMediaStorageConfigurationCommand";
+import {
   DescribeNotificationConfigurationCommandInput,
   DescribeNotificationConfigurationCommandOutput,
 } from "../commands/DescribeNotificationConfigurationCommand";
@@ -77,6 +85,10 @@ import {
   UpdateImageGenerationConfigurationCommandOutput,
 } from "../commands/UpdateImageGenerationConfigurationCommand";
 import {
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "../commands/UpdateMediaStorageConfigurationCommand";
+import {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "../commands/UpdateNotificationConfigurationCommand";
@@ -104,7 +116,9 @@ import {
   InvalidDeviceException,
   InvalidResourceFormatException,
   LocalSizeConfig,
+  MappedResourceConfigurationListItem,
   MediaSourceConfig,
+  MediaStorageConfiguration,
   NoDataRetentionException,
   NotAuthorizedException,
   NotificationConfiguration,
@@ -278,6 +292,60 @@ export const serializeAws_restJson1DescribeImageGenerationConfigurationCommand =
   body = JSON.stringify({
     ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
     ...(input.StreamName != null && { StreamName: input.StreamName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeMappedResourceConfigurationCommand = async (
+  input: DescribeMappedResourceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMappedResourceConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
+    ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+    ...(input.StreamName != null && { StreamName: input.StreamName }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
+export const serializeAws_restJson1DescribeMediaStorageConfigurationCommand = async (
+  input: DescribeMediaStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/describeMediaStorageConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
+    ...(input.ChannelName != null && { ChannelName: input.ChannelName }),
   });
   return new __HttpRequest({
     protocol,
@@ -720,6 +788,37 @@ export const serializeAws_restJson1UpdateImageGenerationConfigurationCommand = a
   });
 };
 
+export const serializeAws_restJson1UpdateMediaStorageConfigurationCommand = async (
+  input: UpdateMediaStorageConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  const resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` + "/updateMediaStorageConfiguration";
+  let body: any;
+  body = JSON.stringify({
+    ...(input.ChannelARN != null && { ChannelARN: input.ChannelARN }),
+    ...(input.MediaStorageConfiguration != null && {
+      MediaStorageConfiguration: serializeAws_restJson1MediaStorageConfiguration(
+        input.MediaStorageConfiguration,
+        context
+      ),
+    }),
+  });
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "POST",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1UpdateNotificationConfigurationCommand = async (
   input: UpdateNotificationConfigurationCommandInput,
   context: __SerdeContext
@@ -1128,6 +1227,115 @@ const deserializeAws_restJson1DescribeImageGenerationConfigurationCommandError =
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DescribeImageGenerationConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeMappedResourceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeMappedResourceConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MappedResourceConfigurationList != null) {
+    contents.MappedResourceConfigurationList = deserializeAws_restJson1MappedResourceConfigurationList(
+      data.MappedResourceConfigurationList,
+      context
+    );
+  }
+  if (data.NextToken != null) {
+    contents.NextToken = __expectString(data.NextToken);
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeMappedResourceConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMappedResourceConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1DescribeMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1DescribeMediaStorageConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.MediaStorageConfiguration != null) {
+    contents.MediaStorageConfiguration = deserializeAws_restJson1MediaStorageConfiguration(
+      data.MediaStorageConfiguration,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1DescribeMediaStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeMediaStorageConfigurationCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1999,6 +2207,59 @@ const deserializeAws_restJson1UpdateImageGenerationConfigurationCommandError = a
   }
 };
 
+export const deserializeAws_restJson1UpdateMediaStorageConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1UpdateMediaStorageConfigurationCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+const deserializeAws_restJson1UpdateMediaStorageConfigurationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateMediaStorageConfigurationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.kinesisvideo#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ClientLimitExceededException":
+    case "com.amazonaws.kinesisvideo#ClientLimitExceededException":
+      throw await deserializeAws_restJson1ClientLimitExceededExceptionResponse(parsedOutput, context);
+    case "InvalidArgumentException":
+    case "com.amazonaws.kinesisvideo#InvalidArgumentException":
+      throw await deserializeAws_restJson1InvalidArgumentExceptionResponse(parsedOutput, context);
+    case "NoDataRetentionException":
+    case "com.amazonaws.kinesisvideo#NoDataRetentionException":
+      throw await deserializeAws_restJson1NoDataRetentionExceptionResponse(parsedOutput, context);
+    case "ResourceInUseException":
+    case "com.amazonaws.kinesisvideo#ResourceInUseException":
+      throw await deserializeAws_restJson1ResourceInUseExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.kinesisvideo#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1UpdateNotificationConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -2493,6 +2754,16 @@ const serializeAws_restJson1MediaSourceConfig = (input: MediaSourceConfig, conte
   };
 };
 
+const serializeAws_restJson1MediaStorageConfiguration = (
+  input: MediaStorageConfiguration,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.Status != null && { Status: input.Status }),
+    ...(input.StreamARN != null && { StreamARN: input.StreamARN }),
+  };
+};
+
 const serializeAws_restJson1NotificationConfiguration = (
   input: NotificationConfiguration,
   context: __SerdeContext
@@ -2713,10 +2984,45 @@ const deserializeAws_restJson1LocalSizeConfig = (output: any, context: __SerdeCo
   } as any;
 };
 
+const deserializeAws_restJson1MappedResourceConfigurationList = (
+  output: any,
+  context: __SerdeContext
+): MappedResourceConfigurationListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1MappedResourceConfigurationListItem(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_restJson1MappedResourceConfigurationListItem = (
+  output: any,
+  context: __SerdeContext
+): MappedResourceConfigurationListItem => {
+  return {
+    ARN: __expectString(output.ARN),
+    Type: __expectString(output.Type),
+  } as any;
+};
+
 const deserializeAws_restJson1MediaSourceConfig = (output: any, context: __SerdeContext): MediaSourceConfig => {
   return {
     MediaUriSecretArn: __expectString(output.MediaUriSecretArn),
     MediaUriType: __expectString(output.MediaUriType),
+  } as any;
+};
+
+const deserializeAws_restJson1MediaStorageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): MediaStorageConfiguration => {
+  return {
+    Status: __expectString(output.Status),
+    StreamARN: __expectString(output.StreamARN),
   } as any;
 };
 

@@ -66,6 +66,14 @@ import {
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
 import {
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "./commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "./commands/DescribeMediaStorageConfigurationCommand";
+import {
   DescribeNotificationConfigurationCommandInput,
   DescribeNotificationConfigurationCommandOutput,
 } from "./commands/DescribeNotificationConfigurationCommand";
@@ -106,6 +114,10 @@ import {
   UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
 import {
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "./commands/UpdateMediaStorageConfigurationCommand";
+import {
   UpdateNotificationConfigurationCommandInput,
   UpdateNotificationConfigurationCommandOutput,
 } from "./commands/UpdateNotificationConfigurationCommand";
@@ -129,6 +141,8 @@ export type ServiceInputTypes =
   | DeleteStreamCommandInput
   | DescribeEdgeConfigurationCommandInput
   | DescribeImageGenerationConfigurationCommandInput
+  | DescribeMappedResourceConfigurationCommandInput
+  | DescribeMediaStorageConfigurationCommandInput
   | DescribeNotificationConfigurationCommandInput
   | DescribeSignalingChannelCommandInput
   | DescribeStreamCommandInput
@@ -145,6 +159,7 @@ export type ServiceInputTypes =
   | UntagStreamCommandInput
   | UpdateDataRetentionCommandInput
   | UpdateImageGenerationConfigurationCommandInput
+  | UpdateMediaStorageConfigurationCommandInput
   | UpdateNotificationConfigurationCommandInput
   | UpdateSignalingChannelCommandInput
   | UpdateStreamCommandInput;
@@ -156,6 +171,8 @@ export type ServiceOutputTypes =
   | DeleteStreamCommandOutput
   | DescribeEdgeConfigurationCommandOutput
   | DescribeImageGenerationConfigurationCommandOutput
+  | DescribeMappedResourceConfigurationCommandOutput
+  | DescribeMediaStorageConfigurationCommandOutput
   | DescribeNotificationConfigurationCommandOutput
   | DescribeSignalingChannelCommandOutput
   | DescribeStreamCommandOutput
@@ -172,6 +189,7 @@ export type ServiceOutputTypes =
   | UntagStreamCommandOutput
   | UpdateDataRetentionCommandOutput
   | UpdateImageGenerationConfigurationCommandOutput
+  | UpdateMediaStorageConfigurationCommandOutput
   | UpdateNotificationConfigurationCommandOutput
   | UpdateSignalingChannelCommandOutput
   | UpdateStreamCommandOutput;

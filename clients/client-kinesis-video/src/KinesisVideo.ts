@@ -32,6 +32,16 @@ import {
   DescribeImageGenerationConfigurationCommandOutput,
 } from "./commands/DescribeImageGenerationConfigurationCommand";
 import {
+  DescribeMappedResourceConfigurationCommand,
+  DescribeMappedResourceConfigurationCommandInput,
+  DescribeMappedResourceConfigurationCommandOutput,
+} from "./commands/DescribeMappedResourceConfigurationCommand";
+import {
+  DescribeMediaStorageConfigurationCommand,
+  DescribeMediaStorageConfigurationCommandInput,
+  DescribeMediaStorageConfigurationCommandOutput,
+} from "./commands/DescribeMediaStorageConfigurationCommand";
+import {
   DescribeNotificationConfigurationCommand,
   DescribeNotificationConfigurationCommandInput,
   DescribeNotificationConfigurationCommandOutput,
@@ -95,6 +105,11 @@ import {
   UpdateImageGenerationConfigurationCommandInput,
   UpdateImageGenerationConfigurationCommandOutput,
 } from "./commands/UpdateImageGenerationConfigurationCommand";
+import {
+  UpdateMediaStorageConfigurationCommand,
+  UpdateMediaStorageConfigurationCommandInput,
+  UpdateMediaStorageConfigurationCommandOutput,
+} from "./commands/UpdateMediaStorageConfigurationCommand";
 import {
   UpdateNotificationConfigurationCommand,
   UpdateNotificationConfigurationCommandInput,
@@ -314,6 +329,73 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: DescribeImageGenerationConfigurationCommandOutput) => void
   ): Promise<DescribeImageGenerationConfigurationCommandOutput> | void {
     const command = new DescribeImageGenerationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the most current information about the stream. Either streamName or streamARN should be provided in the input.</p>
+   *          <p>Returns the most current information about the stream. The <code>streamName</code>
+   *             or <code>streamARN</code> should be provided in the input.</p>
+   */
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMappedResourceConfigurationCommandOutput>;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    cb: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): void;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): void;
+  public describeMappedResourceConfiguration(
+    args: DescribeMappedResourceConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMappedResourceConfigurationCommandOutput) => void
+  ): Promise<DescribeMappedResourceConfigurationCommandOutput> | void {
+    const command = new DescribeMappedResourceConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Returns the most current information about the channel. Specify the <code>ChannelName</code>
+   *             or <code>ChannelARN</code> in the input.</p>
+   */
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMediaStorageConfigurationCommandOutput>;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    cb: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public describeMediaStorageConfiguration(
+    args: DescribeMediaStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: DescribeMediaStorageConfigurationCommandOutput) => void
+  ): Promise<DescribeMediaStorageConfigurationCommandOutput> | void {
+    const command = new DescribeMediaStorageConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
@@ -639,20 +721,18 @@ export class KinesisVideo extends KinesisVideoClient {
   }
 
   /**
-   * <p>An asynchronous API that updates a stream’s existing edge configuration. If this API is invoked for the
-   *             first time, a new edge configuration will be created for the stream, and the sync status will be set to
-   *             <code>SYNCING</code>. </p>
-   *          <p>The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent
-   *             IoT Greengrass component that runs on an IoT Hub Device setup at your premise.
-   *             The time to sync can vary and depends on the connectivity of the Hub Device.
+   * <p>An asynchronous API that updates a stream’s existing edge configuration.
+   *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
+   *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
+   *             and depends on the connectivity of the Hub Device.
    *             The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged,
-   *             and synced with the Edge Agent. You will have to wait for the sync status to reach a terminal state such as:
-   *             <code>IN_SYNC</code> and <code>SYNC_FAILED</code>, before using this API again.</p>
-   *          <p>If you invoke this API during the syncing process,
-   *             a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream's edge configuration
-   *             and the Edge Agent will be retried
-   *             for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.
-   *         </p>
+   *             and synced with the Edge Agent. </p>
+   *          <p>If this API is invoked for the first time, a new edge configuration will be created for the stream,
+   *             and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status
+   *             to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again.
+   *             If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown.
+   *             The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes,
+   *             the status will transition into the <code>SYNC_FAILED</code> state.</p>
    */
   public startEdgeConfigurationUpdate(
     args: StartEdgeConfigurationUpdateCommandInput,
@@ -891,6 +971,49 @@ export class KinesisVideo extends KinesisVideoClient {
     cb?: (err: any, data?: UpdateImageGenerationConfigurationCommandOutput) => void
   ): Promise<UpdateImageGenerationConfigurationCommandOutput> | void {
     const command = new UpdateImageGenerationConfigurationCommand(args);
+    if (typeof optionsOrCb === "function") {
+      this.send(command, optionsOrCb);
+    } else if (typeof cb === "function") {
+      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      this.send(command, optionsOrCb || {}, cb);
+    } else {
+      return this.send(command, optionsOrCb);
+    }
+  }
+
+  /**
+   * <p>Associates a <code>SignalingChannel</code> to a stream to store the media. There are two signaling modes that
+   *             can specified :</p>
+   *          <ul>
+   *             <li>
+   *                <p>If the <code>StorageStatus</code> is disabled, no data will be stored,
+   *                 and the <code>StreamARN</code> parameter will not be needed. </p>
+   *             </li>
+   *             <li>
+   *                <p>If the <code>StorageStatus</code> is enabled, the data will be stored in the
+   *                 <code>StreamARN</code> provided. </p>
+   *             </li>
+   *          </ul>
+   */
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMediaStorageConfigurationCommandOutput>;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    cb: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): void;
+  public updateMediaStorageConfiguration(
+    args: UpdateMediaStorageConfigurationCommandInput,
+    optionsOrCb?: __HttpHandlerOptions | ((err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void),
+    cb?: (err: any, data?: UpdateMediaStorageConfigurationCommandOutput) => void
+  ): Promise<UpdateMediaStorageConfigurationCommandOutput> | void {
+    const command = new UpdateMediaStorageConfigurationCommand(args);
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {

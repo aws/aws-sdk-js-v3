@@ -31,20 +31,18 @@ export interface StartEdgeConfigurationUpdateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>An asynchronous API that updates a stream’s existing edge configuration. If this API is invoked for the
- *             first time, a new edge configuration will be created for the stream, and the sync status will be set to
- *             <code>SYNCING</code>. </p>
- *          <p>The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent
- *             IoT Greengrass component that runs on an IoT Hub Device setup at your premise.
- *             The time to sync can vary and depends on the connectivity of the Hub Device.
+ * <p>An asynchronous API that updates a stream’s existing edge configuration.
+ *             The Kinesis Video Stream will sync the stream’s edge configuration with the Edge Agent IoT Greengrass
+ *             component that runs on an IoT Hub Device, setup at your premise. The time to sync can vary
+ *             and depends on the connectivity of the Hub Device.
  *             The <code>SyncStatus</code> will be updated as the edge configuration is acknowledged,
- *             and synced with the Edge Agent. You will have to wait for the sync status to reach a terminal state such as:
- *             <code>IN_SYNC</code> and <code>SYNC_FAILED</code>, before using this API again.</p>
- *          <p>If you invoke this API during the syncing process,
- *             a <code>ResourceInUseException</code> will be thrown. The connectivity of the stream's edge configuration
- *             and the Edge Agent will be retried
- *             for 15 minutes. After 15 minutes, the status will transition into the <code>SYNC_FAILED</code> state.
- *         </p>
+ *             and synced with the Edge Agent. </p>
+ *          <p>If this API is invoked for the first time, a new edge configuration will be created for the stream,
+ *             and the sync status will be set to <code>SYNCING</code>. You will have to wait for the sync status
+ *             to reach a terminal state such as: <code>IN_SYNC</code>, or <code>SYNC_FAILED</code>, before using this API again.
+ *             If you invoke this API during the syncing process, a <code>ResourceInUseException</code> will be thrown.
+ *             The connectivity of the stream’s edge configuration and the Edge Agent will be retried for 15 minutes. After 15 minutes,
+ *             the status will transition into the <code>SYNC_FAILED</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -168,6 +168,7 @@ export interface ChannelNameCondition {
 
 export enum ChannelProtocol {
   HTTPS = "HTTPS",
+  WEBRTC = "WEBRTC",
   WSS = "WSS",
 }
 
@@ -271,12 +272,24 @@ export class InvalidArgumentException extends __BaseException {
 }
 
 /**
- * <p>The resource is currently not available for this operation. New resources cannot be
- *             created with the same name as existing resources. Also, resources cannot be updated or
- *             deleted unless they are in an <code>ACTIVE</code> state.</p>
- *          <p>If this exception is returned, do not use it to determine whether the requested
- *             resource already exists. Instead, it is recommended you use the resource-specific
- *             describe API, for example, <code>DescribeStream</code> for video streams.</p>
+ * <p>When the input <code>StreamARN</code> or <code>ChannelARN</code>
+ *             in <code>CLOUD_STORAGE_MODE</code> is already mapped to a different
+ *             Kinesis Video Stream resource, or if the provided input <code>StreamARN</code>
+ *             or <code>ChannelARN</code> is not in Active status, try one of the following : </p>
+ *          <ol>
+ *             <li>
+ *                <p>The <code>DescribeMediaStorageConfiguration</code> API to determine what the stream given channel is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeMappedResourceConfiguration</code> API to determine the channel that the given stream is mapped to.
+ *             </p>
+ *             </li>
+ *             <li>
+ *                <p>The <code>DescribeStream</code> or <code>DescribeSignalingChannel</code> API to determine the status of the resource.
+ *             </p>
+ *             </li>
+ *          </ol>
  */
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
@@ -603,8 +616,11 @@ export interface MediaSourceConfig {
   MediaUriSecretArn: string | undefined;
 
   /**
-   * <p>The Uniform Resource Identifier (Uri) type. The <code>FILE_URI</code> value can be used to stream
-   *         local media files.</p>
+   * <p>The Uniform Resource Identifier (URI) type. The <code>FILE_URI</code> value can be used to stream
+   *             local media files.</p>
+   *          <note>
+   *             <p>Preview only supports the <code>RTSP_URI</code> media source URI format .</p>
+   *          </note>
    */
   MediaUriType: MediaUriType | string | undefined;
 }
@@ -658,8 +674,10 @@ export interface RecorderConfig {
 }
 
 /**
- * <p>The configuration that consists of the <code>ScheduleConfig</code> attribute that's required, to schedule the jobs
- *             to upload the recorded media files onto the Edge Agent in a Kinesis Video Stream.
+ * <p>The configuration that consists of the <code>ScheduleExpression</code>
+ *             and the <code>DurationInMinutesdetails</code>, that specify the scheduling to record from a camera,
+ *             or local media file, onto the Edge Agent. If the <code>ScheduleExpression</code>
+ *             is not provided, then the Edge Agent will always be in upload mode.
  *         </p>
  */
 export interface UploaderConfig {
@@ -690,8 +708,8 @@ export interface EdgeConfig {
   RecorderConfig: RecorderConfig | undefined;
 
   /**
-   * <p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used, to
-   *             schedule upload jobs for the recorded media files from the Edge Agent, to a Kinesis Video Stream.</p>
+   * <p>The uploader configuration contains the <code>ScheduleExpression</code> details that are used to
+   *             schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>
    */
   UploaderConfig?: UploaderConfig;
 
@@ -874,6 +892,94 @@ export interface DescribeImageGenerationConfigurationOutput {
    * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
    */
   ImageGenerationConfiguration?: ImageGenerationConfiguration;
+}
+
+export interface DescribeMappedResourceConfigurationInput {
+  /**
+   * <p>The name of the stream.</p>
+   */
+  StreamName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream.</p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The maximum number of results to return in the response.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token to provide in your next request, to get another batch of results.</p>
+   */
+  NextToken?: string;
+}
+
+/**
+ * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+export interface MappedResourceConfigurationListItem {
+  /**
+   * <p>The type of the associated resource for the kinesis video stream.</p>
+   */
+  Type?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>
+   */
+  ARN?: string;
+}
+
+export interface DescribeMappedResourceConfigurationOutput {
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MappedResourceConfigurationList?: MappedResourceConfigurationListItem[];
+
+  /**
+   * <p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>
+   */
+  NextToken?: string;
+}
+
+export interface DescribeMediaStorageConfigurationInput {
+  /**
+   * <p>The name of the channel.</p>
+   */
+  ChannelName?: string;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   */
+  ChannelARN?: string;
+}
+
+export enum MediaStorageConfigurationStatus {
+  DISABLED = "DISABLED",
+  ENABLED = "ENABLED",
+}
+
+/**
+ * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+ */
+export interface MediaStorageConfiguration {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the stream </p>
+   */
+  StreamARN?: string;
+
+  /**
+   * <p>The status of the media storage configuration.</p>
+   */
+  Status: MediaStorageConfigurationStatus | string | undefined;
+}
+
+export interface DescribeMediaStorageConfigurationOutput {
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MediaStorageConfiguration?: MediaStorageConfiguration;
 }
 
 export interface DescribeNotificationConfigurationInput {
@@ -1481,6 +1587,20 @@ export interface UpdateImageGenerationConfigurationInput {
 
 export interface UpdateImageGenerationConfigurationOutput {}
 
+export interface UpdateMediaStorageConfigurationInput {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the channel.</p>
+   */
+  ChannelARN: string | undefined;
+
+  /**
+   * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
+   */
+  MediaStorageConfiguration: MediaStorageConfiguration | undefined;
+}
+
+export interface UpdateMediaStorageConfigurationOutput {}
+
 export interface UpdateNotificationConfigurationInput {
   /**
    * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
@@ -1742,6 +1862,58 @@ export const ImageGenerationConfigurationFilterSensitiveLog = (obj: ImageGenerat
  */
 export const DescribeImageGenerationConfigurationOutputFilterSensitiveLog = (
   obj: DescribeImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMappedResourceConfigurationInputFilterSensitiveLog = (
+  obj: DescribeMappedResourceConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MappedResourceConfigurationListItemFilterSensitiveLog = (
+  obj: MappedResourceConfigurationListItem
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMappedResourceConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeMappedResourceConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMediaStorageConfigurationInputFilterSensitiveLog = (
+  obj: DescribeMediaStorageConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const MediaStorageConfigurationFilterSensitiveLog = (obj: MediaStorageConfiguration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DescribeMediaStorageConfigurationOutputFilterSensitiveLog = (
+  obj: DescribeMediaStorageConfigurationOutput
 ): any => ({
   ...obj,
 });
@@ -2020,6 +2192,24 @@ export const UpdateImageGenerationConfigurationInputFilterSensitiveLog = (
  */
 export const UpdateImageGenerationConfigurationOutputFilterSensitiveLog = (
   obj: UpdateImageGenerationConfigurationOutput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMediaStorageConfigurationInputFilterSensitiveLog = (
+  obj: UpdateMediaStorageConfigurationInput
+): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const UpdateMediaStorageConfigurationOutputFilterSensitiveLog = (
+  obj: UpdateMediaStorageConfigurationOutput
 ): any => ({
   ...obj,
 });
