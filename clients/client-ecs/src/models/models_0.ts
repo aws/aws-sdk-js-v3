@@ -1066,6 +1066,40 @@ export class ClusterNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>One of the methods which provide a way for you to quickly identify when a deployment
+ * 			has failed, and then to optionally roll back the failure to the last working
+ * 			deployment.</p>
+ *          <p>When the alarms are generated, Amazon ECS sets the service deployment to failed. Set the rollback
+ * 			parameter  to have Amazon ECS to roll back your service to the last completed deployment
+ * 			after a failure.</p>
+ *          <p>You can only use the <code>DeploymentAlarms</code> method to detect failures when the
+ * 				<code>DeploymentController</code> is set to <code>ECS</code> (rolling
+ * 			update).</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html">Rolling
+ * 				update</a> in the <i>
+ *                <i>Amazon Elastic Container Service Developer Guide</i>
+ *             </i>.</p>
+ */
+export interface DeploymentAlarms {
+  /**
+   * <p>One or more CloudWatch alarm names. Use a "," to separate the alarms.</p>
+   */
+  alarmNames: string[] | undefined;
+
+  /**
+   * <p>Determines whether to use the CloudWatch alarm option in the service deployment process.</p>
+   */
+  enable: boolean | undefined;
+
+  /**
+   * <p>Determines whether to configure Amazon ECS to roll back the service if a service deployment
+   * 			fails. If rollback is used, when a service deployment fails, the service is rolled back
+   * 			to the last deployment that completed successfully.</p>
+   */
+  rollback: boolean | undefined;
+}
+
+/**
  * <note>
  *             <p>The deployment circuit breaker can only be used for services using the rolling
  * 				update (<code>ECS</code>) deployment type that aren't behind a Classic Load Balancer.</p>
@@ -1085,8 +1119,8 @@ export interface DeploymentCircuitBreaker {
 
   /**
    * <p>Determines whether to configure Amazon ECS to roll back the service if a service deployment
-   * 			fails. If rollback is enabled, when a service deployment fails, the service is rolled
-   * 			back to the last deployment that completed successfully.</p>
+   * 			fails. If rollback is on, when a service deployment fails, the service is rolled back to
+   * 			the last deployment that completed successfully.</p>
    */
   rollback: boolean | undefined;
 }
@@ -1191,6 +1225,11 @@ export interface DeploymentConfiguration {
    * 			your service.</p>
    */
   minimumHealthyPercent?: number;
+
+  /**
+   * <p>Information about the CloudWatch alarms.</p>
+   */
+  alarms?: DeploymentAlarms;
 }
 
 export enum DeploymentControllerType {
@@ -9928,6 +9967,13 @@ export const ClusterFilterSensitiveLog = (obj: Cluster): any => ({
  * @internal
  */
 export const CreateClusterResponseFilterSensitiveLog = (obj: CreateClusterResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DeploymentAlarmsFilterSensitiveLog = (obj: DeploymentAlarms): any => ({
   ...obj,
 });
 

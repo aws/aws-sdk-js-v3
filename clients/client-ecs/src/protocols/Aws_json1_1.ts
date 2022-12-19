@@ -214,6 +214,7 @@ import {
   DeleteTaskSetRequest,
   DeleteTaskSetResponse,
   Deployment,
+  DeploymentAlarms,
   DeploymentCircuitBreaker,
   DeploymentConfiguration,
   DeploymentController,
@@ -4781,6 +4782,14 @@ const serializeAws_json1_1DeleteTaskSetRequest = (input: DeleteTaskSetRequest, c
   };
 };
 
+const serializeAws_json1_1DeploymentAlarms = (input: DeploymentAlarms, context: __SerdeContext): any => {
+  return {
+    ...(input.alarmNames != null && { alarmNames: serializeAws_json1_1StringList(input.alarmNames, context) }),
+    ...(input.enable != null && { enable: input.enable }),
+    ...(input.rollback != null && { rollback: input.rollback }),
+  };
+};
+
 const serializeAws_json1_1DeploymentCircuitBreaker = (
   input: DeploymentCircuitBreaker,
   context: __SerdeContext
@@ -4793,6 +4802,7 @@ const serializeAws_json1_1DeploymentCircuitBreaker = (
 
 const serializeAws_json1_1DeploymentConfiguration = (input: DeploymentConfiguration, context: __SerdeContext): any => {
   return {
+    ...(input.alarms != null && { alarms: serializeAws_json1_1DeploymentAlarms(input.alarms, context) }),
     ...(input.deploymentCircuitBreaker != null && {
       deploymentCircuitBreaker: serializeAws_json1_1DeploymentCircuitBreaker(input.deploymentCircuitBreaker, context),
     }),
@@ -6883,6 +6893,14 @@ const deserializeAws_json1_1Deployment = (output: any, context: __SerdeContext):
   } as any;
 };
 
+const deserializeAws_json1_1DeploymentAlarms = (output: any, context: __SerdeContext): DeploymentAlarms => {
+  return {
+    alarmNames: output.alarmNames != null ? deserializeAws_json1_1StringList(output.alarmNames, context) : undefined,
+    enable: __expectBoolean(output.enable),
+    rollback: __expectBoolean(output.rollback),
+  } as any;
+};
+
 const deserializeAws_json1_1DeploymentCircuitBreaker = (
   output: any,
   context: __SerdeContext
@@ -6898,6 +6916,7 @@ const deserializeAws_json1_1DeploymentConfiguration = (
   context: __SerdeContext
 ): DeploymentConfiguration => {
   return {
+    alarms: output.alarms != null ? deserializeAws_json1_1DeploymentAlarms(output.alarms, context) : undefined,
     deploymentCircuitBreaker:
       output.deploymentCircuitBreaker != null
         ? deserializeAws_json1_1DeploymentCircuitBreaker(output.deploymentCircuitBreaker, context)
