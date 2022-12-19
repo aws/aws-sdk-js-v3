@@ -12919,6 +12919,9 @@ const serializeAws_queryCreateDBInstanceReadReplicaMessage = (
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
   }
+  if (input.EnableCustomerOwnedIp != null) {
+    entries["EnableCustomerOwnedIp"] = input.EnableCustomerOwnedIp;
+  }
   return entries;
 };
 

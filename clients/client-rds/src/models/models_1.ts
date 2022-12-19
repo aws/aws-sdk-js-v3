@@ -3980,15 +3980,14 @@ export interface ModifyDBInstanceMessage {
 
   /**
    * <p>The new compute and memory capacity of the DB instance, for example db.m4.large. Not all DB instance classes are available in all
-   *             Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and
-   *             availability for your engine, see
-   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB instance
-   *                 classes</a> in the <i>Amazon RDS User Guide</i> or
+   *             Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the
+   *             <i>Amazon RDS User Guide</i> or
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
-   *                 DB instance classes</a> in the <i>Amazon Aurora User Guide</i>.</p>
-   *          <p>If you modify the DB instance class, an outage occurs during the change. The change is applied during the next maintenance window,
-   *             unless <code>ApplyImmediately</code> is enabled for this request.</p>
-   *          <p>This setting doesn't apply to RDS Custom for Oracle.</p>
+   *                 DB instance classes</a> in the <i>Amazon Aurora User Guide</i>. For RDS Custom, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances">DB instance class support for RDS Custom for Oracle</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS">
+   *                         DB instance class support for RDS Custom for SQL Server</a>.</p>
+   *          <p>If you modify the DB instance class, an outage occurs during the change. The change is
+   *             applied during the next maintenance window, unless you specify
+   *             <code>ApplyImmediately</code> in your request.</p>
    *          <p>Default: Uses existing setting</p>
    */
   DBInstanceClass?: string;
@@ -4646,7 +4645,7 @@ export interface ModifyDBInstanceMessage {
    *             private cloud (VPC) on your local network.</p>
    *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned IP addresses</a>
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
@@ -7386,7 +7385,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned IP addresses</a>
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
@@ -8365,7 +8364,7 @@ export interface RestoreDBInstanceToPointInTimeMessage {
    *          <p>This setting doesn't apply to RDS Custom.</p>
    *          <p>For more information about RDS on Outposts, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-on-outposts.html">Working with Amazon RDS on Amazon Web Services Outposts</a>
    *             in the <i>Amazon RDS User Guide</i>.</p>
-   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/outposts-networking-components.html#ip-addressing">Customer-owned IP addresses</a>
+   *          <p>For more information about CoIPs, see <a href="https://docs.aws.amazon.com/outposts/latest/userguide/routing.html#ip-addressing">Customer-owned IP addresses</a>
    *             in the <i>Amazon Web Services Outposts User Guide</i>.</p>
    */
   EnableCustomerOwnedIp?: boolean;
