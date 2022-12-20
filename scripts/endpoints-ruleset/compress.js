@@ -71,7 +71,6 @@ ${selectedAlgorithm.toCodeString("export const ruleSet: RuleSetObject = $;")}
 `;
 
     fs.writeFileSync(rulesetTs, modifiedSource, "utf-8");
-    fs.rm(rulesetJson, () => {});
 
     if (client === "s3") {
       fs.writeFileSync(
