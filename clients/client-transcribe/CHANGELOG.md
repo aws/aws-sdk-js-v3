@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+
+### Features
+
+* **client-transcribe:** Enable our batch transcription jobs for Swedish and Vietnamese. ([b8881a0](https://github.com/aws/aws-sdk-js-v3/commit/b8881a0dfae13d7cc44434a5db0b16f4087b57ba))
+
+
+
+
+
 # [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-transcribe

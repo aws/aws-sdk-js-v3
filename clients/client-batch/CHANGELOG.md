@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+
+### Features
+
+* **client-batch:** Adds isCancelled and isTerminated to DescribeJobs response. ([765cbb9](https://github.com/aws/aws-sdk-js-v3/commit/765cbb91185376df75d8f3ed734165f9a345b9ec))
+
+
+
+
+
 # [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

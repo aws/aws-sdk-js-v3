@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+
+### Features
+
+* **client-medialive:** This release adds support for two new features to AWS Elemental MediaLive. First, you can now burn-in timecodes to your MediaLive outputs. Second, we now now support the ability to decode Dolby E audio when it comes in on an input. ([49b07b3](https://github.com/aws/aws-sdk-js-v3/commit/49b07b3f01e29fcd629803cb319028e2b0918e78))
+
+
+
+
+
 # [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+
+### Features
+
+* **client-lookoutequipment:** This release adds support for listing inference schedulers by status. ([1d7dc07](https://github.com/aws/aws-sdk-js-v3/commit/1d7dc07599768118b1abb3298fc11b5ec96e9410))
+
+
+
+
+
 # [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutequipment

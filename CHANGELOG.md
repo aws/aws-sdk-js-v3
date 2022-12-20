@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
+
+
+### Features
+
+* **client-batch:** Adds isCancelled and isTerminated to DescribeJobs response. ([765cbb9](https://github.com/aws/aws-sdk-js-v3/commit/765cbb91185376df75d8f3ed734165f9a345b9ec))
+* **client-ec2:** Adds support for pagination in the EC2 DescribeImages API. ([a1e5ea8](https://github.com/aws/aws-sdk-js-v3/commit/a1e5ea842369429ccb818b2f4bcb26c432b97e70))
+* **client-lookoutequipment:** This release adds support for listing inference schedulers by status. ([1d7dc07](https://github.com/aws/aws-sdk-js-v3/commit/1d7dc07599768118b1abb3298fc11b5ec96e9410))
+* **client-medialive:** This release adds support for two new features to AWS Elemental MediaLive. First, you can now burn-in timecodes to your MediaLive outputs. Second, we now now support the ability to decode Dolby E audio when it comes in on an input. ([49b07b3](https://github.com/aws/aws-sdk-js-v3/commit/49b07b3f01e29fcd629803cb319028e2b0918e78))
+* **client-nimble:** Amazon Nimble Studio now supports configuring session storage volumes and persistence, as well as backup and restore sessions through launch profiles. ([858e866](https://github.com/aws/aws-sdk-js-v3/commit/858e86600559dd26ade59e9ee876e9eab57d7237))
+* **client-resource-explorer-2:** Documentation updates for AWS Resource Explorer. ([798b1bf](https://github.com/aws/aws-sdk-js-v3/commit/798b1bf7512c8fca2cedd1c0bf1707bf831d7d63))
+* **client-route-53-domains:** Use Route 53 domain APIs to change owner, create/delete DS record, modify IPS tag, resend authorization. New: AssociateDelegationSignerToDomain, DisassociateDelegationSignerFromDomain, PushDomain, ResendOperationAuthorization. Updated: UpdateDomainContact, ListOperations, CheckDomainTransferability. ([38b6bfe](https://github.com/aws/aws-sdk-js-v3/commit/38b6bfe3add60b0732d8f20f7165971adebc28c6))
+* **client-sagemaker:** Amazon SageMaker Autopilot adds support for new objective metrics in CreateAutoMLJob API. ([63855ae](https://github.com/aws/aws-sdk-js-v3/commit/63855ae1ae01f7827632e9b3eadbb8b102e9cfcc))
+* **client-transcribe:** Enable our batch transcription jobs for Swedish and Vietnamese. ([b8881a0](https://github.com/aws/aws-sdk-js-v3/commit/b8881a0dfae13d7cc44434a5db0b16f4087b57ba))
+* **clients:** update client endpoints as of 2022-12-20 ([1510324](https://github.com/aws/aws-sdk-js-v3/commit/15103249adfdda2eb556e753f523f4ef2f4b5a99))
+
+
+
+
+
 # [3.234.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.233.0...v3.234.0) (2022-12-19)
 
 
