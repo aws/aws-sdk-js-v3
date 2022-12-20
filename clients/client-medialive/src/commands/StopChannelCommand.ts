@@ -19,7 +19,7 @@ import {
   StopChannelRequestFilterSensitiveLog,
   StopChannelResponse,
   StopChannelResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StopChannelCommand,
   serializeAws_restJson1StopChannelCommand,

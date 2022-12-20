@@ -2,6 +2,8 @@
 import {
   CdiInputSpecification,
   ChannelClass,
+  ChannelEgressEndpoint,
+  ChannelState,
   DeviceSettingsSyncState,
   DeviceUpdateStatus,
   Input,
@@ -18,10 +20,12 @@ import {
   InputSpecification,
   InputWhitelistRuleCidr,
   LogLevel,
+  MaintenanceStatus,
   MediaConnectFlowRequest,
   MultiplexOutputDestination,
   MultiplexState,
   OutputDestination,
+  VpcOutputSettingsDescription,
 } from "./models_0";
 import {
   Channel,
@@ -32,9 +36,192 @@ import {
   MultiplexProgram,
   MultiplexProgramSettings,
   MultiplexSettings,
+  PipelineDetail,
   RenewalSettings,
   Reservation,
 } from "./models_1";
+
+/**
+ * Placeholder documentation for StartMultiplexRequest
+ */
+export interface StartMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   */
+  MultiplexId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StartMultiplexResponse
+ */
+export interface StartMultiplexResponse {
+  /**
+   * The unique arn of the multiplex.
+   */
+  Arn?: string;
+
+  /**
+   * A list of availability zones for the multiplex.
+   */
+  AvailabilityZones?: string[];
+
+  /**
+   * A list of the multiplex output destinations.
+   */
+  Destinations?: MultiplexOutputDestination[];
+
+  /**
+   * The unique id of the multiplex.
+   */
+  Id?: string;
+
+  /**
+   * Configuration for a multiplex event.
+   */
+  MultiplexSettings?: MultiplexSettings;
+
+  /**
+   * The name of the multiplex.
+   */
+  Name?: string;
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The number of programs in the multiplex.
+   */
+  ProgramCount?: number;
+
+  /**
+   * The current state of the multiplex.
+   */
+  State?: MultiplexState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
+}
+
+/**
+ * Placeholder documentation for StopChannelRequest
+ */
+export interface StopChannelRequest {
+  /**
+   * A request to stop a running channel
+   */
+  ChannelId: string | undefined;
+}
+
+/**
+ * Placeholder documentation for StopChannelResponse
+ */
+export interface StopChannelResponse {
+  /**
+   * The unique arn of the channel.
+   */
+  Arn?: string;
+
+  /**
+   * Specification of CDI inputs for this channel
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass | string;
+
+  /**
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   */
+  Destinations?: OutputDestination[];
+
+  /**
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel | string;
+
+  /**
+   * Maintenance settings for this channel.
+   */
+  Maintenance?: MaintenanceStatus;
+
+  /**
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
+
+  /**
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState | string;
+
+  /**
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
+}
+
+/**
+ * Placeholder documentation for StopMultiplexRequest
+ */
+export interface StopMultiplexRequest {
+  /**
+   * The ID of the multiplex.
+   */
+  MultiplexId: string | undefined;
+}
 
 /**
  * Placeholder documentation for StopMultiplexResponse
@@ -484,6 +671,41 @@ export interface UpdateReservationResponse {
    */
   Reservation?: Reservation;
 }
+
+/**
+ * @internal
+ */
+export const StartMultiplexRequestFilterSensitiveLog = (obj: StartMultiplexRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StartMultiplexResponseFilterSensitiveLog = (obj: StartMultiplexResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelRequestFilterSensitiveLog = (obj: StopChannelRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopChannelResponseFilterSensitiveLog = (obj: StopChannelResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StopMultiplexRequestFilterSensitiveLog = (obj: StopMultiplexRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal

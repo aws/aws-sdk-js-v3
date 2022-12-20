@@ -161,6 +161,7 @@ import {
   AudioChannelMapping,
   AudioCodecSettings,
   AudioDescription,
+  AudioDolbyEDecode,
   AudioHlsRenditionSelection,
   AudioLanguageSelection,
   AudioNormalizationSettings,
@@ -385,6 +386,7 @@ import {
   StaticImageDeactivateScheduleActionSettings,
   StopTimecode,
   TemporalFilterSettings,
+  TimecodeBurninSettings,
   TimecodeConfig,
   TooManyRequestsException,
   TransferringInputDeviceSummary,
@@ -6788,6 +6790,12 @@ const serializeAws_restJson1AudioDescription = (input: AudioDescription, context
   };
 };
 
+const serializeAws_restJson1AudioDolbyEDecode = (input: AudioDolbyEDecode, context: __SerdeContext): any => {
+  return {
+    ...(input.ProgramSelection != null && { programSelection: input.ProgramSelection }),
+  };
+};
+
 const serializeAws_restJson1AudioHlsRenditionSelection = (
   input: AudioHlsRenditionSelection,
   context: __SerdeContext
@@ -6880,6 +6888,9 @@ const serializeAws_restJson1AudioTrack = (input: AudioTrack, context: __SerdeCon
 
 const serializeAws_restJson1AudioTrackSelection = (input: AudioTrackSelection, context: __SerdeContext): any => {
   return {
+    ...(input.DolbyEDecode != null && {
+      dolbyEDecode: serializeAws_restJson1AudioDolbyEDecode(input.DolbyEDecode, context),
+    }),
     ...(input.Tracks != null && { tracks: serializeAws_restJson1__listOfAudioTrack(input.Tracks, context) }),
   };
 };
@@ -7469,6 +7480,9 @@ const serializeAws_restJson1FrameCaptureSettings = (input: FrameCaptureSettings,
   return {
     ...(input.CaptureInterval != null && { captureInterval: input.CaptureInterval }),
     ...(input.CaptureIntervalUnits != null && { captureIntervalUnits: input.CaptureIntervalUnits }),
+    ...(input.TimecodeBurninSettings != null && {
+      timecodeBurninSettings: serializeAws_restJson1TimecodeBurninSettings(input.TimecodeBurninSettings, context),
+    }),
   };
 };
 
@@ -7556,6 +7570,9 @@ const serializeAws_restJson1H264Settings = (input: H264Settings, context: __Serd
     ...(input.SubgopLength != null && { subgopLength: input.SubgopLength }),
     ...(input.Syntax != null && { syntax: input.Syntax }),
     ...(input.TemporalAq != null && { temporalAq: input.TemporalAq }),
+    ...(input.TimecodeBurninSettings != null && {
+      timecodeBurninSettings: serializeAws_restJson1TimecodeBurninSettings(input.TimecodeBurninSettings, context),
+    }),
     ...(input.TimecodeInsertion != null && { timecodeInsertion: input.TimecodeInsertion }),
   };
 };
@@ -7627,6 +7644,9 @@ const serializeAws_restJson1H265Settings = (input: H265Settings, context: __Serd
     ...(input.SceneChangeDetect != null && { sceneChangeDetect: input.SceneChangeDetect }),
     ...(input.Slices != null && { slices: input.Slices }),
     ...(input.Tier != null && { tier: input.Tier }),
+    ...(input.TimecodeBurninSettings != null && {
+      timecodeBurninSettings: serializeAws_restJson1TimecodeBurninSettings(input.TimecodeBurninSettings, context),
+    }),
     ...(input.TimecodeInsertion != null && { timecodeInsertion: input.TimecodeInsertion }),
   };
 };
@@ -8235,6 +8255,9 @@ const serializeAws_restJson1Mpeg2Settings = (input: Mpeg2Settings, context: __Se
     ...(input.GopSizeUnits != null && { gopSizeUnits: input.GopSizeUnits }),
     ...(input.ScanType != null && { scanType: input.ScanType }),
     ...(input.SubgopLength != null && { subgopLength: input.SubgopLength }),
+    ...(input.TimecodeBurninSettings != null && {
+      timecodeBurninSettings: serializeAws_restJson1TimecodeBurninSettings(input.TimecodeBurninSettings, context),
+    }),
     ...(input.TimecodeInsertion != null && { timecodeInsertion: input.TimecodeInsertion }),
   };
 };
@@ -8976,6 +8999,14 @@ const serializeAws_restJson1TemporalFilterSettings = (input: TemporalFilterSetti
   return {
     ...(input.PostFilterSharpening != null && { postFilterSharpening: input.PostFilterSharpening }),
     ...(input.Strength != null && { strength: input.Strength }),
+  };
+};
+
+const serializeAws_restJson1TimecodeBurninSettings = (input: TimecodeBurninSettings, context: __SerdeContext): any => {
+  return {
+    ...(input.FontSize != null && { fontSize: input.FontSize }),
+    ...(input.Position != null && { position: input.Position }),
+    ...(input.Prefix != null && { prefix: input.Prefix }),
   };
 };
 
@@ -9892,6 +9923,12 @@ const deserializeAws_restJson1AudioDescription = (output: any, context: __SerdeC
   } as any;
 };
 
+const deserializeAws_restJson1AudioDolbyEDecode = (output: any, context: __SerdeContext): AudioDolbyEDecode => {
+  return {
+    ProgramSelection: __expectString(output.programSelection),
+  } as any;
+};
+
 const deserializeAws_restJson1AudioHlsRenditionSelection = (
   output: any,
   context: __SerdeContext
@@ -9988,6 +10025,8 @@ const deserializeAws_restJson1AudioTrack = (output: any, context: __SerdeContext
 
 const deserializeAws_restJson1AudioTrackSelection = (output: any, context: __SerdeContext): AudioTrackSelection => {
   return {
+    DolbyEDecode:
+      output.dolbyEDecode != null ? deserializeAws_restJson1AudioDolbyEDecode(output.dolbyEDecode, context) : undefined,
     Tracks: output.tracks != null ? deserializeAws_restJson1__listOfAudioTrack(output.tracks, context) : undefined,
   } as any;
 };
@@ -10705,6 +10744,10 @@ const deserializeAws_restJson1FrameCaptureSettings = (output: any, context: __Se
   return {
     CaptureInterval: __expectInt32(output.captureInterval),
     CaptureIntervalUnits: __expectString(output.captureIntervalUnits),
+    TimecodeBurninSettings:
+      output.timecodeBurninSettings != null
+        ? deserializeAws_restJson1TimecodeBurninSettings(output.timecodeBurninSettings, context)
+        : undefined,
   } as any;
 };
 
@@ -10799,6 +10842,10 @@ const deserializeAws_restJson1H264Settings = (output: any, context: __SerdeConte
     SubgopLength: __expectString(output.subgopLength),
     Syntax: __expectString(output.syntax),
     TemporalAq: __expectString(output.temporalAq),
+    TimecodeBurninSettings:
+      output.timecodeBurninSettings != null
+        ? deserializeAws_restJson1TimecodeBurninSettings(output.timecodeBurninSettings, context)
+        : undefined,
     TimecodeInsertion: __expectString(output.timecodeInsertion),
   } as any;
 };
@@ -10874,6 +10921,10 @@ const deserializeAws_restJson1H265Settings = (output: any, context: __SerdeConte
     SceneChangeDetect: __expectString(output.sceneChangeDetect),
     Slices: __expectInt32(output.slices),
     Tier: __expectString(output.tier),
+    TimecodeBurninSettings:
+      output.timecodeBurninSettings != null
+        ? deserializeAws_restJson1TimecodeBurninSettings(output.timecodeBurninSettings, context)
+        : undefined,
     TimecodeInsertion: __expectString(output.timecodeInsertion),
   } as any;
 };
@@ -11583,6 +11634,10 @@ const deserializeAws_restJson1Mpeg2Settings = (output: any, context: __SerdeCont
     GopSizeUnits: __expectString(output.gopSizeUnits),
     ScanType: __expectString(output.scanType),
     SubgopLength: __expectString(output.subgopLength),
+    TimecodeBurninSettings:
+      output.timecodeBurninSettings != null
+        ? deserializeAws_restJson1TimecodeBurninSettings(output.timecodeBurninSettings, context)
+        : undefined,
     TimecodeInsertion: __expectString(output.timecodeInsertion),
   } as any;
 };
@@ -12561,6 +12616,17 @@ const deserializeAws_restJson1TemporalFilterSettings = (
   return {
     PostFilterSharpening: __expectString(output.postFilterSharpening),
     Strength: __expectString(output.strength),
+  } as any;
+};
+
+const deserializeAws_restJson1TimecodeBurninSettings = (
+  output: any,
+  context: __SerdeContext
+): TimecodeBurninSettings => {
+  return {
+    FontSize: __expectString(output.fontSize),
+    Position: __expectString(output.position),
+    Prefix: __expectString(output.prefix),
   } as any;
 };
 

@@ -800,6 +800,28 @@ export interface AudioPidSelection {
   Pid: number | undefined;
 }
 
+export enum DolbyEProgramSelection {
+  ALL_CHANNELS = "ALL_CHANNELS",
+  PROGRAM_1 = "PROGRAM_1",
+  PROGRAM_2 = "PROGRAM_2",
+  PROGRAM_3 = "PROGRAM_3",
+  PROGRAM_4 = "PROGRAM_4",
+  PROGRAM_5 = "PROGRAM_5",
+  PROGRAM_6 = "PROGRAM_6",
+  PROGRAM_7 = "PROGRAM_7",
+  PROGRAM_8 = "PROGRAM_8",
+}
+
+/**
+ * Audio Dolby EDecode
+ */
+export interface AudioDolbyEDecode {
+  /**
+   * Applies only to Dolby E. Enter the program ID (according to the metadata in the audio) of the Dolby E program to extract from the specified track. One program extracted per audio selector. To select multiple programs, create multiple selectors with the same Track and different Program numbers. “All channels” means to ignore the program IDs and include all the channels in this selector; useful if metadata is known to be incorrect.
+   */
+  ProgramSelection: DolbyEProgramSelection | string | undefined;
+}
+
 /**
  * Audio Track
  */
@@ -818,6 +840,11 @@ export interface AudioTrackSelection {
    * Selects one or more unique audio tracks from within a source.
    */
   Tracks: AudioTrack[] | undefined;
+
+  /**
+   * Configure decoding options for Dolby E streams - these should be Dolby E frames carried in PCM streams tagged with SMPTE-337
+   */
+  DolbyEDecode?: AudioDolbyEDecode;
 }
 
 /**
@@ -4496,17 +4523,6 @@ export enum HlsMode {
   VOD = "VOD",
 }
 
-export enum HlsOutputSelection {
-  MANIFESTS_AND_SEGMENTS = "MANIFESTS_AND_SEGMENTS",
-  SEGMENTS_ONLY = "SEGMENTS_ONLY",
-  VARIANT_MANIFESTS_AND_SEGMENTS = "VARIANT_MANIFESTS_AND_SEGMENTS",
-}
-
-export enum HlsProgramDateTime {
-  EXCLUDE = "EXCLUDE",
-  INCLUDE = "INCLUDE",
-}
-
 /**
  * @internal
  */
@@ -4644,6 +4660,13 @@ export const AudioLanguageSelectionFilterSensitiveLog = (obj: AudioLanguageSelec
  * @internal
  */
 export const AudioPidSelectionFilterSensitiveLog = (obj: AudioPidSelection): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const AudioDolbyEDecodeFilterSensitiveLog = (obj: AudioDolbyEDecode): any => ({
   ...obj,
 });
 

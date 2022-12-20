@@ -14,8 +14,12 @@ import {
 } from "@aws-sdk/types";
 
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { StopMultiplexRequest, StopMultiplexRequestFilterSensitiveLog } from "../models/models_1";
-import { StopMultiplexResponse, StopMultiplexResponseFilterSensitiveLog } from "../models/models_2";
+import {
+  StopMultiplexRequest,
+  StopMultiplexRequestFilterSensitiveLog,
+  StopMultiplexResponse,
+  StopMultiplexResponseFilterSensitiveLog,
+} from "../models/models_2";
 import {
   deserializeAws_restJson1StopMultiplexCommand,
   serializeAws_restJson1StopMultiplexCommand,
