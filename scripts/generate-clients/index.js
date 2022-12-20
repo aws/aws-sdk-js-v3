@@ -92,6 +92,8 @@ const {
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
+    require("../endpoints-ruleset/compress");
+
     if (!keepFiles) {
       emptyDirSync(CODE_GEN_SDK_OUTPUT_DIR);
       if (!noPrivateClients) {
