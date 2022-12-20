@@ -959,6 +959,9 @@ const deserializeAws_json1_0DeleteDatasetCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1062,6 +1065,9 @@ const deserializeAws_json1_0DeleteLabelCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1112,6 +1118,9 @@ const deserializeAws_json1_0DeleteLabelGroupCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1162,6 +1171,9 @@ const deserializeAws_json1_0DeleteModelCommandError = async (
     case "ThrottlingException":
     case "com.amazonaws.lookoutequipment#ThrottlingException":
       throw await deserializeAws_json1_0ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.lookoutequipment#ValidationException":
+      throw await deserializeAws_json1_0ValidationExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2841,6 +2853,7 @@ const serializeAws_json1_0ListInferenceSchedulersRequest = (
     ...(input.MaxResults != null && { MaxResults: input.MaxResults }),
     ...(input.ModelName != null && { ModelName: input.ModelName }),
     ...(input.NextToken != null && { NextToken: input.NextToken }),
+    ...(input.Status != null && { Status: input.Status }),
   };
 };
 
