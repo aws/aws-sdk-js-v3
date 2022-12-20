@@ -545,7 +545,9 @@ export interface DescribeAutoMLJobResponse {
   PartialFailureReasons?: AutoMLPartialFailureReason[];
 
   /**
-   * <p>Returns the job's best <code>AutoMLCandidate</code>.</p>
+   * <p>The best model candidate selected by SageMaker Autopilot using both the best objective metric and
+   *          lowest <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-metrics-validation.html">InferenceLatency</a> for
+   *          an experiment.</p>
    */
   BestCandidate?: AutoMLCandidate;
 
@@ -6574,7 +6576,8 @@ export interface DescribeTrialComponentResponse {
   LineageGroupArn?: string;
 
   /**
-   * <p>A list of the Amazon Resource Name (ARN) and, if applicable, job type for multiple sources of an experiment run.</p>
+   * <p>A list of ARNs and, if applicable, job types for multiple sources of an experiment
+   *       run.</p>
    */
   Sources?: TrialComponentSource[];
 }

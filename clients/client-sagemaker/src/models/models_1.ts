@@ -1466,7 +1466,7 @@ export interface HyperParameterTuningJobConfig {
   /**
    * <p>The <a>ParameterRanges</a> object that specifies the ranges of
    *             hyperparameters that this tuning job searches over to find the optimal configuration for
-   *             the highest model performance against .your chosen objective metric. </p>
+   *             the highest model performance against your chosen objective metric. </p>
    */
   ParameterRanges?: ParameterRanges;
 
@@ -6734,7 +6734,7 @@ export interface CreatePresignedNotebookInstanceUrlOutput {
  */
 export interface ExperimentConfig {
   /**
-   * <p>The name of an existing experiment to associate the trial component with.</p>
+   * <p>The name of an existing experiment to associate with the trial component.</p>
    */
   ExperimentName?: string;
 
@@ -6751,7 +6751,7 @@ export interface ExperimentConfig {
   TrialComponentDisplayName?: string;
 
   /**
-   * <p>The name of the experiment run to associate the trial component with.</p>
+   * <p>The name of the experiment run to associate with the trial component.</p>
    */
   RunName?: string;
 }
