@@ -3576,6 +3576,8 @@ const deserializeAws_restJson1JobDetail = (output: any, context: __SerdeContext)
       output.eksProperties != null
         ? deserializeAws_restJson1EksPropertiesDetail(output.eksProperties, context)
         : undefined,
+    isCancelled: __expectBoolean(output.isCancelled),
+    isTerminated: __expectBoolean(output.isTerminated),
     jobArn: __expectString(output.jobArn),
     jobDefinition: __expectString(output.jobDefinition),
     jobId: __expectString(output.jobId),
