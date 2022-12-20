@@ -1,252 +1,29 @@
-// smithy-typescript generated code
+// @ts-nocheck
+// generated code, do not edit
 import { RuleSetObject } from "@aws-sdk/util-endpoints";
 
-export const ruleSet: RuleSetObject = {
-  version: "1.0",
-  parameters: {
-    Region: {
-      builtIn: "AWS::Region",
-      required: false,
-      documentation: "The AWS region used to dispatch the request.",
-      type: "String",
-    },
-    UseFIPS: {
-      builtIn: "AWS::UseFIPS",
-      required: true,
-      default: false,
-      documentation:
-        "When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",
-      type: "Boolean",
-    },
-    Endpoint: {
-      builtIn: "SDK::Endpoint",
-      required: false,
-      documentation: "Override the endpoint used to send this request",
-      type: "String",
-    },
-  },
-  rules: [
-    {
-      conditions: [
-        {
-          fn: "aws.partition",
-          argv: [
-            {
-              ref: "Region",
-            },
-          ],
-          assign: "PartitionResult",
-        },
-      ],
-      type: "tree",
-      rules: [
-        {
-          conditions: [
-            {
-              fn: "isSet",
-              argv: [
-                {
-                  ref: "Endpoint",
-                },
-              ],
-            },
-            {
-              fn: "parseURL",
-              argv: [
-                {
-                  ref: "Endpoint",
-                },
-              ],
-              assign: "url",
-            },
-          ],
-          type: "tree",
-          rules: [
-            {
-              conditions: [
-                {
-                  fn: "booleanEquals",
-                  argv: [
-                    {
-                      ref: "UseFIPS",
-                    },
-                    true,
-                  ],
-                },
-              ],
-              error: "Invalid Configuration: FIPS and custom endpoint are not supported",
-              type: "error",
-            },
-            {
-              conditions: [],
-              endpoint: {
-                url: {
-                  ref: "Endpoint",
-                },
-                properties: {},
-                headers: {},
-              },
-              type: "endpoint",
-            },
-          ],
-        },
-        {
-          conditions: [],
-          type: "tree",
-          rules: [
-            {
-              conditions: [
-                {
-                  fn: "booleanEquals",
-                  argv: [
-                    true,
-                    {
-                      fn: "getAttr",
-                      argv: [
-                        {
-                          ref: "PartitionResult",
-                        },
-                        "supportsDualStack",
-                      ],
-                    },
-                  ],
-                },
-              ],
-              type: "tree",
-              rules: [
-                {
-                  conditions: [
-                    {
-                      fn: "booleanEquals",
-                      argv: [
-                        {
-                          ref: "UseFIPS",
-                        },
-                        true,
-                      ],
-                    },
-                  ],
-                  type: "tree",
-                  rules: [
-                    {
-                      conditions: [
-                        {
-                          fn: "booleanEquals",
-                          argv: [
-                            true,
-                            {
-                              fn: "getAttr",
-                              argv: [
-                                {
-                                  ref: "PartitionResult",
-                                },
-                                "supportsFIPS",
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                      type: "tree",
-                      rules: [
-                        {
-                          conditions: [],
-                          endpoint: {
-                            url: "https://resource-explorer-2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                            properties: {},
-                            headers: {},
-                          },
-                          type: "endpoint",
-                        },
-                      ],
-                    },
-                    {
-                      conditions: [],
-                      error: "FIPS is enabled but this partition does not support FIPS",
-                      type: "error",
-                    },
-                  ],
-                },
-                {
-                  conditions: [],
-                  endpoint: {
-                    url: "https://resource-explorer-2.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                    properties: {},
-                    headers: {},
-                  },
-                  type: "endpoint",
-                },
-              ],
-            },
-            {
-              conditions: [],
-              type: "tree",
-              rules: [
-                {
-                  conditions: [
-                    {
-                      fn: "booleanEquals",
-                      argv: [
-                        {
-                          ref: "UseFIPS",
-                        },
-                        true,
-                      ],
-                    },
-                  ],
-                  type: "tree",
-                  rules: [
-                    {
-                      conditions: [
-                        {
-                          fn: "booleanEquals",
-                          argv: [
-                            true,
-                            {
-                              fn: "getAttr",
-                              argv: [
-                                {
-                                  ref: "PartitionResult",
-                                },
-                                "supportsFIPS",
-                              ],
-                            },
-                          ],
-                        },
-                      ],
-                      type: "tree",
-                      rules: [
-                        {
-                          conditions: [],
-                          endpoint: {
-                            url: "https://resource-explorer-2-fips.{Region}.{PartitionResult#dnsSuffix}",
-                            properties: {},
-                            headers: {},
-                          },
-                          type: "endpoint",
-                        },
-                      ],
-                    },
-                    {
-                      conditions: [],
-                      error: "FIPS is enabled but this partition does not support FIPS",
-                      type: "error",
-                    },
-                  ],
-                },
-                {
-                  conditions: [],
-                  endpoint: {
-                    url: "https://resource-explorer-2.{Region}.{PartitionResult#dnsSuffix}",
-                    properties: {},
-                    headers: {},
-                  },
-                  type: "endpoint",
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
+/* This file is compressed. Log this object
+   or see "smithy.rules#endpointRuleSet"
+   in codegen/sdk-codegen/aws-models/resource-explorer-2.json */
+
+const r="argv",
+s="ref";
+const a=false,
+b=true,
+c="String",
+d="PartitionResult",
+e="tree",
+f="booleanEquals",
+g="error",
+h="endpoint",
+i="getAttr",
+j={[s]:"Endpoint"},
+k={},
+l={[s]:d},
+m={"conditions":[],[g]:"FIPS is enabled but this partition does not support FIPS","type":g},
+n=[j],
+o=[{"fn":f,[r]:[{[s]:"UseFIPS"},true]}],
+p=[],
+q=[{"fn":f,[r]:[true,{"fn":i,[r]:[l,"supportsFIPS"]}]}];
+const _data={version:"1.0",parameters:{Region:{builtIn:"AWS::Region",required:a,documentation:"The AWS region used to dispatch the request.",type:c},UseFIPS:{builtIn:"AWS::UseFIPS",required:b,default:a,documentation:"When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",type:"Boolean"},Endpoint:{builtIn:"SDK::Endpoint",required:a,documentation:"Override the endpoint used to send this request",type:c}},rules:[{conditions:[{fn:"aws.partition",[r]:[{[s]:"Region"}],assign:d}],type:e,rules:[{conditions:[{fn:"isSet",[r]:n},{fn:"parseURL",[r]:n,assign:"url"}],type:e,rules:[{conditions:o,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:g},{conditions:p,endpoint:{url:j,properties:k,headers:k},type:h}]},{conditions:p,type:e,rules:[{conditions:[{fn:f,[r]:[b,{fn:i,[r]:[l,"supportsDualStack"]}]}],type:e,rules:[{conditions:o,type:e,rules:[{conditions:q,type:e,rules:[{conditions:p,endpoint:{url:"https://resource-explorer-2-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:h}]},m]},{conditions:p,endpoint:{url:"https://resource-explorer-2.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:k,headers:k},type:h}]},{conditions:p,type:e,rules:[{conditions:o,type:e,rules:[{conditions:q,type:e,rules:[{conditions:p,endpoint:{url:"https://resource-explorer-2-fips.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:h}]},m]},{conditions:p,endpoint:{url:"https://resource-explorer-2.{Region}.{PartitionResult#dnsSuffix}",properties:k,headers:k},type:h}]}]}]}]};
+export const ruleSet: RuleSetObject = _data;
