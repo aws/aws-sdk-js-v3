@@ -47,7 +47,7 @@ export interface CreateIndexCommandOutput extends CreateIndexOutput, __MetadataB
  *                 on Resource Explorer to index your resources in an Amazon Web Services Region</a> in the
  *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
  *          <p>If this is the first Amazon Web Services Region in which you've created an index for Resource Explorer, then
- *             this operation also <a href="https://docs.aws.amazon.com/arexug/mainline/security_iam_service-linked-roles.html">creates a
+ *             this operation also <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/security_iam_service-linked-roles.html">creates a
  *                 service-linked role</a> in your Amazon Web Services account that allows Resource Explorer to enumerate
  *             your resources to populate the index.</p>
  *          <ul>

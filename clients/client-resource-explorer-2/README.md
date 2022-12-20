@@ -16,13 +16,13 @@ tables. You can search for your resources using resource metadata like names, ta
 IDs. Resource Explorer can search across all of the Amazon Web Services Regions in your account in which you turn
 the service on, to simplify your cross-Region workloads.</p>
 <p>Resource Explorer scans the resources in each of the Amazon Web Services Regions in your Amazon Web Services account in which
-you turn on Resource Explorer. Resource Explorer <a href="https://docs.aws.amazon.com/arexug/mainline/getting-started-terms-and-concepts.html#term-index">creates and
-maintains an index</a> in each Region, with the details of that Region's
+you turn on Resource Explorer. Resource Explorer <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/getting-started-terms-and-concepts.html#term-index">creates
+and maintains an index</a> in each Region, with the details of that Region's
 resources.</p>
-<p>You can <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">search across all of the indexed
-Regions in your account</a> by designating one of your Amazon Web Services Regions to contain
-the aggregator index for the account. When you <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region-turn-on.html">promote a local index in
-a Region to become the aggregator index for the account</a>, Resource Explorer automatically
+<p>You can <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">search across all of the
+indexed Regions in your account</a> by designating one of your Amazon Web Services Regions to
+contain the aggregator index for the account. When you <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region-turn-on.html">promote a local index
+in a Region to become the aggregator index for the account</a>, Resource Explorer automatically
 replicates the index information from all local indexes in the other Regions to the
 aggregator index. Therefore, the Region with the aggregator index has a copy of all resource
 information for all Regions in the account where you turned on Resource Explorer. As a result,

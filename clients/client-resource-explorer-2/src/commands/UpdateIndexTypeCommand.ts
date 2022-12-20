@@ -34,7 +34,7 @@ export interface UpdateIndexTypeCommandOutput extends UpdateIndexTypeOutput, __M
 
 /**
  * <p>Changes the type of the index from one of the following types to the other. For more
- *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/arexug/mainline/manage-aggregator-region.html">Turning on
+ *             information about indexes and the role they perform in Amazon Web Services Resource Explorer, see <a href="https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-aggregator-region.html">Turning on
  *                 cross-Region search by creating an aggregator index</a> in the
  *                 <i>Amazon Web Services Resource Explorer User Guide</i>.</p>
  *          <ul>
