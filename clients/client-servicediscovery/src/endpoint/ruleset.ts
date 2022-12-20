@@ -6,28 +6,27 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/servicediscovery.json */
 
-const u="fn",
-v="argv",
-w="ref";
+const t="fn",
+u="argv",
+v="ref";
 const a=true,
 b=false,
 c="String",
-d="Boolean",
-e="PartitionResult",
-f="tree",
-g="error",
-h="endpoint",
-i={[w]:"Region"},
-j={[w]:"Endpoint"},
-k={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
-l={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h={"required":true,"default":false,"type":"Boolean"},
+i={[v]:"Region"},
+j={[v]:"Endpoint"},
+k={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
+l={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
 m={},
-n={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:e},"supportsFIPS"]}]},
-o={[u]:"booleanEquals",[v]:[true,{[u]:"getAttr",[v]:[{[w]:e},"supportsDualStack"]}]},
+n={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:d},"supportsFIPS"]}]},
+o={[t]:"booleanEquals",[u]:[true,{[t]:"getAttr",[u]:[{[v]:d},"supportsDualStack"]}]},
 p=[j],
 q=[k],
-r=[],
-s=[l],
-t=[{[u]:"stringEquals",[v]:[i,"servicediscovery"]}];
-const _data={version:"1.0",parameters:{Region:{builtIn:"AWS::Region",required:a,documentation:"The AWS region used to dispatch the request.",type:c},UseDualStack:{builtIn:"AWS::UseDualStack",required:a,default:b,documentation:"When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",type:d},UseFIPS:{builtIn:"AWS::UseFIPS",required:a,default:b,documentation:"When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",type:d},Endpoint:{builtIn:"SDK::Endpoint",required:b,documentation:"Override the endpoint used to send this request",type:c}},rules:[{conditions:[{[u]:"aws.partition",[v]:[i],assign:e}],type:f,rules:[{conditions:[{[u]:"isSet",[v]:p},{[u]:"parseURL",[v]:p,assign:"url"}],type:f,rules:[{conditions:q,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:g},{conditions:r,type:f,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:g},{conditions:r,endpoint:{url:j,properties:m,headers:m},type:h}]}]},{conditions:[k,l],type:f,rules:[{conditions:[n,o],type:f,rules:[{conditions:r,endpoint:{url:"https://servicediscovery-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:h}]},{conditions:r,error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:g}]},{conditions:q,type:f,rules:[{conditions:[n],type:f,rules:[{conditions:r,type:f,rules:[{conditions:t,endpoint:{url:"https://servicediscovery-fips.ca-central-1.amazonaws.com",properties:m,headers:m},type:h},{conditions:t,endpoint:{url:"https://servicediscovery-fips.us-gov-west-1.amazonaws.com",properties:m,headers:m},type:h},{conditions:r,endpoint:{url:"https://servicediscovery-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:h}]}]},{conditions:r,error:"FIPS is enabled but this partition does not support FIPS",type:g}]},{conditions:s,type:f,rules:[{conditions:[o],type:f,rules:[{conditions:r,endpoint:{url:"https://servicediscovery.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:h}]},{conditions:r,error:"DualStack is enabled but this partition does not support DualStack",type:g}]},{conditions:r,endpoint:{url:"https://servicediscovery.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:h}]}]};
+r=[l],
+s=[{[t]:"stringEquals",[u]:[i,"servicediscovery"]}];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[t]:"aws.partition",[u]:[i],assign:d}],type:e,rules:[{conditions:[{[t]:"isSet",[u]:p},{[t]:"parseURL",[u]:p,assign:"url"}],type:e,rules:[{conditions:q,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:r,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,o],type:e,rules:[{endpoint:{url:"https://servicediscovery-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:q,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{conditions:s,endpoint:{url:"https://servicediscovery-fips.ca-central-1.amazonaws.com",properties:m,headers:m},type:g},{conditions:s,endpoint:{url:"https://servicediscovery-fips.us-gov-west-1.amazonaws.com",properties:m,headers:m},type:g},{endpoint:{url:"https://servicediscovery-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:r,type:e,rules:[{conditions:[o],type:e,rules:[{endpoint:{url:"https://servicediscovery.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://servicediscovery.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]};
 export const ruleSet: RuleSetObject = _data;
