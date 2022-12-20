@@ -30,11 +30,11 @@ export interface DisableDomainTransferLockCommandOutput extends DisableDomainTra
 
 /**
  * <p>This operation removes the transfer lock on the domain (specifically the
- * 			<code>clientTransferProhibited</code> status) to allow domain transfers. We recommend
- * 			you refrain from performing this action unless you intend to transfer the domain to a
- * 			different registrar. Successful submission returns an operation ID that you can use to track
- * 			the progress and completion of the action. If the request is not completed successfully, the
- * 			domain registrant will be notified by email.</p>
+ * 				<code>clientTransferProhibited</code> status) to allow domain transfers. We
+ * 			recommend you refrain from performing this action unless you intend to transfer the
+ * 			domain to a different registrar. Successful submission returns an operation ID that you
+ * 			can use to track the progress and completion of the action. If the request is not
+ * 			completed successfully, the domain registrant will be notified by email.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

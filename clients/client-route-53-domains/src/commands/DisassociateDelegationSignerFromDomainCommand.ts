@@ -14,45 +14,44 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  UpdateDomainNameserversRequest,
-  UpdateDomainNameserversRequestFilterSensitiveLog,
-  UpdateDomainNameserversResponse,
-  UpdateDomainNameserversResponseFilterSensitiveLog,
+  DisassociateDelegationSignerFromDomainRequest,
+  DisassociateDelegationSignerFromDomainRequestFilterSensitiveLog,
+  DisassociateDelegationSignerFromDomainResponse,
+  DisassociateDelegationSignerFromDomainResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
-  deserializeAws_json1_1UpdateDomainNameserversCommand,
-  serializeAws_json1_1UpdateDomainNameserversCommand,
+  deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand,
+  serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand,
 } from "../protocols/Aws_json1_1";
 import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../Route53DomainsClient";
 
-export interface UpdateDomainNameserversCommandInput extends UpdateDomainNameserversRequest {}
-export interface UpdateDomainNameserversCommandOutput extends UpdateDomainNameserversResponse, __MetadataBearer {}
+export interface DisassociateDelegationSignerFromDomainCommandInput
+  extends DisassociateDelegationSignerFromDomainRequest {}
+export interface DisassociateDelegationSignerFromDomainCommandOutput
+  extends DisassociateDelegationSignerFromDomainResponse,
+    __MetadataBearer {}
 
 /**
- * <p>This operation replaces the current set of name servers for the domain with the
- * 			specified set of name servers. If you use Amazon Route 53 as your DNS service, specify
- * 			the four name servers in the delegation set for the hosted zone for the domain.</p>
- *          <p>If successful, this operation returns an operation ID that you can use to track the
- * 			progress and completion of the action. If the request is not completed successfully, the
- * 			domain registrant will be notified by email.</p>
+ * <p>Deletes a delegation signer (DS) record in the registry zone for this domain
+ * 			name.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { Route53DomainsClient, UpdateDomainNameserversCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
- * // const { Route53DomainsClient, UpdateDomainNameserversCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
+ * import { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } from "@aws-sdk/client-route-53-domains"; // ES Modules import
+ * // const { Route53DomainsClient, DisassociateDelegationSignerFromDomainCommand } = require("@aws-sdk/client-route-53-domains"); // CommonJS import
  * const client = new Route53DomainsClient(config);
- * const command = new UpdateDomainNameserversCommand(input);
+ * const command = new DisassociateDelegationSignerFromDomainCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link UpdateDomainNameserversCommandInput} for command's `input` shape.
- * @see {@link UpdateDomainNameserversCommandOutput} for command's `response` shape.
+ * @see {@link DisassociateDelegationSignerFromDomainCommandInput} for command's `input` shape.
+ * @see {@link DisassociateDelegationSignerFromDomainCommandOutput} for command's `response` shape.
  * @see {@link Route53DomainsClientResolvedConfig | config} for Route53DomainsClient's `config` shape.
  *
  */
-export class UpdateDomainNameserversCommand extends $Command<
-  UpdateDomainNameserversCommandInput,
-  UpdateDomainNameserversCommandOutput,
+export class DisassociateDelegationSignerFromDomainCommand extends $Command<
+  DisassociateDelegationSignerFromDomainCommandInput,
+  DisassociateDelegationSignerFromDomainCommandOutput,
   Route53DomainsClientResolvedConfig
 > {
   // Start section: command_properties
@@ -67,7 +66,7 @@ export class UpdateDomainNameserversCommand extends $Command<
     };
   }
 
-  constructor(readonly input: UpdateDomainNameserversCommandInput) {
+  constructor(readonly input: DisassociateDelegationSignerFromDomainCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -80,23 +79,23 @@ export class UpdateDomainNameserversCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: Route53DomainsClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<UpdateDomainNameserversCommandInput, UpdateDomainNameserversCommandOutput> {
+  ): Handler<DisassociateDelegationSignerFromDomainCommandInput, DisassociateDelegationSignerFromDomainCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
     this.middlewareStack.use(
-      getEndpointPlugin(configuration, UpdateDomainNameserversCommand.getEndpointParameterInstructions())
+      getEndpointPlugin(configuration, DisassociateDelegationSignerFromDomainCommand.getEndpointParameterInstructions())
     );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "Route53DomainsClient";
-    const commandName = "UpdateDomainNameserversCommand";
+    const commandName = "DisassociateDelegationSignerFromDomainCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: UpdateDomainNameserversRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: UpdateDomainNameserversResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: DisassociateDelegationSignerFromDomainRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: DisassociateDelegationSignerFromDomainResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -106,12 +105,18 @@ export class UpdateDomainNameserversCommand extends $Command<
     );
   }
 
-  private serialize(input: UpdateDomainNameserversCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_json1_1UpdateDomainNameserversCommand(input, context);
+  private serialize(
+    input: DisassociateDelegationSignerFromDomainCommandInput,
+    context: __SerdeContext
+  ): Promise<__HttpRequest> {
+    return serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<UpdateDomainNameserversCommandOutput> {
-    return deserializeAws_json1_1UpdateDomainNameserversCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<DisassociateDelegationSignerFromDomainCommandOutput> {
+    return deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand(output, context);
   }
 
   // Start section: command_body_extra

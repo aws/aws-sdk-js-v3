@@ -29,7 +29,8 @@ export interface RetrieveDomainAuthCodeCommandInput extends RetrieveDomainAuthCo
 export interface RetrieveDomainAuthCodeCommandOutput extends RetrieveDomainAuthCodeResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns the AuthCode for the domain. To transfer a domain to another registrar, you provide this value to the new registrar.</p>
+ * <p>This operation returns the authorization code for the domain. To transfer a domain to
+ * 			another registrar, you provide this value to the new registrar.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

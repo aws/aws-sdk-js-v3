@@ -32,40 +32,30 @@ export interface TransferDomainToAnotherAwsAccountCommandOutput
 
 /**
  * <p>Transfers a domain from the current Amazon Web Services account to another Amazon Web Services account. Note the following:</p>
- * 		       <ul>
+ *          <ul>
  *             <li>
- *                <p>The Amazon Web Services account that you're transferring the domain to must accept the transfer. If the other account
- * 				doesn't accept the transfer within 3 days, we cancel the transfer. See
- * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>.
- * 				</p>
- * 			         </li>
+ *                <p>The Amazon Web Services account that you're transferring the domain to must
+ * 					accept the transfer. If the other account doesn't accept the transfer within 3
+ * 					days, we cancel the transfer. See <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_AcceptDomainTransferFromAnotherAwsAccount.html">AcceptDomainTransferFromAnotherAwsAccount</a>. </p>
+ *             </li>
  *             <li>
- *                <p>You can cancel the transfer before the other account accepts it. See
- * 				<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_CancelDomainTransferToAnotherAwsAccount.html">CancelDomainTransferToAnotherAwsAccount</a>.
- * 				</p>
- * 			         </li>
+ *                <p>You can cancel the transfer before the other account accepts it. See <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_CancelDomainTransferToAnotherAwsAccount.html">CancelDomainTransferToAnotherAwsAccount</a>. </p>
+ *             </li>
  *             <li>
- *                <p>The other account can reject the transfer. See
- * 					<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RejectDomainTransferFromAnotherAwsAccount.html">RejectDomainTransferFromAnotherAwsAccount</a>.
- * 				</p>
- * 			         </li>
+ *                <p>The other account can reject the transfer. See <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_RejectDomainTransferFromAnotherAwsAccount.html">RejectDomainTransferFromAnotherAwsAccount</a>. </p>
+ *             </li>
  *          </ul>
- *
- * 		       <important>
- * 			         <p>When you transfer a domain from one Amazon Web Services account to another, Route 53 doesn't transfer the hosted zone that is associated
- * 				with the domain. DNS resolution isn't affected if the domain and the hosted zone are owned by separate accounts,
- * 				so transferring the hosted zone is optional. For information about transferring the hosted zone to another Amazon Web Services account, see
- * 				<a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html">Migrating a Hosted Zone to a
- * 					Different Amazon Web Services Account</a> in the <i>Amazon Route 53 Developer Guide</i>.</p>
- * 		       </important>
- *
- * 		       <p>Use either
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
- * 			to determine whether the operation succeeded.
- * 			<a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a>
- * 			provides additional information, for example, <code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>.
- * 		</p>
+ *          <important>
+ *             <p>When you transfer a domain from one Amazon Web Services account to another, Route
+ * 				53 doesn't transfer the hosted zone that is associated with the domain. DNS
+ * 				resolution isn't affected if the domain and the hosted zone are owned by separate
+ * 				accounts, so transferring the hosted zone is optional. For information about
+ * 				transferring the hosted zone to another Amazon Web Services account, see <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-migrating.html">Migrating a
+ * 					Hosted Zone to a Different Amazon Web Services Account</a> in the
+ * 					<i>Amazon Route 53 Developer Guide</i>.</p>
+ *          </important>
+ *          <p>Use either <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ListOperations.html">ListOperations</a> or <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> to determine whether the operation succeeded. <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_GetOperationDetail.html">GetOperationDetail</a> provides additional information, for example,
+ * 				<code>Domain Transfer from Aws Account 111122223333 has been cancelled</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

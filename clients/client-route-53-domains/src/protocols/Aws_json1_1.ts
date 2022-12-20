@@ -3,11 +3,13 @@ import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@a
 import {
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
+  serializeFloat as __serializeFloat,
   throwDefaultError,
 } from "@aws-sdk/smithy-client";
 import {
@@ -21,6 +23,10 @@ import {
   AcceptDomainTransferFromAnotherAwsAccountCommandInput,
   AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "../commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
+import {
+  AssociateDelegationSignerToDomainCommandInput,
+  AssociateDelegationSignerToDomainCommandOutput,
+} from "../commands/AssociateDelegationSignerToDomainCommand";
 import {
   CancelDomainTransferToAnotherAwsAccountCommandInput,
   CancelDomainTransferToAnotherAwsAccountCommandOutput,
@@ -47,6 +53,10 @@ import {
   DisableDomainTransferLockCommandOutput,
 } from "../commands/DisableDomainTransferLockCommand";
 import {
+  DisassociateDelegationSignerFromDomainCommandInput,
+  DisassociateDelegationSignerFromDomainCommandOutput,
+} from "../commands/DisassociateDelegationSignerFromDomainCommand";
+import {
   EnableDomainAutoRenewCommandInput,
   EnableDomainAutoRenewCommandOutput,
 } from "../commands/EnableDomainAutoRenewCommand";
@@ -68,6 +78,7 @@ import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/L
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "../commands/ListOperationsCommand";
 import { ListPricesCommandInput, ListPricesCommandOutput } from "../commands/ListPricesCommand";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "../commands/ListTagsForDomainCommand";
+import { PushDomainCommandInput, PushDomainCommandOutput } from "../commands/PushDomainCommand";
 import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "../commands/RegisterDomainCommand";
 import {
   RejectDomainTransferFromAnotherAwsAccountCommandInput,
@@ -78,6 +89,10 @@ import {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput,
 } from "../commands/ResendContactReachabilityEmailCommand";
+import {
+  ResendOperationAuthorizationCommandInput,
+  ResendOperationAuthorizationCommandOutput,
+} from "../commands/ResendOperationAuthorizationCommand";
 import {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput,
@@ -107,6 +122,8 @@ import { ViewBillingCommandInput, ViewBillingCommandOutput } from "../commands/V
 import {
   AcceptDomainTransferFromAnotherAwsAccountRequest,
   AcceptDomainTransferFromAnotherAwsAccountResponse,
+  AssociateDelegationSignerToDomainRequest,
+  AssociateDelegationSignerToDomainResponse,
   BillingRecord,
   CancelDomainTransferToAnotherAwsAccountRequest,
   CancelDomainTransferToAnotherAwsAccountResponse,
@@ -114,6 +131,7 @@ import {
   CheckDomainAvailabilityResponse,
   CheckDomainTransferabilityRequest,
   CheckDomainTransferabilityResponse,
+  Consent,
   ContactDetail,
   DeleteDomainRequest,
   DeleteDomainResponse,
@@ -123,6 +141,11 @@ import {
   DisableDomainAutoRenewResponse,
   DisableDomainTransferLockRequest,
   DisableDomainTransferLockResponse,
+  DisassociateDelegationSignerFromDomainRequest,
+  DisassociateDelegationSignerFromDomainResponse,
+  DnssecKey,
+  DnssecLimitExceeded,
+  DnssecSigningAttributes,
   DomainLimitExceeded,
   DomainPrice,
   DomainSuggestion,
@@ -154,8 +177,11 @@ import {
   ListTagsForDomainResponse,
   Nameserver,
   OperationLimitExceeded,
+  OperationStatus,
   OperationSummary,
+  OperationType,
   PriceWithCurrency,
+  PushDomainRequest,
   RegisterDomainRequest,
   RegisterDomainResponse,
   RejectDomainTransferFromAnotherAwsAccountRequest,
@@ -164,6 +190,7 @@ import {
   RenewDomainResponse,
   ResendContactReachabilityEmailRequest,
   ResendContactReachabilityEmailResponse,
+  ResendOperationAuthorizationRequest,
   RetrieveDomainAuthCodeRequest,
   RetrieveDomainAuthCodeResponse,
   SortCondition,
@@ -197,6 +224,19 @@ export const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountComman
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1AssociateDelegationSignerToDomainCommand = async (
+  input: AssociateDelegationSignerToDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53Domains_v20140515.AssociateDelegationSignerToDomain",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1AssociateDelegationSignerToDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -288,6 +328,19 @@ export const serializeAws_json1_1DisableDomainTransferLockCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1DisableDomainTransferLockRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1DisassociateDelegationSignerFromDomainCommand = async (
+  input: DisassociateDelegationSignerFromDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53Domains_v20140515.DisassociateDelegationSignerFromDomain",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1DisassociateDelegationSignerFromDomainRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -421,6 +474,19 @@ export const serializeAws_json1_1ListTagsForDomainCommand = async (
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
+export const serializeAws_json1_1PushDomainCommand = async (
+  input: PushDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53Domains_v20140515.PushDomain",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1PushDomainRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
 export const serializeAws_json1_1RegisterDomainCommand = async (
   input: RegisterDomainCommandInput,
   context: __SerdeContext
@@ -470,6 +536,19 @@ export const serializeAws_json1_1ResendContactReachabilityEmailCommand = async (
   };
   let body: any;
   body = JSON.stringify(serializeAws_json1_1ResendContactReachabilityEmailRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+export const serializeAws_json1_1ResendOperationAuthorizationCommand = async (
+  input: ResendOperationAuthorizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = {
+    "content-type": "application/x-amz-json-1.1",
+    "x-amz-target": "Route53Domains_v20140515.ResendOperationAuthorization",
+  };
+  let body: any;
+  body = JSON.stringify(serializeAws_json1_1ResendOperationAuthorizationRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -613,6 +692,62 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountCommandErro
     case "OperationLimitExceeded":
     case "com.amazonaws.route53domains#OperationLimitExceeded":
       throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
+    case "UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1AssociateDelegationSignerToDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDelegationSignerToDomainCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1AssociateDelegationSignerToDomainCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1AssociateDelegationSignerToDomainResponse(data, context);
+  const response: AssociateDelegationSignerToDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1AssociateDelegationSignerToDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDelegationSignerToDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DnssecLimitExceeded":
+    case "com.amazonaws.route53domains#DnssecLimitExceeded":
+      throw await deserializeAws_json1_1DnssecLimitExceededResponse(parsedOutput, context);
+    case "DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
+    case "TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
       throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
@@ -924,6 +1059,59 @@ const deserializeAws_json1_1DisableDomainTransferLockCommandError = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DisableDomainTransferLockCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "DuplicateRequest":
+    case "com.amazonaws.route53domains#DuplicateRequest":
+      throw await deserializeAws_json1_1DuplicateRequestResponse(parsedOutput, context);
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
+    case "TLDRulesViolation":
+    case "com.amazonaws.route53domains#TLDRulesViolation":
+      throw await deserializeAws_json1_1TLDRulesViolationResponse(parsedOutput, context);
+    case "UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDelegationSignerFromDomainCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = deserializeAws_json1_1DisassociateDelegationSignerFromDomainResponse(data, context);
+  const response: DisassociateDelegationSignerFromDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1DisassociateDelegationSignerFromDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDelegationSignerFromDomainCommandOutput> => {
   const parsedOutput: any = {
     ...output,
     body: await parseErrorBody(output.body, context),
@@ -1405,6 +1593,50 @@ const deserializeAws_json1_1ListTagsForDomainCommandError = async (
   }
 };
 
+export const deserializeAws_json1_1PushDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PushDomainCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1PushDomainCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: PushDomainCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1PushDomainCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PushDomainCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
+    case "OperationLimitExceeded":
+    case "com.amazonaws.route53domains#OperationLimitExceeded":
+      throw await deserializeAws_json1_1OperationLimitExceededResponse(parsedOutput, context);
+    case "UnsupportedTLD":
+    case "com.amazonaws.route53domains#UnsupportedTLD":
+      throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_json1_1RegisterDomainCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -1597,6 +1829,44 @@ const deserializeAws_json1_1ResendContactReachabilityEmailCommandError = async (
     case "UnsupportedTLD":
     case "com.amazonaws.route53domains#UnsupportedTLD":
       throw await deserializeAws_json1_1UnsupportedTLDResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_json1_1ResendOperationAuthorizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResendOperationAuthorizationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return deserializeAws_json1_1ResendOperationAuthorizationCommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: ResendOperationAuthorizationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return Promise.resolve(response);
+};
+
+const deserializeAws_json1_1ResendOperationAuthorizationCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResendOperationAuthorizationCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "InvalidInput":
+    case "com.amazonaws.route53domains#InvalidInput":
+      throw await deserializeAws_json1_1InvalidInputResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -2005,6 +2275,19 @@ const deserializeAws_json1_1ViewBillingCommandError = async (
   }
 };
 
+const deserializeAws_json1_1DnssecLimitExceededResponse = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<DnssecLimitExceeded> => {
+  const body = parsedOutput.body;
+  const deserialized: any = deserializeAws_json1_1DnssecLimitExceeded(body, context);
+  const exception = new DnssecLimitExceeded({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 const deserializeAws_json1_1DomainLimitExceededResponse = async (
   parsedOutput: any,
   context: __SerdeContext
@@ -2093,6 +2376,18 @@ const serializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountRequest = (
   };
 };
 
+const serializeAws_json1_1AssociateDelegationSignerToDomainRequest = (
+  input: AssociateDelegationSignerToDomainRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.SigningAttributes != null && {
+      SigningAttributes: serializeAws_json1_1DnssecSigningAttributes(input.SigningAttributes, context),
+    }),
+  };
+};
+
 const serializeAws_json1_1CancelDomainTransferToAnotherAwsAccountRequest = (
   input: CancelDomainTransferToAnotherAwsAccountRequest,
   context: __SerdeContext
@@ -2119,6 +2414,13 @@ const serializeAws_json1_1CheckDomainTransferabilityRequest = (
   return {
     ...(input.AuthCode != null && { AuthCode: input.AuthCode }),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
+  };
+};
+
+const serializeAws_json1_1Consent = (input: Consent, context: __SerdeContext): any => {
+  return {
+    ...(input.Currency != null && { Currency: input.Currency }),
+    ...(input.MaxPrice != null && { MaxPrice: __serializeFloat(input.MaxPrice) }),
   };
 };
 
@@ -2172,6 +2474,24 @@ const serializeAws_json1_1DisableDomainTransferLockRequest = (
 ): any => {
   return {
     ...(input.DomainName != null && { DomainName: input.DomainName }),
+  };
+};
+
+const serializeAws_json1_1DisassociateDelegationSignerFromDomainRequest = (
+  input: DisassociateDelegationSignerFromDomainRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.Id != null && { Id: input.Id }),
+  };
+};
+
+const serializeAws_json1_1DnssecSigningAttributes = (input: DnssecSigningAttributes, context: __SerdeContext): any => {
+  return {
+    ...(input.Algorithm != null && { Algorithm: input.Algorithm }),
+    ...(input.Flags != null && { Flags: input.Flags }),
+    ...(input.PublicKey != null && { PublicKey: input.PublicKey }),
   };
 };
 
@@ -2284,7 +2604,11 @@ const serializeAws_json1_1ListOperationsRequest = (input: ListOperationsRequest,
   return {
     ...(input.Marker != null && { Marker: input.Marker }),
     ...(input.MaxItems != null && { MaxItems: input.MaxItems }),
+    ...(input.SortBy != null && { SortBy: input.SortBy }),
+    ...(input.SortOrder != null && { SortOrder: input.SortOrder }),
+    ...(input.Status != null && { Status: serializeAws_json1_1OperationStatusList(input.Status, context) }),
     ...(input.SubmittedSince != null && { SubmittedSince: Math.round(input.SubmittedSince.getTime() / 1000) }),
+    ...(input.Type != null && { Type: serializeAws_json1_1OperationTypeList(input.Type, context) }),
   };
 };
 
@@ -2318,6 +2642,29 @@ const serializeAws_json1_1NameserverList = (input: Nameserver[], context: __Serd
     .map((entry) => {
       return serializeAws_json1_1Nameserver(entry, context);
     });
+};
+
+const serializeAws_json1_1OperationStatusList = (input: (OperationStatus | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1OperationTypeList = (input: (OperationType | string)[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return entry;
+    });
+};
+
+const serializeAws_json1_1PushDomainRequest = (input: PushDomainRequest, context: __SerdeContext): any => {
+  return {
+    ...(input.DomainName != null && { DomainName: input.DomainName }),
+    ...(input.Target != null && { Target: input.Target }),
+  };
 };
 
 const serializeAws_json1_1RegisterDomainRequest = (input: RegisterDomainRequest, context: __SerdeContext): any => {
@@ -2362,6 +2709,15 @@ const serializeAws_json1_1ResendContactReachabilityEmailRequest = (
 ): any => {
   return {
     ...(input.domainName != null && { domainName: input.domainName }),
+  };
+};
+
+const serializeAws_json1_1ResendOperationAuthorizationRequest = (
+  input: ResendOperationAuthorizationRequest,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.OperationId != null && { OperationId: input.OperationId }),
   };
 };
 
@@ -2453,6 +2809,7 @@ const serializeAws_json1_1UpdateDomainContactRequest = (
 ): any => {
   return {
     ...(input.AdminContact != null && { AdminContact: serializeAws_json1_1ContactDetail(input.AdminContact, context) }),
+    ...(input.Consent != null && { Consent: serializeAws_json1_1Consent(input.Consent, context) }),
     ...(input.DomainName != null && { DomainName: input.DomainName }),
     ...(input.RegistrantContact != null && {
       RegistrantContact: serializeAws_json1_1ContactDetail(input.RegistrantContact, context),
@@ -2503,6 +2860,15 @@ const deserializeAws_json1_1AcceptDomainTransferFromAnotherAwsAccountResponse = 
   output: any,
   context: __SerdeContext
 ): AcceptDomainTransferFromAnotherAwsAccountResponse => {
+  return {
+    OperationId: __expectString(output.OperationId),
+  } as any;
+};
+
+const deserializeAws_json1_1AssociateDelegationSignerToDomainResponse = (
+  output: any,
+  context: __SerdeContext
+): AssociateDelegationSignerToDomainResponse => {
   return {
     OperationId: __expectString(output.OperationId),
   } as any;
@@ -2607,6 +2973,45 @@ const deserializeAws_json1_1DisableDomainTransferLockResponse = (
 ): DisableDomainTransferLockResponse => {
   return {
     OperationId: __expectString(output.OperationId),
+  } as any;
+};
+
+const deserializeAws_json1_1DisassociateDelegationSignerFromDomainResponse = (
+  output: any,
+  context: __SerdeContext
+): DisassociateDelegationSignerFromDomainResponse => {
+  return {
+    OperationId: __expectString(output.OperationId),
+  } as any;
+};
+
+const deserializeAws_json1_1DnssecKey = (output: any, context: __SerdeContext): DnssecKey => {
+  return {
+    Algorithm: __expectInt32(output.Algorithm),
+    Digest: __expectString(output.Digest),
+    DigestType: __expectInt32(output.DigestType),
+    Flags: __expectInt32(output.Flags),
+    Id: __expectString(output.Id),
+    KeyTag: __expectInt32(output.KeyTag),
+    PublicKey: __expectString(output.PublicKey),
+  } as any;
+};
+
+const deserializeAws_json1_1DnssecKeyList = (output: any, context: __SerdeContext): DnssecKey[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_json1_1DnssecKey(entry, context);
+    });
+  return retVal;
+};
+
+const deserializeAws_json1_1DnssecLimitExceeded = (output: any, context: __SerdeContext): DnssecLimitExceeded => {
+  return {
+    message: __expectString(output.message),
   } as any;
 };
 
@@ -2775,6 +3180,7 @@ const deserializeAws_json1_1GetDomainDetailResponse = (
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.CreationDate)))
         : undefined,
     DnsSec: __expectString(output.DnsSec),
+    DnssecKeys: output.DnssecKeys != null ? deserializeAws_json1_1DnssecKeyList(output.DnssecKeys, context) : undefined,
     DomainName: __expectString(output.DomainName),
     ExpirationDate:
       output.ExpirationDate != null
@@ -2822,9 +3228,14 @@ const deserializeAws_json1_1GetOperationDetailResponse = (
 ): GetOperationDetailResponse => {
   return {
     DomainName: __expectString(output.DomainName),
+    LastUpdatedDate:
+      output.LastUpdatedDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
+        : undefined,
     Message: __expectString(output.Message),
     OperationId: __expectString(output.OperationId),
     Status: __expectString(output.Status),
+    StatusFlag: __expectString(output.StatusFlag),
     SubmittedDate:
       output.SubmittedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))
@@ -2909,8 +3320,15 @@ const deserializeAws_json1_1OperationLimitExceeded = (output: any, context: __Se
 
 const deserializeAws_json1_1OperationSummary = (output: any, context: __SerdeContext): OperationSummary => {
   return {
+    DomainName: __expectString(output.DomainName),
+    LastUpdatedDate:
+      output.LastUpdatedDate != null
+        ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.LastUpdatedDate)))
+        : undefined,
+    Message: __expectString(output.Message),
     OperationId: __expectString(output.OperationId),
     Status: __expectString(output.Status),
+    StatusFlag: __expectString(output.StatusFlag),
     SubmittedDate:
       output.SubmittedDate != null
         ? __expectNonNull(__parseEpochTimestamp(__expectNumber(output.SubmittedDate)))

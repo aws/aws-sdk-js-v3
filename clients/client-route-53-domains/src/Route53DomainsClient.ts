@@ -52,6 +52,10 @@ import {
   AcceptDomainTransferFromAnotherAwsAccountCommandOutput,
 } from "./commands/AcceptDomainTransferFromAnotherAwsAccountCommand";
 import {
+  AssociateDelegationSignerToDomainCommandInput,
+  AssociateDelegationSignerToDomainCommandOutput,
+} from "./commands/AssociateDelegationSignerToDomainCommand";
+import {
   CancelDomainTransferToAnotherAwsAccountCommandInput,
   CancelDomainTransferToAnotherAwsAccountCommandOutput,
 } from "./commands/CancelDomainTransferToAnotherAwsAccountCommand";
@@ -77,6 +81,10 @@ import {
   DisableDomainTransferLockCommandOutput,
 } from "./commands/DisableDomainTransferLockCommand";
 import {
+  DisassociateDelegationSignerFromDomainCommandInput,
+  DisassociateDelegationSignerFromDomainCommandOutput,
+} from "./commands/DisassociateDelegationSignerFromDomainCommand";
+import {
   EnableDomainAutoRenewCommandInput,
   EnableDomainAutoRenewCommandOutput,
 } from "./commands/EnableDomainAutoRenewCommand";
@@ -98,6 +106,7 @@ import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/Li
 import { ListOperationsCommandInput, ListOperationsCommandOutput } from "./commands/ListOperationsCommand";
 import { ListPricesCommandInput, ListPricesCommandOutput } from "./commands/ListPricesCommand";
 import { ListTagsForDomainCommandInput, ListTagsForDomainCommandOutput } from "./commands/ListTagsForDomainCommand";
+import { PushDomainCommandInput, PushDomainCommandOutput } from "./commands/PushDomainCommand";
 import { RegisterDomainCommandInput, RegisterDomainCommandOutput } from "./commands/RegisterDomainCommand";
 import {
   RejectDomainTransferFromAnotherAwsAccountCommandInput,
@@ -108,6 +117,10 @@ import {
   ResendContactReachabilityEmailCommandInput,
   ResendContactReachabilityEmailCommandOutput,
 } from "./commands/ResendContactReachabilityEmailCommand";
+import {
+  ResendOperationAuthorizationCommandInput,
+  ResendOperationAuthorizationCommandOutput,
+} from "./commands/ResendOperationAuthorizationCommand";
 import {
   RetrieveDomainAuthCodeCommandInput,
   RetrieveDomainAuthCodeCommandOutput,
@@ -144,6 +157,7 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export type ServiceInputTypes =
   | AcceptDomainTransferFromAnotherAwsAccountCommandInput
+  | AssociateDelegationSignerToDomainCommandInput
   | CancelDomainTransferToAnotherAwsAccountCommandInput
   | CheckDomainAvailabilityCommandInput
   | CheckDomainTransferabilityCommandInput
@@ -151,6 +165,7 @@ export type ServiceInputTypes =
   | DeleteTagsForDomainCommandInput
   | DisableDomainAutoRenewCommandInput
   | DisableDomainTransferLockCommandInput
+  | DisassociateDelegationSignerFromDomainCommandInput
   | EnableDomainAutoRenewCommandInput
   | EnableDomainTransferLockCommandInput
   | GetContactReachabilityStatusCommandInput
@@ -161,10 +176,12 @@ export type ServiceInputTypes =
   | ListOperationsCommandInput
   | ListPricesCommandInput
   | ListTagsForDomainCommandInput
+  | PushDomainCommandInput
   | RegisterDomainCommandInput
   | RejectDomainTransferFromAnotherAwsAccountCommandInput
   | RenewDomainCommandInput
   | ResendContactReachabilityEmailCommandInput
+  | ResendOperationAuthorizationCommandInput
   | RetrieveDomainAuthCodeCommandInput
   | TransferDomainCommandInput
   | TransferDomainToAnotherAwsAccountCommandInput
@@ -176,6 +193,7 @@ export type ServiceInputTypes =
 
 export type ServiceOutputTypes =
   | AcceptDomainTransferFromAnotherAwsAccountCommandOutput
+  | AssociateDelegationSignerToDomainCommandOutput
   | CancelDomainTransferToAnotherAwsAccountCommandOutput
   | CheckDomainAvailabilityCommandOutput
   | CheckDomainTransferabilityCommandOutput
@@ -183,6 +201,7 @@ export type ServiceOutputTypes =
   | DeleteTagsForDomainCommandOutput
   | DisableDomainAutoRenewCommandOutput
   | DisableDomainTransferLockCommandOutput
+  | DisassociateDelegationSignerFromDomainCommandOutput
   | EnableDomainAutoRenewCommandOutput
   | EnableDomainTransferLockCommandOutput
   | GetContactReachabilityStatusCommandOutput
@@ -193,10 +212,12 @@ export type ServiceOutputTypes =
   | ListOperationsCommandOutput
   | ListPricesCommandOutput
   | ListTagsForDomainCommandOutput
+  | PushDomainCommandOutput
   | RegisterDomainCommandOutput
   | RejectDomainTransferFromAnotherAwsAccountCommandOutput
   | RenewDomainCommandOutput
   | ResendContactReachabilityEmailCommandOutput
+  | ResendOperationAuthorizationCommandOutput
   | RetrieveDomainAuthCodeCommandOutput
   | TransferDomainCommandOutput
   | TransferDomainToAnotherAwsAccountCommandOutput
@@ -356,7 +377,8 @@ type Route53DomainsClientResolvedConfigType = __SmithyResolvedConfiguration<__Ht
 export interface Route53DomainsClientResolvedConfig extends Route53DomainsClientResolvedConfigType {}
 
 /**
- * <p>Amazon Route 53 API actions let you register domain names and perform related operations.</p>
+ * <p>Amazon Route 53 API actions let you register domain names and perform related
+ * 			operations.</p>
  */
 export class Route53DomainsClient extends __Client<
   __HttpHandlerOptions,

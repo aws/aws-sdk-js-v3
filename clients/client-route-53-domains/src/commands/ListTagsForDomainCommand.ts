@@ -29,8 +29,10 @@ export interface ListTagsForDomainCommandInput extends ListTagsForDomainRequest 
 export interface ListTagsForDomainCommandOutput extends ListTagsForDomainResponse, __MetadataBearer {}
 
 /**
- * <p>This operation returns all of the tags that are associated with the specified domain.</p>
- * 		       <p>All tag operations are eventually consistent; subsequent operations might not immediately represent all issued operations.</p>
+ * <p>This operation returns all of the tags that are associated with the specified
+ * 			domain.</p>
+ *          <p>All tag operations are eventually consistent; subsequent operations might not
+ * 			immediately represent all issued operations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
