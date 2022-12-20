@@ -67,7 +67,7 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/${client}.json */
 
-${selectedAlgorithm.toCodeString("export const ruleSet: RuleSetObject = $ as any;")}
+${selectedAlgorithm.toCodeString("export const ruleSet: RuleSetObject = $;")}
 `;
 
     fs.writeFileSync(rulesetTs, modifiedSource, "utf-8");
