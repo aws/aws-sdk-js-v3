@@ -3372,10 +3372,10 @@ export interface RegisterImageRequest {
   /**
    * <p>The block device mapping entries.</p>
    *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region
-   *     	 of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost
-   *     	 only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-   *     	 	Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same
+   *       Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can
+   *       be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">Amazon EBS local
+   *         snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -3409,8 +3409,12 @@ export interface RegisterImageRequest {
   Name: string | undefined;
 
   /**
-   * <p>The billing product codes. Your account must be authorized to specify billing product codes. Otherwise,
-   *      	you can use the Amazon Web Services Marketplace to bill for the use of an AMI.</p>
+   * <p>The billing product codes. Your account must be authorized to specify billing product codes.</p>
+   *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
+   *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
+   *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
+   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
+   *         products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
    */
   BillingProducts?: string[];
 
@@ -3440,13 +3444,13 @@ export interface RegisterImageRequest {
 
   /**
    * <p>The boot mode of the AMI. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
 
   /**
    * <p>Set to <code>v2.0</code> to enable Trusted Platform Module (TPM) support. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   TpmSupport?: TpmSupportValues | string;
 
@@ -3455,7 +3459,7 @@ export interface RegisterImageRequest {
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
    *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
    *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   UefiData?: string;
 
@@ -3465,7 +3469,7 @@ export interface RegisterImageRequest {
    *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
    *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
    *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
    *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
    *          </note>

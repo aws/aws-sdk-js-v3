@@ -35,6 +35,7 @@ export * from "./DescribeHostReservationOfferingsPaginator";
 export * from "./DescribeHostReservationsPaginator";
 export * from "./DescribeHostsPaginator";
 export * from "./DescribeIamInstanceProfileAssociationsPaginator";
+export * from "./DescribeImagesPaginator";
 export * from "./DescribeImportImageTasksPaginator";
 export * from "./DescribeImportSnapshotTasksPaginator";
 export * from "./DescribeInstanceCreditSpecificationsPaginator";

@@ -40855,6 +40855,12 @@ const serializeAws_ec2DescribeImagesRequest = (input: DescribeImagesRequest, con
   if (input.DryRun != null) {
     entries["DryRun"] = input.DryRun;
   }
+  if (input.MaxResults != null) {
+    entries["MaxResults"] = input.MaxResults;
+  }
+  if (input.NextToken != null) {
+    entries["NextToken"] = input.NextToken;
+  }
   return entries;
 };
 
@@ -64482,11 +64488,15 @@ const deserializeAws_ec2DescribeIdFormatResult = (output: any, context: __SerdeC
 const deserializeAws_ec2DescribeImagesResult = (output: any, context: __SerdeContext): DescribeImagesResult => {
   const contents: any = {
     Images: undefined,
+    NextToken: undefined,
   };
   if (output.imagesSet === "") {
     contents.Images = [];
   } else if (output["imagesSet"] !== undefined && output["imagesSet"]["item"] !== undefined) {
     contents.Images = deserializeAws_ec2ImageList(__getArrayIfSingleItem(output["imagesSet"]["item"]), context);
+  }
+  if (output["nextToken"] !== undefined) {
+    contents.NextToken = __expectString(output["nextToken"]);
   }
   return contents;
 };

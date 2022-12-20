@@ -5357,7 +5357,7 @@ export interface CopyImageRequest {
    *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
    *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
    *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
@@ -5409,7 +5409,7 @@ export interface CopyImageRequest {
    *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
    *   		Outpost.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
-   *         Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         Region to an Outpost</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 

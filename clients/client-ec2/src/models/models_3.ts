@@ -5831,7 +5831,7 @@ export interface ImageAttribute {
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
    *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
    *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   UefiData?: AttributeValue;
 
@@ -5852,7 +5852,7 @@ export interface ImageAttribute {
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   ImdsSupport?: AttributeValue;
 }
@@ -6068,6 +6068,17 @@ export interface DescribeImagesRequest {
    * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    */
   DryRun?: boolean;
+
+  /**
+   * <p>The maximum number of results to return with a single call.
+   * 	To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   */
+  NextToken?: string;
 }
 
 export enum ArchitectureValues {
@@ -6176,7 +6187,7 @@ export interface Image {
   /**
    * <p>The platform details associated with the billing code of the AMI. For more information,
    *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand
-   *         AMI billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         AMI billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   PlatformDetails?: string;
 
@@ -6269,14 +6280,14 @@ export interface Image {
 
   /**
    * <p>The boot mode of the image. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   BootMode?: BootModeValues | string;
 
   /**
    * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
    *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   TpmSupport?: TpmSupportValues | string;
 
@@ -6294,7 +6305,7 @@ export interface Image {
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
    *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
-   *         the AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   ImdsSupport?: ImdsSupportValues | string;
 }
@@ -6304,6 +6315,11 @@ export interface DescribeImagesResult {
    * <p>Information about the images.</p>
    */
   Images?: Image[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   */
+  NextToken?: string;
 }
 
 export interface DescribeImportImageTasksRequest {

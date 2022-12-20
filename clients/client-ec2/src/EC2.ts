@@ -4428,7 +4428,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Removes your Amazon Web Services account from the launch permissions for the specified AMI. For more
    *       information, see <a href="https://docs.aws.amazon.com/">Cancel having an AMI shared with your Amazon Web Services account</a>
-   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public cancelImageLaunchPermission(
     args: CancelImageLaunchPermissionCommandInput,
@@ -4683,9 +4683,9 @@ export class EC2 extends EC2Client {
    *    		encryption key for the Region, or a different key that you specify in the request using
    *    		<b>KmsKeyId</b>. Outposts do not support unencrypted
    *    		snapshots. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">
-   *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *    			Amazon EBS local snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information about the prerequisites and limits when copying an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/CopyingAMIs.html">Copy an AMI</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   public copyImage(args: CopyImageCommandInput, options?: __HttpHandlerOptions): Promise<CopyImageCommandOutput>;
   public copyImage(args: CopyImageCommandInput, cb: (err: any, data?: CopyImageCommandOutput) => void): void;
@@ -6337,9 +6337,9 @@ export class EC2 extends EC2Client {
    * <p>Starts a task that restores an AMI from an Amazon S3 object that was previously created by using
    *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateStoreImageTask.html">CreateStoreImageTask</a>.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createRestoreImageTask(
     args: CreateRestoreImageTaskCommandInput,
@@ -6634,9 +6634,9 @@ export class EC2 extends EC2Client {
   /**
    * <p>Stores an AMI as a single object in an Amazon S3 bucket.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public createStoreImageTask(
     args: CreateStoreImageTaskCommandInput,
@@ -10336,7 +10336,7 @@ export class EC2 extends EC2Client {
    *        launch new instances.</p>
    *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
    *       in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
-   *       the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       the <i>Amazon EC2 User Guide</i>.</p>
    *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
    *        launched from the AMI. You'll continue to incur usage costs for those instances until
    *        you terminate them.</p>
@@ -14171,9 +14171,9 @@ export class EC2 extends EC2Client {
    *          <p>Tasks are listed in reverse chronological order. Currently, only tasks from the past 31
    *       days can be viewed.</p>
    *          <p>To use this API, you must have the required permissions. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html#ami-s3-permissions">Permissions for storing and restoring AMIs using Amazon S3</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-store-restore.html">Store and restore an AMI using
-   *     	Amazon S3</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	Amazon S3</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public describeStoreImageTasks(
     args: DescribeStoreImageTasksCommandInput,
@@ -15897,7 +15897,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Cancels the deprecation of the specified AMI.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
-   *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         <i>Amazon EC2 User Guide</i>.</p>
    */
   public disableImageDeprecation(
     args: DisableImageDeprecationCommandInput,
@@ -16760,7 +16760,7 @@ export class EC2 extends EC2Client {
 
   /**
    * <p>Enables deprecation of the specified AMI at the specified date and time.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public enableImageDeprecation(
     args: EnableImageDeprecationCommandInput,
@@ -18831,7 +18831,7 @@ export class EC2 extends EC2Client {
   /**
    * <p>Lists one or more AMIs that are currently in the Recycle Bin. For more information,
    *       see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle
-   *         Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   *         Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public listImagesInRecycleBin(
     args: ListImagesInRecycleBinCommandInput,
@@ -21689,7 +21689,7 @@ export class EC2 extends EC2Client {
    *       billing product code. If you purchase a Reserved Instance without the matching billing product
    *       code, the Reserved Instance will not be applied to the On-Demand Instance. For information
    *       about how to obtain the platform details and billing information of an AMI, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html">Understand AMI
-   *         billing information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *         billing information</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public registerImage(
     args: RegisterImageCommandInput,
@@ -22745,7 +22745,7 @@ export class EC2 extends EC2Client {
   }
 
   /**
-   * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the Amazon Elastic Compute Cloud User Guide.</p>
+   * <p>Restores an AMI from the Recycle Bin. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   public restoreImageFromRecycleBin(
     args: RestoreImageFromRecycleBinCommandInput,
