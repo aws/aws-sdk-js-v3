@@ -79,6 +79,10 @@ import {
 } from "../commands/GetLaunchProfileMemberCommand";
 import { GetStreamingImageCommandInput, GetStreamingImageCommandOutput } from "../commands/GetStreamingImageCommand";
 import {
+  GetStreamingSessionBackupCommandInput,
+  GetStreamingSessionBackupCommandOutput,
+} from "../commands/GetStreamingSessionBackupCommand";
+import {
   GetStreamingSessionCommandInput,
   GetStreamingSessionCommandOutput,
 } from "../commands/GetStreamingSessionCommand";
@@ -103,6 +107,10 @@ import {
   ListStreamingImagesCommandInput,
   ListStreamingImagesCommandOutput,
 } from "../commands/ListStreamingImagesCommand";
+import {
+  ListStreamingSessionBackupsCommandInput,
+  ListStreamingSessionBackupsCommandOutput,
+} from "../commands/ListStreamingSessionBackupsCommand";
 import {
   ListStreamingSessionsCommandInput,
   ListStreamingSessionsCommandOutput,
@@ -176,11 +184,13 @@ import {
   SharedFileSystemConfiguration,
   StreamConfiguration,
   StreamConfigurationCreate,
+  StreamConfigurationSessionBackup,
   StreamConfigurationSessionStorage,
   StreamingImage,
   StreamingImageEncryptionConfiguration,
   StreamingInstanceType,
   StreamingSession,
+  StreamingSessionBackup,
   StreamingSessionStorageMode,
   StreamingSessionStorageRoot,
   StreamingSessionStream,
@@ -194,6 +204,7 @@ import {
   ThrottlingException,
   ValidationException,
   ValidationResult,
+  VolumeConfiguration,
 } from "../models/models_0";
 import { NimbleServiceException as __BaseException } from "../models/NimbleServiceException";
 
@@ -857,6 +868,29 @@ export const serializeAws_restJson1GetStreamingSessionCommand = async (
   });
 };
 
+export const serializeAws_restJson1GetStreamingSessionBackupCommand = async (
+  input: GetStreamingSessionBackupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-session-backups/{backupId}";
+  resolvedPath = __resolvedPath(resolvedPath, input, "backupId", () => input.backupId!, "{backupId}", false);
+  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    body,
+  });
+};
+
 export const serializeAws_restJson1GetStreamingSessionStreamCommand = async (
   input: GetStreamingSessionStreamCommandInput,
   context: __SerdeContext
@@ -1097,6 +1131,33 @@ export const serializeAws_restJson1ListStreamingImagesCommand = async (
   });
 };
 
+export const serializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+  input: ListStreamingSessionBackupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
+  const headers: any = {};
+  let resolvedPath =
+    `${basePath?.endsWith("/") ? basePath.slice(0, -1) : basePath || ""}` +
+    "/2020-08-01/studios/{studioId}/streaming-session-backups";
+  resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
+  const query: any = map({
+    nextToken: [, input.nextToken!],
+    ownedBy: [, input.ownedBy!],
+  });
+  let body: any;
+  return new __HttpRequest({
+    protocol,
+    hostname,
+    port,
+    method: "GET",
+    headers,
+    path: resolvedPath,
+    query,
+    body,
+  });
+};
+
 export const serializeAws_restJson1ListStreamingSessionsCommand = async (
   input: ListStreamingSessionsCommandInput,
   context: __SerdeContext
@@ -1296,6 +1357,7 @@ export const serializeAws_restJson1StartStreamingSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1304,6 +1366,9 @@ export const serializeAws_restJson1StartStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
+  body = JSON.stringify({
+    ...(input.backupId != null && { backupId: input.backupId }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -1345,6 +1410,7 @@ export const serializeAws_restJson1StopStreamingSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const { hostname, protocol = "https", port, path: basePath } = await context.endpoint();
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     "x-amz-client-token": input.clientToken!,
   });
   let resolvedPath =
@@ -1353,6 +1419,9 @@ export const serializeAws_restJson1StopStreamingSessionCommand = async (
   resolvedPath = __resolvedPath(resolvedPath, input, "sessionId", () => input.sessionId!, "{sessionId}", false);
   resolvedPath = __resolvedPath(resolvedPath, input, "studioId", () => input.studioId!, "{studioId}", false);
   let body: any;
+  body = JSON.stringify({
+    ...(input.volumeRetentionMode != null && { volumeRetentionMode: input.volumeRetentionMode }),
+  });
   return new __HttpRequest({
     protocol,
     hostname,
@@ -2876,6 +2945,65 @@ const deserializeAws_restJson1GetStreamingSessionCommandError = async (
   }
 };
 
+export const deserializeAws_restJson1GetStreamingSessionBackupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamingSessionBackupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1GetStreamingSessionBackupCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.streamingSessionBackup != null) {
+    contents.streamingSessionBackup = deserializeAws_restJson1StreamingSessionBackup(
+      data.streamingSessionBackup,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1GetStreamingSessionBackupCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetStreamingSessionBackupCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
 export const deserializeAws_restJson1GetStreamingSessionStreamCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
@@ -3405,6 +3533,68 @@ const deserializeAws_restJson1ListStreamingImagesCommandError = async (
     case "ServiceQuotaExceededException":
     case "com.amazonaws.nimble#ServiceQuotaExceededException":
       throw await deserializeAws_restJson1ServiceQuotaExceededExceptionResponse(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.nimble#ThrottlingException":
+      throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.nimble#ValidationException":
+      throw await deserializeAws_restJson1ValidationExceptionResponse(parsedOutput, context);
+    default:
+      const parsedBody = parsedOutput.body;
+      throwDefaultError({
+        output,
+        parsedBody,
+        exceptionCtor: __BaseException,
+        errorCode,
+      });
+  }
+};
+
+export const deserializeAws_restJson1ListStreamingSessionBackupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamingSessionBackupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return deserializeAws_restJson1ListStreamingSessionBackupsCommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.nextToken != null) {
+    contents.nextToken = __expectString(data.nextToken);
+  }
+  if (data.streamingSessionBackups != null) {
+    contents.streamingSessionBackups = deserializeAws_restJson1StreamingSessionBackupList(
+      data.streamingSessionBackups,
+      context
+    );
+  }
+  return contents;
+};
+
+const deserializeAws_restJson1ListStreamingSessionBackupsCommandError = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListStreamingSessionBackupsCommandOutput> => {
+  const parsedOutput: any = {
+    ...output,
+    body: await parseErrorBody(output.body, context),
+  };
+  const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
+  switch (errorCode) {
+    case "AccessDeniedException":
+    case "com.amazonaws.nimble#AccessDeniedException":
+      throw await deserializeAws_restJson1AccessDeniedExceptionResponse(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.nimble#ConflictException":
+      throw await deserializeAws_restJson1ConflictExceptionResponse(parsedOutput, context);
+    case "InternalServerErrorException":
+    case "com.amazonaws.nimble#InternalServerErrorException":
+      throw await deserializeAws_restJson1InternalServerErrorExceptionResponse(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.nimble#ResourceNotFoundException":
+      throw await deserializeAws_restJson1ResourceNotFoundExceptionResponse(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.nimble#ThrottlingException":
       throw await deserializeAws_restJson1ThrottlingExceptionResponse(parsedOutput, context);
@@ -4728,6 +4918,7 @@ const serializeAws_restJson1StreamConfigurationCreate = (
   context: __SerdeContext
 ): any => {
   return {
+    ...(input.automaticTerminationMode != null && { automaticTerminationMode: input.automaticTerminationMode }),
     ...(input.clipboardMode != null && { clipboardMode: input.clipboardMode }),
     ...(input.ec2InstanceTypes != null && {
       ec2InstanceTypes: serializeAws_restJson1StreamingInstanceTypeList(input.ec2InstanceTypes, context),
@@ -4736,12 +4927,29 @@ const serializeAws_restJson1StreamConfigurationCreate = (
     ...(input.maxStoppedSessionLengthInMinutes != null && {
       maxStoppedSessionLengthInMinutes: input.maxStoppedSessionLengthInMinutes,
     }),
+    ...(input.sessionBackup != null && {
+      sessionBackup: serializeAws_restJson1StreamConfigurationSessionBackup(input.sessionBackup, context),
+    }),
+    ...(input.sessionPersistenceMode != null && { sessionPersistenceMode: input.sessionPersistenceMode }),
     ...(input.sessionStorage != null && {
       sessionStorage: serializeAws_restJson1StreamConfigurationSessionStorage(input.sessionStorage, context),
     }),
     ...(input.streamingImageIds != null && {
       streamingImageIds: serializeAws_restJson1StreamingImageIdList(input.streamingImageIds, context),
     }),
+    ...(input.volumeConfiguration != null && {
+      volumeConfiguration: serializeAws_restJson1VolumeConfiguration(input.volumeConfiguration, context),
+    }),
+  };
+};
+
+const serializeAws_restJson1StreamConfigurationSessionBackup = (
+  input: StreamConfigurationSessionBackup,
+  context: __SerdeContext
+): any => {
+  return {
+    ...(input.maxBackupsToRetain != null && { maxBackupsToRetain: input.maxBackupsToRetain }),
+    ...(input.mode != null && { mode: input.mode }),
   };
 };
 
@@ -4886,6 +5094,14 @@ const serializeAws_restJson1Tags = (input: Record<string, string>, context: __Se
     acc[key] = value;
     return acc;
   }, {});
+};
+
+const serializeAws_restJson1VolumeConfiguration = (input: VolumeConfiguration, context: __SerdeContext): any => {
+  return {
+    ...(input.iops != null && { iops: input.iops }),
+    ...(input.size != null && { size: input.size }),
+    ...(input.throughput != null && { throughput: input.throughput }),
+  };
 };
 
 const deserializeAws_restJson1ActiveDirectoryComputerAttribute = (
@@ -5249,6 +5465,7 @@ const deserializeAws_restJson1SharedFileSystemConfiguration = (
 
 const deserializeAws_restJson1StreamConfiguration = (output: any, context: __SerdeContext): StreamConfiguration => {
   return {
+    automaticTerminationMode: __expectString(output.automaticTerminationMode),
     clipboardMode: __expectString(output.clipboardMode),
     ec2InstanceTypes:
       output.ec2InstanceTypes != null
@@ -5256,6 +5473,11 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
         : undefined,
     maxSessionLengthInMinutes: __expectInt32(output.maxSessionLengthInMinutes),
     maxStoppedSessionLengthInMinutes: __expectInt32(output.maxStoppedSessionLengthInMinutes),
+    sessionBackup:
+      output.sessionBackup != null
+        ? deserializeAws_restJson1StreamConfigurationSessionBackup(output.sessionBackup, context)
+        : undefined,
+    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
     sessionStorage:
       output.sessionStorage != null
         ? deserializeAws_restJson1StreamConfigurationSessionStorage(output.sessionStorage, context)
@@ -5264,6 +5486,20 @@ const deserializeAws_restJson1StreamConfiguration = (output: any, context: __Ser
       output.streamingImageIds != null
         ? deserializeAws_restJson1StreamingImageIdList(output.streamingImageIds, context)
         : undefined,
+    volumeConfiguration:
+      output.volumeConfiguration != null
+        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
+        : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamConfigurationSessionBackup = (
+  output: any,
+  context: __SerdeContext
+): StreamConfigurationSessionBackup => {
+  return {
+    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
+    mode: __expectString(output.mode),
   } as any;
 };
 
@@ -5351,14 +5587,19 @@ const deserializeAws_restJson1StreamingInstanceTypeList = (
 const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeContext): StreamingSession => {
   return {
     arn: __expectString(output.arn),
+    automaticTerminationMode: __expectString(output.automaticTerminationMode),
+    backupMode: __expectString(output.backupMode),
     createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
     createdBy: __expectString(output.createdBy),
     ec2InstanceType: __expectString(output.ec2InstanceType),
     launchProfileId: __expectString(output.launchProfileId),
+    maxBackupsToRetain: __expectInt32(output.maxBackupsToRetain),
     ownedBy: __expectString(output.ownedBy),
     sessionId: __expectString(output.sessionId),
+    sessionPersistenceMode: __expectString(output.sessionPersistenceMode),
     startedAt: output.startedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.startedAt)) : undefined,
     startedBy: __expectString(output.startedBy),
+    startedFromBackupId: __expectString(output.startedFromBackupId),
     state: __expectString(output.state),
     statusCode: __expectString(output.statusCode),
     statusMessage: __expectString(output.statusMessage),
@@ -5370,7 +5611,45 @@ const deserializeAws_restJson1StreamingSession = (output: any, context: __SerdeC
     terminateAt: output.terminateAt != null ? __expectNonNull(__parseRfc3339DateTime(output.terminateAt)) : undefined,
     updatedAt: output.updatedAt != null ? __expectNonNull(__parseRfc3339DateTime(output.updatedAt)) : undefined,
     updatedBy: __expectString(output.updatedBy),
+    volumeConfiguration:
+      output.volumeConfiguration != null
+        ? deserializeAws_restJson1VolumeConfiguration(output.volumeConfiguration, context)
+        : undefined,
+    volumeRetentionMode: __expectString(output.volumeRetentionMode),
   } as any;
+};
+
+const deserializeAws_restJson1StreamingSessionBackup = (
+  output: any,
+  context: __SerdeContext
+): StreamingSessionBackup => {
+  return {
+    arn: __expectString(output.arn),
+    backupId: __expectString(output.backupId),
+    createdAt: output.createdAt != null ? __expectNonNull(__parseRfc3339DateTime(output.createdAt)) : undefined,
+    launchProfileId: __expectString(output.launchProfileId),
+    ownedBy: __expectString(output.ownedBy),
+    sessionId: __expectString(output.sessionId),
+    state: __expectString(output.state),
+    statusCode: __expectString(output.statusCode),
+    statusMessage: __expectString(output.statusMessage),
+    tags: output.tags != null ? deserializeAws_restJson1Tags(output.tags, context) : undefined,
+  } as any;
+};
+
+const deserializeAws_restJson1StreamingSessionBackupList = (
+  output: any,
+  context: __SerdeContext
+): StreamingSessionBackup[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      if (entry === null) {
+        return null as any;
+      }
+      return deserializeAws_restJson1StreamingSessionBackup(entry, context);
+    });
+  return retVal;
 };
 
 const deserializeAws_restJson1StreamingSessionList = (output: any, context: __SerdeContext): StreamingSession[] => {
@@ -5681,6 +5960,14 @@ const deserializeAws_restJson1ValidationResults = (output: any, context: __Serde
       return deserializeAws_restJson1ValidationResult(entry, context);
     });
   return retVal;
+};
+
+const deserializeAws_restJson1VolumeConfiguration = (output: any, context: __SerdeContext): VolumeConfiguration => {
+  return {
+    iops: __expectInt32(output.iops),
+    size: __expectInt32(output.size),
+    throughput: __expectInt32(output.throughput),
+  } as any;
 };
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({

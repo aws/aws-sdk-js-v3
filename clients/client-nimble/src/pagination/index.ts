@@ -5,6 +5,7 @@ export * from "./ListEulasPaginator";
 export * from "./ListLaunchProfileMembersPaginator";
 export * from "./ListLaunchProfilesPaginator";
 export * from "./ListStreamingImagesPaginator";
+export * from "./ListStreamingSessionBackupsPaginator";
 export * from "./ListStreamingSessionsPaginator";
 export * from "./ListStudioComponentsPaginator";
 export * from "./ListStudioMembersPaginator";

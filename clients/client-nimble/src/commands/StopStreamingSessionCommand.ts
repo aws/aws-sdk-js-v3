@@ -29,8 +29,9 @@ export interface StopStreamingSessionCommandInput extends StopStreamingSessionRe
 export interface StopStreamingSessionCommandOutput extends StopStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Transitions sessions from the READY state into the STOPPED state. The STOP_IN_PROGRESS
- *             state is the intermediate state between the READY and STOPPED states.</p>
+ * <p>Transitions sessions from the <code>READY</code> state into the <code>STOPPED</code>
+ *             state. The <code>STOP_IN_PROGRESS</code> state is the intermediate state between the
+ *                 <code>READY</code> and <code>STOPPED</code> states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

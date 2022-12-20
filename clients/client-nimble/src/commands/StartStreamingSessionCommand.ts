@@ -29,9 +29,9 @@ export interface StartStreamingSessionCommandInput extends StartStreamingSession
 export interface StartStreamingSessionCommandOutput extends StartStreamingSessionResponse, __MetadataBearer {}
 
 /**
- * <p> Transitions sessions from the STOPPED state into the READY state. The
- *             START_IN_PROGRESS state is the intermediate state between the STOPPED and READY
- *             states.</p>
+ * <p>Transitions sessions from the <code>STOPPED</code> state into the <code>READY</code>
+ *             state. The <code>START_IN_PROGRESS</code> state is the intermediate state between the
+ *                 <code>STOPPED</code> and <code>READY</code> states.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

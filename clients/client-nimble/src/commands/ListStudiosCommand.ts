@@ -29,8 +29,7 @@ export interface ListStudiosCommandInput extends ListStudiosRequest {}
 export interface ListStudiosCommandOutput extends ListStudiosResponse, __MetadataBearer {}
 
 /**
- * <p>List studios in your Amazon Web Services account in the requested Amazon Web Services
- *             Region.</p>
+ * <p>List studios in your Amazon Web Services accounts in the requested Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

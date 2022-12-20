@@ -14,40 +14,42 @@ import {
 } from "@aws-sdk/types";
 
 import {
-  GetStudioRequest,
-  GetStudioRequestFilterSensitiveLog,
-  GetStudioResponse,
-  GetStudioResponseFilterSensitiveLog,
+  GetStreamingSessionBackupRequest,
+  GetStreamingSessionBackupRequestFilterSensitiveLog,
+  GetStreamingSessionBackupResponse,
+  GetStreamingSessionBackupResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { NimbleClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../NimbleClient";
 import {
-  deserializeAws_restJson1GetStudioCommand,
-  serializeAws_restJson1GetStudioCommand,
+  deserializeAws_restJson1GetStreamingSessionBackupCommand,
+  serializeAws_restJson1GetStreamingSessionBackupCommand,
 } from "../protocols/Aws_restJson1";
 
-export interface GetStudioCommandInput extends GetStudioRequest {}
-export interface GetStudioCommandOutput extends GetStudioResponse, __MetadataBearer {}
+export interface GetStreamingSessionBackupCommandInput extends GetStreamingSessionBackupRequest {}
+export interface GetStreamingSessionBackupCommandOutput extends GetStreamingSessionBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Get a studio resource.</p>
+ * <p>Gets <code>StreamingSessionBackup</code> resource.</p>
+ *         <p>Invoke this operation to poll for a streaming session backup while stopping a
+ *             streaming session.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { NimbleClient, GetStudioCommand } from "@aws-sdk/client-nimble"; // ES Modules import
- * // const { NimbleClient, GetStudioCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
+ * import { NimbleClient, GetStreamingSessionBackupCommand } from "@aws-sdk/client-nimble"; // ES Modules import
+ * // const { NimbleClient, GetStreamingSessionBackupCommand } = require("@aws-sdk/client-nimble"); // CommonJS import
  * const client = new NimbleClient(config);
- * const command = new GetStudioCommand(input);
+ * const command = new GetStreamingSessionBackupCommand(input);
  * const response = await client.send(command);
  * ```
  *
- * @see {@link GetStudioCommandInput} for command's `input` shape.
- * @see {@link GetStudioCommandOutput} for command's `response` shape.
+ * @see {@link GetStreamingSessionBackupCommandInput} for command's `input` shape.
+ * @see {@link GetStreamingSessionBackupCommandOutput} for command's `response` shape.
  * @see {@link NimbleClientResolvedConfig | config} for NimbleClient's `config` shape.
  *
  */
-export class GetStudioCommand extends $Command<
-  GetStudioCommandInput,
-  GetStudioCommandOutput,
+export class GetStreamingSessionBackupCommand extends $Command<
+  GetStreamingSessionBackupCommandInput,
+  GetStreamingSessionBackupCommandOutput,
   NimbleClientResolvedConfig
 > {
   // Start section: command_properties
@@ -62,7 +64,7 @@ export class GetStudioCommand extends $Command<
     };
   }
 
-  constructor(readonly input: GetStudioCommandInput) {
+  constructor(readonly input: GetStreamingSessionBackupCommandInput) {
     // Start section: command_constructor
     super();
     // End section: command_constructor
@@ -75,21 +77,23 @@ export class GetStudioCommand extends $Command<
     clientStack: MiddlewareStack<ServiceInputTypes, ServiceOutputTypes>,
     configuration: NimbleClientResolvedConfig,
     options?: __HttpHandlerOptions
-  ): Handler<GetStudioCommandInput, GetStudioCommandOutput> {
+  ): Handler<GetStreamingSessionBackupCommandInput, GetStreamingSessionBackupCommandOutput> {
     this.middlewareStack.use(getSerdePlugin(configuration, this.serialize, this.deserialize));
-    this.middlewareStack.use(getEndpointPlugin(configuration, GetStudioCommand.getEndpointParameterInstructions()));
+    this.middlewareStack.use(
+      getEndpointPlugin(configuration, GetStreamingSessionBackupCommand.getEndpointParameterInstructions())
+    );
 
     const stack = clientStack.concat(this.middlewareStack);
 
     const { logger } = configuration;
     const clientName = "NimbleClient";
-    const commandName = "GetStudioCommand";
+    const commandName = "GetStreamingSessionBackupCommand";
     const handlerExecutionContext: HandlerExecutionContext = {
       logger,
       clientName,
       commandName,
-      inputFilterSensitiveLog: GetStudioRequestFilterSensitiveLog,
-      outputFilterSensitiveLog: GetStudioResponseFilterSensitiveLog,
+      inputFilterSensitiveLog: GetStreamingSessionBackupRequestFilterSensitiveLog,
+      outputFilterSensitiveLog: GetStreamingSessionBackupResponseFilterSensitiveLog,
     };
     const { requestHandler } = configuration;
     return stack.resolve(
@@ -99,12 +103,15 @@ export class GetStudioCommand extends $Command<
     );
   }
 
-  private serialize(input: GetStudioCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
-    return serializeAws_restJson1GetStudioCommand(input, context);
+  private serialize(input: GetStreamingSessionBackupCommandInput, context: __SerdeContext): Promise<__HttpRequest> {
+    return serializeAws_restJson1GetStreamingSessionBackupCommand(input, context);
   }
 
-  private deserialize(output: __HttpResponse, context: __SerdeContext): Promise<GetStudioCommandOutput> {
-    return deserializeAws_restJson1GetStudioCommand(output, context);
+  private deserialize(
+    output: __HttpResponse,
+    context: __SerdeContext
+  ): Promise<GetStreamingSessionBackupCommandOutput> {
+    return deserializeAws_restJson1GetStreamingSessionBackupCommand(output, context);
   }
 
   // Start section: command_body_extra

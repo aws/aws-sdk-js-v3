@@ -6,8 +6,8 @@ import { NimbleServiceException as __BaseException } from "./NimbleServiceExcept
 export interface AcceptEulasRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -27,7 +27,7 @@ export interface AcceptEulasRequest {
  */
 export interface EulaAcceptance {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the EULA was accepted.</p>
+   * <p>The ISO timestamp in seconds for when the EULA was accepted.</p>
    */
   acceptedAt?: Date;
 
@@ -60,8 +60,8 @@ export interface AcceptEulasResponse {
 }
 
 /**
- * <p>You are not authorized to perform this operation. Check your IAM policies, and ensure
- *             that you are using the correct access keys.</p>
+ * <p>You are not authorized to perform this operation. Check your IAM
+ *             policies, and ensure that you are using the correct access keys.</p>
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
@@ -188,7 +188,7 @@ export class ResourceNotFoundException extends __BaseException {
 /**
  * <p>Your current quota does not allow you to perform the request action. You can request
  *             increases for some quotas, and other quotas cannot be increased.</p>
- *         <p>Please use AWS Service Quotas to request an increase. </p>
+ *         <p>Please use Amazon Web Services Service Quotas to request an increase. </p>
  */
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
@@ -298,8 +298,7 @@ export interface ActiveDirectoryComputerAttribute {
 }
 
 /**
- * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
- *             resource.</p>
+ * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
  */
 export interface ActiveDirectoryConfiguration {
   /**
@@ -308,8 +307,8 @@ export interface ActiveDirectoryConfiguration {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-   *             using this studio component.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this studio
+   *             component.</p>
    */
   directoryId?: string;
 
@@ -318,6 +317,11 @@ export interface ActiveDirectoryConfiguration {
    *             computer.</p>
    */
   organizationalUnitDistinguishedName?: string;
+}
+
+export enum AutomaticTerminationMode {
+  ACTIVATED = "ACTIVATED",
+  DEACTIVATED = "DEACTIVATED",
 }
 
 /**
@@ -358,6 +362,36 @@ export enum StreamingInstanceType {
   g5_xlarge = "g5.xlarge",
 }
 
+export enum SessionBackupMode {
+  AUTOMATIC = "AUTOMATIC",
+  DEACTIVATED = "DEACTIVATED",
+}
+
+/**
+ * <p>Configures how streaming sessions are backed up when launched from this launch
+ *             profile.</p>
+ */
+export interface StreamConfigurationSessionBackup {
+  /**
+   * <p>Specifies how artists sessions are backed up.</p>
+   *         <p>Configures backups for streaming sessions launched with this launch profile. The
+   *             default value is <code>DEACTIVATED</code>, which means that backups are deactivated. To
+   *             allow backups, set this value to <code>AUTOMATIC</code>.</p>
+   */
+  mode?: SessionBackupMode | string;
+
+  /**
+   * <p>The maximum number of backups that each streaming session created from this launch
+   *             profile can have.</p>
+   */
+  maxBackupsToRetain?: number;
+}
+
+export enum SessionPersistenceMode {
+  ACTIVATED = "ACTIVATED",
+  DEACTIVATED = "DEACTIVATED",
+}
+
 export enum StreamingSessionStorageMode {
   UPLOAD = "UPLOAD",
 }
@@ -395,11 +429,37 @@ export interface StreamConfigurationSessionStorage {
 }
 
 /**
+ * <p>Custom volume configuration for the root volumes that are attached to streaming
+ *             sessions.</p>
+ *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+ *                 <code>ACTIVATED</code>.</p>
+ */
+export interface VolumeConfiguration {
+  /**
+   * <p>The size of the root volume that is attached to the streaming session. The root volume
+   *             size is measured in GiBs.</p>
+   */
+  size?: number;
+
+  /**
+   * <p>The throughput to provision for the root volume that is attached to the streaming
+   *             session. The throughput is measured in MiB/s.</p>
+   */
+  throughput?: number;
+
+  /**
+   * <p>The number of I/O operations per second for the root volume that is attached to
+   *             streaming session.</p>
+   */
+  iops?: number;
+}
+
+/**
  * <p>Configuration for streaming workstations created using this launch profile.</p>
  */
 export interface StreamConfigurationCreate {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
@@ -426,31 +486,78 @@ export interface StreamConfigurationCreate {
 
   /**
    * <p>Integer that determines if you can start and stop your sessions and how long a session
-   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated (instead of stopped).</p>
+   *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+   *             5760.</p>
+   *         <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   *         <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+   *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+   *             value, the session will automatically be terminated (instead of
+   *             <code>STOPPED</code>).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-   *             that a session stays in the READY state exceeds the
+   *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+   *             If the time that a session stays in the <code>READY</code> state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
    *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
-   * <p>(Optional) The upload storage for a streaming workstation that is created using this
-   *             launch profile.</p>
+   * <p>The upload storage for a streaming workstation that is created using this launch
+   *             profile.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
+
+  /**
+   * <p>Configures how streaming sessions are backed up when launched from this launch
+   *             profile.</p>
+   */
+  sessionBackup?: StreamConfigurationSessionBackup;
+
+  /**
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
+
+  /**
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
+
+  /**
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
 export interface CreateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -493,7 +600,7 @@ export interface CreateLaunchProfileRequest {
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -533,7 +640,7 @@ export enum LaunchProfileStatusCode {
  */
 export interface StreamConfiguration {
   /**
-   * <p>Enable or disable the use of the system clipboard to copy and paste between the
+   * <p>Allows or deactivates the use of the system clipboard to copy and paste between the
    *             streaming session and streaming client.</p>
    */
   clipboardMode: StreamingClipboardMode | string | undefined;
@@ -560,23 +667,69 @@ export interface StreamConfiguration {
 
   /**
    * <p>Integer that determines if you can start and stop your sessions and how long a session
-   *             can stay in the STOPPED state. The default value is 0. The maximum value is 5760.</p>
-   *         <p>If the value is missing or set to 0, your sessions can’t be stopped. If you then call
-   *                 <code>StopStreamingSession</code>, the session fails. If the time that a session
-   *             stays in the READY state exceeds the <code>maxSessionLengthInMinutes</code> value, the
-   *             session will automatically be terminated (instead of stopped).</p>
+   *             can stay in the <code>STOPPED</code> state. The default value is 0. The maximum value is
+   *             5760.</p>
+   *         <p>This field is allowed only when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code> and <code>automaticTerminationMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   *         <p>If the value is set to 0, your sessions can’t be <code>STOPPED</code>. If you then
+   *             call <code>StopStreamingSession</code>, the session fails. If the time that a session
+   *             stays in the <code>READY</code> state exceeds the <code>maxSessionLengthInMinutes</code>
+   *             value, the session will automatically be terminated (instead of
+   *             <code>STOPPED</code>).</p>
    *         <p>If the value is set to a positive number, the session can be stopped. You can call
-   *                 <code>StopStreamingSession</code> to stop sessions in the READY state. If the time
-   *             that a session stays in the READY state exceeds the
+   *                 <code>StopStreamingSession</code> to stop sessions in the <code>READY</code> state.
+   *             If the time that a session stays in the <code>READY</code> state exceeds the
    *                 <code>maxSessionLengthInMinutes</code> value, the session will automatically be
    *             stopped (instead of terminated).</p>
    */
   maxStoppedSessionLengthInMinutes?: number;
 
   /**
-   * <p>(Optional) The upload storage for a streaming session.</p>
+   * <p>The upload storage for a streaming session.</p>
    */
   sessionStorage?: StreamConfigurationSessionStorage;
+
+  /**
+   * <p>Information about the streaming session backup.</p>
+   */
+  sessionBackup?: StreamConfigurationSessionBackup;
+
+  /**
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
+
+  /**
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
+
+  /**
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
 export enum LaunchProfileValidationState {
@@ -636,7 +789,6 @@ export interface ValidationResult {
  * <p>A launch profile controls your artist workforce’s access to studio components, like
  *             compute farms, shared file systems, managed file systems, and license server
  *             configurations, as well as instance types and Amazon Machine Images (AMIs). </p>
- *
  *         <p>Studio administrators create launch profiles in the Nimble Studio console.
  *             Artists can use their launch profiles to launch an instance from the Nimble Studio
  *             portal. Each user’s launch profile defines how they can launch a streaming session. By
@@ -644,12 +796,13 @@ export interface ValidationResult {
  */
 export interface LaunchProfile {
   /**
-   * <p>The ARN of the resource.</p>
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -669,7 +822,7 @@ export interface LaunchProfile {
   ec2SubnetIds?: string[];
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
@@ -711,13 +864,13 @@ export interface LaunchProfile {
   studioComponentIds?: string[];
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
@@ -742,8 +895,8 @@ export interface CreateLaunchProfileResponse {
 export interface CreateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -768,7 +921,7 @@ export interface CreateStreamingImageRequest {
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -820,13 +973,14 @@ export enum StreamingImageStatusCode {
  *             software they want to use in a Nimble Studio streaming session.</p>
  *         <p>Amazon provides a number of streaming images that include popular 3rd-party
  *             software.</p>
- *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
- *             EC2) machine image that you create for this purpose. You can also include software that
- *             your users require.</p>
+ *         <p>You can create your own streaming images using an Amazon EC2 machine image
+ *             that you create for this purpose. You can also include software that your users
+ *             require.</p>
  */
 export interface StreamingImage {
   /**
-   * <p>The ARN of the resource.</p>
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
@@ -857,13 +1011,13 @@ export interface StreamingImage {
   name?: string;
 
   /**
-   * <p>The owner of the streaming image, either the studioId that contains the streaming
-   *             image, or 'amazon' for images that are provided by Amazon Nimble Studio.</p>
+   * <p>The owner of the streaming image, either the <code>studioId</code> that contains the
+   *             streaming image, or <code>amazon</code> for images that are provided by Amazon Nimble Studio.</p>
    */
   owner?: string;
 
   /**
-   * <p>The platform of the streaming image, either WINDOWS or LINUX.</p>
+   * <p>The platform of the streaming image, either Windows or Linux.</p>
    */
   platform?: string;
 
@@ -888,7 +1042,7 @@ export interface StreamingImage {
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -904,8 +1058,8 @@ export interface CreateStreamingImageResponse {
 export interface CreateStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -915,9 +1069,9 @@ export interface CreateStreamingSessionRequest {
   ec2InstanceType?: StreamingInstanceType | string;
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
-  launchProfileId?: string;
+  launchProfileId: string | undefined;
 
   /**
    * <p>The user ID of the user that owns the streaming session. The user that owns the
@@ -937,7 +1091,7 @@ export interface CreateStreamingSessionRequest {
   studioId: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -976,18 +1130,24 @@ export enum StreamingSessionStatusCode {
   STREAMING_SESSION_STOP_IN_PROGRESS = "STREAMING_SESSION_STOP_IN_PROGRESS",
 }
 
+export enum VolumeRetentionMode {
+  DELETE = "DELETE",
+  RETAIN = "RETAIN",
+}
+
 /**
  * <p>A streaming session is a virtual workstation created using a particular launch
  *             profile.</p>
  */
 export interface StreamingSession {
   /**
-   * <p>The ARN of the resource.</p>
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -1039,7 +1199,7 @@ export interface StreamingSession {
   streamingImageId?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -1051,7 +1211,7 @@ export interface StreamingSession {
   terminateAt?: Date;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
@@ -1061,7 +1221,7 @@ export interface StreamingSession {
   updatedBy?: string;
 
   /**
-   * <p>The time the session entered STOP_IN_PROGRESS state.</p>
+   * <p>The time the session entered <code>STOP_IN_PROGRESS</code> state.</p>
    */
   stoppedAt?: Date;
 
@@ -1071,7 +1231,7 @@ export interface StreamingSession {
   stoppedBy?: string;
 
   /**
-   * <p>The time the session entered START_IN_PROGRESS state.</p>
+   * <p>The time the session entered <code>START_IN_PROGRESS</code> state.</p>
    */
   startedAt?: Date;
 
@@ -1085,6 +1245,64 @@ export interface StreamingSession {
    *             the session themselves. </p>
    */
   stopAt?: Date;
+
+  /**
+   * <p>The backup ID used to restore a streaming session.</p>
+   */
+  startedFromBackupId?: string;
+
+  /**
+   * <p>Shows the current backup setting of the session.</p>
+   */
+  backupMode?: SessionBackupMode | string;
+
+  /**
+   * <p>The maximum number of backups of a streaming session that you can have. When the
+   *             maximum number of backups is reached, the oldest backup is deleted.</p>
+   */
+  maxBackupsToRetain?: number;
+
+  /**
+   * <p>Determine if an EBS volume created from this streaming session will be backed
+   *             up.</p>
+   */
+  volumeRetentionMode?: VolumeRetentionMode | string;
+
+  /**
+   * <p>Determine if a streaming session created from this launch profile can configure
+   *             persistent storage. This means that <code>volumeConfiguration</code> and
+   *                 <code>automaticTerminationMode</code> are configured.</p>
+   */
+  sessionPersistenceMode?: SessionPersistenceMode | string;
+
+  /**
+   * <p>Custom volume configuration for the root volumes that are attached to streaming
+   *             sessions.</p>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>.</p>
+   */
+  volumeConfiguration?: VolumeConfiguration;
+
+  /**
+   * <p>Indicates if a streaming session created from this launch profile should be terminated
+   *             automatically or retained without termination after being in a <code>STOPPED</code>
+   *             state.</p>
+   *         <ul>
+   *             <li>
+   *                 <p>When <code>ACTIVATED</code>, the streaming session is scheduled for
+   *                     termination after being in the <code>STOPPED</code> state for the time specified
+   *                     in <code>maxStoppedSessionLengthInMinutes</code>.</p>
+   *             </li>
+   *             <li>
+   *                 <p>When <code>DEACTIVATED</code>, the streaming session can remain in the
+   *                         <code>STOPPED</code> state indefinitely.</p>
+   *             </li>
+   *          </ul>
+   *         <p>This parameter is only allowed when <code>sessionPersistenceMode</code> is
+   *                 <code>ACTIVATED</code>. When allowed, the default value for this parameter is
+   *                 <code>DEACTIVATED</code>.</p>
+   */
+  automaticTerminationMode?: AutomaticTerminationMode | string;
 }
 
 export interface CreateStreamingSessionResponse {
@@ -1097,8 +1315,8 @@ export interface CreateStreamingSessionResponse {
 export interface CreateStreamingSessionStreamRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1144,7 +1362,7 @@ export enum StreamingSessionStreamStatusCode {
  */
 export interface StreamingSessionStream {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -1154,7 +1372,7 @@ export interface StreamingSessionStream {
   createdBy?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource expires.</p>
+   * <p>The ISO timestamp in seconds for when the resource expires.</p>
    */
   expiresAt?: Date;
 
@@ -1215,15 +1433,15 @@ export interface StudioEncryptionConfiguration {
 
 export interface CreateStudioRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that studio admins will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   adminRoleArn: string | undefined;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1244,14 +1462,14 @@ export interface CreateStudioRequest {
   studioName: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that studio users will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   userRoleArn: string | undefined;
 }
@@ -1272,6 +1490,7 @@ export enum StudioStatusCode {
   AWS_SSO_CONFIGURATION_REPAIRED = "AWS_SSO_CONFIGURATION_REPAIRED",
   AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS = "AWS_SSO_CONFIGURATION_REPAIR_IN_PROGRESS",
   AWS_SSO_NOT_ENABLED = "AWS_SSO_NOT_ENABLED",
+  AWS_STS_REGION_DISABLED = "AWS_STS_REGION_DISABLED",
   ENCRYPTION_KEY_ACCESS_DENIED = "ENCRYPTION_KEY_ACCESS_DENIED",
   ENCRYPTION_KEY_NOT_FOUND = "ENCRYPTION_KEY_NOT_FOUND",
   INTERNAL_ERROR = "INTERNAL_ERROR",
@@ -1293,19 +1512,19 @@ export enum StudioStatusCode {
  *         <p>A studio is the core resource used with Nimble Studio. You must create a studio
  *             first, before any other resource type can be created. All other resources you create and
  *             manage in Nimble Studio are contained within a studio.</p>
- *         <p>When creating a studio, you must provides two IAM roles for use with the Nimble Studio portal. These roles are assumed by your users when they log in to the
- *                 Nimble Studio portal via IAM Identity Center and your identity source.</p>
- *         <p>The user role must have the AmazonNimbleStudio-StudioUser managed policy attached for
- *             the portal to function properly.</p>
- *         <p>The admin role must have the AmazonNimbleStudio-StudioAdmin managed policy attached
- *             for the portal to function properly.</p>
- *         <p>Your studio roles must trust the identity.nimble.amazonaws.com service principal to
- *             function properly.</p>
+ *         <p>When creating a studio, you must provides two IAM roles for use with
+ *             the Nimble Studio portal. These roles are assumed by your users when they log in to
+ *             the Nimble Studio portal via IAM Identity Center and your identity source.</p>
+ *         <p>The user role must have the <code>AmazonNimbleStudio-StudioUser</code> managed policy
+ *             attached for the portal to function properly.</p>
+ *         <p>The admin role must have the <code>AmazonNimbleStudio-StudioAdmin</code> managed
+ *             policy attached for the portal to function properly.</p>
+ *         <p>Your studio roles must trust the <code>identity.nimble.amazonaws.com</code> service
+ *             principal to function properly.</p>
  */
 export interface Studio {
   /**
-   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that studio admins assume when logging in to the Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
@@ -1316,7 +1535,7 @@ export interface Studio {
   arn?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -1331,8 +1550,8 @@ export interface Studio {
   homeRegion?: string;
 
   /**
-   * <p>The IAM Identity Center application client ID used to integrate with IAM Identity Center
-   *             to enable IAM Identity Center users to log in to Nimble Studio portal.</p>
+   * <p>The IAM Identity Center application client ID used to integrate with IAM Identity Center. This ID allows IAM Identity Center users to log in to Nimble Studio
+   *             portal.</p>
    */
   ssoClientId?: string;
 
@@ -1373,19 +1592,18 @@ export interface Studio {
   studioUrl?: string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
   /**
-   * <p>The IAM role that studio users assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that studio users assume when logging in to the Nimble Studio portal.</p>
    */
   userRoleArn?: string;
 }
@@ -1446,8 +1664,7 @@ export interface SharedFileSystemConfiguration {
  */
 export interface StudioComponentConfiguration {
   /**
-   * <p>The configuration for a Microsoft Active Directory (Microsoft AD) studio
-   *             resource.</p>
+   * <p>The configuration for a Directory Service for Microsoft Active Directory studio resource.</p>
    */
   activeDirectoryConfiguration?: ActiveDirectoryConfiguration;
 
@@ -1490,7 +1707,7 @@ export interface StudioComponentInitializationScript {
   launchProfileProtocolVersion?: string;
 
   /**
-   * <p>The platform of the initialization script, either WINDOWS or LINUX.</p>
+   * <p>The platform of the initialization script, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
@@ -1506,7 +1723,7 @@ export interface StudioComponentInitializationScript {
 }
 
 /**
- * <p>A parameter for a studio component script, in the form of a key:value pair.</p>
+ * <p>A parameter for a studio component script, in the form of a key-value pair.</p>
  */
 export interface ScriptParameterKeyValue {
   /**
@@ -1538,8 +1755,8 @@ export enum StudioComponentType {
 export interface CreateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1584,7 +1801,7 @@ export interface CreateStudioComponentRequest {
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -1595,12 +1812,16 @@ export interface CreateStudioComponentRequest {
   type: StudioComponentType | string | undefined;
 
   /**
-   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
   secureInitializationRoleArn?: string;
 
   /**
-   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
    */
   runtimeRoleArn?: string;
 }
@@ -1642,7 +1863,8 @@ export enum StudioComponentStatusCode {
  */
 export interface StudioComponent {
   /**
-   * <p>The ARN of the resource.</p>
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
    */
   arn?: string;
 
@@ -1652,7 +1874,7 @@ export interface StudioComponent {
   configuration?: StudioComponentConfiguration;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -1712,7 +1934,7 @@ export interface StudioComponent {
   subtype?: StudioComponentSubtype | string;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -1723,7 +1945,7 @@ export interface StudioComponent {
   type?: StudioComponentType | string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
@@ -1733,12 +1955,16 @@ export interface StudioComponent {
   updatedBy?: string;
 
   /**
-   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
   secureInitializationRoleArn?: string;
 
   /**
-   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
    */
   runtimeRoleArn?: string;
 }
@@ -1753,13 +1979,13 @@ export interface CreateStudioComponentResponse {
 export interface DeleteLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -1779,13 +2005,13 @@ export interface DeleteLaunchProfileResponse {
 export interface DeleteLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -1805,8 +2031,8 @@ export interface DeleteLaunchProfileMemberResponse {}
 export interface DeleteStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1831,8 +2057,8 @@ export interface DeleteStreamingImageResponse {
 export interface DeleteStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1857,8 +2083,8 @@ export interface DeleteStreamingSessionResponse {
 export interface DeleteStudioRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1878,8 +2104,8 @@ export interface DeleteStudioResponse {
 export interface DeleteStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1904,8 +2130,8 @@ export interface DeleteStudioComponentResponse {
 export interface DeleteStudioMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -1932,7 +2158,7 @@ export interface Eula {
   content?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -1947,7 +2173,7 @@ export interface Eula {
   name?: string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 }
@@ -1959,7 +2185,7 @@ export interface ListEulaAcceptancesRequest {
   eulaIds?: string[];
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2002,7 +2228,7 @@ export interface ListEulasRequest {
   eulaIds?: string[];
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
@@ -2021,7 +2247,7 @@ export interface ListEulasResponse {
 
 export interface GetLaunchProfileRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2040,7 +2266,7 @@ export interface GetLaunchProfileResponse {
 
 export interface GetLaunchProfileDetailsRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2055,7 +2281,7 @@ export interface GetLaunchProfileDetailsRequest {
  */
 export interface StudioComponentSummary {
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was created.</p>
+   * <p>The ISO timestamp in seconds for when the resource was created.</p>
    */
   createdAt?: Date;
 
@@ -2090,7 +2316,7 @@ export interface StudioComponentSummary {
   type?: StudioComponentType | string;
 
   /**
-   * <p>The Unix epoch timestamp in seconds for when the resource was updated.</p>
+   * <p>The ISO timestamp in seconds for when the resource was updated.</p>
    */
   updatedAt?: Date;
 
@@ -2119,7 +2345,7 @@ export interface GetLaunchProfileDetailsResponse {
 
 export interface GetLaunchProfileInitializationRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2134,7 +2360,7 @@ export interface GetLaunchProfileInitializationRequest {
   launchPurpose: string | undefined;
 
   /**
-   * <p>The platform where this Launch Profile will be used, either WINDOWS or LINUX.</p>
+   * <p>The platform where this Launch Profile will be used, either Windows or Linux.</p>
    */
   platform: string | undefined;
 
@@ -2145,7 +2371,7 @@ export interface GetLaunchProfileInitializationRequest {
 }
 
 /**
- * <p>The Launch Profile Initialization Active Directory contains information required for
+ * <p>The launch profile initialization Active Directory contains information required for
  *             the launch profile to connect to the Active Directory.</p>
  */
 export interface LaunchProfileInitializationActiveDirectory {
@@ -2155,8 +2381,8 @@ export interface LaunchProfileInitializationActiveDirectory {
   computerAttributes?: ActiveDirectoryComputerAttribute[];
 
   /**
-   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access
-   *             using this launch profile.</p>
+   * <p>The directory ID of the Directory Service for Microsoft Active Directory to access using this launch
+   *             profile.</p>
    */
   directoryId?: string;
 
@@ -2187,7 +2413,7 @@ export interface LaunchProfileInitializationActiveDirectory {
 }
 
 /**
- * <p>The Launch Profile Initialization Script is used when start streaming session
+ * <p>The launch profile initialization script is used when start streaming session
  *             runs.</p>
  */
 export interface LaunchProfileInitializationScript {
@@ -2207,25 +2433,29 @@ export interface LaunchProfileInitializationScript {
   studioComponentName?: string;
 
   /**
-   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
   secureInitializationRoleArn?: string;
 
   /**
-   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
    */
   runtimeRoleArn?: string;
 }
 
 /**
- * <p>A Launch Profile Initialization contains information required for a workstation or
+ * <p>A launch profile initialization contains information required for a workstation or
  *             server to connect to a launch profile.</p>
  *         <p>This includes scripts, endpoints, security groups, subnets, and other
  *             configuration.</p>
  */
 export interface LaunchProfileInitialization {
   /**
-   * <p>A LaunchProfileInitializationActiveDirectory resource.</p>
+   * <p>A <code>LaunchProfileInitializationActiveDirectory</code> resource.</p>
    */
   activeDirectory?: LaunchProfileInitializationActiveDirectory;
 
@@ -2235,7 +2465,7 @@ export interface LaunchProfileInitialization {
   ec2SecurityGroupIds?: string[];
 
   /**
-   * <p>The launch profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId?: string;
 
@@ -2256,7 +2486,7 @@ export interface LaunchProfileInitialization {
   name?: string;
 
   /**
-   * <p>The platform of the launch platform, either WINDOWS or LINUX.</p>
+   * <p>The platform of the launch platform, either Windows or Linux.</p>
    */
   platform?: LaunchProfilePlatform | string;
 
@@ -2280,7 +2510,7 @@ export interface GetLaunchProfileInitializationResponse {
 
 export interface GetLaunchProfileMemberRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2300,9 +2530,9 @@ export enum LaunchProfilePersona {
 }
 
 /**
- * <p>Launch profile membership enables your studio admins to delegate launch profile access
- *             to other studio users in the Nimble Studio portal without needing to write or
- *             maintain complex IAM policies. A launch profile member is a user association from your
+ * <p>Studio admins can use launch profile membership to delegate launch profile access to
+ *             studio users in the Nimble Studio portal without writing or maintaining complex
+ *                 IAM policies. A launch profile member is a user association from your
  *             studio identity source who is granted permissions to a launch profile.</p>
  *         <p>A launch profile member (type USER) provides the following permissions to that launch
  *             profile:</p>
@@ -2394,6 +2624,83 @@ export interface GetStreamingSessionResponse {
   session?: StreamingSession;
 }
 
+export interface GetStreamingSessionBackupRequest {
+  /**
+   * <p>The ID of the backup.</p>
+   */
+  backupId: string | undefined;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+/**
+ * <p>Information about the streaming session backup.</p>
+ */
+export interface StreamingSessionBackup {
+  /**
+   * <p>The Amazon Resource Name (ARN) that is assigned to a studio resource and uniquely
+   *             identifies it. ARNs are unique across all Regions.</p>
+   */
+  arn?: string;
+
+  /**
+   * <p>The ISO timestamp in for when the resource was created.</p>
+   */
+  createdAt?: Date;
+
+  /**
+   * <p>The ID of the launch profile which allowed the backups for the streaming
+   *             session.</p>
+   */
+  launchProfileId?: string;
+
+  /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * <p>The streaming session ID for the <code>StreamingSessionBackup</code>.</p>
+   */
+  sessionId?: string;
+
+  /**
+   * <p>The streaming session state.</p>
+   */
+  state?: StreamingSessionState | string;
+
+  /**
+   * <p>The status code.</p>
+   */
+  statusCode?: StreamingSessionStatusCode | string;
+
+  /**
+   * <p>The status message for the streaming session backup.</p>
+   */
+  statusMessage?: string;
+
+  /**
+   * <p>The ID of the backup.</p>
+   */
+  backupId?: string;
+
+  /**
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
+   *             resource.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+export interface GetStreamingSessionBackupResponse {
+  /**
+   * <p>Information about the streaming session backup.</p>
+   */
+  streamingSessionBackup?: StreamingSessionBackup;
+}
+
 export interface GetStreamingSessionStreamRequest {
   /**
    * <p>The streaming session ID.</p>
@@ -2471,11 +2778,11 @@ export enum StudioPersona {
  * <p>A studio member is an association of a user from your studio identity source to
  *             elevated permissions that they are granted in the studio.</p>
  *         <p>When you add a user to your studio using the Nimble Studio console, they are
- *             given access to the studio's IAM Identity Center application and are given access to log in to the
- *                 Nimble Studio portal. These users have the permissions provided by the studio's
- *             user IAM role and do not appear in the studio membership collection. Only studio admins
- *             appear in studio membership.</p>
- *         <p>When you add a user to studio membership with the persona ADMIN, upon logging in to
+ *             given access to the studio's IAM Identity Center application and are given access to log
+ *             in to the Nimble Studio portal. These users have the permissions provided by the
+ *             studio's user IAM role and do not appear in the studio membership
+ *             collection. Only studio admins appear in studio membership.</p>
+ *         <p>When you add a user to studio membership with the ADMIN persona, upon logging in to
  *             the Nimble Studio portal, they are granted permissions specified by the Studio's
  *             Admin IAM role.</p>
  */
@@ -2510,7 +2817,7 @@ export interface GetStudioMemberResponse {
 
 export interface ListLaunchProfileMembersRequest {
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2520,7 +2827,7 @@ export interface ListLaunchProfileMembersRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2549,7 +2856,7 @@ export interface ListLaunchProfilesRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2599,8 +2906,8 @@ export interface NewLaunchProfileMember {
 export interface PutLaunchProfileMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -2610,7 +2917,7 @@ export interface PutLaunchProfileMembersRequest {
   identityStoreId: string | undefined;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2630,8 +2937,8 @@ export interface PutLaunchProfileMembersResponse {}
 export interface UpdateLaunchProfileRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -2641,7 +2948,7 @@ export interface UpdateLaunchProfileRequest {
   description?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2683,13 +2990,13 @@ export interface UpdateLaunchProfileResponse {
 export interface UpdateLaunchProfileMemberRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The Launch Profile ID.</p>
+   * <p>The ID of the launch profile used to control access from the streaming session.</p>
    */
   launchProfileId: string | undefined;
 
@@ -2718,7 +3025,7 @@ export interface UpdateLaunchProfileMemberResponse {
 
 export interface ListStreamingImagesRequest {
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2745,6 +3052,35 @@ export interface ListStreamingImagesResponse {
   streamingImages?: StreamingImage[];
 }
 
+export interface ListStreamingSessionBackupsRequest {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>The user ID of the user that owns the streaming session.</p>
+   */
+  ownedBy?: string;
+
+  /**
+   * <p>The studio ID. </p>
+   */
+  studioId: string | undefined;
+}
+
+export interface ListStreamingSessionBackupsResponse {
+  /**
+   * <p>The token for the next set of results, or null if there are no more results.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * <p>Information about the streaming session backups.</p>
+   */
+  streamingSessionBackups?: StreamingSessionBackup[];
+}
+
 export interface ListStreamingSessionsRequest {
   /**
    * <p>Filters the request to streaming sessions created by the given user.</p>
@@ -2752,7 +3088,7 @@ export interface ListStreamingSessionsRequest {
   createdBy?: string;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2791,7 +3127,7 @@ export interface ListStudioComponentsRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2830,7 +3166,7 @@ export interface ListStudioMembersRequest {
   maxResults?: number;
 
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 
@@ -2854,7 +3190,7 @@ export interface ListStudioMembersResponse {
 
 export interface ListStudiosRequest {
   /**
-   * <p>The token to request the next page of results. </p>
+   * <p>The token for the next set of results, or null if there are no more results.</p>
    */
   nextToken?: string;
 }
@@ -2880,7 +3216,7 @@ export interface ListTagsForResourceRequest {
 
 export interface ListTagsForResourceResponse {
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -2904,8 +3240,8 @@ export interface NewStudioMember {
 export interface UpdateStreamingImageRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -2937,9 +3273,9 @@ export interface UpdateStreamingImageResponse {
    *             software they want to use in a Nimble Studio streaming session.</p>
    *         <p>Amazon provides a number of streaming images that include popular 3rd-party
    *             software.</p>
-   *         <p>You can create your own streaming images using an Amazon Elastic Compute Cloud (Amazon
-   *             EC2) machine image that you create for this purpose. You can also include software that
-   *             your users require.</p>
+   *         <p>You can create your own streaming images using an Amazon EC2 machine image
+   *             that you create for this purpose. You can also include software that your users
+   *             require.</p>
    */
   streamingImage?: StreamingImage;
 }
@@ -2947,13 +3283,13 @@ export interface UpdateStreamingImageResponse {
 export interface StartStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The streaming session ID for the StartStreamingSessionRequest.</p>
+   * <p>The streaming session ID for the <code>StartStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
@@ -2961,6 +3297,11 @@ export interface StartStreamingSessionRequest {
    * <p>The studio ID for the StartStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
+
+  /**
+   * <p>The ID of the backup.</p>
+   */
+  backupId?: string;
 }
 
 export interface StartStreamingSessionResponse {
@@ -2974,13 +3315,13 @@ export interface StartStreamingSessionResponse {
 export interface StopStreamingSessionRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
   /**
-   * <p>The streaming session ID for the StopStreamingSessionRequest.</p>
+   * <p>The streaming session ID for the <code>StopStreamingSessionRequest</code>.</p>
    */
   sessionId: string | undefined;
 
@@ -2988,6 +3329,12 @@ export interface StopStreamingSessionRequest {
    * <p>The studioId for the StopStreamingSessionRequest.</p>
    */
   studioId: string | undefined;
+
+  /**
+   * <p>Adds additional instructions to a streaming session stop action to either retain the
+   *             EBS volumes or delete the EBS volumes.</p>
+   */
+  volumeRetentionMode?: VolumeRetentionMode | string;
 }
 
 export interface StopStreamingSessionResponse {
@@ -3001,8 +3348,8 @@ export interface StopStreamingSessionResponse {
 export interface UpdateStudioComponentRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3057,12 +3404,16 @@ export interface UpdateStudioComponentRequest {
   type?: StudioComponentType | string;
 
   /**
-   * <p>An IAM role attached to Studio Component when the system initialization script runs which give the studio component access to AWS resources when the system initialization script runs.</p>
+   * <p>An IAM role attached to Studio Component when the system initialization
+   *             script runs which give the studio component access to Amazon Web Services resources when
+   *             the system initialization script runs.</p>
    */
   secureInitializationRoleArn?: string;
 
   /**
-   * <p>An IAM role attached to a Studio Component that gives the studio component access to AWS resources at anytime while the instance is running. </p>
+   * <p>An IAM role attached to a Studio Component that gives the studio
+   *             component access to Amazon Web Services resources at anytime while the instance is
+   *             running. </p>
    */
   runtimeRoleArn?: string;
 }
@@ -3077,8 +3428,8 @@ export interface UpdateStudioComponentResponse {
 export interface PutStudioMembersRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3103,8 +3454,8 @@ export interface PutStudioMembersResponse {}
 export interface StartStudioSSOConfigurationRepairRequest {
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3123,15 +3474,15 @@ export interface StartStudioSSOConfigurationRepairResponse {
 
 export interface UpdateStudioRequest {
   /**
-   * <p>The IAM role that Studio Admins will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that Studio Admins will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   adminRoleArn?: string;
 
   /**
    * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don’t specify a client token, the AWS SDK automatically generates a
-   *             client token and uses it for the request to ensure idempotency.</p>
+   *             request. If you don’t specify a client token, the Amazon Web Services SDK automatically
+   *             generates a client token and uses it for the request to ensure idempotency.</p>
    */
   clientToken?: string;
 
@@ -3146,8 +3497,8 @@ export interface UpdateStudioRequest {
   studioId: string | undefined;
 
   /**
-   * <p>The IAM role that Studio Users will assume when logging in to the Nimble Studio
-   *             portal.</p>
+   * <p>The IAM role that Studio Users will assume when logging in to the
+   *                 Nimble Studio portal.</p>
    */
   userRoleArn?: string;
 }
@@ -3161,12 +3512,12 @@ export interface UpdateStudioResponse {
 
 export interface TagResourceRequest {
   /**
-   * <p> The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
+   * <p>The Amazon Resource Name (ARN) of the resource you want to add tags to. </p>
    */
   resourceArn: string | undefined;
 
   /**
-   * <p>A collection of labels, in the form of key:value pairs, that apply to this
+   * <p>A collection of labels, in the form of key-value pairs, that apply to this
    *             resource.</p>
    */
   tags?: Record<string, string>;
@@ -3235,6 +3586,13 @@ export const ComputeFarmConfigurationFilterSensitiveLog = (obj: ComputeFarmConfi
 /**
  * @internal
  */
+export const StreamConfigurationSessionBackupFilterSensitiveLog = (obj: StreamConfigurationSessionBackup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSessionStorageRoot): any => ({
   ...obj,
   ...(obj.linux && { linux: SENSITIVE_STRING }),
@@ -3247,6 +3605,13 @@ export const StreamingSessionStorageRootFilterSensitiveLog = (obj: StreamingSess
 export const StreamConfigurationSessionStorageFilterSensitiveLog = (obj: StreamConfigurationSessionStorage): any => ({
   ...obj,
   ...(obj.root && { root: StreamingSessionStorageRootFilterSensitiveLog(obj.root) }),
+});
+
+/**
+ * @internal
+ */
+export const VolumeConfigurationFilterSensitiveLog = (obj: VolumeConfiguration): any => ({
+  ...obj,
 });
 
 /**
@@ -3829,6 +4194,27 @@ export const GetStreamingSessionResponseFilterSensitiveLog = (obj: GetStreamingS
 /**
  * @internal
  */
+export const GetStreamingSessionBackupRequestFilterSensitiveLog = (obj: GetStreamingSessionBackupRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const StreamingSessionBackupFilterSensitiveLog = (obj: StreamingSessionBackup): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GetStreamingSessionBackupResponseFilterSensitiveLog = (obj: GetStreamingSessionBackupResponse): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
 export const GetStreamingSessionStreamRequestFilterSensitiveLog = (obj: GetStreamingSessionStreamRequest): any => ({
   ...obj,
 });
@@ -3993,6 +4379,22 @@ export const ListStreamingImagesResponseFilterSensitiveLog = (obj: ListStreaming
   ...(obj.streamingImages && {
     streamingImages: obj.streamingImages.map((item) => StreamingImageFilterSensitiveLog(item)),
   }),
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingSessionBackupsRequestFilterSensitiveLog = (obj: ListStreamingSessionBackupsRequest): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListStreamingSessionBackupsResponseFilterSensitiveLog = (
+  obj: ListStreamingSessionBackupsResponse
+): any => ({
+  ...obj,
 });
 
 /**
