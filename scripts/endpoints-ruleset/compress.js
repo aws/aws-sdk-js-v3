@@ -5,6 +5,7 @@ const path = require("path");
 
 const RemoveWhitespace = require("./compression-algorithms/RemoveWhitespace");
 const PatternDetection = require("./compression-algorithms/PatternDetection");
+const { getPrunedRulesetObject } = require("./getPrunedRulesetObject");
 
 /**
  * Run compression on ruleset objects for SDK clients.
@@ -39,7 +40,8 @@ const main = () => {
       "smithy.rules#endpointRuleSet"
     ];
 
-    const data = rulesetObject;
+    const data = getPrunedRulesetObject(rulesetObject);
+
     let selectedAlgorithm = null;
     for (const factory of compressionAlgorithms) {
       const algo = factory(data);

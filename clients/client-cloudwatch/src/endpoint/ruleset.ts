@@ -6,28 +6,27 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/cloudwatch.json */
 
-const u="fn",
-v="argv",
-w="ref";
+const t="fn",
+u="argv",
+v="ref";
 const a=true,
 b=false,
 c="String",
-d="Boolean",
-e="PartitionResult",
-f="tree",
-g="error",
-h="endpoint",
-i="getAttr",
-j={[w]:"Endpoint"},
-k={[u]:"booleanEquals",[v]:[{[w]:"UseFIPS"},true]},
-l={[u]:"booleanEquals",[v]:[{[w]:"UseDualStack"},true]},
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h="getAttr",
+i={"required":true,"default":false,"type":"Boolean"},
+j={[v]:"Endpoint"},
+k={[t]:"booleanEquals",[u]:[{[v]:"UseFIPS"},true]},
+l={[t]:"booleanEquals",[u]:[{[v]:"UseDualStack"},true]},
 m={},
-n={[u]:"booleanEquals",[v]:[true,{[u]:i,[v]:[{[w]:e},"supportsFIPS"]}]},
-o={[w]:e},
-p={[u]:"booleanEquals",[v]:[true,{[u]:i,[v]:[o,"supportsDualStack"]}]},
+n={[t]:"booleanEquals",[u]:[true,{[t]:h,[u]:[{[v]:d},"supportsFIPS"]}]},
+o={[v]:d},
+p={[t]:"booleanEquals",[u]:[true,{[t]:h,[u]:[o,"supportsDualStack"]}]},
 q={"url":"https://monitoring.{Region}.{PartitionResult#dnsSuffix}","properties":{},"headers":{}},
 r=[k],
-s=[],
-t=[l];
-const _data={version:"1.0",parameters:{Region:{builtIn:"AWS::Region",required:a,documentation:"The AWS region used to dispatch the request.",type:c},UseDualStack:{builtIn:"AWS::UseDualStack",required:a,default:b,documentation:"When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",type:d},UseFIPS:{builtIn:"AWS::UseFIPS",required:a,default:b,documentation:"When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",type:d},Endpoint:{builtIn:"SDK::Endpoint",required:b,documentation:"Override the endpoint used to send this request",type:c}},rules:[{conditions:[{[u]:"aws.partition",[v]:[{[w]:"Region"}],assign:e}],type:f,rules:[{conditions:[{[u]:"isSet",[v]:[j]}],type:f,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:g},{conditions:s,type:f,rules:[{conditions:t,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:g},{conditions:s,endpoint:{url:j,properties:m,headers:m},type:h}]}]},{conditions:[k,l],type:f,rules:[{conditions:[n,p],type:f,rules:[{conditions:s,endpoint:{url:"https://monitoring-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:h}]},{conditions:s,error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:g}]},{conditions:r,type:f,rules:[{conditions:[n],type:f,rules:[{conditions:s,type:f,rules:[{conditions:[{[u]:"stringEquals",[v]:["aws-us-gov",{[u]:i,[v]:[o,"name"]}]}],endpoint:q,type:h},{conditions:s,endpoint:{url:"https://monitoring-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:h}]}]},{conditions:s,error:"FIPS is enabled but this partition does not support FIPS",type:g}]},{conditions:t,type:f,rules:[{conditions:[p],type:f,rules:[{conditions:s,endpoint:{url:"https://monitoring.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:h}]},{conditions:s,error:"DualStack is enabled but this partition does not support DualStack",type:g}]},{conditions:s,endpoint:q,type:h}]}]};
+s=[l];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:i,UseFIPS:i,Endpoint:{required:b,type:c}},rules:[{conditions:[{[t]:"aws.partition",[u]:[{[v]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[t]:"isSet",[u]:[j]}],type:e,rules:[{conditions:r,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:s,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:j,properties:m,headers:m},type:g}]}]},{conditions:[k,l],type:e,rules:[{conditions:[n,p],type:e,rules:[{endpoint:{url:"https://monitoring-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:r,type:e,rules:[{conditions:[n],type:e,rules:[{type:e,rules:[{conditions:[{[t]:"stringEquals",[u]:["aws-us-gov",{[t]:h,[u]:[o,"name"]}]}],endpoint:q,type:g},{endpoint:{url:"https://monitoring-fips.{Region}.{PartitionResult#dnsSuffix}",properties:m,headers:m},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:s,type:e,rules:[{conditions:[p],type:e,rules:[{endpoint:{url:"https://monitoring.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:m,headers:m},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:q,type:g}]}]};
 export const ruleSet: RuleSetObject = _data;

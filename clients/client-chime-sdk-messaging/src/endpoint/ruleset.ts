@@ -6,26 +6,25 @@ import { RuleSetObject } from "@aws-sdk/util-endpoints";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/chime-sdk-messaging.json */
 
-const s="fn",
-t="argv",
-u="ref";
+const r="fn",
+s="argv",
+t="ref";
 const a=true,
 b=false,
 c="String",
-d="Boolean",
-e="PartitionResult",
-f="tree",
-g="error",
-h="endpoint",
-i={[u]:"Endpoint"},
-j={[s]:"booleanEquals",[t]:[{[u]:"UseFIPS"},true]},
-k={[s]:"booleanEquals",[t]:[{[u]:"UseDualStack"},true]},
+d="PartitionResult",
+e="tree",
+f="error",
+g="endpoint",
+h={"required":true,"default":false,"type":"Boolean"},
+i={[t]:"Endpoint"},
+j={[r]:"booleanEquals",[s]:[{[t]:"UseFIPS"},true]},
+k={[r]:"booleanEquals",[s]:[{[t]:"UseDualStack"},true]},
 l={},
-m={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:e},"supportsFIPS"]}]},
-n={[s]:"booleanEquals",[t]:[true,{[s]:"getAttr",[t]:[{[u]:e},"supportsDualStack"]}]},
+m={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsFIPS"]}]},
+n={[r]:"booleanEquals",[s]:[true,{[r]:"getAttr",[s]:[{[t]:d},"supportsDualStack"]}]},
 o=[i],
 p=[j],
-q=[],
-r=[k];
-const _data={version:"1.0",parameters:{Region:{builtIn:"AWS::Region",required:a,documentation:"The AWS region used to dispatch the request.",type:c},UseDualStack:{builtIn:"AWS::UseDualStack",required:a,default:b,documentation:"When true, use the dual-stack endpoint. If the configured endpoint does not support dual-stack, dispatching the request MAY return an error.",type:d},UseFIPS:{builtIn:"AWS::UseFIPS",required:a,default:b,documentation:"When true, send this request to the FIPS-compliant regional endpoint. If the configured endpoint does not have a FIPS compliant endpoint, dispatching the request will return an error.",type:d},Endpoint:{builtIn:"SDK::Endpoint",required:b,documentation:"Override the endpoint used to send this request",type:c}},rules:[{conditions:[{[s]:"aws.partition",[t]:[{[u]:"Region"}],assign:e}],type:f,rules:[{conditions:[{[s]:"isSet",[t]:o},{[s]:"parseURL",[t]:o,assign:"url"}],type:f,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:g},{conditions:q,type:f,rules:[{conditions:r,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:g},{conditions:q,endpoint:{url:i,properties:l,headers:l},type:h}]}]},{conditions:[j,k],type:f,rules:[{conditions:[m,n],type:f,rules:[{conditions:q,endpoint:{url:"https://messaging-chime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:h}]},{conditions:q,error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:g}]},{conditions:p,type:f,rules:[{conditions:[m],type:f,rules:[{conditions:q,type:f,rules:[{conditions:q,endpoint:{url:"https://messaging-chime-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:h}]}]},{conditions:q,error:"FIPS is enabled but this partition does not support FIPS",type:g}]},{conditions:r,type:f,rules:[{conditions:[n],type:f,rules:[{conditions:q,endpoint:{url:"https://messaging-chime.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:h}]},{conditions:q,error:"DualStack is enabled but this partition does not support DualStack",type:g}]},{conditions:q,endpoint:{url:"https://messaging-chime.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:h}]}]};
+q=[k];
+const _data={version:"1.0",parameters:{Region:{required:a,type:c},UseDualStack:h,UseFIPS:h,Endpoint:{required:b,type:c}},rules:[{conditions:[{[r]:"aws.partition",[s]:[{[t]:"Region"}],assign:d}],type:e,rules:[{conditions:[{[r]:"isSet",[s]:o},{[r]:"parseURL",[s]:o,assign:"url"}],type:e,rules:[{conditions:p,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:f},{type:e,rules:[{conditions:q,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:f},{endpoint:{url:i,properties:l,headers:l},type:g}]}]},{conditions:[j,k],type:e,rules:[{conditions:[m,n],type:e,rules:[{endpoint:{url:"https://messaging-chime-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:f}]},{conditions:p,type:e,rules:[{conditions:[m],type:e,rules:[{type:e,rules:[{endpoint:{url:"https://messaging-chime-fips.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]},{error:"FIPS is enabled but this partition does not support FIPS",type:f}]},{conditions:q,type:e,rules:[{conditions:[n],type:e,rules:[{endpoint:{url:"https://messaging-chime.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:l,headers:l},type:g}]},{error:"DualStack is enabled but this partition does not support DualStack",type:f}]},{endpoint:{url:"https://messaging-chime.{Region}.{PartitionResult#dnsSuffix}",properties:l,headers:l},type:g}]}]};
 export const ruleSet: RuleSetObject = _data;
