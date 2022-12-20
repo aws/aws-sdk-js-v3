@@ -32,7 +32,6 @@ const main = () => {
     const client = serviceName.replace(".json", "");
     const rulesetFolder = path.join(clientsFolder, "client-" + client, "src", "endpoint");
     const rulesetTs = path.join(rulesetFolder, "ruleset.ts");
-    const rulesetJson = path.join(rulesetFolder, "ruleset.json");
     const serviceJson = path.join(modelsFolder, serviceName);
 
     const service = require(serviceJson);
