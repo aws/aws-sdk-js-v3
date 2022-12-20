@@ -32,18 +32,18 @@ export interface CreateCallAnalyticsCategoryCommandOutput
 
 /**
  * <p>Creates a new Call Analytics category.</p>
- *         <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
+ *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
  *             order to apply categories to your transcriptions, you must create them before submitting your
  *             transcription request, as categories cannot be applied retroactively.</p>
- *         <p>When creating a new category, you can use the <code>InputType</code> parameter to
+ *          <p>When creating a new category, you can use the <code>InputType</code> parameter to
  *             label the category as a batch category (<code>POST_CALL</code>) or a streaming category
  *             (<code>REAL_TIME</code>). Batch categories can only be applied to batch transcriptions and
  *             streaming categories can only be applied to streaming transcriptions. If you do not include
  *             <code>InputType</code>, your category is created as a batch category by default.</p>
- *         <p>Call Analytics categories are composed of rules. For each category, you must create
+ *          <p>Call Analytics categories are composed of rules. For each category, you must create
  *             between 1 and 20 rules. Rules can include these parameters: , , , and .</p>
- *         <p>To update an existing category, see .</p>
- *         <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+ *          <p>To update an existing category, see .</p>
+ *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
  *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
  *                 streaming transcriptions</a>.</p>
  * @example

@@ -30,7 +30,7 @@ export interface GetVocabularyFilterCommandOutput extends GetVocabularyFilterRes
 
 /**
  * <p>Provides information about the specified custom vocabulary filter.</p>
- *         <p>To get a list of your custom vocabulary filters, use the  operation.</p>
+ *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

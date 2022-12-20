@@ -30,15 +30,15 @@ export interface CreateVocabularyCommandOutput extends CreateVocabularyResponse,
 
 /**
  * <p>Creates a new custom vocabulary.</p>
- *         <p>When creating a new custom vocabulary, you can either upload a text file that contains
+ *          <p>When creating a new custom vocabulary, you can either upload a text file that contains
  *             your new entries, phrases, and terms into an Amazon S3 bucket and include the
  *             URI in your request. Or you can include a list of terms directly in your request using
  *             the <code>Phrases</code> flag.</p>
- *         <p>Each language has a character set that contains all allowed characters for that
+ *          <p>Each language has a character set that contains all allowed characters for that
  *             specific language. If you use unsupported characters, your custom vocabulary request
  *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your
  *             language.</p>
- *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
  *             vocabularies</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

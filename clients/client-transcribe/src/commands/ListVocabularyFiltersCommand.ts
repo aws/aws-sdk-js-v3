@@ -31,7 +31,7 @@ export interface ListVocabularyFiltersCommandOutput extends ListVocabularyFilter
 /**
  * <p>Provides a list of custom vocabulary filters that match the specified criteria. If no
  *             criteria are specified, all custom vocabularies are returned.</p>
- *         <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
+ *          <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

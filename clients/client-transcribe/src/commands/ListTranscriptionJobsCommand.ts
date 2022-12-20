@@ -31,7 +31,7 @@ export interface ListTranscriptionJobsCommandOutput extends ListTranscriptionJob
 /**
  * <p>Provides a list of transcription jobs that match the specified criteria. If no
  *             criteria are specified, all transcription jobs are returned.</p>
- *         <p>To get detailed information about a specific transcription job, use the  operation.</p>
+ *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

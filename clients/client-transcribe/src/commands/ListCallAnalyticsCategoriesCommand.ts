@@ -33,7 +33,7 @@ export interface ListCallAnalyticsCategoriesCommandOutput
 /**
  * <p>Provides a list of Call Analytics categories, including all rules that make up each
  *             category.</p>
- *         <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
+ *          <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

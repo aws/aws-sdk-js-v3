@@ -197,21 +197,21 @@ import { TranscribeClient } from "./TranscribeClient";
 /**
  * <p>Amazon Transcribe offers three main types of batch transcription: <b>Standard</b>, <b>Medical</b>, and
  *                 <b>Call Analytics</b>.</p>
- *         <ul>
+ *          <ul>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Standard transcriptions</b> are the most common
  *                     option. Refer to  for details.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Medical transcriptions</b> are tailored to
  *                     medical professionals and incorporate medical terms. A common use case for this
  *                     service is transcribing doctor-patient dialogue into after-visit notes. Refer to
  *                          for details.</p>
  *             </li>
  *             <li>
- *                 <p>
+ *                <p>
  *                   <b>Call Analytics transcriptions</b> are designed
  *                     for use with call center audio on two different channels; if you're looking for
  *                     insight into customer service calls, use this option. Refer to  for details.</p>
@@ -221,18 +221,18 @@ import { TranscribeClient } from "./TranscribeClient";
 export class Transcribe extends TranscribeClient {
   /**
    * <p>Creates a new Call Analytics category.</p>
-   *         <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
+   *          <p>All categories are automatically applied to your Call Analytics transcriptions. Note that in
    *             order to apply categories to your transcriptions, you must create them before submitting your
    *             transcription request, as categories cannot be applied retroactively.</p>
-   *         <p>When creating a new category, you can use the <code>InputType</code> parameter to
+   *          <p>When creating a new category, you can use the <code>InputType</code> parameter to
    *             label the category as a batch category (<code>POST_CALL</code>) or a streaming category
    *             (<code>REAL_TIME</code>). Batch categories can only be applied to batch transcriptions and
    *             streaming categories can only be applied to streaming transcriptions. If you do not include
    *             <code>InputType</code>, your category is created as a batch category by default.</p>
-   *         <p>Call Analytics categories are composed of rules. For each category, you must create
+   *          <p>Call Analytics categories are composed of rules. For each category, you must create
    *             between 1 and 20 rules. Rules can include these parameters: , , , and .</p>
-   *         <p>To update an existing category, see .</p>
-   *         <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
+   *          <p>To update an existing category, see .</p>
+   *          <p>To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
    *             transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
    *                 streaming transcriptions</a>.</p>
    */
@@ -267,20 +267,20 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Creates a new custom language model.</p>
-   *         <p>When creating a new custom language model, you must specify:</p>
-   *         <ul>
+   *          <p>When creating a new custom language model, you must specify:</p>
+   *          <ul>
    *             <li>
-   *                 <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
+   *                <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
    *                     (audio sample rates under 16,000 Hz) base model</p>
    *             </li>
    *             <li>
-   *                 <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
+   *                <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
    *             </li>
    *             <li>
-   *                 <p>The language of your model</p>
+   *                <p>The language of your model</p>
    *             </li>
    *             <li>
-   *                 <p>A unique name for your model</p>
+   *                <p>A unique name for your model</p>
    *             </li>
    *          </ul>
    */
@@ -315,17 +315,17 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Creates a new custom medical vocabulary.</p>
-   *         <p>Before creating a new custom medical vocabulary, you must first upload a text file
+   *          <p>Before creating a new custom medical vocabulary, you must first upload a text file
    *             that contains your new entries, phrases, and terms into an Amazon S3 bucket.
    *             Note that this differs from , where you can
    *             include a list of terms within your request using the <code>Phrases</code> flag;
    *                 <code>CreateMedicalVocabulary</code> does not support the <code>Phrases</code>
    *             flag.</p>
-   *         <p>Each language has a character set that contains all allowed characters for that
+   *          <p>Each language has a character set that contains all allowed characters for that
    *             specific language. If you use unsupported characters, your custom vocabulary request
    *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your
    *             language.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
    *             vocabularies</a>.</p>
    */
   public createMedicalVocabulary(
@@ -359,15 +359,15 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Creates a new custom vocabulary.</p>
-   *         <p>When creating a new custom vocabulary, you can either upload a text file that contains
+   *          <p>When creating a new custom vocabulary, you can either upload a text file that contains
    *             your new entries, phrases, and terms into an Amazon S3 bucket and include the
    *             URI in your request. Or you can include a list of terms directly in your request using
    *             the <code>Phrases</code> flag.</p>
-   *         <p>Each language has a character set that contains all allowed characters for that
+   *          <p>Each language has a character set that contains all allowed characters for that
    *             specific language. If you use unsupported characters, your custom vocabulary request
    *             fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom Vocabularies</a> to get the character set for your
    *             language.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html">Custom
    *             vocabularies</a>.</p>
    */
   public createVocabulary(
@@ -401,14 +401,14 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Creates a new custom vocabulary filter.</p>
-   *         <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
+   *          <p>You can use custom vocabulary filters to mask, delete, or flag specific words from
    *             your transcript. Custom vocabulary filters are commonly used to mask profanity in
    *             transcripts.</p>
-   *         <p>Each language has a character set that contains all allowed characters for that
+   *          <p>Each language has a character set that contains all allowed characters for that
    *             specific language. If you use unsupported characters, your custom vocabulary filter
    *             request fails. Refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/charsets.html">Character Sets for Custom
    *                 Vocabularies</a> to get the character set for your language.</p>
-   *         <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Vocabulary
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/vocabulary-filtering.html">Vocabulary
    *             filtering</a>.</p>
    */
   public createVocabularyFilter(
@@ -714,10 +714,10 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified custom language model.</p>
-   *         <p>This operation also shows if the base language model that you used to create your
+   *          <p>This operation also shows if the base language model that you used to create your
    *             custom language model has been updated. If Amazon Transcribe has updated the base
    *             model, you can create a new custom language model using the updated base model.</p>
-   *         <p>If you tried to create a new custom language model and the request wasn't successful,
+   *          <p>If you tried to create a new custom language model and the request wasn't successful,
    *             you can use <code>DescribeLanguageModel</code> to help identify the reason for this
    *             failure.</p>
    */
@@ -752,7 +752,7 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified Call Analytics category.</p>
-   *         <p>To get a list of your Call Analytics categories, use the  operation.</p>
+   *          <p>To get a list of your Call Analytics categories, use the  operation.</p>
    */
   public getCallAnalyticsCategory(
     args: GetCallAnalyticsCategoryCommandInput,
@@ -785,17 +785,17 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified Call Analytics job.</p>
-   *         <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
+   *          <p>To view the job's status, refer to <code>CallAnalyticsJobStatus</code>. If the status
    *             is <code>COMPLETED</code>, the job is finished. You can find your completed transcript
    *             at the URI specified in <code>TranscriptFileUri</code>. If the status is
    *                 <code>FAILED</code>, <code>FailureReason</code> provides details on why your
    *             transcription job failed.</p>
-   *         <p>If you enabled personally identifiable information (PII) redaction, the redacted
+   *          <p>If you enabled personally identifiable information (PII) redaction, the redacted
    *             transcript appears at the location specified in
    *             <code>RedactedTranscriptFileUri</code>.</p>
-   *         <p>If you chose to redact the audio in your media file, you can find your redacted media
+   *          <p>If you chose to redact the audio in your media file, you can find your redacted media
    *             file at the location specified in <code>RedactedMediaFileUri</code>.</p>
-   *         <p>To get a list of your Call Analytics jobs, use the  operation.</p>
+   *          <p>To get a list of your Call Analytics jobs, use the  operation.</p>
    */
   public getCallAnalyticsJob(
     args: GetCallAnalyticsJobCommandInput,
@@ -828,13 +828,13 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified medical transcription job.</p>
-   *         <p>To view the status of the specified medical transcription job, check the
+   *          <p>To view the status of the specified medical transcription job, check the
    *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
    *             the job is finished. You can find the results at the location specified in
    *                 <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
    *                 <code>FailureReason</code> provides details on why your transcription job
    *             failed.</p>
-   *         <p>To get a list of your medical transcription jobs, use the  operation.</p>
+   *          <p>To get a list of your medical transcription jobs, use the  operation.</p>
    */
   public getMedicalTranscriptionJob(
     args: GetMedicalTranscriptionJobCommandInput,
@@ -867,11 +867,11 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified custom medical vocabulary.</p>
-   *         <p>To view the status of the specified custom medical vocabulary, check the
+   *          <p>To view the status of the specified custom medical vocabulary, check the
    *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
    *             vocabulary is available to use. If the status is <code>FAILED</code>,
    *                 <code>FailureReason</code> provides details on why your vocabulary failed.</p>
-   *         <p>To get a list of your custom medical vocabularies, use the  operation.</p>
+   *          <p>To get a list of your custom medical vocabularies, use the  operation.</p>
    */
   public getMedicalVocabulary(
     args: GetMedicalVocabularyCommandInput,
@@ -904,15 +904,15 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified transcription job.</p>
-   *         <p>To view the status of the specified transcription job, check the
+   *          <p>To view the status of the specified transcription job, check the
    *                 <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>,
    *             the job is finished. You can find the results at the location specified in
    *                 <code>TranscriptFileUri</code>. If the status is <code>FAILED</code>,
    *                 <code>FailureReason</code> provides details on why your transcription job
    *             failed.</p>
-   *         <p>If you enabled content redaction, the redacted transcript can be found at the location
+   *          <p>If you enabled content redaction, the redacted transcript can be found at the location
    *             specified in <code>RedactedTranscriptFileUri</code>.</p>
-   *         <p>To get a list of your transcription jobs, use the  operation.</p>
+   *          <p>To get a list of your transcription jobs, use the  operation.</p>
    */
   public getTranscriptionJob(
     args: GetTranscriptionJobCommandInput,
@@ -945,12 +945,12 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified custom vocabulary.</p>
-   *         <p>To view the status of the specified custom vocabulary, check the
+   *          <p>To view the status of the specified custom vocabulary, check the
    *                 <code>VocabularyState</code> field. If the status is <code>READY</code>, your custom
    *             vocabulary is available to use. If the status is <code>FAILED</code>,
    *                 <code>FailureReason</code> provides details on why your custom vocabulary
    *             failed.</p>
-   *         <p>To get a list of your custom vocabularies, use the  operation.</p>
+   *          <p>To get a list of your custom vocabularies, use the  operation.</p>
    */
   public getVocabulary(
     args: GetVocabularyCommandInput,
@@ -983,7 +983,7 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Provides information about the specified custom vocabulary filter.</p>
-   *         <p>To get a list of your custom vocabulary filters, use the  operation.</p>
+   *          <p>To get a list of your custom vocabulary filters, use the  operation.</p>
    */
   public getVocabularyFilter(
     args: GetVocabularyFilterCommandInput,
@@ -1017,7 +1017,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of Call Analytics categories, including all rules that make up each
    *             category.</p>
-   *         <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
+   *          <p>To get detailed information about a specific Call Analytics category, use the  operation.</p>
    */
   public listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
@@ -1051,7 +1051,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of Call Analytics jobs that match the specified criteria. If no
    *             criteria are specified, all Call Analytics jobs are returned.</p>
-   *         <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
+   *          <p>To get detailed information about a specific Call Analytics job, use the  operation.</p>
    */
   public listCallAnalyticsJobs(
     args: ListCallAnalyticsJobsCommandInput,
@@ -1085,7 +1085,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of custom language models that match the specified criteria. If no
    *             criteria are specified, all custom language models are returned.</p>
-   *         <p>To get detailed information about a specific custom language model, use the  operation.</p>
+   *          <p>To get detailed information about a specific custom language model, use the  operation.</p>
    */
   public listLanguageModels(
     args: ListLanguageModelsCommandInput,
@@ -1119,7 +1119,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of medical transcription jobs that match the specified criteria. If no
    *             criteria are specified, all medical transcription jobs are returned.</p>
-   *         <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
+   *          <p>To get detailed information about a specific medical transcription job, use the  operation.</p>
    */
   public listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
@@ -1153,7 +1153,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of custom medical vocabularies that match the specified criteria. If
    *             no criteria are specified, all custom medical vocabularies are returned.</p>
-   *         <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
+   *          <p>To get detailed information about a specific custom medical vocabulary, use the  operation.</p>
    */
   public listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
@@ -1187,7 +1187,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Lists all tags associated with the specified transcription job, vocabulary, model, or
    *             resource.</p>
-   *         <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
    */
   public listTagsForResource(
@@ -1222,7 +1222,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of transcription jobs that match the specified criteria. If no
    *             criteria are specified, all transcription jobs are returned.</p>
-   *         <p>To get detailed information about a specific transcription job, use the  operation.</p>
+   *          <p>To get detailed information about a specific transcription job, use the  operation.</p>
    */
   public listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
@@ -1256,7 +1256,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of custom vocabularies that match the specified criteria. If no
    *             criteria are specified, all custom vocabularies are returned.</p>
-   *         <p>To get detailed information about a specific custom vocabulary, use the  operation.</p>
+   *          <p>To get detailed information about a specific custom vocabulary, use the  operation.</p>
    */
   public listVocabularies(
     args: ListVocabulariesCommandInput,
@@ -1290,7 +1290,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Provides a list of custom vocabulary filters that match the specified criteria. If no
    *             criteria are specified, all custom vocabularies are returned.</p>
-   *         <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
+   *          <p>To get detailed information about a specific custom vocabulary filter, use the  operation.</p>
    */
   public listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
@@ -1324,54 +1324,54 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Transcribes the audio from a customer service call and applies any additional Request
    *             Parameters you choose to include in your request.</p>
-   *         <p>In addition to many standard transcription features, Call Analytics provides you with
+   *          <p>In addition to many standard transcription features, Call Analytics provides you with
    *             call characteristics, call summarization, speaker sentiment, and optional redaction of
    *             your text transcript and your audio file. You can also apply custom categories to flag
    *             specified conditions. To learn more about these features and insights, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/call-analytics.html">Analyzing call
    *                 center audio with Call Analytics</a>.</p>
-   *         <p>If you want to apply categories to your Call Analytics job, you must create them
+   *          <p>If you want to apply categories to your Call Analytics job, you must create them
    *             before submitting your job request. Categories cannot be retroactively applied to a job.
    *             To create a new category, use the
    *             operation. To learn more about Call Analytics categories, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-batch.html">Creating categories for batch
    *                 transcriptions</a> and <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tca-categories-stream.html">Creating categories for
    *                     streaming transcriptions</a>.</p>
-   *         <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
+   *          <p>To make a <code>StartCallAnalyticsJob</code> request, you must first upload your media
    *             file into an Amazon S3 bucket; you can then specify the Amazon S3
    *             location of the file using the <code>Media</code> parameter.</p>
-   *         <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
+   *          <p>You must include the following parameters in your <code>StartCallAnalyticsJob</code>
    *             request:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>region</code>: The Amazon Web Services Region where you are making your
    *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>CallAnalyticsJobName</code>: A custom name that you create for your
    *                     transcription job that's unique within your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>DataAccessRoleArn</code>: The Amazon Resource Name (ARN) of an IAM role
    *                     that has permissions to access the Amazon S3 bucket that contains your
    *                     input files.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media</code> (<code>MediaFileUri</code> or
    *                         <code>RedactedMediaFileUri</code>): The Amazon S3 location of your
    *                     media file.</p>
    *             </li>
    *          </ul>
-   *         <note>
+   *          <note>
    *             <p>With Call Analytics, you can redact the audio contained in your media file by
    *                 including <code>RedactedMediaFileUri</code>, instead of <code>MediaFileUri</code>,
    *                 to specify the location of your input audio. If you choose to redact your audio, you
    *                 can find your redacted media at the location specified in the
    *                     <code>RedactedMediaFileUri</code> field of your response.</p>
-   *         </note>
+   *          </note>
    */
   public startCallAnalyticsJob(
     args: StartCallAnalyticsJobCommandInput,
@@ -1405,49 +1405,49 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Transcribes the audio from a medical dictation or conversation and applies any
    *             additional Request Parameters you choose to include in your request.</p>
-   *         <p>In addition to many standard transcription features, Amazon Transcribe Medical
+   *          <p>In addition to many standard transcription features, Amazon Transcribe Medical
    *             provides you with a robust medical vocabulary and, optionally, content identification,
    *             which adds flags to personal health information (PHI). To learn more about these
    *             features, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/how-it-works-med.html">How Amazon Transcribe Medical
    *                 works</a>.</p>
-   *         <p>To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
+   *          <p>To make a <code>StartMedicalTranscriptionJob</code> request, you must first upload
    *             your media file into an Amazon S3 bucket; you can then specify the S3 location
    *             of the file using the <code>Media</code> parameter.</p>
-   *         <p>You must include the following parameters in your
+   *          <p>You must include the following parameters in your
    *                 <code>StartMedicalTranscriptionJob</code> request:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>region</code>: The Amazon Web Services Region where you are making your
    *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>MedicalTranscriptionJobName</code>: A custom name you create for your
    *                     transcription job that is unique within your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
    *                     of your media file.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>LanguageCode</code>: This must be <code>en-US</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>OutputBucketName</code>: The Amazon S3 bucket where you want
    *                     your transcript stored. If you want your output stored in a sub-folder of this
    *                     bucket, you must also include <code>OutputKey</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Specialty</code>: This must be <code>PRIMARYCARE</code>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Type</code>: Choose whether your audio is a conversation or a
    *                     dictation.</p>
    *             </li>
@@ -1485,30 +1485,30 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Transcribes the audio from a media file and applies any additional Request Parameters
    *             you choose to include in your request.</p>
-   *         <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
+   *          <p>To make a <code>StartTranscriptionJob</code> request, you must first upload your media
    *             file into an Amazon S3 bucket; you can then specify the Amazon S3
    *             location of the file using the <code>Media</code> parameter.</p>
-   *         <p>You must include the following parameters in your <code>StartTranscriptionJob</code>
+   *          <p>You must include the following parameters in your <code>StartTranscriptionJob</code>
    *             request:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>region</code>: The Amazon Web Services Region where you are making your
    *                     request. For a list of Amazon Web Services Regions supported with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/general/latest/gr/transcribe.html">Amazon Transcribe endpoints and
    *                         quotas</a>.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>TranscriptionJobName</code>: A custom name you create for your
    *                     transcription job that is unique within your Amazon Web Services account.</p>
    *             </li>
    *             <li>
-   *                 <p>
+   *                <p>
    *                   <code>Media</code> (<code>MediaFileUri</code>): The Amazon S3 location
    *                     of your media file.</p>
    *             </li>
    *             <li>
-   *                 <p>One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or
+   *                <p>One of <code>LanguageCode</code>, <code>IdentifyLanguage</code>, or
    *                         <code>IdentifyMultipleLanguages</code>: If you know the language of your
    *                     media file, specify it using the <code>LanguageCode</code> parameter; you can
    *                     find all valid language codes in the <a href="https://docs.aws.amazon.com/transcribe/latest/dg/supported-languages.html">Supported
@@ -1551,7 +1551,7 @@ export class Transcribe extends TranscribeClient {
   /**
    * <p>Adds one or more custom tags, each in the form of a key:value pair, to the specified
    *             resource.</p>
-   *         <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
+   *          <p>To learn more about using tags with Amazon Transcribe, refer to <a href="https://docs.aws.amazon.com/transcribe/latest/dg/tagging.html">Tagging
    *                 resources</a>.</p>
    */
   public tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
@@ -1579,7 +1579,7 @@ export class Transcribe extends TranscribeClient {
 
   /**
    * <p>Removes the specified tags from the specified Amazon Transcribe resource.</p>
-   *         <p>If you include <code>UntagResource</code> in your request, you must also include
+   *          <p>If you include <code>UntagResource</code> in your request, you must also include
    *                 <code>ResourceArn</code> and <code>TagKeys</code>.</p>
    */
   public untagResource(
@@ -1616,7 +1616,7 @@ export class Transcribe extends TranscribeClient {
    *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
    *             contained in the specified category. You cannot append additional rules onto an existing
    *             category.</p>
-   *         <p>To create a new category, see .</p>
+   *          <p>To create a new category, see .</p>
    */
   public updateCallAnalyticsCategory(
     args: UpdateCallAnalyticsCategoryCommandInput,

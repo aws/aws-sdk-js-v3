@@ -30,20 +30,20 @@ export interface CreateLanguageModelCommandOutput extends CreateLanguageModelRes
 
 /**
  * <p>Creates a new custom language model.</p>
- *         <p>When creating a new custom language model, you must specify:</p>
- *         <ul>
+ *          <p>When creating a new custom language model, you must specify:</p>
+ *          <ul>
  *             <li>
- *                 <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
+ *                <p>If you want a Wideband (audio sample rates over 16,000 Hz) or Narrowband
  *                     (audio sample rates under 16,000 Hz) base model</p>
  *             </li>
  *             <li>
- *                 <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
+ *                <p>The location of your training and tuning files (this must be an Amazon S3 URI)</p>
  *             </li>
  *             <li>
- *                 <p>The language of your model</p>
+ *                <p>The language of your model</p>
  *             </li>
  *             <li>
- *                 <p>A unique name for your model</p>
+ *                <p>A unique name for your model</p>
  *             </li>
  *          </ul>
  * @example

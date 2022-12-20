@@ -35,7 +35,7 @@ export interface UpdateCallAnalyticsCategoryCommandOutput
  *                 <code>UpdateCallAnalyticsCategory</code> operation overwrites all existing rules
  *             contained in the specified category. You cannot append additional rules onto an existing
  *             category.</p>
- *         <p>To create a new category, see .</p>
+ *          <p>To create a new category, see .</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
