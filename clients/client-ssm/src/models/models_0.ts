@@ -277,11 +277,14 @@ export interface Alarm {
 }
 
 /**
- * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+ * <p>The details for the CloudWatch alarm you want to apply to an automation or
+ *    command.</p>
  */
 export interface AlarmConfiguration {
   /**
-   * <p>If you specify <code>true</code> for this value, your automation or command continue to run even if we can't gather information about the state of your CloudWatch alarm. The default value is <code>false</code>.</p>
+   * <p>If you specify <code>true</code> for this value, your automation or command continue to run
+   *    even if we can't gather information about the state of your CloudWatch alarm. The default
+   *    value is <code>false</code>.</p>
    */
   IgnorePollAlarmFailure?: boolean;
 
@@ -643,7 +646,8 @@ export interface CreateActivationRequest {
    *      IAM service role for a hybrid environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
-   *             <p>You can't specify an IAM service-linked role for this parameter. You must create a unique role.</p>
+   *             <p>You can't specify an IAM service-linked role for this parameter. You must
+   *     create a unique role.</p>
    *          </note>
    */
   IamRole: string | undefined;
@@ -850,7 +854,8 @@ export interface TargetLocation {
   ExecutionRoleName?: string;
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   TargetLocationAlarmConfiguration?: AlarmConfiguration;
 }
@@ -1144,15 +1149,16 @@ export interface CreateAssociationRequest {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>Adds or overwrites one or more tags for a State Manager association. <i>Tags</i>
-   *    are metadata that you can assign to your Amazon Web Services resources. Tags enable you to categorize your
-   *    resources in different ways, for example, by purpose, owner, or environment. Each tag consists of
-   *    a key and an optional value, both of which you define. </p>
+   * <p>Adds or overwrites one or more tags for a State Manager association.
+   *     <i>Tags</i> are metadata that you can assign to your Amazon Web Services resources. Tags enable
+   *    you to categorize your resources in different ways, for example, by purpose, owner, or
+   *    environment. Each tag consists of a key and an optional value, both of which you define. </p>
    */
   Tags?: Tag[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 }
@@ -1380,7 +1386,8 @@ export interface AssociationDescription {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 
@@ -1725,7 +1732,8 @@ export interface CreateAssociationBatchRequestEntry {
   TargetMaps?: Record<string, string[]>[];
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 }
@@ -4387,7 +4395,8 @@ export interface AssociationExecution {
   ResourceCountByStatus?: string;
 
   /**
-   * <p>The details for the CloudWatch alarm you want to apply to an automation or command.</p>
+   * <p>The details for the CloudWatch alarm you want to apply to an automation or
+   *    command.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 
@@ -6598,25 +6607,25 @@ export interface InstancePatchState {
   RebootOption?: RebootOption | string;
 
   /**
-   * <p>The number of patches per node that are specified as <code>Critical</code> for
-   *    compliance reporting in the patch baseline aren't installed. These patches might be missing, have
-   *    failed installation, were rejected, or were installed but awaiting a required managed node
-   *    reboot. The status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as <code>Critical</code> for compliance
+   *    reporting in the patch baseline aren't installed. These patches might be missing, have failed
+   *    installation, were rejected, or were installed but awaiting a required managed node reboot. The
+   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   CriticalNonCompliantCount?: number;
 
   /**
-   * <p>The number of patches per node that are specified as <code>Security</code> in a
-   *    patch advisory aren't installed. These patches might be missing, have failed installation, were
+   * <p>The number of patches per node that are specified as <code>Security</code> in a patch
+   *    advisory aren't installed. These patches might be missing, have failed installation, were
    *    rejected, or were installed but awaiting a required managed node reboot. The status of these
    *    managed nodes is <code>NON_COMPLIANT</code>.</p>
    */
   SecurityNonCompliantCount?: number;
 
   /**
-   * <p>The number of patches per node that are specified as other than
-   *     <code>Critical</code> or <code>Security</code> but aren't compliant with the patch baseline. The
-   *    status of these managed nodes is <code>NON_COMPLIANT</code>.</p>
+   * <p>The number of patches per node that are specified as other than <code>Critical</code> or
+   *     <code>Security</code> but aren't compliant with the patch baseline. The status of these managed
+   *    nodes is <code>NON_COMPLIANT</code>.</p>
    */
   OtherNonCompliantCount?: number;
 }

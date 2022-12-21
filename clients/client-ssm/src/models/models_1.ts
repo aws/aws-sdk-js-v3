@@ -2477,7 +2477,8 @@ export interface GetMaintenanceWindowExecutionTaskResult {
   EndTime?: Date;
 
   /**
-   * <p>The details for the CloudWatch alarm you applied to your maintenance window task.</p>
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window
+   *    task.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 
@@ -2963,7 +2964,8 @@ export interface GetMaintenanceWindowTaskResult {
   CutoffBehavior?: MaintenanceWindowTaskCutoffBehavior | string;
 
   /**
-   * <p>The details for the CloudWatch alarm you applied to your maintenance window task.</p>
+   * <p>The details for the CloudWatch alarm you applied to your maintenance window
+   *    task.</p>
    */
   AlarmConfiguration?: AlarmConfiguration;
 }
@@ -6583,11 +6585,14 @@ export interface ListTagsForResourceResult {
 }
 
 /**
- * <p>The document can't be shared with more Amazon Web Services user accounts. You can specify a maximum of 20 accounts per API operation to share a private document.</p>
+ * <p>The document can't be shared with more Amazon Web Services user accounts. You can specify a maximum of
+ *    20 accounts per API operation to share a private document.</p>
  *
- *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly share up to five documents.</p>
+ *          <p>By default, you can share a private document with a maximum of 1,000 accounts and publicly
+ *    share up to five documents.</p>
  *
- *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact Amazon Web Services Support.</p>
+ *          <p>If you need to increase the quota for privately or publicly shared Systems Manager documents, contact
+ *    Amazon Web Services Support.</p>
  */
 export class DocumentPermissionLimit extends __BaseException {
   readonly name: "DocumentPermissionLimit" = "DocumentPermissionLimit";
@@ -7545,7 +7550,7 @@ export class UnsupportedParameterType extends __BaseException {
 
 export interface PutResourcePolicyRequest {
   /**
-   * <p>Amazon Resource Name (ARN) of the resource to which the policies are attached.</p>
+   * <p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy.</p>
    */
   ResourceArn: string | undefined;
 
@@ -7561,28 +7566,29 @@ export interface PutResourcePolicyRequest {
 
   /**
    * <p>ID of the current policy version. The hash helps to prevent a situation where multiple users
-   *    attempt to overwrite a policy.</p>
-   */
-  PolicyHash?: string;
-}
-
-export interface PutResourcePolicyResponse {
-  /**
-   * <p>The policy ID. To update a policy, you must specify <code>PolicyId</code> and <code>PolicyHash</code>.</p>
-   */
-  PolicyId?: string;
-
-  /**
-   * <p>ID of the current policy version. The hash helps to prevent a situation where multiple users
    *    attempt to overwrite a policy. You must provide this hash when updating or deleting a
    *    policy.</p>
    */
   PolicyHash?: string;
 }
 
+export interface PutResourcePolicyResponse {
+  /**
+   * <p>The policy ID. To update a policy, you must specify <code>PolicyId</code> and
+   *     <code>PolicyHash</code>.</p>
+   */
+  PolicyId?: string;
+
+  /**
+   * <p>ID of the current policy version.</p>
+   */
+  PolicyHash?: string;
+}
+
 /**
  * <p>The <a>PutResourcePolicy</a> API action enforces two limits. A policy can't be
- *    greater than 1024 bytes in size. And only one policy can be attached to <code>OpsItemGroup</code>. Verify these limits and try again.</p>
+ *    greater than 1024 bytes in size. And only one policy can be attached to
+ *    <code>OpsItemGroup</code>. Verify these limits and try again.</p>
  */
 export class ResourcePolicyLimitExceededException extends __BaseException {
   readonly name: "ResourcePolicyLimitExceededException" = "ResourcePolicyLimitExceededException";
