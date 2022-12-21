@@ -7202,6 +7202,16 @@ export interface RStudioServerProDomainSettingsForUpdate {
    *      the version runs on.</p>
    */
   DefaultResourceSpec?: ResourceSpec;
+
+  /**
+   * <p>A URL pointing to an RStudio Connect server.</p>
+   */
+  RStudioConnectUrl?: string;
+
+  /**
+   * <p>A URL pointing to an RStudio Package Manager server.</p>
+   */
+  RStudioPackageManagerUrl?: string;
 }
 
 /**
@@ -7220,6 +7230,12 @@ export interface DomainSettingsForUpdate {
    *             are no apps in the <code>InService</code> or <code>Pending</code> state.</p>
    */
   ExecutionRoleIdentityConfig?: ExecutionRoleIdentityConfig | string;
+
+  /**
+   * <p>The security groups for the Amazon Virtual Private Cloud that the <code>Domain</code> uses for
+   *             communication between Domain-level apps and user apps.</p>
+   */
+  SecurityGroupIds?: string[];
 }
 
 /**

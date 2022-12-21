@@ -1597,7 +1597,7 @@ export interface HyperParameterTuningInstanceConfig {
   /**
    * <p>The number of instances of the type specified by <code>InstanceType</code>. Choose an
    *             instance count larger than 1 for distributed training algorithms. See <a href="https://docs.aws.amazon.com/data-parallel-use-api.html">SageMaker distributed training
-   *                 jobs</a> for more information.</p>
+   *                 jobs</a> for more informcration.</p>
    */
   InstanceCount: number | undefined;
 

@@ -20756,6 +20756,9 @@ const serializeAws_json1_1DomainSettingsForUpdate = (input: DomainSettingsForUpd
         context
       ),
     }),
+    ...(input.SecurityGroupIds != null && {
+      SecurityGroupIds: serializeAws_json1_1DomainSecurityGroupIds(input.SecurityGroupIds, context),
+    }),
   };
 };
 
@@ -24706,6 +24709,8 @@ const serializeAws_json1_1RStudioServerProDomainSettingsForUpdate = (
       DefaultResourceSpec: serializeAws_json1_1ResourceSpec(input.DefaultResourceSpec, context),
     }),
     ...(input.DomainExecutionRoleArn != null && { DomainExecutionRoleArn: input.DomainExecutionRoleArn }),
+    ...(input.RStudioConnectUrl != null && { RStudioConnectUrl: input.RStudioConnectUrl }),
+    ...(input.RStudioPackageManagerUrl != null && { RStudioPackageManagerUrl: input.RStudioPackageManagerUrl }),
   };
 };
 
@@ -25559,6 +25564,7 @@ const serializeAws_json1_1UpdateDevicesRequest = (input: UpdateDevicesRequest, c
 
 const serializeAws_json1_1UpdateDomainRequest = (input: UpdateDomainRequest, context: __SerdeContext): any => {
   return {
+    ...(input.AppSecurityGroupManagement != null && { AppSecurityGroupManagement: input.AppSecurityGroupManagement }),
     ...(input.DefaultSpaceSettings != null && {
       DefaultSpaceSettings: serializeAws_json1_1DefaultSpaceSettings(input.DefaultSpaceSettings, context),
     }),
