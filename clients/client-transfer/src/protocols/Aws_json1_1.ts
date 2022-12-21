@@ -115,6 +115,7 @@ import {
   CreateWorkflowRequest,
   CreateWorkflowResponse,
   CustomStepDetails,
+  DecryptStepDetails,
   DeleteAccessRequest,
   DeleteAgreementRequest,
   DeleteCertificateRequest,
@@ -1108,9 +1109,6 @@ const deserializeAws_json1_1CreateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1164,9 +1162,6 @@ const deserializeAws_json1_1CreateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -1217,9 +1212,6 @@ const deserializeAws_json1_1CreateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3612,9 +3604,6 @@ const deserializeAws_json1_1UpdateAccessCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3668,9 +3657,6 @@ const deserializeAws_json1_1UpdateAgreementCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3721,9 +3707,6 @@ const deserializeAws_json1_1UpdateCertificateCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3777,9 +3760,6 @@ const deserializeAws_json1_1UpdateConnectorCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -3883,9 +3863,6 @@ const deserializeAws_json1_1UpdateProfileCommandError = async (
     case "ServiceUnavailableException":
     case "com.amazonaws.transfer#ServiceUnavailableException":
       throw await deserializeAws_json1_1ServiceUnavailableExceptionResponse(parsedOutput, context);
-    case "ThrottlingException":
-    case "com.amazonaws.transfer#ThrottlingException":
-      throw await deserializeAws_json1_1ThrottlingExceptionResponse(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       throwDefaultError({
@@ -4292,6 +4269,18 @@ const serializeAws_json1_1CustomStepDetails = (input: CustomStepDetails, context
     ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
     ...(input.Target != null && { Target: input.Target }),
     ...(input.TimeoutSeconds != null && { TimeoutSeconds: input.TimeoutSeconds }),
+  };
+};
+
+const serializeAws_json1_1DecryptStepDetails = (input: DecryptStepDetails, context: __SerdeContext): any => {
+  return {
+    ...(input.DestinationFileLocation != null && {
+      DestinationFileLocation: serializeAws_json1_1InputFileLocation(input.DestinationFileLocation, context),
+    }),
+    ...(input.Name != null && { Name: input.Name }),
+    ...(input.OverwriteExisting != null && { OverwriteExisting: input.OverwriteExisting }),
+    ...(input.SourceFileLocation != null && { SourceFileLocation: input.SourceFileLocation }),
+    ...(input.Type != null && { Type: input.Type }),
   };
 };
 
@@ -4976,6 +4965,9 @@ const serializeAws_json1_1WorkflowStep = (input: WorkflowStep, context: __SerdeC
     ...(input.CustomStepDetails != null && {
       CustomStepDetails: serializeAws_json1_1CustomStepDetails(input.CustomStepDetails, context),
     }),
+    ...(input.DecryptStepDetails != null && {
+      DecryptStepDetails: serializeAws_json1_1DecryptStepDetails(input.DecryptStepDetails, context),
+    }),
     ...(input.DeleteStepDetails != null && {
       DeleteStepDetails: serializeAws_json1_1DeleteStepDetails(input.DeleteStepDetails, context),
     }),
@@ -5123,6 +5115,19 @@ const deserializeAws_json1_1CustomStepDetails = (output: any, context: __SerdeCo
     SourceFileLocation: __expectString(output.SourceFileLocation),
     Target: __expectString(output.Target),
     TimeoutSeconds: __expectInt32(output.TimeoutSeconds),
+  } as any;
+};
+
+const deserializeAws_json1_1DecryptStepDetails = (output: any, context: __SerdeContext): DecryptStepDetails => {
+  return {
+    DestinationFileLocation:
+      output.DestinationFileLocation != null
+        ? deserializeAws_json1_1InputFileLocation(output.DestinationFileLocation, context)
+        : undefined,
+    Name: __expectString(output.Name),
+    OverwriteExisting: __expectString(output.OverwriteExisting),
+    SourceFileLocation: __expectString(output.SourceFileLocation),
+    Type: __expectString(output.Type),
   } as any;
 };
 
@@ -6326,6 +6331,10 @@ const deserializeAws_json1_1WorkflowStep = (output: any, context: __SerdeContext
     CustomStepDetails:
       output.CustomStepDetails != null
         ? deserializeAws_json1_1CustomStepDetails(output.CustomStepDetails, context)
+        : undefined,
+    DecryptStepDetails:
+      output.DecryptStepDetails != null
+        ? deserializeAws_json1_1DecryptStepDetails(output.DecryptStepDetails, context)
         : undefined,
     DeleteStepDetails:
       output.DeleteStepDetails != null

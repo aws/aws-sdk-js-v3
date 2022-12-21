@@ -90,10 +90,6 @@ export interface As2ConnectorConfig {
 
   /**
    * <p>The algorithm that is used to encrypt the file.</p>
-   *          <note>
-   *             <p>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This ensures that
-   *         no traffic is sent in clear text.</p>
-   *          </note>
    */
   EncryptionAlgorithm?: EncryptionAlg | string;
 
@@ -105,7 +101,7 @@ export interface As2ConnectorConfig {
   /**
    * <p>The signing algorithm for the MDN response.</p>
    *          <note>
-   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlgorithm</code> is used.</p>
+   *             <p>If set to DEFAULT (or not set at all), the value for <code>SigningAlogorithm</code> is used.</p>
    *          </note>
    */
   MdnSigningAlgorithm?: MdnSigningAlg | string;
@@ -628,27 +624,6 @@ export interface CreateAgreementResponse {
   AgreementId: string | undefined;
 }
 
-/**
- * <p>The request was denied due to request throttling.</p>
- */
-export class ThrottlingException extends __BaseException {
-  readonly name: "ThrottlingException" = "ThrottlingException";
-  readonly $fault: "client" = "client";
-  RetryAfterSeconds?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
-    super({
-      name: "ThrottlingException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ThrottlingException.prototype);
-    this.RetryAfterSeconds = opts.RetryAfterSeconds;
-  }
-}
-
 export interface CreateConnectorRequest {
   /**
    * <p>The URL of the partner's AS2 endpoint.</p>
@@ -972,7 +947,7 @@ export enum Protocol {
 
 /**
  * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
- *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
+ *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
  *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
  *     the session disconnects.</p>
  */
@@ -1277,7 +1252,7 @@ export interface CreateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -1289,6 +1264,27 @@ export interface CreateServerResponse {
    * <p>The service-assigned identifier of the server that is created.</p>
    */
   ServerId: string | undefined;
+}
+
+/**
+ * <p>The request was denied due to request throttling.</p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  RetryAfterSeconds?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
+    this.RetryAfterSeconds = opts.RetryAfterSeconds;
+  }
 }
 
 export interface CreateUserRequest {
@@ -1384,23 +1380,7 @@ export interface CreateUserRequest {
   /**
    * <p>The public portion of the Secure Shell (SSH) key used to authenticate the user to the
    *       server.</p>
-   *          <p>The three standard SSH public key format elements are <code><key type></code>,
-   *         <code><body base64></code>, and  an optional <code><comment></code>, with spaces
-   *       between each element.</p>
    *          <p>Transfer Family accepts RSA, ECDSA, and ED25519 keys.</p>
-   *          <ul>
-   *             <li>
-   *                <p>For RSA keys, the key type  is <code>ssh-rsa</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ED25519 keys, the key type is <code>ssh-ed25519</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>For ECDSA keys, the key type is either <code>ecdsa-sha2-nistp256</code>,
-   *             <code>ecdsa-sha2-nistp384</code>, or <code>ecdsa-sha2-nistp521</code>, depending on the
-   *           size of the key you generated.</p>
-   *             </li>
-   *          </ul>
    */
   SshPublicKeyBody?: string;
 
@@ -1465,6 +1445,21 @@ export interface CustomStepDetails {
    *          </ul>
    */
   SourceFileLocation?: string;
+}
+
+export enum EncryptionType {
+  PGP = "PGP",
+}
+
+export interface DecryptStepDetails {
+  Name?: string;
+  Type: EncryptionType | string | undefined;
+  SourceFileLocation?: string;
+  OverwriteExisting?: OverwriteExisting | string;
+  /**
+   * <p>Specifies the location for the file being copied. Only applicable for the Copy type of workflow steps.</p>
+   */
+  DestinationFileLocation: InputFileLocation | undefined;
 }
 
 /**
@@ -1543,6 +1538,7 @@ export interface TagStepDetails {
 export enum WorkflowStepType {
   COPY = "COPY",
   CUSTOM = "CUSTOM",
+  DECRYPT = "DECRYPT",
   DELETE = "DELETE",
   TAG = "TAG",
 }
@@ -1614,6 +1610,8 @@ export interface WorkflowStep {
    *          <p>You specify one or more tags: each tag contains a key/value pair.</p>
    */
   TagStepDetails?: TagStepDetails;
+
+  DecryptStepDetails?: DecryptStepDetails;
 }
 
 export interface CreateWorkflowRequest {
@@ -2798,7 +2796,7 @@ export interface DescribedServer {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    */
@@ -4782,7 +4780,7 @@ export interface UpdateServerRequest {
 
   /**
    * <p>Specifies the workflow ID for the workflow to assign and the execution role that's used for executing the workflow.</p>
-   *          <p>In addition to a workflow to execute when a file is uploaded completely, <code>WorkflowDetails</code> can also contain a
+   *          <p>In additon to a workflow to execute when a file is uploaded completely, <code>WorkflowDeatails</code> can also contain a
    *     workflow ID (and execution role) for a workflow to execute on partial upload. A partial upload occurs when a file is open when
    *     the session disconnects.</p>
    *          <p>To remove an associated workflow from a server, you can provide an empty <code>OnUpload</code> object, as in the following example.</p>
@@ -5099,6 +5097,13 @@ export const CreateUserResponseFilterSensitiveLog = (obj: CreateUserResponse): a
  * @internal
  */
 export const CustomStepDetailsFilterSensitiveLog = (obj: CustomStepDetails): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const DecryptStepDetailsFilterSensitiveLog = (obj: DecryptStepDetails): any => ({
   ...obj,
 });
 
