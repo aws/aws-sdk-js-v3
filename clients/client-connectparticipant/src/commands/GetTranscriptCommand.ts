@@ -35,7 +35,7 @@ export interface GetTranscriptCommandOutput extends GetTranscriptResponse, __Met
 /**
  * <p>Retrieves a transcript of the session, including details about any attachments. Note
  *             that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
- *         <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
+ *          <p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4
  *                     authentication</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
