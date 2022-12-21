@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
+
+
+### Features
+
+* **client-scheduler:** Updated the ListSchedules and ListScheduleGroups APIs to allow the NamePrefix field to start with a number. Updated the validation for executionRole field to support any role name. ([5342062](https://github.com/aws/aws-sdk-js-v3/commit/5342062a64c9f42d7a99f03953222a59cd8eb52d))
+
+
+
+
+
 # [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
 
 **Note:** Version bump only for package @aws-sdk/client-scheduler

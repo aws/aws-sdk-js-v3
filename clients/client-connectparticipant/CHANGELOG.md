@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
+
+
+### Features
+
+* **client-connectparticipant:** Amazon Connect Chat now allows for JSON (application/json) message types to be sent in the SendMessage API. ([05b4eca](https://github.com/aws/aws-sdk-js-v3/commit/05b4eca85c53cfe65c27fbff1b6fc6635ca5b0c7))
+
+
+
+
+
 # [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
 
 **Note:** Version bump only for package @aws-sdk/client-connectparticipant

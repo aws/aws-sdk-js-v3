@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
+
+
+### Features
+
+* **client-macie2:** This release adds support for analyzing Amazon S3 objects that use the S3 Glacier Instant Retrieval (Glacier_IR) storage class. ([4c16931](https://github.com/aws/aws-sdk-js-v3/commit/4c16931b3383f8657ab25da9ac7c004949cce37e))
+
+
+
+
+
 # [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
 
 **Note:** Version bump only for package @aws-sdk/client-macie2

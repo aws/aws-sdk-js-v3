@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.236.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.235.0...v3.236.0) (2022-12-21)
+
+
+### Features
+
+* **client-connect:** Amazon Connect Chat now allows for JSON (application/json) message types to be sent as part of the initial message in the StartChatContact API. ([8f34827](https://github.com/aws/aws-sdk-js-v3/commit/8f34827a578fb1f7d14d696af53b2a6c56d921ba))
+* **client-connectparticipant:** Amazon Connect Chat now allows for JSON (application/json) message types to be sent in the SendMessage API. ([05b4eca](https://github.com/aws/aws-sdk-js-v3/commit/05b4eca85c53cfe65c27fbff1b6fc6635ca5b0c7))
+* **client-license-manager-linux-subscriptions:** AWS License Manager now offers cross-region, cross-account tracking of commercial Linux subscriptions on AWS. This includes subscriptions purchased as part of EC2 subscription-included AMIs, on the AWS Marketplace, or brought to AWS via Red Hat Cloud Access Program. ([301fd63](https://github.com/aws/aws-sdk-js-v3/commit/301fd63e6fac11d634329a4327d17139079c4de0))
+* **client-macie2:** This release adds support for analyzing Amazon S3 objects that use the S3 Glacier Instant Retrieval (Glacier_IR) storage class. ([4c16931](https://github.com/aws/aws-sdk-js-v3/commit/4c16931b3383f8657ab25da9ac7c004949cce37e))
+* **client-sagemaker:** This release enables adding RStudio Workbench support to an existing Amazon SageMaker Studio domain. It allows setting your RStudio on SageMaker environment configuration parameters and also updating the RStudioConnectUrl and RStudioPackageManagerUrl parameters for existing domains ([1b46e4a](https://github.com/aws/aws-sdk-js-v3/commit/1b46e4a7da0a2bb045f14982c90961f9e8e46406))
+* **client-scheduler:** Updated the ListSchedules and ListScheduleGroups APIs to allow the NamePrefix field to start with a number. Updated the validation for executionRole field to support any role name. ([5342062](https://github.com/aws/aws-sdk-js-v3/commit/5342062a64c9f42d7a99f03953222a59cd8eb52d))
+* **client-transfer:** This release adds support for Decrypt as a workflow step type. ([bfcca28](https://github.com/aws/aws-sdk-js-v3/commit/bfcca2897179b01320e991f672bf1d98f40c1979))
+* **clients:** update client endpoints as of 2022-12-21 ([7ae38c1](https://github.com/aws/aws-sdk-js-v3/commit/7ae38c14916361f61271f264a075fa6e150dd08d))
+
+
+
+
+
 # [3.235.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.234.0...v3.235.0) (2022-12-20)
 
 
