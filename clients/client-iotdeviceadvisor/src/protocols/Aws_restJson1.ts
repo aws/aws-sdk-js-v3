@@ -962,6 +962,9 @@ export const deserializeAws_restJson1StartSuiteRunCommand = async (
   if (data.createdAt != null) {
     contents.createdAt = __expectNonNull(__parseEpochTimestamp(__expectNumber(data.createdAt)));
   }
+  if (data.endpoint != null) {
+    contents.endpoint = __expectString(data.endpoint);
+  }
   if (data.suiteRunArn != null) {
     contents.suiteRunArn = __expectString(data.suiteRunArn);
   }
