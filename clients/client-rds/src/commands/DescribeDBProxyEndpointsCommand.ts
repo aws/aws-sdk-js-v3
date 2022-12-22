@@ -13,8 +13,9 @@ import {
   SerdeContext as __SerdeContext,
 } from "@aws-sdk/types";
 
-import { DescribeDBProxyEndpointsRequest, DescribeDBProxyEndpointsRequestFilterSensitiveLog } from "../models/models_0";
 import {
+  DescribeDBProxyEndpointsRequest,
+  DescribeDBProxyEndpointsRequestFilterSensitiveLog,
   DescribeDBProxyEndpointsResponse,
   DescribeDBProxyEndpointsResponseFilterSensitiveLog,
 } from "../models/models_1";

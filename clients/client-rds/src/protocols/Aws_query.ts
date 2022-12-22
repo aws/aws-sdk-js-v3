@@ -680,7 +680,6 @@ import {
   DescribeDBParametersMessage,
   DescribeDBProxiesRequest,
   DescribeDBProxiesResponse,
-  DescribeDBProxyEndpointsRequest,
   DomainMembership,
   DomainNotFoundFault,
   EC2SecurityGroup,
@@ -722,6 +721,7 @@ import {
   InvalidVPCNetworkStateFault,
   IPRange,
   KMSKeyNotAccessibleFault,
+  MasterUserSecret,
   NetworkTypeNotSupported,
   Option,
   OptionGroup,
@@ -785,6 +785,7 @@ import {
   DBSnapshotMessage,
   DBSubnetGroupMessage,
   DBUpgradeDependencyFailureFault,
+  DescribeDBProxyEndpointsRequest,
   DescribeDBProxyEndpointsResponse,
   DescribeDBProxyTargetGroupsRequest,
   DescribeDBProxyTargetGroupsResponse,
@@ -12531,6 +12532,12 @@ const serializeAws_queryCreateDBClusterMessage = (input: CreateDBClusterMessage,
   if (input.DBSystemId != null) {
     entries["DBSystemId"] = input.DBSystemId;
   }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -12777,6 +12784,12 @@ const serializeAws_queryCreateDBInstanceMessage = (input: CreateDBInstanceMessag
   }
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -15038,6 +15051,15 @@ const serializeAws_queryModifyDBClusterMessage = (input: ModifyDBClusterMessage,
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -15272,6 +15294,15 @@ const serializeAws_queryModifyDBInstanceMessage = (input: ModifyDBInstanceMessag
   }
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.RotateMasterUserPassword != null) {
+    entries["RotateMasterUserPassword"] = input.RotateMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -16131,6 +16162,12 @@ const serializeAws_queryRestoreDBClusterFromS3Message = (
   if (input.NetworkType != null) {
     entries["NetworkType"] = input.NetworkType;
   }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
+  }
   return entries;
 };
 
@@ -16701,6 +16738,12 @@ const serializeAws_queryRestoreDBInstanceFromS3Message = (
   }
   if (input.StorageThroughput != null) {
     entries["StorageThroughput"] = input.StorageThroughput;
+  }
+  if (input.ManageMasterUserPassword != null) {
+    entries["ManageMasterUserPassword"] = input.ManageMasterUserPassword;
+  }
+  if (input.MasterUserSecretKmsKeyId != null) {
+    entries["MasterUserSecretKmsKeyId"] = input.MasterUserSecretKmsKeyId;
   }
   return entries;
 };
@@ -18066,6 +18109,7 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
     ServerlessV2ScalingConfiguration: undefined,
     NetworkType: undefined,
     DBSystemId: undefined,
+    MasterUserSecret: undefined,
   };
   if (output["AllocatedStorage"] !== undefined) {
     contents.AllocatedStorage = __strictParseInt32(output["AllocatedStorage"]) as number;
@@ -18352,6 +18396,9 @@ const deserializeAws_queryDBCluster = (output: any, context: __SerdeContext): DB
   }
   if (output["DBSystemId"] !== undefined) {
     contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
   }
   return contents;
 };
@@ -19372,6 +19419,7 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
     ActivityStreamPolicyStatus: undefined,
     StorageThroughput: undefined,
     DBSystemId: undefined,
+    MasterUserSecret: undefined,
   };
   if (output["DBInstanceIdentifier"] !== undefined) {
     contents.DBInstanceIdentifier = __expectString(output["DBInstanceIdentifier"]);
@@ -19704,6 +19752,9 @@ const deserializeAws_queryDBInstance = (output: any, context: __SerdeContext): D
   }
   if (output["DBSystemId"] !== undefined) {
     contents.DBSystemId = __expectString(output["DBSystemId"]);
+  }
+  if (output["MasterUserSecret"] !== undefined) {
+    contents.MasterUserSecret = deserializeAws_queryMasterUserSecret(output["MasterUserSecret"], context);
   }
   return contents;
 };
@@ -22670,6 +22721,24 @@ const deserializeAws_queryLogTypeList = (output: any, context: __SerdeContext): 
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+const deserializeAws_queryMasterUserSecret = (output: any, context: __SerdeContext): MasterUserSecret => {
+  const contents: any = {
+    SecretArn: undefined,
+    SecretStatus: undefined,
+    KmsKeyId: undefined,
+  };
+  if (output["SecretArn"] !== undefined) {
+    contents.SecretArn = __expectString(output["SecretArn"]);
+  }
+  if (output["SecretStatus"] !== undefined) {
+    contents.SecretStatus = __expectString(output["SecretStatus"]);
+  }
+  if (output["KmsKeyId"] !== undefined) {
+    contents.KmsKeyId = __expectString(output["KmsKeyId"]);
+  }
+  return contents;
 };
 
 const deserializeAws_queryMinimumEngineVersionPerAllowedValue = (

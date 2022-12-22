@@ -36,6 +36,43 @@ import {
 } from "./models_0";
 import { RDSServiceException as __BaseException } from "./RDSServiceException";
 
+export interface DescribeDBProxyEndpointsRequest {
+  /**
+   * <p>The name of the DB proxy whose endpoints you want to describe. If you omit
+   *         this parameter, the output includes information about all DB proxy endpoints
+   *         associated with all your DB proxies.</p>
+   */
+  DBProxyName?: string;
+
+  /**
+   * <p>The name of a DB proxy endpoint to describe. If you omit this parameter,
+   *         the output includes information about all DB proxy endpoints associated with
+   *         the specified proxy.</p>
+   */
+  DBProxyEndpointName?: string;
+
+  /**
+   * <p>This parameter is not currently supported.</p>
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>An optional pagination token provided by a previous request.
+   *         If this parameter is specified, the response includes only records beyond the marker,
+   *         up to the value specified by <code>MaxRecords</code>.</p>
+   */
+  Marker?: string;
+
+  /**
+   * <p>The maximum number of records to include in the response. If more records exist
+   *           than the specified <code>MaxRecords</code> value, a pagination token called a marker is
+   *           included in the response so that the remaining results can be retrieved.</p>
+   *          <p>Default: 100</p>
+   *          <p>Constraints: Minimum 20, maximum 100.</p>
+   */
+  MaxRecords?: number;
+}
+
 export interface DescribeDBProxyEndpointsResponse {
   /**
    * <p>The list of <code>ProxyEndpoint</code> objects returned by the API operation.</p>
@@ -3384,7 +3421,15 @@ export interface ModifyDBClusterMessage {
 
   /**
    * <p>The new password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
+   *             </li>
+   *          </ul>
    *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
    */
   MasterUserPassword?: string;
@@ -3760,6 +3805,69 @@ export interface ModifyDBClusterMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>If the DB cluster doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
+   *             on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p>
+   *          <p>If the DB cluster already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
+   *             master user password is not managed with Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
+   *             In this case, RDS deletes the secret and uses the new password for the master user specified by
+   *             <code>MasterUserPassword</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  ManageMasterUserPassword?: boolean;
+
+  /**
+   * <p>A value that indicates whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
+   *             master user password.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB cluster. The secret value contains the updated password.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must apply the change immediately when rotating the master user password.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  RotateMasterUserPassword?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if both of the following conditions are met:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The DB cluster doesn't manage the master user password in Amazon Web Services Secrets Manager.</p>
+   *                <p>If the DB cluster already manages the master user password in Amazon Web Services Secrets
+   *                     Manager, you can't change the KMS key that is used to encrypt the secret.</p>
+   *             </li>
+   *             <li>
+   *                <p>You are turning on <code>ManageMasterUserPassword</code> to manage the master user password
+   *                     in Amazon Web Services Secrets Manager.</p>
+   *                <p>If you are turning on <code>ManageMasterUserPassword</code> and don't specify
+   *                     <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *                     KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *                     use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *                     managed KMS key.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   *          <p>Valid for: Aurora DB clusters and Multi-AZ DB clusters</p>
+   */
+  MasterUserSecretKmsKeyId?: string;
 }
 
 export interface ModifyDBClusterResult {
@@ -3981,13 +4089,13 @@ export interface ModifyDBInstanceMessage {
   /**
    * <p>The new compute and memory capacity of the DB instance, for example db.m4.large. Not all DB instance classes are available in all
    *             Amazon Web Services Regions, or for all database engines. For the full list of DB instance classes, and availability for your engine, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB Instance Class</a> in the
-   *             <i>Amazon RDS User Guide</i> or
+   *                 <i>Amazon RDS User Guide</i> or
    *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.DBInstanceClass.html">Aurora
    *                 DB instance classes</a> in the <i>Amazon Aurora User Guide</i>. For RDS Custom, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits.html#custom-reqs-limits.instances">DB instance class support for RDS Custom for Oracle</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-reqs-limits-MS.html#custom-reqs-limits.instancesMS">
-   *                         DB instance class support for RDS Custom for SQL Server</a>.</p>
+   *                 DB instance class support for RDS Custom for SQL Server</a>.</p>
    *          <p>If you modify the DB instance class, an outage occurs during the change. The change is
    *             applied during the next maintenance window, unless you specify
-   *             <code>ApplyImmediately</code> in your request.</p>
+   *                 <code>ApplyImmediately</code> in your request. </p>
    *          <p>Default: Uses existing setting</p>
    */
   DBInstanceClass?: string;
@@ -4067,6 +4175,7 @@ export interface ModifyDBInstanceMessage {
    *          <p>Not applicable. The password for the master user is managed by the DB cluster. For
    *             more information, see <code>ModifyDBCluster</code>.</p>
    *          <p>Default: Uses existing setting</p>
+   *          <p>Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
    *          <p>
    *             <b>MariaDB</b>
    *          </p>
@@ -4701,6 +4810,71 @@ export interface ModifyDBInstanceMessage {
    *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>If the DB cluster doesn't manage the master user password with Amazon Web Services Secrets Manager, you can turn
+   *             on this management. In this case, you can't specify <code>MasterUserPassword</code>.</p>
+   *          <p>If the DB cluster already manages the master user password with Amazon Web Services Secrets Manager, and you specify that the
+   *             master user password is not managed with Amazon Web Services Secrets Manager, then you must specify <code>MasterUserPassword</code>.
+   *             In this case, RDS deletes the secret and uses the new password for the master user specified by
+   *             <code>MasterUserPassword</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
+   *                     is specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  ManageMasterUserPassword?: boolean;
+
+  /**
+   * <p>A value that indicates whether to rotate the secret managed by Amazon Web Services Secrets Manager for the
+   *             master user password.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB cluster. The secret value contains the updated password.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>You must apply the change immediately when rotating the master user password.</p>
+   *             </li>
+   *          </ul>
+   */
+  RotateMasterUserPassword?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if both of the following conditions are met:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The DB instance doesn't manage the master user password in Amazon Web Services Secrets Manager.</p>
+   *                <p>If the DB instance already manages the master user password in Amazon Web Services Secrets Manager,
+   *                     you can't change the KMS key used to encrypt the secret.</p>
+   *             </li>
+   *             <li>
+   *                <p>You are turning on <code>ManageMasterUserPassword</code> to manage the master user password
+   *                     in Amazon Web Services Secrets Manager.</p>
+   *                <p>If you are turning on <code>ManageMasterUserPassword</code> and don't specify
+   *                     <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *                     KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *                     use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *                     managed KMS key.</p>
+   *             </li>
+   *          </ul>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   */
+  MasterUserSecretKmsKeyId?: string;
 }
 
 export interface ModifyDBInstanceResult {
@@ -5973,9 +6147,17 @@ export interface RestoreDBClusterFromS3Message {
 
   /**
    * <p>The password for the master database user. This password can contain any printable ASCII character except "/", """, or "@".</p>
-   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must contain from 8 to 41 characters.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
+   *             </li>
+   *          </ul>
    */
-  MasterUserPassword: string | undefined;
+  MasterUserPassword?: string;
 
   /**
    * <p>A value that indicates that the restored DB cluster should be associated with the specified option group.</p>
@@ -6181,6 +6363,38 @@ export interface RestoreDBClusterFromS3Message {
    *          </p>
    */
   NetworkType?: string;
+
+  /**
+   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide</i> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon Aurora User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
+   *                     is specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  ManageMasterUserPassword?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB cluster.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *             KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *             use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *             managed KMS key.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   */
+  MasterUserSecretKmsKeyId?: string;
 }
 
 export interface RestoreDBClusterFromS3Result {
@@ -7570,7 +7784,27 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * <p>The password for the master user.
    *             The password can include any printable ASCII character except "/", """, or "@".</p>
+   *          <p>Constraints: Can't be specified if <code>ManageMasterUserPassword</code> is turned on.</p>
+   *          <p>
+   *             <b>MariaDB</b>
+   *          </p>
    *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>
+   *             <b>Microsoft SQL Server</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
+   *          <p>
+   *             <b>MySQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 41 characters.</p>
+   *          <p>
+   *             <b>Oracle</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 30 characters.</p>
+   *          <p>
+   *             <b>PostgreSQL</b>
+   *          </p>
+   *          <p>Constraints: Must contain from 8 to 128 characters.</p>
    */
   MasterUserPassword?: string;
 
@@ -7956,6 +8190,37 @@ export interface RestoreDBInstanceFromS3Message {
    *          <p>This setting doesn't apply to RDS Custom or Amazon Aurora.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * <p>A value that indicates whether to manage the master user password with Amazon Web Services Secrets Manager.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html">Password management with Amazon Web Services Secrets Manager</a>
+   *             in the <i>Amazon RDS User Guide.</i>
+   *          </p>
+   *          <p>Constraints:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can't manage the master user password with Amazon Web Services Secrets Manager if <code>MasterUserPassword</code>
+   *                     is specified.</p>
+   *             </li>
+   *          </ul>
+   */
+  ManageMasterUserPassword?: boolean;
+
+  /**
+   * <p>The Amazon Web Services KMS key identifier to encrypt a secret that is automatically generated and
+   *             managed in Amazon Web Services Secrets Manager.</p>
+   *          <p>This setting is valid only if the master user password is managed by RDS in Amazon Web Services Secrets
+   *             Manager for the DB instance.</p>
+   *          <p>The Amazon Web Services KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+   *             To use a KMS key in a different Amazon Web Services account, specify the key ARN or alias ARN.</p>
+   *          <p>If you don't specify <code>MasterUserSecretKmsKeyId</code>, then the <code>aws/secretsmanager</code>
+   *             KMS key is used to encrypt the secret. If the secret is in a different Amazon Web Services account, then you can't
+   *             use the <code>aws/secretsmanager</code> KMS key to encrypt the secret, and you must use a customer
+   *             managed KMS key.</p>
+   *          <p>There is a default KMS key for your Amazon Web Services account. Your Amazon Web Services account
+   *             has a different default KMS key for each Amazon Web Services Region.</p>
+   */
+  MasterUserSecretKmsKeyId?: string;
 }
 
 export interface RestoreDBInstanceFromS3Result {
@@ -9012,6 +9277,13 @@ export interface SwitchoverReadReplicaResult {
    */
   DBInstance?: DBInstance;
 }
+
+/**
+ * @internal
+ */
+export const DescribeDBProxyEndpointsRequestFilterSensitiveLog = (obj: DescribeDBProxyEndpointsRequest): any => ({
+  ...obj,
+});
 
 /**
  * @internal
