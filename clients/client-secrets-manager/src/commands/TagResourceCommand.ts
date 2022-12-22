@@ -26,8 +26,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Attaches tags to a secret. Tags consist of a key name and a value. Tags are part of the
  *       secret's metadata. They are not associated with specific versions of the secret. This operation appends tags to the existing list of tags.</p>
- *             <p>The following restrictions apply to tags:</p>
- *         <ul>
+ *          <p>The following restrictions apply to tags:</p>
+ *          <ul>
  *             <li>
  *                <p>Maximum number of tags per secret: 50</p>
  *             </li>
@@ -52,7 +52,6 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *               following special characters: + - = . _ : / @.</p>
  *             </li>
  *          </ul>
- *
  *          <important>
  *             <p>If you use tags as part of your security strategy, then adding or removing a tag can
  *         change permissions. If successfully completing this operation would result in you losing

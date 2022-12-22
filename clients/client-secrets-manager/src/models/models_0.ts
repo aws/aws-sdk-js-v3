@@ -167,7 +167,6 @@ export interface CreateSecretRequest {
    * <p>The name of the new secret.</p>
    *          <p>The secret name can contain ASCII letters, numbers, and the following characters:
    *       /_+=.@-</p>
-   *
    *          <p>Do not end your secret name with a hyphen followed by six characters. If you do so, you
    *         risk confusion and unexpected results when searching for a secret by partial ARN. Secrets Manager
    *         automatically adds a hyphen and six random characters after the secret name at the end of the ARN.</p>
@@ -269,8 +268,8 @@ export interface CreateSecretRequest {
    *       JSON parameter for the various command line tool environments, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#cli-using-param-json">Using JSON for
    *         Parameters</a>. If your command-line tool or SDK requires quotation marks around the parameter, you should
    *       use single quotes to avoid confusion with the double quotes required in the JSON text.</p>
-   *             <p>The following restrictions apply to tags:</p>
-   *         <ul>
+   *          <p>The following restrictions apply to tags:</p>
+   *          <ul>
    *             <li>
    *                <p>Maximum number of tags per secret: 50</p>
    *             </li>
@@ -1519,7 +1518,8 @@ export interface RotateSecretRequest {
   ClientRequestToken?: string;
 
   /**
-   * <p>The ARN of the Lambda rotation function that can rotate the secret.</p>
+   * <p>For secrets that use a Lambda rotation function to rotate, the ARN of the Lambda rotation function. </p>
+   *          <p>For secrets that use <i>managed rotation</i>, omit this field. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_managed.html">Managed rotation</a> in the <i>Secrets Manager User Guide</i>.</p>
    */
   RotationLambdaARN?: string;
 
@@ -1531,7 +1531,7 @@ export interface RotateSecretRequest {
   /**
    * <p>Specifies whether to rotate the secret immediately or wait until the next scheduled rotation window.
    *     The rotation schedule is defined in <a>RotateSecretRequest$RotationRules</a>.</p>
-   *          <p>If you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
+   *          <p>For secrets that use a Lambda rotation function to rotate, if you don't immediately rotate the secret, Secrets Manager tests the rotation configuration by running the
    *     <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotate-secrets_how.html">
    *                <code>testSecret</code>
    *       step</a> of the Lambda rotation function. The test creates an <code>AWSPENDING</code> version of the secret and then removes it.</p>
@@ -1583,7 +1583,6 @@ export interface TagResourceRequest {
   /**
    * <p>The tags to attach to the secret as a JSON text string argument. Each element in the list consists of a <code>Key</code>
    *       and a <code>Value</code>.</p>
-   *
    *          <p>For storing multiple values, we recommend that you use a JSON text
    *     string argument and specify key/value pairs. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters.html">Specifying parameter values for the Amazon Web Services CLI</a>
    *     in the Amazon Web Services CLI User Guide.</p>
@@ -1644,9 +1643,9 @@ export interface UpdateSecretRequest {
    *       uses to encrypt new secret versions as well as any existing versions with the staging labels
    *       <code>AWSCURRENT</code>, <code>AWSPENDING</code>, or <code>AWSPREVIOUS</code>.
    *       For more information about versions and staging labels, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/getting-started.html#term_version">Concepts: Version</a>.</p>
-   *         <p>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
+   *          <p>A key alias is always prefixed by <code>alias/</code>, for example <code>alias/aws/secretsmanager</code>.
    *           For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/alias-about.html">About aliases</a>.</p>
-   *           <p>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed key
+   *          <p>If you set this to an empty string, Secrets Manager uses the Amazon Web Services managed key
    *           <code>aws/secretsmanager</code>. If this key doesn't already exist in your account, then Secrets Manager
    *           creates it for you automatically. All users and roles in the Amazon Web Services account automatically have access
    *           to use <code>aws/secretsmanager</code>. Creating <code>aws/secretsmanager</code> can result in a one-time
